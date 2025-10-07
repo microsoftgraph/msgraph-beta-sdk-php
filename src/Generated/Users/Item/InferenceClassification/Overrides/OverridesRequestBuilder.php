@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\InferenceClassification\Overrides;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\InferenceClassification\Overrides;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\InferenceClassificationOverride;
-use Microsoft\Graph\Beta\Generated\Models\InferenceClassificationOverrideCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\InferenceClassification\Overrides\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\InferenceClassification\Overrides\Item\InferenceClassificationOverrideItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\InferenceClassificationOverride;
+use Microsoft\\Graph\\Beta\\Generated\Models\InferenceClassificationOverrideCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\InferenceClassification\Overrides\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\InferenceClassification\Overrides\Item\InferenceClassificationOverrideItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

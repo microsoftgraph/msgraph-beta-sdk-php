@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedAppRegistrations\Item\ManagedAppLogCollectionRequests;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\ManagedAppRegistrations\Item\ManagedAppLogCollectionRequests;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

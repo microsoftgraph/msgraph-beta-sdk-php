@@ -1,10 +1,10 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\IndustryData;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\IndustryData;
 
 use DateTime;
-use Microsoft\Graph\Beta\Generated\Models\Entity;
-use Microsoft\Graph\Beta\Generated\Models\PublicError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Entity;
+use Microsoft\\Graph\\Beta\\Generated\Models\PublicError;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;

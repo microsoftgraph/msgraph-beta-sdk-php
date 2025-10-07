@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Chats\GetAllRetainedMessages;
+namespace Microsoft\\Graph\\Beta\\Generated\Chats\GetAllRetainedMessages;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

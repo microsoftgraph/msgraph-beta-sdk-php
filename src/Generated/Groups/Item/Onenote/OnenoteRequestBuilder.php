@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Onenote;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Onenote;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Onenote\Notebooks\NotebooksRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Onenote\Operations\OperationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Onenote\Pages\PagesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Onenote\Resources\ResourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Onenote\SectionGroups\SectionGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Onenote\Sections\SectionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Onenote;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Onenote\Notebooks\NotebooksRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Onenote\Operations\OperationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Onenote\Pages\PagesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Onenote\Resources\ResourcesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Onenote\SectionGroups\SectionGroupsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Onenote\Sections\SectionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Onenote;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

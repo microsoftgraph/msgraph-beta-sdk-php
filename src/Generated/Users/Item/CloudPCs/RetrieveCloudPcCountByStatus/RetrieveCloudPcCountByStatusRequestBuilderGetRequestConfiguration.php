@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\RetrieveCloudPcCountByStatus;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\RetrieveCloudPcCountByStatus;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

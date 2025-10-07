@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\CompleteMigration;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\CompleteMigration;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

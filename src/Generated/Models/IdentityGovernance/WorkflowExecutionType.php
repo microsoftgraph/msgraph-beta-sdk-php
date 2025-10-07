@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\IdentityGovernance;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\IdentityGovernance;
 
 use Microsoft\Kiota\Abstractions\Enum;
 
@@ -8,4 +8,5 @@ class WorkflowExecutionType extends Enum {
     public const SCHEDULED = "scheduled";
     public const ON_DEMAND = "onDemand";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const ACTIVATED_WITH_SCOPE = "activatedWithScope";
 }

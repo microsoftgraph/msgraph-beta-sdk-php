@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageId;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MobileApps\ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageId;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

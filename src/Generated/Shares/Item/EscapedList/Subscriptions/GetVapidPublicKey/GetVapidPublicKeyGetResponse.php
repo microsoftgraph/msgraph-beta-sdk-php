@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Subscriptions\GetVapidPublicKey;
+namespace Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\Subscriptions\GetVapidPublicKey;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

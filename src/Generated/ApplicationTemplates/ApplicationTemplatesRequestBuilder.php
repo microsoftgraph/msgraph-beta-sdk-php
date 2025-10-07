@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ApplicationTemplates;
+namespace Microsoft\\Graph\\Beta\\Generated\ApplicationTemplates;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\ApplicationTemplates\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ApplicationTemplates\Item\ApplicationTemplateItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ApplicationTemplateCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\ApplicationTemplates\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ApplicationTemplates\Item\ApplicationTemplateItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ApplicationTemplateCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

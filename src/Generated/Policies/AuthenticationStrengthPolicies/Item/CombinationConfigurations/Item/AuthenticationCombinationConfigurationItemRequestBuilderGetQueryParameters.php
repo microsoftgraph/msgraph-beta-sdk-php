@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\AuthenticationStrengthPolicies\Item\CombinationConfigurations\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\AuthenticationStrengthPolicies\Item\CombinationConfigurations\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

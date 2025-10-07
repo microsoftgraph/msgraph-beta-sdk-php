@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\AssignedAccessMultiModeProfiles;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceConfigurations\Item\AssignedAccessMultiModeProfiles;
 
-use Microsoft\Graph\Beta\Generated\Models\WindowsAssignedAccessProfile;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsAssignedAccessProfile;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

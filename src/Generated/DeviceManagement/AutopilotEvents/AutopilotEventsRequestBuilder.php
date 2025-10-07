@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AutopilotEvents;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AutopilotEvents;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AutopilotEvents\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AutopilotEvents\Item\DeviceManagementAutopilotEventItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagementAutopilotEvent;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagementAutopilotEventCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AutopilotEvents\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AutopilotEvents\Item\DeviceManagementAutopilotEventItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagementAutopilotEvent;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagementAutopilotEventCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

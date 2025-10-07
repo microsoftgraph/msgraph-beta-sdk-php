@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\InformationProtection\EncryptBuffer;
+namespace Microsoft\\Graph\\Beta\\Generated\InformationProtection\EncryptBuffer;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

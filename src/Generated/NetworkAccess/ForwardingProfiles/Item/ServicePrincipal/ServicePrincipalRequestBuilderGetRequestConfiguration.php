@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\ForwardingProfiles\Item\ServicePrincipal;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\ForwardingProfiles\Item\ServicePrincipal;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

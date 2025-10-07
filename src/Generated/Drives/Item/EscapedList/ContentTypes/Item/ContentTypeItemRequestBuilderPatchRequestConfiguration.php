@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\ContentTypes\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Drives\Item\EscapedList\ContentTypes\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

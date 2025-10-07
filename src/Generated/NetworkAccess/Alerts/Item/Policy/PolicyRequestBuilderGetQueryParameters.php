@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Alerts\Item\Policy;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Alerts\Item\Policy;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

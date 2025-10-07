@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AgreementAcceptances;
+namespace Microsoft\\Graph\\Beta\\Generated\AgreementAcceptances;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\AgreementAcceptances\Item\AgreementAcceptanceItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AgreementAcceptance;
-use Microsoft\Graph\Beta\Generated\Models\AgreementAcceptanceCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\AgreementAcceptances\Item\AgreementAcceptanceItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AgreementAcceptance;
+use Microsoft\\Graph\\Beta\\Generated\Models\AgreementAcceptanceCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

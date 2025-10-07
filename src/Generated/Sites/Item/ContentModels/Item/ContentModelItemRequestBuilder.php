@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\ContentModels\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\ContentModels\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ContentModel;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Sites\Item\ContentModels\Item\AddToDrive\AddToDriveRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Item\ContentModels\Item\GetAppliedDrives\GetAppliedDrivesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Item\ContentModels\Item\RemoveFromDrive\RemoveFromDriveRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ContentModel;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Sites\Item\ContentModels\Item\AddToDrive\AddToDriveRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Sites\Item\ContentModels\Item\GetAppliedDrives\GetAppliedDrivesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Sites\Item\ContentModels\Item\RemoveFromDrive\RemoveFromDriveRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

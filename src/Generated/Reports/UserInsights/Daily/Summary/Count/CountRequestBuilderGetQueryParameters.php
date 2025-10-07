@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\Summary\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Daily\Summary\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\AppCredentialSignInActivities\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\AppCredentialSignInActivities\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

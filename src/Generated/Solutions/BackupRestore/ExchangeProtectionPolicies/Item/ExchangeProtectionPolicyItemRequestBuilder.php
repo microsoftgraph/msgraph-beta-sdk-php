@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ExchangeProtectionPolicies\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\ExchangeProtectionPolicies\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ExchangeProtectionPolicy;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ExchangeProtectionPolicies\Item\MailboxInclusionRules\MailboxInclusionRulesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ExchangeProtectionPolicies\Item\MailboxProtectionUnits\MailboxProtectionUnitsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ExchangeProtectionPolicies\Item\MailboxProtectionUnitsBulkAdditionJobs\MailboxProtectionUnitsBulkAdditionJobsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ExchangeProtectionPolicy;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\ExchangeProtectionPolicies\Item\MailboxInclusionRules\MailboxInclusionRulesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\ExchangeProtectionPolicies\Item\MailboxProtectionUnits\MailboxProtectionUnitsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\ExchangeProtectionPolicies\Item\MailboxProtectionUnitsBulkAdditionJobs\MailboxProtectionUnitsBulkAdditionJobsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

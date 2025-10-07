@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\GetByPathWithPath\Pages;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\GetByPathWithPath\Pages;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\BaseSitePage;
-use Microsoft\Graph\Beta\Generated\Models\BaseSitePageCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\BaseSitePage;
+use Microsoft\\Graph\\Beta\\Generated\Models\BaseSitePageCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

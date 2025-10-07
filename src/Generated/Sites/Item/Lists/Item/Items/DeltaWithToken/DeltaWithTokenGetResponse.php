@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\DeltaWithToken;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\Lists\Item\Items\DeltaWithToken;
 
-use Microsoft\Graph\Beta\Generated\Models\BaseDeltaFunctionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ListItem;
+use Microsoft\\Graph\\Beta\\Generated\Models\BaseDeltaFunctionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ListItem;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;

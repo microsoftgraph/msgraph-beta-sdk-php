@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Submissions;
+namespace Microsoft\\Graph\\Beta\\Generated\Education\Classes\Item\Assignments\Item\Submissions;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Submissions\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Submissions\Item\EducationSubmissionItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\EducationSubmission;
-use Microsoft\Graph\Beta\Generated\Models\EducationSubmissionCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Education\Classes\Item\Assignments\Item\Submissions\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Classes\Item\Assignments\Item\Submissions\Item\EducationSubmissionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\EducationSubmission;
+use Microsoft\\Graph\\Beta\\Generated\Models\EducationSubmissionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

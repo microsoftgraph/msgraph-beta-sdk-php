@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BusinessScenarios;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\BusinessScenario;
-use Microsoft\Graph\Beta\Generated\Models\BusinessScenarioCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\BusinessScenarioItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\BusinessScenario;
+use Microsoft\\Graph\\Beta\\Generated\Models\BusinessScenarioCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BusinessScenarios\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BusinessScenarios\Item\BusinessScenarioItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

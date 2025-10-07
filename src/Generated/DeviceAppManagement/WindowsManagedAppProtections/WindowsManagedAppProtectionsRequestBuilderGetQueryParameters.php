@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\WindowsManagedAppProtections;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\WindowsManagedAppProtections;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

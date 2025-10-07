@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteActionAudits\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\RemoteActionAudits\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

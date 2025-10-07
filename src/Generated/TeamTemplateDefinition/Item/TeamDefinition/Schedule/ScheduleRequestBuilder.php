@@ -1,24 +1,24 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule;
+namespace Microsoft\\Graph\\Beta\\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Schedule;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\DayNotes\DayNotesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\OfferShiftRequests\OfferShiftRequestsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\OpenShiftChangeRequests\OpenShiftChangeRequestsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\OpenShifts\OpenShiftsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\SchedulingGroups\SchedulingGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\Share\ShareRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\Shifts\ShiftsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\ShiftsRoleDefinitions\ShiftsRoleDefinitionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\SwapShiftsChangeRequests\SwapShiftsChangeRequestsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\TimeCards\TimeCardsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\TimeOffReasons\TimeOffReasonsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\TimeOffRequests\TimeOffRequestsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\TimesOff\TimesOffRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Schedule;
+use Microsoft\\Graph\\Beta\\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\DayNotes\DayNotesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\OfferShiftRequests\OfferShiftRequestsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\OpenShiftChangeRequests\OpenShiftChangeRequestsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\OpenShifts\OpenShiftsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\SchedulingGroups\SchedulingGroupsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\Share\ShareRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\Shifts\ShiftsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\ShiftsRoleDefinitions\ShiftsRoleDefinitionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\SwapShiftsChangeRequests\SwapShiftsChangeRequestsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\TimeCards\TimeCardsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\TimeOffReasons\TimeOffReasonsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\TimeOffRequests\TimeOffRequestsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TeamTemplateDefinition\Item\TeamDefinition\Schedule\TimesOff\TimesOffRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

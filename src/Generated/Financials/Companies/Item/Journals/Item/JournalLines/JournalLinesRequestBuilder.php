@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Journals\Item\JournalLines;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\Journals\Item\JournalLines;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Journals\Item\JournalLines\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Journals\Item\JournalLines\Item\JournalLineItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\JournalLine;
-use Microsoft\Graph\Beta\Generated\Models\JournalLineCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\Journals\Item\JournalLines\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\Journals\Item\JournalLines\Item\JournalLineItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\JournalLine;
+use Microsoft\\Graph\\Beta\\Generated\Models\JournalLineCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

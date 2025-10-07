@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\UnitsOfMeasure;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\UnitsOfMeasure;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

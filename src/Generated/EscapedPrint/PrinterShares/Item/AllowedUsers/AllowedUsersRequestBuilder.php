@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\AllowedUsers;
+namespace Microsoft\\Graph\\Beta\\Generated\EscapedPrint\PrinterShares\Item\AllowedUsers;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\AllowedUsers\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\AllowedUsers\Item\UserItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\AllowedUsers\Ref\RefRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UserCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\PrinterShares\Item\AllowedUsers\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\PrinterShares\Item\AllowedUsers\Item\UserItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\PrinterShares\Item\AllowedUsers\Ref\RefRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UserCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -34,7 +34,7 @@ class AllowedUsersRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.print.printerShares.item.allowedUsers.item collection
+     * Gets an item from the Microsoft//Graph//Beta//Generated.print.printerShares.item.allowedUsers.item collection
      * @param string $userId The unique identifier of user
      * @return UserItemRequestBuilder
     */

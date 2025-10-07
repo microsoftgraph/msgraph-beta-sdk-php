@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Publish;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Events\Item\Publish;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

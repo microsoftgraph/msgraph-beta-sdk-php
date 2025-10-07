@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\AuditLog\Queries\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\AuditLog\Queries\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

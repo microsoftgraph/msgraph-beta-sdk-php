@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\ContactFolders\Item\ChildFolders\Delta;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\ContactFolders\Item\ChildFolders\Delta;
 
-use Microsoft\Graph\Beta\Generated\Models\BaseDeltaFunctionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ContactFolder;
+use Microsoft\\Graph\\Beta\\Generated\Models\BaseDeltaFunctionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ContactFolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;

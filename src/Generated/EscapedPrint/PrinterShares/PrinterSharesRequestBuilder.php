@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares;
+namespace Microsoft\\Graph\\Beta\\Generated\EscapedPrint\PrinterShares;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\PrinterShareItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PrinterShare;
-use Microsoft\Graph\Beta\Generated\Models\PrinterShareCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\PrinterShares\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\PrinterShares\Item\PrinterShareItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PrinterShare;
+use Microsoft\\Graph\\Beta\\Generated\Models\PrinterShareCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\AgentGroups\Item\Agents\Item\AgentGroups;
+namespace Microsoft\\Graph\\Beta\\Generated\OnPremisesPublishingProfiles\Item\AgentGroups\Item\Agents\Item\AgentGroups;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\OnPremisesAgentGroupCollectionResponse;
-use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\AgentGroups\Item\Agents\Item\AgentGroups\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\AgentGroups\Item\Agents\Item\AgentGroups\Item\OnPremisesAgentGroupItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\AgentGroups\Item\Agents\Item\AgentGroups\Ref\RefRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\OnPremisesAgentGroupCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\OnPremisesPublishingProfiles\Item\AgentGroups\Item\Agents\Item\AgentGroups\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\OnPremisesPublishingProfiles\Item\AgentGroups\Item\Agents\Item\AgentGroups\Item\OnPremisesAgentGroupItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\OnPremisesPublishingProfiles\Item\AgentGroups\Item\Agents\Item\AgentGroups\Ref\RefRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -34,7 +34,7 @@ class AgentGroupsRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.onPremisesPublishingProfiles.item.agentGroups.item.agents.item.agentGroups.item collection
+     * Gets an item from the Microsoft//Graph//Beta//Generated.onPremisesPublishingProfiles.item.agentGroups.item.agents.item.agentGroups.item collection
      * @param string $onPremisesAgentGroupId1 The unique identifier of onPremisesAgentGroup
      * @return OnPremisesAgentGroupItemRequestBuilder
     */

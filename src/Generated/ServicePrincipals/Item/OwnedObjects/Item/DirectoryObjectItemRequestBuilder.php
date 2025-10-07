@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\OwnedObjects\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DirectoryObject;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\Item\GraphApplication\GraphApplicationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\Item\GraphAppRoleAssignment\GraphAppRoleAssignmentRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\Item\GraphEndpoint\GraphEndpointRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\Item\GraphGroup\GraphGroupRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\Item\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DirectoryObject;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\OwnedObjects\Item\GraphApplication\GraphApplicationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\OwnedObjects\Item\GraphAppRoleAssignment\GraphAppRoleAssignmentRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\OwnedObjects\Item\GraphEndpoint\GraphEndpointRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\OwnedObjects\Item\GraphGroup\GraphGroupRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\OwnedObjects\Item\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

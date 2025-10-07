@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\TimeCards\Item\StartBreak;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\TimeCards\Item\StartBreak;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

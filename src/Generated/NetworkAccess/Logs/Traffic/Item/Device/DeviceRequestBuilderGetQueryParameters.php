@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\Traffic\Item\Device;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Logs\Traffic\Item\Device;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

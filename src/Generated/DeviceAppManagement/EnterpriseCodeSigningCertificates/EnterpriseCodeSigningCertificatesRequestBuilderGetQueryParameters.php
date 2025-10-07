@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\EnterpriseCodeSigningCertificates;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\EnterpriseCodeSigningCertificates;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

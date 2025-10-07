@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\OnlineMeetingsWithJoinWebUrl;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\OnlineMeetingsWithJoinWebUrl;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

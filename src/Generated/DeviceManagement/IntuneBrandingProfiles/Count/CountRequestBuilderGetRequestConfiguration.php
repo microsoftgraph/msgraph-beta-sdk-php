@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\IntuneBrandingProfiles\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\IntuneBrandingProfiles\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

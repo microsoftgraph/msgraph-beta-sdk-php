@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\SensitivityLabels\ComputeRightsAndInheritance;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\InformationProtection\SensitivityLabels\ComputeRightsAndInheritance;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

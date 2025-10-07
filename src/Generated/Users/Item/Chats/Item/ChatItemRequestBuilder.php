@@ -1,26 +1,26 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\Chat;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\CompleteMigration\CompleteMigrationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\HideForUser\HideForUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\InstalledApps\InstalledAppsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\LastMessagePreview\LastMessagePreviewRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\MarkChatReadForUser\MarkChatReadForUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\MarkChatUnreadForUser\MarkChatUnreadForUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Members\MembersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Messages\MessagesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Operations\OperationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\PermissionGrants\PermissionGrantsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\PinnedMessages\PinnedMessagesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\RemoveAllAccessForUser\RemoveAllAccessForUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\SendActivityNotification\SendActivityNotificationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Tabs\TabsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\UnhideForUser\UnhideForUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Chat;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\CompleteMigration\CompleteMigrationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\HideForUser\HideForUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\InstalledApps\InstalledAppsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\LastMessagePreview\LastMessagePreviewRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\MarkChatReadForUser\MarkChatReadForUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\MarkChatUnreadForUser\MarkChatUnreadForUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\Members\MembersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\Messages\MessagesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\Operations\OperationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\PermissionGrants\PermissionGrantsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\PinnedMessages\PinnedMessagesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\RemoveAllAccessForUser\RemoveAllAccessForUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\SendActivityNotification\SendActivityNotificationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\Tabs\TabsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\UnhideForUser\UnhideForUserRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

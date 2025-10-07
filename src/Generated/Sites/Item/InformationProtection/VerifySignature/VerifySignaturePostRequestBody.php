@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\InformationProtection\VerifySignature;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\InformationProtection\VerifySignature;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

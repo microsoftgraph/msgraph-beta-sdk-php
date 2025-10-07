@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\IncidentTasks\Item\Incident;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\IncidentTasks\Item\Incident;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

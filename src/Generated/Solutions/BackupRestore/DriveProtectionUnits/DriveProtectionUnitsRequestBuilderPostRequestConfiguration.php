@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\DriveProtectionUnits;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\DriveProtectionUnits;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

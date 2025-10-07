@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\Summary;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Daily\Summary;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\InsightSummaryCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\Summary\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\Summary\Item\InsightSummaryItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\InsightSummaryCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Daily\Summary\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Daily\Summary\Item\InsightSummaryItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

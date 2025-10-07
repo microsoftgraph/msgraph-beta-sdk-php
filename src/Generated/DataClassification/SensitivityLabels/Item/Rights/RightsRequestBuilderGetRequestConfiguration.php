@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DataClassification\SensitivityLabels\Item\Rights;
+namespace Microsoft\\Graph\\Beta\\Generated\DataClassification\SensitivityLabels\Item\Rights;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

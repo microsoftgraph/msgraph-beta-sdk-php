@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\BroadcastRecording;
+namespace Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetings\Item\BroadcastRecording;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

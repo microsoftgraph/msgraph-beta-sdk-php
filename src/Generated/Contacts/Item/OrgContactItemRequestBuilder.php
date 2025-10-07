@@ -1,23 +1,24 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Contacts\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Contacts\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\DirectReports\DirectReportsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\Manager\ManagerRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\MemberOf\MemberOfRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\Restore\RestoreRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\RetryServiceProvisioning\RetryServiceProvisioningRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\ServiceProvisioningErrors\ServiceProvisioningErrorsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\TransitiveMemberOf\TransitiveMemberOfRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\TransitiveReports\TransitiveReportsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\OrgContact;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\DirectReports\DirectReportsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\Manager\ManagerRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\MemberOf\MemberOfRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\OnPremisesSyncBehavior\OnPremisesSyncBehaviorRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\Restore\RestoreRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\RetryServiceProvisioning\RetryServiceProvisioningRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\ServiceProvisioningErrors\ServiceProvisioningErrorsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\TransitiveMemberOf\TransitiveMemberOfRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\TransitiveReports\TransitiveReportsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\OrgContact;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -78,6 +79,13 @@ class OrgContactItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the onPremisesSyncBehavior property of the microsoft.graph.orgContact entity.
+    */
+    public function onPremisesSyncBehavior(): OnPremisesSyncBehaviorRequestBuilder {
+        return new OnPremisesSyncBehaviorRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the restore method.
     */
     public function restore(): RestoreRequestBuilder {
@@ -127,6 +135,20 @@ class OrgContactItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
+     * Delete entity from contacts
+     * @param OrgContactItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise<void|null>
+     * @throws Exception
+    */
+    public function delete(?OrgContactItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
+        $errorMappings = [
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
+    }
+
+    /**
      * Get the properties and relationships of an organizational contact object.
      * @param OrgContactItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OrgContact|null>
@@ -139,6 +161,39 @@ class OrgContactItemRequestBuilder extends BaseRequestBuilder
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [OrgContact::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Update entity in contacts
+     * @param OrgContact $body The request body
+     * @param OrgContactItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise<OrgContact|null>
+     * @throws Exception
+    */
+    public function patch(OrgContact $body, ?OrgContactItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
+        $errorMappings = [
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [OrgContact::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Delete entity from contacts
+     * @param OrgContactItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return RequestInformation
+    */
+    public function toDeleteRequestInformation(?OrgContactItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+        $requestInfo = new RequestInformation();
+        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->pathParameters = $this->pathParameters;
+        $requestInfo->httpMethod = HttpMethod::DELETE;
+        if ($requestConfiguration !== null) {
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
+        }
+        $requestInfo->tryAddHeader('Accept', "application/json");
+        return $requestInfo;
     }
 
     /**
@@ -159,6 +214,26 @@ class OrgContactItemRequestBuilder extends BaseRequestBuilder
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->tryAddHeader('Accept', "application/json");
+        return $requestInfo;
+    }
+
+    /**
+     * Update entity in contacts
+     * @param OrgContact $body The request body
+     * @param OrgContactItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return RequestInformation
+    */
+    public function toPatchRequestInformation(OrgContact $body, ?OrgContactItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+        $requestInfo = new RequestInformation();
+        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->pathParameters = $this->pathParameters;
+        $requestInfo->httpMethod = HttpMethod::PATCH;
+        if ($requestConfiguration !== null) {
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
+        }
+        $requestInfo->tryAddHeader('Accept', "application/json");
+        $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Emails\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Emails\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

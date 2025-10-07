@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\RejectedSenders;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\RejectedSenders;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

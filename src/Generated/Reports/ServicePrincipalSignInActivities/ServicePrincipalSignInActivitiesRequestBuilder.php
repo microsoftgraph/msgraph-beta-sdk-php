@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\ServicePrincipalSignInActivities;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\ServicePrincipalSignInActivities;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\ServicePrincipalSignInActivity;
-use Microsoft\Graph\Beta\Generated\Models\ServicePrincipalSignInActivityCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Reports\ServicePrincipalSignInActivities\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\ServicePrincipalSignInActivities\Item\ServicePrincipalSignInActivityItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\ServicePrincipalSignInActivity;
+use Microsoft\\Graph\\Beta\\Generated\Models\ServicePrincipalSignInActivityCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Reports\ServicePrincipalSignInActivities\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\ServicePrincipalSignInActivities\Item\ServicePrincipalSignInActivityItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

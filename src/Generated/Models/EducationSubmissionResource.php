@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -38,7 +38,7 @@ class EducationSubmissionResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the dependentResources property value. The dependentResources property
+     * Gets the dependentResources property value. A collection of submission resources that depend on the parent educationSubmissionResource.
      * @return array<EducationSubmissionResource>|null
     */
     public function getDependentResources(): ?array {
@@ -96,7 +96,7 @@ class EducationSubmissionResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the dependentResources property value. The dependentResources property
+     * Sets the dependentResources property value. A collection of submission resources that depend on the parent educationSubmissionResource.
      * @param array<EducationSubmissionResource>|null $value Value to set for the dependentResources property.
     */
     public function setDependentResources(?array $value): void {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaConnector\RetrieveZebraFotaDeviceModels;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ZebraFotaConnector\RetrieveZebraFotaDeviceModels;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

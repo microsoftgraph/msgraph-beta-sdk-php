@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Planner\MyDayTasks\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Planner\MyDayTasks\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

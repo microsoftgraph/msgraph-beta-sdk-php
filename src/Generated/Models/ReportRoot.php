@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
-use Microsoft\Graph\Beta\Generated\Models\HealthMonitoring\HealthMonitoringRoot;
-use Microsoft\Graph\Beta\Generated\Models\Partners\Partners;
+use Microsoft\\Graph\\Beta\\Generated\Models\HealthMonitoring\HealthMonitoringRoot;
+use Microsoft\\Graph\\Beta\\Generated\Models\Partners\Partners;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;

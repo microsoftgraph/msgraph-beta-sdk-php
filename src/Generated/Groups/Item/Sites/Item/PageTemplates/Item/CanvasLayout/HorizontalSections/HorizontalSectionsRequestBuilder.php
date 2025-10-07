@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\PageTemplates\Item\CanvasLayout\HorizontalSections;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\PageTemplates\Item\CanvasLayout\HorizontalSections;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\PageTemplates\Item\CanvasLayout\HorizontalSections\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\PageTemplates\Item\CanvasLayout\HorizontalSections\Item\HorizontalSectionItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\HorizontalSection;
-use Microsoft\Graph\Beta\Generated\Models\HorizontalSectionCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\PageTemplates\Item\CanvasLayout\HorizontalSections\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\PageTemplates\Item\CanvasLayout\HorizontalSections\Item\HorizontalSectionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\HorizontalSection;
+use Microsoft\\Graph\\Beta\\Generated\Models\HorizontalSectionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

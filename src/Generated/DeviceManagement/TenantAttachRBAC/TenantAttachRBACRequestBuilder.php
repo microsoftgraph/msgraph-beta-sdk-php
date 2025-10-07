@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\TenantAttachRBAC;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\TenantAttachRBAC;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\TenantAttachRBAC\Enable\EnableRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\TenantAttachRBAC\GetState\GetStateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TenantAttachRBAC;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\TenantAttachRBAC\Enable\EnableRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\TenantAttachRBAC\GetState\GetStateRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TenantAttachRBAC;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

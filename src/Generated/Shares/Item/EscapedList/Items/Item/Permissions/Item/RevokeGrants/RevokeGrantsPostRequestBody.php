@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Items\Item\Permissions\Item\RevokeGrants;
+namespace Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\Items\Item\Permissions\Item\RevokeGrants;
 
-use Microsoft\Graph\Beta\Generated\Models\DriveRecipient;
+use Microsoft\\Graph\\Beta\\Generated\Models\DriveRecipient;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

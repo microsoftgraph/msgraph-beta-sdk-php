@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Stages\Item\Decisions\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\PendingAccessReviewInstances\Item\Stages\Item\Decisions\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

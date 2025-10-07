@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item\UserFlowIdentityProviders;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\B2xUserFlows\Item\UserFlowIdentityProviders;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item\UserFlowIdentityProviders\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item\UserFlowIdentityProviders\Item\IdentityProviderBaseItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item\UserFlowIdentityProviders\Ref\RefRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\IdentityProviderBaseCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Identity\B2xUserFlows\Item\UserFlowIdentityProviders\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\B2xUserFlows\Item\UserFlowIdentityProviders\Item\IdentityProviderBaseItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\B2xUserFlows\Item\UserFlowIdentityProviders\Ref\RefRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\IdentityProviderBaseCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -34,7 +34,7 @@ class UserFlowIdentityProvidersRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.identity.b2xUserFlows.item.userFlowIdentityProviders.item collection
+     * Gets an item from the Microsoft//Graph//Beta//Generated.identity.b2xUserFlows.item.userFlowIdentityProviders.item collection
      * @param string $identityProviderBaseId The unique identifier of identityProviderBase
      * @return IdentityProviderBaseItemRequestBuilder
     */

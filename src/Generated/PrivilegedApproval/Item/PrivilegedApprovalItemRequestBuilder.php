@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\PrivilegedApproval\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\PrivilegedApproval\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PrivilegedApproval;
-use Microsoft\Graph\Beta\Generated\PrivilegedApproval\Item\Request\RequestRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PrivilegedApproval\Item\RoleInfo\RoleInfoRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PrivilegedApproval;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedApproval\Item\Request\RequestRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedApproval\Item\RoleInfo\RoleInfoRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

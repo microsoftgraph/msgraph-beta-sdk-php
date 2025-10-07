@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\FeatureRolloutPolicies\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\FeatureRolloutPolicies\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\FeatureRolloutPolicy;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Policies\FeatureRolloutPolicies\Item\AppliesTo\AppliesToRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\FeatureRolloutPolicy;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Policies\FeatureRolloutPolicies\Item\AppliesTo\AppliesToRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

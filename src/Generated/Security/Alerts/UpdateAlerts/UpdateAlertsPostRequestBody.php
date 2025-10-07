@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Alerts\UpdateAlerts;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Alerts\UpdateAlerts;
 
-use Microsoft\Graph\Beta\Generated\Models\Alert;
+use Microsoft\\Graph\\Beta\\Generated\Models\Alert;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

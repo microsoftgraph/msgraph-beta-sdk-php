@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Shares\Item\Permission;
+namespace Microsoft\\Graph\\Beta\\Generated\Shares\Item\Permission;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Permission;
-use Microsoft\Graph\Beta\Generated\Shares\Item\Permission\Grant\GrantRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\Permission\RevokeGrants\RevokeGrantsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Permission;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\Permission\Grant\GrantRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\Permission\RevokeGrants\RevokeGrantsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

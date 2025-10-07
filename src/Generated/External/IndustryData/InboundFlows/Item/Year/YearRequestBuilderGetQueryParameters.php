@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\External\IndustryData\InboundFlows\Item\Year;
+namespace Microsoft\\Graph\\Beta\\Generated\External\IndustryData\InboundFlows\Item\Year;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceShellScripts\Item\UserRunStates\Item\DeviceRunStates\Item\ManagedDevice;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceShellScripts\Item\UserRunStates\Item\DeviceRunStates\Item\ManagedDevice;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

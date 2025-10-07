@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\AcceptedSenders\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\AcceptedSenders\Item;
 
-use Microsoft\Graph\Beta\Generated\Groups\Item\AcceptedSenders\Item\Ref\RefRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\AcceptedSenders\Item\Ref\RefRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 

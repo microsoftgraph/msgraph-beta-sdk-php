@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\Item\Versions\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\Lists\Item\Items\Item\Versions\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ListItemVersion;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\Item\Versions\Item\Fields\FieldsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\Item\Versions\Item\RestoreVersion\RestoreVersionRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ListItemVersion;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Sites\Item\Lists\Item\Items\Item\Versions\Item\Fields\FieldsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Sites\Item\Lists\Item\Items\Item\Versions\Item\RestoreVersion\RestoreVersionRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

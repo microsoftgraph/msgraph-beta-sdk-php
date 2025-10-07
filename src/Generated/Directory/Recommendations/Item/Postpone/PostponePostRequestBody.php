@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\Postpone;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\Recommendations\Item\Postpone;
 
 use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;

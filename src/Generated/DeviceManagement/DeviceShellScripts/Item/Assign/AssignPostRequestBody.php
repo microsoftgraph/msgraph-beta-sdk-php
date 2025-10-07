@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceShellScripts\Item\Assign;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceShellScripts\Item\Assign;
 
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagementScriptAssignment;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagementScriptGroupAssignment;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagementScriptAssignment;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagementScriptGroupAssignment;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

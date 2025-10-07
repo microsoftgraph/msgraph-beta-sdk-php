@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskFolders\Item\Tasks\Item\PermanentDelete;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Outlook\TaskFolders\Item\Tasks\Item\PermanentDelete;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\GroupLifecyclePolicies\Item\AddGroup;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\GroupLifecyclePolicies\Item\AddGroup;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

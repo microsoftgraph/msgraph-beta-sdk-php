@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumber;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\Products\MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumber;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

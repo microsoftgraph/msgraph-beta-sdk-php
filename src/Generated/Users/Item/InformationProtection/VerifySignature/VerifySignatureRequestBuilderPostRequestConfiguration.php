@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\VerifySignature;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\InformationProtection\VerifySignature;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

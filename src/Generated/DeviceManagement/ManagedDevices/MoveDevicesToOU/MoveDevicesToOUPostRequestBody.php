@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\MoveDevicesToOU;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ManagedDevices\MoveDevicesToOU;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

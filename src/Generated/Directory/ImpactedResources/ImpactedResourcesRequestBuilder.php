@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\ImpactedResources;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\ImpactedResources;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Directory\ImpactedResources\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\ImpactedResources\Item\ImpactedResourceItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ImpactedResource;
-use Microsoft\Graph\Beta\Generated\Models\ImpactedResourceCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Directory\ImpactedResources\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Directory\ImpactedResources\Item\ImpactedResourceItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ImpactedResource;
+use Microsoft\\Graph\\Beta\\Generated\Models\ImpactedResourceCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\DeletedItems;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\DeletedItems;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PolicyDeletableRoot;
-use Microsoft\Graph\Beta\Generated\Policies\DeletedItems\CrossTenantPartners\CrossTenantPartnersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Policies\DeletedItems\CrossTenantSyncPolicyPartners\CrossTenantSyncPolicyPartnersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PolicyDeletableRoot;
+use Microsoft\\Graph\\Beta\\Generated\Policies\DeletedItems\CrossTenantPartners\CrossTenantPartnersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Policies\DeletedItems\CrossTenantSyncPolicyPartners\CrossTenantSyncPolicyPartnersRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

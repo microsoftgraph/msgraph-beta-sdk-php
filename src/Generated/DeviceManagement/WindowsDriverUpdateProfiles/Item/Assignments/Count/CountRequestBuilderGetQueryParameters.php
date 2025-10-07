@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsDriverUpdateProfiles\Item\Assignments\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\WindowsDriverUpdateProfiles\Item\Assignments\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageSummariesByPrinter\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\DailyPrintUsageSummariesByPrinter\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

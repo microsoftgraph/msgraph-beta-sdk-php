@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\Lists\Item\Items;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ListItem;
-use Microsoft\Graph\Beta\Generated\Models\ListItemCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\DeltaWithToken\DeltaWithTokenRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\Item\ListItemItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ListItem;
+use Microsoft\\Graph\\Beta\\Generated\Models\ListItemCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Sites\Item\Lists\Item\Items\Delta\DeltaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Sites\Item\Lists\Item\Items\DeltaWithToken\DeltaWithTokenRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Sites\Item\Lists\Item\Items\Item\ListItemItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\OneDriveForBusinessProtectionPolicies\Item\DriveInclusionRules;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\OneDriveForBusinessProtectionPolicies\Item\DriveInclusionRules;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Places\Item\GraphRoomList\Workspaces;
+namespace Microsoft\\Graph\\Beta\\Generated\Places\Item\GraphRoomList\Workspaces;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

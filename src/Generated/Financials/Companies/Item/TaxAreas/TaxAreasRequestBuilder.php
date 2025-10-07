@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\TaxAreas;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\TaxAreas;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\TaxAreas\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\TaxAreas\Item\TaxAreaItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TaxArea;
-use Microsoft\Graph\Beta\Generated\Models\TaxAreaCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\TaxAreas\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\TaxAreas\Item\TaxAreaItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TaxArea;
+use Microsoft\\Graph\\Beta\\Generated\Models\TaxAreaCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

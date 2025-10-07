@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\Item\CustomCSS;
+namespace Microsoft\\Graph\\Beta\\Generated\Organization\Item\Branding\Localizations\Item\CustomCSS;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

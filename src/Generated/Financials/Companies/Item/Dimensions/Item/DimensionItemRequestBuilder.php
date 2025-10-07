@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Dimensions\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\Dimensions\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Dimensions\Item\DimensionValues\DimensionValuesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Dimension;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\Dimensions\Item\DimensionValues\DimensionValuesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Dimension;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

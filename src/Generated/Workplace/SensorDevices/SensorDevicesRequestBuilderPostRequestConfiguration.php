@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Workplace\SensorDevices;
+namespace Microsoft\\Graph\\Beta\\Generated\Workplace\SensorDevices;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

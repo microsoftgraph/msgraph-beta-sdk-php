@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -75,6 +75,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
             'v16_0' => fn(ParseNode $n) => $o->setV160($n->getBooleanValue()),
             'v17_0' => fn(ParseNode $n) => $o->setV170($n->getBooleanValue()),
             'v18_0' => fn(ParseNode $n) => $o->setV180($n->getBooleanValue()),
+            'v26_0' => fn(ParseNode $n) => $o->setV260($n->getBooleanValue()),
             'v8_0' => fn(ParseNode $n) => $o->setV80($n->getBooleanValue()),
             'v9_0' => fn(ParseNode $n) => $o->setV90($n->getBooleanValue()),
         ];
@@ -201,6 +202,18 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
+     * Gets the v26_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 26.0 or later is required to install the app. If 'False', iOS Version 26.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @return bool|null
+    */
+    public function getV260(): ?bool {
+        $val = $this->getBackingStore()->get('v26_0');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'v26_0'");
+    }
+
+    /**
      * Gets the v8_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 8.0 or later is required to install the app. If 'False', iOS Version 8.0  is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
      * @return bool|null
     */
@@ -239,6 +252,7 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
         $writer->writeBooleanValue('v16_0', $this->getV160());
         $writer->writeBooleanValue('v17_0', $this->getV170());
         $writer->writeBooleanValue('v18_0', $this->getV180());
+        $writer->writeBooleanValue('v26_0', $this->getV260());
         $writer->writeBooleanValue('v8_0', $this->getV80());
         $writer->writeBooleanValue('v9_0', $this->getV90());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -338,6 +352,14 @@ class IosMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, Pa
     */
     public function setV180(?bool $value): void {
         $this->getBackingStore()->set('v18_0', $value);
+    }
+
+    /**
+     * Sets the v26_0 property value. Indicates the minimum iOS version support required for the managed device. When 'True', iOS with OS Version 26.0 or later is required to install the app. If 'False', iOS Version 26.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @param bool|null $value Value to set for the v26_0 property.
+    */
+    public function setV260(?bool $value): void {
+        $this->getBackingStore()->set('v26_0', $value);
     }
 
     /**

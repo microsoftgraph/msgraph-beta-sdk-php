@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\InformationProtection\SensitivityLabels\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\InformationProtection\SensitivityLabels\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

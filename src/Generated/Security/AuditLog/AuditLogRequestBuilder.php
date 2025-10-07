@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\AuditLog;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\AuditLog;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\AuditCoreRoot;
-use Microsoft\Graph\Beta\Generated\Security\AuditLog\Queries\QueriesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\AuditCoreRoot;
+use Microsoft\\Graph\\Beta\\Generated\Security\AuditLog\Queries\QueriesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

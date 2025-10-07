@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\UserStateSummary;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Intents\Item\UserStateSummary;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

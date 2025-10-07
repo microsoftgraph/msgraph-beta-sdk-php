@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\Policy\Labels;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\Policy\Labels;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\Policy\Labels\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\Policy\Labels\EvaluateApplication\EvaluateApplicationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\Policy\Labels\EvaluateClassificationResults\EvaluateClassificationResultsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\Policy\Labels\EvaluateRemoval\EvaluateRemovalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\Policy\Labels\ExtractLabel\ExtractLabelRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\Policy\Labels\Item\InformationProtectionLabelItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\InformationProtectionLabel;
-use Microsoft\Graph\Beta\Generated\Models\InformationProtectionLabelCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\Policy\Labels\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\Policy\Labels\EvaluateApplication\EvaluateApplicationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\Policy\Labels\EvaluateClassificationResults\EvaluateClassificationResultsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\Policy\Labels\EvaluateRemoval\EvaluateRemovalRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\Policy\Labels\ExtractLabel\ExtractLabelRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\Policy\Labels\Item\InformationProtectionLabelItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\InformationProtectionLabel;
+use Microsoft\\Graph\\Beta\\Generated\Models\InformationProtectionLabelCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

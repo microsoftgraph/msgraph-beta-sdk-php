@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EmployeeExperience;
+namespace Microsoft\\Graph\\Beta\\Generated\EmployeeExperience;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\EmployeeExperience\Communities\CommunitiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EmployeeExperience\EngagementAsyncOperations\EngagementAsyncOperationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EmployeeExperience\Goals\GoalsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningCourseActivities\LearningCourseActivitiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningCourseActivitiesWithExternalcourseActivityId\LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningProviders\LearningProvidersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EmployeeExperience\Roles\RolesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\EmployeeExperience;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\Communities\CommunitiesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\EngagementAsyncOperations\EngagementAsyncOperationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\Goals\GoalsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\LearningCourseActivities\LearningCourseActivitiesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\LearningCourseActivitiesWithExternalcourseActivityId\LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\LearningProviders\LearningProvidersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\Roles\RolesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\EmployeeExperience;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

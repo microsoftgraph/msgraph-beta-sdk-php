@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphMacOSPkgApp\ContentVersions\Item\Files\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MobileApps\Item\GraphMacOSPkgApp\ContentVersions\Item\Files\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

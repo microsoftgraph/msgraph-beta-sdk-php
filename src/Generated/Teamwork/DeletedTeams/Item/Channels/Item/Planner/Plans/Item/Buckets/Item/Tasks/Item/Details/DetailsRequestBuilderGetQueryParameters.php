@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teamwork\DeletedTeams\Item\Channels\Item\Planner\Plans\Item\Buckets\Item\Tasks\Item\Details;
+namespace Microsoft\\Graph\\Beta\\Generated\Teamwork\DeletedTeams\Item\Channels\Item\Planner\Plans\Item\Buckets\Item\Tasks\Item\Details;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

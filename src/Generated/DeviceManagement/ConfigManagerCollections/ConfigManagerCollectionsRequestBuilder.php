@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigManagerCollections;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ConfigManagerCollections;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigManagerCollections\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigManagerCollections\GetPolicySummaryWithPolicyId\GetPolicySummaryWithPolicyIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ConfigManagerCollections\Item\ConfigManagerCollectionItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ConfigManagerCollection;
-use Microsoft\Graph\Beta\Generated\Models\ConfigManagerCollectionCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ConfigManagerCollections\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ConfigManagerCollections\GetPolicySummaryWithPolicyId\GetPolicySummaryWithPolicyIdRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ConfigManagerCollections\Item\ConfigManagerCollectionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ConfigManagerCollection;
+use Microsoft\\Graph\\Beta\\Generated\Models\ConfigManagerCollectionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

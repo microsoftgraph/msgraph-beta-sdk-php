@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AuditLogs\SignUps\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\AuditLogs\SignUps\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

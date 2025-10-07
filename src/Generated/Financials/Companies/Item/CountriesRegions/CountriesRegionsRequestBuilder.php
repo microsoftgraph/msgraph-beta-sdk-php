@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CountriesRegions;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\CountriesRegions;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CountriesRegions\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CountriesRegions\Item\CountryRegionItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\CountryRegion;
-use Microsoft\Graph\Beta\Generated\Models\CountryRegionCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\CountriesRegions\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\CountriesRegions\Item\CountryRegionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\CountryRegion;
+use Microsoft\\Graph\\Beta\\Generated\Models\CountryRegionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

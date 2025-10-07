@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\RemoteNetworks;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Connectivity\RemoteNetworks;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

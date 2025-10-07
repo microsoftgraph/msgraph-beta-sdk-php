@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointRestoreSessions;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\SharePointRestoreSessions;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SharePointRestoreSession;
-use Microsoft\Graph\Beta\Generated\Models\SharePointRestoreSessionCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointRestoreSessions\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointRestoreSessions\Item\SharePointRestoreSessionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SharePointRestoreSession;
+use Microsoft\\Graph\\Beta\\Generated\Models\SharePointRestoreSessionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\SharePointRestoreSessions\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\SharePointRestoreSessions\Item\SharePointRestoreSessionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

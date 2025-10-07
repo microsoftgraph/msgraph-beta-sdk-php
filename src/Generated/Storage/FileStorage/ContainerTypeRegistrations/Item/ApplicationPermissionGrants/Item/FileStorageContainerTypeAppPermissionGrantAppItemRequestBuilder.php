@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\ContainerTypeRegistrations\Item\ApplicationPermissionGrants\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\ContainerTypeRegistrations\Item\ApplicationPermissionGrants\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\FileStorageContainerTypeAppPermissionGrant;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\FileStorageContainerTypeAppPermissionGrant;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -61,12 +61,12 @@ class FileStorageContainerTypeAppPermissionGrantAppItemRequestBuilder extends Ba
     }
 
     /**
-     * Create a new fileStorageContainerTypeAppPermissionGrant object in a fileStorageContainerTypeRegistration.
+     * Update the properties of a fileStorageContainerTypeAppPermissionGrant object.
      * @param FileStorageContainerTypeAppPermissionGrant $body The request body
      * @param FileStorageContainerTypeAppPermissionGrantAppItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FileStorageContainerTypeAppPermissionGrant|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/filestoragecontainertyperegistration-post-applicationpermissiongrants?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/filestoragecontainertypeapppermissiongrant-update?view=graph-rest-beta Find more info here
     */
     public function patch(FileStorageContainerTypeAppPermissionGrant $body, ?FileStorageContainerTypeAppPermissionGrantAppItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -116,7 +116,7 @@ class FileStorageContainerTypeAppPermissionGrantAppItemRequestBuilder extends Ba
     }
 
     /**
-     * Create a new fileStorageContainerTypeAppPermissionGrant object in a fileStorageContainerTypeRegistration.
+     * Update the properties of a fileStorageContainerTypeAppPermissionGrant object.
      * @param FileStorageContainerTypeAppPermissionGrant $body The request body
      * @param FileStorageContainerTypeAppPermissionGrantAppItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

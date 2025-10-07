@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MobileApps;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

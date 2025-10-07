@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\GeneralLedgerEntries;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\GeneralLedgerEntries;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

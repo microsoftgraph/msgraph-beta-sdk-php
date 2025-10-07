@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleDefinitions\Item\InheritsPermissionsFrom;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\DeviceManagement\RoleDefinitions\Item\InheritsPermissionsFrom;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleDefinition;
-use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleDefinitionCollectionResponse;
-use Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleDefinitions\Item\InheritsPermissionsFrom\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleDefinitions\Item\InheritsPermissionsFrom\Item\UnifiedRoleDefinitionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UnifiedRoleDefinition;
+use Microsoft\\Graph\\Beta\\Generated\Models\UnifiedRoleDefinitionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\DeviceManagement\RoleDefinitions\Item\InheritsPermissionsFrom\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\DeviceManagement\RoleDefinitions\Item\InheritsPermissionsFrom\Item\UnifiedRoleDefinitionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

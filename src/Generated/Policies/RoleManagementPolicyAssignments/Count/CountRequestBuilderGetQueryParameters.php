@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicyAssignments\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\RoleManagementPolicyAssignments\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

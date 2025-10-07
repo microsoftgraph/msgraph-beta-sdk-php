@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\OwnedObjects;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\OwnedObjects;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DirectoryObjectCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\OwnedObjects\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\OwnedObjects\GraphApplication\GraphApplicationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\OwnedObjects\GraphGroup\GraphGroupRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\OwnedObjects\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\OwnedObjects\Item\DirectoryObjectItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DirectoryObjectCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\OwnedObjects\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\OwnedObjects\GraphApplication\GraphApplicationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\OwnedObjects\GraphGroup\GraphGroupRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\OwnedObjects\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\OwnedObjects\Item\DirectoryObjectItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

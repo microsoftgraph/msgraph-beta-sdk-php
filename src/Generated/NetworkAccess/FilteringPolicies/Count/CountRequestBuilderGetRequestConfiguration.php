@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\FilteringPolicies\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\FilteringPolicies\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceWindowsOSImages\Item\GetAllManagedDeviceWindowsOSImages;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ManagedDeviceWindowsOSImages\Item\GetAllManagedDeviceWindowsOSImages;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

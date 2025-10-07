@@ -1,23 +1,23 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Calendar\Events\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Calendar\Events\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\Event;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\Events\Item\Accept\AcceptRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\Events\Item\Attachments\AttachmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\Events\Item\Calendar\CalendarRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\Events\Item\Cancel\CancelRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\Events\Item\Decline\DeclineRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\Events\Item\DismissReminder\DismissReminderRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\Events\Item\Extensions\ExtensionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\Events\Item\Forward\ForwardRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\Events\Item\Instances\InstancesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\Events\Item\PermanentDelete\PermanentDeleteRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\Events\Item\SnoozeReminder\SnoozeReminderRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\Events\Item\TentativelyAccept\TentativelyAcceptRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Event;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Calendar\Events\Item\Accept\AcceptRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Calendar\Events\Item\Attachments\AttachmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Calendar\Events\Item\Calendar\CalendarRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Calendar\Events\Item\Cancel\CancelRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Calendar\Events\Item\Decline\DeclineRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Calendar\Events\Item\DismissReminder\DismissReminderRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Calendar\Events\Item\Extensions\ExtensionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Calendar\Events\Item\Forward\ForwardRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Calendar\Events\Item\Instances\InstancesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Calendar\Events\Item\PermanentDelete\PermanentDeleteRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Calendar\Events\Item\SnoozeReminder\SnoozeReminderRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Calendar\Events\Item\TentativelyAccept\TentativelyAcceptRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

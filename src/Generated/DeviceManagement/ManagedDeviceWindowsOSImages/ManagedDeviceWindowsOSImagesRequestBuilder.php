@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceWindowsOSImages;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ManagedDeviceWindowsOSImages;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceWindowsOSImages\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceWindowsOSImages\Item\ManagedDeviceWindowsOperatingSystemImageItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceWindowsOperatingSystemImage;
-use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceWindowsOperatingSystemImageCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ManagedDeviceWindowsOSImages\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ManagedDeviceWindowsOSImages\Item\ManagedDeviceWindowsOperatingSystemImageItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ManagedDeviceWindowsOperatingSystemImage;
+use Microsoft\\Graph\\Beta\\Generated\Models\ManagedDeviceWindowsOperatingSystemImageCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

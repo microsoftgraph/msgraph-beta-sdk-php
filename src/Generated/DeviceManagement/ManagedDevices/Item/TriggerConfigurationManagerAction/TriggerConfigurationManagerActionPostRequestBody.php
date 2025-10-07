@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\TriggerConfigurationManagerAction;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ManagedDevices\Item\TriggerConfigurationManagerAction;
 
-use Microsoft\Graph\Beta\Generated\Models\ConfigurationManagerAction;
+use Microsoft\\Graph\\Beta\\Generated\Models\ConfigurationManagerAction;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

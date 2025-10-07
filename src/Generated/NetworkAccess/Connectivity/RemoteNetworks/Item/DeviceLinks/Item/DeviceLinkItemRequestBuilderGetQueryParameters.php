@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\RemoteNetworks\Item\DeviceLinks\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Connectivity\RemoteNetworks\Item\DeviceLinks\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

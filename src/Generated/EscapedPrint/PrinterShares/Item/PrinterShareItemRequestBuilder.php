@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\EscapedPrint\PrinterShares\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\AllowedGroups\AllowedGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\AllowedUsers\AllowedUsersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\Jobs\JobsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\Printer\PrinterRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PrinterShare;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\PrinterShares\Item\AllowedGroups\AllowedGroupsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\PrinterShares\Item\AllowedUsers\AllowedUsersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\PrinterShares\Item\Jobs\JobsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\PrinterShares\Item\Printer\PrinterRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PrinterShare;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

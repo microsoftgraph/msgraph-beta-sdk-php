@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\ContactedReviewers;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\PendingAccessReviewInstances\Item\ContactedReviewers;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\AccessReviewReviewer;
-use Microsoft\Graph\Beta\Generated\Models\AccessReviewReviewerCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\ContactedReviewers\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\ContactedReviewers\Item\AccessReviewReviewerItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AccessReviewReviewer;
+use Microsoft\\Graph\\Beta\\Generated\Models\AccessReviewReviewerCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\PendingAccessReviewInstances\Item\ContactedReviewers\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\PendingAccessReviewInstances\Item\ContactedReviewers\Item\AccessReviewReviewerItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

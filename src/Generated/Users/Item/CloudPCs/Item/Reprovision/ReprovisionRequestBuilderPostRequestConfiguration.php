@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Reprovision;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\Reprovision;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

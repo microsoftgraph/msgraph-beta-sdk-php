@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\MessageTraces\Item\Recipients\Item\Events\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\MessageTraces\Item\Recipients\Item\Events\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

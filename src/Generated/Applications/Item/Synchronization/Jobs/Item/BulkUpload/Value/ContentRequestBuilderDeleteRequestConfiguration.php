@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\BulkUpload\Value;
+namespace Microsoft\\Graph\\Beta\\Generated\Applications\Item\Synchronization\Jobs\Item\BulkUpload\Value;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\Registration\Registrants;
+namespace Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetings\Item\Registration\Registrants;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\Registration\Registrants\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\Registration\Registrants\Item\MeetingRegistrantBaseItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\MeetingRegistrantBase;
-use Microsoft\Graph\Beta\Generated\Models\MeetingRegistrantBaseCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetings\Item\Registration\Registrants\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetings\Item\Registration\Registrants\Item\MeetingRegistrantBaseItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\MeetingRegistrantBase;
+use Microsoft\\Graph\\Beta\\Generated\Models\MeetingRegistrantBaseCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

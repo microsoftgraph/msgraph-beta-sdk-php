@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\UserSecurityProfiles;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\UserSecurityProfiles;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UserSecurityProfile;
-use Microsoft\Graph\Beta\Generated\Models\UserSecurityProfileCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Security\UserSecurityProfiles\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\UserSecurityProfiles\Item\UserSecurityProfileItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UserSecurityProfile;
+use Microsoft\\Graph\\Beta\\Generated\Models\UserSecurityProfileCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Security\UserSecurityProfiles\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\UserSecurityProfiles\Item\UserSecurityProfileItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteAssistancePartners\Item\BeginOnboarding;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\RemoteAssistancePartners\Item\BeginOnboarding;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

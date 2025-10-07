@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Planner\Plans\Item\Tasks\Delta;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\Planner\Plans\Item\Tasks\Delta;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

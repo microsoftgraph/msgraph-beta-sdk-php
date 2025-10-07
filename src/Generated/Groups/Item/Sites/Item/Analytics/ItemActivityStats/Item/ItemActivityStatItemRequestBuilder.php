@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Analytics\ItemActivityStats\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Analytics\ItemActivityStats\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Analytics\ItemActivityStats\Item\Activities\ActivitiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ItemActivityStat;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Analytics\ItemActivityStats\Item\Activities\ActivitiesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ItemActivityStat;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AuditLogs\DirectoryAudits;
+namespace Microsoft\\Graph\\Beta\\Generated\AuditLogs\DirectoryAudits;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

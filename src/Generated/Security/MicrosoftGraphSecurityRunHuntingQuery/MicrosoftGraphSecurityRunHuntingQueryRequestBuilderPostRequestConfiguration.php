@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\MicrosoftGraphSecurityRunHuntingQuery;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\MicrosoftGraphSecurityRunHuntingQuery;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

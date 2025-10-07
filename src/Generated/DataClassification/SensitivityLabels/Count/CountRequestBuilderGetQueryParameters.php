@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DataClassification\SensitivityLabels\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DataClassification\SensitivityLabels\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

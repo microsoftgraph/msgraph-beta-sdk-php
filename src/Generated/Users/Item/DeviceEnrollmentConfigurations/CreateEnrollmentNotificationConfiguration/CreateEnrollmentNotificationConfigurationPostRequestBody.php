@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\DeviceEnrollmentConfigurations\CreateEnrollmentNotificationConfiguration;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\DeviceEnrollmentConfigurations\CreateEnrollmentNotificationConfiguration;
 
-use Microsoft\Graph\Beta\Generated\Models\DeviceEnrollmentConfiguration;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceEnrollmentConfiguration;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

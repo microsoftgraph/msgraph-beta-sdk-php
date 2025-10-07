@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\GetMicrosoft365CopilotUsageUserDetailWithPeriod;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\GetMicrosoft365CopilotUsageUserDetailWithPeriod;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

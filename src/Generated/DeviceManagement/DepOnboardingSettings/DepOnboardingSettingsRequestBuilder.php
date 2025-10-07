@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DepOnboardingSettings;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\GetExpiringVppTokenCountWithExpiringBeforeDateTime\GetExpiringVppTokenCountWithExpiringBeforeDateTimeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\DepOnboardingSettingItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DepOnboardingSetting;
-use Microsoft\Graph\Beta\Generated\Models\DepOnboardingSettingCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DepOnboardingSettings\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DepOnboardingSettings\GetExpiringVppTokenCountWithExpiringBeforeDateTime\GetExpiringVppTokenCountWithExpiringBeforeDateTimeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DepOnboardingSettings\Item\DepOnboardingSettingItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DepOnboardingSetting;
+use Microsoft\\Graph\\Beta\\Generated\Models\DepOnboardingSettingCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

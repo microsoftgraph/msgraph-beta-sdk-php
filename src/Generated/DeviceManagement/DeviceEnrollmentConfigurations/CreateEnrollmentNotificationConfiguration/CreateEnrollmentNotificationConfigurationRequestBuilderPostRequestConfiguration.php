@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceEnrollmentConfigurations\CreateEnrollmentNotificationConfiguration;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceEnrollmentConfigurations\CreateEnrollmentNotificationConfiguration;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

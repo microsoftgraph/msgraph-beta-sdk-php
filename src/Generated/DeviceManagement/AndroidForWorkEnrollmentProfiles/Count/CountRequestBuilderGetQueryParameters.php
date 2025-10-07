@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkEnrollmentProfiles\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidForWorkEnrollmentProfiles\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

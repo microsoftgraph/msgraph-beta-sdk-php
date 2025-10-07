@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\Item\GetSupportedProperties;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AssignmentFilters\Item\GetSupportedProperties;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

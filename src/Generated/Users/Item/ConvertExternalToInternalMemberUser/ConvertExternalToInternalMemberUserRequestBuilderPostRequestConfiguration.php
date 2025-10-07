@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\ConvertExternalToInternalMemberUser;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\ConvertExternalToInternalMemberUser;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

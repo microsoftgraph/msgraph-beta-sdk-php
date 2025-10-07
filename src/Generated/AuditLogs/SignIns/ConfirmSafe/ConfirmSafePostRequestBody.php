@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\ConfirmSafe;
+namespace Microsoft\\Graph\\Beta\\Generated\AuditLogs\SignIns\ConfirmSafe;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

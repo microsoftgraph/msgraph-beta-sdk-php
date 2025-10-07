@@ -1,10 +1,10 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\App\Calls\Item\Answer;
+namespace Microsoft\\Graph\\Beta\\Generated\App\Calls\Item\Answer;
 
-use Microsoft\Graph\Beta\Generated\Models\IncomingCallOptions;
-use Microsoft\Graph\Beta\Generated\Models\MediaConfig;
-use Microsoft\Graph\Beta\Generated\Models\Modality;
+use Microsoft\\Graph\\Beta\\Generated\Models\IncomingCallOptions;
+use Microsoft\\Graph\\Beta\\Generated\Models\MediaConfig;
+use Microsoft\\Graph\\Beta\\Generated\Models\Modality;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

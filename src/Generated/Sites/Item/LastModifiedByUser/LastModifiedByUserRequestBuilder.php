@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\LastModifiedByUser;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\LastModifiedByUser;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\User;
-use Microsoft\Graph\Beta\Generated\Sites\Item\LastModifiedByUser\MailboxSettings\MailboxSettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Item\LastModifiedByUser\ServiceProvisioningErrors\ServiceProvisioningErrorsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\User;
+use Microsoft\\Graph\\Beta\\Generated\Sites\Item\LastModifiedByUser\MailboxSettings\MailboxSettingsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Sites\Item\LastModifiedByUser\ServiceProvisioningErrors\ServiceProvisioningErrorsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Identities\SensorCandidates\MicrosoftGraphSecurityActivate;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Identities\SensorCandidates\MicrosoftGraphSecurityActivate;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

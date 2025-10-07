@@ -1,20 +1,20 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceCompliancePolicies;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\GetDevicesScheduledToRetire\GetDevicesScheduledToRetireRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\GetNoncompliantDevicesToRetire\GetNoncompliantDevicesToRetireRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\HasPayloadLinks\HasPayloadLinksRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\Item\DeviceCompliancePolicyItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\RefreshDeviceComplianceReportSummarization\RefreshDeviceComplianceReportSummarizationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\SetScheduledRetireState\SetScheduledRetireStateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCompliancePolicies\ValidateComplianceScript\ValidateComplianceScriptRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DeviceCompliancePolicy;
-use Microsoft\Graph\Beta\Generated\Models\DeviceCompliancePolicyCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceCompliancePolicies\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceCompliancePolicies\GetDevicesScheduledToRetire\GetDevicesScheduledToRetireRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceCompliancePolicies\GetNoncompliantDevicesToRetire\GetNoncompliantDevicesToRetireRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceCompliancePolicies\HasPayloadLinks\HasPayloadLinksRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceCompliancePolicies\Item\DeviceCompliancePolicyItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceCompliancePolicies\RefreshDeviceComplianceReportSummarization\RefreshDeviceComplianceReportSummarizationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceCompliancePolicies\SetScheduledRetireState\SetScheduledRetireStateRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceCompliancePolicies\ValidateComplianceScript\ValidateComplianceScriptRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceCompliancePolicy;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceCompliancePolicyCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

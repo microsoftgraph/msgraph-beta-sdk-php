@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\ImpactedResources\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\Recommendations\Item\ImpactedResources\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\BookingCurrencies;
+namespace Microsoft\\Graph\\Beta\\Generated\BookingCurrencies;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\BookingCurrencies\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\BookingCurrencies\Item\BookingCurrencyItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\BookingCurrency;
-use Microsoft\Graph\Beta\Generated\Models\BookingCurrencyCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\BookingCurrencies\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\BookingCurrencies\Item\BookingCurrencyItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\BookingCurrency;
+use Microsoft\\Graph\\Beta\\Generated\Models\BookingCurrencyCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

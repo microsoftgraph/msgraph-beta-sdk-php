@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\SensitivityLabels\Item\Sublabels;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\SensitivityLabels\Item\Sublabels;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\SensitivityLabels\Item\Sublabels\ComputeInheritanceWithLabelIdsWithLocaleWithContentFormats\ComputeInheritanceWithLabelIdsWithLocaleWithContentFormatsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\SensitivityLabels\Item\Sublabels\ComputeRightsAndInheritance\ComputeRightsAndInheritanceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\SensitivityLabels\Item\Sublabels\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\SensitivityLabels\Item\Sublabels\Evaluate\EvaluateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\SensitivityLabels\Item\Sublabels\Item\SensitivityLabelItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SensitivityLabel;
-use Microsoft\Graph\Beta\Generated\Models\SensitivityLabelCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\SensitivityLabels\Item\Sublabels\ComputeInheritanceWithLabelIdsWithLocaleWithContentFormats\ComputeInheritanceWithLabelIdsWithLocaleWithContentFormatsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\SensitivityLabels\Item\Sublabels\ComputeRightsAndInheritance\ComputeRightsAndInheritanceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\SensitivityLabels\Item\Sublabels\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\SensitivityLabels\Item\Sublabels\Evaluate\EvaluateRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\SensitivityLabels\Item\Sublabels\Item\SensitivityLabelItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SensitivityLabel;
+use Microsoft\\Graph\\Beta\\Generated\Models\SensitivityLabelCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\CloudPCConnectivityIssues\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\CloudPCConnectivityIssues\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

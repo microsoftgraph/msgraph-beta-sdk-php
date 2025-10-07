@@ -1,20 +1,20 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Monthly;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\MonthlyUserInsightMetricsRoot;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\ActiveUsers\ActiveUsersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\Authentications\AuthenticationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\InactiveUsers\InactiveUsersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\InactiveUsersByApplication\InactiveUsersByApplicationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\MfaCompletions\MfaCompletionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\MfaRegisteredUsers\MfaRegisteredUsersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\Requests\RequestsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\SignUps\SignUpsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\Summary\SummaryRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\MonthlyUserInsightMetricsRoot;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Monthly\ActiveUsers\ActiveUsersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Monthly\Authentications\AuthenticationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Monthly\InactiveUsers\InactiveUsersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Monthly\InactiveUsersByApplication\InactiveUsersByApplicationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Monthly\MfaCompletions\MfaCompletionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Monthly\MfaRegisteredUsers\MfaRegisteredUsersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Monthly\Requests\RequestsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Monthly\SignUps\SignUpsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Monthly\Summary\SummaryRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

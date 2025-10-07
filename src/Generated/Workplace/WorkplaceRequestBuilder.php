@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Workplace;
+namespace Microsoft\\Graph\\Beta\\Generated\Workplace;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Workplace;
-use Microsoft\Graph\Beta\Generated\Workplace\SensorDevices\SensorDevicesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Workplace\SensorDevicesWithDeviceId\SensorDevicesWithDeviceIdRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Workplace;
+use Microsoft\\Graph\\Beta\\Generated\Workplace\SensorDevices\SensorDevicesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Workplace\SensorDevicesWithDeviceId\SensorDevicesWithDeviceIdRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkSettings\RequestSignupUrl;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidForWorkSettings\RequestSignupUrl;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

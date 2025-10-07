@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\GetNonCompliantSettings;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ComanagedDevices\Item\GetNonCompliantSettings;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

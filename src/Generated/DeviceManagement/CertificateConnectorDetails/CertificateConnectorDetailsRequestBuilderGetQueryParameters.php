@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\CertificateConnectorDetails;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\CertificateConnectorDetails;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

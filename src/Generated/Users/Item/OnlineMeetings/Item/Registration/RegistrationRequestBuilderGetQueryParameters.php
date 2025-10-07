@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\Item\Registration;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\OnlineMeetings\Item\Registration;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

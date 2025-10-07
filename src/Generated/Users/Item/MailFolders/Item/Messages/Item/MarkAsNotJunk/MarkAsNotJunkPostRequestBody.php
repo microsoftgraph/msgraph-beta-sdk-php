@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\Messages\Item\MarkAsNotJunk;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\MailFolders\Item\Messages\Item\MarkAsNotJunk;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

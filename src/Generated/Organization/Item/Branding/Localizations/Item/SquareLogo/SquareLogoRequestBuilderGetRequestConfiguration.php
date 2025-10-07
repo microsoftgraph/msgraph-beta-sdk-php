@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\Item\SquareLogo;
+namespace Microsoft\\Graph\\Beta\\Generated\Organization\Item\Branding\Localizations\Item\SquareLogo;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

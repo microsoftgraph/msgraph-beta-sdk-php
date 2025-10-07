@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Operations;
+namespace Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\Operations;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Operations\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Operations\Item\CaseOperationItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Operations\MicrosoftGraphEdiscoveryCaseExportOperation\MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation;
-use Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperationCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\Operations\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\Operations\Item\CaseOperationItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\Operations\MicrosoftGraphEdiscoveryCaseExportOperation\MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Ediscovery\CaseOperation;
+use Microsoft\\Graph\\Beta\\Generated\Models\Ediscovery\CaseOperationCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

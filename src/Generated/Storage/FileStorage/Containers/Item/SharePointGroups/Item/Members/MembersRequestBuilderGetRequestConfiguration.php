@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\SharePointGroups\Item\Members;
+namespace Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\Containers\Item\SharePointGroups\Item\Members;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

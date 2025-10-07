@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\JoinedGroups\EvaluateDynamicMembership;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\JoinedGroups\EvaluateDynamicMembership;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Edge\InternetExplorerMode\SiteLists\Item\SharedCookies;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Edge\InternetExplorerMode\SiteLists\Item\SharedCookies;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Admin\Edge\InternetExplorerMode\SiteLists\Item\SharedCookies\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Edge\InternetExplorerMode\SiteLists\Item\SharedCookies\Item\BrowserSharedCookieItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\BrowserSharedCookie;
-use Microsoft\Graph\Beta\Generated\Models\BrowserSharedCookieCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Edge\InternetExplorerMode\SiteLists\Item\SharedCookies\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Edge\InternetExplorerMode\SiteLists\Item\SharedCookies\Item\BrowserSharedCookieItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\BrowserSharedCookie;
+use Microsoft\\Graph\\Beta\\Generated\Models\BrowserSharedCookieCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

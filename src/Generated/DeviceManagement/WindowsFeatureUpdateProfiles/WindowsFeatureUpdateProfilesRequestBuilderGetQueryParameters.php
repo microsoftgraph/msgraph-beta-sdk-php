@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsFeatureUpdateProfiles;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\WindowsFeatureUpdateProfiles;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

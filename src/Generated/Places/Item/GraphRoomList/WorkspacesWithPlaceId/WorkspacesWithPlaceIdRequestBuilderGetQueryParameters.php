@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Places\Item\GraphRoomList\WorkspacesWithPlaceId;
+namespace Microsoft\\Graph\\Beta\\Generated\Places\Item\GraphRoomList\WorkspacesWithPlaceId;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

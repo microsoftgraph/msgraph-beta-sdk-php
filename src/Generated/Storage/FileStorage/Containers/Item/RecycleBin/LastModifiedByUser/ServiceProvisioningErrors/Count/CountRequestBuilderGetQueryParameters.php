@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\RecycleBin\LastModifiedByUser\ServiceProvisioningErrors\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\Containers\Item\RecycleBin\LastModifiedByUser\ServiceProvisioningErrors\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

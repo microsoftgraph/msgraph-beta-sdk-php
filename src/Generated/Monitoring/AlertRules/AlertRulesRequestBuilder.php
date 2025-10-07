@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Monitoring\AlertRules;
+namespace Microsoft\\Graph\\Beta\\Generated\Monitoring\AlertRules;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagement\AlertRule;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagement\AlertRuleCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Monitoring\AlertRules\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Monitoring\AlertRules\Item\AlertRuleItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagement\AlertRule;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagement\AlertRuleCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Monitoring\AlertRules\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Monitoring\AlertRules\Item\AlertRuleItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

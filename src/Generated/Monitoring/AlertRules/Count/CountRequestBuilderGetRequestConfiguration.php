@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Monitoring\AlertRules\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Monitoring\AlertRules\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

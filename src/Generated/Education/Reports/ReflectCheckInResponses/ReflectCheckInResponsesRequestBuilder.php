@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Education\Reports\ReflectCheckInResponses;
+namespace Microsoft\\Graph\\Beta\\Generated\Education\Reports\ReflectCheckInResponses;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Education\Reports\ReflectCheckInResponses\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Reports\ReflectCheckInResponses\Item\ReflectCheckInResponseItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\ReflectCheckInResponse;
-use Microsoft\Graph\Beta\Generated\Models\ReflectCheckInResponseCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Education\Reports\ReflectCheckInResponses\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Reports\ReflectCheckInResponses\Item\ReflectCheckInResponseItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\ReflectCheckInResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ReflectCheckInResponseCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

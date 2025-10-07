@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\FilteringPolicies\Item\PolicyRules\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\FilteringPolicies\Item\PolicyRules\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

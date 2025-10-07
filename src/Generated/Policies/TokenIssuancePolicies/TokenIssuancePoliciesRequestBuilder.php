@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\TokenIssuancePolicies;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\TokenIssuancePolicies;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TokenIssuancePolicy;
-use Microsoft\Graph\Beta\Generated\Models\TokenIssuancePolicyCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Policies\TokenIssuancePolicies\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Policies\TokenIssuancePolicies\Item\TokenIssuancePolicyItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TokenIssuancePolicy;
+use Microsoft\\Graph\\Beta\\Generated\Models\TokenIssuancePolicyCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Policies\TokenIssuancePolicies\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Policies\TokenIssuancePolicies\Item\TokenIssuancePolicyItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

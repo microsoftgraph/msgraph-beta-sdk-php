@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignments\Item\RoleInfo\SelfActivate;
+namespace Microsoft\\Graph\\Beta\\Generated\PrivilegedRoleAssignments\Item\RoleInfo\SelfActivate;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

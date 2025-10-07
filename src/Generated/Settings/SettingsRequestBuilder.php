@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Settings;
+namespace Microsoft\\Graph\\Beta\\Generated\Settings;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DirectorySetting;
-use Microsoft\Graph\Beta\Generated\Models\DirectorySettingCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Settings\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Settings\Item\DirectorySettingItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DirectorySetting;
+use Microsoft\\Graph\\Beta\\Generated\Models\DirectorySettingCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Settings\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Settings\Item\DirectorySettingItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

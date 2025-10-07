@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\Messages\Unfavorite;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\ServiceAnnouncement\Messages\Unfavorite;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

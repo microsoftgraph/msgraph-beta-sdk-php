@@ -1,21 +1,21 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Domains\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Domains\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Domains\Item\DomainNameReferences\DomainNameReferencesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Domains\Item\FederationConfiguration\FederationConfigurationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Domains\Item\ForceDelete\ForceDeleteRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Domains\Item\Promote\PromoteRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Domains\Item\PromoteToInitial\PromoteToInitialRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Domains\Item\RootDomain\RootDomainRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Domains\Item\ServiceConfigurationRecords\ServiceConfigurationRecordsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Domains\Item\SharedEmailDomainInvitations\SharedEmailDomainInvitationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Domains\Item\VerificationDnsRecords\VerificationDnsRecordsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Domains\Item\Verify\VerifyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Domain;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Domains\Item\DomainNameReferences\DomainNameReferencesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Domains\Item\FederationConfiguration\FederationConfigurationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Domains\Item\ForceDelete\ForceDeleteRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Domains\Item\Promote\PromoteRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Domains\Item\PromoteToInitial\PromoteToInitialRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Domains\Item\RootDomain\RootDomainRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Domains\Item\ServiceConfigurationRecords\ServiceConfigurationRecordsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Domains\Item\SharedEmailDomainInvitations\SharedEmailDomainInvitationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Domains\Item\VerificationDnsRecords\VerificationDnsRecordsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Domains\Item\Verify\VerifyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Domain;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

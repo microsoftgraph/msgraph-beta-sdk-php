@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\MobileAppTroubleshootingEvents\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\MobileAppTroubleshootingEvents\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

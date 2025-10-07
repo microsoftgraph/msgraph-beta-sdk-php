@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Tls\ExternalCertificateAuthorityCertificates;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Tls\ExternalCertificateAuthorityCertificates;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\ExternalCertificateAuthorityCertificate;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\ExternalCertificateAuthorityCertificateCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Tls\ExternalCertificateAuthorityCertificates\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Tls\ExternalCertificateAuthorityCertificates\Item\ExternalCertificateAuthorityCertificateItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\ExternalCertificateAuthorityCertificate;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\ExternalCertificateAuthorityCertificateCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Tls\ExternalCertificateAuthorityCertificates\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Tls\ExternalCertificateAuthorityCertificates\Item\ExternalCertificateAuthorityCertificateItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

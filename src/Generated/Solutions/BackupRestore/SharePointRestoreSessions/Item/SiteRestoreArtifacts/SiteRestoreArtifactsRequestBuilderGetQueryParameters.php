@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointRestoreSessions\Item\SiteRestoreArtifacts;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\SharePointRestoreSessions\Item\SiteRestoreArtifacts;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

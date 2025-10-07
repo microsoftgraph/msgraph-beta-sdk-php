@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileAppConfigurations\Item\UserStatuses;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MobileAppConfigurations\Item\UserStatuses;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

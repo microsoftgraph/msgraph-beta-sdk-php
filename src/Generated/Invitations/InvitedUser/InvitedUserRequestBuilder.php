@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Invitations\InvitedUser;
+namespace Microsoft\\Graph\\Beta\\Generated\Invitations\InvitedUser;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Invitations\InvitedUser\MailboxSettings\MailboxSettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Invitations\InvitedUser\ServiceProvisioningErrors\ServiceProvisioningErrorsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\User;
+use Microsoft\\Graph\\Beta\\Generated\Invitations\InvitedUser\MailboxSettings\MailboxSettingsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Invitations\InvitedUser\ServiceProvisioningErrors\ServiceProvisioningErrorsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\User;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Places\Item\GraphRoomList\Workspaces;
+namespace Microsoft\\Graph\\Beta\\Generated\Places\Item\GraphRoomList\Workspaces;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Workspace;
-use Microsoft\Graph\Beta\Generated\Models\WorkspaceCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Places\Item\GraphRoomList\Workspaces\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Places\Item\GraphRoomList\Workspaces\Item\WorkspaceItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Workspace;
+use Microsoft\\Graph\\Beta\\Generated\Models\WorkspaceCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Places\Item\GraphRoomList\Workspaces\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Places\Item\GraphRoomList\Workspaces\Item\WorkspaceItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

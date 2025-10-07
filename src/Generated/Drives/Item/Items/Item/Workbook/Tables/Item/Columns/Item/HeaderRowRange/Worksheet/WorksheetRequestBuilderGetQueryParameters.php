@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Tables\Item\Columns\Item\HeaderRowRange\Worksheet;
+namespace Microsoft\\Graph\\Beta\\Generated\Drives\Item\Items\Item\Workbook\Tables\Item\Columns\Item\HeaderRowRange\Worksheet;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

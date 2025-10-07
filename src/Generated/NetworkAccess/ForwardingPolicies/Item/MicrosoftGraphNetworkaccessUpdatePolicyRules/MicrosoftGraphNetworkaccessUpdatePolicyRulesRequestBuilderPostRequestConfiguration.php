@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\ForwardingPolicies\Item\MicrosoftGraphNetworkaccessUpdatePolicyRules;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\ForwardingPolicies\Item\MicrosoftGraphNetworkaccessUpdatePolicyRules;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Education\Me;
+namespace Microsoft\\Graph\\Beta\\Generated\Education\Me;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Education\Me\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Me\Classes\ClassesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Me\Rubrics\RubricsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Me\Schools\SchoolsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Me\TaughtClasses\TaughtClassesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Me\User\UserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\EducationUser;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Education\Me\Assignments\AssignmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Me\Classes\ClassesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Me\Rubrics\RubricsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Me\Schools\SchoolsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Me\TaughtClasses\TaughtClassesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Me\User\UserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\EducationUser;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

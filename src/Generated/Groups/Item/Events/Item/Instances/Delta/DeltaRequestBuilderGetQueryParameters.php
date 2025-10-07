@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Events\Item\Instances\Delta;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Events\Item\Instances\Delta;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

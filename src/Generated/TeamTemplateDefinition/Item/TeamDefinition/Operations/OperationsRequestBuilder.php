@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Operations;
+namespace Microsoft\\Graph\\Beta\\Generated\TeamTemplateDefinition\Item\TeamDefinition\Operations;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TeamsAsyncOperation;
-use Microsoft\Graph\Beta\Generated\Models\TeamsAsyncOperationCollectionResponse;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Operations\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Operations\Item\TeamsAsyncOperationItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TeamsAsyncOperation;
+use Microsoft\\Graph\\Beta\\Generated\Models\TeamsAsyncOperationCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\TeamTemplateDefinition\Item\TeamDefinition\Operations\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TeamTemplateDefinition\Item\TeamDefinition\Operations\Item\TeamsAsyncOperationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

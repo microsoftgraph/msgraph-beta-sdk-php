@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBaselines\Item\BatteryHealthMetrics;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\UserExperienceAnalyticsBaselines\Item\BatteryHealthMetrics;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

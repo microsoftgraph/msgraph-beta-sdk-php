@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -261,6 +261,7 @@ class PlannerTask extends PlannerDelta implements Parsable
             'creationSource' => fn(ParseNode $n) => $o->setCreationSource($n->getObjectValue([PlannerTaskCreation::class, 'createFromDiscriminatorValue'])),
             'details' => fn(ParseNode $n) => $o->setDetails($n->getObjectValue([PlannerTaskDetails::class, 'createFromDiscriminatorValue'])),
             'dueDateTime' => fn(ParseNode $n) => $o->setDueDateTime($n->getDateTimeValue()),
+            'hasChat' => fn(ParseNode $n) => $o->setHasChat($n->getBooleanValue()),
             'hasDescription' => fn(ParseNode $n) => $o->setHasDescription($n->getBooleanValue()),
             'isArchived' => fn(ParseNode $n) => $o->setIsArchived($n->getBooleanValue()),
             'isOnMyDay' => fn(ParseNode $n) => $o->setIsOnMyDay($n->getBooleanValue()),
@@ -279,6 +280,18 @@ class PlannerTask extends PlannerDelta implements Parsable
             'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
             'title' => fn(ParseNode $n) => $o->setTitle($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the hasChat property value. The hasChat property
+     * @return bool|null
+    */
+    public function getHasChat(): ?bool {
+        $val = $this->getBackingStore()->get('hasChat');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hasChat'");
     }
 
     /**
@@ -508,6 +521,7 @@ class PlannerTask extends PlannerDelta implements Parsable
         $writer->writeObjectValue('creationSource', $this->getCreationSource());
         $writer->writeObjectValue('details', $this->getDetails());
         $writer->writeDateTimeValue('dueDateTime', $this->getDueDateTime());
+        $writer->writeBooleanValue('hasChat', $this->getHasChat());
         $writer->writeBooleanValue('hasDescription', $this->getHasDescription());
         $writer->writeBooleanValue('isArchived', $this->getIsArchived());
         $writer->writeBooleanValue('isOnMyDay', $this->getIsOnMyDay());
@@ -661,6 +675,14 @@ class PlannerTask extends PlannerDelta implements Parsable
     */
     public function setDueDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('dueDateTime', $value);
+    }
+
+    /**
+     * Sets the hasChat property value. The hasChat property
+     * @param bool|null $value Value to set for the hasChat property.
+    */
+    public function setHasChat(?bool $value): void {
+        $this->getBackingStore()->set('hasChat', $value);
     }
 
     /**

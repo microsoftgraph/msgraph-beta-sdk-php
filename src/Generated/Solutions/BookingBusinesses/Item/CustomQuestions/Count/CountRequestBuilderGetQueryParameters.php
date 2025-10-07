@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BookingBusinesses\Item\CustomQuestions\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BookingBusinesses\Item\CustomQuestions\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

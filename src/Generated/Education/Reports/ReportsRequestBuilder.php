@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Education\Reports;
+namespace Microsoft\\Graph\\Beta\\Generated\Education\Reports;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Education\Reports\ReadingAssignmentSubmissions\ReadingAssignmentSubmissionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Reports\ReadingCoachPassages\ReadingCoachPassagesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Reports\ReflectCheckInResponses\ReflectCheckInResponsesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Reports\SpeakerAssignmentSubmissions\SpeakerAssignmentSubmissionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\ReportsRoot;
+use Microsoft\\Graph\\Beta\\Generated\Education\Reports\ReadingAssignmentSubmissions\ReadingAssignmentSubmissionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Reports\ReadingCoachPassages\ReadingCoachPassagesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Reports\ReflectCheckInResponses\ReflectCheckInResponsesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Reports\SpeakerAssignmentSubmissions\SpeakerAssignmentSubmissionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\ReportsRoot;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

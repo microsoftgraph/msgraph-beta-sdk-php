@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Calendar\AllowedCalendarSharingRolesWithUser;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Calendar\AllowedCalendarSharingRolesWithUser;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

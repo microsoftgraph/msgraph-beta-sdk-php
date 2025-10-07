@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\GetOffice365GroupsActivityStorageWithPeriod;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\GetOffice365GroupsActivityStorageWithPeriod;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

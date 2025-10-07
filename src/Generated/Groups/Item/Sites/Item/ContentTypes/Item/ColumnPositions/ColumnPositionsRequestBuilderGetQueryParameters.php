@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentTypes\Item\ColumnPositions;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\ContentTypes\Item\ColumnPositions;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

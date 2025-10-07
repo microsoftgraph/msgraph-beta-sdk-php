@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TermStore\Groups\Item\Sets\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\TermStore\Groups\Item\Sets\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

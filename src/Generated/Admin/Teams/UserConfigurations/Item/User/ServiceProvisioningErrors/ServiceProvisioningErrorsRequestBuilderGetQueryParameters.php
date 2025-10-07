@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Teams\UserConfigurations\Item\User\ServiceProvisioningErrors;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Teams\UserConfigurations\Item\User\ServiceProvisioningErrors;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

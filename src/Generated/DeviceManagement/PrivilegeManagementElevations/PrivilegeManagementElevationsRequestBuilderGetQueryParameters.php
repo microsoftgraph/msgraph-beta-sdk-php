@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\PrivilegeManagementElevations;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\PrivilegeManagementElevations;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

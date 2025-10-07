@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\RetrievePowerliftAppDiagnosticsDetailsWithUserPrincipalName;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ComanagedDevices\RetrievePowerliftAppDiagnosticsDetailsWithUserPrincipalName;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceCleanupRules;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ManagedDeviceCleanupRules;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceCleanupRules\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceCleanupRules\Item\ManagedDeviceCleanupRuleItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceCleanupRule;
-use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceCleanupRuleCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ManagedDeviceCleanupRules\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ManagedDeviceCleanupRules\Item\ManagedDeviceCleanupRuleItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ManagedDeviceCleanupRule;
+use Microsoft\\Graph\\Beta\\Generated\Models\ManagedDeviceCleanupRuleCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

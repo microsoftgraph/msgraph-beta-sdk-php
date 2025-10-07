@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\RemoteNetworks\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Logs\RemoteNetworks\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

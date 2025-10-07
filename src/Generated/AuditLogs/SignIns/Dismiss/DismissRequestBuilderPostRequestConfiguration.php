@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\Dismiss;
+namespace Microsoft\\Graph\\Beta\\Generated\AuditLogs\SignIns\Dismiss;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

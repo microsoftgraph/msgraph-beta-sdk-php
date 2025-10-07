@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\MobilityManagementPolicies\Item\IncludedGroups\Ref;
+namespace Microsoft\\Graph\\Beta\\Generated\MobilityManagementPolicies\Item\IncludedGroups\Ref;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelHealthThresholds;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\MicrosoftTunnelHealthThresholds;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelHealthThresholds\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelHealthThresholds\Item\MicrosoftTunnelHealthThresholdItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\MicrosoftTunnelHealthThreshold;
-use Microsoft\Graph\Beta\Generated\Models\MicrosoftTunnelHealthThresholdCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\MicrosoftTunnelHealthThresholds\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\MicrosoftTunnelHealthThresholds\Item\MicrosoftTunnelHealthThresholdItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\MicrosoftTunnelHealthThreshold;
+use Microsoft\\Graph\\Beta\\Generated\Models\MicrosoftTunnelHealthThresholdCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

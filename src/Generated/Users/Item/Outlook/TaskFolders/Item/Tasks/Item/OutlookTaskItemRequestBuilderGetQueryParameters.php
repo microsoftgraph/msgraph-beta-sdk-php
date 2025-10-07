@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskFolders\Item\Tasks\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Outlook\TaskFolders\Item\Tasks\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

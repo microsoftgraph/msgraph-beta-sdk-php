@@ -1,17 +1,23 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AuditLogs;
+namespace Microsoft\\Graph\\Beta\\Generated\AuditLogs;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\AuditLogs\CustomSecurityAttributeAudits\CustomSecurityAttributeAuditsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AuditLogs\DirectoryAudits\DirectoryAuditsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AuditLogs\DirectoryProvisioning\DirectoryProvisioningRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AuditLogs\Provisioning\ProvisioningRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\SignInsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AuditLogs\SignUps\SignUpsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AuditLogRoot;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\AuditActivityTypes\AuditActivityTypesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\CustomSecurityAttributeAudits\CustomSecurityAttributeAuditsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\DirectoryAudits\DirectoryAuditsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\DirectoryProvisioning\DirectoryProvisioningRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\GetSummarizedMSISignInsWithAggregationWindow\GetSummarizedMSISignInsWithAggregationWindowRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\GetSummarizedNonInteractiveSignInsWithAggregationWindow\GetSummarizedNonInteractiveSignInsWithAggregationWindowRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\GetSummarizedServicePrincipalSignInsWithAggregationWindow\GetSummarizedServicePrincipalSignInsWithAggregationWindowRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\Provisioning\ProvisioningRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\SignInEventsAppSummary\SignInEventsAppSummaryRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\SignInEventsSummary\SignInEventsSummaryRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\SignIns\SignInsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\SignUps\SignUpsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AuditLogRoot;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -22,6 +28,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class AuditLogsRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the auditActivityTypes property of the microsoft.graph.auditLogRoot entity.
+    */
+    public function auditActivityTypes(): AuditActivityTypesRequestBuilder {
+        return new AuditActivityTypesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the customSecurityAttributeAudits property of the microsoft.graph.auditLogRoot entity.
     */
@@ -48,6 +61,20 @@ class AuditLogsRequestBuilder extends BaseRequestBuilder
     */
     public function provisioning(): ProvisioningRequestBuilder {
         return new ProvisioningRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the signInEventsAppSummary property of the microsoft.graph.auditLogRoot entity.
+    */
+    public function signInEventsAppSummary(): SignInEventsAppSummaryRequestBuilder {
+        return new SignInEventsAppSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the signInEventsSummary property of the microsoft.graph.auditLogRoot entity.
+    */
+    public function signInEventsSummary(): SignInEventsSummaryRequestBuilder {
+        return new SignInEventsSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -90,6 +117,33 @@ class AuditLogsRequestBuilder extends BaseRequestBuilder
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [AuditLogRoot::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to call the getSummarizedMSISignIns method.
+     * @param string $aggregationWindow Usage: aggregationWindow='{aggregationWindow}'
+     * @return GetSummarizedMSISignInsWithAggregationWindowRequestBuilder
+    */
+    public function getSummarizedMSISignInsWithAggregationWindow(string $aggregationWindow): GetSummarizedMSISignInsWithAggregationWindowRequestBuilder {
+        return new GetSummarizedMSISignInsWithAggregationWindowRequestBuilder($this->pathParameters, $this->requestAdapter, $aggregationWindow);
+    }
+
+    /**
+     * Provides operations to call the getSummarizedNonInteractiveSignIns method.
+     * @param string $aggregationWindow Usage: aggregationWindow='{aggregationWindow}'
+     * @return GetSummarizedNonInteractiveSignInsWithAggregationWindowRequestBuilder
+    */
+    public function getSummarizedNonInteractiveSignInsWithAggregationWindow(string $aggregationWindow): GetSummarizedNonInteractiveSignInsWithAggregationWindowRequestBuilder {
+        return new GetSummarizedNonInteractiveSignInsWithAggregationWindowRequestBuilder($this->pathParameters, $this->requestAdapter, $aggregationWindow);
+    }
+
+    /**
+     * Provides operations to call the getSummarizedServicePrincipalSignIns method.
+     * @param string $aggregationWindow Usage: aggregationWindow='{aggregationWindow}'
+     * @return GetSummarizedServicePrincipalSignInsWithAggregationWindowRequestBuilder
+    */
+    public function getSummarizedServicePrincipalSignInsWithAggregationWindow(string $aggregationWindow): GetSummarizedServicePrincipalSignInsWithAggregationWindowRequestBuilder {
+        return new GetSummarizedServicePrincipalSignInsWithAggregationWindowRequestBuilder($this->pathParameters, $this->requestAdapter, $aggregationWindow);
     }
 
     /**

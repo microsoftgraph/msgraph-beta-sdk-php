@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\DeviceEnrollmentConfigurations;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\DeviceEnrollmentConfigurations;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DeviceEnrollmentConfiguration;
-use Microsoft\Graph\Beta\Generated\Models\DeviceEnrollmentConfigurationCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\DeviceEnrollmentConfigurations\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\DeviceEnrollmentConfigurations\CreateEnrollmentNotificationConfiguration\CreateEnrollmentNotificationConfigurationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\DeviceEnrollmentConfigurations\HasPayloadLinks\HasPayloadLinksRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\DeviceEnrollmentConfigurations\Item\DeviceEnrollmentConfigurationItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceEnrollmentConfiguration;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceEnrollmentConfigurationCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\DeviceEnrollmentConfigurations\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\DeviceEnrollmentConfigurations\CreateEnrollmentNotificationConfiguration\CreateEnrollmentNotificationConfigurationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\DeviceEnrollmentConfigurations\HasPayloadLinks\HasPayloadLinksRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\DeviceEnrollmentConfigurations\Item\DeviceEnrollmentConfigurationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

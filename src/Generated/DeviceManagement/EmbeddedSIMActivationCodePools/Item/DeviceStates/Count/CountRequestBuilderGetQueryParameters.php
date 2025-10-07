@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\EmbeddedSIMActivationCodePools\Item\DeviceStates\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\EmbeddedSIMActivationCodePools\Item\DeviceStates\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaDeployments\Item\Cancel;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ZebraFotaDeployments\Item\Cancel;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

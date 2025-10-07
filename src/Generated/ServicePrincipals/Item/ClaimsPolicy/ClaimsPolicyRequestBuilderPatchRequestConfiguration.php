@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\ClaimsPolicy;
+namespace Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\ClaimsPolicy;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

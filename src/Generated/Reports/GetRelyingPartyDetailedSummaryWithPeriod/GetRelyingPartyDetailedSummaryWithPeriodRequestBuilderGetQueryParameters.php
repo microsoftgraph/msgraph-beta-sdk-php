@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\GetRelyingPartyDetailedSummaryWithPeriod;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\GetRelyingPartyDetailedSummaryWithPeriod;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

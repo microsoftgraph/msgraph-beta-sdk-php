@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DataClassification\ClassifyFileJobs;
+namespace Microsoft\\Graph\\Beta\\Generated\DataClassification\ClassifyFileJobs;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

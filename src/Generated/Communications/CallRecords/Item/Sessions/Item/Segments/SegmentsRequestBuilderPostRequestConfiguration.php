@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\CallRecords\Item\Sessions\Item\Segments;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\CallRecords\Item\Sessions\Item\Segments;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\PassiveDnsRecords\Item\Artifact;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\ThreatIntelligence\PassiveDnsRecords\Item\Artifact;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

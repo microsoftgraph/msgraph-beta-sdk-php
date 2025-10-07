@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsAnalytics\Aws\PermissionsCreepIndexDistributions;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\PermissionsAnalytics\Aws\PermissionsCreepIndexDistributions;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsAnalytics\Aws\PermissionsCreepIndexDistributions\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsAnalytics\Aws\PermissionsCreepIndexDistributions\Item\PermissionsCreepIndexDistributionItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PermissionsCreepIndexDistribution;
-use Microsoft\Graph\Beta\Generated\Models\PermissionsCreepIndexDistributionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\PermissionsAnalytics\Aws\PermissionsCreepIndexDistributions\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\PermissionsAnalytics\Aws\PermissionsCreepIndexDistributions\Item\PermissionsCreepIndexDistributionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PermissionsCreepIndexDistribution;
+use Microsoft\\Graph\\Beta\\Generated\Models\PermissionsCreepIndexDistributionCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

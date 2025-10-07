@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DirectorySettingTemplates\Item\GetMemberObjects;
+namespace Microsoft\\Graph\\Beta\\Generated\DirectorySettingTemplates\Item\GetMemberObjects;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

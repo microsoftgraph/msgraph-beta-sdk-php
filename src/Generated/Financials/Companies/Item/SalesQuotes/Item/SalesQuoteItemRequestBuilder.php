@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesQuotes\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item\Currency\CurrencyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item\Customer\CustomerRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item\MakeInvoice\MakeInvoiceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item\PaymentTerm\PaymentTermRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item\SalesQuoteLines\SalesQuoteLinesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item\Send\SendRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesQuotes\Item\ShipmentMethod\ShipmentMethodRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SalesQuote;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesQuotes\Item\Currency\CurrencyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesQuotes\Item\Customer\CustomerRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesQuotes\Item\MakeInvoice\MakeInvoiceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesQuotes\Item\PaymentTerm\PaymentTermRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesQuotes\Item\SalesQuoteLines\SalesQuoteLinesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesQuotes\Item\Send\SendRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesQuotes\Item\ShipmentMethod\ShipmentMethodRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SalesQuote;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

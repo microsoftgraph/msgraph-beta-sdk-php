@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrengths\Policies\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\AuthenticationStrengths\Policies\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrengths\Policies\Item\CombinationConfigurations\CombinationConfigurationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrengths\Policies\Item\UpdateAllowedCombinations\UpdateAllowedCombinationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrengths\Policies\Item\Usage\UsageRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AuthenticationStrengthPolicy;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\AuthenticationStrengths\Policies\Item\CombinationConfigurations\CombinationConfigurationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\AuthenticationStrengths\Policies\Item\UpdateAllowedCombinations\UpdateAllowedCombinationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\AuthenticationStrengths\Policies\Item\Usage\UsageRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AuthenticationStrengthPolicy;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\RoleScopeTags\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags\Item\Assign\AssignRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\RoleScopeTag;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\RoleScopeTags\Item\Assign\AssignRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\RoleScopeTags\Item\Assignments\AssignmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\RoleScopeTag;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetingsWithJoinWebUrl\SendVirtualAppointmentReminderSms;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\OnlineMeetingsWithJoinWebUrl\SendVirtualAppointmentReminderSms;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

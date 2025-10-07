@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Education\Users\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Education\Users\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Education\Users\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Users\Item\Classes\ClassesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Users\Item\Rubrics\RubricsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Users\Item\Schools\SchoolsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Users\Item\TaughtClasses\TaughtClassesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Users\Item\User\UserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\EducationUser;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Education\Users\Item\Assignments\AssignmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Users\Item\Classes\ClassesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Users\Item\Rubrics\RubricsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Users\Item\Schools\SchoolsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Users\Item\TaughtClasses\TaughtClassesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Users\Item\User\UserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\EducationUser;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -109,12 +109,12 @@ class EducationUserItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the relatedContact collection of an educationUser object.
+     * Update the properties of an educationuser object.
      * @param EducationUser $body The request body
      * @param EducationUserItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationUser|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/relatedcontact-update?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/educationuser-update?view=graph-rest-beta Find more info here
     */
     public function patch(EducationUser $body, ?EducationUserItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -164,7 +164,7 @@ class EducationUserItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the relatedContact collection of an educationUser object.
+     * Update the properties of an educationuser object.
      * @param EducationUser $body The request body
      * @param EducationUserItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

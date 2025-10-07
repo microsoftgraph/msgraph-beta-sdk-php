@@ -1,22 +1,22 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Education\Me\Assignments\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\Activate\ActivateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\Categories\CategoriesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\Deactivate\DeactivateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\GradingCategory\GradingCategoryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\GradingScheme\GradingSchemeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\Publish\PublishRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\Resources\ResourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\Rubric\RubricRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\SetUpFeedbackResourcesFolder\SetUpFeedbackResourcesFolderRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\SetUpResourcesFolder\SetUpResourcesFolderRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\Submissions\SubmissionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\EducationAssignment;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Education\Me\Assignments\Item\Activate\ActivateRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Me\Assignments\Item\Categories\CategoriesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Me\Assignments\Item\Deactivate\DeactivateRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Me\Assignments\Item\GradingCategory\GradingCategoryRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Me\Assignments\Item\GradingScheme\GradingSchemeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Me\Assignments\Item\Publish\PublishRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Me\Assignments\Item\Resources\ResourcesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Me\Assignments\Item\Rubric\RubricRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Me\Assignments\Item\SetUpFeedbackResourcesFolder\SetUpFeedbackResourcesFolderRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Me\Assignments\Item\SetUpResourcesFolder\SetUpResourcesFolderRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Me\Assignments\Item\Submissions\SubmissionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\EducationAssignment;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

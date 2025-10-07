@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ImportedDeviceIdentities;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ImportedDeviceIdentities;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

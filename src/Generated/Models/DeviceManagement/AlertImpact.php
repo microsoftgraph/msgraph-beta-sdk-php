@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\DeviceManagement;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagement;
 
-use Microsoft\Graph\Beta\Generated\Models\KeyValuePair;
+use Microsoft\\Graph\\Beta\\Generated\Models\KeyValuePair;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackageCustomWorkflowExtensions\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackageCustomWorkflowExtensions\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of an accessPackageAssignmentWorkflowExtension object.
+ * Read the properties and relationships of an accessPackageAssignmentRequestWorkflowExtension object.
 */
 class CustomCalloutExtensionItemRequestBuilderGetQueryParameters 
 {

@@ -1,20 +1,20 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Communications\AdhocCalls\AdhocCallsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Communications\CallRecords\CallRecordsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Communications\Calls\CallsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Communications\GetAllOnlineMeetingMessages\GetAllOnlineMeetingMessagesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Communications\GetPresencesByUserId\GetPresencesByUserIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetingConversations\OnlineMeetingConversationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\OnlineMeetingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetingsWithJoinWebUrl\OnlineMeetingsWithJoinWebUrlRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Communications\Presences\PresencesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\CloudCommunications;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Communications\AdhocCalls\AdhocCallsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Communications\CallRecords\CallRecordsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Communications\Calls\CallsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Communications\GetAllOnlineMeetingMessages\GetAllOnlineMeetingMessagesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Communications\GetPresencesByUserId\GetPresencesByUserIdRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Communications\OnlineMeetingConversations\OnlineMeetingConversationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Communications\OnlineMeetings\OnlineMeetingsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Communications\OnlineMeetingsWithJoinWebUrl\OnlineMeetingsWithJoinWebUrlRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Communications\Presences\PresencesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\CloudCommunications;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Onenote\Resources\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Onenote\Resources\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\OnenoteResource;
-use Microsoft\Graph\Beta\Generated\Users\Item\Onenote\Resources\Item\Content\ContentRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\OnenoteResource;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Onenote\Resources\Item\Content\ContentRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

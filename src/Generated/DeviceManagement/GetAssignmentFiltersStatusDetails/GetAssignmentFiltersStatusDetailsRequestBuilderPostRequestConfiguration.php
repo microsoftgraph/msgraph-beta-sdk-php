@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GetAssignmentFiltersStatusDetails;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\GetAssignmentFiltersStatusDetails;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

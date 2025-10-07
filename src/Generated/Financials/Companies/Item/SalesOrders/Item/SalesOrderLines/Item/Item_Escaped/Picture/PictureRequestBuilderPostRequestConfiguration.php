@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesOrders\Item\SalesOrderLines\Item\Item_Escaped\Picture;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesOrders\Item\SalesOrderLines\Item\Item_Escaped\Picture;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\DataLossPreventionPolicies\Evaluate;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\DataLossPreventionPolicies\Evaluate;
 
-use Microsoft\Graph\Beta\Generated\Models\DlpEvaluationInput;
-use Microsoft\Graph\Beta\Generated\Models\DlpNotification;
+use Microsoft\\Graph\\Beta\\Generated\Models\DlpEvaluationInput;
+use Microsoft\\Graph\\Beta\\Generated\Models\DlpNotification;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

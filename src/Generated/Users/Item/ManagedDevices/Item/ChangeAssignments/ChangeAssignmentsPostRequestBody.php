@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\ChangeAssignments;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\ManagedDevices\Item\ChangeAssignments;
 
-use Microsoft\Graph\Beta\Generated\Models\DeviceAssignmentItem;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceAssignmentItem;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

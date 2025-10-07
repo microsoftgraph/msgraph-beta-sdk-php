@@ -1,11 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Teams\Policy;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Teams\Policy;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TeamsAdministration\TeamsPolicyAssignment;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Teams\Policy\MicrosoftGraphTeamsAdministrationGetPolicyIdWithTypeWithName\MicrosoftGraphTeamsAdministrationGetPolicyIdWithTypeWithNameRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Teams\Policy\UserAssignments\UserAssignmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TeamsAdministration\TeamsPolicyAssignment;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -16,6 +18,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class PolicyRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the userAssignments property of the microsoft.graph.teamsAdministration.teamsPolicyAssignment entity.
+    */
+    public function userAssignments(): UserAssignmentsRequestBuilder {
+        return new UserAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new PolicyRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
@@ -56,6 +65,16 @@ class PolicyRequestBuilder extends BaseRequestBuilder
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [TeamsPolicyAssignment::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to call the getPolicyId method.
+     * @param string $name Usage: name='{name}'
+     * @param string $type Usage: type='{type}'
+     * @return MicrosoftGraphTeamsAdministrationGetPolicyIdWithTypeWithNameRequestBuilder
+    */
+    public function microsoftGraphTeamsAdministrationGetPolicyIdWithTypeWithName(string $name, string $type): MicrosoftGraphTeamsAdministrationGetPolicyIdWithTypeWithNameRequestBuilder {
+        return new MicrosoftGraphTeamsAdministrationGetPolicyIdWithTypeWithNameRequestBuilder($this->pathParameters, $this->requestAdapter, $name, $type);
     }
 
     /**

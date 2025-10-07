@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\DeletedItems\Policies\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\DeletedItems\Policies\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\EmbeddedSIMActivationCodePools\Item\Assignments;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\EmbeddedSIMActivationCodePools\Item\Assignments;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

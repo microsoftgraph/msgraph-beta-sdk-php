@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\Methods\Item\DisableSmsSignIn;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Authentication\Methods\Item\DisableSmsSignIn;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Storage\Settings\Quota;
+namespace Microsoft\\Graph\\Beta\\Generated\Storage\Settings\Quota;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UnifiedStorageQuota;
-use Microsoft\Graph\Beta\Generated\Storage\Settings\Quota\Services\ServicesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UnifiedStorageQuota;
+use Microsoft\\Graph\\Beta\\Generated\Storage\Settings\Quota\Services\ServicesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

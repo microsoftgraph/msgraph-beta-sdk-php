@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\GetByPathWithPath\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\GetByPathWithPath\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

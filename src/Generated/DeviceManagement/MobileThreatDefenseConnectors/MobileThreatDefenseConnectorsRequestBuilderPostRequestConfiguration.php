@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\MobileThreatDefenseConnectors;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\MobileThreatDefenseConnectors;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

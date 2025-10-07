@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ElevationRequests\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ElevationRequests\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ElevationRequests\Item\Approve\ApproveRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ElevationRequests\Item\Deny\DenyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ElevationRequests\Item\GetAllElevationRequests\GetAllElevationRequestsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ElevationRequests\Item\Revoke\RevokeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PrivilegeManagementElevationRequest;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ElevationRequests\Item\Approve\ApproveRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ElevationRequests\Item\Deny\DenyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ElevationRequests\Item\GetAllElevationRequests\GetAllElevationRequestsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ElevationRequests\Item\Revoke\RevokeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PrivilegeManagementElevationRequest;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

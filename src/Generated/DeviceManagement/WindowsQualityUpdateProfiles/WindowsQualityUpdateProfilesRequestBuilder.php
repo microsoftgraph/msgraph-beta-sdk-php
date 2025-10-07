@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdateProfiles;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\WindowsQualityUpdateProfiles;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdateProfiles\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdateProfiles\Item\WindowsQualityUpdateProfileItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\WindowsQualityUpdateProfile;
-use Microsoft\Graph\Beta\Generated\Models\WindowsQualityUpdateProfileCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\WindowsQualityUpdateProfiles\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\WindowsQualityUpdateProfiles\Item\WindowsQualityUpdateProfileItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsQualityUpdateProfile;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsQualityUpdateProfileCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

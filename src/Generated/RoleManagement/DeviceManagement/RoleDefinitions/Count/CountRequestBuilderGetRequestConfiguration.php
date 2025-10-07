@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleDefinitions\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\DeviceManagement\RoleDefinitions\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

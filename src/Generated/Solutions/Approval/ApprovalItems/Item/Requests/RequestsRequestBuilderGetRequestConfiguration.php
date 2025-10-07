@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\Approval\ApprovalItems\Item\Requests;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\Approval\ApprovalItems\Item\Requests;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

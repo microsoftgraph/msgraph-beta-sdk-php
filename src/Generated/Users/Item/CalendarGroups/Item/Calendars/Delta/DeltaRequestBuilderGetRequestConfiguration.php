@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\CalendarGroups\Item\Calendars\Delta;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\CalendarGroups\Item\Calendars\Delta;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

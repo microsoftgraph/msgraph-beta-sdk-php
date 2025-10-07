@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\External\IndustryData\Years;
+namespace Microsoft\\Graph\\Beta\\Generated\External\IndustryData\Years;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\Years\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\Years\Item\YearTimePeriodDefinitionItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\IndustryData\YearTimePeriodDefinition;
-use Microsoft\Graph\Beta\Generated\Models\IndustryData\YearTimePeriodDefinitionCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\External\IndustryData\Years\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\External\IndustryData\Years\Item\YearTimePeriodDefinitionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\IndustryData\YearTimePeriodDefinition;
+use Microsoft\\Graph\\Beta\\Generated\Models\IndustryData\YearTimePeriodDefinitionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

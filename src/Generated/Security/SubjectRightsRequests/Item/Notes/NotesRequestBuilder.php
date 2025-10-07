@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\Item\Notes;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\SubjectRightsRequests\Item\Notes;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\AuthoredNote;
-use Microsoft\Graph\Beta\Generated\Models\AuthoredNoteCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\Item\Notes\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\Item\Notes\Item\AuthoredNoteItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AuthoredNote;
+use Microsoft\\Graph\\Beta\\Generated\Models\AuthoredNoteCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Security\SubjectRightsRequests\Item\Notes\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\SubjectRightsRequests\Item\Notes\Item\AuthoredNoteItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

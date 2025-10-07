@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\Planner\Plans\Item\Archive;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\Item\Channels\Item\Planner\Plans\Item\Archive;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

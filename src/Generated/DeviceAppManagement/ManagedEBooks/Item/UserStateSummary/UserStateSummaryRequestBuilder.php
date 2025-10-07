@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedEBooks\Item\UserStateSummary;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\ManagedEBooks\Item\UserStateSummary;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedEBooks\Item\UserStateSummary\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedEBooks\Item\UserStateSummary\Item\UserInstallStateSummaryItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UserInstallStateSummary;
-use Microsoft\Graph\Beta\Generated\Models\UserInstallStateSummaryCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\ManagedEBooks\Item\UserStateSummary\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\ManagedEBooks\Item\UserStateSummary\Item\UserInstallStateSummaryItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UserInstallStateSummary;
+use Microsoft\\Graph\\Beta\\Generated\Models\UserInstallStateSummaryCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

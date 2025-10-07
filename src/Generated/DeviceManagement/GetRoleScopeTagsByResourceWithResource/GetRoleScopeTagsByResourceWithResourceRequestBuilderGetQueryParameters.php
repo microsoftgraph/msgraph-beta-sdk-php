@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GetRoleScopeTagsByResourceWithResource;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\GetRoleScopeTagsByResourceWithResource;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

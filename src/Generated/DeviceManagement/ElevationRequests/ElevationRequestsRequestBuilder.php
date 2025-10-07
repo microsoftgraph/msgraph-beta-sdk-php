@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ElevationRequests;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ElevationRequests;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ElevationRequests\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ElevationRequests\Item\PrivilegeManagementElevationRequestItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PrivilegeManagementElevationRequest;
-use Microsoft\Graph\Beta\Generated\Models\PrivilegeManagementElevationRequestCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ElevationRequests\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ElevationRequests\Item\PrivilegeManagementElevationRequestItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PrivilegeManagementElevationRequest;
+use Microsoft\\Graph\\Beta\\Generated\Models\PrivilegeManagementElevationRequestCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

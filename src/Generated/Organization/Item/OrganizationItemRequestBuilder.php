@@ -1,22 +1,22 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Organization\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Organization\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Organization;
-use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\BrandingRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\CertificateBasedAuthConfiguration\CertificateBasedAuthConfigurationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\Extensions\ExtensionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\PartnerInformation\PartnerInformationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\Restore\RestoreRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\SetMobileDeviceManagementAuthority\SetMobileDeviceManagementAuthorityRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\SettingsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Organization;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\Branding\BrandingRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\CertificateBasedAuthConfiguration\CertificateBasedAuthConfigurationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\Extensions\ExtensionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\PartnerInformation\PartnerInformationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\Restore\RestoreRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\SetMobileDeviceManagementAuthority\SetMobileDeviceManagementAuthorityRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\Settings\SettingsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

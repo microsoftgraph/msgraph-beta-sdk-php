@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Organization\Item\Settings\ContactInsights;
+namespace Microsoft\\Graph\\Beta\\Generated\Organization\Item\Settings\ContactInsights;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

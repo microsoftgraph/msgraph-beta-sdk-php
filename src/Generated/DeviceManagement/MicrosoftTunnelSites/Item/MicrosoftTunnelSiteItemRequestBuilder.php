@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelSites\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\MicrosoftTunnelSites\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelSites\Item\MicrosoftTunnelConfiguration\MicrosoftTunnelConfigurationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelSites\Item\MicrosoftTunnelServers\MicrosoftTunnelServersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelSites\Item\RequestUpgrade\RequestUpgradeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\MicrosoftTunnelSite;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\MicrosoftTunnelSites\Item\MicrosoftTunnelConfiguration\MicrosoftTunnelConfigurationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\MicrosoftTunnelSites\Item\MicrosoftTunnelServers\MicrosoftTunnelServersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\MicrosoftTunnelSites\Item\RequestUpgrade\RequestUpgradeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\MicrosoftTunnelSite;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

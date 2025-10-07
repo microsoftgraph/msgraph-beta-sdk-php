@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\ManagedAppLogCollectionRequests;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\ManagedAppLogCollectionRequests;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ManagedAppLogCollectionRequest;
-use Microsoft\Graph\Beta\Generated\Models\ManagedAppLogCollectionRequestCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\ManagedAppLogCollectionRequests\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\ManagedAppLogCollectionRequests\Item\ManagedAppLogCollectionRequestItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ManagedAppLogCollectionRequest;
+use Microsoft\\Graph\\Beta\\Generated\Models\ManagedAppLogCollectionRequestCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\ManagedAppLogCollectionRequests\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\ManagedAppLogCollectionRequests\Item\ManagedAppLogCollectionRequestItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

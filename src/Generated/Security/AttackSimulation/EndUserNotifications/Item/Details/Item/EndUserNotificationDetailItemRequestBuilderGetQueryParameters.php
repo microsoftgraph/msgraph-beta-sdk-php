@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\AttackSimulation\EndUserNotifications\Item\Details\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\AttackSimulation\EndUserNotifications\Item\Details\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

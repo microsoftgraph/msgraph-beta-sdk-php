@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RiskyUsers\Item\History\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\RiskyUsers\Item\History\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

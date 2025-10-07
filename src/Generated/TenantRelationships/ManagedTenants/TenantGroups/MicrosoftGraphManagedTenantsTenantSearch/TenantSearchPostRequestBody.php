@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantGroups\MicrosoftGraphManagedTenantsTenantSearch;
+namespace Microsoft\\Graph\\Beta\\Generated\TenantRelationships\ManagedTenants\TenantGroups\MicrosoftGraphManagedTenantsTenantSearch;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

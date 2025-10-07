@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaConnector\Disconnect;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ZebraFotaConnector\Disconnect;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

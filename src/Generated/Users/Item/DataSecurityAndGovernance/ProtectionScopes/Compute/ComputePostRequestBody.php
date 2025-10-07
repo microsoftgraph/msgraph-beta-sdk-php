@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\DataSecurityAndGovernance\ProtectionScopes\Compute;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\DataSecurityAndGovernance\ProtectionScopes\Compute;
 
-use Microsoft\Graph\Beta\Generated\Models\DeviceMetadata;
-use Microsoft\Graph\Beta\Generated\Models\IntegratedApplicationMetadata;
-use Microsoft\Graph\Beta\Generated\Models\PolicyLocation;
-use Microsoft\Graph\Beta\Generated\Models\PolicyPivotProperty;
-use Microsoft\Graph\Beta\Generated\Models\UserActivityTypes;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceMetadata;
+use Microsoft\\Graph\\Beta\\Generated\Models\IntegratedApplicationMetadata;
+use Microsoft\\Graph\\Beta\\Generated\Models\PolicyLocation;
+use Microsoft\\Graph\\Beta\\Generated\Models\PolicyPivotProperty;
+use Microsoft\\Graph\\Beta\\Generated\Models\UserActivityTypes;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoiceLines\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesInvoiceLines\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

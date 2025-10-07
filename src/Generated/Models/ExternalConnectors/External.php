@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\ExternalConnectors;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\ExternalConnectors;
 
-use Microsoft\Graph\Beta\Generated\Models\AuthorizationSystem;
-use Microsoft\Graph\Beta\Generated\Models\IndustryData\IndustryDataRoot;
+use Microsoft\\Graph\\Beta\\Generated\Models\AuthorizationSystem;
+use Microsoft\\Graph\\Beta\\Generated\Models\IndustryData\IndustryDataRoot;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

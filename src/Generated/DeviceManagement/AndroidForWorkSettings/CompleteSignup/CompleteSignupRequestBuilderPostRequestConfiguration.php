@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkSettings\CompleteSignup;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidForWorkSettings\CompleteSignup;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

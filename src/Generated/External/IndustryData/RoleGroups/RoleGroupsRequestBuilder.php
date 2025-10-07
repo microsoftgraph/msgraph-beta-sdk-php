@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\External\IndustryData\RoleGroups;
+namespace Microsoft\\Graph\\Beta\\Generated\External\IndustryData\RoleGroups;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\RoleGroups\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\RoleGroups\Item\RoleGroupItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\IndustryData\RoleGroup;
-use Microsoft\Graph\Beta\Generated\Models\IndustryData\RoleGroupCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\External\IndustryData\RoleGroups\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\External\IndustryData\RoleGroups\Item\RoleGroupItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\IndustryData\RoleGroup;
+use Microsoft\\Graph\\Beta\\Generated\Models\IndustryData\RoleGroupCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

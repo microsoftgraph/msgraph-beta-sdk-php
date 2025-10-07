@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DataClassification\EvaluateLabelJobs;
+namespace Microsoft\\Graph\\Beta\\Generated\DataClassification\EvaluateLabelJobs;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

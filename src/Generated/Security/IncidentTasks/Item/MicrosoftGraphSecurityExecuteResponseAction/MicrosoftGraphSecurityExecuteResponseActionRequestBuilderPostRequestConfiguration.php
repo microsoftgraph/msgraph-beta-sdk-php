@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\IncidentTasks\Item\MicrosoftGraphSecurityExecuteResponseAction;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\IncidentTasks\Item\MicrosoftGraphSecurityExecuteResponseAction;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

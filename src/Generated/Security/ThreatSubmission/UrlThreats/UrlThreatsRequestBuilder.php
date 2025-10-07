@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\UrlThreats;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\ThreatSubmission\UrlThreats;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\UrlThreatSubmission;
-use Microsoft\Graph\Beta\Generated\Models\Security\UrlThreatSubmissionCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\UrlThreats\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\UrlThreats\Item\UrlThreatSubmissionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\UrlThreatSubmission;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\UrlThreatSubmissionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Security\ThreatSubmission\UrlThreats\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\ThreatSubmission\UrlThreats\Item\UrlThreatSubmissionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

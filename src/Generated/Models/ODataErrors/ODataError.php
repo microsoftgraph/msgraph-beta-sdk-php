@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\ODataErrors;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors;
 
 use Microsoft\Kiota\Abstractions\ApiException;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;

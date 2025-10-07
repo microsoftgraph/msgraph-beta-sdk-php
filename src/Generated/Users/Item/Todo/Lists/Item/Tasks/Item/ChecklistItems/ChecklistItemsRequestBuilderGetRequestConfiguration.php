@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Todo\Lists\Item\Tasks\Item\ChecklistItems;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Todo\Lists\Item\Tasks\Item\ChecklistItems;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

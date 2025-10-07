@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsDriverUpdateAlertsPerPolicyPerDeviceReport;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Reports\GetWindowsDriverUpdateAlertsPerPolicyPerDeviceReport;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

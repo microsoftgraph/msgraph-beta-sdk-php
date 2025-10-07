@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityEvaluateApplication;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityEvaluateApplication;
 
-use Microsoft\Graph\Beta\Generated\Models\Security\ContentInfo;
-use Microsoft\Graph\Beta\Generated\Models\Security\LabelingOptions;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\ContentInfo;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\LabelingOptions;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

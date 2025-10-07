@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\FederatedTokenValidationPolicy;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\FederatedTokenValidationPolicy;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\FederatedTokenValidationPolicy;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\FederatedTokenValidationPolicy;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -45,11 +45,11 @@ class FederatedTokenValidationPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the federatedTokenValidationPolicy objects and their properties.
+     * Read the properties and relationships of a federatedTokenValidationPolicy object.
      * @param FederatedTokenValidationPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FederatedTokenValidationPolicy|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/policyroot-list-federatedtokenvalidationpolicy?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/federatedtokenvalidationpolicy-get?view=graph-rest-beta Find more info here
     */
     public function get(?FederatedTokenValidationPolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -94,7 +94,7 @@ class FederatedTokenValidationPolicyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the federatedTokenValidationPolicy objects and their properties.
+     * Read the properties and relationships of a federatedTokenValidationPolicy object.
      * @param FederatedTokenValidationPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

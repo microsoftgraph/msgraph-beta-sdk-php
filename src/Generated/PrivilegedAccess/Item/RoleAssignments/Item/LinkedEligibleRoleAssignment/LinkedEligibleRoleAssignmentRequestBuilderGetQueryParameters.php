@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\PrivilegedAccess\Item\RoleAssignments\Item\LinkedEligibleRoleAssignment;
+namespace Microsoft\\Graph\\Beta\\Generated\PrivilegedAccess\Item\RoleAssignments\Item\LinkedEligibleRoleAssignment;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

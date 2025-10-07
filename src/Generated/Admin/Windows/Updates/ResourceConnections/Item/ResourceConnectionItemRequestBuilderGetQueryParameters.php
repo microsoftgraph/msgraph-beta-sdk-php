@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\ResourceConnections\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\ResourceConnections\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a resourceConnection object.
+ * Read the properties and relationships of an operationalInsightsConnection object.
 */
 class ResourceConnectionItemRequestBuilderGetQueryParameters 
 {

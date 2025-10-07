@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRecords;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Monitoring\AlertRecords;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRecords\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRecords\Item\AlertRecordItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRecords\MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSent\MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSentRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRecords\MicrosoftGraphDeviceManagementGetPortalNotifications\MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagement\AlertRecord;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagement\AlertRecordCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Monitoring\AlertRecords\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Monitoring\AlertRecords\Item\AlertRecordItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Monitoring\AlertRecords\MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSent\MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSentRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Monitoring\AlertRecords\MicrosoftGraphDeviceManagementGetPortalNotifications\MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagement\AlertRecord;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagement\AlertRecordCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

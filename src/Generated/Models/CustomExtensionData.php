@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
-use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\CustomTaskExtensionCallbackData;
-use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\CustomTaskExtensionCalloutData;
+use Microsoft\\Graph\\Beta\\Generated\Models\IdentityGovernance\CustomTaskExtensionCallbackData;
+use Microsoft\\Graph\\Beta\\Generated\Models\IdentityGovernance\CustomTaskExtensionCalloutData;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

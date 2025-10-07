@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AccessReviewDecisions;
+namespace Microsoft\\Graph\\Beta\\Generated\AccessReviewDecisions;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

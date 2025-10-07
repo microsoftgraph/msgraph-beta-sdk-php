@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\RevokeSignInSessions;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\RevokeSignInSessions;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

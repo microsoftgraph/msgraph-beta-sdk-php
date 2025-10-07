@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\GetEmailAppUsageUserCountsWithPeriod;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\GetEmailAppUsageUserCountsWithPeriod;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

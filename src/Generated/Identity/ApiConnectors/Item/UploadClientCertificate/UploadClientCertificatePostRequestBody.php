@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\ApiConnectors\Item\UploadClientCertificate;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\ApiConnectors\Item\UploadClientCertificate;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

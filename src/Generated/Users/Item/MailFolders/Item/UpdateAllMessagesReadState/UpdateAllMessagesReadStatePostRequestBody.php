@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\UpdateAllMessagesReadState;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\MailFolders\Item\UpdateAllMessagesReadState;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

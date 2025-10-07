@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\ContentModels\Item\GetAppliedDrives;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\ContentModels\Item\GetAppliedDrives;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

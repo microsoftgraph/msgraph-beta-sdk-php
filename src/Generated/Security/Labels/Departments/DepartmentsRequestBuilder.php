@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Labels\Departments;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Labels\Departments;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\DepartmentTemplate;
-use Microsoft\Graph\Beta\Generated\Models\Security\DepartmentTemplateCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Security\Labels\Departments\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Labels\Departments\Item\DepartmentTemplateItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\DepartmentTemplate;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\DepartmentTemplateCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Security\Labels\Departments\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Labels\Departments\Item\DepartmentTemplateItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

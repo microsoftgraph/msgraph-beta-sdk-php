@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\GetAttackSimulationTrainingUserCoverage;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\GetAttackSimulationTrainingUserCoverage;
 
-use Microsoft\Graph\Beta\Generated\Models\AttackSimulationTrainingUserCoverage;
-use Microsoft\Graph\Beta\Generated\Models\BaseCollectionPaginationCountResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\AttackSimulationTrainingUserCoverage;
+use Microsoft\\Graph\\Beta\\Generated\Models\BaseCollectionPaginationCountResponse;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;

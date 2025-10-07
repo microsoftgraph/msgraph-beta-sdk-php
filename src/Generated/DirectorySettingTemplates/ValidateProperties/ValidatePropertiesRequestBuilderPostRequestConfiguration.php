@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DirectorySettingTemplates\ValidateProperties;
+namespace Microsoft\\Graph\\Beta\\Generated\DirectorySettingTemplates\ValidateProperties;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

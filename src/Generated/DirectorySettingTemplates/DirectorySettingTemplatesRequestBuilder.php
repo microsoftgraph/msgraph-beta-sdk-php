@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DirectorySettingTemplates;
+namespace Microsoft\\Graph\\Beta\\Generated\DirectorySettingTemplates;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DirectorySettingTemplates\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DirectorySettingTemplates\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DirectorySettingTemplates\GetByIds\GetByIdsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DirectorySettingTemplates\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DirectorySettingTemplates\Item\DirectorySettingTemplateItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DirectorySettingTemplates\ValidateProperties\ValidatePropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DirectorySettingTemplate;
-use Microsoft\Graph\Beta\Generated\Models\DirectorySettingTemplateCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DirectorySettingTemplates\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DirectorySettingTemplates\Delta\DeltaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DirectorySettingTemplates\GetByIds\GetByIdsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DirectorySettingTemplates\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DirectorySettingTemplates\Item\DirectorySettingTemplateItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DirectorySettingTemplates\ValidateProperties\ValidatePropertiesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DirectorySettingTemplate;
+use Microsoft\\Graph\\Beta\\Generated\Models\DirectorySettingTemplateCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\ContentModels\Item\RemoveFromDrive;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\ContentModels\Item\RemoveFromDrive;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

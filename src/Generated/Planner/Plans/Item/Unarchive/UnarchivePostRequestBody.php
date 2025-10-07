@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Planner\Plans\Item\Unarchive;
+namespace Microsoft\\Graph\\Beta\\Generated\Planner\Plans\Item\Unarchive;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

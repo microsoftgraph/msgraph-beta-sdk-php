@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\HostPairs\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\ThreatIntelligence\HostPairs\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\HostPair;
-use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\HostPairs\Item\ChildHost\ChildHostRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\HostPairs\Item\ParentHost\ParentHostRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\HostPair;
+use Microsoft\\Graph\\Beta\\Generated\Security\ThreatIntelligence\HostPairs\Item\ChildHost\ChildHostRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\ThreatIntelligence\HostPairs\Item\ParentHost\ParentHostRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

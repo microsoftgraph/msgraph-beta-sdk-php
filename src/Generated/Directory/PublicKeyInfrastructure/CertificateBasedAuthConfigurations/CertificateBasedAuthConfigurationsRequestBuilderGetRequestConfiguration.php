@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\PublicKeyInfrastructure\CertificateBasedAuthConfigurations;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\PublicKeyInfrastructure\CertificateBasedAuthConfigurations;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

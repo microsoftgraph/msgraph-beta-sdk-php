@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\ValidatePermission;
+namespace Microsoft\\Graph\\Beta\\Generated\Drives\Item\Items\Item\ValidatePermission;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

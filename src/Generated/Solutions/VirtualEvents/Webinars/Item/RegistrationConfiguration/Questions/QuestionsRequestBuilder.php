@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\RegistrationConfiguration\Questions;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Webinars\Item\RegistrationConfiguration\Questions;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\VirtualEventRegistrationQuestionBase;
-use Microsoft\Graph\Beta\Generated\Models\VirtualEventRegistrationQuestionBaseCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\RegistrationConfiguration\Questions\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\RegistrationConfiguration\Questions\Item\VirtualEventRegistrationQuestionBaseItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\VirtualEventRegistrationQuestionBase;
+use Microsoft\\Graph\\Beta\\Generated\Models\VirtualEventRegistrationQuestionBaseCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Webinars\Item\RegistrationConfiguration\Questions\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Webinars\Item\RegistrationConfiguration\Questions\Item\VirtualEventRegistrationQuestionBaseItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

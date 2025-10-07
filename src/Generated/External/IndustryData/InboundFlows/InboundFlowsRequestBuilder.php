@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\External\IndustryData\InboundFlows;
+namespace Microsoft\\Graph\\Beta\\Generated\External\IndustryData\InboundFlows;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\InboundFlows\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\InboundFlows\Item\InboundFlowItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\IndustryData\InboundFlow;
-use Microsoft\Graph\Beta\Generated\Models\IndustryData\InboundFlowCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\External\IndustryData\InboundFlows\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\External\IndustryData\InboundFlows\Item\InboundFlowItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\IndustryData\InboundFlow;
+use Microsoft\\Graph\\Beta\\Generated\Models\IndustryData\InboundFlowCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

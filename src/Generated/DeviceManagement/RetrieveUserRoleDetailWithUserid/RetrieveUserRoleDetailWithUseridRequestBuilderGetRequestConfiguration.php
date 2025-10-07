@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\RetrieveUserRoleDetailWithUserid;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\RetrieveUserRoleDetailWithUserid;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

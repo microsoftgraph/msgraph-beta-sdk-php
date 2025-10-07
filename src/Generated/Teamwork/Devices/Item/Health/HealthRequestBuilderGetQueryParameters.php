@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\Health;
+namespace Microsoft\\Graph\\Beta\\Generated\Teamwork\Devices\Item\Health;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

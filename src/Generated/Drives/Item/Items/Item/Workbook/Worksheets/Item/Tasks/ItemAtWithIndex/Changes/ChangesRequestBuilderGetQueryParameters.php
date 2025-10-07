@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Worksheets\Item\Tasks\ItemAtWithIndex\Changes;
+namespace Microsoft\\Graph\\Beta\\Generated\Drives\Item\Items\Item\Workbook\Worksheets\Item\Tasks\ItemAtWithIndex\Changes;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

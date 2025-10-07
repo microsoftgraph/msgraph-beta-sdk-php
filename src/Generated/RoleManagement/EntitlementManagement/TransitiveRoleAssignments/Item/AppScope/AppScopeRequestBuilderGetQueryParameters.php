@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\TransitiveRoleAssignments\Item\AppScope;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\EntitlementManagement\TransitiveRoleAssignments\Item\AppScope;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

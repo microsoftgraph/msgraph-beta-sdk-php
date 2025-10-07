@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\FederatedIdentityCredentials;
+namespace Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\FederatedIdentityCredentials;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\HealthMonitoring\AlertConfigurations\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\HealthMonitoring\AlertConfigurations\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

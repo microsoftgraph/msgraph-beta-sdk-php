@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\People\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\People\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

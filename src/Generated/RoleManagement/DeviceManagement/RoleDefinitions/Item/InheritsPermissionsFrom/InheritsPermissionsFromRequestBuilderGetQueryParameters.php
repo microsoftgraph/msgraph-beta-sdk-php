@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleDefinitions\Item\InheritsPermissionsFrom;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\DeviceManagement\RoleDefinitions\Item\InheritsPermissionsFrom;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

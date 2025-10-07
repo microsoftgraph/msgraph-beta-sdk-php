@@ -1,20 +1,20 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\Messages;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\ServiceAnnouncement\Messages;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\Messages\Archive\ArchiveRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\Messages\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\Messages\Favorite\FavoriteRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\Messages\Item\ServiceUpdateMessageItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\Messages\MarkRead\MarkReadRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\Messages\MarkUnread\MarkUnreadRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\Messages\Unarchive\UnarchiveRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\Messages\Unfavorite\UnfavoriteRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\ServiceUpdateMessage;
-use Microsoft\Graph\Beta\Generated\Models\ServiceUpdateMessageCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Admin\ServiceAnnouncement\Messages\Archive\ArchiveRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\ServiceAnnouncement\Messages\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\ServiceAnnouncement\Messages\Favorite\FavoriteRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\ServiceAnnouncement\Messages\Item\ServiceUpdateMessageItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\ServiceAnnouncement\Messages\MarkRead\MarkReadRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\ServiceAnnouncement\Messages\MarkUnread\MarkUnreadRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\ServiceAnnouncement\Messages\Unarchive\UnarchiveRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\ServiceAnnouncement\Messages\Unfavorite\UnfavoriteRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\ServiceUpdateMessage;
+use Microsoft\\Graph\\Beta\\Generated\Models\ServiceUpdateMessageCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

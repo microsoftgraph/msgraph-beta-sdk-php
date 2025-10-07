@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\NamedLocations\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\NamedLocations\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\NamedLocations\Item\Restore\RestoreRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\NamedLocation;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\NamedLocations\Item\Restore\RestoreRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\NamedLocation;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -39,11 +39,11 @@ class NamedLocationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a namedLocation object.
+     * Delete a countryNamedLocation object.
      * @param NamedLocationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/namedlocation-delete?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/countrynamedlocation-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?NamedLocationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -54,11 +54,11 @@ class NamedLocationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an ipNamedLocation object.
+     * Read the properties and relationships of a compliantNetworkNamedLocation object.
      * @param NamedLocationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<NamedLocation|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/ipnamedlocation-get?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/compliantnetworknamedlocation-get?view=graph-rest-beta Find more info here
     */
     public function get(?NamedLocationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -85,7 +85,7 @@ class NamedLocationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a namedLocation object.
+     * Delete a countryNamedLocation object.
      * @param NamedLocationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -103,7 +103,7 @@ class NamedLocationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of an ipNamedLocation object.
+     * Read the properties and relationships of a compliantNetworkNamedLocation object.
      * @param NamedLocationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

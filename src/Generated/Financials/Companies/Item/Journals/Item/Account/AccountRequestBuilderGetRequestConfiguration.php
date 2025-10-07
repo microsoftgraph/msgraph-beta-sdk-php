@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Journals\Item\Account;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\Journals\Item\Account;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

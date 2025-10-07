@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\MacOSSoftwareUpdateAccountSummaries\Item\CategorySummaries;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\MacOSSoftwareUpdateAccountSummaries\Item\CategorySummaries;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

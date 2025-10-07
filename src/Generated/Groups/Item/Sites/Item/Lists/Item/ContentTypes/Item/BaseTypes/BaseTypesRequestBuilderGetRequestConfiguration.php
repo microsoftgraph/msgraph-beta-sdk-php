@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\Lists\Item\ContentTypes\Item\BaseTypes;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\Lists\Item\ContentTypes\Item\BaseTypes;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

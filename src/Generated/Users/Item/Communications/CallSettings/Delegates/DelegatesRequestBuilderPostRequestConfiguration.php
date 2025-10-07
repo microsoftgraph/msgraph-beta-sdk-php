@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Communications\CallSettings\Delegates;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Communications\CallSettings\Delegates;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

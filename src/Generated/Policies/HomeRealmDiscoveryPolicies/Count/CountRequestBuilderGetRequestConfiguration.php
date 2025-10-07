@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\HomeRealmDiscoveryPolicies\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\HomeRealmDiscoveryPolicies\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

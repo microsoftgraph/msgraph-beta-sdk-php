@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BookingBusinesses\Item\Appointments\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BookingBusinesses\Item\Appointments\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

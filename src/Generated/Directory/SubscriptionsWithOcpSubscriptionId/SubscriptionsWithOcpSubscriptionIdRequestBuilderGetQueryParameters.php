@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\SubscriptionsWithOcpSubscriptionId;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\SubscriptionsWithOcpSubscriptionId;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

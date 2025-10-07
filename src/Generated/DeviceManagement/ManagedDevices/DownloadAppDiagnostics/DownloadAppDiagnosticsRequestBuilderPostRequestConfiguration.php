@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\DownloadAppDiagnostics;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ManagedDevices\DownloadAppDiagnostics;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

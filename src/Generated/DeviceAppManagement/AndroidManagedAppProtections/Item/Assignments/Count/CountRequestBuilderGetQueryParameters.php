@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\AndroidManagedAppProtections\Item\Assignments\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\AndroidManagedAppProtections\Item\Assignments\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

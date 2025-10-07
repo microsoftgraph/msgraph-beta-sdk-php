@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Education\Classes\Item\Modules\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Education\Classes\Item\Modules\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Modules\Item\Pin\PinRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Modules\Item\Publish\PublishRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Modules\Item\Resources\ResourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Modules\Item\SetUpResourcesFolder\SetUpResourcesFolderRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Modules\Item\Unpin\UnpinRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\EducationModule;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Education\Classes\Item\Modules\Item\Pin\PinRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Classes\Item\Modules\Item\Publish\PublishRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Classes\Item\Modules\Item\Resources\ResourcesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Classes\Item\Modules\Item\SetUpResourcesFolder\SetUpResourcesFolderRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Classes\Item\Modules\Item\Unpin\UnpinRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\EducationModule;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

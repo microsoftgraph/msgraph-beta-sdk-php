@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\RecycleBin;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\RecycleBin;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\RecycleBin\CreatedByUser\CreatedByUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\RecycleBin\Items\ItemsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\RecycleBin\LastModifiedByUser\LastModifiedByUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\RecycleBin;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\RecycleBin\CreatedByUser\CreatedByUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\RecycleBin\Items\ItemsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\RecycleBin\LastModifiedByUser\LastModifiedByUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\RecycleBin;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

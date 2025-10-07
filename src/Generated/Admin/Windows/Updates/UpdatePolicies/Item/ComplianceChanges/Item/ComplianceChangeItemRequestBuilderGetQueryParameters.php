@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatePolicies\Item\ComplianceChanges\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\UpdatePolicies\Item\ComplianceChanges\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a contentApproval object.
+ * Read the properties and relationships of a complianceChange object.
 */
 class ComplianceChangeItemRequestBuilderGetQueryParameters 
 {

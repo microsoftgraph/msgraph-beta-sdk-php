@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\ValidateXml;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MobileApps\ValidateXml;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

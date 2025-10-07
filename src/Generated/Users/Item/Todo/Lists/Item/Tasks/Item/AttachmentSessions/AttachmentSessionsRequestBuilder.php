@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Todo\Lists\Item\Tasks\Item\AttachmentSessions;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Todo\Lists\Item\Tasks\Item\AttachmentSessions;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\AttachmentSessionCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\Todo\Lists\Item\Tasks\Item\AttachmentSessions\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Todo\Lists\Item\Tasks\Item\AttachmentSessions\Item\AttachmentSessionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AttachmentSessionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Todo\Lists\Item\Tasks\Item\AttachmentSessions\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Todo\Lists\Item\Tasks\Item\AttachmentSessions\Item\AttachmentSessionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

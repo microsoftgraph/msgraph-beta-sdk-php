@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\ResourceConnections\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\ResourceConnections\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\ResourceConnection;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsUpdates\ResourceConnection;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -46,11 +46,11 @@ class ResourceConnectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a resourceConnection object.
+     * Read the properties and relationships of an operationalInsightsConnection object.
      * @param ResourceConnectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ResourceConnection|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/windowsupdates-resourceconnection-get?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/windowsupdates-operationalinsightsconnection-get?view=graph-rest-beta Find more info here
     */
     public function get(?ResourceConnectionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -94,7 +94,7 @@ class ResourceConnectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a resourceConnection object.
+     * Read the properties and relationships of an operationalInsightsConnection object.
      * @param ResourceConnectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

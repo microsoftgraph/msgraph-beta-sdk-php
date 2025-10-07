@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Planner;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Planner;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PlannerUser;
-use Microsoft\Graph\Beta\Generated\Users\Item\Planner\All\AllRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Planner\FavoritePlans\FavoritePlansRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Planner\MyDayTasks\MyDayTasksRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Planner\Plans\PlansRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Planner\RecentPlans\RecentPlansRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Planner\RosterPlans\RosterPlansRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Planner\Tasks\TasksRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PlannerUser;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Planner\All\AllRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Planner\FavoritePlans\FavoritePlansRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Planner\MyDayTasks\MyDayTasksRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Planner\Plans\PlansRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Planner\RecentPlans\RecentPlansRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Planner\RosterPlans\RosterPlansRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Planner\Tasks\TasksRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

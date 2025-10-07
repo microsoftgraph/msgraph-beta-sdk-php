@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ApplePushNotificationCertificate;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ApplePushNotificationCertificate;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

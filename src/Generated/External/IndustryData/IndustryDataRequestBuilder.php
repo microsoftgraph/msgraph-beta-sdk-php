@@ -1,20 +1,20 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\External\IndustryData;
+namespace Microsoft\\Graph\\Beta\\Generated\External\IndustryData;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\DataConnectors\DataConnectorsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\InboundFlows\InboundFlowsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\Operations\OperationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\OutboundProvisioningFlowSets\OutboundProvisioningFlowSetsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\ReferenceDefinitions\ReferenceDefinitionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\RoleGroups\RoleGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\Runs\RunsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\SourceSystems\SourceSystemsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\IndustryData\Years\YearsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\IndustryData\IndustryDataRoot;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\External\IndustryData\DataConnectors\DataConnectorsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\External\IndustryData\InboundFlows\InboundFlowsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\External\IndustryData\Operations\OperationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\External\IndustryData\OutboundProvisioningFlowSets\OutboundProvisioningFlowSetsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\External\IndustryData\ReferenceDefinitions\ReferenceDefinitionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\External\IndustryData\RoleGroups\RoleGroupsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\External\IndustryData\Runs\RunsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\External\IndustryData\SourceSystems\SourceSystemsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\External\IndustryData\Years\YearsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\IndustryData\IndustryDataRoot;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

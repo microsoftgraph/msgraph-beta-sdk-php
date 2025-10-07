@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\CallRecords;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\CallRecords;
 
 use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

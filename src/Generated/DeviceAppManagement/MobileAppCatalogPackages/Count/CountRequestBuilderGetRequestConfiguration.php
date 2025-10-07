@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileAppCatalogPackages\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MobileAppCatalogPackages\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

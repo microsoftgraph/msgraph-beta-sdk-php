@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -80,6 +80,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
             'v13_0' => fn(ParseNode $n) => $o->setV130($n->getBooleanValue()),
             'v14_0' => fn(ParseNode $n) => $o->setV140($n->getBooleanValue()),
             'v15_0' => fn(ParseNode $n) => $o->setV150($n->getBooleanValue()),
+            'v26_0' => fn(ParseNode $n) => $o->setV260($n->getBooleanValue()),
         ];
     }
 
@@ -264,6 +265,18 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
+     * Gets the v26_0 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 26.0 or later is required to install the app. If 'False', OS X Version 26.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @return bool|null
+    */
+    public function getV260(): ?bool {
+        $val = $this->getBackingStore()->get('v26_0');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'v26_0'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -283,6 +296,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
         $writer->writeBooleanValue('v13_0', $this->getV130());
         $writer->writeBooleanValue('v14_0', $this->getV140());
         $writer->writeBooleanValue('v15_0', $this->getV150());
+        $writer->writeBooleanValue('v26_0', $this->getV260());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -420,6 +434,14 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, BackedModel, 
     */
     public function setV150(?bool $value): void {
         $this->getBackingStore()->set('v15_0', $value);
+    }
+
+    /**
+     * Sets the v26_0 property value. Indicates the minimum OS X version support required for the managed device. When 'True', macOS with OS X 26.0 or later is required to install the app. If 'False', OS X Version 26.0 is not the minimum version. Default value is False. Exactly one of the minimum operating system boolean values will be TRUE.
+     * @param bool|null $value Value to set for the v26_0 property.
+    */
+    public function setV260(?bool $value): void {
+        $this->getBackingStore()->set('v26_0', $value);
     }
 
 }

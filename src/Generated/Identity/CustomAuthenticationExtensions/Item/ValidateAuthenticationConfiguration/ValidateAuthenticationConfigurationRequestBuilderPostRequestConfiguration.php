@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\CustomAuthenticationExtensions\Item\ValidateAuthenticationConfiguration;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\CustomAuthenticationExtensions\Item\ValidateAuthenticationConfiguration;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

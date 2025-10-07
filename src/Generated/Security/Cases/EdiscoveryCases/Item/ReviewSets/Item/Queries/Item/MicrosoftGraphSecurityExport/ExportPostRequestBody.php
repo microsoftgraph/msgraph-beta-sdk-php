@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\Queries\Item\MicrosoftGraphSecurityExport;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Cases\EdiscoveryCases\Item\ReviewSets\Item\Queries\Item\MicrosoftGraphSecurityExport;
 
-use Microsoft\Graph\Beta\Generated\Models\Security\ExportFileStructure;
-use Microsoft\Graph\Beta\Generated\Models\Security\ExportOptions;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\ExportFileStructure;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\ExportOptions;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

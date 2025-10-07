@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\EvaluateAssignmentFilter;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\EvaluateAssignmentFilter;
 
-use Microsoft\Graph\Beta\Generated\Models\AssignmentFilterEvaluateRequest;
+use Microsoft\\Graph\\Beta\\Generated\Models\AssignmentFilterEvaluateRequest;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\App\Calls\Item\Participants\Item\StartHoldMusic;
+namespace Microsoft\\Graph\\Beta\\Generated\App\Calls\Item\Participants\Item\StartHoldMusic;
 
-use Microsoft\Graph\Beta\Generated\Models\Prompt;
+use Microsoft\\Graph\\Beta\\Generated\Models\Prompt;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

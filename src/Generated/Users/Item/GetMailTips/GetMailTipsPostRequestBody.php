@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\GetMailTips;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\GetMailTips;
 
-use Microsoft\Graph\Beta\Generated\Models\MailTipsType;
+use Microsoft\\Graph\\Beta\\Generated\Models\MailTipsType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

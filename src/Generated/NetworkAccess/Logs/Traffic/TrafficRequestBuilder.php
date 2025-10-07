@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\Traffic;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Logs\Traffic;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\NetworkAccessTraffic;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\NetworkAccessTrafficCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\Traffic\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\Traffic\Item\NetworkAccessTrafficTransactionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\NetworkAccessTraffic;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\NetworkAccessTrafficCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Logs\Traffic\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Logs\Traffic\Item\NetworkAccessTrafficTransactionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

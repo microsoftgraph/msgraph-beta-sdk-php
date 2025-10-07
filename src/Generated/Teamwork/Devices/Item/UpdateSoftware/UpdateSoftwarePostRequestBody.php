@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\UpdateSoftware;
+namespace Microsoft\\Graph\\Beta\\Generated\Teamwork\Devices\Item\UpdateSoftware;
 
-use Microsoft\Graph\Beta\Generated\Models\TeamworkSoftwareType;
+use Microsoft\\Graph\\Beta\\Generated\Models\TeamworkSoftwareType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

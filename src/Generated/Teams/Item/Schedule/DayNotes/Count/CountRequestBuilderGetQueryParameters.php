@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\DayNotes\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\DayNotes\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\ExportJobs\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Reports\ExportJobs\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

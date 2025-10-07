@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\PinnedMessages;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\PinnedMessages;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PinnedChatMessageInfo;
-use Microsoft\Graph\Beta\Generated\Models\PinnedChatMessageInfoCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\PinnedMessages\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\PinnedMessages\Item\PinnedChatMessageInfoItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PinnedChatMessageInfo;
+use Microsoft\\Graph\\Beta\\Generated\Models\PinnedChatMessageInfoCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\PinnedMessages\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\PinnedMessages\Item\PinnedChatMessageInfoItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

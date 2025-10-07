@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Settings;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Settings;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UserSettings;
-use Microsoft\Graph\Beta\Generated\Users\Item\Settings\ContactMergeSuggestions\ContactMergeSuggestionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Settings\Exchange\ExchangeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Settings\ItemInsights\ItemInsightsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Settings\RegionalAndLanguageSettings\RegionalAndLanguageSettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Settings\ShiftPreferences\ShiftPreferencesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Settings\Storage\StorageRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Settings\Windows\WindowsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UserSettings;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Settings\ContactMergeSuggestions\ContactMergeSuggestionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Settings\Exchange\ExchangeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Settings\ItemInsights\ItemInsightsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Settings\RegionalAndLanguageSettings\RegionalAndLanguageSettingsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Settings\ShiftPreferences\ShiftPreferencesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Settings\Storage\StorageRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Settings\Windows\WindowsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

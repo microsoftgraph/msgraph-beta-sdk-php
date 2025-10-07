@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\ScopedRoleMembers;
+namespace Microsoft\\Graph\\Beta\\Generated\AdministrativeUnits\Item\ScopedRoleMembers;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

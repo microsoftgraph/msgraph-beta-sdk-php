@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\AiInsights\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetings\Item\AiInsights\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

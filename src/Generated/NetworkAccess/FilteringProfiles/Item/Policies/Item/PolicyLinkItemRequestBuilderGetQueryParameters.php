@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\FilteringProfiles\Item\Policies\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\FilteringProfiles\Item\Policies\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a tlsInspectionPolicyLink object.
+ * Read the properties and relationships of a threatIntelligencePolicyLink object.
 */
 class PolicyLinkItemRequestBuilderGetQueryParameters 
 {

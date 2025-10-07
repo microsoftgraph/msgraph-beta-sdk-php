@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Identities\IdentityAccounts\Item\MicrosoftGraphSecurityInvokeAction;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Identities\IdentityAccounts\Item\MicrosoftGraphSecurityInvokeAction;
 
-use Microsoft\Graph\Beta\Generated\Models\Security\Action;
-use Microsoft\Graph\Beta\Generated\Models\Security\IdentityProvider;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\Action;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\IdentityProvider;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

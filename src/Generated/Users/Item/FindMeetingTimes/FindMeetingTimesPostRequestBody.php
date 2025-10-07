@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\FindMeetingTimes;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\FindMeetingTimes;
 
 use DateInterval;
-use Microsoft\Graph\Beta\Generated\Models\AttendeeBase;
-use Microsoft\Graph\Beta\Generated\Models\LocationConstraint;
-use Microsoft\Graph\Beta\Generated\Models\TimeConstraint;
+use Microsoft\\Graph\\Beta\\Generated\Models\AttendeeBase;
+use Microsoft\\Graph\\Beta\\Generated\Models\LocationConstraint;
+use Microsoft\\Graph\\Beta\\Generated\Models\TimeConstraint;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

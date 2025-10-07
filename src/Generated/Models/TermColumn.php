@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
-use Microsoft\Graph\Beta\Generated\Models\TermStore\Set;
-use Microsoft\Graph\Beta\Generated\Models\TermStore\Term;
+use Microsoft\\Graph\\Beta\\Generated\Models\TermStore\Set;
+use Microsoft\\Graph\\Beta\\Generated\Models\TermStore\Term;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

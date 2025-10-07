@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Exchange\MessageTraces\Item\Recipients\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Exchange\MessageTraces\Item\Recipients\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

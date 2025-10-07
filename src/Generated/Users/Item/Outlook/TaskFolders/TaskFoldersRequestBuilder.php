@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskFolders;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Outlook\TaskFolders;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\OutlookTaskFolder;
-use Microsoft\Graph\Beta\Generated\Models\OutlookTaskFolderCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskFolders\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskFolders\Item\OutlookTaskFolderItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\OutlookTaskFolder;
+use Microsoft\\Graph\\Beta\\Generated\Models\OutlookTaskFolderCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Outlook\TaskFolders\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Outlook\TaskFolders\Item\OutlookTaskFolderItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

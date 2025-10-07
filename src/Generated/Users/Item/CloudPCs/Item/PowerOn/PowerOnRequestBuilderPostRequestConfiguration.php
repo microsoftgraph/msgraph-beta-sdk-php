@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\PowerOn;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\PowerOn;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

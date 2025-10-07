@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\Assignments\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\Assignments\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\IosLobAppProvisioningConfigurationAssignment;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\IosLobAppProvisioningConfigurationAssignment;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -45,7 +45,7 @@ class IosLobAppProvisioningConfigurationAssignmentItemRequestBuilder extends Bas
     }
 
     /**
-     * The associated group assignments for IosLobAppProvisioningConfiguration.
+     * The associated group assignments for IosLobAppProvisioningConfiguration, this determines which devices/users the IOS LOB app provisioning conifguration will be targeted to.
      * @param IosLobAppProvisioningConfigurationAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IosLobAppProvisioningConfigurationAssignment|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class IosLobAppProvisioningConfigurationAssignmentItemRequestBuilder extends Bas
     }
 
     /**
-     * The associated group assignments for IosLobAppProvisioningConfiguration.
+     * The associated group assignments for IosLobAppProvisioningConfiguration, this determines which devices/users the IOS LOB app provisioning conifguration will be targeted to.
      * @param IosLobAppProvisioningConfigurationAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

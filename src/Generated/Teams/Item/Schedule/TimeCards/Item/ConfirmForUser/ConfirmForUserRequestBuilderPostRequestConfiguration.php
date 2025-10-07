@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\TimeCards\Item\ConfirmForUser;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\TimeCards\Item\ConfirmForUser;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

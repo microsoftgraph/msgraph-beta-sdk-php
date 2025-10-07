@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetZebraFotaDeploymentReport;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Reports\GetZebraFotaDeploymentReport;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsManagement\ScheduledPermissionsApprovals\Item\Steps;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\PermissionsManagement\ScheduledPermissionsApprovals\Item\Steps;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

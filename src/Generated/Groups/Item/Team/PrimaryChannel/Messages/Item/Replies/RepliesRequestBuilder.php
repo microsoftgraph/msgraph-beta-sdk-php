@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Messages\Item\Replies;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\PrimaryChannel\Messages\Item\Replies;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Messages\Item\Replies\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Messages\Item\Replies\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Messages\Item\Replies\ForwardToChat\ForwardToChatRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Messages\Item\Replies\Item\ChatMessageItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Messages\Item\Replies\ReplyWithQuote\ReplyWithQuoteRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ChatMessage;
-use Microsoft\Graph\Beta\Generated\Models\ChatMessageCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\PrimaryChannel\Messages\Item\Replies\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\PrimaryChannel\Messages\Item\Replies\Delta\DeltaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\PrimaryChannel\Messages\Item\Replies\ForwardToChat\ForwardToChatRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\PrimaryChannel\Messages\Item\Replies\Item\ChatMessageItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\PrimaryChannel\Messages\Item\Replies\ReplyWithQuote\ReplyWithQuoteRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ChatMessage;
+use Microsoft\\Graph\\Beta\\Generated\Models\ChatMessageCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

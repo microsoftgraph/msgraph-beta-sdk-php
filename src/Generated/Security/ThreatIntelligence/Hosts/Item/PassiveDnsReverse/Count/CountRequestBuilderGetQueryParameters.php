@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Hosts\Item\PassiveDnsReverse\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\ThreatIntelligence\Hosts\Item\PassiveDnsReverse\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

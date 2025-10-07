@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Domains\Item\DomainNameReferences;
+namespace Microsoft\\Graph\\Beta\\Generated\Domains\Item\DomainNameReferences;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

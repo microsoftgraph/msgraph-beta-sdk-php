@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Townhalls\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Townhalls\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\VirtualEventTownhall;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Townhalls\Item\Presenters\PresentersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Townhalls\Item\Sessions\SessionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Townhalls\Item\SessionsWithJoinWebUrl\SessionsWithJoinWebUrlRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\VirtualEventTownhall;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Townhalls\Item\Presenters\PresentersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Townhalls\Item\Sessions\SessionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Townhalls\Item\SessionsWithJoinWebUrl\SessionsWithJoinWebUrlRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

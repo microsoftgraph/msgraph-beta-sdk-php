@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalRequests\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\OperationApprovalRequests\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

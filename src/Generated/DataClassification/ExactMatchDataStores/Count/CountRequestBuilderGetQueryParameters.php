@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchDataStores\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DataClassification\ExactMatchDataStores\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

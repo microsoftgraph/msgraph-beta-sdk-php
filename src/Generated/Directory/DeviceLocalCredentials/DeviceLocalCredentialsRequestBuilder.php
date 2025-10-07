@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\DeviceLocalCredentials;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\DeviceLocalCredentials;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Directory\DeviceLocalCredentials\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\DeviceLocalCredentials\Item\DeviceLocalCredentialInfoItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DeviceLocalCredentialInfo;
-use Microsoft\Graph\Beta\Generated\Models\DeviceLocalCredentialInfoCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Directory\DeviceLocalCredentials\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Directory\DeviceLocalCredentials\Item\DeviceLocalCredentialInfoItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceLocalCredentialInfo;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceLocalCredentialInfoCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\App\Calls\Item\CancelMediaProcessing;
+namespace Microsoft\\Graph\\Beta\\Generated\App\Calls\Item\CancelMediaProcessing;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

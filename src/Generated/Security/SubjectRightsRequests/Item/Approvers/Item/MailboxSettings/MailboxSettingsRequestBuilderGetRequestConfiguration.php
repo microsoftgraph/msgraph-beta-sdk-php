@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\Item\Approvers\Item\MailboxSettings;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\SubjectRightsRequests\Item\Approvers\Item\MailboxSettings;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

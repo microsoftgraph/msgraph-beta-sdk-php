@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\MobilityManagementPolicies\Item\IncludedGroups\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\MobilityManagementPolicies\Item\IncludedGroups\Item;
 
-use Microsoft\Graph\Beta\Generated\MobilityManagementPolicies\Item\IncludedGroups\Item\Ref\RefRequestBuilder;
-use Microsoft\Graph\Beta\Generated\MobilityManagementPolicies\Item\IncludedGroups\Item\ServiceProvisioningErrors\ServiceProvisioningErrorsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\MobilityManagementPolicies\Item\IncludedGroups\Item\Ref\RefRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\MobilityManagementPolicies\Item\IncludedGroups\Item\ServiceProvisioningErrors\ServiceProvisioningErrorsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 

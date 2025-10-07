@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\CredentialUserRegistrationDetails;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\CredentialUserRegistrationDetails;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

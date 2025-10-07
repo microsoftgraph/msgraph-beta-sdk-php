@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ConditionalAccessSettings;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ConditionalAccessSettings;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

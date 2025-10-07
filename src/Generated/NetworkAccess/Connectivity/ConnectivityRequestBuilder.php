@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Connectivity;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\Connectivity;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\Branches\BranchesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\MicrosoftGraphNetworkaccessGetWebCategoryByUrlWithUrl\MicrosoftGraphNetworkaccessGetWebCategoryByUrlWithUrlRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\RemoteNetworks\RemoteNetworksRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\Connectivity;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Connectivity\Branches\BranchesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Connectivity\MicrosoftGraphNetworkaccessGetWebCategoryByUrlWithUrl\MicrosoftGraphNetworkaccessGetWebCategoryByUrlWithUrlRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Connectivity\RemoteNetworks\RemoteNetworksRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

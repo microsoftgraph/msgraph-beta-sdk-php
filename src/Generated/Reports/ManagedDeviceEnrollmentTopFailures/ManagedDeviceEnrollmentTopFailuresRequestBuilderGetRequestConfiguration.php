@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\ManagedDeviceEnrollmentTopFailures;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\ManagedDeviceEnrollmentTopFailures;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

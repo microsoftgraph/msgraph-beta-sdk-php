@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\External\IndustryData\OutboundProvisioningFlowSets\Item\ProvisioningFlows;
+namespace Microsoft\\Graph\\Beta\\Generated\External\IndustryData\OutboundProvisioningFlowSets\Item\ProvisioningFlows;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

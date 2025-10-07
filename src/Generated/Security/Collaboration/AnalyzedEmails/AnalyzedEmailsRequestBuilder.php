@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Collaboration\AnalyzedEmails;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Collaboration\AnalyzedEmails;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\AnalyzedEmail;
-use Microsoft\Graph\Beta\Generated\Models\Security\AnalyzedEmailCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Security\Collaboration\AnalyzedEmails\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Collaboration\AnalyzedEmails\Item\AnalyzedEmailItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Collaboration\AnalyzedEmails\MicrosoftGraphSecurityRemediate\MicrosoftGraphSecurityRemediateRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\AnalyzedEmail;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\AnalyzedEmailCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Security\Collaboration\AnalyzedEmails\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Collaboration\AnalyzedEmails\Item\AnalyzedEmailItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Collaboration\AnalyzedEmails\MicrosoftGraphSecurityRemediate\MicrosoftGraphSecurityRemediateRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

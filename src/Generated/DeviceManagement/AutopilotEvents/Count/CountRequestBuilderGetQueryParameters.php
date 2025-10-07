@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AutopilotEvents\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AutopilotEvents\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

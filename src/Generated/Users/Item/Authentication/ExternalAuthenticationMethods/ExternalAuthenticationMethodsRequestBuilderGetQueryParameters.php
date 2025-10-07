@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\ExternalAuthenticationMethods;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Authentication\ExternalAuthenticationMethods;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalRequests;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\OperationApprovalRequests;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalRequests\CancelMyRequest\CancelMyRequestRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalRequests\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalRequests\Item\OperationApprovalRequestItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalRequests\RetrieveMyRequestByIdWithId\RetrieveMyRequestByIdWithIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalRequests\RetrieveMyRequests\RetrieveMyRequestsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalRequests\RetrieveRequestStatus\RetrieveRequestStatusRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\OperationApprovalRequest;
-use Microsoft\Graph\Beta\Generated\Models\OperationApprovalRequestCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\OperationApprovalRequests\CancelMyRequest\CancelMyRequestRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\OperationApprovalRequests\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\OperationApprovalRequests\Item\OperationApprovalRequestItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\OperationApprovalRequests\RetrieveMyRequestByIdWithId\RetrieveMyRequestByIdWithIdRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\OperationApprovalRequests\RetrieveMyRequests\RetrieveMyRequestsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\OperationApprovalRequests\RetrieveRequestStatus\RetrieveRequestStatusRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\OperationApprovalRequest;
+use Microsoft\\Graph\\Beta\\Generated\Models\OperationApprovalRequestCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
