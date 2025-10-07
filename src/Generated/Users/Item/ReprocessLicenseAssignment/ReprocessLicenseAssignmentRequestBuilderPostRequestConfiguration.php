@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\ReprocessLicenseAssignment;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\ReprocessLicenseAssignment;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Shares\Item\CreatedByUser\MailboxSettings;
+namespace Microsoft\\Graph\\Beta\\Generated\Shares\Item\CreatedByUser\MailboxSettings;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

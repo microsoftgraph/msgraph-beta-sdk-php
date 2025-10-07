@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\InactiveUsersByApplication;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Monthly\InactiveUsersByApplication;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\MonthlyInactiveUsersByApplicationMetricCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\InactiveUsersByApplication\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\InactiveUsersByApplication\Item\MonthlyInactiveUsersByApplicationMetricItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\MonthlyInactiveUsersByApplicationMetricCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Monthly\InactiveUsersByApplication\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Monthly\InactiveUsersByApplication\Item\MonthlyInactiveUsersByApplicationMetricItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

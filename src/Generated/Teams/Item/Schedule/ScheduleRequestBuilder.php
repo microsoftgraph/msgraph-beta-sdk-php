@@ -1,24 +1,24 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\Item\Schedule;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Schedule;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\DayNotes\DayNotesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\OfferShiftRequests\OfferShiftRequestsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\OpenShiftChangeRequests\OpenShiftChangeRequestsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\OpenShifts\OpenShiftsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\SchedulingGroups\SchedulingGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\Share\ShareRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\Shifts\ShiftsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\ShiftsRoleDefinitions\ShiftsRoleDefinitionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\SwapShiftsChangeRequests\SwapShiftsChangeRequestsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\TimeCards\TimeCardsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\TimeOffReasons\TimeOffReasonsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\TimeOffRequests\TimeOffRequestsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\TimesOff\TimesOffRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Schedule;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\DayNotes\DayNotesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\OfferShiftRequests\OfferShiftRequestsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\OpenShiftChangeRequests\OpenShiftChangeRequestsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\OpenShifts\OpenShiftsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\SchedulingGroups\SchedulingGroupsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\Share\ShareRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\Shifts\ShiftsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\ShiftsRoleDefinitions\ShiftsRoleDefinitionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\SwapShiftsChangeRequests\SwapShiftsChangeRequestsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\TimeCards\TimeCardsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\TimeOffReasons\TimeOffReasonsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\TimeOffRequests\TimeOffRequestsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\TimesOff\TimesOffRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

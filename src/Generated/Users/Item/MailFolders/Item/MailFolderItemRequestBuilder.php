@@ -1,20 +1,20 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\MailFolders\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\MailFolder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\ChildFoldersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\Copy\CopyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\MessageRules\MessageRulesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\Messages\MessagesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\Move\MoveRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\Operations\OperationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\PermanentDelete\PermanentDeleteRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\UpdateAllMessagesReadState\UpdateAllMessagesReadStateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\UserConfigurations\UserConfigurationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\MailFolder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\MailFolders\Item\ChildFolders\ChildFoldersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\MailFolders\Item\Copy\CopyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\MailFolders\Item\MessageRules\MessageRulesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\MailFolders\Item\Messages\MessagesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\MailFolders\Item\Move\MoveRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\MailFolders\Item\Operations\OperationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\MailFolders\Item\PermanentDelete\PermanentDeleteRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\MailFolders\Item\UpdateAllMessagesReadState\UpdateAllMessagesReadStateRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\MailFolders\Item\UserConfigurations\UserConfigurationsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

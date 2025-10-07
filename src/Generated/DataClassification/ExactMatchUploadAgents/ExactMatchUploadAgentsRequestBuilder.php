@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchUploadAgents;
+namespace Microsoft\\Graph\\Beta\\Generated\DataClassification\ExactMatchUploadAgents;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchUploadAgents\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchUploadAgents\Item\ExactMatchUploadAgentItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ExactMatchUploadAgent;
-use Microsoft\Graph\Beta\Generated\Models\ExactMatchUploadAgentCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DataClassification\ExactMatchUploadAgents\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DataClassification\ExactMatchUploadAgents\Item\ExactMatchUploadAgentItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ExactMatchUploadAgent;
+use Microsoft\\Graph\\Beta\\Generated\Models\ExactMatchUploadAgentCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

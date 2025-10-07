@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Notifications\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Notifications\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Planner\Rosters\Item\Members\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Planner\Rosters\Item\Members\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

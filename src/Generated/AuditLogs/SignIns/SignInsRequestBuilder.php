@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AuditLogs\SignIns;
+namespace Microsoft\\Graph\\Beta\\Generated\AuditLogs\SignIns;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\ConfirmCompromised\ConfirmCompromisedRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\ConfirmSafe\ConfirmSafeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\Dismiss\DismissRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\Item\SignInItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SignIn;
-use Microsoft\Graph\Beta\Generated\Models\SignInCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\SignIns\ConfirmCompromised\ConfirmCompromisedRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\SignIns\ConfirmSafe\ConfirmSafeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\SignIns\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\SignIns\Dismiss\DismissRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\SignIns\Item\SignInItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SignIn;
+use Microsoft\\Graph\\Beta\\Generated\Models\SignInCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

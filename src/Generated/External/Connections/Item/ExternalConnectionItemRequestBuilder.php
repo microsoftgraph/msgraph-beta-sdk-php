@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\External\Connections\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\External\Connections\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\External\Connections\Item\Groups\GroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\Connections\Item\Items\ItemsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\Connections\Item\Operations\OperationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\Connections\Item\Quota\QuotaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\External\Connections\Item\Schema\SchemaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ExternalConnectors\ExternalConnection;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\External\Connections\Item\Groups\GroupsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\External\Connections\Item\Items\ItemsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\External\Connections\Item\Operations\OperationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\External\Connections\Item\Quota\QuotaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\External\Connections\Item\Schema\SchemaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ExternalConnectors\ExternalConnection;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

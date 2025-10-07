@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Organization\Item\Branding\Localizations\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\OrganizationalBrandingLocalization;
-use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\Item\BackgroundImage\BackgroundImageRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\Item\BannerLogo\BannerLogoRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\Item\CustomCSS\CustomCSSRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\Item\Favicon\FaviconRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\Item\HeaderLogo\HeaderLogoRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\Item\SquareLogo\SquareLogoRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\Item\SquareLogoDark\SquareLogoDarkRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\OrganizationalBrandingLocalization;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\Branding\Localizations\Item\BackgroundImage\BackgroundImageRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\Branding\Localizations\Item\BannerLogo\BannerLogoRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\Branding\Localizations\Item\CustomCSS\CustomCSSRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\Branding\Localizations\Item\Favicon\FaviconRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\Branding\Localizations\Item\HeaderLogo\HeaderLogoRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\Branding\Localizations\Item\SquareLogo\SquareLogoRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\Branding\Localizations\Item\SquareLogoDark\SquareLogoDarkRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

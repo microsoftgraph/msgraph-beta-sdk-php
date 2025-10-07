@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Analytics\ItemActivityStats;
+namespace Microsoft\\Graph\\Beta\\Generated\Drives\Item\Items\Item\Analytics\ItemActivityStats;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Analytics\ItemActivityStats\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Analytics\ItemActivityStats\Item\ItemActivityStatItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ItemActivityStat;
-use Microsoft\Graph\Beta\Generated\Models\ItemActivityStatCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Drives\Item\Items\Item\Analytics\ItemActivityStats\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Drives\Item\Items\Item\Analytics\ItemActivityStats\Item\ItemActivityStatItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ItemActivityStat;
+use Microsoft\\Graph\\Beta\\Generated\Models\ItemActivityStatCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

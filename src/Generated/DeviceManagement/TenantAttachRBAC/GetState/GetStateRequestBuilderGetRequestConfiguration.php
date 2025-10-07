@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\TenantAttachRBAC\GetState;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\TenantAttachRBAC\GetState;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

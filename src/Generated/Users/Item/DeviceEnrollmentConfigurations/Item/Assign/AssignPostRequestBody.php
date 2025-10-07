@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\DeviceEnrollmentConfigurations\Item\Assign;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\DeviceEnrollmentConfigurations\Item\Assign;
 
-use Microsoft\Graph\Beta\Generated\Models\EnrollmentConfigurationAssignment;
+use Microsoft\\Graph\\Beta\\Generated\Models\EnrollmentConfigurationAssignment;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

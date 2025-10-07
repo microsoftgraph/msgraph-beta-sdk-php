@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\PermissionGrants;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\PermissionGrants;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PermissionGrants\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PermissionGrants\Item\ResourceSpecificPermissionGrantItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\ResourceSpecificPermissionGrant;
-use Microsoft\Graph\Beta\Generated\Models\ResourceSpecificPermissionGrantCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\PermissionGrants\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\PermissionGrants\Item\ResourceSpecificPermissionGrantItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\ResourceSpecificPermissionGrant;
+use Microsoft\\Graph\\Beta\\Generated\Models\ResourceSpecificPermissionGrantCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Places\Item\Descendants;
+namespace Microsoft\\Graph\\Beta\\Generated\Places\Item\Descendants;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

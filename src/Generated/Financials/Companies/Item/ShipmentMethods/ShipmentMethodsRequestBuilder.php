@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\ShipmentMethods;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\ShipmentMethods;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\ShipmentMethods\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\ShipmentMethods\Item\ShipmentMethodItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\ShipmentMethod;
-use Microsoft\Graph\Beta\Generated\Models\ShipmentMethodCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\ShipmentMethods\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\ShipmentMethods\Item\ShipmentMethodItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\ShipmentMethod;
+use Microsoft\\Graph\\Beta\\Generated\Models\ShipmentMethodCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

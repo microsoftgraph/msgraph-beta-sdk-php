@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\Owners\Item;
 
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\Item\GraphAppRoleAssignment\GraphAppRoleAssignmentRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\Item\GraphEndpoint\GraphEndpointRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\Item\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\Item\GraphUser\GraphUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\Item\Ref\RefRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\Owners\Item\GraphAppRoleAssignment\GraphAppRoleAssignmentRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\Owners\Item\GraphEndpoint\GraphEndpointRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\Owners\Item\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\Owners\Item\GraphUser\GraphUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\Owners\Item\Ref\RefRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 

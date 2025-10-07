@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\Analytics\LastSevenDays;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\Analytics\LastSevenDays;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

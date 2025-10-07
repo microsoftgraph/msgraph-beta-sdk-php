@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UserEventsSummary\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\AuthenticationMethods\UserEventsSummary\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

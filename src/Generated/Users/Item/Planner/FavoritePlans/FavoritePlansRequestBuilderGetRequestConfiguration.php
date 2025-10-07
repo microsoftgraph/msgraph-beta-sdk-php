@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Planner\FavoritePlans;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Planner\FavoritePlans;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

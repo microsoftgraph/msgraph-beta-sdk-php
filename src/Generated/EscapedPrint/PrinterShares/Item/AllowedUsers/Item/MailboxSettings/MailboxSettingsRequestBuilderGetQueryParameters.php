@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\Item\AllowedUsers\Item\MailboxSettings;
+namespace Microsoft\\Graph\\Beta\\Generated\EscapedPrint\PrinterShares\Item\AllowedUsers\Item\MailboxSettings;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\ForwardingPolicies\Item\PolicyRules\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\ForwardingPolicies\Item\PolicyRules\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

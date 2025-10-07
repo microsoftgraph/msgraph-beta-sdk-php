@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\DriveProtectionUnitsBulkAdditionJobs;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\DriveProtectionUnitsBulkAdditionJobs;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DriveProtectionUnitsBulkAdditionJob;
-use Microsoft\Graph\Beta\Generated\Models\DriveProtectionUnitsBulkAdditionJobCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\DriveProtectionUnitsBulkAdditionJobs\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\DriveProtectionUnitsBulkAdditionJobs\Item\DriveProtectionUnitsBulkAdditionJobItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DriveProtectionUnitsBulkAdditionJob;
+use Microsoft\\Graph\\Beta\\Generated\Models\DriveProtectionUnitsBulkAdditionJobCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\DriveProtectionUnitsBulkAdditionJobs\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\DriveProtectionUnitsBulkAdditionJobs\Item\DriveProtectionUnitsBulkAdditionJobItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

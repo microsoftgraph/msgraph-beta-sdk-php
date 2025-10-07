@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\Defender\RoleAssignments\Item\DirectoryScopes;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\Defender\RoleAssignments\Item\DirectoryScopes;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

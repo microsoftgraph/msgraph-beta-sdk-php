@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\IdentityGovernance;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\IdentityGovernance;
 
 use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

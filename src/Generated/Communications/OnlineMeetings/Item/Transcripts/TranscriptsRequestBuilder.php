@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\Transcripts;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\OnlineMeetings\Item\Transcripts;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\Transcripts\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\Transcripts\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\Transcripts\Item\CallTranscriptItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\CallTranscript;
-use Microsoft\Graph\Beta\Generated\Models\CallTranscriptCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Communications\OnlineMeetings\Item\Transcripts\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Communications\OnlineMeetings\Item\Transcripts\Delta\DeltaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Communications\OnlineMeetings\Item\Transcripts\Item\CallTranscriptItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\CallTranscript;
+use Microsoft\\Graph\\Beta\\Generated\Models\CallTranscriptCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

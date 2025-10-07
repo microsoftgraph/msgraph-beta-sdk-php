@@ -1,24 +1,24 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetings\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\AiInsights\AiInsightsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\AlternativeRecording\AlternativeRecordingRequestBuilder;
-use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\AttendanceReports\AttendanceReportsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\AttendeeReport\AttendeeReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\BroadcastRecording\BroadcastRecordingRequestBuilder;
-use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\GetVirtualAppointmentJoinWebUrl\GetVirtualAppointmentJoinWebUrlRequestBuilder;
-use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\MeetingAttendanceReport\MeetingAttendanceReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\Recording\RecordingRequestBuilder;
-use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\Recordings\RecordingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\Registration\RegistrationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\SendVirtualAppointmentReminderSms\SendVirtualAppointmentReminderSmsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\SendVirtualAppointmentSms\SendVirtualAppointmentSmsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\App\OnlineMeetings\Item\Transcripts\TranscriptsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\OnlineMeeting;
+use Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetings\Item\AiInsights\AiInsightsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetings\Item\AlternativeRecording\AlternativeRecordingRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetings\Item\AttendanceReports\AttendanceReportsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetings\Item\AttendeeReport\AttendeeReportRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetings\Item\BroadcastRecording\BroadcastRecordingRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetings\Item\GetVirtualAppointmentJoinWebUrl\GetVirtualAppointmentJoinWebUrlRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetings\Item\MeetingAttendanceReport\MeetingAttendanceReportRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetings\Item\Recording\RecordingRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetings\Item\Recordings\RecordingsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetings\Item\Registration\RegistrationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetings\Item\SendVirtualAppointmentReminderSms\SendVirtualAppointmentReminderSmsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetings\Item\SendVirtualAppointmentSms\SendVirtualAppointmentSmsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetings\Item\Transcripts\TranscriptsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\OnlineMeeting;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

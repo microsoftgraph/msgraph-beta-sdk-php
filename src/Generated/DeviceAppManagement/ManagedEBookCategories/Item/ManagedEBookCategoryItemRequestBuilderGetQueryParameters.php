@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedEBookCategories\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\ManagedEBookCategories\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

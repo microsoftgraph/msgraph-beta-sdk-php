@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Interests;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Interests;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PersonInterest;
-use Microsoft\Graph\Beta\Generated\Models\PersonInterestCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Interests\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Interests\Item\PersonInterestItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PersonInterest;
+use Microsoft\\Graph\\Beta\\Generated\Models\PersonInterestCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Interests\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Interests\Item\PersonInterestItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

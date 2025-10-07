@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Messages;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Messages;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\Message;
-use Microsoft\Graph\Beta\Generated\Models\MessageCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\Messages\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Messages\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Messages\Item\MessageItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Message;
+use Microsoft\\Graph\\Beta\\Generated\Models\MessageCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Messages\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Messages\Delta\DeltaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Messages\Item\MessageItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\Item\Tags\Item\Members;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\Item\Tags\Item\Members;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TeamworkTagMember;
-use Microsoft\Graph\Beta\Generated\Models\TeamworkTagMemberCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Tags\Item\Members\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Tags\Item\Members\Item\TeamworkTagMemberItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TeamworkTagMember;
+use Microsoft\\Graph\\Beta\\Generated\Models\TeamworkTagMemberCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Tags\Item\Members\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Tags\Item\Members\Item\TeamworkTagMemberItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

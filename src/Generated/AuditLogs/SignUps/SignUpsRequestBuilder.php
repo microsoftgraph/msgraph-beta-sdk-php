@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AuditLogs\SignUps;
+namespace Microsoft\\Graph\\Beta\\Generated\AuditLogs\SignUps;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\AuditLogs\SignUps\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AuditLogs\SignUps\Item\SelfServiceSignUpItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SelfServiceSignUp;
-use Microsoft\Graph\Beta\Generated\Models\SelfServiceSignUpCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\SignUps\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\SignUps\Item\SelfServiceSignUpItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SelfServiceSignUp;
+use Microsoft\\Graph\\Beta\\Generated\Models\SelfServiceSignUpCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

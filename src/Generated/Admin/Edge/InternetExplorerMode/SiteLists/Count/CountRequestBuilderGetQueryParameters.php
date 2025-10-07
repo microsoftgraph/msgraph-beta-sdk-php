@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Edge\InternetExplorerMode\SiteLists\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Edge\InternetExplorerMode\SiteLists\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\EmailThreats;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\ThreatSubmission\EmailThreats;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\EmailThreatSubmission;
-use Microsoft\Graph\Beta\Generated\Models\Security\EmailThreatSubmissionCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\EmailThreats\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\EmailThreats\Item\EmailThreatSubmissionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\EmailThreatSubmission;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\EmailThreatSubmissionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Security\ThreatSubmission\EmailThreats\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\ThreatSubmission\EmailThreats\Item\EmailThreatSubmissionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

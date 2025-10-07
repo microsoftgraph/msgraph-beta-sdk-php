@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\PolicyFiles;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\DataSecurityAndGovernance\PolicyFiles;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PolicyFile;
-use Microsoft\Graph\Beta\Generated\Models\PolicyFileCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\PolicyFiles\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\PolicyFiles\Item\PolicyFileItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PolicyFile;
+use Microsoft\\Graph\\Beta\\Generated\Models\PolicyFileCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Security\DataSecurityAndGovernance\PolicyFiles\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\DataSecurityAndGovernance\PolicyFiles\Item\PolicyFileItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

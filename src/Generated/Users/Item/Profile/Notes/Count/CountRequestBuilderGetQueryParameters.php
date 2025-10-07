@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Notes\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Notes\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

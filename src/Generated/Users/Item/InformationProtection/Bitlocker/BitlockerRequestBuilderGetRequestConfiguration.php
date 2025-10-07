@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\Bitlocker;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\InformationProtection\Bitlocker;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

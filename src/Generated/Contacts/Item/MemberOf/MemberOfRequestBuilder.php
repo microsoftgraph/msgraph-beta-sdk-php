@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Contacts\Item\MemberOf;
+namespace Microsoft\\Graph\\Beta\\Generated\Contacts\Item\MemberOf;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\MemberOf\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\MemberOf\GraphAdministrativeUnit\GraphAdministrativeUnitRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\MemberOf\GraphGroup\GraphGroupRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\MemberOf\Item\DirectoryObjectItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DirectoryObjectCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\MemberOf\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\MemberOf\GraphAdministrativeUnit\GraphAdministrativeUnitRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\MemberOf\GraphGroup\GraphGroupRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\MemberOf\Item\DirectoryObjectItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DirectoryObjectCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

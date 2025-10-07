@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AppCatalogs;
+namespace Microsoft\\Graph\\Beta\\Generated\AppCatalogs;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\AppCatalogs\TeamsApps\TeamsAppsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AppCatalogs;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\AppCatalogs\TeamsApps\TeamsAppsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AppCatalogs;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

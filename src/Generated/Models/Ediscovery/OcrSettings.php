@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\Ediscovery;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\Ediscovery;
 
 use DateInterval;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;

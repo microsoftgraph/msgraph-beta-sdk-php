@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Organization\Item\Branding;
+namespace Microsoft\\Graph\\Beta\\Generated\Organization\Item\Branding;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

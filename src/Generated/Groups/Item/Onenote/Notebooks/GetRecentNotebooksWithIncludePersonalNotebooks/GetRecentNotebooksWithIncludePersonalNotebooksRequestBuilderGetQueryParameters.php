@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Onenote\Notebooks\GetRecentNotebooksWithIncludePersonalNotebooks;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Onenote\Notebooks\GetRecentNotebooksWithIncludePersonalNotebooks;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

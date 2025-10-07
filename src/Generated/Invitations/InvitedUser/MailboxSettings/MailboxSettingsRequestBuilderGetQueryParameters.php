@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Invitations\InvitedUser\MailboxSettings;
+namespace Microsoft\\Graph\\Beta\\Generated\Invitations\InvitedUser\MailboxSettings;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

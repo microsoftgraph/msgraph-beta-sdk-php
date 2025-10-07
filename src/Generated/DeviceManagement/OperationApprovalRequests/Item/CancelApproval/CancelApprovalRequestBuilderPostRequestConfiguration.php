@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalRequests\Item\CancelApproval;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\OperationApprovalRequests\Item\CancelApproval;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

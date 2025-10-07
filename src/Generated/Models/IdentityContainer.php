@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -181,6 +181,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
             'customAuthenticationExtensions' => fn(ParseNode $n) => $o->setCustomAuthenticationExtensions($n->getCollectionOfObjectValues([CustomAuthenticationExtension::class, 'createFromDiscriminatorValue'])),
             'identityProviders' => fn(ParseNode $n) => $o->setIdentityProviders($n->getCollectionOfObjectValues([IdentityProviderBase::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'riskPrevention' => fn(ParseNode $n) => $o->setRiskPrevention($n->getObjectValue([RiskPreventionContainer::class, 'createFromDiscriminatorValue'])),
             'userFlowAttributes' => fn(ParseNode $n) => $o->setUserFlowAttributes($n->getCollectionOfObjectValues([IdentityUserFlowAttribute::class, 'createFromDiscriminatorValue'])),
             'userFlows' => fn(ParseNode $n) => $o->setUserFlows($n->getCollectionOfObjectValues([IdentityUserFlow::class, 'createFromDiscriminatorValue'])),
         ];
@@ -210,6 +211,18 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
+     * Gets the riskPrevention property value. The riskPrevention property
+     * @return RiskPreventionContainer|null
+    */
+    public function getRiskPrevention(): ?RiskPreventionContainer {
+        $val = $this->getBackingStore()->get('riskPrevention');
+        if (is_null($val) || $val instanceof RiskPreventionContainer) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'riskPrevention'");
     }
 
     /**
@@ -255,6 +268,7 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeCollectionOfObjectValues('customAuthenticationExtensions', $this->getCustomAuthenticationExtensions());
         $writer->writeCollectionOfObjectValues('identityProviders', $this->getIdentityProviders());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('riskPrevention', $this->getRiskPrevention());
         $writer->writeCollectionOfObjectValues('userFlowAttributes', $this->getUserFlowAttributes());
         $writer->writeCollectionOfObjectValues('userFlows', $this->getUserFlows());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -354,6 +368,14 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the riskPrevention property value. The riskPrevention property
+     * @param RiskPreventionContainer|null $value Value to set for the riskPrevention property.
+    */
+    public function setRiskPrevention(?RiskPreventionContainer $value): void {
+        $this->getBackingStore()->set('riskPrevention', $value);
     }
 
     /**

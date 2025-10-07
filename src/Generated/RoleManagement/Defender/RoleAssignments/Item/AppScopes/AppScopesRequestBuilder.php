@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\Defender\RoleAssignments\Item\AppScopes;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\Defender\RoleAssignments\Item\AppScopes;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\AppScope;
-use Microsoft\Graph\Beta\Generated\Models\AppScopeCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\RoleManagement\Defender\RoleAssignments\Item\AppScopes\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\Defender\RoleAssignments\Item\AppScopes\Item\AppScopeItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AppScope;
+use Microsoft\\Graph\\Beta\\Generated\Models\AppScopeCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\Defender\RoleAssignments\Item\AppScopes\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\Defender\RoleAssignments\Item\AppScopes\Item\AppScopeItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

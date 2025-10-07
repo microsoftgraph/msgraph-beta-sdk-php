@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\InboundSharedUserProfiles\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\InboundSharedUserProfiles\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Directory\InboundSharedUserProfiles\Item\ExportPersonalData\ExportPersonalDataRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\InboundSharedUserProfiles\Item\RemovePersonalData\RemovePersonalDataRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\InboundSharedUserProfile;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Directory\InboundSharedUserProfiles\Item\ExportPersonalData\ExportPersonalDataRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Directory\InboundSharedUserProfiles\Item\RemovePersonalData\RemovePersonalDataRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\InboundSharedUserProfile;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

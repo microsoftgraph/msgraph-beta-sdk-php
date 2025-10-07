@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DataSharingConsents\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DataSharingConsents\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\MobilityManagementPolicies\Item\IncludedGroups;
+namespace Microsoft\\Graph\\Beta\\Generated\MobilityManagementPolicies\Item\IncludedGroups;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

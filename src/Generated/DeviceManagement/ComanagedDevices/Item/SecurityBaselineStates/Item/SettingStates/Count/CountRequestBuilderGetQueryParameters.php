@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\SecurityBaselineStates\Item\SettingStates\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ComanagedDevices\Item\SecurityBaselineStates\Item\SettingStates\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

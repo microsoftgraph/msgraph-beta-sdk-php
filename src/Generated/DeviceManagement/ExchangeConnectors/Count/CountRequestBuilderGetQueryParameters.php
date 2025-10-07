@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeConnectors\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ExchangeConnectors\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\NamedLocations\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\NamedLocations\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of an ipNamedLocation object.
+ * Read the properties and relationships of a compliantNetworkNamedLocation object.
 */
 class NamedLocationItemRequestBuilderGetQueryParameters 
 {

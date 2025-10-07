@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\MacOSSoftwareUpdateAccountSummaries;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\MacOSSoftwareUpdateAccountSummaries;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\MacOSSoftwareUpdateAccountSummaries\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\MacOSSoftwareUpdateAccountSummaries\Item\MacOSSoftwareUpdateAccountSummaryItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\MacOSSoftwareUpdateAccountSummary;
-use Microsoft\Graph\Beta\Generated\Models\MacOSSoftwareUpdateAccountSummaryCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\MacOSSoftwareUpdateAccountSummaries\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\MacOSSoftwareUpdateAccountSummaries\Item\MacOSSoftwareUpdateAccountSummaryItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\MacOSSoftwareUpdateAccountSummary;
+use Microsoft\\Graph\\Beta\\Generated\Models\MacOSSoftwareUpdateAccountSummaryCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

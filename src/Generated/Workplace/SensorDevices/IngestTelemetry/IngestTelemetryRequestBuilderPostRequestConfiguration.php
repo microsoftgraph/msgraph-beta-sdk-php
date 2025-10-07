@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Workplace\SensorDevices\IngestTelemetry;
+namespace Microsoft\\Graph\\Beta\\Generated\Workplace\SensorDevices\IngestTelemetry;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\CustomSecurityAttributeDefinitions\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\CustomSecurityAttributeDefinitions\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

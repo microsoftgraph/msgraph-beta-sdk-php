@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -69,7 +69,7 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the key property value. Contains the name of the field that a value is associated with.
+     * Gets the key property value. Key.
      * @return string|null
     */
     public function getKey(): ?string {
@@ -93,7 +93,7 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the value property value. Contains the corresponding value for the specified key.
+     * Gets the value property value. Value.
      * @return string|null
     */
     public function getValue(): ?string {
@@ -132,7 +132,7 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the key property value. Contains the name of the field that a value is associated with.
+     * Sets the key property value. Key.
      * @param string|null $value Value to set for the key property.
     */
     public function setKey(?string $value): void {
@@ -148,7 +148,7 @@ class KeyValue implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the value property value. Contains the corresponding value for the specified key.
+     * Sets the value property value. Value.
      * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {

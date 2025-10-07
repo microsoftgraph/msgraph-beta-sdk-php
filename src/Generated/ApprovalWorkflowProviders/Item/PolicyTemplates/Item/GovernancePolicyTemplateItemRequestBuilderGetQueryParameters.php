@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\PolicyTemplates\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\ApprovalWorkflowProviders\Item\PolicyTemplates\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

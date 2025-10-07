@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsDriverUpdateProfiles;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\WindowsDriverUpdateProfiles;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

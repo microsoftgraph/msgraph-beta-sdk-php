@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityExtractContentLabel;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityExtractContentLabel;
 
-use Microsoft\Graph\Beta\Generated\Models\Security\ContentInfo;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\ContentInfo;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoiceLines\Item\Item_Escaped\Picture;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesInvoiceLines\Item\Item_Escaped\Picture;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoiceLines\Item\Item_Escaped\Picture\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoiceLines\Item\Item_Escaped\Picture\Item\PictureItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Picture;
-use Microsoft\Graph\Beta\Generated\Models\PictureCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesInvoiceLines\Item\Item_Escaped\Picture\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesInvoiceLines\Item\Item_Escaped\Picture\Item\PictureItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Picture;
+use Microsoft\\Graph\\Beta\\Generated\Models\PictureCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

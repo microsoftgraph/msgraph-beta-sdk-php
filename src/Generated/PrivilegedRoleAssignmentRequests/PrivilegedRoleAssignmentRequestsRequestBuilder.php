@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignmentRequests;
+namespace Microsoft\\Graph\\Beta\\Generated\PrivilegedRoleAssignmentRequests;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PrivilegedRoleAssignmentRequest;
-use Microsoft\Graph\Beta\Generated\Models\PrivilegedRoleAssignmentRequestCollectionResponse;
-use Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignmentRequests\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignmentRequests\Item\PrivilegedRoleAssignmentRequestItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignmentRequests\My\MyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PrivilegedRoleAssignmentRequest;
+use Microsoft\\Graph\\Beta\\Generated\Models\PrivilegedRoleAssignmentRequestCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedRoleAssignmentRequests\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedRoleAssignmentRequests\Item\PrivilegedRoleAssignmentRequestItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedRoleAssignmentRequests\My\MyRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

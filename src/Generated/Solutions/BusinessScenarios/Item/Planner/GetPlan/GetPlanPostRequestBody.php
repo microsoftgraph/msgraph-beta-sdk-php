@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner\GetPlan;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BusinessScenarios\Item\Planner\GetPlan;
 
-use Microsoft\Graph\Beta\Generated\Models\BusinessScenarioTaskTargetBase;
+use Microsoft\\Graph\\Beta\\Generated\Models\BusinessScenarioTaskTargetBase;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

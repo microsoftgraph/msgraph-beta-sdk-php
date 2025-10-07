@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\PrivilegedApproval;
+namespace Microsoft\\Graph\\Beta\\Generated\PrivilegedApproval;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PrivilegedApproval;
-use Microsoft\Graph\Beta\Generated\Models\PrivilegedApprovalCollectionResponse;
-use Microsoft\Graph\Beta\Generated\PrivilegedApproval\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PrivilegedApproval\Item\PrivilegedApprovalItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PrivilegedApproval\MyRequests\MyRequestsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PrivilegedApproval;
+use Microsoft\\Graph\\Beta\\Generated\Models\PrivilegedApprovalCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedApproval\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedApproval\Item\PrivilegedApprovalItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\PrivilegedApproval\MyRequests\MyRequestsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileAppCatalogPackages;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MobileAppCatalogPackages;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileAppCatalogPackages\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileAppCatalogPackages\Item\MobileAppCatalogPackageItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\MobileAppCatalogPackage;
-use Microsoft\Graph\Beta\Generated\Models\MobileAppCatalogPackageCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MobileAppCatalogPackages\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MobileAppCatalogPackages\Item\MobileAppCatalogPackageItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\MobileAppCatalogPackage;
+use Microsoft\\Graph\\Beta\\Generated\Models\MobileAppCatalogPackageCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\CloudPC\RoleAssignments\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

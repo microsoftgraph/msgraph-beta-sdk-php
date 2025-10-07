@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\IntuneBrandingProfiles\Item\Assign;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\IntuneBrandingProfiles\Item\Assign;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Domains\Item\SharedEmailDomainInvitations;
+namespace Microsoft\\Graph\\Beta\\Generated\Domains\Item\SharedEmailDomainInvitations;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

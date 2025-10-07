@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\PageTemplates\Item\CanvasLayout\HorizontalSections\Item\Columns\Item\Webparts\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\PageTemplates\Item\CanvasLayout\HorizontalSections\Item\Columns\Item\Webparts\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -46,6 +46,20 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'additionalData'");
+    }
+
+    /**
+     * Gets the auditActivityTypes property value. Represents an audit activity type which includes the associated service and category for a specific activity.
+     * @return array<AuditActivityType>|null
+    */
+    public function getAuditActivityTypes(): ?array {
+        $val = $this->getBackingStore()->get('auditActivityTypes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AuditActivityType::class);
+            /** @var array<AuditActivityType>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'auditActivityTypes'");
     }
 
     /**
@@ -105,11 +119,14 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'auditActivityTypes' => fn(ParseNode $n) => $o->setAuditActivityTypes($n->getCollectionOfObjectValues([AuditActivityType::class, 'createFromDiscriminatorValue'])),
             'customSecurityAttributeAudits' => fn(ParseNode $n) => $o->setCustomSecurityAttributeAudits($n->getCollectionOfObjectValues([CustomSecurityAttributeAudit::class, 'createFromDiscriminatorValue'])),
             'directoryAudits' => fn(ParseNode $n) => $o->setDirectoryAudits($n->getCollectionOfObjectValues([DirectoryAudit::class, 'createFromDiscriminatorValue'])),
             'directoryProvisioning' => fn(ParseNode $n) => $o->setDirectoryProvisioning($n->getCollectionOfObjectValues([ProvisioningObjectSummary::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'provisioning' => fn(ParseNode $n) => $o->setProvisioning($n->getCollectionOfObjectValues([ProvisioningObjectSummary::class, 'createFromDiscriminatorValue'])),
+            'signInEventsAppSummary' => fn(ParseNode $n) => $o->setSignInEventsAppSummary($n->getCollectionOfObjectValues([SignInEventsAppActivity::class, 'createFromDiscriminatorValue'])),
+            'signInEventsSummary' => fn(ParseNode $n) => $o->setSignInEventsSummary($n->getCollectionOfObjectValues([SignInEventsActivity::class, 'createFromDiscriminatorValue'])),
             'signIns' => fn(ParseNode $n) => $o->setSignIns($n->getCollectionOfObjectValues([SignIn::class, 'createFromDiscriminatorValue'])),
             'signUps' => fn(ParseNode $n) => $o->setSignUps($n->getCollectionOfObjectValues([SelfServiceSignUp::class, 'createFromDiscriminatorValue'])),
         ];
@@ -139,6 +156,34 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'provisioning'");
+    }
+
+    /**
+     * Gets the signInEventsAppSummary property value. Represents the number of sign-in events for a specific application.
+     * @return array<SignInEventsAppActivity>|null
+    */
+    public function getSignInEventsAppSummary(): ?array {
+        $val = $this->getBackingStore()->get('signInEventsAppSummary');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SignInEventsAppActivity::class);
+            /** @var array<SignInEventsAppActivity>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signInEventsAppSummary'");
+    }
+
+    /**
+     * Gets the signInEventsSummary property value. Represents the total number of sign-in events for a specific day.
+     * @return array<SignInEventsActivity>|null
+    */
+    public function getSignInEventsSummary(): ?array {
+        $val = $this->getBackingStore()->get('signInEventsSummary');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SignInEventsActivity::class);
+            /** @var array<SignInEventsActivity>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signInEventsSummary'");
     }
 
     /**
@@ -174,11 +219,14 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeCollectionOfObjectValues('auditActivityTypes', $this->getAuditActivityTypes());
         $writer->writeCollectionOfObjectValues('customSecurityAttributeAudits', $this->getCustomSecurityAttributeAudits());
         $writer->writeCollectionOfObjectValues('directoryAudits', $this->getDirectoryAudits());
         $writer->writeCollectionOfObjectValues('directoryProvisioning', $this->getDirectoryProvisioning());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('provisioning', $this->getProvisioning());
+        $writer->writeCollectionOfObjectValues('signInEventsAppSummary', $this->getSignInEventsAppSummary());
+        $writer->writeCollectionOfObjectValues('signInEventsSummary', $this->getSignInEventsSummary());
         $writer->writeCollectionOfObjectValues('signIns', $this->getSignIns());
         $writer->writeCollectionOfObjectValues('signUps', $this->getSignUps());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -190,6 +238,14 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the auditActivityTypes property value. Represents an audit activity type which includes the associated service and category for a specific activity.
+     * @param array<AuditActivityType>|null $value Value to set for the auditActivityTypes property.
+    */
+    public function setAuditActivityTypes(?array $value): void {
+        $this->getBackingStore()->set('auditActivityTypes', $value);
     }
 
     /**
@@ -238,6 +294,22 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setProvisioning(?array $value): void {
         $this->getBackingStore()->set('provisioning', $value);
+    }
+
+    /**
+     * Sets the signInEventsAppSummary property value. Represents the number of sign-in events for a specific application.
+     * @param array<SignInEventsAppActivity>|null $value Value to set for the signInEventsAppSummary property.
+    */
+    public function setSignInEventsAppSummary(?array $value): void {
+        $this->getBackingStore()->set('signInEventsAppSummary', $value);
+    }
+
+    /**
+     * Sets the signInEventsSummary property value. Represents the total number of sign-in events for a specific day.
+     * @param array<SignInEventsActivity>|null $value Value to set for the signInEventsSummary property.
+    */
+    public function setSignInEventsSummary(?array $value): void {
+        $this->getBackingStore()->set('signInEventsSummary', $value);
     }
 
     /**

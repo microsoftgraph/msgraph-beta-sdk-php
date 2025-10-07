@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teamwork\DetermineIfInteractionIsAllowed;
+namespace Microsoft\\Graph\\Beta\\Generated\Teamwork\DetermineIfInteractionIsAllowed;
 
-use Microsoft\Graph\Beta\Generated\Models\Identity;
-use Microsoft\Graph\Beta\Generated\Models\TeamworkInteractionType;
+use Microsoft\\Graph\\Beta\\Generated\Models\Identity;
+use Microsoft\\Graph\\Beta\\Generated\Models\TeamworkInteractionType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

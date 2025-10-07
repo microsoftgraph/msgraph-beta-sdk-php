@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\ConfigurationMonitoringResults;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\ConfigurationManagement\ConfigurationMonitoringResults;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\ConfigurationMonitoringResults\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\ConfigurationMonitoringResults\Item\ConfigurationMonitoringResultItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ConfigurationMonitoringResult;
-use Microsoft\Graph\Beta\Generated\Models\ConfigurationMonitoringResultCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Admin\ConfigurationManagement\ConfigurationMonitoringResults\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\ConfigurationManagement\ConfigurationMonitoringResults\Item\ConfigurationMonitoringResultItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ConfigurationMonitoringResult;
+use Microsoft\\Graph\\Beta\\Generated\Models\ConfigurationMonitoringResultCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

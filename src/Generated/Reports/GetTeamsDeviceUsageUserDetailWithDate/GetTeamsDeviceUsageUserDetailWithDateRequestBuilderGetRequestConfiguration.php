@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\GetTeamsDeviceUsageUserDetailWithDate;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\GetTeamsDeviceUsageUserDetailWithDate;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

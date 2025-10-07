@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\PrivilegedRoles\Item\SelfActivate;
+namespace Microsoft\\Graph\\Beta\\Generated\PrivilegedRoles\Item\SelfActivate;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

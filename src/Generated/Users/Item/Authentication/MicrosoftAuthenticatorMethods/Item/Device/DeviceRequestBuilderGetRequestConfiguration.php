@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\MicrosoftAuthenticatorMethods\Item\Device;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Authentication\MicrosoftAuthenticatorMethods\Item\Device;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

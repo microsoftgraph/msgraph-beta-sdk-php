@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\CreateDeviceLogCollectionRequest;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ComanagedDevices\Item\CreateDeviceLogCollectionRequest;
 
-use Microsoft\Graph\Beta\Generated\Models\DeviceLogCollectionRequest;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceLogCollectionRequest;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

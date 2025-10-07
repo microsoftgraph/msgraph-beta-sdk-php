@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Items\Item\Versions\Item\Fields;
+namespace Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\Items\Item\Versions\Item\Fields;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

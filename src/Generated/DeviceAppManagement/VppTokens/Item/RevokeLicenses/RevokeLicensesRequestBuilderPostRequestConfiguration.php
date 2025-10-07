@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\VppTokens\Item\RevokeLicenses;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\VppTokens\Item\RevokeLicenses;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;
