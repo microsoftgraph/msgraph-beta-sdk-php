@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Devices\Item\Commands\Item\Responsepayload;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Devices\Item\Commands\Item\Responsepayload;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ElevationRequests\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ElevationRequests\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

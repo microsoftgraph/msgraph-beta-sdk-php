@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Templates\DeviceTemplates\Item\DeviceInstances\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Templates\DeviceTemplates\Item\DeviceInstances\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

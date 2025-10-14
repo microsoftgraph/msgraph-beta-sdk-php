@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TrustFramework\Policies;
+namespace Microsoft\\Graph\\Beta\\Generated\TrustFramework\Policies;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TrustFrameworkPolicy;
-use Microsoft\Graph\Beta\Generated\Models\TrustFrameworkPolicyCollectionResponse;
-use Microsoft\Graph\Beta\Generated\TrustFramework\Policies\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TrustFramework\Policies\Item\TrustFrameworkPolicyItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TrustFrameworkPolicy;
+use Microsoft\\Graph\\Beta\\Generated\Models\TrustFrameworkPolicyCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\TrustFramework\Policies\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TrustFramework\Policies\Item\TrustFrameworkPolicyItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

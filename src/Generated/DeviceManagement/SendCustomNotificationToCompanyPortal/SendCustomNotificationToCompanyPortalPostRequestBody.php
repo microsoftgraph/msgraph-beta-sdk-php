@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\SendCustomNotificationToCompanyPortal;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\SendCustomNotificationToCompanyPortal;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

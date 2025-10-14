@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\DayNotes;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\DayNotes;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

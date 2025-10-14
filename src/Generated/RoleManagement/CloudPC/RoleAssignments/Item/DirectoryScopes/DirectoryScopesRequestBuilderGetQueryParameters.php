@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\Item\DirectoryScopes;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\CloudPC\RoleAssignments\Item\DirectoryScopes;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

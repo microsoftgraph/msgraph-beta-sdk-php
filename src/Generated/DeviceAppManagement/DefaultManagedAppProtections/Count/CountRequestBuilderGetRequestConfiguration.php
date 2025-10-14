@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\DefaultManagedAppProtections\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\DefaultManagedAppProtections\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

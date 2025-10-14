@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UserMfaSignInSummary\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\AuthenticationMethods\UserMfaSignInSummary\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

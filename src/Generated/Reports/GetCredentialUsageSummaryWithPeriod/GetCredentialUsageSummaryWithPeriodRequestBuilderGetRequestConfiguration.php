@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\GetCredentialUsageSummaryWithPeriod;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\GetCredentialUsageSummaryWithPeriod;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

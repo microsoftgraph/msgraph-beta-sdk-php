@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\GetByPathWithPath\DocumentProcessingJobs;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\GetByPathWithPath\DocumentProcessingJobs;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DocumentProcessingJob;
-use Microsoft\Graph\Beta\Generated\Models\DocumentProcessingJobCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\DocumentProcessingJob;
+use Microsoft\\Graph\\Beta\\Generated\Models\DocumentProcessingJobCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

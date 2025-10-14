@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Catalog\CatalogRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\DeploymentAudiencesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\DeploymentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\ProductsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\ResourceConnections\ResourceConnectionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\UpdatableAssetsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatePolicies\UpdatePoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AdminWindowsUpdates;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\Catalog\CatalogRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\DeploymentAudiences\DeploymentAudiencesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\Deployments\DeploymentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\Products\ProductsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\ResourceConnections\ResourceConnectionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\UpdatableAssets\UpdatableAssetsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\UpdatePolicies\UpdatePoliciesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AdminWindowsUpdates;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

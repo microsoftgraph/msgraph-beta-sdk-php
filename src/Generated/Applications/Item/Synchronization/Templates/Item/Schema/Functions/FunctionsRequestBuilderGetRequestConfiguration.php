@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Templates\Item\Schema\Functions;
+namespace Microsoft\\Graph\\Beta\\Generated\Applications\Item\Synchronization\Templates\Item\Schema\Functions;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

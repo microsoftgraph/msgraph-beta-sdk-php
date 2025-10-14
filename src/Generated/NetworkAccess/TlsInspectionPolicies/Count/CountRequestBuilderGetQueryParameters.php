@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\TlsInspectionPolicies\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\TlsInspectionPolicies\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

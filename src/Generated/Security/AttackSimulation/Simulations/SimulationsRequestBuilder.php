@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Simulations;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\AttackSimulation\Simulations;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Simulation;
-use Microsoft\Graph\Beta\Generated\Models\SimulationCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Simulations\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Simulations\Item\SimulationItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Simulation;
+use Microsoft\\Graph\\Beta\\Generated\Models\SimulationCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Security\AttackSimulation\Simulations\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\AttackSimulation\Simulations\Item\SimulationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

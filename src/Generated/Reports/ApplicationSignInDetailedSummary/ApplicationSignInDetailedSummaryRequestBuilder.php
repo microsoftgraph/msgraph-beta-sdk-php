@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\ApplicationSignInDetailedSummary;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\ApplicationSignInDetailedSummary;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ApplicationSignInDetailedSummary;
-use Microsoft\Graph\Beta\Generated\Models\ApplicationSignInDetailedSummaryCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Reports\ApplicationSignInDetailedSummary\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\ApplicationSignInDetailedSummary\Item\ApplicationSignInDetailedSummaryItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ApplicationSignInDetailedSummary;
+use Microsoft\\Graph\\Beta\\Generated\Models\ApplicationSignInDetailedSummaryCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Reports\ApplicationSignInDetailedSummary\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\ApplicationSignInDetailedSummary\Item\ApplicationSignInDetailedSummaryItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

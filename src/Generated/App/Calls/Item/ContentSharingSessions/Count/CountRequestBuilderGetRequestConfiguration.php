@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\App\Calls\Item\ContentSharingSessions\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\App\Calls\Item\ContentSharingSessions\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

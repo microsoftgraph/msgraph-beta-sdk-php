@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkEnrollmentProfiles;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidForWorkEnrollmentProfiles;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkEnrollmentProfiles\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkEnrollmentProfiles\Item\AndroidForWorkEnrollmentProfileItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AndroidForWorkEnrollmentProfile;
-use Microsoft\Graph\Beta\Generated\Models\AndroidForWorkEnrollmentProfileCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidForWorkEnrollmentProfiles\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidForWorkEnrollmentProfiles\Item\AndroidForWorkEnrollmentProfileItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AndroidForWorkEnrollmentProfile;
+use Microsoft\\Graph\\Beta\\Generated\Models\AndroidForWorkEnrollmentProfileCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

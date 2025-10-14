@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\ProviderTenantSettings\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\ProviderTenantSettings\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

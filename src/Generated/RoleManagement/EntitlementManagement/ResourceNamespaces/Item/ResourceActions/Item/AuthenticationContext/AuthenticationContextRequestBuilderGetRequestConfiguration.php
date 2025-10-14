@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\ResourceNamespaces\Item\ResourceActions\Item\AuthenticationContext;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\EntitlementManagement\ResourceNamespaces\Item\ResourceActions\Item\AuthenticationContext;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

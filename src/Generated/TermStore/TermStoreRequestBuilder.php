@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TermStore;
+namespace Microsoft\\Graph\\Beta\\Generated\TermStore;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TermStore\Store;
-use Microsoft\Graph\Beta\Generated\TermStore\Groups\GroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TermStore\Sets\SetsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TermStore\Store;
+use Microsoft\\Graph\\Beta\\Generated\TermStore\Groups\GroupsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TermStore\Sets\SetsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

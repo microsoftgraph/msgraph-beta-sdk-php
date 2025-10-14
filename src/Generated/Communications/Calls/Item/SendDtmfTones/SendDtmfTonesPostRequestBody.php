@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\Calls\Item\SendDtmfTones;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\Calls\Item\SendDtmfTones;
 
-use Microsoft\Graph\Beta\Generated\Models\Tone;
+use Microsoft\\Graph\\Beta\\Generated\Models\Tone;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\GetSupportedCloudPcRemoteActions;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\GetSupportedCloudPcRemoteActions;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

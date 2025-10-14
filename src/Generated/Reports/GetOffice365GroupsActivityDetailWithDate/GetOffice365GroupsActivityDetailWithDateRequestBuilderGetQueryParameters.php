@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\GetOffice365GroupsActivityDetailWithDate;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\GetOffice365GroupsActivityDetailWithDate;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

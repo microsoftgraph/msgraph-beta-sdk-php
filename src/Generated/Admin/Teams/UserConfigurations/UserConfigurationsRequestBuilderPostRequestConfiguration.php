@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Teams\UserConfigurations;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Teams\UserConfigurations;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

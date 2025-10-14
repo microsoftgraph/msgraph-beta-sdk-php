@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\External\Connections\Item\Quota;
+namespace Microsoft\\Graph\\Beta\\Generated\External\Connections\Item\Quota;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

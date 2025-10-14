@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkEnrollmentProfiles\Item\RevokeToken;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidForWorkEnrollmentProfiles\Item\RevokeToken;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

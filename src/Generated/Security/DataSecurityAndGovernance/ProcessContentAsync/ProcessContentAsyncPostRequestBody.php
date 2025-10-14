@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\ProcessContentAsync;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\DataSecurityAndGovernance\ProcessContentAsync;
 
-use Microsoft\Graph\Beta\Generated\Models\ProcessContentBatchRequest;
+use Microsoft\\Graph\\Beta\\Generated\Models\ProcessContentBatchRequest;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

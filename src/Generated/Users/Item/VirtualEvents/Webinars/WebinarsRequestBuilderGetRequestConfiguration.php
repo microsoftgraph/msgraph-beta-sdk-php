@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\VirtualEvents\Webinars;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\VirtualEvents\Webinars;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

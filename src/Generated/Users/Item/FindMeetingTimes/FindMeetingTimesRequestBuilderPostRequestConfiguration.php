@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\FindMeetingTimes;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\FindMeetingTimes;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

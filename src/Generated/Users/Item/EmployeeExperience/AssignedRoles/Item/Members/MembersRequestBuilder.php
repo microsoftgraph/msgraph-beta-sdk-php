@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\EmployeeExperience\AssignedRoles\Item\Members;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\EmployeeExperience\AssignedRoles\Item\Members;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\EngagementRoleMember;
-use Microsoft\Graph\Beta\Generated\Models\EngagementRoleMemberCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\EmployeeExperience\AssignedRoles\Item\Members\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\EmployeeExperience\AssignedRoles\Item\Members\Item\EngagementRoleMemberItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\EngagementRoleMember;
+use Microsoft\\Graph\\Beta\\Generated\Models\EngagementRoleMemberCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\EmployeeExperience\AssignedRoles\Item\Members\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\EmployeeExperience\AssignedRoles\Item\Members\Item\EngagementRoleMemberItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

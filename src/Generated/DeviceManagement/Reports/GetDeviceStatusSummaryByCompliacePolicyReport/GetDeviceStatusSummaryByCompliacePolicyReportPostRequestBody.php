@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceStatusSummaryByCompliacePolicyReport;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Reports\GetDeviceStatusSummaryByCompliacePolicyReport;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

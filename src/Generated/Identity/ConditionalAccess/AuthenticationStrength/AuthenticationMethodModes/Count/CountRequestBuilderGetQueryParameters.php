@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrength\AuthenticationMethodModes\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\AuthenticationStrength\AuthenticationMethodModes\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

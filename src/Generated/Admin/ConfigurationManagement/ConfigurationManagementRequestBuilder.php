@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\ConfigurationManagement;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\ConfigurationApplications\ConfigurationApplicationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\ConfigurationDrifts\ConfigurationDriftsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\ConfigurationMonitoringResults\ConfigurationMonitoringResultsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\ConfigurationMonitors\ConfigurationMonitorsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\ConfigurationSnapshotJobs\ConfigurationSnapshotJobsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\ConfigurationSnapshots\ConfigurationSnapshotsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ConfigurationManagement;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Admin\ConfigurationManagement\ConfigurationApplications\ConfigurationApplicationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\ConfigurationManagement\ConfigurationDrifts\ConfigurationDriftsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\ConfigurationManagement\ConfigurationMonitoringResults\ConfigurationMonitoringResultsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\ConfigurationManagement\ConfigurationMonitors\ConfigurationMonitorsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\ConfigurationManagement\ConfigurationSnapshotJobs\ConfigurationSnapshotJobsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\ConfigurationManagement\ConfigurationSnapshots\ConfigurationSnapshotsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ConfigurationManagement;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\ForwardingProfiles\Item\Policies\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\ForwardingProfiles\Item\Policies\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

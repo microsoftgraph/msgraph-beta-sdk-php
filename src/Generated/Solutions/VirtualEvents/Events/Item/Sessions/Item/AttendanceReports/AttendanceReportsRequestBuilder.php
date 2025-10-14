@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Sessions\Item\AttendanceReports;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Events\Item\Sessions\Item\AttendanceReports;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\MeetingAttendanceReport;
-use Microsoft\Graph\Beta\Generated\Models\MeetingAttendanceReportCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Sessions\Item\AttendanceReports\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Sessions\Item\AttendanceReports\Item\MeetingAttendanceReportItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\MeetingAttendanceReport;
+use Microsoft\\Graph\\Beta\\Generated\Models\MeetingAttendanceReportCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Events\Item\Sessions\Item\AttendanceReports\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Events\Item\Sessions\Item\AttendanceReports\Item\MeetingAttendanceReportItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\App\Calls\Item\ChangeScreenSharingRole;
+namespace Microsoft\\Graph\\Beta\\Generated\App\Calls\Item\ChangeScreenSharingRole;
 
-use Microsoft\Graph\Beta\Generated\Models\ScreenSharingRole;
+use Microsoft\\Graph\\Beta\\Generated\Models\ScreenSharingRole;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

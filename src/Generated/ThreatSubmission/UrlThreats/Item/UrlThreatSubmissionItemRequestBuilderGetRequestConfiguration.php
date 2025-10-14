@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ThreatSubmission\UrlThreats\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\ThreatSubmission\UrlThreats\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

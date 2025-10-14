@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Applications\Item\TokenIssuancePolicies;
+namespace Microsoft\\Graph\\Beta\\Generated\Applications\Item\TokenIssuancePolicies;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Applications\Item\TokenIssuancePolicies\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\TokenIssuancePolicies\Item\TokenIssuancePolicyItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\TokenIssuancePolicies\Ref\RefRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TokenIssuancePolicyCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\TokenIssuancePolicies\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\TokenIssuancePolicies\Item\TokenIssuancePolicyItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\TokenIssuancePolicies\Ref\RefRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TokenIssuancePolicyCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -34,7 +34,7 @@ class TokenIssuancePoliciesRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.applications.item.tokenIssuancePolicies.item collection
+     * Gets an item from the Microsoft//Graph//Beta//Generated.applications.item.tokenIssuancePolicies.item collection
      * @param string $tokenIssuancePolicyId The unique identifier of tokenIssuancePolicy
      * @return TokenIssuancePolicyItemRequestBuilder
     */

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Dimensions;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\Dimensions;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

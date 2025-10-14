@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\QrCodePinMethod\Pin;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Authentication\QrCodePinMethod\Pin;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\QrPin;
-use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\QrCodePinMethod\Pin\UpdatePin\UpdatePinRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\QrPin;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Authentication\QrCodePinMethod\Pin\UpdatePin\UpdatePinRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetUnhealthyDefenderAgentsReport;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Reports\GetUnhealthyDefenderAgentsReport;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

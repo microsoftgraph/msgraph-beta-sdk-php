@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Storage;
+namespace Microsoft\\Graph\\Beta\\Generated\Storage;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Storage;
-use Microsoft\Graph\Beta\Generated\Storage\FileStorage\FileStorageRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Storage\Settings\SettingsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Storage;
+use Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\FileStorageRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Storage\Settings\SettingsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

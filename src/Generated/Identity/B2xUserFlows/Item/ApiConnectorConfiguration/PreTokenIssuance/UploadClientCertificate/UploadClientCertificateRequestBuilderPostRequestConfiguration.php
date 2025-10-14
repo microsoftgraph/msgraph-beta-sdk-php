@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item\ApiConnectorConfiguration\PreTokenIssuance\UploadClientCertificate;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\B2xUserFlows\Item\ApiConnectorConfiguration\PreTokenIssuance\UploadClientCertificate;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

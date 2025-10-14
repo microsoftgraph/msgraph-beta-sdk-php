@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Invitations\InvitedUserSponsors;
+namespace Microsoft\\Graph\\Beta\\Generated\Invitations\InvitedUserSponsors;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

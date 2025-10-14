@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -108,7 +108,7 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
-     * Gets the externalPartners property value. The externalPartners property
+     * Gets the externalPartners property value. The external partners on a Cloud PC.
      * @return array<CloudPcExternalPartner>|null
     */
     public function getExternalPartners(): ?array {
@@ -374,7 +374,7 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
-     * Sets the externalPartners property value. The externalPartners property
+     * Sets the externalPartners property value. The external partners on a Cloud PC.
      * @param array<CloudPcExternalPartner>|null $value Value to set for the externalPartners property.
     */
     public function setExternalPartners(?array $value): void {

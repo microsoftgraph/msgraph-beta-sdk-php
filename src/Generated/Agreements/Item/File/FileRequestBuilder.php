@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Agreements\Item\File;
+namespace Microsoft\\Graph\\Beta\\Generated\Agreements\Item\File;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Agreements\Item\File\Localizations\LocalizationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AgreementFile;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Agreements\Item\File\Localizations\LocalizationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AgreementFile;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\PageTemplates\Item\CanvasLayout\HorizontalSections\Item\Columns\Item\Webparts;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\PageTemplates\Item\CanvasLayout\HorizontalSections\Item\Columns\Item\Webparts;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\DeletedItems\CrossTenantPartners\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\DeletedItems\CrossTenantPartners\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

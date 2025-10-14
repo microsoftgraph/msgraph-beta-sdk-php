@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Item\DispositionReviewStages\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Labels\RetentionLabels\Item\DispositionReviewStages\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\Templates\DeviceTemplates\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\Templates\DeviceTemplates\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Directory\Templates\DeviceTemplates\Item\CreateDeviceFromTemplate\CreateDeviceFromTemplateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\Templates\DeviceTemplates\Item\DeviceInstances\DeviceInstancesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\Templates\DeviceTemplates\Item\DeviceInstancesWithDeviceId\DeviceInstancesWithDeviceIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\Templates\DeviceTemplates\Item\Owners\OwnersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DeviceTemplate;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Directory\Templates\DeviceTemplates\Item\CreateDeviceFromTemplate\CreateDeviceFromTemplateRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Directory\Templates\DeviceTemplates\Item\DeviceInstances\DeviceInstancesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Directory\Templates\DeviceTemplates\Item\DeviceInstancesWithDeviceId\DeviceInstancesWithDeviceIdRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Directory\Templates\DeviceTemplates\Item\Owners\OwnersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceTemplate;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

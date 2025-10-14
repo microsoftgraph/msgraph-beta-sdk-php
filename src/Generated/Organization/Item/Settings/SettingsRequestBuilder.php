@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Organization\Item\Settings;
+namespace Microsoft\\Graph\\Beta\\Generated\Organization\Item\Settings;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\OrganizationSettings;
-use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\ContactInsights\ContactInsightsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\ItemInsights\ItemInsightsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\MicrosoftApplicationDataAccess\MicrosoftApplicationDataAccessRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\Settings\PeopleInsights\PeopleInsightsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\OrganizationSettings;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\Settings\ContactInsights\ContactInsightsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\Settings\ItemInsights\ItemInsightsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\Settings\MicrosoftApplicationDataAccess\MicrosoftApplicationDataAccessRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\Settings\PeopleInsights\PeopleInsightsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

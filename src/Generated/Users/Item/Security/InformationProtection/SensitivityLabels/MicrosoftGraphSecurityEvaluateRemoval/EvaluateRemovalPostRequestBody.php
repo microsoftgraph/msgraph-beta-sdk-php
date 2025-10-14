@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityEvaluateRemoval;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityEvaluateRemoval;
 
-use Microsoft\Graph\Beta\Generated\Models\Security\ContentInfo;
-use Microsoft\Graph\Beta\Generated\Models\Security\DowngradeJustification;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\ContentInfo;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\DowngradeJustification;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

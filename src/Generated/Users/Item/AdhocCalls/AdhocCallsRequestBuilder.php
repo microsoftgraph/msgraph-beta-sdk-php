@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\AdhocCalls;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\AdhocCalls;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\AdhocCall;
-use Microsoft\Graph\Beta\Generated\Models\AdhocCallCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\AdhocCalls\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\AdhocCalls\Item\AdhocCallItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AdhocCall;
+use Microsoft\\Graph\\Beta\\Generated\Models\AdhocCallCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\AdhocCalls\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\AdhocCalls\Item\AdhocCallItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

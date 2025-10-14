@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Places;
+namespace Microsoft\\Graph\\Beta\\Generated\Places;
 
-use Microsoft\Graph\Beta\Generated\Places\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Places\GraphRoom\GraphRoomRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Places\GraphRoomList\GraphRoomListRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Places\Item\PlaceItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Places\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Places\GraphRoom\GraphRoomRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Places\GraphRoomList\GraphRoomListRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Places\Item\PlaceItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 

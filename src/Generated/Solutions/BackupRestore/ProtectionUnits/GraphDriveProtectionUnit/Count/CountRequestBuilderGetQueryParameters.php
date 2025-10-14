@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ProtectionUnits\GraphDriveProtectionUnit\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\ProtectionUnits\GraphDriveProtectionUnit\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

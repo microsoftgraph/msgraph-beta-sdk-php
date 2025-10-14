@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\HideForUser;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\HideForUser;
 
-use Microsoft\Graph\Beta\Generated\Models\TeamworkUserIdentity;
+use Microsoft\\Graph\\Beta\\Generated\Models\TeamworkUserIdentity;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

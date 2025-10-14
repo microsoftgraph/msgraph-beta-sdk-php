@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DataClassification\SensitivityLabels\Evaluate;
+namespace Microsoft\\Graph\\Beta\\Generated\DataClassification\SensitivityLabels\Evaluate;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

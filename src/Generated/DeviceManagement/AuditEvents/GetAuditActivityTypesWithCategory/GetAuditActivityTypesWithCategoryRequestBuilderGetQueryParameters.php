@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AuditEvents\GetAuditActivityTypesWithCategory;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AuditEvents\GetAuditActivityTypesWithCategory;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

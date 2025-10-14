@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\HealthMonitoring\AlertConfigurations\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\HealthMonitoring\AlertConfigurations\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

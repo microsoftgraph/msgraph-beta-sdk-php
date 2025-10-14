@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TenantRelationships\MultiTenantOrganization\JoinRequest;
+namespace Microsoft\\Graph\\Beta\\Generated\TenantRelationships\MultiTenantOrganization\JoinRequest;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

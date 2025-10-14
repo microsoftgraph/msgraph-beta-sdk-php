@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GetRoleScopeTagsByIdsWithIds;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\GetRoleScopeTagsByIdsWithIds;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

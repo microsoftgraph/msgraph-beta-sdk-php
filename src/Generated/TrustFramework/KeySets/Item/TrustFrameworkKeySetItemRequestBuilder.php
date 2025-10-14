@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\TrustFramework\KeySets\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TrustFrameworkKeySet;
-use Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\GenerateKey\GenerateKeyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\GetActiveKey\GetActiveKeyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\Keys_v2\Keys_v2RequestBuilder;
-use Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\UploadCertificate\UploadCertificateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\UploadPkcs12\UploadPkcs12RequestBuilder;
-use Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\UploadSecret\UploadSecretRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TrustFrameworkKeySet;
+use Microsoft\\Graph\\Beta\\Generated\TrustFramework\KeySets\Item\GenerateKey\GenerateKeyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TrustFramework\KeySets\Item\GetActiveKey\GetActiveKeyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TrustFramework\KeySets\Item\Keys_v2\Keys_v2RequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TrustFramework\KeySets\Item\UploadCertificate\UploadCertificateRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TrustFramework\KeySets\Item\UploadPkcs12\UploadPkcs12RequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TrustFramework\KeySets\Item\UploadSecret\UploadSecretRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

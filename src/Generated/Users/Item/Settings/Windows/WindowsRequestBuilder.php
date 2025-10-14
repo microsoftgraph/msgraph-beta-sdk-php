@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Settings\Windows;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Settings\Windows;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\WindowsSetting;
-use Microsoft\Graph\Beta\Generated\Models\WindowsSettingCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Users\Item\Settings\Windows\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Settings\Windows\Item\WindowsSettingItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsSetting;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsSettingCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Settings\Windows\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Settings\Windows\Item\WindowsSettingItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

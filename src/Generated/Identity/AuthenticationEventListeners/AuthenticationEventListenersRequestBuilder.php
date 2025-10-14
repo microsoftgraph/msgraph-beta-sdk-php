@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventListeners;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\AuthenticationEventListeners;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventListeners\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventListeners\Item\AuthenticationEventListenerItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AuthenticationEventListener;
-use Microsoft\Graph\Beta\Generated\Models\AuthenticationEventListenerCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Identity\AuthenticationEventListeners\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\AuthenticationEventListeners\Item\AuthenticationEventListenerItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AuthenticationEventListener;
+use Microsoft\\Graph\\Beta\\Generated\Models\AuthenticationEventListenerCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

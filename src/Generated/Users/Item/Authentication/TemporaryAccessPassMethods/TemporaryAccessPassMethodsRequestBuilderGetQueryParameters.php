@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\TemporaryAccessPassMethods;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Authentication\TemporaryAccessPassMethods;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

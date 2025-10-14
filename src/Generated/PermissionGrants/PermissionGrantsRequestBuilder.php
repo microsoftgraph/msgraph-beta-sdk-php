@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\PermissionGrants;
+namespace Microsoft\\Graph\\Beta\\Generated\PermissionGrants;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\ResourceSpecificPermissionGrant;
-use Microsoft\Graph\Beta\Generated\Models\ResourceSpecificPermissionGrantCollectionResponse;
-use Microsoft\Graph\Beta\Generated\PermissionGrants\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PermissionGrants\GetByIds\GetByIdsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PermissionGrants\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PermissionGrants\Item\ResourceSpecificPermissionGrantItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PermissionGrants\ValidateProperties\ValidatePropertiesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\ResourceSpecificPermissionGrant;
+use Microsoft\\Graph\\Beta\\Generated\Models\ResourceSpecificPermissionGrantCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\PermissionGrants\Delta\DeltaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\PermissionGrants\GetByIds\GetByIdsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\PermissionGrants\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\PermissionGrants\Item\ResourceSpecificPermissionGrantItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\PermissionGrants\ValidateProperties\ValidatePropertiesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

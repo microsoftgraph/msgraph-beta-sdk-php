@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesOrderLines\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesOrderLines\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

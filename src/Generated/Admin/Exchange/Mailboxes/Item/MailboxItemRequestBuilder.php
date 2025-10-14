@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Exchange\Mailboxes\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Exchange\Mailboxes\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Admin\Exchange\Mailboxes\Item\CreateImportSession\CreateImportSessionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Exchange\Mailboxes\Item\ExportItems\ExportItemsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Exchange\Mailboxes\Item\Folders\FoldersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Mailbox;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Exchange\Mailboxes\Item\CreateImportSession\CreateImportSessionRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Exchange\Mailboxes\Item\ExportItems\ExportItemsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Exchange\Mailboxes\Item\Folders\FoldersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Mailbox;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetUnhealthyFirewallReport;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Reports\GetUnhealthyFirewallReport;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

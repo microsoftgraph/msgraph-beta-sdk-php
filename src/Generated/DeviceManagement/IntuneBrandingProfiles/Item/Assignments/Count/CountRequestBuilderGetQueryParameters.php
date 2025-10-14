@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\IntuneBrandingProfiles\Item\Assignments\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\IntuneBrandingProfiles\Item\Assignments\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

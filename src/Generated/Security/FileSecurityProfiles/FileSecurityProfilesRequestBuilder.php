@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\FileSecurityProfiles;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\FileSecurityProfiles;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\FileSecurityProfile;
-use Microsoft\Graph\Beta\Generated\Models\FileSecurityProfileCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Security\FileSecurityProfiles\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\FileSecurityProfiles\Item\FileSecurityProfileItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\FileSecurityProfile;
+use Microsoft\\Graph\\Beta\\Generated\Models\FileSecurityProfileCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Security\FileSecurityProfiles\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\FileSecurityProfiles\Item\FileSecurityProfileItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

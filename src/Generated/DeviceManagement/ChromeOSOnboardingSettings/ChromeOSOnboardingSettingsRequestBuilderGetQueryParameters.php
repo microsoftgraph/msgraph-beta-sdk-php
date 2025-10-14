@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ChromeOSOnboardingSettings;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ChromeOSOnboardingSettings;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

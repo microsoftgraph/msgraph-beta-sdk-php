@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\Vulnerabilities\Item\Components\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\ThreatIntelligence\Vulnerabilities\Item\Components\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

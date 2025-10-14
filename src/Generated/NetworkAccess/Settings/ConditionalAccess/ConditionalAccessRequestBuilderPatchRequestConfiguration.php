@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Settings\ConditionalAccess;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Settings\ConditionalAccess;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

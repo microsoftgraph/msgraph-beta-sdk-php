@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveEnrollmentTimeGroupingFailureReport;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Reports\RetrieveEnrollmentTimeGroupingFailureReport;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

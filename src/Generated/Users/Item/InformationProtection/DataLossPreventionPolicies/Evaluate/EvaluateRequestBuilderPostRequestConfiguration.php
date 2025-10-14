@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\DataLossPreventionPolicies\Evaluate;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\InformationProtection\DataLossPreventionPolicies\Evaluate;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

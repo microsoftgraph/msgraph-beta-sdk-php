@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Oauth2PermissionGrants;
+namespace Microsoft\\Graph\\Beta\\Generated\Oauth2PermissionGrants;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\OAuth2PermissionGrant;
-use Microsoft\Graph\Beta\Generated\Models\OAuth2PermissionGrantCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Oauth2PermissionGrants\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Oauth2PermissionGrants\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Oauth2PermissionGrants\Item\OAuth2PermissionGrantItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\OAuth2PermissionGrant;
+use Microsoft\\Graph\\Beta\\Generated\Models\OAuth2PermissionGrantCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Oauth2PermissionGrants\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Oauth2PermissionGrants\Delta\DeltaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Oauth2PermissionGrants\Item\OAuth2PermissionGrantItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

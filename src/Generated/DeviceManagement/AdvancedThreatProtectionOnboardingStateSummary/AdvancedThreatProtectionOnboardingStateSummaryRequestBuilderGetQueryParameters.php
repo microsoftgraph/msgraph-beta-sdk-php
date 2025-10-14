@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AdvancedThreatProtectionOnboardingStateSummary;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AdvancedThreatProtectionOnboardingStateSummary;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

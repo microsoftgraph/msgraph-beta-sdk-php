@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Calendar;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Calendar;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\Calendar;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\AllowedCalendarSharingRolesWithUser\AllowedCalendarSharingRolesWithUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\CalendarPermissions\CalendarPermissionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\CalendarView\CalendarViewRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\Events\EventsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\GetSchedule\GetScheduleRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Calendar\PermanentDelete\PermanentDeleteRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Calendar;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Calendar\AllowedCalendarSharingRolesWithUser\AllowedCalendarSharingRolesWithUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Calendar\CalendarPermissions\CalendarPermissionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Calendar\CalendarView\CalendarViewRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Calendar\Events\EventsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Calendar\GetSchedule\GetScheduleRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Calendar\PermanentDelete\PermanentDeleteRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

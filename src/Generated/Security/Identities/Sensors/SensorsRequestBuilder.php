@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Identities\Sensors;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Identities\Sensors;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\Sensor;
-use Microsoft\Graph\Beta\Generated\Models\Security\SensorCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Security\Identities\Sensors\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Identities\Sensors\Item\SensorItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Identities\Sensors\MicrosoftGraphSecurityGetDeploymentAccessKey\MicrosoftGraphSecurityGetDeploymentAccessKeyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Identities\Sensors\MicrosoftGraphSecurityGetDeploymentPackageUri\MicrosoftGraphSecurityGetDeploymentPackageUriRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Identities\Sensors\MicrosoftGraphSecurityRegenerateDeploymentAccessKey\MicrosoftGraphSecurityRegenerateDeploymentAccessKeyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\Sensor;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\SensorCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Security\Identities\Sensors\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Identities\Sensors\Item\SensorItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Identities\Sensors\MicrosoftGraphSecurityGetDeploymentAccessKey\MicrosoftGraphSecurityGetDeploymentAccessKeyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Identities\Sensors\MicrosoftGraphSecurityGetDeploymentPackageUri\MicrosoftGraphSecurityGetDeploymentPackageUriRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Identities\Sensors\MicrosoftGraphSecurityRegenerateDeploymentAccessKey\MicrosoftGraphSecurityRegenerateDeploymentAccessKeyRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

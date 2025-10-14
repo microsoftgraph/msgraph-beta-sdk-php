@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs;
+namespace Microsoft\\Graph\\Beta\\Generated\Applications\Item\Synchronization\Jobs;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

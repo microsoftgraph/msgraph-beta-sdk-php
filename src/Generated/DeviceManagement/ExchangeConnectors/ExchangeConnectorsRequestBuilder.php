@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeConnectors;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ExchangeConnectors;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeConnectors\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeConnectors\Item\DeviceManagementExchangeConnectorItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagementExchangeConnector;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagementExchangeConnectorCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ExchangeConnectors\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ExchangeConnectors\Item\DeviceManagementExchangeConnectorItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagementExchangeConnector;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagementExchangeConnectorCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -113,6 +113,18 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
     }
 
     /**
+     * Gets the depProfileAdminAccountPasswordRotationSetting property value. Settings for local admin account password automatic rotation.
+     * @return DepProfileAdminAccountPasswordRotationSetting|null
+    */
+    public function getDepProfileAdminAccountPasswordRotationSetting(): ?DepProfileAdminAccountPasswordRotationSetting {
+        $val = $this->getBackingStore()->get('depProfileAdminAccountPasswordRotationSetting');
+        if (is_null($val) || $val instanceof DepProfileAdminAccountPasswordRotationSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'depProfileAdminAccountPasswordRotationSetting'");
+    }
+
+    /**
      * Gets the dontAutoPopulatePrimaryAccountInfo property value. Indicates whether Setup Assistant will auto populate the primary account information
      * @return bool|null
     */
@@ -150,6 +162,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
             'autoAdvanceSetupEnabled' => fn(ParseNode $n) => $o->setAutoAdvanceSetupEnabled($n->getBooleanValue()),
             'autoUnlockWithWatchDisabled' => fn(ParseNode $n) => $o->setAutoUnlockWithWatchDisabled($n->getBooleanValue()),
             'chooseYourLockScreenDisabled' => fn(ParseNode $n) => $o->setChooseYourLockScreenDisabled($n->getBooleanValue()),
+            'depProfileAdminAccountPasswordRotationSetting' => fn(ParseNode $n) => $o->setDepProfileAdminAccountPasswordRotationSetting($n->getObjectValue([DepProfileAdminAccountPasswordRotationSetting::class, 'createFromDiscriminatorValue'])),
             'dontAutoPopulatePrimaryAccountInfo' => fn(ParseNode $n) => $o->setDontAutoPopulatePrimaryAccountInfo($n->getBooleanValue()),
             'enableRestrictEditing' => fn(ParseNode $n) => $o->setEnableRestrictEditing($n->getBooleanValue()),
             'fileVaultDisabled' => fn(ParseNode $n) => $o->setFileVaultDisabled($n->getBooleanValue()),
@@ -324,6 +337,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
         $writer->writeBooleanValue('autoAdvanceSetupEnabled', $this->getAutoAdvanceSetupEnabled());
         $writer->writeBooleanValue('autoUnlockWithWatchDisabled', $this->getAutoUnlockWithWatchDisabled());
         $writer->writeBooleanValue('chooseYourLockScreenDisabled', $this->getChooseYourLockScreenDisabled());
+        $writer->writeObjectValue('depProfileAdminAccountPasswordRotationSetting', $this->getDepProfileAdminAccountPasswordRotationSetting());
         $writer->writeBooleanValue('dontAutoPopulatePrimaryAccountInfo', $this->getDontAutoPopulatePrimaryAccountInfo());
         $writer->writeBooleanValue('enableRestrictEditing', $this->getEnableRestrictEditing());
         $writer->writeBooleanValue('fileVaultDisabled', $this->getFileVaultDisabled());
@@ -394,6 +408,14 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
     */
     public function setChooseYourLockScreenDisabled(?bool $value): void {
         $this->getBackingStore()->set('chooseYourLockScreenDisabled', $value);
+    }
+
+    /**
+     * Sets the depProfileAdminAccountPasswordRotationSetting property value. Settings for local admin account password automatic rotation.
+     * @param DepProfileAdminAccountPasswordRotationSetting|null $value Value to set for the depProfileAdminAccountPasswordRotationSetting property.
+    */
+    public function setDepProfileAdminAccountPasswordRotationSetting(?DepProfileAdminAccountPasswordRotationSetting $value): void {
+        $this->getBackingStore()->set('depProfileAdminAccountPasswordRotationSetting', $value);
     }
 
     /**
