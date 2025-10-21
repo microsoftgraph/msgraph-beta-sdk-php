@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\DataSecurityAndGovernance\SensitivityLabels\Item\Sublabels\Evaluate;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\DataSecurityAndGovernance\SensitivityLabels\Item\Sublabels\Evaluate;
 
-use Microsoft\Graph\Beta\Generated\Models\CurrentLabel;
-use Microsoft\Graph\Beta\Generated\Models\DiscoveredSensitiveType;
+use Microsoft\\Graph\\Beta\\Generated\Models\CurrentLabel;
+use Microsoft\\Graph\\Beta\\Generated\Models\DiscoveredSensitiveType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

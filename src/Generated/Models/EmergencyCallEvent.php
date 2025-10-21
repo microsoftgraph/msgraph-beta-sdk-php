@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -62,7 +62,7 @@ class EmergencyCallEvent extends CallEvent implements Parsable
     }
 
     /**
-     * Gets the policyName property value. The policy name for emergency call event.
+     * Gets the policyName property value. The policy name for the emergency call event.
      * @return string|null
     */
     public function getPolicyName(): ?string {
@@ -101,7 +101,7 @@ class EmergencyCallEvent extends CallEvent implements Parsable
     }
 
     /**
-     * Sets the policyName property value. The policy name for emergency call event.
+     * Sets the policyName property value. The policy name for the emergency call event.
      * @param string|null $value Value to set for the policyName property.
     */
     public function setPolicyName(?string $value): void {

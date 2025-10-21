@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaConnector;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ZebraFotaConnector;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaConnector\ApproveFotaApps\ApproveFotaAppsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaConnector\Connect\ConnectRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaConnector\Disconnect\DisconnectRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaConnector\HasActiveDeployments\HasActiveDeploymentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaConnector\RetrieveZebraFotaDeviceModels\RetrieveZebraFotaDeviceModelsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\ZebraFotaConnector;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ZebraFotaConnector\ApproveFotaApps\ApproveFotaAppsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ZebraFotaConnector\Connect\ConnectRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ZebraFotaConnector\Disconnect\DisconnectRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ZebraFotaConnector\HasActiveDeployments\HasActiveDeploymentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ZebraFotaConnector\RetrieveZebraFotaDeviceModels\RetrieveZebraFotaDeviceModelsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\ZebraFotaConnector;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

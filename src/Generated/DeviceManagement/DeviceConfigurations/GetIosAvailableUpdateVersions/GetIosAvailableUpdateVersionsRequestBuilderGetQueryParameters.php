@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\GetIosAvailableUpdateVersions;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceConfigurations\GetIosAvailableUpdateVersions;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

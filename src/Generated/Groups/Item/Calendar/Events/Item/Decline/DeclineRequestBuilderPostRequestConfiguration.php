@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Calendar\Events\Item\Decline;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Calendar\Events\Item\Decline;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

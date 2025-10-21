@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\ResourceNamespaces;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\CloudPC\ResourceNamespaces;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

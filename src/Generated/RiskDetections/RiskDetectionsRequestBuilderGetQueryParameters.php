@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RiskDetections;
+namespace Microsoft\\Graph\\Beta\\Generated\RiskDetections;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties of a collection of riskDetection objects.
+ * Retrieve the properties of a riskDetection object.
 */
 class RiskDetectionsRequestBuilderGetQueryParameters 
 {

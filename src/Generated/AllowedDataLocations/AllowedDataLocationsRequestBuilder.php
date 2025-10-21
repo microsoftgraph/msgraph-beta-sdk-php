@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AllowedDataLocations;
+namespace Microsoft\\Graph\\Beta\\Generated\AllowedDataLocations;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\AllowedDataLocations\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AllowedDataLocations\Item\AllowedDataLocationItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AllowedDataLocation;
-use Microsoft\Graph\Beta\Generated\Models\AllowedDataLocationCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\AllowedDataLocations\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AllowedDataLocations\Item\AllowedDataLocationItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AllowedDataLocation;
+use Microsoft\\Graph\\Beta\\Generated\Models\AllowedDataLocationCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\GetByPathWithPath\InformationProtection;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\GetByPathWithPath\InformationProtection;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

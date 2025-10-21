@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphMacOSDmgApp\ContentVersions\Item\Files;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MobileApps\Item\GraphMacOSDmgApp\ContentVersions\Item\Files;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

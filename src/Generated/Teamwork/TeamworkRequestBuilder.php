@@ -1,19 +1,19 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teamwork;
+namespace Microsoft\\Graph\\Beta\\Generated\Teamwork;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Teamwork;
-use Microsoft\Graph\Beta\Generated\Teamwork\DeletedChats\DeletedChatsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\DeletedTeams\DeletedTeamsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\DetermineIfInteractionIsAllowed\DetermineIfInteractionIsAllowedRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\Devices\DevicesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\SendActivityNotificationToRecipients\SendActivityNotificationToRecipientsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\TeamsAppSettings\TeamsAppSettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\TeamTemplatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\WorkforceIntegrations\WorkforceIntegrationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Teamwork;
+use Microsoft\\Graph\\Beta\\Generated\Teamwork\DeletedChats\DeletedChatsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teamwork\DeletedTeams\DeletedTeamsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teamwork\DetermineIfInteractionIsAllowed\DetermineIfInteractionIsAllowedRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teamwork\Devices\DevicesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teamwork\SendActivityNotificationToRecipients\SendActivityNotificationToRecipientsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teamwork\TeamsAppSettings\TeamsAppSettingsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teamwork\TeamTemplates\TeamTemplatesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teamwork\WorkforceIntegrations\WorkforceIntegrationsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

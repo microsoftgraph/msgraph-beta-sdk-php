@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\ContactFolders\Item\Contacts\Item\Photo;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\ContactFolders\Item\Contacts\Item\Photo;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

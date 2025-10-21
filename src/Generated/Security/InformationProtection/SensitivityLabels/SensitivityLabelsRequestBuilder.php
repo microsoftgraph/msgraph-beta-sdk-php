@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\InformationProtection\SensitivityLabels;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\InformationProtection\SensitivityLabels;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\SensitivityLabel;
-use Microsoft\Graph\Beta\Generated\Models\Security\SensitivityLabelCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Security\InformationProtection\SensitivityLabels\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\InformationProtection\SensitivityLabels\Item\SensitivityLabelItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityEvaluateApplication\MicrosoftGraphSecurityEvaluateApplicationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityEvaluateClassificationResults\MicrosoftGraphSecurityEvaluateClassificationResultsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityEvaluateRemoval\MicrosoftGraphSecurityEvaluateRemovalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityExtractContentLabel\MicrosoftGraphSecurityExtractContentLabelRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\SensitivityLabel;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\SensitivityLabelCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Security\InformationProtection\SensitivityLabels\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\InformationProtection\SensitivityLabels\Item\SensitivityLabelItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityEvaluateApplication\MicrosoftGraphSecurityEvaluateApplicationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityEvaluateClassificationResults\MicrosoftGraphSecurityEvaluateClassificationResultsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityEvaluateRemoval\MicrosoftGraphSecurityEvaluateRemovalRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityExtractContentLabel\MicrosoftGraphSecurityExtractContentLabelRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

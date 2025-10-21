@@ -1,43 +1,44 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security;
+namespace Microsoft\\Graph\\Beta\\Generated\Security;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\Security;
-use Microsoft\Graph\Beta\Generated\Security\Alerts_v2\Alerts_v2RequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Alerts\AlertsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\AttackSimulationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\AuditLog\AuditLogRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Cases\CasesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\CloudAppSecurityProfiles\CloudAppSecurityProfilesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Collaboration\CollaborationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\DataDiscovery\DataDiscoveryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\DataSecurityAndGovernanceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\DomainSecurityProfiles\DomainSecurityProfilesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\FileSecurityProfiles\FileSecurityProfilesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\HostSecurityProfiles\HostSecurityProfilesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Identities\IdentitiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Incidents\IncidentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\IncidentTasks\IncidentTasksRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\InformationProtection\InformationProtectionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\IpSecurityProfiles\IpSecurityProfilesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Labels\LabelsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\MicrosoftGraphSecurityRunHuntingQuery\MicrosoftGraphSecurityRunHuntingQueryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Partner\PartnerRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\ProviderTenantSettings\ProviderTenantSettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Rules\RulesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\SecureScoreControlProfiles\SecureScoreControlProfilesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\SecureScores\SecureScoresRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\SecurityActions\SecurityActionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\SubjectRightsRequestsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\ThreatIntelligenceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\ThreatSubmissionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\TiIndicators\TiIndicatorsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Triggers\TriggersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\TriggerTypes\TriggerTypesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\UserSecurityProfiles\UserSecurityProfilesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\Security;
+use Microsoft\\Graph\\Beta\\Generated\Security\Alerts_v2\Alerts_v2RequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Alerts\AlertsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\AttackSimulation\AttackSimulationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\AuditLog\AuditLogRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Cases\CasesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\CloudAppSecurityProfiles\CloudAppSecurityProfilesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Collaboration\CollaborationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\DataDiscovery\DataDiscoveryRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\DataSecurityAndGovernance\DataSecurityAndGovernanceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\DomainSecurityProfiles\DomainSecurityProfilesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\FileSecurityProfiles\FileSecurityProfilesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\HostSecurityProfiles\HostSecurityProfilesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Identities\IdentitiesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Incidents\IncidentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\IncidentTasks\IncidentTasksRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\InformationProtection\InformationProtectionRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\IpSecurityProfiles\IpSecurityProfilesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Labels\LabelsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\MicrosoftGraphSecurityRunHuntingQuery\MicrosoftGraphSecurityRunHuntingQueryRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Partner\PartnerRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\ProviderTenantSettings\ProviderTenantSettingsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Rules\RulesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\SecureScoreControlProfiles\SecureScoreControlProfilesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\SecureScores\SecureScoresRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\SecurityActions\SecurityActionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\SecurityCopilot\SecurityCopilotRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\SubjectRightsRequests\SubjectRightsRequestsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\ThreatIntelligence\ThreatIntelligenceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\ThreatSubmission\ThreatSubmissionRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\TiIndicators\TiIndicatorsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Triggers\TriggersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\TriggerTypes\TriggerTypesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\UserSecurityProfiles\UserSecurityProfilesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -221,6 +222,13 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     */
     public function securityActions(): SecurityActionsRequestBuilder {
         return new SecurityActionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the securityCopilot property of the microsoft.graph.security entity.
+    */
+    public function securityCopilot(): SecurityCopilotRequestBuilder {
+        return new SecurityCopilotRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

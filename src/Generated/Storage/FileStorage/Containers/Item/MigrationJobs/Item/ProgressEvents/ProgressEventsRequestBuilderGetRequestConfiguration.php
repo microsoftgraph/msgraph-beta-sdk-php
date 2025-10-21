@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\MigrationJobs\Item\ProgressEvents;
+namespace Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\Containers\Item\MigrationJobs\Item\ProgressEvents;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

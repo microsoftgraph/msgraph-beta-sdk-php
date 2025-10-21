@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\DriveInclusionRules;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\DriveInclusionRules;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

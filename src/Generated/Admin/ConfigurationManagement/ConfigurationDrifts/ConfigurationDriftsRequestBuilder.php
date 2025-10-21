@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\ConfigurationDrifts;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\ConfigurationManagement\ConfigurationDrifts;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\ConfigurationDrifts\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\ConfigurationDrifts\Item\ConfigurationDriftItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ConfigurationDrift;
-use Microsoft\Graph\Beta\Generated\Models\ConfigurationDriftCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Admin\ConfigurationManagement\ConfigurationDrifts\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\ConfigurationManagement\ConfigurationDrifts\Item\ConfigurationDriftItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ConfigurationDrift;
+use Microsoft\\Graph\\Beta\\Generated\Models\ConfigurationDriftCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

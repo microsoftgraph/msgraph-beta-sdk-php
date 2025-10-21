@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\App\OnlineMeetingsWithJoinWebUrl\SendVirtualAppointmentSms;
+namespace Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetingsWithJoinWebUrl\SendVirtualAppointmentSms;
 
-use Microsoft\Graph\Beta\Generated\Models\AttendeeNotificationInfo;
-use Microsoft\Graph\Beta\Generated\Models\VirtualAppointmentMessageType;
+use Microsoft\\Graph\\Beta\\Generated\Models\AttendeeNotificationInfo;
+use Microsoft\\Graph\\Beta\\Generated\Models\VirtualAppointmentMessageType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

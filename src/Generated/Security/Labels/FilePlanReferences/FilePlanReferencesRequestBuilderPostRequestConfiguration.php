@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Labels\FilePlanReferences;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Labels\FilePlanReferences;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\WindowsProtectionState;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\ManagedDevices\Item\WindowsProtectionState;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

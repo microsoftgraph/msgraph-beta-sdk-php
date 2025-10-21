@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ServiceNowConnections;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ServiceNowConnections;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

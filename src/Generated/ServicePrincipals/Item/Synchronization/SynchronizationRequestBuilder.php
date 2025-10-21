@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization;
+namespace Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\Synchronization;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Synchronization;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\AcquireAccessToken\AcquireAccessTokenRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\Jobs\JobsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\Ping\PingRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\Secrets\SecretsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\Templates\TemplatesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Synchronization;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\Synchronization\AcquireAccessToken\AcquireAccessTokenRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\Synchronization\Jobs\JobsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\Synchronization\Ping\PingRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\Synchronization\Secrets\SecretsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\Synchronization\Templates\TemplatesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

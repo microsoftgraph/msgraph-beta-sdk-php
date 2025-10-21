@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Endpoints;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Endpoints;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Endpoints\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Endpoints\Item\EndpointItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Endpoint;
-use Microsoft\Graph\Beta\Generated\Models\EndpointCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Endpoints\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Endpoints\Item\EndpointItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Endpoint;
+use Microsoft\\Graph\\Beta\\Generated\Models\EndpointCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

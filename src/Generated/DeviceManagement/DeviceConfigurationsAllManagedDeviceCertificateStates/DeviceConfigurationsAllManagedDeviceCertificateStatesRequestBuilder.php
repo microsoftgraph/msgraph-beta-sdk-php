@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationsAllManagedDeviceCertificateStates;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceConfigurationsAllManagedDeviceCertificateStates;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationsAllManagedDeviceCertificateStates\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationsAllManagedDeviceCertificateStates\Item\ManagedAllDeviceCertificateStateItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ManagedAllDeviceCertificateState;
-use Microsoft\Graph\Beta\Generated\Models\ManagedAllDeviceCertificateStateCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceConfigurationsAllManagedDeviceCertificateStates\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceConfigurationsAllManagedDeviceCertificateStates\Item\ManagedAllDeviceCertificateStateItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ManagedAllDeviceCertificateState;
+use Microsoft\\Graph\\Beta\\Generated\Models\ManagedAllDeviceCertificateStateCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

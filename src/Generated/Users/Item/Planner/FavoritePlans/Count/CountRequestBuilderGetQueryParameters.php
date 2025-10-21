@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Planner\FavoritePlans\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Planner\FavoritePlans\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

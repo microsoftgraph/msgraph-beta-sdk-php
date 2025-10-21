@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\InstalledApps;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Teamwork\InstalledApps;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UserScopeTeamsAppInstallation;
-use Microsoft\Graph\Beta\Generated\Models\UserScopeTeamsAppInstallationCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\InstalledApps\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\InstalledApps\Item\UserScopeTeamsAppInstallationItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UserScopeTeamsAppInstallation;
+use Microsoft\\Graph\\Beta\\Generated\Models\UserScopeTeamsAppInstallationCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Teamwork\InstalledApps\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Teamwork\InstalledApps\Item\UserScopeTeamsAppInstallationItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

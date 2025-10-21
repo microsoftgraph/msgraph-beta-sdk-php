@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -459,7 +459,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the sharedDeviceDetail property value. Indicates the Cloud PC device details (for example, assignedToUserPrincipalName) associated with the frontline shared service plan.
+     * Gets the sharedDeviceDetail property value. Indicates the Cloud PC device details associated with the frontline shared service plan, including the user's UPN and the session start date and time.
      * @return CloudPcFrontlineSharedDeviceDetail|null
     */
     public function getSharedDeviceDetail(): ?CloudPcFrontlineSharedDeviceDetail {
@@ -850,7 +850,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the sharedDeviceDetail property value. Indicates the Cloud PC device details (for example, assignedToUserPrincipalName) associated with the frontline shared service plan.
+     * Sets the sharedDeviceDetail property value. Indicates the Cloud PC device details associated with the frontline shared service plan, including the user's UPN and the session start date and time.
      * @param CloudPcFrontlineSharedDeviceDetail|null $value Value to set for the sharedDeviceDetail property.
     */
     public function setSharedDeviceDetail(?CloudPcFrontlineSharedDeviceDetail $value): void {

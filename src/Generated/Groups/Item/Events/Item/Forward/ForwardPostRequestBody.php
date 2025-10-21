@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Events\Item\Forward;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Events\Item\Forward;
 
-use Microsoft\Graph\Beta\Generated\Models\Recipient;
+use Microsoft\\Graph\\Beta\\Generated\Models\Recipient;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Members\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\AdministrativeUnits\Item\Members\Item;
 
-use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Members\Item\GraphApplication\GraphApplicationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Members\Item\GraphDevice\GraphDeviceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Members\Item\GraphGroup\GraphGroupRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Members\Item\GraphOrgContact\GraphOrgContactRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Members\Item\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Members\Item\GraphUser\GraphUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\Members\Item\Ref\RefRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AdministrativeUnits\Item\Members\Item\GraphApplication\GraphApplicationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AdministrativeUnits\Item\Members\Item\GraphDevice\GraphDeviceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AdministrativeUnits\Item\Members\Item\GraphGroup\GraphGroupRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AdministrativeUnits\Item\Members\Item\GraphOrgContact\GraphOrgContactRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AdministrativeUnits\Item\Members\Item\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AdministrativeUnits\Item\Members\Item\GraphUser\GraphUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AdministrativeUnits\Item\Members\Item\Ref\RefRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 

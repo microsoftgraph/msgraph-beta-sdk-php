@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Templates\Item\CompareWithTemplateId;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Templates\Item\CompareWithTemplateId;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\PageTemplates\Item\WebParts\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\PageTemplates\Item\WebParts\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\WebPart;
-use Microsoft\Graph\Beta\Generated\Sites\Item\PageTemplates\Item\WebParts\Item\GetPositionOfWebPart\GetPositionOfWebPartRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\WebPart;
+use Microsoft\\Graph\\Beta\\Generated\Sites\Item\PageTemplates\Item\WebParts\Item\GetPositionOfWebPart\GetPositionOfWebPartRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

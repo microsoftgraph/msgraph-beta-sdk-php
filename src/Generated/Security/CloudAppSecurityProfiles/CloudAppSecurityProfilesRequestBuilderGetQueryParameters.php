@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\CloudAppSecurityProfiles;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\CloudAppSecurityProfiles;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

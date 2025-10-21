@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Permissions\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Drives\Item\EscapedList\Permissions\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

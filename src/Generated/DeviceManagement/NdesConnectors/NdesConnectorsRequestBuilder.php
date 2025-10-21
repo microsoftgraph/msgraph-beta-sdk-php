@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\NdesConnectors;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\NdesConnectors;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\NdesConnectors\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\NdesConnectors\Item\NdesConnectorItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\NdesConnector;
-use Microsoft\Graph\Beta\Generated\Models\NdesConnectorCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\NdesConnectors\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\NdesConnectors\Item\NdesConnectorItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\NdesConnector;
+use Microsoft\\Graph\\Beta\\Generated\Models\NdesConnectorCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

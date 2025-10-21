@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetingsWithJoinWebUrl\GetVirtualAppointmentJoinWebUrl;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\OnlineMeetingsWithJoinWebUrl\GetVirtualAppointmentJoinWebUrl;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\SearchWithQ;
+namespace Microsoft\\Graph\\Beta\\Generated\Drives\Item\Items\Item\SearchWithQ;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

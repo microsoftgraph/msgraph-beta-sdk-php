@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveSecurityTaskAppsReport;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Reports\RetrieveSecurityTaskAppsReport;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

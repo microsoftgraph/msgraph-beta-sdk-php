@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\GovernanceRoleAssignmentRequests\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\GovernanceRoleAssignmentRequests\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\GovernanceRoleAssignmentRequests\Item\Cancel\CancelRequestBuilder;
-use Microsoft\Graph\Beta\Generated\GovernanceRoleAssignmentRequests\Item\Resource\ResourceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\GovernanceRoleAssignmentRequests\Item\RoleDefinition\RoleDefinitionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\GovernanceRoleAssignmentRequests\Item\Subject\SubjectRequestBuilder;
-use Microsoft\Graph\Beta\Generated\GovernanceRoleAssignmentRequests\Item\UpdateRequest\UpdateRequestRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\GovernanceRoleAssignmentRequest;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\GovernanceRoleAssignmentRequests\Item\Cancel\CancelRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\GovernanceRoleAssignmentRequests\Item\Resource\ResourceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\GovernanceRoleAssignmentRequests\Item\RoleDefinition\RoleDefinitionRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\GovernanceRoleAssignmentRequests\Item\Subject\SubjectRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\GovernanceRoleAssignmentRequests\Item\UpdateRequest\UpdateRequestRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\GovernanceRoleAssignmentRequest;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

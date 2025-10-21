@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\GetYammerGroupsActivityDetailWithDate;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\GetYammerGroupsActivityDetailWithDate;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

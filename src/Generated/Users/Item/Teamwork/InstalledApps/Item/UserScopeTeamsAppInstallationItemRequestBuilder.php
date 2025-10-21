@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\InstalledApps\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Teamwork\InstalledApps\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UserScopeTeamsAppInstallation;
-use Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\InstalledApps\Item\Chat\ChatRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\InstalledApps\Item\TeamsApp\TeamsAppRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\InstalledApps\Item\TeamsAppDefinition\TeamsAppDefinitionRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UserScopeTeamsAppInstallation;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Teamwork\InstalledApps\Item\Chat\ChatRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Teamwork\InstalledApps\Item\TeamsApp\TeamsAppRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Teamwork\InstalledApps\Item\TeamsAppDefinition\TeamsAppDefinitionRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

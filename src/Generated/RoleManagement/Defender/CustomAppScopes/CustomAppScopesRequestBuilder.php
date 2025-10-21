@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\Defender\CustomAppScopes;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\Defender\CustomAppScopes;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\CustomAppScopeCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\RoleManagement\Defender\CustomAppScopes\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\Defender\CustomAppScopes\Item\CustomAppScopeItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\CustomAppScopeCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\Defender\CustomAppScopes\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\Defender\CustomAppScopes\Item\CustomAppScopeItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

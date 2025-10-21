@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\Activities\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Drives\Item\EscapedList\Items\Item\Activities\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\Activities\Item\DriveItem\DriveItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\Activities\Item\ListItem\ListItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ItemActivityOLD;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Drives\Item\EscapedList\Items\Item\Activities\Item\DriveItem\DriveItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Drives\Item\EscapedList\Items\Item\Activities\Item\ListItem\ListItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ItemActivityOLD;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

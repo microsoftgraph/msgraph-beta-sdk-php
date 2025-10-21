@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AutopilotEvents;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AutopilotEvents;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

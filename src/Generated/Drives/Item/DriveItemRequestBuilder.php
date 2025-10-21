@@ -1,23 +1,23 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Drives\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Activities\ActivitiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Bundles\BundlesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\CreatedByUser\CreatedByUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\ListRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Following\FollowingRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Items\ItemsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\LastModifiedByUser\LastModifiedByUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Recent\RecentRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Root\RootRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\SearchWithQ\SearchWithQRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\SharedWithMe\SharedWithMeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Special\SpecialRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Drive;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Drives\Item\Activities\ActivitiesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Drives\Item\Bundles\BundlesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Drives\Item\CreatedByUser\CreatedByUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Drives\Item\EscapedList\ListRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Drives\Item\Following\FollowingRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Drives\Item\Items\ItemsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Drives\Item\LastModifiedByUser\LastModifiedByUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Drives\Item\Recent\RecentRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Drives\Item\Root\RootRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Drives\Item\SearchWithQ\SearchWithQRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Drives\Item\SharedWithMe\SharedWithMeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Drives\Item\Special\SpecialRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Drive;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

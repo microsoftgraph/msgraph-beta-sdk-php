@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\FeatureRolloutPolicies\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\FeatureRolloutPolicies\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

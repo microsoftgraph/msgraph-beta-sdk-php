@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ImportedDeviceIdentities;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ImportedDeviceIdentities;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ImportedDeviceIdentities\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ImportedDeviceIdentities\ImportDeviceIdentityList\ImportDeviceIdentityListRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ImportedDeviceIdentities\Item\ImportedDeviceIdentityItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ImportedDeviceIdentities\SearchExistingIdentities\SearchExistingIdentitiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ImportedDeviceIdentity;
-use Microsoft\Graph\Beta\Generated\Models\ImportedDeviceIdentityCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ImportedDeviceIdentities\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ImportedDeviceIdentities\ImportDeviceIdentityList\ImportDeviceIdentityListRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ImportedDeviceIdentities\Item\ImportedDeviceIdentityItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ImportedDeviceIdentities\SearchExistingIdentities\SearchExistingIdentitiesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ImportedDeviceIdentity;
+use Microsoft\\Graph\\Beta\\Generated\Models\ImportedDeviceIdentityCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

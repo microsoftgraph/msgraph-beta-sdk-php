@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Contacts;
+namespace Microsoft\\Graph\\Beta\\Generated\Contacts;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Contacts\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\GetByIds\GetByIdsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\OrgContactItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\ValidateProperties\ValidatePropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\OrgContactCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Delta\DeltaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\GetByIds\GetByIdsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\OrgContactItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\ValidateProperties\ValidatePropertiesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\OrgContactCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -74,7 +74,7 @@ class ContactsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/contacts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24top}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/contacts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\Schedule\SchedulingGroups\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\Schedule\SchedulingGroups\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Subscriptions\Item\Reauthorize;
+namespace Microsoft\\Graph\\Beta\\Generated\Subscriptions\Item\Reauthorize;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;
