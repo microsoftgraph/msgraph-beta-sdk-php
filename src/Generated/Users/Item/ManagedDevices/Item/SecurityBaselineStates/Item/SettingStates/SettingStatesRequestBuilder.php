@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\SecurityBaselineStates\Item\SettingStates;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\ManagedDevices\Item\SecurityBaselineStates\Item\SettingStates;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SecurityBaselineSettingState;
-use Microsoft\Graph\Beta\Generated\Models\SecurityBaselineSettingStateCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\SecurityBaselineStates\Item\SettingStates\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\SecurityBaselineStates\Item\SettingStates\Item\SecurityBaselineSettingStateItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SecurityBaselineSettingState;
+use Microsoft\\Graph\\Beta\\Generated\Models\SecurityBaselineSettingStateCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\ManagedDevices\Item\SecurityBaselineStates\Item\SettingStates\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\ManagedDevices\Item\SecurityBaselineStates\Item\SettingStates\Item\SecurityBaselineSettingStateItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

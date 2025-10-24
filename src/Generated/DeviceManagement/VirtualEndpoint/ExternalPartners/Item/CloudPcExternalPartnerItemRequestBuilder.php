@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ExternalPartners\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\VirtualEndpoint\ExternalPartners\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\CloudPcExternalPartner;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\CloudPcExternalPartner;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -45,10 +45,11 @@ class CloudPcExternalPartnerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get externalPartners from deviceManagement
+     * Read the properties and relationships of a cloudPcExternalPartner object.
      * @param CloudPcExternalPartnerItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcExternalPartner|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcexternalpartner-get?view=graph-rest-beta Find more info here
     */
     public function get(?CloudPcExternalPartnerItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,11 +60,12 @@ class CloudPcExternalPartnerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property externalPartners in deviceManagement
+     * Update the properties of a cloudPcExternalPartner object.
      * @param CloudPcExternalPartner $body The request body
      * @param CloudPcExternalPartnerItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcExternalPartner|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcexternalpartner-update?view=graph-rest-beta Find more info here
     */
     public function patch(CloudPcExternalPartner $body, ?CloudPcExternalPartnerItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -92,7 +94,7 @@ class CloudPcExternalPartnerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get externalPartners from deviceManagement
+     * Read the properties and relationships of a cloudPcExternalPartner object.
      * @param CloudPcExternalPartnerItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +115,7 @@ class CloudPcExternalPartnerItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property externalPartners in deviceManagement
+     * Update the properties of a cloudPcExternalPartner object.
      * @param CloudPcExternalPartner $body The request body
      * @param CloudPcExternalPartnerItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

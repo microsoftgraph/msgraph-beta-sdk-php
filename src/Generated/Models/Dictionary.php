@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\ExtendedProperties;
-use Microsoft\Graph\Beta\Generated\Models\Partner\Security\AdditionalDataDictionary;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\ExtendedProperties;
+use Microsoft\\Graph\\Beta\\Generated\Models\Partner\Security\AdditionalDataDictionary;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -45,6 +45,7 @@ class Dictionary implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.partner.security.additionalDataDictionary': return new AdditionalDataDictionary();
                 case '#microsoft.graph.plannerFormsDictionary': return new PlannerFormsDictionary();
                 case '#microsoft.graph.resultTemplateDictionary': return new ResultTemplateDictionary();
+                case '#microsoft.graph.stringDictionary': return new StringDictionary();
                 case '#microsoft.graph.wafAllowedHeadersDictionary': return new WafAllowedHeadersDictionary();
             }
         }

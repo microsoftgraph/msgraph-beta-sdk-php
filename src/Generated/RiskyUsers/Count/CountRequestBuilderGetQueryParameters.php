@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RiskyUsers\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\RiskyUsers\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

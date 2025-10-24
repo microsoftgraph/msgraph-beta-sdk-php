@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\GetOneDriveActivityUserCountsWithPeriod;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\GetOneDriveActivityUserCountsWithPeriod;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

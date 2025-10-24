@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\DeletedMembers;
+namespace Microsoft\\Graph\\Beta\\Generated\AdministrativeUnits\Item\DeletedMembers;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\DeletedMembers\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\DeletedMembers\Item\DirectoryObjectItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DirectoryObjectCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\AdministrativeUnits\Item\DeletedMembers\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AdministrativeUnits\Item\DeletedMembers\Item\DirectoryObjectItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DirectoryObjectCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

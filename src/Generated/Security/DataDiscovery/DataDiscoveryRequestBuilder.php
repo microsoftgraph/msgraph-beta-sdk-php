@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\DataDiscovery;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\DataDiscovery;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\DataDiscoveryRoot;
-use Microsoft\Graph\Beta\Generated\Security\DataDiscovery\CloudAppDiscovery\CloudAppDiscoveryRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\DataDiscoveryRoot;
+use Microsoft\\Graph\\Beta\\Generated\Security\DataDiscovery\CloudAppDiscovery\CloudAppDiscoveryRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

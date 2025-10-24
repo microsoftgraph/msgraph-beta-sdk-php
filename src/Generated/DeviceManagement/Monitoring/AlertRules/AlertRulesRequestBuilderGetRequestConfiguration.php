@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\AlertRules;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Monitoring\AlertRules;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

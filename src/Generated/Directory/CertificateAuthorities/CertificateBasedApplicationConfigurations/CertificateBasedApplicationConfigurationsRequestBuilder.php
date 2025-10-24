@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\CertificateAuthorities\CertificateBasedApplicationConfigurations;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\CertificateAuthorities\CertificateBasedApplicationConfigurations;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Directory\CertificateAuthorities\CertificateBasedApplicationConfigurations\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\CertificateAuthorities\CertificateBasedApplicationConfigurations\Item\CertificateBasedApplicationConfigurationItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\CertificateBasedApplicationConfiguration;
-use Microsoft\Graph\Beta\Generated\Models\CertificateBasedApplicationConfigurationCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Directory\CertificateAuthorities\CertificateBasedApplicationConfigurations\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Directory\CertificateAuthorities\CertificateBasedApplicationConfigurations\Item\CertificateBasedApplicationConfigurationItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\CertificateBasedApplicationConfiguration;
+use Microsoft\\Graph\\Beta\\Generated\Models\CertificateBasedApplicationConfigurationCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

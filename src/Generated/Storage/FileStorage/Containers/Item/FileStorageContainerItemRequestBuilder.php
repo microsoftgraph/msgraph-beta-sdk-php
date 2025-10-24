@@ -1,23 +1,23 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\Containers\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\FileStorageContainer;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\Activate\ActivateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\Columns\ColumnsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\Drive\DriveRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\Lock\LockRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\MigrationJobs\MigrationJobsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\PermanentDelete\PermanentDeleteRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\Permissions\PermissionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\ProvisionMigrationContainers\ProvisionMigrationContainersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\RecycleBin\RecycleBinRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\Restore\RestoreRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\SharePointGroups\SharePointGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\Unlock\UnlockRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\FileStorageContainer;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\Containers\Item\Activate\ActivateRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\Containers\Item\Columns\ColumnsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\Containers\Item\Drive\DriveRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\Containers\Item\Lock\LockRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\Containers\Item\MigrationJobs\MigrationJobsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\Containers\Item\PermanentDelete\PermanentDeleteRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\Containers\Item\Permissions\PermissionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\Containers\Item\ProvisionMigrationContainers\ProvisionMigrationContainersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\Containers\Item\RecycleBin\RecycleBinRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\Containers\Item\Restore\RestoreRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\Containers\Item\SharePointGroups\SharePointGroupsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\Containers\Item\Unlock\UnlockRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

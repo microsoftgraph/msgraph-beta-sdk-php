@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignments\Item\MakeEligible;
+namespace Microsoft\\Graph\\Beta\\Generated\PrivilegedRoleAssignments\Item\MakeEligible;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

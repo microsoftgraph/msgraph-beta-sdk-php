@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ResourceAccessProfiles;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ResourceAccessProfiles;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ResourceAccessProfiles\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ResourceAccessProfiles\Item\DeviceManagementResourceAccessProfileBaseItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ResourceAccessProfiles\QueryByPlatformType\QueryByPlatformTypeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagementResourceAccessProfileBase;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagementResourceAccessProfileBaseCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ResourceAccessProfiles\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ResourceAccessProfiles\Item\DeviceManagementResourceAccessProfileBaseItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ResourceAccessProfiles\QueryByPlatformType\QueryByPlatformTypeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagementResourceAccessProfileBase;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagementResourceAccessProfileBaseCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

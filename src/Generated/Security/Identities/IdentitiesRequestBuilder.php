@@ -1,16 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Identities;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Identities;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\IdentityContainer;
-use Microsoft\Graph\Beta\Generated\Security\Identities\HealthIssues\HealthIssuesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Identities\IdentityAccounts\IdentityAccountsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Identities\SensorCandidateActivationConfiguration\SensorCandidateActivationConfigurationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Identities\SensorCandidates\SensorCandidatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Identities\Sensors\SensorsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\IdentityContainer;
+use Microsoft\\Graph\\Beta\\Generated\Security\Identities\HealthIssues\HealthIssuesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Identities\IdentityAccounts\IdentityAccountsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Identities\SensorCandidateActivationConfiguration\SensorCandidateActivationConfigurationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Identities\SensorCandidates\SensorCandidatesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Identities\Sensors\SensorsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Identities\Settings\SettingsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -54,6 +55,13 @@ class IdentitiesRequestBuilder extends BaseRequestBuilder
     */
     public function sensors(): SensorsRequestBuilder {
         return new SensorsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the settings property of the microsoft.graph.security.identityContainer entity.
+    */
+    public function settings(): SettingsRequestBuilder {
+        return new SettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

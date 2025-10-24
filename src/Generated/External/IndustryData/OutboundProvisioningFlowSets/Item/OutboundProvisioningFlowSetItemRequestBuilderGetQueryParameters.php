@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\External\IndustryData\OutboundProvisioningFlowSets\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\External\IndustryData\OutboundProvisioningFlowSets\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

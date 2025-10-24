@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -31,7 +31,7 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the assignments property value. The associated group assignments for IosLobAppProvisioningConfiguration.
+     * Gets the assignments property value. The associated group assignments for IosLobAppProvisioningConfiguration, this determines which devices/users the IOS LOB app provisioning conifguration will be targeted to.
      * @return array<IosLobAppProvisioningConfigurationAssignment>|null
     */
     public function getAssignments(): ?array {
@@ -95,7 +95,7 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the expirationDateTime property value. Optional profile expiration date and time.
+     * Gets the expirationDateTime property value. Optional profile expiration date and time. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default.
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
@@ -248,7 +248,7 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the assignments property value. The associated group assignments for IosLobAppProvisioningConfiguration.
+     * Sets the assignments property value. The associated group assignments for IosLobAppProvisioningConfiguration, this determines which devices/users the IOS LOB app provisioning conifguration will be targeted to.
      * @param array<IosLobAppProvisioningConfigurationAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
@@ -288,7 +288,7 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the expirationDateTime property value. Optional profile expiration date and time.
+     * Sets the expirationDateTime property value. Optional profile expiration date and time. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default.
      * @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value): void {

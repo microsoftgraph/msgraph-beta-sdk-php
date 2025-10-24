@@ -1,19 +1,19 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeviceIdentities\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\WindowsAutopilotDeviceIdentities\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeviceIdentities\Item\AllowNextEnrollment\AllowNextEnrollmentRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeviceIdentities\Item\AssignResourceAccountToDevice\AssignResourceAccountToDeviceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeviceIdentities\Item\AssignUserToDevice\AssignUserToDeviceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeviceIdentities\Item\DeploymentProfile\DeploymentProfileRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeviceIdentities\Item\IntendedDeploymentProfile\IntendedDeploymentProfileRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeviceIdentities\Item\UnassignResourceAccountFromDevice\UnassignResourceAccountFromDeviceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeviceIdentities\Item\UnassignUserFromDevice\UnassignUserFromDeviceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeviceIdentities\Item\UpdateDeviceProperties\UpdateDevicePropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\WindowsAutopilotDeviceIdentity;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\WindowsAutopilotDeviceIdentities\Item\AllowNextEnrollment\AllowNextEnrollmentRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\WindowsAutopilotDeviceIdentities\Item\AssignResourceAccountToDevice\AssignResourceAccountToDeviceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\WindowsAutopilotDeviceIdentities\Item\AssignUserToDevice\AssignUserToDeviceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\WindowsAutopilotDeviceIdentities\Item\DeploymentProfile\DeploymentProfileRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\WindowsAutopilotDeviceIdentities\Item\IntendedDeploymentProfile\IntendedDeploymentProfileRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\WindowsAutopilotDeviceIdentities\Item\UnassignResourceAccountFromDevice\UnassignResourceAccountFromDeviceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\WindowsAutopilotDeviceIdentities\Item\UnassignUserFromDevice\UnassignUserFromDeviceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\WindowsAutopilotDeviceIdentities\Item\UpdateDeviceProperties\UpdateDevicePropertiesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsAutopilotDeviceIdentity;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AccessReviews\Item\Decisions;
+namespace Microsoft\\Graph\\Beta\\Generated\AccessReviews\Item\Decisions;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Decisions\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Decisions\Item\AccessReviewDecisionItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AccessReviewDecision;
-use Microsoft\Graph\Beta\Generated\Models\AccessReviewDecisionCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\AccessReviews\Item\Decisions\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AccessReviews\Item\Decisions\Item\AccessReviewDecisionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AccessReviewDecision;
+use Microsoft\\Graph\\Beta\\Generated\Models\AccessReviewDecisionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

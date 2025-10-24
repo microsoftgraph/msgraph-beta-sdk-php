@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -147,6 +147,7 @@ class AccessPackageResource extends Entity implements Parsable
             'originId' => fn(ParseNode $n) => $o->setOriginId($n->getStringValue()),
             'originSystem' => fn(ParseNode $n) => $o->setOriginSystem($n->getStringValue()),
             'resourceType' => fn(ParseNode $n) => $o->setResourceType($n->getStringValue()),
+            'uploadSessions' => fn(ParseNode $n) => $o->setUploadSessions($n->getCollectionOfObjectValues([CustomDataProvidedResourceUploadSession::class, 'createFromDiscriminatorValue'])),
             'url' => fn(ParseNode $n) => $o->setUrl($n->getStringValue()),
         ]);
     }
@@ -200,6 +201,20 @@ class AccessPackageResource extends Entity implements Parsable
     }
 
     /**
+     * Gets the uploadSessions property value. The uploadSessions property
+     * @return array<CustomDataProvidedResourceUploadSession>|null
+    */
+    public function getUploadSessions(): ?array {
+        $val = $this->getBackingStore()->get('uploadSessions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CustomDataProvidedResourceUploadSession::class);
+            /** @var array<CustomDataProvidedResourceUploadSession>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'uploadSessions'");
+    }
+
+    /**
      * Gets the url property value. A unique resource locator for the resource, such as the URL for signing a user into an application.
      * @return string|null
     */
@@ -229,6 +244,7 @@ class AccessPackageResource extends Entity implements Parsable
         $writer->writeStringValue('originId', $this->getOriginId());
         $writer->writeStringValue('originSystem', $this->getOriginSystem());
         $writer->writeStringValue('resourceType', $this->getResourceType());
+        $writer->writeCollectionOfObjectValues('uploadSessions', $this->getUploadSessions());
         $writer->writeStringValue('url', $this->getUrl());
     }
 
@@ -326,6 +342,14 @@ class AccessPackageResource extends Entity implements Parsable
     */
     public function setResourceType(?string $value): void {
         $this->getBackingStore()->set('resourceType', $value);
+    }
+
+    /**
+     * Sets the uploadSessions property value. The uploadSessions property
+     * @param array<CustomDataProvidedResourceUploadSession>|null $value Value to set for the uploadSessions property.
+    */
+    public function setUploadSessions(?array $value): void {
+        $this->getBackingStore()->set('uploadSessions', $value);
     }
 
     /**

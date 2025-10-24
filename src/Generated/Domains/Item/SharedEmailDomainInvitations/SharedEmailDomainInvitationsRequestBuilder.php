@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Domains\Item\SharedEmailDomainInvitations;
+namespace Microsoft\\Graph\\Beta\\Generated\Domains\Item\SharedEmailDomainInvitations;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Domains\Item\SharedEmailDomainInvitations\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Domains\Item\SharedEmailDomainInvitations\Item\SharedEmailDomainInvitationItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SharedEmailDomainInvitation;
-use Microsoft\Graph\Beta\Generated\Models\SharedEmailDomainInvitationCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Domains\Item\SharedEmailDomainInvitations\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Domains\Item\SharedEmailDomainInvitations\Item\SharedEmailDomainInvitationItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SharedEmailDomainInvitation;
+use Microsoft\\Graph\\Beta\\Generated\Models\SharedEmailDomainInvitationCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

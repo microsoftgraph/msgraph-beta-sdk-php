@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\Authentications;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Monthly\Authentications;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

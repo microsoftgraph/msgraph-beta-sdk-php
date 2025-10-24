@@ -1,21 +1,21 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\Bitlocker\BitlockerRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\DataLossPreventionPolicies\DataLossPreventionPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\DecryptBuffer\DecryptBufferRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\EncryptBuffer\EncryptBufferRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\Policy\PolicyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\SensitivityLabels\SensitivityLabelsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\SensitivityPolicySettings\SensitivityPolicySettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\SignDigest\SignDigestRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\ThreatAssessmentRequests\ThreatAssessmentRequestsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\VerifySignature\VerifySignatureRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\InformationProtection;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\Bitlocker\BitlockerRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\DataLossPreventionPolicies\DataLossPreventionPoliciesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\DecryptBuffer\DecryptBufferRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\EncryptBuffer\EncryptBufferRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\Policy\PolicyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\SensitivityLabels\SensitivityLabelsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\SensitivityPolicySettings\SensitivityPolicySettingsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\SignDigest\SignDigestRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\ThreatAssessmentRequests\ThreatAssessmentRequestsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\VerifySignature\VerifySignatureRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\InformationProtection;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

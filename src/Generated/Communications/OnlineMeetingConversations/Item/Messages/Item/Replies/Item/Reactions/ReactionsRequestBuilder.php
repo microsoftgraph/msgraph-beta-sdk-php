@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\OnlineMeetingConversations\Item\Messages\Item\Replies\Item\Reactions;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\OnlineMeetingConversations\Item\Messages\Item\Replies\Item\Reactions;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetingConversations\Item\Messages\Item\Replies\Item\Reactions\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Communications\OnlineMeetingConversations\Item\Messages\Item\Replies\Item\Reactions\Item\EngagementConversationMessageReactionItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\EngagementConversationMessageReaction;
-use Microsoft\Graph\Beta\Generated\Models\EngagementConversationMessageReactionCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Communications\OnlineMeetingConversations\Item\Messages\Item\Replies\Item\Reactions\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Communications\OnlineMeetingConversations\Item\Messages\Item\Replies\Item\Reactions\Item\EngagementConversationMessageReactionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\EngagementConversationMessageReaction;
+use Microsoft\\Graph\\Beta\\Generated\Models\EngagementConversationMessageReactionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

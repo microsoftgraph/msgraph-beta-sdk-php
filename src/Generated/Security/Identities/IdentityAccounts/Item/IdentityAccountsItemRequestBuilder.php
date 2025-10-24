@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Identities\IdentityAccounts\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Identities\IdentityAccounts\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\IdentityAccounts;
-use Microsoft\Graph\Beta\Generated\Security\Identities\IdentityAccounts\Item\MicrosoftGraphSecurityInvokeAction\MicrosoftGraphSecurityInvokeActionRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\IdentityAccounts;
+use Microsoft\\Graph\\Beta\\Generated\Security\Identities\IdentityAccounts\Item\MicrosoftGraphSecurityInvokeAction\MicrosoftGraphSecurityInvokeActionRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

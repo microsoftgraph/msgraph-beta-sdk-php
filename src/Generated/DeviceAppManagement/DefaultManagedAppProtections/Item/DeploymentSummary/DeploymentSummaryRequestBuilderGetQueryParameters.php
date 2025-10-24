@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\DefaultManagedAppProtections\Item\DeploymentSummary;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\DefaultManagedAppProtections\Item\DeploymentSummary;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

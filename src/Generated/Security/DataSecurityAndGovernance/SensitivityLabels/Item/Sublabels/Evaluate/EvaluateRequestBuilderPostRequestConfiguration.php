@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\SensitivityLabels\Item\Sublabels\Evaluate;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\DataSecurityAndGovernance\SensitivityLabels\Item\Sublabels\Evaluate;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,22 +1,22 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\PendingAccessReviewInstances\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\AccessReviewInstance;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\AcceptRecommendations\AcceptRecommendationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\ApplyDecisions\ApplyDecisionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\BatchRecordDecisions\BatchRecordDecisionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\ContactedReviewers\ContactedReviewersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Decisions\DecisionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Definition\DefinitionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\ResetDecisions\ResetDecisionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\SendReminder\SendReminderRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Stages\StagesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\Stop\StopRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\PendingAccessReviewInstances\Item\StopApplyDecisions\StopApplyDecisionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AccessReviewInstance;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\PendingAccessReviewInstances\Item\AcceptRecommendations\AcceptRecommendationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\PendingAccessReviewInstances\Item\ApplyDecisions\ApplyDecisionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\PendingAccessReviewInstances\Item\BatchRecordDecisions\BatchRecordDecisionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\PendingAccessReviewInstances\Item\ContactedReviewers\ContactedReviewersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\PendingAccessReviewInstances\Item\Decisions\DecisionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\PendingAccessReviewInstances\Item\Definition\DefinitionRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\PendingAccessReviewInstances\Item\ResetDecisions\ResetDecisionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\PendingAccessReviewInstances\Item\SendReminder\SendReminderRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\PendingAccessReviewInstances\Item\Stages\StagesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\PendingAccessReviewInstances\Item\Stop\StopRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\PendingAccessReviewInstances\Item\StopApplyDecisions\StopApplyDecisionsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

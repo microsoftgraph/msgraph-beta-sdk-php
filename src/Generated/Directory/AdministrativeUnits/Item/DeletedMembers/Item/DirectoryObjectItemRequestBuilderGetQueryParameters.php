@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\AdministrativeUnits\Item\DeletedMembers\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\AdministrativeUnits\Item\DeletedMembers\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

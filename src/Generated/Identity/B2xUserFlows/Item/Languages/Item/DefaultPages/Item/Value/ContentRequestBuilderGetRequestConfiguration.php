@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item\Languages\Item\DefaultPages\Item\Value;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\B2xUserFlows\Item\Languages\Item\DefaultPages\Item\Value;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

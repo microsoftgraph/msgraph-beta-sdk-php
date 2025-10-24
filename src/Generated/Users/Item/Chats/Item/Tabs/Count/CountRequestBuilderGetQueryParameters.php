@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Tabs\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\Tabs\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

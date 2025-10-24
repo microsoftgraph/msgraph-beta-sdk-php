@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\AuthorizationPolicy\Item\DefaultUserRoleOverrides\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\AuthorizationPolicy\Item\DefaultUserRoleOverrides\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Workplace\SensorDevices;
+namespace Microsoft\\Graph\\Beta\\Generated\Workplace\SensorDevices;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\WorkplaceSensorDevice;
-use Microsoft\Graph\Beta\Generated\Models\WorkplaceSensorDeviceCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Workplace\SensorDevices\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Workplace\SensorDevices\IngestTelemetry\IngestTelemetryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Workplace\SensorDevices\Item\WorkplaceSensorDeviceItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\WorkplaceSensorDevice;
+use Microsoft\\Graph\\Beta\\Generated\Models\WorkplaceSensorDeviceCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Workplace\SensorDevices\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Workplace\SensorDevices\IngestTelemetry\IngestTelemetryRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Workplace\SensorDevices\Item\WorkplaceSensorDeviceItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

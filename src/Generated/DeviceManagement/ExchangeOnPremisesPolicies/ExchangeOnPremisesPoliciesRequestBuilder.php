@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeOnPremisesPolicies;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ExchangeOnPremisesPolicies;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeOnPremisesPolicies\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeOnPremisesPolicies\Item\DeviceManagementExchangeOnPremisesPolicyItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagementExchangeOnPremisesPolicy;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagementExchangeOnPremisesPolicyCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ExchangeOnPremisesPolicies\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ExchangeOnPremisesPolicies\Item\DeviceManagementExchangeOnPremisesPolicyItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagementExchangeOnPremisesPolicy;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagementExchangeOnPremisesPolicyCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

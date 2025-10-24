@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\Item\Revisions\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\Products\Item\Revisions\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\Item\Revisions\Item\CatalogEntry\CatalogEntryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\Item\Revisions\Item\KnowledgeBaseArticle\KnowledgeBaseArticleRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\ProductRevision;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\Products\Item\Revisions\Item\CatalogEntry\CatalogEntryRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\Products\Item\Revisions\Item\KnowledgeBaseArticle\KnowledgeBaseArticleRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsUpdates\ProductRevision;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

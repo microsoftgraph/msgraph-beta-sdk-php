@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\Planner\Plans\Item\Tasks\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\Item\Channels\Item\Planner\Plans\Item\Tasks\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PlannerTask;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\Planner\Plans\Item\Tasks\Item\AssignedToTaskBoardFormat\AssignedToTaskBoardFormatRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\Planner\Plans\Item\Tasks\Item\BucketTaskBoardFormat\BucketTaskBoardFormatRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\Planner\Plans\Item\Tasks\Item\Details\DetailsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\Planner\Plans\Item\Tasks\Item\ProgressTaskBoardFormat\ProgressTaskBoardFormatRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PlannerTask;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Channels\Item\Planner\Plans\Item\Tasks\Item\AssignedToTaskBoardFormat\AssignedToTaskBoardFormatRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Channels\Item\Planner\Plans\Item\Tasks\Item\BucketTaskBoardFormat\BucketTaskBoardFormatRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Channels\Item\Planner\Plans\Item\Tasks\Item\Details\DetailsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Channels\Item\Planner\Plans\Item\Tasks\Item\ProgressTaskBoardFormat\ProgressTaskBoardFormatRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

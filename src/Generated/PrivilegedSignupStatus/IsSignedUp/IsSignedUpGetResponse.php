@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\PrivilegedSignupStatus\IsSignedUp;
+namespace Microsoft\\Graph\\Beta\\Generated\PrivilegedSignupStatus\IsSignedUp;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

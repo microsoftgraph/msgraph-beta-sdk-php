@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\EmployeeExperience\AssignedRoles\Item\Members\Item\User;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\EmployeeExperience\AssignedRoles\Item\Members\Item\User;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\User;
-use Microsoft\Graph\Beta\Generated\Users\Item\EmployeeExperience\AssignedRoles\Item\Members\Item\User\MailboxSettings\MailboxSettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\EmployeeExperience\AssignedRoles\Item\Members\Item\User\ServiceProvisioningErrors\ServiceProvisioningErrorsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\User;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\EmployeeExperience\AssignedRoles\Item\Members\Item\User\MailboxSettings\MailboxSettingsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\EmployeeExperience\AssignedRoles\Item\Members\Item\User\ServiceProvisioningErrors\ServiceProvisioningErrorsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -47,7 +47,7 @@ class UserRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * User entity of the member who has been assigned the role.
+     * The user who has this role assigned.
      * @param UserRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<User|null>
      * @throws Exception
@@ -61,7 +61,7 @@ class UserRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * User entity of the member who has been assigned the role.
+     * The user who has this role assigned.
      * @param UserRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

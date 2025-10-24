@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\Recommendations\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\Complete\CompleteRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\Dismiss\DismissRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\ImpactedResources\ImpactedResourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\Postpone\PostponeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\Reactivate\ReactivateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Recommendation;
+use Microsoft\\Graph\\Beta\\Generated\Directory\Recommendations\Item\Complete\CompleteRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Directory\Recommendations\Item\Dismiss\DismissRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Directory\Recommendations\Item\ImpactedResources\ImpactedResourcesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Directory\Recommendations\Item\Postpone\PostponeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Directory\Recommendations\Item\Reactivate\ReactivateRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Recommendation;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

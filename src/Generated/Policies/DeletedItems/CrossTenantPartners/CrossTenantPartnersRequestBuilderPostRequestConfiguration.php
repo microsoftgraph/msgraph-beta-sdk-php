@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\DeletedItems\CrossTenantPartners;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\DeletedItems\CrossTenantPartners;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

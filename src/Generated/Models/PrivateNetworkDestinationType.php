@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Enum;
 
@@ -11,4 +11,5 @@ class PrivateNetworkDestinationType extends Enum {
     public const FQDN = "fqdn";
     public const DNS_SUFFIX = "dnsSuffix";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const SERVICE_PRINCIPAL_NAME = "servicePrincipalName";
 }

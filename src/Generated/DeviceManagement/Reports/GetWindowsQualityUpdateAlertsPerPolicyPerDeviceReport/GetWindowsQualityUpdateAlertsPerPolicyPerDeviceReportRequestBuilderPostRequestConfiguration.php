@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReport;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Reports\GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReport;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Catalog\Entries;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\Catalog\Entries;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Catalog\Entries\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Catalog\Entries\Item\CatalogEntryItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\CatalogEntry;
-use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\CatalogEntryCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\Catalog\Entries\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\Catalog\Entries\Item\CatalogEntryItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsUpdates\CatalogEntry;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsUpdates\CatalogEntryCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

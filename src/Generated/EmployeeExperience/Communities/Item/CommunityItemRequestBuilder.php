@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EmployeeExperience\Communities\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\Communities\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\EmployeeExperience\Communities\Item\Group\GroupRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EmployeeExperience\Communities\Item\Owners\OwnersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EmployeeExperience\Communities\Item\OwnersWithUserPrincipalName\OwnersWithUserPrincipalNameRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Community;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\Communities\Item\Group\GroupRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\Communities\Item\Owners\OwnersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\Communities\Item\OwnersWithUserPrincipalName\OwnersWithUserPrincipalNameRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Community;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

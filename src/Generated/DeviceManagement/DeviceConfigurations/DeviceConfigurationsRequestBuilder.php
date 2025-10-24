@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceConfigurations;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\GetIosAvailableUpdateVersions\GetIosAvailableUpdateVersionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\GetTargetedUsersAndDevices\GetTargetedUsersAndDevicesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\HasPayloadLinks\HasPayloadLinksRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\DeviceConfigurationItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DeviceConfiguration;
-use Microsoft\Graph\Beta\Generated\Models\DeviceConfigurationCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceConfigurations\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceConfigurations\GetIosAvailableUpdateVersions\GetIosAvailableUpdateVersionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceConfigurations\GetTargetedUsersAndDevices\GetTargetedUsersAndDevicesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceConfigurations\HasPayloadLinks\HasPayloadLinksRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceConfigurations\Item\DeviceConfigurationItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceConfiguration;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceConfigurationCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

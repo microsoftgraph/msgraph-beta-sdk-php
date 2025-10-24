@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CustomerPayments\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\CustomerPayments\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\CustomerPayments\Item\Customer\CustomerRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\CustomerPayment;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\CustomerPayments\Item\Customer\CustomerRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\CustomerPayment;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

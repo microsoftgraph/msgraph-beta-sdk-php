@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\App\OnlineMeetingsWithJoinWebUrl;
+namespace Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetingsWithJoinWebUrl;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\App\OnlineMeetingsWithJoinWebUrl\GetVirtualAppointmentJoinWebUrl\GetVirtualAppointmentJoinWebUrlRequestBuilder;
-use Microsoft\Graph\Beta\Generated\App\OnlineMeetingsWithJoinWebUrl\SendVirtualAppointmentReminderSms\SendVirtualAppointmentReminderSmsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\App\OnlineMeetingsWithJoinWebUrl\SendVirtualAppointmentSms\SendVirtualAppointmentSmsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\OnlineMeeting;
+use Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetingsWithJoinWebUrl\GetVirtualAppointmentJoinWebUrl\GetVirtualAppointmentJoinWebUrlRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetingsWithJoinWebUrl\SendVirtualAppointmentReminderSms\SendVirtualAppointmentReminderSmsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\App\OnlineMeetingsWithJoinWebUrl\SendVirtualAppointmentSms\SendVirtualAppointmentSmsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\OnlineMeeting;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

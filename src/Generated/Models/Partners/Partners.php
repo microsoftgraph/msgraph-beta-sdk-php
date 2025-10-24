@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\Partners;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\Partners;
 
-use Microsoft\Graph\Beta\Generated\Models\Entity;
-use Microsoft\Graph\Beta\Generated\Models\Partners\Billing\Billing;
+use Microsoft\\Graph\\Beta\\Generated\Models\Entity;
+use Microsoft\\Graph\\Beta\\Generated\Models\Partners\Billing\Billing;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;

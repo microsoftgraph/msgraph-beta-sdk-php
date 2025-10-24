@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\GovernanceRoleAssignments;
+namespace Microsoft\\Graph\\Beta\\Generated\GovernanceRoleAssignments;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\GovernanceRoleAssignments\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\GovernanceRoleAssignments\Export\ExportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\GovernanceRoleAssignments\Item\GovernanceRoleAssignmentItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\GovernanceRoleAssignment;
-use Microsoft\Graph\Beta\Generated\Models\GovernanceRoleAssignmentCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\GovernanceRoleAssignments\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\GovernanceRoleAssignments\Export\ExportRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\GovernanceRoleAssignments\Item\GovernanceRoleAssignmentItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\GovernanceRoleAssignment;
+use Microsoft\\Graph\\Beta\\Generated\Models\GovernanceRoleAssignmentCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

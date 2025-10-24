@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings\Item\Registration\CustomQuestions\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\OnlineMeetings\Item\Registration\CustomQuestions\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

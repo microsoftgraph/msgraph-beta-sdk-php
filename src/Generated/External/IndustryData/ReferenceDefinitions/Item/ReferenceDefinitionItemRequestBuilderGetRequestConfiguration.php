@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\External\IndustryData\ReferenceDefinitions\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\External\IndustryData\ReferenceDefinitions\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

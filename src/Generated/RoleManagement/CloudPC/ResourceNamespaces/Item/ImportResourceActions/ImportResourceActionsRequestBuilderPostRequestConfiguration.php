@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\ResourceNamespaces\Item\ImportResourceActions;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\CloudPC\ResourceNamespaces\Item\ImportResourceActions;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

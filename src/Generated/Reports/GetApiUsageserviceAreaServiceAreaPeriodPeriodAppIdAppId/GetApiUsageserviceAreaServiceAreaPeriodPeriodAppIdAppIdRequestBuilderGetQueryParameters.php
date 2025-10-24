@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\GetApiUsageserviceAreaServiceAreaPeriodPeriodAppIdAppId;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\GetApiUsageserviceAreaServiceAreaPeriodPeriodAppIdAppId;
 
 /**
  * Get the tenant and app API usage for Microsoft Graph services.

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\Item\IncludedGroups;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\MobileAppManagementPolicies\Item\IncludedGroups;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\GroupCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\Item\IncludedGroups\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\Item\IncludedGroups\Item\GroupItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\Item\IncludedGroups\Ref\RefRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\GroupCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Policies\MobileAppManagementPolicies\Item\IncludedGroups\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Policies\MobileAppManagementPolicies\Item\IncludedGroups\Item\GroupItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Policies\MobileAppManagementPolicies\Item\IncludedGroups\Ref\RefRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -34,7 +34,7 @@ class IncludedGroupsRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Gets an item from the Microsoft/Graph/Beta/Generated.policies.mobileAppManagementPolicies.item.includedGroups.item collection
+     * Gets an item from the Microsoft//Graph//Beta//Generated.policies.mobileAppManagementPolicies.item.includedGroups.item collection
      * @param string $groupId The unique identifier of group
      * @return GroupItemRequestBuilder
     */

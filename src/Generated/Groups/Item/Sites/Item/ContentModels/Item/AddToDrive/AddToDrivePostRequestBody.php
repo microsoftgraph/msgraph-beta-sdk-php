@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\ContentModels\Item\AddToDrive;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\ContentModels\Item\AddToDrive;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

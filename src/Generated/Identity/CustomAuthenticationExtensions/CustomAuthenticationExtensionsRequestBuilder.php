@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\CustomAuthenticationExtensions;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\CustomAuthenticationExtensions;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Identity\CustomAuthenticationExtensions\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\CustomAuthenticationExtensions\Item\CustomAuthenticationExtensionItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\CustomAuthenticationExtensions\ValidateAuthenticationConfiguration\ValidateAuthenticationConfigurationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\CustomAuthenticationExtension;
-use Microsoft\Graph\Beta\Generated\Models\CustomAuthenticationExtensionCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Identity\CustomAuthenticationExtensions\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\CustomAuthenticationExtensions\Item\CustomAuthenticationExtensionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\CustomAuthenticationExtensions\ValidateAuthenticationConfiguration\ValidateAuthenticationConfigurationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\CustomAuthenticationExtension;
+use Microsoft\\Graph\\Beta\\Generated\Models\CustomAuthenticationExtensionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

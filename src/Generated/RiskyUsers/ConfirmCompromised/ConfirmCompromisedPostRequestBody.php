@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RiskyUsers\ConfirmCompromised;
+namespace Microsoft\\Graph\\Beta\\Generated\RiskyUsers\ConfirmCompromised;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

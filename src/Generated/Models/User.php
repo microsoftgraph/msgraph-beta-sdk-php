@@ -1,10 +1,10 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use DateTime;
-use Microsoft\Graph\Beta\Generated\Models\CloudLicensing\UserCloudLicensing;
-use Microsoft\Graph\Beta\Generated\Models\Security\Security;
+use Microsoft\\Graph\\Beta\\Generated\Models\CloudLicensing\UserCloudLicensing;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\Security;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -358,7 +358,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the cloudPCs property value. The cloudPCs property
+     * Gets the cloudPCs property value. The user's Cloud PCs. Read-only. Nullable.
      * @return array<CloudPC>|null
     */
     public function getCloudPCs(): ?array {
@@ -945,6 +945,7 @@ class User extends DirectoryObject implements Parsable
             'onPremisesSamAccountName' => fn(ParseNode $n) => $o->setOnPremisesSamAccountName($n->getStringValue()),
             'onPremisesSecurityIdentifier' => fn(ParseNode $n) => $o->setOnPremisesSecurityIdentifier($n->getStringValue()),
             'onPremisesSipInfo' => fn(ParseNode $n) => $o->setOnPremisesSipInfo($n->getObjectValue([OnPremisesSipInfo::class, 'createFromDiscriminatorValue'])),
+            'onPremisesSyncBehavior' => fn(ParseNode $n) => $o->setOnPremisesSyncBehavior($n->getObjectValue([OnPremisesSyncBehavior::class, 'createFromDiscriminatorValue'])),
             'onPremisesSyncEnabled' => fn(ParseNode $n) => $o->setOnPremisesSyncEnabled($n->getBooleanValue()),
             'onPremisesUserPrincipalName' => fn(ParseNode $n) => $o->setOnPremisesUserPrincipalName($n->getStringValue()),
             'otherMails' => function (ParseNode $n) {
@@ -1669,6 +1670,18 @@ class User extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremisesSipInfo'");
+    }
+
+    /**
+     * Gets the onPremisesSyncBehavior property value. Indicates the state of synchronization for a user between the cloud and on-premises Active Directory. Supports $filter only with advanced query capabilities, for example, $filter=onPremisesSyncBehavior/isCloudManaged eq true&$count=true.
+     * @return OnPremisesSyncBehavior|null
+    */
+    public function getOnPremisesSyncBehavior(): ?OnPremisesSyncBehavior {
+        $val = $this->getBackingStore()->get('onPremisesSyncBehavior');
+        if (is_null($val) || $val instanceof OnPremisesSyncBehavior) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremisesSyncBehavior'");
     }
 
     /**
@@ -2440,6 +2453,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeStringValue('onPremisesSamAccountName', $this->getOnPremisesSamAccountName());
         $writer->writeStringValue('onPremisesSecurityIdentifier', $this->getOnPremisesSecurityIdentifier());
         $writer->writeObjectValue('onPremisesSipInfo', $this->getOnPremisesSipInfo());
+        $writer->writeObjectValue('onPremisesSyncBehavior', $this->getOnPremisesSyncBehavior());
         $writer->writeBooleanValue('onPremisesSyncEnabled', $this->getOnPremisesSyncEnabled());
         $writer->writeStringValue('onPremisesUserPrincipalName', $this->getOnPremisesUserPrincipalName());
         $writer->writeCollectionOfPrimitiveValues('otherMails', $this->getOtherMails());
@@ -2694,7 +2708,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the cloudPCs property value. The cloudPCs property
+     * Sets the cloudPCs property value. The user's Cloud PCs. Read-only. Nullable.
      * @param array<CloudPC>|null $value Value to set for the cloudPCs property.
     */
     public function setCloudPCs(?array $value): void {
@@ -3363,6 +3377,14 @@ class User extends DirectoryObject implements Parsable
     */
     public function setOnPremisesSipInfo(?OnPremisesSipInfo $value): void {
         $this->getBackingStore()->set('onPremisesSipInfo', $value);
+    }
+
+    /**
+     * Sets the onPremisesSyncBehavior property value. Indicates the state of synchronization for a user between the cloud and on-premises Active Directory. Supports $filter only with advanced query capabilities, for example, $filter=onPremisesSyncBehavior/isCloudManaged eq true&$count=true.
+     * @param OnPremisesSyncBehavior|null $value Value to set for the onPremisesSyncBehavior property.
+    */
+    public function setOnPremisesSyncBehavior(?OnPremisesSyncBehavior $value): void {
+        $this->getBackingStore()->set('onPremisesSyncBehavior', $value);
     }
 
     /**

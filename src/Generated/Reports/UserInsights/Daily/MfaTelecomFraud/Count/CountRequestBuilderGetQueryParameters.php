@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\MfaTelecomFraud\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Daily\MfaTelecomFraud\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\Excludes;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\ServicePrincipalCreationPolicies\Item\Excludes;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\ServicePrincipalCreationConditionSet;
-use Microsoft\Graph\Beta\Generated\Models\ServicePrincipalCreationConditionSetCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\Excludes\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Policies\ServicePrincipalCreationPolicies\Item\Excludes\Item\ServicePrincipalCreationConditionSetItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\ServicePrincipalCreationConditionSet;
+use Microsoft\\Graph\\Beta\\Generated\Models\ServicePrincipalCreationConditionSetCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Policies\ServicePrincipalCreationPolicies\Item\Excludes\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Policies\ServicePrincipalCreationPolicies\Item\Excludes\Item\ServicePrincipalCreationConditionSetItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

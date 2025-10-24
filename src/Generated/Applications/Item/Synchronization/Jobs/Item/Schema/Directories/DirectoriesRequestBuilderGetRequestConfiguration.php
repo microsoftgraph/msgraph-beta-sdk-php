@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Jobs\Item\Schema\Directories;
+namespace Microsoft\\Graph\\Beta\\Generated\Applications\Item\Synchronization\Jobs\Item\Schema\Directories;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

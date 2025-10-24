@@ -1,33 +1,35 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\CloudPC;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\ChangeUserAccountType\ChangeUserAccountTypeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\CreateSnapshot\CreateSnapshotRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\EndGracePeriod\EndGracePeriodRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\GetCloudPcConnectivityHistory\GetCloudPcConnectivityHistoryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\GetCloudPcLaunchInfo\GetCloudPcLaunchInfoRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\GetFrontlineCloudPcAccessState\GetFrontlineCloudPcAccessStateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\GetSupportedCloudPcRemoteActions\GetSupportedCloudPcRemoteActionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\PowerOff\PowerOffRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\PowerOn\PowerOnRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Reboot\RebootRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Rename\RenameRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Reprovision\ReprovisionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Resize\ResizeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Restore\RestoreRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\RetrieveCloudPCRemoteActionResults\RetrieveCloudPCRemoteActionResultsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\RetrieveReviewStatus\RetrieveReviewStatusRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\RetrieveSnapshots\RetrieveSnapshotsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\RetryPartnerAgentInstallation\RetryPartnerAgentInstallationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\SetReviewStatus\SetReviewStatusRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Start\StartRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Stop\StopRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Troubleshoot\TroubleshootRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\CloudPC;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\ChangeUserAccountType\ChangeUserAccountTypeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\CreateSnapshot\CreateSnapshotRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\EndGracePeriod\EndGracePeriodRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\GetCloudPcConnectivityHistory\GetCloudPcConnectivityHistoryRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\GetCloudPcLaunchInfo\GetCloudPcLaunchInfoRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\GetFrontlineCloudPcAccessState\GetFrontlineCloudPcAccessStateRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\GetSupportedCloudPcRemoteActions\GetSupportedCloudPcRemoteActionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\PowerOff\PowerOffRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\PowerOn\PowerOnRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\Reboot\RebootRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\Rename\RenameRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\Reprovision\ReprovisionRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\Resize\ResizeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\Restore\RestoreRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\RetrieveCloudPcLaunchDetail\RetrieveCloudPcLaunchDetailRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\RetrieveCloudPCRemoteActionResults\RetrieveCloudPCRemoteActionResultsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\RetrieveFrontlineCloudPcDetail\RetrieveFrontlineCloudPcDetailRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\RetrieveReviewStatus\RetrieveReviewStatusRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\RetrieveSnapshots\RetrieveSnapshotsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\RetryPartnerAgentInstallation\RetryPartnerAgentInstallationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\SetReviewStatus\SetReviewStatusRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\Start\StartRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\Stop\StopRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\CloudPCs\Item\Troubleshoot\TroubleshootRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -137,10 +139,24 @@ class CloudPCItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the retrieveCloudPcLaunchDetail method.
+    */
+    public function retrieveCloudPcLaunchDetail(): RetrieveCloudPcLaunchDetailRequestBuilder {
+        return new RetrieveCloudPcLaunchDetailRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the retrieveCloudPCRemoteActionResults method.
     */
     public function retrieveCloudPCRemoteActionResults(): RetrieveCloudPCRemoteActionResultsRequestBuilder {
         return new RetrieveCloudPCRemoteActionResultsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retrieveFrontlineCloudPcDetail method.
+    */
+    public function retrieveFrontlineCloudPcDetail(): RetrieveFrontlineCloudPcDetailRequestBuilder {
+        return new RetrieveFrontlineCloudPcDetailRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -221,7 +237,7 @@ class CloudPCItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get cloudPCs from users
+     * The user's Cloud PCs. Read-only. Nullable.
      * @param CloudPCItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPC|null>
      * @throws Exception
@@ -268,7 +284,7 @@ class CloudPCItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get cloudPCs from users
+     * The user's Cloud PCs. Read-only. Nullable.
      * @param CloudPCItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

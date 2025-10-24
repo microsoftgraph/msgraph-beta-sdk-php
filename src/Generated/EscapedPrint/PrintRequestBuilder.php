@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EscapedPrint;
+namespace Microsoft\\Graph\\Beta\\Generated\EscapedPrint;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Connectors\ConnectorsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Operations\OperationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\PrintersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\PrinterShares\PrinterSharesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Services\ServicesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\SharesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\TaskDefinitions\TaskDefinitionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\EscapedPrint;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Connectors\ConnectorsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Operations\OperationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Printers\PrintersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\PrinterShares\PrinterSharesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Services\ServicesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Shares\SharesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\TaskDefinitions\TaskDefinitionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\EscapedPrint;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

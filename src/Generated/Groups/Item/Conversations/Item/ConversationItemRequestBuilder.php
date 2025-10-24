@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Conversations\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Conversations\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Conversations\Item\Threads\ThreadsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Conversation;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Conversations\Item\Threads\ThreadsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Conversation;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -39,11 +39,11 @@ class ConversationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a group's conversation object.
+     * Delete conversation.
      * @param ConversationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/group-delete-conversation?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/conversation-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?ConversationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -69,7 +69,7 @@ class ConversationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a group's conversation object.
+     * Delete conversation.
      * @param ConversationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

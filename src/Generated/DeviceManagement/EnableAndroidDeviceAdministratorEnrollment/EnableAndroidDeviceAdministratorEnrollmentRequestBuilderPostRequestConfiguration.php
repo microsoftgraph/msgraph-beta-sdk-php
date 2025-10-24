@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\EnableAndroidDeviceAdministratorEnrollment;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\EnableAndroidDeviceAdministratorEnrollment;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

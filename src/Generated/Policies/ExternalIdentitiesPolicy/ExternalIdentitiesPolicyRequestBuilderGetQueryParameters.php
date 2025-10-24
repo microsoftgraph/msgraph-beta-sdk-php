@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\ExternalIdentitiesPolicy;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\ExternalIdentitiesPolicy;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

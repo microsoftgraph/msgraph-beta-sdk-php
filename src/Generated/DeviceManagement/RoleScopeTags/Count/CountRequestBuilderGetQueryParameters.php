@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\RoleScopeTags\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\RoleScopeTags\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

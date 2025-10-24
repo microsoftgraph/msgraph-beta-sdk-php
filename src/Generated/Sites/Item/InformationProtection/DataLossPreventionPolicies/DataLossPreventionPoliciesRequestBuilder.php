@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\InformationProtection\DataLossPreventionPolicies;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\InformationProtection\DataLossPreventionPolicies;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DataLossPreventionPolicy;
-use Microsoft\Graph\Beta\Generated\Models\DataLossPreventionPolicyCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Sites\Item\InformationProtection\DataLossPreventionPolicies\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Item\InformationProtection\DataLossPreventionPolicies\Evaluate\EvaluateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Item\InformationProtection\DataLossPreventionPolicies\Item\DataLossPreventionPolicyItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DataLossPreventionPolicy;
+use Microsoft\\Graph\\Beta\\Generated\Models\DataLossPreventionPolicyCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Sites\Item\InformationProtection\DataLossPreventionPolicies\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Sites\Item\InformationProtection\DataLossPreventionPolicies\Evaluate\EvaluateRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Sites\Item\InformationProtection\DataLossPreventionPolicies\Item\DataLossPreventionPolicyItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

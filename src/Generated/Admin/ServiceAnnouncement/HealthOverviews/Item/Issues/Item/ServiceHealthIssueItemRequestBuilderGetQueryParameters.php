@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\HealthOverviews\Item\Issues\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\ServiceAnnouncement\HealthOverviews\Item\Issues\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

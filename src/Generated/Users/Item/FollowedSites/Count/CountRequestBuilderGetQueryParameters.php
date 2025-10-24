@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\FollowedSites\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\FollowedSites\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

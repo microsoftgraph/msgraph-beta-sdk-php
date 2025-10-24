@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\DownloadPowerliftAppDiagnostic;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\ManagedDevices\DownloadPowerliftAppDiagnostic;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

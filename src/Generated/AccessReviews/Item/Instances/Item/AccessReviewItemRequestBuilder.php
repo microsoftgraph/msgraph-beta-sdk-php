@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\AccessReviews\Item\Instances\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\ApplyDecisions\ApplyDecisionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\Decisions\DecisionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\MyDecisions\MyDecisionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\ResetDecisions\ResetDecisionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\Reviewers\ReviewersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\SendReminder\SendReminderRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AccessReviews\Item\Instances\Item\Stop\StopRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AccessReview;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\AccessReviews\Item\Instances\Item\ApplyDecisions\ApplyDecisionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AccessReviews\Item\Instances\Item\Decisions\DecisionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AccessReviews\Item\Instances\Item\MyDecisions\MyDecisionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AccessReviews\Item\Instances\Item\ResetDecisions\ResetDecisionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AccessReviews\Item\Instances\Item\Reviewers\ReviewersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AccessReviews\Item\Instances\Item\SendReminder\SendReminderRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AccessReviews\Item\Instances\Item\Stop\StopRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AccessReview;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

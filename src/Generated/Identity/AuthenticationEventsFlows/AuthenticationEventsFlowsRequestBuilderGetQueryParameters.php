@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventsFlows;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\AuthenticationEventsFlows;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

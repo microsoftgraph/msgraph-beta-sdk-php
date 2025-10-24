@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\Templates\Item\Schema\ParseExpression;
+namespace Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\Synchronization\Templates\Item\Schema\ParseExpression;
 
-use Microsoft\Graph\Beta\Generated\Models\AttributeDefinition;
-use Microsoft\Graph\Beta\Generated\Models\ExpressionInputObject;
+use Microsoft\\Graph\\Beta\\Generated\Models\AttributeDefinition;
+use Microsoft\\Graph\\Beta\\Generated\Models\ExpressionInputObject;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

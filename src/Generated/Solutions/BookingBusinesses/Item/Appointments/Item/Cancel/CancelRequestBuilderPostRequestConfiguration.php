@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BookingBusinesses\Item\Appointments\Item\Cancel;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BookingBusinesses\Item\Appointments\Item\Cancel;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

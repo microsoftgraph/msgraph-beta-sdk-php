@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaArtifacts;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ZebraFotaArtifacts;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaArtifacts\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaArtifacts\Item\ZebraFotaArtifactItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\ZebraFotaArtifact;
-use Microsoft\Graph\Beta\Generated\Models\ZebraFotaArtifactCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ZebraFotaArtifacts\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ZebraFotaArtifacts\Item\ZebraFotaArtifactItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\ZebraFotaArtifact;
+use Microsoft\\Graph\\Beta\\Generated\Models\ZebraFotaArtifactCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

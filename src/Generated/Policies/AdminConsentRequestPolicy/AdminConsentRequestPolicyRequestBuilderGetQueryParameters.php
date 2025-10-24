@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\AdminConsentRequestPolicy;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\AdminConsentRequestPolicy;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

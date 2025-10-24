@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\FederationConfigurations\AvailableProviderTypes;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\FederationConfigurations\AvailableProviderTypes;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

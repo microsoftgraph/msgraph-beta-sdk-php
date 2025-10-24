@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Outlook;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Outlook;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\OutlookUser;
-use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\MasterCategories\MasterCategoriesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\SupportedLanguages\SupportedLanguagesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\SupportedTimeZones\SupportedTimeZonesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\SupportedTimeZonesWithTimeZoneStandard\SupportedTimeZonesWithTimeZoneStandardRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskFolders\TaskFoldersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskGroups\TaskGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\Tasks\TasksRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\OutlookUser;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Outlook\MasterCategories\MasterCategoriesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Outlook\SupportedLanguages\SupportedLanguagesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Outlook\SupportedTimeZones\SupportedTimeZonesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Outlook\SupportedTimeZonesWithTimeZoneStandard\SupportedTimeZonesWithTimeZoneStandardRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Outlook\TaskFolders\TaskFoldersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Outlook\TaskGroups\TaskGroupsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Outlook\Tasks\TasksRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

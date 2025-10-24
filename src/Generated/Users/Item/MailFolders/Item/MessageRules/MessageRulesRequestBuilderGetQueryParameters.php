@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\MessageRules;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\MailFolders\Item\MessageRules;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ExchangeConnectors\Item\Sync;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ExchangeConnectors\Item\Sync;
 
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagementExchangeConnectorSyncType;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagementExchangeConnectorSyncType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
