@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\HardwareConfigurations\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\HardwareConfigurations\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\HardwareConfigurations\Item\Assign\AssignRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\HardwareConfigurations\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\HardwareConfigurations\Item\DeviceRunStates\DeviceRunStatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\HardwareConfigurations\Item\RunSummary\RunSummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\HardwareConfigurations\Item\UserRunStates\UserRunStatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\HardwareConfiguration;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\HardwareConfigurations\Item\Assign\AssignRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\HardwareConfigurations\Item\Assignments\AssignmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\HardwareConfigurations\Item\DeviceRunStates\DeviceRunStatesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\HardwareConfigurations\Item\RunSummary\RunSummaryRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\HardwareConfigurations\Item\UserRunStates\UserRunStatesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\HardwareConfiguration;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

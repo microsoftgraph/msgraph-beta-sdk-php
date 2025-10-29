@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Unarchive;
+namespace Microsoft\\Graph\\Beta\\Generated\TeamTemplateDefinition\Item\TeamDefinition\Unarchive;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

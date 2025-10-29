@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\WindowsInformationProtectionDeviceRegistrations\Item\Wipe;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\WindowsInformationProtectionDeviceRegistrations\Item\Wipe;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

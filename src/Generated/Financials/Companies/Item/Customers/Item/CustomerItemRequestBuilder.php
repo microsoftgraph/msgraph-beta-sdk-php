@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Customers\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\Customers\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Customers\Item\Currency\CurrencyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Customers\Item\PaymentMethod\PaymentMethodRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Customers\Item\PaymentTerm\PaymentTermRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Customers\Item\Picture\PictureRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Customers\Item\ShipmentMethod\ShipmentMethodRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Customer;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\Customers\Item\Currency\CurrencyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\Customers\Item\PaymentMethod\PaymentMethodRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\Customers\Item\PaymentTerm\PaymentTermRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\Customers\Item\Picture\PictureRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\Customers\Item\ShipmentMethod\ShipmentMethodRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Customer;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

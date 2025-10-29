@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetInaccessibleCloudPcReports;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\VirtualEndpoint\Reports\GetInaccessibleCloudPcReports;
 
-use Microsoft\Graph\Beta\Generated\Models\CloudPCInaccessibleReportName;
+use Microsoft\\Graph\\Beta\\Generated\Models\CloudPCInaccessibleReportName;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Functions\CumIPmt;
+namespace Microsoft\\Graph\\Beta\\Generated\Drives\Item\Items\Item\Workbook\Functions\CumIPmt;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

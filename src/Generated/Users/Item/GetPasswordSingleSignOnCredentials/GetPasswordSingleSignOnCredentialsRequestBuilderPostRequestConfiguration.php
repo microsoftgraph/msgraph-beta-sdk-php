@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\GetPasswordSingleSignOnCredentials;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\GetPasswordSingleSignOnCredentials;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

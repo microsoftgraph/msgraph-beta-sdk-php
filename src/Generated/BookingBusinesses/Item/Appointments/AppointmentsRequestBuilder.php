@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Appointments;
+namespace Microsoft\\Graph\\Beta\\Generated\BookingBusinesses\Item\Appointments;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Appointments\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Appointments\Item\BookingAppointmentItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\BookingAppointment;
-use Microsoft\Graph\Beta\Generated\Models\BookingAppointmentCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\BookingBusinesses\Item\Appointments\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\BookingBusinesses\Item\Appointments\Item\BookingAppointmentItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\BookingAppointment;
+use Microsoft\\Graph\\Beta\\Generated\Models\BookingAppointmentCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

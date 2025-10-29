@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Group\EligibilityScheduleRequests\FilterByCurrentUserWithOn;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\PrivilegedAccess\Group\EligibilityScheduleRequests\FilterByCurrentUserWithOn;
 
-use Microsoft\Graph\Beta\Generated\Models\BaseCollectionPaginationCountResponse;
-use Microsoft\Graph\Beta\Generated\Models\PrivilegedAccessGroupEligibilityScheduleRequest;
+use Microsoft\\Graph\\Beta\\Generated\Models\BaseCollectionPaginationCountResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\PrivilegedAccessGroupEligibilityScheduleRequest;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;

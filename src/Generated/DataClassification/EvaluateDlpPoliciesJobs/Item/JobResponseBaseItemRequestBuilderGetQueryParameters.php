@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DataClassification\EvaluateDlpPoliciesJobs\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DataClassification\EvaluateDlpPoliciesJobs\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

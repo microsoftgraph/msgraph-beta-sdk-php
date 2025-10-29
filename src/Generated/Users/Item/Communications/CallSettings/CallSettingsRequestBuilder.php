@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Communications\CallSettings;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Communications\CallSettings;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\CallSettings;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\Communications\CallSettings\Delegates\DelegatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Communications\CallSettings\Delegators\DelegatorsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\CallSettings;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Communications\CallSettings\Delegates\DelegatesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Communications\CallSettings\Delegators\DelegatorsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

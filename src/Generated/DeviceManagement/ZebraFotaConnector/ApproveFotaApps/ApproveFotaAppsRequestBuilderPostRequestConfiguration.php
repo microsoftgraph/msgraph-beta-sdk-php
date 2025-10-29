@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ZebraFotaConnector\ApproveFotaApps;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ZebraFotaConnector\ApproveFotaApps;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

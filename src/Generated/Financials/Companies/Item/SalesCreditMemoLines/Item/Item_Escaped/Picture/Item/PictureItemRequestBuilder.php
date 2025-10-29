@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesCreditMemoLines\Item\Item_Escaped\Picture\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesCreditMemoLines\Item\Item_Escaped\Picture\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesCreditMemoLines\Item\Item_Escaped\Picture\Item\Content\ContentRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Picture;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesCreditMemoLines\Item\Item_Escaped\Picture\Item\Content\ContentRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Picture;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

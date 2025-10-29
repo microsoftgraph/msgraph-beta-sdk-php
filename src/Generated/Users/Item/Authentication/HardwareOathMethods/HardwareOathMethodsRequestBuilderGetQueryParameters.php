@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\HardwareOathMethods;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Authentication\HardwareOathMethods;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

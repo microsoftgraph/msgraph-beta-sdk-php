@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DataClassification\ExactMatchUploadAgents;
+namespace Microsoft\\Graph\\Beta\\Generated\DataClassification\ExactMatchUploadAgents;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

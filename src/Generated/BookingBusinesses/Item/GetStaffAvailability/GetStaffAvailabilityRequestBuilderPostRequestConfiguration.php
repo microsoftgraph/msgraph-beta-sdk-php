@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\GetStaffAvailability;
+namespace Microsoft\\Graph\\Beta\\Generated\BookingBusinesses\Item\GetStaffAvailability;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

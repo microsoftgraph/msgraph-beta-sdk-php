@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Subjects\Item\ConnectedOrganization;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\EntitlementManagement\Subjects\Item\ConnectedOrganization;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

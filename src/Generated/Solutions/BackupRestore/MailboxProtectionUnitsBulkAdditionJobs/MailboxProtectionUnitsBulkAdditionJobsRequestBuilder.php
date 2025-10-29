@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\MailboxProtectionUnitsBulkAdditionJobs;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\MailboxProtectionUnitsBulkAdditionJobs;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\MailboxProtectionUnitsBulkAdditionJob;
-use Microsoft\Graph\Beta\Generated\Models\MailboxProtectionUnitsBulkAdditionJobCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\MailboxProtectionUnitsBulkAdditionJobs\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\MailboxProtectionUnitsBulkAdditionJobs\Item\MailboxProtectionUnitsBulkAdditionJobItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\MailboxProtectionUnitsBulkAdditionJob;
+use Microsoft\\Graph\\Beta\\Generated\Models\MailboxProtectionUnitsBulkAdditionJobCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\MailboxProtectionUnitsBulkAdditionJobs\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\MailboxProtectionUnitsBulkAdditionJobs\Item\MailboxProtectionUnitsBulkAdditionJobItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

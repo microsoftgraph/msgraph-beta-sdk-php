@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\Versions\Item\LastModifiedBy\ServiceProvisioningErrors;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\Versions\Item\LastModifiedBy\ServiceProvisioningErrors;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\Versions\Item\LastModifiedBy\ServiceProvisioningErrors\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\ServiceProvisioningErrorCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\Versions\Item\LastModifiedBy\ServiceProvisioningErrors\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\ServiceProvisioningErrorCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

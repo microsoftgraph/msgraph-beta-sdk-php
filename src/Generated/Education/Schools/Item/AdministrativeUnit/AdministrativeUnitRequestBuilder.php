@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Education\Schools\Item\AdministrativeUnit;
+namespace Microsoft\\Graph\\Beta\\Generated\Education\Schools\Item\AdministrativeUnit;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\AdministrativeUnit;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\AdministrativeUnit;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

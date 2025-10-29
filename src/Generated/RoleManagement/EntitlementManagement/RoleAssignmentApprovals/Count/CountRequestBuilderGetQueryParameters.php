@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\RoleAssignmentApprovals\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\EntitlementManagement\RoleAssignmentApprovals\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

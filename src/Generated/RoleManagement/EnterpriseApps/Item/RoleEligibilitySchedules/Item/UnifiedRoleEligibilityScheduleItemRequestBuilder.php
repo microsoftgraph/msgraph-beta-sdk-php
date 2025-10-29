@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\Item\RoleEligibilitySchedules\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\EnterpriseApps\Item\RoleEligibilitySchedules\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleEligibilitySchedule;
-use Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\Item\RoleEligibilitySchedules\Item\AppScope\AppScopeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\Item\RoleEligibilitySchedules\Item\DirectoryScope\DirectoryScopeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\Item\RoleEligibilitySchedules\Item\Principal\PrincipalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\Item\RoleEligibilitySchedules\Item\RoleDefinition\RoleDefinitionRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UnifiedRoleEligibilitySchedule;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\EnterpriseApps\Item\RoleEligibilitySchedules\Item\AppScope\AppScopeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\EnterpriseApps\Item\RoleEligibilitySchedules\Item\DirectoryScope\DirectoryScopeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\EnterpriseApps\Item\RoleEligibilitySchedules\Item\Principal\PrincipalRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\EnterpriseApps\Item\RoleEligibilitySchedules\Item\RoleDefinition\RoleDefinitionRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Schedule\Shifts;
+namespace Microsoft\\Graph\\Beta\\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Schedule\Shifts;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Shift;
-use Microsoft\Graph\Beta\Generated\Models\ShiftCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Schedule\Shifts\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Schedule\Shifts\Item\ShiftItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Shift;
+use Microsoft\\Graph\\Beta\\Generated\Models\ShiftCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Schedule\Shifts\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Schedule\Shifts\Item\ShiftItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

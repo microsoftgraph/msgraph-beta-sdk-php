@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\ManagedEBooks\Item\Categories\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\ManagedEBooks\Item\Categories\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

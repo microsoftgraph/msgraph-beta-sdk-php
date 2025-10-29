@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\EnableLostMode;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ComanagedDevices\Item\EnableLostMode;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

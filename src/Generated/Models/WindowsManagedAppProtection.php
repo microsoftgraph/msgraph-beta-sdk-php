@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use DateInterval;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

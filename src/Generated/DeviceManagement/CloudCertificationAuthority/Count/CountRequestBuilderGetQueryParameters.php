@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\CloudCertificationAuthority\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

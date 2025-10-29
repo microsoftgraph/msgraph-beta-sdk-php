@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Snapshots\GetSubscriptions;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\VirtualEndpoint\Snapshots\GetSubscriptions;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

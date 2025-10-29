@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians;
+namespace Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\Custodians;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\CustodianItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\MicrosoftGraphEdiscoveryApplyHold\MicrosoftGraphEdiscoveryApplyHoldRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Custodians\MicrosoftGraphEdiscoveryRemoveHold\MicrosoftGraphEdiscoveryRemoveHoldRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Ediscovery\Custodian;
-use Microsoft\Graph\Beta\Generated\Models\Ediscovery\CustodianCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\Custodians\Item\CustodianItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\Custodians\MicrosoftGraphEdiscoveryApplyHold\MicrosoftGraphEdiscoveryApplyHoldRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\Custodians\MicrosoftGraphEdiscoveryRemoveHold\MicrosoftGraphEdiscoveryRemoveHoldRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Ediscovery\Custodian;
+use Microsoft\\Graph\\Beta\\Generated\Models\Ediscovery\CustodianCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

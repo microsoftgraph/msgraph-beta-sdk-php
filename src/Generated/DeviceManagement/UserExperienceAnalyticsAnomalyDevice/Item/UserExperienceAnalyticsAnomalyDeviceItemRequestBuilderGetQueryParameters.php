@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAnomalyDevice\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\UserExperienceAnalyticsAnomalyDevice\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

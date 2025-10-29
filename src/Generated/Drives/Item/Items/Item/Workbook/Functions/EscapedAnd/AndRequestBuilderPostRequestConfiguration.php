@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Workbook\Functions\EscapedAnd;
+namespace Microsoft\\Graph\\Beta\\Generated\Drives\Item\Items\Item\Workbook\Functions\EscapedAnd;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

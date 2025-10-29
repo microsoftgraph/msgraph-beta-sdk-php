@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\PrimaryChannel\Messages\Delta;
+namespace Microsoft\\Graph\\Beta\\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\PrimaryChannel\Messages\Delta;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

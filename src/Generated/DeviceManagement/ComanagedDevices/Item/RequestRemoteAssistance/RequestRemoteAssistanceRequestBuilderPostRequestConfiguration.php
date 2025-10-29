@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\RequestRemoteAssistance;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ComanagedDevices\Item\RequestRemoteAssistance;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

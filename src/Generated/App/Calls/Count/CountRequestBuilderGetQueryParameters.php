@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\App\Calls\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\App\Calls\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

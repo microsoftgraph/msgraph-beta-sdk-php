@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\GetByPathWithPath\Pages;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\GetByPathWithPath\Pages;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

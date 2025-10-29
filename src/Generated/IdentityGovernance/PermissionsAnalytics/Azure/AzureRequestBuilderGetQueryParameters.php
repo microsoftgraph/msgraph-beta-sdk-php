@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsAnalytics\Azure;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\PermissionsAnalytics\Azure;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EmployeeExperience\Roles\Item\Members\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\Roles\Item\Members\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\EmployeeExperience\Roles\Item\Members\Item\User\UserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\EngagementRoleMember;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\Roles\Item\Members\Item\User\UserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\EngagementRoleMember;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -54,7 +54,7 @@ class EngagementRoleMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Users who have been assigned this role.
+     * Users that have this role assigned.
      * @param EngagementRoleMemberItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EngagementRoleMember|null>
      * @throws Exception
@@ -101,7 +101,7 @@ class EngagementRoleMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Users who have been assigned this role.
+     * Users that have this role assigned.
      * @param EngagementRoleMemberItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

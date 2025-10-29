@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\ResourceNamespaces\Item\ResourceActions;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\Exchange\ResourceNamespaces\Item\ResourceActions;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UnifiedRbacResourceAction;
-use Microsoft\Graph\Beta\Generated\Models\UnifiedRbacResourceActionCollectionResponse;
-use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\ResourceNamespaces\Item\ResourceActions\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\ResourceNamespaces\Item\ResourceActions\Item\UnifiedRbacResourceActionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UnifiedRbacResourceAction;
+use Microsoft\\Graph\\Beta\\Generated\Models\UnifiedRbacResourceActionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\Exchange\ResourceNamespaces\Item\ResourceActions\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\Exchange\ResourceNamespaces\Item\ResourceActions\Item\UnifiedRbacResourceActionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

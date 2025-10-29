@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\ApplicationSegments\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\OnPremisesPublishingProfiles\Item\ApplicationSegments\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

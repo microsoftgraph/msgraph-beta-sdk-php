@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\GetBrowserUserDetailWithPeriod;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\GetBrowserUserDetailWithPeriod;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

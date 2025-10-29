@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Monitoring\AlertRecords\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Monitoring\AlertRecords\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagement\AlertRecord;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Monitoring\AlertRecords\Item\MicrosoftGraphDeviceManagementSetPortalNotificationAsSent\MicrosoftGraphDeviceManagementSetPortalNotificationAsSentRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagement\AlertRecord;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Monitoring\AlertRecords\Item\MicrosoftGraphDeviceManagementSetPortalNotificationAsSent\MicrosoftGraphDeviceManagementSetPortalNotificationAsSentRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

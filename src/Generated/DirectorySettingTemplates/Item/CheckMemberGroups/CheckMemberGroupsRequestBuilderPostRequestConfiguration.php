@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DirectorySettingTemplates\Item\CheckMemberGroups;
+namespace Microsoft\\Graph\\Beta\\Generated\DirectorySettingTemplates\Item\CheckMemberGroups;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

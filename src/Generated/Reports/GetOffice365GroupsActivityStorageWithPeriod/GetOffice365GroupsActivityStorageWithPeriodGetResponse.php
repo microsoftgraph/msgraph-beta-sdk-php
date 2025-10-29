@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\GetOffice365GroupsActivityStorageWithPeriod;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\GetOffice365GroupsActivityStorageWithPeriod;
 
-use Microsoft\Graph\Beta\Generated\Models\BaseCollectionPaginationCountResponse;
-use Microsoft\Graph\Beta\Generated\Models\Office365GroupsActivityStorage;
+use Microsoft\\Graph\\Beta\\Generated\Models\BaseCollectionPaginationCountResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\Office365GroupsActivityStorage;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;

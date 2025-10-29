@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\Assign\AssignRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\DeviceStatuses\DeviceStatusesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\GroupAssignments\GroupAssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\UserStatuses\UserStatusesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\IosLobAppProvisioningConfiguration;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\Assign\AssignRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\Assignments\AssignmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\DeviceStatuses\DeviceStatusesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\GroupAssignments\GroupAssignmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\IosLobAppProvisioningConfigurations\Item\UserStatuses\UserStatusesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\IosLobAppProvisioningConfiguration;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

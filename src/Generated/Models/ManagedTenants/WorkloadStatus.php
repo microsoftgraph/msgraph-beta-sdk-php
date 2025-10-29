@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\ManagedTenants;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\ManagedTenants;
 
 use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;

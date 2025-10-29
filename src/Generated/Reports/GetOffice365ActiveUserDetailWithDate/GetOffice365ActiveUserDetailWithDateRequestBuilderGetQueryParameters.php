@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\GetOffice365ActiveUserDetailWithDate;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\GetOffice365ActiveUserDetailWithDate;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

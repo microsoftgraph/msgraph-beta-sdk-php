@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\HardwareOathMethods\Item\Device\HardwareOathDevices;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Authentication\HardwareOathMethods\Item\Device\HardwareOathDevices;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

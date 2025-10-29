@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateSteps\Item\Versions\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\TenantRelationships\ManagedTenants\ManagementTemplateSteps\Item\Versions\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

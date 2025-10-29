@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ExternalPartnerSettings\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\VirtualEndpoint\ExternalPartnerSettings\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

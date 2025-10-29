@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Organization\Item\PartnerInformation;
+namespace Microsoft\\Graph\\Beta\\Generated\Organization\Item\PartnerInformation;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PartnerInformation;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PartnerInformation;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\Templates\Item\Schema\Functions;
+namespace Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\Synchronization\Templates\Item\Schema\Functions;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

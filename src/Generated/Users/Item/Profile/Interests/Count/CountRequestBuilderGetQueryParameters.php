@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Interests\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Interests\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

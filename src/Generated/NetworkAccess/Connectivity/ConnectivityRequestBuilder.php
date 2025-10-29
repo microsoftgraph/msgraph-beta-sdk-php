@@ -1,14 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Connectivity;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\Connectivity;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\Branches\BranchesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\MicrosoftGraphNetworkaccessGetWebCategoryByUrlWithUrl\MicrosoftGraphNetworkaccessGetWebCategoryByUrlWithUrlRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\RemoteNetworks\RemoteNetworksRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\Connectivity;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Connectivity\Branches\BranchesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Connectivity\MicrosoftGraphNetworkaccessGetWebCategoryByUrlWithUrl\MicrosoftGraphNetworkaccessGetWebCategoryByUrlWithUrlRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -24,13 +23,6 @@ class ConnectivityRequestBuilder extends BaseRequestBuilder
     */
     public function branches(): BranchesRequestBuilder {
         return new BranchesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the remoteNetworks property of the microsoft.graph.networkaccess.connectivity entity.
-    */
-    public function remoteNetworks(): RemoteNetworksRequestBuilder {
-        return new RemoteNetworksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

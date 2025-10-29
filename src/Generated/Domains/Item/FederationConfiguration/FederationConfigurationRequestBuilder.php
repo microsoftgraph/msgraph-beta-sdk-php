@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Domains\Item\FederationConfiguration;
+namespace Microsoft\\Graph\\Beta\\Generated\Domains\Item\FederationConfiguration;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Domains\Item\FederationConfiguration\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Domains\Item\FederationConfiguration\Item\InternalDomainFederationItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\InternalDomainFederation;
-use Microsoft\Graph\Beta\Generated\Models\InternalDomainFederationCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Domains\Item\FederationConfiguration\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Domains\Item\FederationConfiguration\Item\InternalDomainFederationItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\InternalDomainFederation;
+use Microsoft\\Graph\\Beta\\Generated\Models\InternalDomainFederationCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

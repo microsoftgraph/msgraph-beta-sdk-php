@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleDefinitions\Item\InheritsPermissionsFrom\Item\AssignedPrincipalsWithTransitivedirectoryScopeTypeDirectoryScopeTypeDirectoryScopeIdDirectoryScopeId;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\Directory\RoleDefinitions\Item\InheritsPermissionsFrom\Item\AssignedPrincipalsWithTransitivedirectoryScopeTypeDirectoryScopeTypeDirectoryScopeIdDirectoryScopeId;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

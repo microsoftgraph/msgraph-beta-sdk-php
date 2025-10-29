@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ElevationRequests\Item\GetAllElevationRequests;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ElevationRequests\Item\GetAllElevationRequests;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

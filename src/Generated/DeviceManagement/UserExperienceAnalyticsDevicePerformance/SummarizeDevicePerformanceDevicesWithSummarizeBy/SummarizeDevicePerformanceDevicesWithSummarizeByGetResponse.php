@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDevicePerformance\SummarizeDevicePerformanceDevicesWithSummarizeBy;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\UserExperienceAnalyticsDevicePerformance\SummarizeDevicePerformanceDevicesWithSummarizeBy;
 
-use Microsoft\Graph\Beta\Generated\Models\BaseCollectionPaginationCountResponse;
-use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDevicePerformance;
+use Microsoft\\Graph\\Beta\\Generated\Models\BaseCollectionPaginationCountResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\UserExperienceAnalyticsDevicePerformance;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;

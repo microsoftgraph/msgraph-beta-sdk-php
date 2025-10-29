@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Conversations\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Conversations\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\SharePointGroups\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\DeletedContainers\Item\SharePointGroups\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

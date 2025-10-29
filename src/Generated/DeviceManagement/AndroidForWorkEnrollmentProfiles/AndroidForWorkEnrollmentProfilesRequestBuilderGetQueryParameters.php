@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkEnrollmentProfiles;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AndroidForWorkEnrollmentProfiles;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

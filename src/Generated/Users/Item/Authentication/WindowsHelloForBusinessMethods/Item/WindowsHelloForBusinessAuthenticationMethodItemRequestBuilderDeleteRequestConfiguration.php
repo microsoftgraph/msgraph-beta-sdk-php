@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\WindowsHelloForBusinessMethods\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Authentication\WindowsHelloForBusinessMethods\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

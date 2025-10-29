@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsAnalytics\Azure\Findings\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\PermissionsAnalytics\Azure\Findings\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

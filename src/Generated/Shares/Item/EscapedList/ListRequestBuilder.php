@@ -1,21 +1,21 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList;
+namespace Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\EscapedList;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Activities\ActivitiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Columns\ColumnsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\ContentTypes\ContentTypesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\CreatedByUser\CreatedByUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Drive\DriveRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Items\ItemsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\LastModifiedByUser\LastModifiedByUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Operations\OperationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Permissions\PermissionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Subscriptions\SubscriptionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\EscapedList;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\Activities\ActivitiesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\Columns\ColumnsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\ContentTypes\ContentTypesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\CreatedByUser\CreatedByUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\Drive\DriveRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\Items\ItemsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\LastModifiedByUser\LastModifiedByUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\Operations\OperationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\Permissions\PermissionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\Subscriptions\SubscriptionsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

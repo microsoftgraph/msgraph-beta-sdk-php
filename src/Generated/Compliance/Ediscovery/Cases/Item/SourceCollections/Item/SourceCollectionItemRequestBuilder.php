@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\AdditionalSources\AdditionalSourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\AddToReviewSetOperation\AddToReviewSetOperationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\CustodianSources\CustodianSourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\LastEstimateStatisticsOperation\LastEstimateStatisticsOperationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\MicrosoftGraphEdiscoveryEstimateStatistics\MicrosoftGraphEdiscoveryEstimateStatisticsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\MicrosoftGraphEdiscoveryPurgeData\MicrosoftGraphEdiscoveryPurgeDataRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\NoncustodialSources\NoncustodialSourcesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Ediscovery\SourceCollection;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\AdditionalSources\AdditionalSourcesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\AddToReviewSetOperation\AddToReviewSetOperationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\CustodianSources\CustodianSourcesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\LastEstimateStatisticsOperation\LastEstimateStatisticsOperationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\MicrosoftGraphEdiscoveryEstimateStatistics\MicrosoftGraphEdiscoveryEstimateStatisticsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\MicrosoftGraphEdiscoveryPurgeData\MicrosoftGraphEdiscoveryPurgeDataRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\SourceCollections\Item\NoncustodialSources\NoncustodialSourcesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Ediscovery\SourceCollection;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

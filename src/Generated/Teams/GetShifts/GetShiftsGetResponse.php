@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\GetShifts;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\GetShifts;
 
-use Microsoft\Graph\Beta\Generated\Models\BaseCollectionPaginationCountResponse;
-use Microsoft\Graph\Beta\Generated\Models\Shift;
+use Microsoft\\Graph\\Beta\\Generated\Models\BaseCollectionPaginationCountResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\Shift;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;

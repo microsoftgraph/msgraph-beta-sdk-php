@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotDeploymentProfiles\Item\AssignedDevices\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\WindowsAutopilotDeploymentProfiles\Item\AssignedDevices\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

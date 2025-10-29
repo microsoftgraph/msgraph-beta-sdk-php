@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\Item\Tenants;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\OutboundSharedUserProfiles\Item\Tenants;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\Item\Tenants\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\Item\Tenants\Item\TenantReferenceTenantItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TenantReference;
-use Microsoft\Graph\Beta\Generated\Models\TenantReferenceCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Directory\OutboundSharedUserProfiles\Item\Tenants\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Directory\OutboundSharedUserProfiles\Item\Tenants\Item\TenantReferenceTenantItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TenantReference;
+use Microsoft\\Graph\\Beta\\Generated\Models\TenantReferenceCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

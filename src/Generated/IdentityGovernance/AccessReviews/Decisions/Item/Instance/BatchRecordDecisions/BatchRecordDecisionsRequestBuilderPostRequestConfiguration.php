@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Decisions\Item\Instance\BatchRecordDecisions;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\AccessReviews\Decisions\Item\Instance\BatchRecordDecisions;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

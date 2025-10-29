@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\ContentTypes\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Drives\Item\EscapedList\ContentTypes\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

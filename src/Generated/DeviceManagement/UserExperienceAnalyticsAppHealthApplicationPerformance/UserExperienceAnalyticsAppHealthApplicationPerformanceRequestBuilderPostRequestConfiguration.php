@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformance;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformance;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

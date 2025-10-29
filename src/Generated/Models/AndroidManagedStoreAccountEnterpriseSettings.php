@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -106,6 +106,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
             'lastAppSyncDateTime' => fn(ParseNode $n) => $o->setLastAppSyncDateTime($n->getDateTimeValue()),
             'lastAppSyncStatus' => fn(ParseNode $n) => $o->setLastAppSyncStatus($n->getEnumValue(AndroidManagedStoreAccountAppSyncStatus::class)),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'managedGooglePlayEnterpriseType' => fn(ParseNode $n) => $o->setManagedGooglePlayEnterpriseType($n->getEnumValue(ManagedGooglePlayEnterpriseType::class)),
             'managedGooglePlayInitialScopeTagIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -161,6 +162,18 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
+    }
+
+    /**
+     * Gets the managedGooglePlayEnterpriseType property value. Bind Type of the tenant with the Google EMM API
+     * @return ManagedGooglePlayEnterpriseType|null
+    */
+    public function getManagedGooglePlayEnterpriseType(): ?ManagedGooglePlayEnterpriseType {
+        $val = $this->getBackingStore()->get('managedGooglePlayEnterpriseType');
+        if (is_null($val) || $val instanceof ManagedGooglePlayEnterpriseType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedGooglePlayEnterpriseType'");
     }
 
     /**
@@ -229,6 +242,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
         $writer->writeDateTimeValue('lastAppSyncDateTime', $this->getLastAppSyncDateTime());
         $writer->writeEnumValue('lastAppSyncStatus', $this->getLastAppSyncStatus());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeEnumValue('managedGooglePlayEnterpriseType', $this->getManagedGooglePlayEnterpriseType());
         $writer->writeCollectionOfPrimitiveValues('managedGooglePlayInitialScopeTagIds', $this->getManagedGooglePlayInitialScopeTagIds());
         $writer->writeStringValue('ownerOrganizationName', $this->getOwnerOrganizationName());
         $writer->writeStringValue('ownerUserPrincipalName', $this->getOwnerUserPrincipalName());
@@ -297,6 +311,14 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the managedGooglePlayEnterpriseType property value. Bind Type of the tenant with the Google EMM API
+     * @param ManagedGooglePlayEnterpriseType|null $value Value to set for the managedGooglePlayEnterpriseType property.
+    */
+    public function setManagedGooglePlayEnterpriseType(?ManagedGooglePlayEnterpriseType $value): void {
+        $this->getBackingStore()->set('managedGooglePlayEnterpriseType', $value);
     }
 
     /**

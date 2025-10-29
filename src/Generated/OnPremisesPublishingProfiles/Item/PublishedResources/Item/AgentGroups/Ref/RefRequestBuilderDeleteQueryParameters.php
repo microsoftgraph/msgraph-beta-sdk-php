@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\PublishedResources\Item\AgentGroups\Ref;
+namespace Microsoft\\Graph\\Beta\\Generated\OnPremisesPublishingProfiles\Item\PublishedResources\Item\AgentGroups\Ref;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

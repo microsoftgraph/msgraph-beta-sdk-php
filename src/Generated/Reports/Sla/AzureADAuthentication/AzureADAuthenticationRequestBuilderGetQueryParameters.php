@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\Sla\AzureADAuthentication;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\Sla\AzureADAuthentication;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

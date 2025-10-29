@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PasswordlessMicrosoftAuthenticatorAuthenticationMethodCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PasswordlessMicrosoftAuthenticatorAuthenticationMethodCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

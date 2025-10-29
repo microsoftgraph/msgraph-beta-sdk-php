@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\ExportPersonalData;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\ExportPersonalData;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

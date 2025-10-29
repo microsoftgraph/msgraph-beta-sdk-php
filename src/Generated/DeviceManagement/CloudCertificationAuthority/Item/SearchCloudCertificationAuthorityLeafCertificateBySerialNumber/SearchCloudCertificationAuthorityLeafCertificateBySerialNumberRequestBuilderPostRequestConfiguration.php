@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\SearchCloudCertificationAuthorityLeafCertificateBySerialNumber;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\CloudCertificationAuthority\Item\SearchCloudCertificationAuthorityLeafCertificateBySerialNumber;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

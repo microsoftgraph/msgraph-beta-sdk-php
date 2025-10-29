@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TermStore\Groups;
+namespace Microsoft\\Graph\\Beta\\Generated\TermStore\Groups;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TermStore\Group;
-use Microsoft\Graph\Beta\Generated\Models\TermStore\GroupCollectionResponse;
-use Microsoft\Graph\Beta\Generated\TermStore\Groups\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TermStore\Groups\Item\GroupItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TermStore\Group;
+use Microsoft\\Graph\\Beta\\Generated\Models\TermStore\GroupCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\TermStore\Groups\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\TermStore\Groups\Item\GroupItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

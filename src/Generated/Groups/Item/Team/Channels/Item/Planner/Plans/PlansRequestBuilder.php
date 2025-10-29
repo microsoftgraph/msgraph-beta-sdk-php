@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\Planner\Plans;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\Channels\Item\Planner\Plans;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\Planner\Plans\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\Planner\Plans\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\Planner\Plans\Item\PlannerPlanItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PlannerPlan;
-use Microsoft\Graph\Beta\Generated\Models\PlannerPlanCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\Channels\Item\Planner\Plans\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\Channels\Item\Planner\Plans\Delta\DeltaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\Channels\Item\Planner\Plans\Item\PlannerPlanItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PlannerPlan;
+use Microsoft\\Graph\\Beta\\Generated\Models\PlannerPlanCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

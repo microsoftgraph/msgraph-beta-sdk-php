@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\RemoteDesktopSecurityConfiguration;
+namespace Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\RemoteDesktopSecurityConfiguration;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

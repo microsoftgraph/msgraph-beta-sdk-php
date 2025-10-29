@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Item\EscapedList\Items\Item\Permissions;
+namespace Microsoft\\Graph\\Beta\\Generated\Drives\Item\EscapedList\Items\Item\Permissions;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\GetLoggedOnManagedDevices;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\GetLoggedOnManagedDevices;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

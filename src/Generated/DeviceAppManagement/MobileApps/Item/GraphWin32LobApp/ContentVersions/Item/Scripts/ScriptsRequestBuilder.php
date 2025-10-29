@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphWin32LobApp\ContentVersions\Item\Scripts;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MobileApps\Item\GraphWin32LobApp\ContentVersions\Item\Scripts;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphWin32LobApp\ContentVersions\Item\Scripts\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphWin32LobApp\ContentVersions\Item\Scripts\Item\MobileAppContentScriptItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\MobileAppContentScript;
-use Microsoft\Graph\Beta\Generated\Models\MobileAppContentScriptCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MobileApps\Item\GraphWin32LobApp\ContentVersions\Item\Scripts\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MobileApps\Item\GraphWin32LobApp\ContentVersions\Item\Scripts\Item\MobileAppContentScriptItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\MobileAppContentScript;
+use Microsoft\\Graph\\Beta\\Generated\Models\MobileAppContentScriptCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

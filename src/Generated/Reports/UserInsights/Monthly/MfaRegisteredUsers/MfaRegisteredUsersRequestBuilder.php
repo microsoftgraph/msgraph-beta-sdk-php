@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\MfaRegisteredUsers;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Monthly\MfaRegisteredUsers;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\MfaUserCountMetric;
-use Microsoft\Graph\Beta\Generated\Models\MfaUserCountMetricCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\MfaRegisteredUsers\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\UserInsights\Monthly\MfaRegisteredUsers\Item\MfaUserCountMetricItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\MfaUserCountMetric;
+use Microsoft\\Graph\\Beta\\Generated\Models\MfaUserCountMetricCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Monthly\MfaRegisteredUsers\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Monthly\MfaRegisteredUsers\Item\MfaUserCountMetricItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

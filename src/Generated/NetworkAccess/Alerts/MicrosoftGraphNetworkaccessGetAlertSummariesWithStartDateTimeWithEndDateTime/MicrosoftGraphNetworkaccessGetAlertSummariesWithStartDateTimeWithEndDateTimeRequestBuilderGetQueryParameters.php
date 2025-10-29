@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Alerts\MicrosoftGraphNetworkaccessGetAlertSummariesWithStartDateTimeWithEndDateTime;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Alerts\MicrosoftGraphNetworkaccessGetAlertSummariesWithStartDateTimeWithEndDateTime;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

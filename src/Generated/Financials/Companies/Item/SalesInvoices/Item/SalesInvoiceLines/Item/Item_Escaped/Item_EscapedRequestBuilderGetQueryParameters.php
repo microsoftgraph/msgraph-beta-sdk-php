@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesInvoices\Item\SalesInvoiceLines\Item\Item_Escaped;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\SalesInvoices\Item\SalesInvoiceLines\Item\Item_Escaped;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

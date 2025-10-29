@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Appointments\Item\Cancel;
+namespace Microsoft\\Graph\\Beta\\Generated\BookingBusinesses\Item\Appointments\Item\Cancel;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

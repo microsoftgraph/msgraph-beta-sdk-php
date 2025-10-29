@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ApprovalWorkflowProviders\Item\BusinessFlows\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\ApprovalWorkflowProviders\Item\BusinessFlows\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

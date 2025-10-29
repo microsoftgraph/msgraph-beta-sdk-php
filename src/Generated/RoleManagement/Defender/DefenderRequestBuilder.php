@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\Defender;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\Defender;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UnifiedRbacApplicationMultiple;
-use Microsoft\Graph\Beta\Generated\RoleManagement\Defender\CustomAppScopes\CustomAppScopesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\Defender\ResourceNamespaces\ResourceNamespacesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\Defender\RoleAssignments\RoleAssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\Defender\RoleDefinitions\RoleDefinitionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UnifiedRbacApplicationMultiple;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\Defender\CustomAppScopes\CustomAppScopesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\Defender\ResourceNamespaces\ResourceNamespacesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\Defender\RoleAssignments\RoleAssignmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\Defender\RoleDefinitions\RoleDefinitionsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

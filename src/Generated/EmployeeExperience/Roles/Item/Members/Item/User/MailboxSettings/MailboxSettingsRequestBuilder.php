@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EmployeeExperience\Roles\Item\Members\Item\User\MailboxSettings;
+namespace Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\Roles\Item\Members\Item\User\MailboxSettings;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\MailboxSettings;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\MailboxSettings;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

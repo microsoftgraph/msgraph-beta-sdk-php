@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\ResourceNamespaces\Item\ResourceActions\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\EntitlementManagement\ResourceNamespaces\Item\ResourceActions\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UnifiedRbacResourceAction;
-use Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\ResourceNamespaces\Item\ResourceActions\Item\AuthenticationContext\AuthenticationContextRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\ResourceNamespaces\Item\ResourceActions\Item\ResourceScope\ResourceScopeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UnifiedRbacResourceAction;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\EntitlementManagement\ResourceNamespaces\Item\ResourceActions\Item\AuthenticationContext\AuthenticationContextRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\EntitlementManagement\ResourceNamespaces\Item\ResourceActions\Item\ResourceScope\ResourceScopeRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

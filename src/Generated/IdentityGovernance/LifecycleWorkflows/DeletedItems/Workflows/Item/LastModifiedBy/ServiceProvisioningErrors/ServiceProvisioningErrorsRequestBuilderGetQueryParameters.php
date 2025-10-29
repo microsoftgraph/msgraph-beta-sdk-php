@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\LastModifiedBy\ServiceProvisioningErrors;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\LastModifiedBy\ServiceProvisioningErrors;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

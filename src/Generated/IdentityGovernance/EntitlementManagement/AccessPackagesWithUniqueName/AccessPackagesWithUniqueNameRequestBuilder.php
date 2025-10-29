@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackagesWithUniqueName;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\EntitlementManagement\AccessPackagesWithUniqueName;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackagesWithUniqueName\GetApplicablePolicyRequirements\GetApplicablePolicyRequirementsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackagesWithUniqueName\MoveToCatalog\MoveToCatalogRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AccessPackage;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\EntitlementManagement\AccessPackagesWithUniqueName\GetApplicablePolicyRequirements\GetApplicablePolicyRequirementsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\EntitlementManagement\AccessPackagesWithUniqueName\MoveToCatalog\MoveToCatalogRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AccessPackage;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -65,11 +65,11 @@ class AccessPackagesWithUniqueNameRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve an access package with a list of accessPackageResourceRoleScope objects. These objects represent the resource roles that an access package assigns to each subject. Each object links to an accessPackageResourceRole and an accessPackageResourceScope.
+     * Retrieve the properties and relationships of an accessPackage object.
      * @param AccessPackagesWithUniqueNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackage|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/accesspackage-list-accesspackageresourcerolescopes?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/accesspackage-get?view=graph-rest-beta Find more info here
     */
     public function get(?AccessPackagesWithUniqueNameRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -114,7 +114,7 @@ class AccessPackagesWithUniqueNameRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve an access package with a list of accessPackageResourceRoleScope objects. These objects represent the resource roles that an access package assigns to each subject. Each object links to an accessPackageResourceRole and an accessPackageResourceScope.
+     * Retrieve the properties and relationships of an accessPackage object.
      * @param AccessPackagesWithUniqueNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

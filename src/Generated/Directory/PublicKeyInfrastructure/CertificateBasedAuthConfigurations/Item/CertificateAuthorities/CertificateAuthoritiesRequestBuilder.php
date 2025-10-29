@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\PublicKeyInfrastructure\CertificateBasedAuthConfigurations\Item\CertificateAuthorities;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\PublicKeyInfrastructure\CertificateBasedAuthConfigurations\Item\CertificateAuthorities;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Directory\PublicKeyInfrastructure\CertificateBasedAuthConfigurations\Item\CertificateAuthorities\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\PublicKeyInfrastructure\CertificateBasedAuthConfigurations\Item\CertificateAuthorities\Item\CertificateAuthorityDetailItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\CertificateAuthorityDetail;
-use Microsoft\Graph\Beta\Generated\Models\CertificateAuthorityDetailCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Directory\PublicKeyInfrastructure\CertificateBasedAuthConfigurations\Item\CertificateAuthorities\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Directory\PublicKeyInfrastructure\CertificateBasedAuthConfigurations\Item\CertificateAuthorities\Item\CertificateAuthorityDetailItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\CertificateAuthorityDetail;
+use Microsoft\\Graph\\Beta\\Generated\Models\CertificateAuthorityDetailCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

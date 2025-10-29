@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackages\Item\AccessPackageResourceRoleScopes\Item\AccessPackageResourceScope\AccessPackageResource\AccessPackageResourceRoles;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\EntitlementManagement\AccessPackages\Item\AccessPackageResourceRoleScopes\Item\AccessPackageResourceScope\AccessPackageResource\AccessPackageResourceRoles;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

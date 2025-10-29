@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleEligibilitySchedules\Item\DirectoryScope;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\Directory\RoleEligibilitySchedules\Item\DirectoryScope;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

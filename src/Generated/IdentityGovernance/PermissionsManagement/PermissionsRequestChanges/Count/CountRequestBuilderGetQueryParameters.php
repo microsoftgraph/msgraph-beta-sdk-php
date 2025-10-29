@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsManagement\PermissionsRequestChanges\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\PermissionsManagement\PermissionsRequestChanges\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\Item\RoleEligibilityScheduleRequests\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\EnterpriseApps\Item\RoleEligibilityScheduleRequests\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleEligibilityScheduleRequest;
-use Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\Item\RoleEligibilityScheduleRequests\Item\AppScope\AppScopeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\Item\RoleEligibilityScheduleRequests\Item\Cancel\CancelRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\Item\RoleEligibilityScheduleRequests\Item\DirectoryScope\DirectoryScopeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\Item\RoleEligibilityScheduleRequests\Item\Principal\PrincipalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\Item\RoleEligibilityScheduleRequests\Item\RoleDefinition\RoleDefinitionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\EnterpriseApps\Item\RoleEligibilityScheduleRequests\Item\TargetSchedule\TargetScheduleRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UnifiedRoleEligibilityScheduleRequest;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\EnterpriseApps\Item\RoleEligibilityScheduleRequests\Item\AppScope\AppScopeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\EnterpriseApps\Item\RoleEligibilityScheduleRequests\Item\Cancel\CancelRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\EnterpriseApps\Item\RoleEligibilityScheduleRequests\Item\DirectoryScope\DirectoryScopeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\EnterpriseApps\Item\RoleEligibilityScheduleRequests\Item\Principal\PrincipalRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\EnterpriseApps\Item\RoleEligibilityScheduleRequests\Item\RoleDefinition\RoleDefinitionRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\EnterpriseApps\Item\RoleEligibilityScheduleRequests\Item\TargetSchedule\TargetScheduleRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

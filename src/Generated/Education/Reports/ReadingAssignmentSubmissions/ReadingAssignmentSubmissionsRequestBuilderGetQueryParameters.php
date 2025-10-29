@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Education\Reports\ReadingAssignmentSubmissions;
+namespace Microsoft\\Graph\\Beta\\Generated\Education\Reports\ReadingAssignmentSubmissions;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

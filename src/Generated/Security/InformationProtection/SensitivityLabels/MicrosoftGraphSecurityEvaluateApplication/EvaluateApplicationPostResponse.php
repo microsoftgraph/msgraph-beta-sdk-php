@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityEvaluateApplication;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityEvaluateApplication;
 
-use Microsoft\Graph\Beta\Generated\Models\BaseCollectionPaginationCountResponse;
-use Microsoft\Graph\Beta\Generated\Models\Security\InformationProtectionAction;
+use Microsoft\\Graph\\Beta\\Generated\Models\BaseCollectionPaginationCountResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\InformationProtectionAction;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;

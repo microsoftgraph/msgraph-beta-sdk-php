@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\TermStore\Sets\Item\ParentGroup\Sets\Item\Relations;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\TermStore\Sets\Item\ParentGroup\Sets\Item\Relations;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

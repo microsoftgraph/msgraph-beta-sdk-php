@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\PermissionGrantPreApprovalPolicies\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\PermissionGrantPreApprovalPolicies\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

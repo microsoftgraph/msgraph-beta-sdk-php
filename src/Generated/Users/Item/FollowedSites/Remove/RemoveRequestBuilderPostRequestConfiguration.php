@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\FollowedSites\Remove;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\FollowedSites\Remove;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

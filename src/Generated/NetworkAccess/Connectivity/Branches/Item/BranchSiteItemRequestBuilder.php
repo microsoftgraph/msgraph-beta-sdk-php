@@ -1,14 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\Branches\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Connectivity\Branches\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\Networkaccess\BranchSite;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\Branches\Item\ConnectivityConfiguration\ConnectivityConfigurationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\Branches\Item\DeviceLinks\DeviceLinksRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\Branches\Item\ForwardingProfiles\ForwardingProfilesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess\BranchSite;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Connectivity\Branches\Item\ConnectivityConfiguration\ConnectivityConfigurationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Connectivity\Branches\Item\DeviceLinks\DeviceLinksRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -31,13 +30,6 @@ class BranchSiteItemRequestBuilder extends BaseRequestBuilder
     */
     public function deviceLinks(): DeviceLinksRequestBuilder {
         return new DeviceLinksRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the forwardingProfiles property of the microsoft.graph.networkaccess.branchSite entity.
-    */
-    public function forwardingProfiles(): ForwardingProfilesRequestBuilder {
-        return new ForwardingProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

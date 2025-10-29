@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\Messages\Item\Move;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\MailFolders\Item\Messages\Item\Move;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

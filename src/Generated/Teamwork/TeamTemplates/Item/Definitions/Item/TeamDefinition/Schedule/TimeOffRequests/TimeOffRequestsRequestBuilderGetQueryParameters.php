@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Schedule\TimeOffRequests;
+namespace Microsoft\\Graph\\Beta\\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Schedule\TimeOffRequests;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

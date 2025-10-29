@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\ConfigurationSnapshots\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\ConfigurationManagement\ConfigurationSnapshots\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

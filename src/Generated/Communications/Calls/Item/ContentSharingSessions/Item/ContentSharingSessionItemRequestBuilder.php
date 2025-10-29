@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\Calls\Item\ContentSharingSessions\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\Calls\Item\ContentSharingSessions\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Communications\Calls\Item\ContentSharingSessions\Item\PngOfCurrentSlide\PngOfCurrentSlideRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ContentSharingSession;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Communications\Calls\Item\ContentSharingSessions\Item\PngOfCurrentSlide\PngOfCurrentSlideRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ContentSharingSession;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

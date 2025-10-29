@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\Ping;
+namespace Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\Synchronization\Ping;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

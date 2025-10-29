@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\CreatedBy;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\CreatedBy;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BusinessScenarios\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

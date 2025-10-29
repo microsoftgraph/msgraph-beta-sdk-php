@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\LicenseDetails\GetTeamsLicensingDetails;
+namespace Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\LicenseDetails\GetTeamsLicensingDetails;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

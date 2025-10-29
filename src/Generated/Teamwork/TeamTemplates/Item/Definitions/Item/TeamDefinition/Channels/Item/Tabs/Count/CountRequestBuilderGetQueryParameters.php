@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Channels\Item\Tabs\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Channels\Item\Tabs\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

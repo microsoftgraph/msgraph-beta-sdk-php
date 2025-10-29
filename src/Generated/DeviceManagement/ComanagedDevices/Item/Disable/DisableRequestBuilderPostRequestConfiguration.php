@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\Disable;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ComanagedDevices\Item\Disable;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

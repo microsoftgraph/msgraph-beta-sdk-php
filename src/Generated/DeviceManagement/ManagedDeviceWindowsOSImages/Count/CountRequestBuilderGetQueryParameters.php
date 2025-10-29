@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceWindowsOSImages\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ManagedDeviceWindowsOSImages\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

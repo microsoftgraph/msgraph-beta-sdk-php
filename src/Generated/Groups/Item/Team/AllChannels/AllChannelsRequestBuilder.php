@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\AllChannels;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\AllChannels;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Team\AllChannels\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Team\AllChannels\Item\ChannelItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ChannelCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\AllChannels\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\AllChannels\Item\ChannelItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ChannelCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

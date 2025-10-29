@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Operations\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Compliance\Ediscovery\Cases\Item\Operations\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

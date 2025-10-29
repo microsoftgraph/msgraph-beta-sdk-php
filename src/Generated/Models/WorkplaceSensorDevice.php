@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -149,7 +149,7 @@ class WorkplaceSensorDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the sensors property value. A list of sensors associated with the device that collect and report data about physical or environmental conditions, such as occupancy, people count, inferred occupancy, temperature, and more.
+     * Gets the sensors property value. A list of sensors associated with the device that collect and report data about physical or environmental conditions, such as occupancy, people count, inferred occupancy, temperature, Wi-Fi, and more.
      * @return array<WorkplaceSensor>|null
     */
     public function getSensors(): ?array {
@@ -259,7 +259,7 @@ class WorkplaceSensorDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the sensors property value. A list of sensors associated with the device that collect and report data about physical or environmental conditions, such as occupancy, people count, inferred occupancy, temperature, and more.
+     * Sets the sensors property value. A list of sensors associated with the device that collect and report data about physical or environmental conditions, such as occupancy, people count, inferred occupancy, temperature, Wi-Fi, and more.
      * @param array<WorkplaceSensor>|null $value Value to set for the sensors property.
     */
     public function setSensors(?array $value): void {

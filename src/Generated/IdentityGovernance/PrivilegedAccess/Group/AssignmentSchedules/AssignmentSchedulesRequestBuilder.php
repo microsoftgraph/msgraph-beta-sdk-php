@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Group\AssignmentSchedules;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\PrivilegedAccess\Group\AssignmentSchedules;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Group\AssignmentSchedules\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Group\AssignmentSchedules\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Group\AssignmentSchedules\Item\PrivilegedAccessGroupAssignmentScheduleItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PrivilegedAccessGroupAssignmentSchedule;
-use Microsoft\Graph\Beta\Generated\Models\PrivilegedAccessGroupAssignmentScheduleCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\PrivilegedAccess\Group\AssignmentSchedules\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\PrivilegedAccess\Group\AssignmentSchedules\FilterByCurrentUserWithOn\FilterByCurrentUserWithOnRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\PrivilegedAccess\Group\AssignmentSchedules\Item\PrivilegedAccessGroupAssignmentScheduleItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PrivilegedAccessGroupAssignmentSchedule;
+use Microsoft\\Graph\\Beta\\Generated\Models\PrivilegedAccessGroupAssignmentScheduleCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

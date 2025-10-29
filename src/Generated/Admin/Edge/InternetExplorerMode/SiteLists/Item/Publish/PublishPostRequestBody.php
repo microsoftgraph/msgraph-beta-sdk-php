@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Edge\InternetExplorerMode\SiteLists\Item\Publish;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Edge\InternetExplorerMode\SiteLists\Item\Publish;
 
-use Microsoft\Graph\Beta\Generated\Models\BrowserSharedCookie;
-use Microsoft\Graph\Beta\Generated\Models\BrowserSite;
+use Microsoft\\Graph\\Beta\\Generated\Models\BrowserSharedCookie;
+use Microsoft\\Graph\\Beta\\Generated\Models\BrowserSite;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

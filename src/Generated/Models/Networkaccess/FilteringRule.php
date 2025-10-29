@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\Networkaccess;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess;
 
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -28,6 +28,7 @@ class FilteringRule extends PolicyRule implements Parsable
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
                 case '#microsoft.graph.networkaccess.fqdnFilteringRule': return new FqdnFilteringRule();
+                case '#microsoft.graph.networkaccess.urlDestinationFilteringRule': return new UrlDestinationFilteringRule();
                 case '#microsoft.graph.networkaccess.webCategoryFilteringRule': return new WebCategoryFilteringRule();
             }
         }

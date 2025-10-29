@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointRestoreSessions\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\SharePointRestoreSessions\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

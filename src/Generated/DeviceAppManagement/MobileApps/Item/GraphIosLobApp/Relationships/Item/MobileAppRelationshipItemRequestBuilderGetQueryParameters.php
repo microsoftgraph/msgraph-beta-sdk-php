@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Item\GraphIosLobApp\Relationships\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MobileApps\Item\GraphIosLobApp\Relationships\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

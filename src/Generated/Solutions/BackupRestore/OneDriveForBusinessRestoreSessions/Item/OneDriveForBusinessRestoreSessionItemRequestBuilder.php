@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\OneDriveForBusinessRestoreSessions\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\OneDriveForBusinessRestoreSessions\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\OneDriveForBusinessRestoreSession;
-use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\OneDriveForBusinessRestoreSessions\Item\DriveRestoreArtifacts\DriveRestoreArtifactsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\OneDriveForBusinessRestoreSessions\Item\DriveRestoreArtifactsBulkAdditionRequests\DriveRestoreArtifactsBulkAdditionRequestsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\OneDriveForBusinessRestoreSession;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\OneDriveForBusinessRestoreSessions\Item\DriveRestoreArtifacts\DriveRestoreArtifactsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\OneDriveForBusinessRestoreSessions\Item\DriveRestoreArtifactsBulkAdditionRequests\DriveRestoreArtifactsBulkAdditionRequestsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

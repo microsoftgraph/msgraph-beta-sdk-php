@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleEligibilityScheduleRequests\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\Directory\RoleEligibilityScheduleRequests\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

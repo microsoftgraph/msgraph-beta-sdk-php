@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\DirectReports;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\DirectReports;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DirectoryObjectCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\DirectReports\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\DirectReports\GraphOrgContact\GraphOrgContactRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\DirectReports\GraphUser\GraphUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\DirectReports\Item\DirectoryObjectItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DirectoryObjectCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\DirectReports\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\DirectReports\GraphOrgContact\GraphOrgContactRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\DirectReports\GraphUser\GraphUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\DirectReports\Item\DirectoryObjectItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

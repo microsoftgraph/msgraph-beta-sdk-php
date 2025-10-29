@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -27,6 +27,18 @@ class IosLobApp extends MobileLobApp implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): IosLobApp {
         return new IosLobApp();
+    }
+
+    /**
+     * Gets the appleDeviceAppDeliveryProtocolType property value. Enum of the supported types of Apple delivery protocols, representing the available protocols to deliver payloads to Apple devices
+     * @return AppleDeviceDeliveryProtocol|null
+    */
+    public function getAppleDeviceAppDeliveryProtocolType(): ?AppleDeviceDeliveryProtocol {
+        $val = $this->getBackingStore()->get('appleDeviceAppDeliveryProtocolType');
+        if (is_null($val) || $val instanceof AppleDeviceDeliveryProtocol) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appleDeviceAppDeliveryProtocolType'");
     }
 
     /**
@@ -84,6 +96,7 @@ class IosLobApp extends MobileLobApp implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'appleDeviceAppDeliveryProtocolType' => fn(ParseNode $n) => $o->setAppleDeviceAppDeliveryProtocolType($n->getEnumValue(AppleDeviceDeliveryProtocol::class)),
             'applicableDeviceType' => fn(ParseNode $n) => $o->setApplicableDeviceType($n->getObjectValue([IosDeviceType::class, 'createFromDiscriminatorValue'])),
             'buildNumber' => fn(ParseNode $n) => $o->setBuildNumber($n->getStringValue()),
             'bundleId' => fn(ParseNode $n) => $o->setBundleId($n->getStringValue()),
@@ -123,12 +136,21 @@ class IosLobApp extends MobileLobApp implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeEnumValue('appleDeviceAppDeliveryProtocolType', $this->getAppleDeviceAppDeliveryProtocolType());
         $writer->writeObjectValue('applicableDeviceType', $this->getApplicableDeviceType());
         $writer->writeStringValue('buildNumber', $this->getBuildNumber());
         $writer->writeStringValue('bundleId', $this->getBundleId());
         $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
         $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->getMinimumSupportedOperatingSystem());
         $writer->writeStringValue('versionNumber', $this->getVersionNumber());
+    }
+
+    /**
+     * Sets the appleDeviceAppDeliveryProtocolType property value. Enum of the supported types of Apple delivery protocols, representing the available protocols to deliver payloads to Apple devices
+     * @param AppleDeviceDeliveryProtocol|null $value Value to set for the appleDeviceAppDeliveryProtocolType property.
+    */
+    public function setAppleDeviceAppDeliveryProtocolType(?AppleDeviceDeliveryProtocol $value): void {
+        $this->getBackingStore()->set('appleDeviceAppDeliveryProtocolType', $value);
     }
 
     /**

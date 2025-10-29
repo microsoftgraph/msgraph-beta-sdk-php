@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\ODataErrors;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors;
 
 use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;

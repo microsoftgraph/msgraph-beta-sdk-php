@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\Customers\Item\PaymentMethod;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\Customers\Item\PaymentMethod;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

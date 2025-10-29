@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -36,7 +36,7 @@ class SingleValueExtendedProperty extends Entity implements Parsable
     }
 
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. The value of the property.
      * @return string|null
     */
     public function getValue(): ?string {
@@ -57,7 +57,7 @@ class SingleValueExtendedProperty extends Entity implements Parsable
     }
 
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. The value of the property.
      * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {

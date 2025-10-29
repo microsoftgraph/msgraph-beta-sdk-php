@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Redirect;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\Calls\Item\Redirect;
 
-use Microsoft\Graph\Beta\Generated\Models\CallDisposition;
-use Microsoft\Graph\Beta\Generated\Models\InvitationParticipantInfo;
+use Microsoft\\Graph\\Beta\\Generated\Models\CallDisposition;
+use Microsoft\\Graph\\Beta\\Generated\Models\InvitationParticipantInfo;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

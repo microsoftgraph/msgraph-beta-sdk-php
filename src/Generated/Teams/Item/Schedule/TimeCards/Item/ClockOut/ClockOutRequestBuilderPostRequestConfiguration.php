@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\Item\Schedule\TimeCards\Item\ClockOut;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\Item\Schedule\TimeCards\Item\ClockOut;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

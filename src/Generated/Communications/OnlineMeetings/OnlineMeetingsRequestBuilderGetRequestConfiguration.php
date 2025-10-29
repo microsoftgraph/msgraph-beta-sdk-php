@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\OnlineMeetings;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\OnlineMeetings;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

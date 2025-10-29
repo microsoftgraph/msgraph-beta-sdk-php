@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\IndustryData;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\IndustryData;
 
 use Microsoft\Kiota\Abstractions\Enum;
 

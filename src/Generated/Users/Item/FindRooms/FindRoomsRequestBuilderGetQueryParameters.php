@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\FindRooms;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\FindRooms;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

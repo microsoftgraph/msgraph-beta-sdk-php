@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Webinars\Item\Registrations\Item\SessionsWithJoinWebUrl;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Webinars\Item\Registrations\Item\SessionsWithJoinWebUrl;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

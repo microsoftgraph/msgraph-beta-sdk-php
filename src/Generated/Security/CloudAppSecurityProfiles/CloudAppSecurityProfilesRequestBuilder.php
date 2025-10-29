@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\CloudAppSecurityProfiles;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\CloudAppSecurityProfiles;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\CloudAppSecurityProfile;
-use Microsoft\Graph\Beta\Generated\Models\CloudAppSecurityProfileCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Security\CloudAppSecurityProfiles\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\CloudAppSecurityProfiles\Item\CloudAppSecurityProfileItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\CloudAppSecurityProfile;
+use Microsoft\\Graph\\Beta\\Generated\Models\CloudAppSecurityProfileCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Security\CloudAppSecurityProfiles\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\CloudAppSecurityProfiles\Item\CloudAppSecurityProfileItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

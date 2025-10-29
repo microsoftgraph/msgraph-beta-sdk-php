@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Decisions\Item\Instance\Stages\Item\Decisions\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\AccessReviews\Decisions\Item\Instance\Stages\Item\Decisions\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Decisions\Item\Instance\Stages\Item\Decisions\Item\Insights\InsightsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AccessReviewInstanceDecisionItem;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\AccessReviews\Decisions\Item\Instance\Stages\Item\Decisions\Item\Insights\InsightsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AccessReviewInstanceDecisionItem;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,16 +1,19 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Snapshots;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\VirtualEndpoint\Snapshots;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Snapshots\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Snapshots\GetStorageAccountsWithSubscriptionId\GetStorageAccountsWithSubscriptionIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Snapshots\GetSubscriptions\GetSubscriptionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Snapshots\Item\CloudPcSnapshotItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\CloudPcSnapshot;
-use Microsoft\Graph\Beta\Generated\Models\CloudPcSnapshotCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\VirtualEndpoint\Snapshots\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\VirtualEndpoint\Snapshots\GetStorageAccountsWithSubscriptionId\GetStorageAccountsWithSubscriptionIdRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\VirtualEndpoint\Snapshots\GetSubscriptions\GetSubscriptionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\VirtualEndpoint\Snapshots\ImportSnapshot\ImportSnapshotRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\VirtualEndpoint\Snapshots\Item\CloudPcSnapshotItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\VirtualEndpoint\Snapshots\PurgeImportedSnapshot\PurgeImportedSnapshotRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\VirtualEndpoint\Snapshots\RetrieveSnapshotImportResultsWithSnapshotId\RetrieveSnapshotImportResultsWithSnapshotIdRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\CloudPcSnapshot;
+use Microsoft\\Graph\\Beta\\Generated\Models\CloudPcSnapshotCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -33,6 +36,20 @@ class SnapshotsRequestBuilder extends BaseRequestBuilder
     */
     public function getSubscriptions(): GetSubscriptionsRequestBuilder {
         return new GetSubscriptionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the importSnapshot method.
+    */
+    public function importSnapshot(): ImportSnapshotRequestBuilder {
+        return new ImportSnapshotRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the purgeImportedSnapshot method.
+    */
+    public function purgeImportedSnapshot(): PurgeImportedSnapshotRequestBuilder {
+        return new PurgeImportedSnapshotRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -96,6 +113,15 @@ class SnapshotsRequestBuilder extends BaseRequestBuilder
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [CloudPcSnapshot::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to call the retrieveSnapshotImportResults method.
+     * @param string $snapshotId Usage: snapshotId='{snapshotId}'
+     * @return RetrieveSnapshotImportResultsWithSnapshotIdRequestBuilder
+    */
+    public function retrieveSnapshotImportResultsWithSnapshotId(string $snapshotId): RetrieveSnapshotImportResultsWithSnapshotIdRequestBuilder {
+        return new RetrieveSnapshotImportResultsWithSnapshotIdRequestBuilder($this->pathParameters, $this->requestAdapter, $snapshotId);
     }
 
     /**

@@ -1,17 +1,19 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SiteCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Sites\Add\AddRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\GetAllSites\GetAllSitesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Item\SiteItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Sites\Remove\RemoveRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Site;
+use Microsoft\\Graph\\Beta\\Generated\Models\SiteCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Sites\Add\AddRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Sites\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Sites\Delta\DeltaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Sites\GetAllSites\GetAllSitesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Sites\GetOperationStatusWithOperationId\GetOperationStatusWithOperationIdRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Sites\Item\SiteItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Sites\Remove\RemoveRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -98,6 +100,31 @@ class SitesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
+     * Provides operations to call the getOperationStatus method.
+     * @param string $operationId Usage: operationId='{operationId}'
+     * @return GetOperationStatusWithOperationIdRequestBuilder
+    */
+    public function getOperationStatusWithOperationId(string $operationId): GetOperationStatusWithOperationIdRequestBuilder {
+        return new GetOperationStatusWithOperationIdRequestBuilder($this->pathParameters, $this->requestAdapter, $operationId);
+    }
+
+    /**
+     * Create a new SharePoint site.
+     * @param Site $body The request body
+     * @param SitesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise<Site|null>
+     * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/site-post-sites?view=graph-rest-beta Find more info here
+    */
+    public function post(Site $body, ?SitesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
+        $errorMappings = [
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [Site::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
      * List all available sites in an organization. Specific filter criteria and query options are also supported and described below: In addition, you can use a $search query against the /sites collection to find sites matching given keywords.If you want to list all sites across all geographies, refer to getAllSites. For more guidance about building applications that use site discovery for scanning purposes, see Best practices for discovering files and detecting changes at scale.
      * @param SitesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -115,6 +142,26 @@ class SitesRequestBuilder extends BaseRequestBuilder
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->tryAddHeader('Accept', "application/json");
+        return $requestInfo;
+    }
+
+    /**
+     * Create a new SharePoint site.
+     * @param Site $body The request body
+     * @param SitesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return RequestInformation
+    */
+    public function toPostRequestInformation(Site $body, ?SitesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+        $requestInfo = new RequestInformation();
+        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->pathParameters = $this->pathParameters;
+        $requestInfo->httpMethod = HttpMethod::POST;
+        if ($requestConfiguration !== null) {
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
+        }
+        $requestInfo->tryAddHeader('Accept', "application/json");
+        $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

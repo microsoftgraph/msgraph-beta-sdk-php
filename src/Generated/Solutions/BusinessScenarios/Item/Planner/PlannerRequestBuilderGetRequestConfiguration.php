@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\Item\Planner;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BusinessScenarios\Item\Planner;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

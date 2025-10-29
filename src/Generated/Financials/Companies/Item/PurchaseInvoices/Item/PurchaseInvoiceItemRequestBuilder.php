@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\PurchaseInvoices\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Item\Currency\CurrencyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Item\Post\PostRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Item\PurchaseInvoiceLines\PurchaseInvoiceLinesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\PurchaseInvoices\Item\Vendor\VendorRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PurchaseInvoice;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\PurchaseInvoices\Item\Currency\CurrencyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\PurchaseInvoices\Item\Post\PostRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\PurchaseInvoices\Item\PurchaseInvoiceLines\PurchaseInvoiceLinesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\PurchaseInvoices\Item\Vendor\VendorRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PurchaseInvoice;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

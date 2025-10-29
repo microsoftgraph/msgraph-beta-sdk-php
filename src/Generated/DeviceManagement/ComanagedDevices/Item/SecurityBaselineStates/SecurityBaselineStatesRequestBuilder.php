@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\SecurityBaselineStates;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ComanagedDevices\Item\SecurityBaselineStates;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\SecurityBaselineStates\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\SecurityBaselineStates\Item\SecurityBaselineStateItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SecurityBaselineState;
-use Microsoft\Graph\Beta\Generated\Models\SecurityBaselineStateCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ComanagedDevices\Item\SecurityBaselineStates\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ComanagedDevices\Item\SecurityBaselineStates\Item\SecurityBaselineStateItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SecurityBaselineState;
+use Microsoft\\Graph\\Beta\\Generated\Models\SecurityBaselineStateCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

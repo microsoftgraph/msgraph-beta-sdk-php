@@ -1,21 +1,21 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\DeletedItems;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\DeletedItems;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\GetByIds\GetByIdsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\GraphAdministrativeUnit\GraphAdministrativeUnitRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\GraphApplication\GraphApplicationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\GraphDevice\GraphDeviceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\GraphGroup\GraphGroupRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\GraphUser\GraphUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\Item\DirectoryObjectItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\DeletedItems\ValidateProperties\ValidatePropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DirectoryObjectCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Directory\DeletedItems\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Directory\DeletedItems\GetByIds\GetByIdsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Directory\DeletedItems\GraphAdministrativeUnit\GraphAdministrativeUnitRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Directory\DeletedItems\GraphApplication\GraphApplicationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Directory\DeletedItems\GraphDevice\GraphDeviceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Directory\DeletedItems\GraphGroup\GraphGroupRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Directory\DeletedItems\GraphServicePrincipal\GraphServicePrincipalRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Directory\DeletedItems\GraphUser\GraphUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Directory\DeletedItems\Item\DirectoryObjectItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Directory\DeletedItems\ValidateProperties\ValidatePropertiesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DirectoryObjectCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

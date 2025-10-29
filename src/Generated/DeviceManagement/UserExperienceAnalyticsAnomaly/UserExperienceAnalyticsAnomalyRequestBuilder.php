@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAnomaly;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\UserExperienceAnalyticsAnomaly;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAnomaly\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAnomaly\Item\UserExperienceAnalyticsAnomalyItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAnomaly;
-use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAnomalyCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\UserExperienceAnalyticsAnomaly\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\UserExperienceAnalyticsAnomaly\Item\UserExperienceAnalyticsAnomalyItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UserExperienceAnalyticsAnomaly;
+use Microsoft\\Graph\\Beta\\Generated\Models\UserExperienceAnalyticsAnomalyCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Monitoring\AlertRecords\MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSent;
+namespace Microsoft\\Graph\\Beta\\Generated\Monitoring\AlertRecords\MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSent;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

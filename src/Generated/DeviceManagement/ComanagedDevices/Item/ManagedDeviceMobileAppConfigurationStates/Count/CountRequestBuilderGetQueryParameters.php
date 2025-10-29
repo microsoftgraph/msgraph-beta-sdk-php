@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\ManagedDeviceMobileAppConfigurationStates\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ComanagedDevices\Item\ManagedDeviceMobileAppConfigurationStates\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

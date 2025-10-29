@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalRequests\Item\Approve;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\OperationApprovalRequests\Item\Approve;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\InformationProtection\Policy\Labels\EvaluateClassificationResults;
+namespace Microsoft\\Graph\\Beta\\Generated\InformationProtection\Policy\Labels\EvaluateClassificationResults;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

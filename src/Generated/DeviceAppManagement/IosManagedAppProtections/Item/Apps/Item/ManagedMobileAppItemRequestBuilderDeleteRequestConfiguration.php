@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosManagedAppProtections\Item\Apps\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\IosManagedAppProtections\Item\Apps\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

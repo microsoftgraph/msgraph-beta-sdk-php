@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventsFlows\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\AuthenticationEventsFlows\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventsFlows\Item\Conditions\ConditionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventsFlows\Item\GraphExternalUsersSelfServiceSignUpEventsFlow\GraphExternalUsersSelfServiceSignUpEventsFlowRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AuthenticationEventsFlow;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Identity\AuthenticationEventsFlows\Item\Conditions\ConditionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\AuthenticationEventsFlows\Item\GraphExternalUsersSelfServiceSignUpEventsFlow\GraphExternalUsersSelfServiceSignUpEventsFlowRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AuthenticationEventsFlow;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

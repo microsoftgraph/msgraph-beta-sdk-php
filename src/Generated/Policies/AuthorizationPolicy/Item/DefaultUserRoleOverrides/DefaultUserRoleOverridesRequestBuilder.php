@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\AuthorizationPolicy\Item\DefaultUserRoleOverrides;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\AuthorizationPolicy\Item\DefaultUserRoleOverrides;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DefaultUserRoleOverride;
-use Microsoft\Graph\Beta\Generated\Models\DefaultUserRoleOverrideCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Policies\AuthorizationPolicy\Item\DefaultUserRoleOverrides\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Policies\AuthorizationPolicy\Item\DefaultUserRoleOverrides\Item\DefaultUserRoleOverrideItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DefaultUserRoleOverride;
+use Microsoft\\Graph\\Beta\\Generated\Models\DefaultUserRoleOverrideCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Policies\AuthorizationPolicy\Item\DefaultUserRoleOverrides\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Policies\AuthorizationPolicy\Item\DefaultUserRoleOverrides\Item\DefaultUserRoleOverrideItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

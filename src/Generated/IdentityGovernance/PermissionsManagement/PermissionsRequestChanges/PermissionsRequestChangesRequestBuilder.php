@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsManagement\PermissionsRequestChanges;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\PermissionsManagement\PermissionsRequestChanges;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsManagement\PermissionsRequestChanges\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsManagement\PermissionsRequestChanges\Item\PermissionsRequestChangeItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PermissionsRequestChange;
-use Microsoft\Graph\Beta\Generated\Models\PermissionsRequestChangeCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\PermissionsManagement\PermissionsRequestChanges\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\PermissionsManagement\PermissionsRequestChanges\Item\PermissionsRequestChangeItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PermissionsRequestChange;
+use Microsoft\\Graph\\Beta\\Generated\Models\PermissionsRequestChangeCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

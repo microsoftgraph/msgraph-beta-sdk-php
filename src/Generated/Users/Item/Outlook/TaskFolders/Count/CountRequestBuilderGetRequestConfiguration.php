@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskFolders\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Outlook\TaskFolders\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Item\Special\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Drives\Item\Special\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Special\Item\Content\ContentRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Drives\Item\Special\Item\ContentStream\ContentStreamRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DriveItem;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Drives\Item\Special\Item\Content\ContentRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Drives\Item\Special\Item\ContentStream\ContentStreamRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DriveItem;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

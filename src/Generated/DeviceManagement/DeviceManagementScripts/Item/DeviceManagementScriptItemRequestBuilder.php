@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceManagementScripts\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\Item\Assign\AssignRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\Item\Assignments\AssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\Item\DeviceRunStates\DeviceRunStatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\Item\GroupAssignments\GroupAssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\Item\RunSummary\RunSummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementScripts\Item\UserRunStates\UserRunStatesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagementScript;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceManagementScripts\Item\Assign\AssignRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceManagementScripts\Item\Assignments\AssignmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceManagementScripts\Item\DeviceRunStates\DeviceRunStatesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceManagementScripts\Item\GroupAssignments\GroupAssignmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceManagementScripts\Item\RunSummary\RunSummaryRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceManagementScripts\Item\UserRunStates\UserRunStatesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagementScript;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

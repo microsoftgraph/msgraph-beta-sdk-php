@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\Networkaccess;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess;
 
-use Microsoft\Graph\Beta\Generated\Models\Entity;
+use Microsoft\\Graph\\Beta\\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -48,23 +48,8 @@ class Connectivity extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'branches' => fn(ParseNode $n) => $o->setBranches($n->getCollectionOfObjectValues([BranchSite::class, 'createFromDiscriminatorValue'])),
-            'remoteNetworks' => fn(ParseNode $n) => $o->setRemoteNetworks($n->getCollectionOfObjectValues([RemoteNetwork::class, 'createFromDiscriminatorValue'])),
             'webCategories' => fn(ParseNode $n) => $o->setWebCategories($n->getCollectionOfObjectValues([WebCategory::class, 'createFromDiscriminatorValue'])),
         ]);
-    }
-
-    /**
-     * Gets the remoteNetworks property value. The locations, such as branches, that are connected to Global Secure Access services through an IPsec tunnel.
-     * @return array<RemoteNetwork>|null
-    */
-    public function getRemoteNetworks(): ?array {
-        $val = $this->getBackingStore()->get('remoteNetworks');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, RemoteNetwork::class);
-            /** @var array<RemoteNetwork>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'remoteNetworks'");
     }
 
     /**
@@ -88,7 +73,6 @@ class Connectivity extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('branches', $this->getBranches());
-        $writer->writeCollectionOfObjectValues('remoteNetworks', $this->getRemoteNetworks());
         $writer->writeCollectionOfObjectValues('webCategories', $this->getWebCategories());
     }
 
@@ -98,14 +82,6 @@ class Connectivity extends Entity implements Parsable
     */
     public function setBranches(?array $value): void {
         $this->getBackingStore()->set('branches', $value);
-    }
-
-    /**
-     * Sets the remoteNetworks property value. The locations, such as branches, that are connected to Global Secure Access services through an IPsec tunnel.
-     * @param array<RemoteNetwork>|null $value Value to set for the remoteNetworks property.
-    */
-    public function setRemoteNetworks(?array $value): void {
-        $this->getBackingStore()->set('remoteNetworks', $value);
     }
 
     /**

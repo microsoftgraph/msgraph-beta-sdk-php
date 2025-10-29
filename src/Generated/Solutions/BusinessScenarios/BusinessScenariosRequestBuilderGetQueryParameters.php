@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BusinessScenarios;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

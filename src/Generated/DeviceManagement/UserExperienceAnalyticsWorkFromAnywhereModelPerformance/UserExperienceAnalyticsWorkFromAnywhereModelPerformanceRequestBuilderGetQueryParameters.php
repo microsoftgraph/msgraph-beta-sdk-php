@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereModelPerformance;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereModelPerformance;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

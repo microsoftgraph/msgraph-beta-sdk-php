@@ -1,24 +1,25 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\Channel;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\AllMembers\AllMembersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Archive\ArchiveRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\CompleteMigration\CompleteMigrationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName\DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\FilesFolder\FilesFolderRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Members\MembersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Messages\MessagesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Planner\PlannerRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\ProvisionEmail\ProvisionEmailRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\RemoveEmail\RemoveEmailRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\SharedWithTeams\SharedWithTeamsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Tabs\TabsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Unarchive\UnarchiveRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Channel;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\AllMembers\AllMembersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\Archive\ArchiveRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\CompleteMigration\CompleteMigrationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName\DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\EnabledApps\EnabledAppsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\FilesFolder\FilesFolderRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\Members\MembersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\Messages\MessagesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\Planner\PlannerRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\ProvisionEmail\ProvisionEmailRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\RemoveEmail\RemoveEmailRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\SharedWithTeams\SharedWithTeamsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\Tabs\TabsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\PrimaryChannel\Unarchive\UnarchiveRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -55,6 +56,13 @@ class PrimaryChannelRequestBuilder extends BaseRequestBuilder
     */
     public function doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName(): DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder {
         return new DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the enabledApps property of the microsoft.graph.channel entity.
+    */
+    public function enabledApps(): EnabledAppsRequestBuilder {
+        return new EnabledAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

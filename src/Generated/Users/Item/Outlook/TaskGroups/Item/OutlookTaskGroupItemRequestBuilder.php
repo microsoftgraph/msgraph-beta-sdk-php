@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskGroups\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Outlook\TaskGroups\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\OutlookTaskGroup;
-use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\TaskGroups\Item\TaskFolders\TaskFoldersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\OutlookTaskGroup;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Outlook\TaskGroups\Item\TaskFolders\TaskFoldersRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

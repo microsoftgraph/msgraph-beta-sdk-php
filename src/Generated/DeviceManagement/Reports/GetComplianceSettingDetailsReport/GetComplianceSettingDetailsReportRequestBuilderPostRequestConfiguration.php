@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetComplianceSettingDetailsReport;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Reports\GetComplianceSettingDetailsReport;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

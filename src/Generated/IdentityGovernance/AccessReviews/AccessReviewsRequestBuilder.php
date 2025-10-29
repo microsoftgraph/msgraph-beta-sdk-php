@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\AccessReviews;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Decisions\DecisionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Definitions\DefinitionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\HistoryDefinitions\HistoryDefinitionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Policy\PolicyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AccessReviewSet;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\AccessReviews\Decisions\DecisionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\AccessReviews\Definitions\DefinitionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\AccessReviews\HistoryDefinitions\HistoryDefinitionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\AccessReviews\Policy\PolicyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AccessReviewSet;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

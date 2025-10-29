@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\ThreatIntelligencePolicies\Item\PolicyRules;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\ThreatIntelligencePolicies\Item\PolicyRules;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

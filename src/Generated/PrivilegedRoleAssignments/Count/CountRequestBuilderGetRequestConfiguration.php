@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignments\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\PrivilegedRoleAssignments\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

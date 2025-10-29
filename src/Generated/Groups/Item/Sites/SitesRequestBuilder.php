@@ -1,17 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Add\AddRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\GetAllSites\GetAllSitesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\SiteItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Remove\RemoveRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SiteCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Add\AddRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Delta\DeltaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\GetAllSites\GetAllSitesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\GetOperationStatusWithOperationId\GetOperationStatusWithOperationIdRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\SiteItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Remove\RemoveRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SiteCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -94,6 +95,15 @@ class SitesRequestBuilder extends BaseRequestBuilder
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [SiteCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to call the getOperationStatus method.
+     * @param string $operationId Usage: operationId='{operationId}'
+     * @return GetOperationStatusWithOperationIdRequestBuilder
+    */
+    public function getOperationStatusWithOperationId(string $operationId): GetOperationStatusWithOperationIdRequestBuilder {
+        return new GetOperationStatusWithOperationIdRequestBuilder($this->pathParameters, $this->requestAdapter, $operationId);
     }
 
     /**

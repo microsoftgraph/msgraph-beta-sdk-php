@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelServerLogCollectionResponses;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\MicrosoftTunnelServerLogCollectionResponses;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
