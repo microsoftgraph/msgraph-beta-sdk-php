@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -28,6 +28,7 @@ class DirectoryObject extends Entity implements Parsable
             switch ($mappingValue) {
                 case '#microsoft.graph.activityBasedTimeoutPolicy': return new ActivityBasedTimeoutPolicy();
                 case '#microsoft.graph.administrativeUnit': return new AdministrativeUnit();
+                case '#microsoft.graph.agentIdentity': return new AgentIdentity();
                 case '#microsoft.graph.application': return new Application();
                 case '#microsoft.graph.appManagementPolicy': return new AppManagementPolicy();
                 case '#microsoft.graph.appRoleAssignment': return new AppRoleAssignment();

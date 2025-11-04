@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Printers\Item\Jobs\Item\StartPrintJob;
+namespace Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Printers\Item\Jobs\Item\StartPrintJob;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

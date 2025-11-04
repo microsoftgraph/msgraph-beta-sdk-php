@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\WindowsUpdates;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\WindowsUpdates;
 
 use Microsoft\Kiota\Abstractions\Enum;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\PrivilegedRoleAssignments\Item\MakePermanent;
+namespace Microsoft\\Graph\\Beta\\Generated\PrivilegedRoleAssignments\Item\MakePermanent;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

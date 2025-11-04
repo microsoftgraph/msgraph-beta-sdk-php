@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\OnlineMeetingConversations\Item\Starter\Replies\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\OnlineMeetingConversations\Item\Starter\Replies\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

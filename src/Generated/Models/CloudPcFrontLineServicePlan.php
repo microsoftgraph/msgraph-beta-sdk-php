@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -37,7 +37,7 @@ class CloudPcFrontLineServicePlan extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The display name of the front-line service plan. For example, 2vCPU/8GB/128GB Front-line or 4vCPU/16GB/256GB Front-line.
+     * Gets the displayName property value. The display name of the frontline service plan. For example, 2vCPU/8GB/128GB Front-line or 4vCPU/16GB/256GB Front-line.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -63,7 +63,7 @@ class CloudPcFrontLineServicePlan extends Entity implements Parsable
     }
 
     /**
-     * Gets the totalCount property value. The total number of front-line service plans purchased by the customer.
+     * Gets the totalCount property value. The total number of frontline service plans purchased by the customer.
      * @return int|null
     */
     public function getTotalCount(): ?int {
@@ -107,7 +107,7 @@ class CloudPcFrontLineServicePlan extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The display name of the front-line service plan. For example, 2vCPU/8GB/128GB Front-line or 4vCPU/16GB/256GB Front-line.
+     * Sets the displayName property value. The display name of the frontline service plan. For example, 2vCPU/8GB/128GB Front-line or 4vCPU/16GB/256GB Front-line.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -115,7 +115,7 @@ class CloudPcFrontLineServicePlan extends Entity implements Parsable
     }
 
     /**
-     * Sets the totalCount property value. The total number of front-line service plans purchased by the customer.
+     * Sets the totalCount property value. The total number of frontline service plans purchased by the customer.
      * @param int|null $value Value to set for the totalCount property.
     */
     public function setTotalCount(?int $value): void {

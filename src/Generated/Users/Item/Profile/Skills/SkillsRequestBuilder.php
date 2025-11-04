@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Skills;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Skills;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SkillProficiency;
-use Microsoft\Graph\Beta\Generated\Models\SkillProficiencyCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Skills\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Profile\Skills\Item\SkillProficiencyItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SkillProficiency;
+use Microsoft\\Graph\\Beta\\Generated\Models\SkillProficiencyCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Skills\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Skills\Item\SkillProficiencyItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

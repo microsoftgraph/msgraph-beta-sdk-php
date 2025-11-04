@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Items\Item\DocumentSetVersions;
+namespace Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\Items\Item\DocumentSetVersions;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DocumentSetVersion;
-use Microsoft\Graph\Beta\Generated\Models\DocumentSetVersionCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Items\Item\DocumentSetVersions\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Items\Item\DocumentSetVersions\Item\DocumentSetVersionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DocumentSetVersion;
+use Microsoft\\Graph\\Beta\\Generated\Models\DocumentSetVersionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\Items\Item\DocumentSetVersions\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\Items\Item\DocumentSetVersions\Item\DocumentSetVersionItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

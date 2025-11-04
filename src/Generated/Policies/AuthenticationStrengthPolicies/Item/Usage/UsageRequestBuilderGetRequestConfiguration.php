@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\AuthenticationStrengthPolicies\Item\Usage;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\AuthenticationStrengthPolicies\Item\Usage;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

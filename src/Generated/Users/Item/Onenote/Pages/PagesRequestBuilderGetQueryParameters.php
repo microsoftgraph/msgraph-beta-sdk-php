@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Onenote\Pages;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Onenote\Pages;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

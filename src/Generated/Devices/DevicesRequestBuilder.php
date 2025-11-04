@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Devices;
+namespace Microsoft\\Graph\\Beta\\Generated\Devices;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Devices\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Devices\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Devices\GetByIds\GetByIdsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Devices\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Devices\Item\DeviceItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Devices\ValidateProperties\ValidatePropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Device;
-use Microsoft\Graph\Beta\Generated\Models\DeviceCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Devices\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Devices\Delta\DeltaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Devices\GetByIds\GetByIdsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Devices\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Devices\Item\DeviceItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Devices\ValidateProperties\ValidatePropertiesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Device;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

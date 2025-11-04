@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Labels\RetentionLabels\Item\Descriptors\CitationTemplate;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Labels\RetentionLabels\Item\Descriptors\CitationTemplate;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

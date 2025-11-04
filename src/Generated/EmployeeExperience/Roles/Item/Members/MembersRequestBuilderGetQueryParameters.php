@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EmployeeExperience\Roles\Item\Members;
+namespace Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\Roles\Item\Members;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the engagementRoleMember objects and their properties.
+ * Get a list of users with assigned roles in Viva Engage.
 */
 class MembersRequestBuilderGetQueryParameters 
 {

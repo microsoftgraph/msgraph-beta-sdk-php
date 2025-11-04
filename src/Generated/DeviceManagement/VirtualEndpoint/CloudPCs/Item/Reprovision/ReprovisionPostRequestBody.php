@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\Reprovision;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\Reprovision;
 
-use Microsoft\Graph\Beta\Generated\Models\CloudPcOperatingSystem;
-use Microsoft\Graph\Beta\Generated\Models\CloudPcUserAccountType;
+use Microsoft\\Graph\\Beta\\Generated\Models\CloudPcOperatingSystem;
+use Microsoft\\Graph\\Beta\\Generated\Models\CloudPcUserAccountType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

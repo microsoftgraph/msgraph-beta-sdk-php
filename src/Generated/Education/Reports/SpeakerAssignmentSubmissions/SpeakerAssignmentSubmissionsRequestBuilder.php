@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Education\Reports\SpeakerAssignmentSubmissions;
+namespace Microsoft\\Graph\\Beta\\Generated\Education\Reports\SpeakerAssignmentSubmissions;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Education\Reports\SpeakerAssignmentSubmissions\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Reports\SpeakerAssignmentSubmissions\Item\SpeakerAssignmentSubmissionItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SpeakerAssignmentSubmission;
-use Microsoft\Graph\Beta\Generated\Models\SpeakerAssignmentSubmissionCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Education\Reports\SpeakerAssignmentSubmissions\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Reports\SpeakerAssignmentSubmissions\Item\SpeakerAssignmentSubmissionItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SpeakerAssignmentSubmission;
+use Microsoft\\Graph\\Beta\\Generated\Models\SpeakerAssignmentSubmissionCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

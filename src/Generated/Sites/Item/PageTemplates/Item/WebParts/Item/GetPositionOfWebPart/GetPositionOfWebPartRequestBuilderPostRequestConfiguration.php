@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\PageTemplates\Item\WebParts\Item\GetPositionOfWebPart;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\PageTemplates\Item\WebParts\Item\GetPositionOfWebPart;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

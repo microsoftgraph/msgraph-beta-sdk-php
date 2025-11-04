@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\PassiveDnsRecords\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\ThreatIntelligence\PassiveDnsRecords\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

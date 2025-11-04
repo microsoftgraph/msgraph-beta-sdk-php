@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveAppleOSUpdateFailures;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Reports\RetrieveAppleOSUpdateFailures;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

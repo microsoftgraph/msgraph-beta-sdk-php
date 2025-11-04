@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -63,6 +63,7 @@ class SharePointOneDriveOptions implements AdditionalDataHolder, BackedModel, Pa
         $o = $this;
         return  [
             'includeContent' => fn(ParseNode $n) => $o->setIncludeContent($n->getEnumValue(SearchContent::class)),
+            'includeHiddenContent' => fn(ParseNode $n) => $o->setIncludeHiddenContent($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -77,6 +78,18 @@ class SharePointOneDriveOptions implements AdditionalDataHolder, BackedModel, Pa
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'includeContent'");
+    }
+
+    /**
+     * Gets the includeHiddenContent property value. Indicates whether the search results include content that is normally hidden, such as archived content and SharePoint Embedded (RaaS). The default value is false, which prevents hidden content from being returned. You can also optionally include KQL to scope your query for hidden content to specific content types. For more information, see Search hidden content.
+     * @return bool|null
+    */
+    public function getIncludeHiddenContent(): ?bool {
+        $val = $this->getBackingStore()->get('includeHiddenContent');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'includeHiddenContent'");
     }
 
     /**
@@ -97,6 +110,7 @@ class SharePointOneDriveOptions implements AdditionalDataHolder, BackedModel, Pa
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('includeContent', $this->getIncludeContent());
+        $writer->writeBooleanValue('includeHiddenContent', $this->getIncludeHiddenContent());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -123,6 +137,14 @@ class SharePointOneDriveOptions implements AdditionalDataHolder, BackedModel, Pa
     */
     public function setIncludeContent(?SearchContent $value): void {
         $this->getBackingStore()->set('includeContent', $value);
+    }
+
+    /**
+     * Sets the includeHiddenContent property value. Indicates whether the search results include content that is normally hidden, such as archived content and SharePoint Embedded (RaaS). The default value is false, which prevents hidden content from being returned. You can also optionally include KQL to scope your query for hidden content to specific content types. For more information, see Search hidden content.
+     * @param bool|null $value Value to set for the includeHiddenContent property.
+    */
+    public function setIncludeHiddenContent(?bool $value): void {
+        $this->getBackingStore()->set('includeHiddenContent', $value);
     }
 
     /**

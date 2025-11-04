@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\Products\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

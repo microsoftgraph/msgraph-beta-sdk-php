@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\ForwardingPolicies\Item\PolicyRules;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\ForwardingPolicies\Item\PolicyRules;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

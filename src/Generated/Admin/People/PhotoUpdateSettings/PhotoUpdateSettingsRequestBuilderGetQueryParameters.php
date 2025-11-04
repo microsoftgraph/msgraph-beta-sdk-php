@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\People\PhotoUpdateSettings;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\People\PhotoUpdateSettings;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

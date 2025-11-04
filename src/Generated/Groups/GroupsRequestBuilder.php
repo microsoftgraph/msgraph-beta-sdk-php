@@ -1,19 +1,19 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Groups\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\EvaluateDynamicMembership\EvaluateDynamicMembershipRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\GetByIds\GetByIdsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\GroupItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\ValidateProperties\ValidatePropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Group;
-use Microsoft\Graph\Beta\Generated\Models\GroupCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Delta\DeltaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\EvaluateDynamicMembership\EvaluateDynamicMembershipRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\GetByIds\GetByIdsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\Item\GroupItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Groups\ValidateProperties\ValidatePropertiesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Group;
+use Microsoft\\Graph\\Beta\\Generated\Models\GroupCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -107,12 +107,12 @@ class GroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new group object if it doesn't exist, or update the properties of an existing group object.You can create or update the following types of group: By default, this operation returns only a subset of the properties for each group. For a list of properties that are returned by default, see the Properties section of the group resource. To get properties that are not returned by default, do a GET operation and specify the properties in a $select OData query option.
+     * Create a new group as specified in the request body. You can create one of the following groups: This operation returns by default only a subset of the properties for each group. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation and specify the properties in a $select OData query option. Note: To create a team, first create a group then add a team to it, see create team.
      * @param Group $body The request body
      * @param GroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Group|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/group-upsert?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/group-post-groups?view=graph-rest-beta Find more info here
     */
     public function post(Group $body, ?GroupsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -144,7 +144,7 @@ class GroupsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new group object if it doesn't exist, or update the properties of an existing group object.You can create or update the following types of group: By default, this operation returns only a subset of the properties for each group. For a list of properties that are returned by default, see the Properties section of the group resource. To get properties that are not returned by default, do a GET operation and specify the properties in a $select OData query option.
+     * Create a new group as specified in the request body. You can create one of the following groups: This operation returns by default only a subset of the properties for each group. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation and specify the properties in a $select OData query option. Note: To create a team, first create a group then add a team to it, see create team.
      * @param Group $body The request body
      * @param GroupsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

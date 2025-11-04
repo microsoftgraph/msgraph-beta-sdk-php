@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\AssignmentFilterEvaluationStatusDetails;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ComanagedDevices\Item\AssignmentFilterEvaluationStatusDetails;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

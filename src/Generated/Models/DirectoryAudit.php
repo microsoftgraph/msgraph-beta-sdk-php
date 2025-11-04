@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -103,6 +103,7 @@ class DirectoryAudit extends Entity implements Parsable
             'initiatedBy' => fn(ParseNode $n) => $o->setInitiatedBy($n->getObjectValue([AuditActivityInitiator::class, 'createFromDiscriminatorValue'])),
             'loggedByService' => fn(ParseNode $n) => $o->setLoggedByService($n->getStringValue()),
             'operationType' => fn(ParseNode $n) => $o->setOperationType($n->getStringValue()),
+            'performedBy' => fn(ParseNode $n) => $o->setPerformedBy($n->getObjectValue([AuditActivityPerformer::class, 'createFromDiscriminatorValue'])),
             'result' => fn(ParseNode $n) => $o->setResult($n->getEnumValue(OperationResult::class)),
             'resultReason' => fn(ParseNode $n) => $o->setResultReason($n->getStringValue()),
             'targetResources' => fn(ParseNode $n) => $o->setTargetResources($n->getCollectionOfObjectValues([TargetResource::class, 'createFromDiscriminatorValue'])),
@@ -144,6 +145,18 @@ class DirectoryAudit extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'operationType'");
+    }
+
+    /**
+     * Gets the performedBy property value. The performedBy property
+     * @return AuditActivityPerformer|null
+    */
+    public function getPerformedBy(): ?AuditActivityPerformer {
+        $val = $this->getBackingStore()->get('performedBy');
+        if (is_null($val) || $val instanceof AuditActivityPerformer) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'performedBy'");
     }
 
     /**
@@ -210,6 +223,7 @@ class DirectoryAudit extends Entity implements Parsable
         $writer->writeObjectValue('initiatedBy', $this->getInitiatedBy());
         $writer->writeStringValue('loggedByService', $this->getLoggedByService());
         $writer->writeStringValue('operationType', $this->getOperationType());
+        $writer->writeObjectValue('performedBy', $this->getPerformedBy());
         $writer->writeEnumValue('result', $this->getResult());
         $writer->writeStringValue('resultReason', $this->getResultReason());
         $writer->writeCollectionOfObjectValues('targetResources', $this->getTargetResources());
@@ -278,6 +292,14 @@ class DirectoryAudit extends Entity implements Parsable
     */
     public function setOperationType(?string $value): void {
         $this->getBackingStore()->set('operationType', $value);
+    }
+
+    /**
+     * Sets the performedBy property value. The performedBy property
+     * @param AuditActivityPerformer|null $value Value to set for the performedBy property.
+    */
+    public function setPerformedBy(?AuditActivityPerformer $value): void {
+        $this->getBackingStore()->set('performedBy', $value);
     }
 
     /**

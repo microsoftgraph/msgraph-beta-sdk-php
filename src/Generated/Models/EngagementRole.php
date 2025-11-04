@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -53,7 +53,7 @@ class EngagementRole extends Entity implements Parsable
     }
 
     /**
-     * Gets the members property value. Users who have been assigned this role.
+     * Gets the members property value. Users that have this role assigned.
      * @return array<EngagementRoleMember>|null
     */
     public function getMembers(): ?array {
@@ -85,7 +85,7 @@ class EngagementRole extends Entity implements Parsable
     }
 
     /**
-     * Sets the members property value. Users who have been assigned this role.
+     * Sets the members property value. Users that have this role assigned.
      * @param array<EngagementRoleMember>|null $value Value to set for the members property.
     */
     public function setMembers(?array $value): void {

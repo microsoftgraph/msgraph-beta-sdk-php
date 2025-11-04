@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Agreements;
+namespace Microsoft\\Graph\\Beta\\Generated\Agreements;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

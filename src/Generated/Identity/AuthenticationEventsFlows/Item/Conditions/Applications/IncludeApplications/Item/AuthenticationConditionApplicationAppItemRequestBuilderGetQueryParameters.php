@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventsFlows\Item\Conditions\Applications\IncludeApplications\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\AuthenticationEventsFlows\Item\Conditions\Applications\IncludeApplications\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

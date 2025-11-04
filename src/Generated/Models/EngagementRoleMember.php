@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -29,7 +29,7 @@ class EngagementRoleMember extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The timestamp when the role was assigned to the user.
+     * Gets the createdDateTime property value. The date and time when the role was assigned to the user. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -54,7 +54,7 @@ class EngagementRoleMember extends Entity implements Parsable
     }
 
     /**
-     * Gets the user property value. User entity of the member who has been assigned the role.
+     * Gets the user property value. The user who has this role assigned.
      * @return User|null
     */
     public function getUser(): ?User {
@@ -87,7 +87,7 @@ class EngagementRoleMember extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The timestamp when the role was assigned to the user.
+     * Sets the createdDateTime property value. The date and time when the role was assigned to the user. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -95,7 +95,7 @@ class EngagementRoleMember extends Entity implements Parsable
     }
 
     /**
-     * Sets the user property value. User entity of the member who has been assigned the role.
+     * Sets the user property value. The user who has this role assigned.
      * @param User|null $value Value to set for the user property.
     */
     public function setUser(?User $value): void {

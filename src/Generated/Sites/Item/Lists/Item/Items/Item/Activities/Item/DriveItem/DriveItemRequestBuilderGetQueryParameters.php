@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\Items\Item\Activities\Item\DriveItem;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\Lists\Item\Items\Item\Activities\Item\DriveItem;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

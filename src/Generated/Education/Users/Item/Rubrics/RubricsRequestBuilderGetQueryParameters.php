@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Education\Users\Item\Rubrics;
+namespace Microsoft\\Graph\\Beta\\Generated\Education\Users\Item\Rubrics;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

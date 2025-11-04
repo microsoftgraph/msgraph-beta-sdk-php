@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EmployeeExperience\Roles\Item\Members;
+namespace Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\Roles\Item\Members;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\EmployeeExperience\Roles\Item\Members\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EmployeeExperience\Roles\Item\Members\Item\EngagementRoleMemberItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\EngagementRoleMember;
-use Microsoft\Graph\Beta\Generated\Models\EngagementRoleMemberCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\Roles\Item\Members\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EmployeeExperience\Roles\Item\Members\Item\EngagementRoleMemberItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\EngagementRoleMember;
+use Microsoft\\Graph\\Beta\\Generated\Models\EngagementRoleMemberCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -52,7 +52,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the engagementRoleMember objects and their properties.
+     * Get a list of users with assigned roles in Viva Engage.
      * @param MembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EngagementRoleMemberCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Assign a Viva Engage role to a user.
+     * Create a new engagementRoleMember object that assigns a Viva Engage role to a user.
      * @param EngagementRoleMember $body The request body
      * @param MembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EngagementRoleMember|null>
@@ -83,7 +83,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the engagementRoleMember objects and their properties.
+     * Get a list of users with assigned roles in Viva Engage.
      * @param MembersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +104,7 @@ class MembersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Assign a Viva Engage role to a user.
+     * Create a new engagementRoleMember object that assigns a Viva Engage role to a user.
      * @param EngagementRoleMember $body The request body
      * @param MembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

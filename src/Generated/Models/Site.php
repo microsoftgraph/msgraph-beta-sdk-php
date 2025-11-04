@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
-use Microsoft\Graph\Beta\Generated\Models\TermStore\Store;
+use Microsoft\\Graph\\Beta\\Generated\Models\TermStore\Store;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -195,17 +195,22 @@ class Site extends BaseItem implements Parsable
             'isPersonalSite' => fn(ParseNode $n) => $o->setIsPersonalSite($n->getBooleanValue()),
             'items' => fn(ParseNode $n) => $o->setItems($n->getCollectionOfObjectValues([BaseItem::class, 'createFromDiscriminatorValue'])),
             'lists' => fn(ParseNode $n) => $o->setLists($n->getCollectionOfObjectValues([EscapedList::class, 'createFromDiscriminatorValue'])),
+            'locale' => fn(ParseNode $n) => $o->setLocale($n->getStringValue()),
+            'lockState' => fn(ParseNode $n) => $o->setLockState($n->getEnumValue(SiteLockState::class)),
             'onenote' => fn(ParseNode $n) => $o->setOnenote($n->getObjectValue([Onenote::class, 'createFromDiscriminatorValue'])),
             'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([RichLongRunningOperation::class, 'createFromDiscriminatorValue'])),
+            'ownerIdentityToResolve' => fn(ParseNode $n) => $o->setOwnerIdentityToResolve($n->getObjectValue([IdentityInput::class, 'createFromDiscriminatorValue'])),
             'pages' => fn(ParseNode $n) => $o->setPages($n->getCollectionOfObjectValues([BaseSitePage::class, 'createFromDiscriminatorValue'])),
             'pageTemplates' => fn(ParseNode $n) => $o->setPageTemplates($n->getCollectionOfObjectValues([PageTemplate::class, 'createFromDiscriminatorValue'])),
             'permissions' => fn(ParseNode $n) => $o->setPermissions($n->getCollectionOfObjectValues([Permission::class, 'createFromDiscriminatorValue'])),
             'recycleBin' => fn(ParseNode $n) => $o->setRecycleBin($n->getObjectValue([RecycleBin::class, 'createFromDiscriminatorValue'])),
             'root' => fn(ParseNode $n) => $o->setRoot($n->getObjectValue([Root::class, 'createFromDiscriminatorValue'])),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([SiteSettings::class, 'createFromDiscriminatorValue'])),
+            'shareByEmailEnabled' => fn(ParseNode $n) => $o->setShareByEmailEnabled($n->getBooleanValue()),
             'sharepointIds' => fn(ParseNode $n) => $o->setSharepointIds($n->getObjectValue([SharepointIds::class, 'createFromDiscriminatorValue'])),
             'siteCollection' => fn(ParseNode $n) => $o->setSiteCollection($n->getObjectValue([SiteCollection::class, 'createFromDiscriminatorValue'])),
             'sites' => fn(ParseNode $n) => $o->setSites($n->getCollectionOfObjectValues([Site::class, 'createFromDiscriminatorValue'])),
+            'template' => fn(ParseNode $n) => $o->setTemplate($n->getEnumValue(SiteTemplateType::class)),
             'termStore' => fn(ParseNode $n) => $o->setTermStore($n->getObjectValue([Store::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -263,6 +268,30 @@ class Site extends BaseItem implements Parsable
     }
 
     /**
+     * Gets the locale property value. The language settings of the site.
+     * @return string|null
+    */
+    public function getLocale(): ?string {
+        $val = $this->getBackingStore()->get('locale');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'locale'");
+    }
+
+    /**
+     * Gets the lockState property value. The state of the site. The possible values are: unlocked, lockedReadOnly, lockedNoAccess, lockedNoAdditions, unknownFutureValue
+     * @return SiteLockState|null
+    */
+    public function getLockState(): ?SiteLockState {
+        $val = $this->getBackingStore()->get('lockState');
+        if (is_null($val) || $val instanceof SiteLockState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lockState'");
+    }
+
+    /**
      * Gets the onenote property value. The onenote property
      * @return Onenote|null
     */
@@ -286,6 +315,18 @@ class Site extends BaseItem implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'operations'");
+    }
+
+    /**
+     * Gets the ownerIdentityToResolve property value. The site owner to be provided at the time of site creation only.
+     * @return IdentityInput|null
+    */
+    public function getOwnerIdentityToResolve(): ?IdentityInput {
+        $val = $this->getBackingStore()->get('ownerIdentityToResolve');
+        if (is_null($val) || $val instanceof IdentityInput) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ownerIdentityToResolve'");
     }
 
     /**
@@ -367,6 +408,18 @@ class Site extends BaseItem implements Parsable
     }
 
     /**
+     * Gets the shareByEmailEnabled property value. Determines whether the site and its content can be shared via email.
+     * @return bool|null
+    */
+    public function getShareByEmailEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('shareByEmailEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'shareByEmailEnabled'");
+    }
+
+    /**
      * Gets the sharepointIds property value. Returns identifiers useful for SharePoint REST compatibility. Read-only.
      * @return SharepointIds|null
     */
@@ -405,6 +458,18 @@ class Site extends BaseItem implements Parsable
     }
 
     /**
+     * Gets the template property value. Specifies the template applied to the site. The possible values are: sitepagepublishing, group, sts, unknownFutureValue.
+     * @return SiteTemplateType|null
+    */
+    public function getTemplate(): ?SiteTemplateType {
+        $val = $this->getBackingStore()->get('template');
+        if (is_null($val) || $val instanceof SiteTemplateType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'template'");
+    }
+
+    /**
      * Gets the termStore property value. The termStore under this site.
      * @return Store|null
     */
@@ -437,17 +502,22 @@ class Site extends BaseItem implements Parsable
         $writer->writeBooleanValue('isPersonalSite', $this->getIsPersonalSite());
         $writer->writeCollectionOfObjectValues('items', $this->getItems());
         $writer->writeCollectionOfObjectValues('lists', $this->getLists());
+        $writer->writeStringValue('locale', $this->getLocale());
+        $writer->writeEnumValue('lockState', $this->getLockState());
         $writer->writeObjectValue('onenote', $this->getOnenote());
         $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
+        $writer->writeObjectValue('ownerIdentityToResolve', $this->getOwnerIdentityToResolve());
         $writer->writeCollectionOfObjectValues('pages', $this->getPages());
         $writer->writeCollectionOfObjectValues('pageTemplates', $this->getPageTemplates());
         $writer->writeCollectionOfObjectValues('permissions', $this->getPermissions());
         $writer->writeObjectValue('recycleBin', $this->getRecycleBin());
         $writer->writeObjectValue('root', $this->getRoot());
         $writer->writeObjectValue('settings', $this->getSettings());
+        $writer->writeBooleanValue('shareByEmailEnabled', $this->getShareByEmailEnabled());
         $writer->writeObjectValue('sharepointIds', $this->getSharepointIds());
         $writer->writeObjectValue('siteCollection', $this->getSiteCollection());
         $writer->writeCollectionOfObjectValues('sites', $this->getSites());
+        $writer->writeEnumValue('template', $this->getTemplate());
         $writer->writeObjectValue('termStore', $this->getTermStore());
     }
 
@@ -572,6 +642,22 @@ class Site extends BaseItem implements Parsable
     }
 
     /**
+     * Sets the locale property value. The language settings of the site.
+     * @param string|null $value Value to set for the locale property.
+    */
+    public function setLocale(?string $value): void {
+        $this->getBackingStore()->set('locale', $value);
+    }
+
+    /**
+     * Sets the lockState property value. The state of the site. The possible values are: unlocked, lockedReadOnly, lockedNoAccess, lockedNoAdditions, unknownFutureValue
+     * @param SiteLockState|null $value Value to set for the lockState property.
+    */
+    public function setLockState(?SiteLockState $value): void {
+        $this->getBackingStore()->set('lockState', $value);
+    }
+
+    /**
      * Sets the onenote property value. The onenote property
      * @param Onenote|null $value Value to set for the onenote property.
     */
@@ -585,6 +671,14 @@ class Site extends BaseItem implements Parsable
     */
     public function setOperations(?array $value): void {
         $this->getBackingStore()->set('operations', $value);
+    }
+
+    /**
+     * Sets the ownerIdentityToResolve property value. The site owner to be provided at the time of site creation only.
+     * @param IdentityInput|null $value Value to set for the ownerIdentityToResolve property.
+    */
+    public function setOwnerIdentityToResolve(?IdentityInput $value): void {
+        $this->getBackingStore()->set('ownerIdentityToResolve', $value);
     }
 
     /**
@@ -636,6 +730,14 @@ class Site extends BaseItem implements Parsable
     }
 
     /**
+     * Sets the shareByEmailEnabled property value. Determines whether the site and its content can be shared via email.
+     * @param bool|null $value Value to set for the shareByEmailEnabled property.
+    */
+    public function setShareByEmailEnabled(?bool $value): void {
+        $this->getBackingStore()->set('shareByEmailEnabled', $value);
+    }
+
+    /**
      * Sets the sharepointIds property value. Returns identifiers useful for SharePoint REST compatibility. Read-only.
      * @param SharepointIds|null $value Value to set for the sharepointIds property.
     */
@@ -657,6 +759,14 @@ class Site extends BaseItem implements Parsable
     */
     public function setSites(?array $value): void {
         $this->getBackingStore()->set('sites', $value);
+    }
+
+    /**
+     * Sets the template property value. Specifies the template applied to the site. The possible values are: sitepagepublishing, group, sts, unknownFutureValue.
+     * @param SiteTemplateType|null $value Value to set for the template property.
+    */
+    public function setTemplate(?SiteTemplateType $value): void {
+        $this->getBackingStore()->set('template', $value);
     }
 
     /**

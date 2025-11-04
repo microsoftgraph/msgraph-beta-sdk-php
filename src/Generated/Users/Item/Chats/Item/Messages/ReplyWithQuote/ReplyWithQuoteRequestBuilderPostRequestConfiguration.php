@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Messages\ReplyWithQuote;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\Messages\ReplyWithQuote;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

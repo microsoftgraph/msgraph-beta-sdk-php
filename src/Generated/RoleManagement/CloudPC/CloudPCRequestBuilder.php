@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\CloudPC;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\RbacApplicationMultiple;
-use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\ResourceNamespaces\ResourceNamespacesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleAssignments\RoleAssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleDefinitions\RoleDefinitionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\RbacApplicationMultiple;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\CloudPC\ResourceNamespaces\ResourceNamespacesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\CloudPC\RoleAssignments\RoleAssignmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\CloudPC\RoleDefinitions\RoleDefinitionsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

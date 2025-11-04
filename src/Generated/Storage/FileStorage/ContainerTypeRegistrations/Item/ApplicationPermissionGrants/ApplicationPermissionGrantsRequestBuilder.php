@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\ContainerTypeRegistrations\Item\ApplicationPermissionGrants;
+namespace Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\ContainerTypeRegistrations\Item\ApplicationPermissionGrants;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\FileStorageContainerTypeAppPermissionGrant;
-use Microsoft\Graph\Beta\Generated\Models\FileStorageContainerTypeAppPermissionGrantCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Storage\FileStorage\ContainerTypeRegistrations\Item\ApplicationPermissionGrants\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Storage\FileStorage\ContainerTypeRegistrations\Item\ApplicationPermissionGrants\Item\FileStorageContainerTypeAppPermissionGrantAppItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\FileStorageContainerTypeAppPermissionGrant;
+use Microsoft\\Graph\\Beta\\Generated\Models\FileStorageContainerTypeAppPermissionGrantCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\ContainerTypeRegistrations\Item\ApplicationPermissionGrants\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\ContainerTypeRegistrations\Item\ApplicationPermissionGrants\Item\FileStorageContainerTypeAppPermissionGrantAppItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

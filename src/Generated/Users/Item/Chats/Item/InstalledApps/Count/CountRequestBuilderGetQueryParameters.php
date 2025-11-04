@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\InstalledApps\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Chats\Item\InstalledApps\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

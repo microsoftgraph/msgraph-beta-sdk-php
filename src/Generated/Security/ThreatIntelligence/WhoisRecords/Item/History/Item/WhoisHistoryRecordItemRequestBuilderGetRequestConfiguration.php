@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\WhoisRecords\Item\History\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\ThreatIntelligence\WhoisRecords\Item\History\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

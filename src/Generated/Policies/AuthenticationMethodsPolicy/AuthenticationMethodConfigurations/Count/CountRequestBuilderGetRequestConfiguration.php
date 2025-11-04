@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\AuthenticationMethodsPolicy\AuthenticationMethodConfigurations\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\AuthenticationMethodsPolicy\AuthenticationMethodConfigurations\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

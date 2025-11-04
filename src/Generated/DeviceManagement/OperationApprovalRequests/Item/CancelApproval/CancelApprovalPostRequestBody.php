@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalRequests\Item\CancelApproval;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\OperationApprovalRequests\Item\CancelApproval;
 
-use Microsoft\Graph\Beta\Generated\Models\OperationApprovalSource;
+use Microsoft\\Graph\\Beta\\Generated\Models\OperationApprovalSource;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

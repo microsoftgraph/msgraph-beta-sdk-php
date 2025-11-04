@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Settings\Windows\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Settings\Windows\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\WindowsSetting;
-use Microsoft\Graph\Beta\Generated\Users\Item\Settings\Windows\Item\Instances\InstancesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\WindowsSetting;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Settings\Windows\Item\Instances\InstancesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

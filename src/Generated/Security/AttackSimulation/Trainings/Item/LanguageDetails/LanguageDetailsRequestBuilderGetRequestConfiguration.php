@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Trainings\Item\LanguageDetails;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\AttackSimulation\Trainings\Item\LanguageDetails;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

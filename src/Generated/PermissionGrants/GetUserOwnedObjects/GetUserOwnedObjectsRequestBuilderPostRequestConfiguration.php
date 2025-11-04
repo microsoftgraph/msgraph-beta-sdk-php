@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\PermissionGrants\GetUserOwnedObjects;
+namespace Microsoft\\Graph\\Beta\\Generated\PermissionGrants\GetUserOwnedObjects;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Applications\Item\HomeRealmDiscoveryPolicies\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Applications\Item\HomeRealmDiscoveryPolicies\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

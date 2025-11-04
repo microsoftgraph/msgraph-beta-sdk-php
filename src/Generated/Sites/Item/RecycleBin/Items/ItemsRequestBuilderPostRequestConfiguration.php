@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\RecycleBin\Items;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\RecycleBin\Items;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Profile\Skills\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Profile\Skills\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

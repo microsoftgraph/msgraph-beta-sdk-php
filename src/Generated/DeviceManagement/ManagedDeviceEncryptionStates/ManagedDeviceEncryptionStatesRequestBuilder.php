@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceEncryptionStates;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ManagedDeviceEncryptionStates;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceEncryptionStates\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceEncryptionStates\Item\ManagedDeviceEncryptionStateItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceEncryptionState;
-use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceEncryptionStateCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ManagedDeviceEncryptionStates\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ManagedDeviceEncryptionStates\Item\ManagedDeviceEncryptionStateItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ManagedDeviceEncryptionState;
+use Microsoft\\Graph\\Beta\\Generated\Models\ManagedDeviceEncryptionStateCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

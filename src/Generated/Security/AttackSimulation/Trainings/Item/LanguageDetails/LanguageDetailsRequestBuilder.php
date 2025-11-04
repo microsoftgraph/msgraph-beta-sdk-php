@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Trainings\Item\LanguageDetails;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\AttackSimulation\Trainings\Item\LanguageDetails;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TrainingLanguageDetail;
-use Microsoft\Graph\Beta\Generated\Models\TrainingLanguageDetailCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Trainings\Item\LanguageDetails\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\Trainings\Item\LanguageDetails\Item\TrainingLanguageDetailItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TrainingLanguageDetail;
+use Microsoft\\Graph\\Beta\\Generated\Models\TrainingLanguageDetailCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Security\AttackSimulation\Trainings\Item\LanguageDetails\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\AttackSimulation\Trainings\Item\LanguageDetails\Item\TrainingLanguageDetailItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

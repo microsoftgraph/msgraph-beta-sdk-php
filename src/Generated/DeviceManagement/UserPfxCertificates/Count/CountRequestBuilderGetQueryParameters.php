@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserPfxCertificates\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\UserPfxCertificates\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

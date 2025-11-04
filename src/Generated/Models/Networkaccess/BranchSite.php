@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\Networkaccess;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\Networkaccess;
 
 use DateTime;
-use Microsoft\Graph\Beta\Generated\Models\Entity;
+use Microsoft\\Graph\\Beta\\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -101,26 +101,11 @@ class BranchSite extends Entity implements Parsable
             'connectivityState' => fn(ParseNode $n) => $o->setConnectivityState($n->getEnumValue(ConnectivityState::class)),
             'country' => fn(ParseNode $n) => $o->setCountry($n->getStringValue()),
             'deviceLinks' => fn(ParseNode $n) => $o->setDeviceLinks($n->getCollectionOfObjectValues([DeviceLink::class, 'createFromDiscriminatorValue'])),
-            'forwardingProfiles' => fn(ParseNode $n) => $o->setForwardingProfiles($n->getCollectionOfObjectValues([ForwardingProfile::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'region' => fn(ParseNode $n) => $o->setRegion($n->getEnumValue(Region::class)),
             'version' => fn(ParseNode $n) => $o->setVersion($n->getStringValue()),
         ]);
-    }
-
-    /**
-     * Gets the forwardingProfiles property value. Each forwarding profile associated with a branch site is specified. Supports $expand.
-     * @return array<ForwardingProfile>|null
-    */
-    public function getForwardingProfiles(): ?array {
-        $val = $this->getBackingStore()->get('forwardingProfiles');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, ForwardingProfile::class);
-            /** @var array<ForwardingProfile>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'forwardingProfiles'");
     }
 
     /**
@@ -182,7 +167,6 @@ class BranchSite extends Entity implements Parsable
         $writer->writeEnumValue('connectivityState', $this->getConnectivityState());
         $writer->writeStringValue('country', $this->getCountry());
         $writer->writeCollectionOfObjectValues('deviceLinks', $this->getDeviceLinks());
-        $writer->writeCollectionOfObjectValues('forwardingProfiles', $this->getForwardingProfiles());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('name', $this->getName());
         $writer->writeEnumValue('region', $this->getRegion());
@@ -227,14 +211,6 @@ class BranchSite extends Entity implements Parsable
     */
     public function setDeviceLinks(?array $value): void {
         $this->getBackingStore()->set('deviceLinks', $value);
-    }
-
-    /**
-     * Sets the forwardingProfiles property value. Each forwarding profile associated with a branch site is specified. Supports $expand.
-     * @param array<ForwardingProfile>|null $value Value to set for the forwardingProfiles property.
-    */
-    public function setForwardingProfiles(?array $value): void {
-        $this->getBackingStore()->set('forwardingProfiles', $value);
     }
 
     /**

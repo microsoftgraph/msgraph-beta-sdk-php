@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -281,7 +281,7 @@ class TodoTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the singleValueExtendedProperties property value. The singleValueExtendedProperties property
+     * Gets the singleValueExtendedProperties property value. A collection of custom fields linked to the task.
      * @return array<SingleValueExtendedProperty>|null
     */
     public function getSingleValueExtendedProperties(): ?array {
@@ -496,7 +496,7 @@ class TodoTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the singleValueExtendedProperties property value. The singleValueExtendedProperties property
+     * Sets the singleValueExtendedProperties property value. A collection of custom fields linked to the task.
      * @param array<SingleValueExtendedProperty>|null $value Value to set for the singleValueExtendedProperties property.
     */
     public function setSingleValueExtendedProperties(?array $value): void {

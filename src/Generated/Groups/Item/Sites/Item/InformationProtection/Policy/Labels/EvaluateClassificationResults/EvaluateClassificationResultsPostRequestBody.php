@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Sites\Item\InformationProtection\Policy\Labels\EvaluateClassificationResults;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Sites\Item\InformationProtection\Policy\Labels\EvaluateClassificationResults;
 
-use Microsoft\Graph\Beta\Generated\Models\ClassificationResult;
-use Microsoft\Graph\Beta\Generated\Models\ContentInfo;
+use Microsoft\\Graph\\Beta\\Generated\Models\ClassificationResult;
+use Microsoft\\Graph\\Beta\\Generated\Models\ContentInfo;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

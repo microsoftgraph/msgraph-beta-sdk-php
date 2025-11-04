@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Partner;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Partner;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Partner\Security\PartnerSecurity;
-use Microsoft\Graph\Beta\Generated\Security\Partner\SecurityAlerts\SecurityAlertsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Partner\SecurityScore\SecurityScoreRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Partner\Security\PartnerSecurity;
+use Microsoft\\Graph\\Beta\\Generated\Security\Partner\SecurityAlerts\SecurityAlertsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\Partner\SecurityScore\SecurityScoreRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -61,7 +61,7 @@ class PartnerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A container that safeguards the Microsoft Azure resources of Microsoft Cloud Solution Provider (CSP) partners’ customers, including alerts, scores, and all aspects of security.
+     * A container that safeguards the Microsoft Azure resources of Microsoft Cloud Solution Provider (CSP) partners' customers, including alerts, scores, and all aspects of security.
      * @param PartnerRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PartnerSecurity|null>
      * @throws Exception
@@ -108,7 +108,7 @@ class PartnerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A container that safeguards the Microsoft Azure resources of Microsoft Cloud Solution Provider (CSP) partners’ customers, including alerts, scores, and all aspects of security.
+     * A container that safeguards the Microsoft Azure resources of Microsoft Cloud Solution Provider (CSP) partners' customers, including alerts, scores, and all aspects of security.
      * @param PartnerRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -108,7 +108,7 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
-     * Gets the externalPartners property value. The externalPartners property
+     * Gets the externalPartners property value. The external partners on a Cloud PC.
      * @return array<CloudPcExternalPartner>|null
     */
     public function getExternalPartners(): ?array {
@@ -152,6 +152,7 @@ class VirtualEndpoint extends Entity implements Parsable
             'externalPartnerSettings' => fn(ParseNode $n) => $o->setExternalPartnerSettings($n->getCollectionOfObjectValues([CloudPcExternalPartnerSetting::class, 'createFromDiscriminatorValue'])),
             'frontLineServicePlans' => fn(ParseNode $n) => $o->setFrontLineServicePlans($n->getCollectionOfObjectValues([CloudPcFrontLineServicePlan::class, 'createFromDiscriminatorValue'])),
             'galleryImages' => fn(ParseNode $n) => $o->setGalleryImages($n->getCollectionOfObjectValues([CloudPcGalleryImage::class, 'createFromDiscriminatorValue'])),
+            'managedLicenses' => fn(ParseNode $n) => $o->setManagedLicenses($n->getCollectionOfObjectValues([CloudPcManagedLicense::class, 'createFromDiscriminatorValue'])),
             'onPremisesConnections' => fn(ParseNode $n) => $o->setOnPremisesConnections($n->getCollectionOfObjectValues([CloudPcOnPremisesConnection::class, 'createFromDiscriminatorValue'])),
             'organizationSettings' => fn(ParseNode $n) => $o->setOrganizationSettings($n->getObjectValue([CloudPcOrganizationSettings::class, 'createFromDiscriminatorValue'])),
             'provisioningPolicies' => fn(ParseNode $n) => $o->setProvisioningPolicies($n->getCollectionOfObjectValues([CloudPcProvisioningPolicy::class, 'createFromDiscriminatorValue'])),
@@ -189,6 +190,20 @@ class VirtualEndpoint extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'galleryImages'");
+    }
+
+    /**
+     * Gets the managedLicenses property value. The managed licenses for Cloud PCs in the organization.
+     * @return array<CloudPcManagedLicense>|null
+    */
+    public function getManagedLicenses(): ?array {
+        $val = $this->getBackingStore()->get('managedLicenses');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudPcManagedLicense::class);
+            /** @var array<CloudPcManagedLicense>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managedLicenses'");
     }
 
     /**
@@ -315,6 +330,7 @@ class VirtualEndpoint extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('externalPartnerSettings', $this->getExternalPartnerSettings());
         $writer->writeCollectionOfObjectValues('frontLineServicePlans', $this->getFrontLineServicePlans());
         $writer->writeCollectionOfObjectValues('galleryImages', $this->getGalleryImages());
+        $writer->writeCollectionOfObjectValues('managedLicenses', $this->getManagedLicenses());
         $writer->writeCollectionOfObjectValues('onPremisesConnections', $this->getOnPremisesConnections());
         $writer->writeObjectValue('organizationSettings', $this->getOrganizationSettings());
         $writer->writeCollectionOfObjectValues('provisioningPolicies', $this->getProvisioningPolicies());
@@ -374,7 +390,7 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
-     * Sets the externalPartners property value. The externalPartners property
+     * Sets the externalPartners property value. The external partners on a Cloud PC.
      * @param array<CloudPcExternalPartner>|null $value Value to set for the externalPartners property.
     */
     public function setExternalPartners(?array $value): void {
@@ -403,6 +419,14 @@ class VirtualEndpoint extends Entity implements Parsable
     */
     public function setGalleryImages(?array $value): void {
         $this->getBackingStore()->set('galleryImages', $value);
+    }
+
+    /**
+     * Sets the managedLicenses property value. The managed licenses for Cloud PCs in the organization.
+     * @param array<CloudPcManagedLicense>|null $value Value to set for the managedLicenses property.
+    */
+    public function setManagedLicenses(?array $value): void {
+        $this->getBackingStore()->set('managedLicenses', $value);
     }
 
     /**

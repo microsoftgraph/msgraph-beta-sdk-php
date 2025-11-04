@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\UserInsights\Daily\Authentications\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\UserInsights\Daily\Authentications\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

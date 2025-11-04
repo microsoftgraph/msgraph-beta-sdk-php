@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\CloudCertificationAuthorityLeafCertificate;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\CloudCertificationAuthority\Item\CloudCertificationAuthorityLeafCertificate;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\CloudCertificationAuthorityLeafCertificate\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\CloudCertificationAuthorityLeafCertificate\Item\CloudCertificationAuthorityLeafCertificateItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\CloudCertificationAuthorityLeafCertificateCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\CloudCertificationAuthority\Item\CloudCertificationAuthorityLeafCertificate\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\CloudCertificationAuthority\Item\CloudCertificationAuthorityLeafCertificate\Item\CloudCertificationAuthorityLeafCertificateItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\CloudCertificationAuthorityLeafCertificateCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

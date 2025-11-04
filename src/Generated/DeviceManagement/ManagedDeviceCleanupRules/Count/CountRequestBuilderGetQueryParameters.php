@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceCleanupRules\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ManagedDeviceCleanupRules\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

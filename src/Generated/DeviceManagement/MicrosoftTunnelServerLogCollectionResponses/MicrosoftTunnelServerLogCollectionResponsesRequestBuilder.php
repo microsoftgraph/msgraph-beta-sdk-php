@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelServerLogCollectionResponses;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\MicrosoftTunnelServerLogCollectionResponses;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelServerLogCollectionResponses\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelServerLogCollectionResponses\Item\MicrosoftTunnelServerLogCollectionResponseItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\MicrosoftTunnelServerLogCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\MicrosoftTunnelServerLogCollectionResponseCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\MicrosoftTunnelServerLogCollectionResponses\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\MicrosoftTunnelServerLogCollectionResponses\Item\MicrosoftTunnelServerLogCollectionResponseItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\MicrosoftTunnelServerLogCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\MicrosoftTunnelServerLogCollectionResponseCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\UserFlowAttributes;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\UserFlowAttributes;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Identity\UserFlowAttributes\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\UserFlowAttributes\Item\IdentityUserFlowAttributeItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\IdentityUserFlowAttribute;
-use Microsoft\Graph\Beta\Generated\Models\IdentityUserFlowAttributeCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Identity\UserFlowAttributes\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\UserFlowAttributes\Item\IdentityUserFlowAttributeItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\IdentityUserFlowAttribute;
+use Microsoft\\Graph\\Beta\\Generated\Models\IdentityUserFlowAttributeCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

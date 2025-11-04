@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\SecurityActions\Item\CancelSecurityAction;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\SecurityActions\Item\CancelSecurityAction;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

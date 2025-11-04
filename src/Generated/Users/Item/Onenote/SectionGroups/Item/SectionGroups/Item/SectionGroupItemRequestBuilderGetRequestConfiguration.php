@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Onenote\SectionGroups\Item\SectionGroups\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Onenote\SectionGroups\Item\SectionGroups\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

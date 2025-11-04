@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Chats\Item\RemoveAllAccessForUser;
+namespace Microsoft\\Graph\\Beta\\Generated\Chats\Item\RemoveAllAccessForUser;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

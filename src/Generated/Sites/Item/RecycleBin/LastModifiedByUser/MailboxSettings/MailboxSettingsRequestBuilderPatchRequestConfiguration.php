@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\RecycleBin\LastModifiedByUser\MailboxSettings;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\RecycleBin\LastModifiedByUser\MailboxSettings;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

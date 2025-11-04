@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -74,6 +74,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
             'offer' => fn(ParseNode $n) => $o->setOffer($n->getStringValue()),
             'offerDisplayName' => fn(ParseNode $n) => $o->setOfferDisplayName($n->getStringValue()),
             'offerName' => fn(ParseNode $n) => $o->setOfferName($n->getStringValue()),
+            'osArchitecture' => fn(ParseNode $n) => $o->setOsArchitecture($n->getEnumValue(CloudPcImageOsArchitectureType::class)),
             'osVersionNumber' => fn(ParseNode $n) => $o->setOsVersionNumber($n->getStringValue()),
             'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
             'publisherName' => fn(ParseNode $n) => $o->setPublisherName($n->getStringValue()),
@@ -121,6 +122,18 @@ class CloudPcGalleryImage extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'offerName'");
+    }
+
+    /**
+     * Gets the osArchitecture property value. The osArchitecture property
+     * @return CloudPcImageOsArchitectureType|null
+    */
+    public function getOsArchitecture(): ?CloudPcImageOsArchitectureType {
+        $val = $this->getBackingStore()->get('osArchitecture');
+        if (is_null($val) || $val instanceof CloudPcImageOsArchitectureType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'osArchitecture'");
     }
 
     /**
@@ -255,6 +268,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
         $writer->writeStringValue('offer', $this->getOffer());
         $writer->writeStringValue('offerDisplayName', $this->getOfferDisplayName());
         $writer->writeStringValue('offerName', $this->getOfferName());
+        $writer->writeEnumValue('osArchitecture', $this->getOsArchitecture());
         $writer->writeStringValue('osVersionNumber', $this->getOsVersionNumber());
         $writer->writeStringValue('publisher', $this->getPublisher());
         $writer->writeStringValue('publisherName', $this->getPublisherName());
@@ -313,6 +327,14 @@ class CloudPcGalleryImage extends Entity implements Parsable
     */
     public function setOfferName(?string $value): void {
         $this->getBackingStore()->set('offerName', $value);
+    }
+
+    /**
+     * Sets the osArchitecture property value. The osArchitecture property
+     * @param CloudPcImageOsArchitectureType|null $value Value to set for the osArchitecture property.
+    */
+    public function setOsArchitecture(?CloudPcImageOsArchitectureType $value): void {
+        $this->getBackingStore()->set('osArchitecture', $value);
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\ActivateDeviceEsim;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\ManagedDevices\Item\ActivateDeviceEsim;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

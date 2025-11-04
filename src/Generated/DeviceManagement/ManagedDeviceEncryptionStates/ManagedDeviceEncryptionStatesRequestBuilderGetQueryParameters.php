@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDeviceEncryptionStates;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ManagedDeviceEncryptionStates;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

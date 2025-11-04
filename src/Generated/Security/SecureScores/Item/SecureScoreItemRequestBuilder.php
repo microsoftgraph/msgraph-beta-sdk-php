@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\SecureScores\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\SecureScores\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SecureScore;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SecureScore;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -45,7 +45,7 @@ class SecureScoreItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Measurements of tenants’ security posture to help protect them from threats.
+     * Measurements of tenants' security posture to help protect them from threats.
      * @param SecureScoreItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SecureScore|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class SecureScoreItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Measurements of tenants’ security posture to help protect them from threats.
+     * Measurements of tenants' security posture to help protect them from threats.
      * @param SecureScoreItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

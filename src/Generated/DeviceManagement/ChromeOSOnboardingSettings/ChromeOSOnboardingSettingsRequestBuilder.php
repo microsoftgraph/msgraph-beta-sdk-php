@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ChromeOSOnboardingSettings;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ChromeOSOnboardingSettings;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ChromeOSOnboardingSettings\Connect\ConnectRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ChromeOSOnboardingSettings\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ChromeOSOnboardingSettings\Disconnect\DisconnectRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ChromeOSOnboardingSettings\Item\ChromeOSOnboardingSettingsItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ChromeOSOnboardingSettings;
-use Microsoft\Graph\Beta\Generated\Models\ChromeOSOnboardingSettingsCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ChromeOSOnboardingSettings\Connect\ConnectRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ChromeOSOnboardingSettings\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ChromeOSOnboardingSettings\Disconnect\DisconnectRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ChromeOSOnboardingSettings\Item\ChromeOSOnboardingSettingsItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ChromeOSOnboardingSettings;
+use Microsoft\\Graph\\Beta\\Generated\Models\ChromeOSOnboardingSettingsCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

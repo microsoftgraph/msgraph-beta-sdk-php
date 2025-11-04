@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\AuthenticationStrengthPolicies\FindByMethodModeWithAuthenticationMethodModes;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\AuthenticationStrengthPolicies\FindByMethodModeWithAuthenticationMethodModes;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

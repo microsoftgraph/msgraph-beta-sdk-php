@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\GetAllMessages;
+namespace Microsoft\\Graph\\Beta\\Generated\Groups\Item\Team\Channels\GetAllMessages;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

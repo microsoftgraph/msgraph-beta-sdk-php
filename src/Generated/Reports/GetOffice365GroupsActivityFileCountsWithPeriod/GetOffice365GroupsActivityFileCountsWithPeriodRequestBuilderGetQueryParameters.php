@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\GetOffice365GroupsActivityFileCountsWithPeriod;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\GetOffice365GroupsActivityFileCountsWithPeriod;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

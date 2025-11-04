@@ -1,20 +1,20 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\BookingBusinesses\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\BookingBusinesses\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Appointments\AppointmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\CalendarView\CalendarViewRequestBuilder;
-use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Customers\CustomersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\CustomQuestions\CustomQuestionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\GetStaffAvailability\GetStaffAvailabilityRequestBuilder;
-use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Publish\PublishRequestBuilder;
-use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Services\ServicesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\StaffMembers\StaffMembersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\BookingBusinesses\Item\Unpublish\UnpublishRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\BookingBusiness;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\BookingBusinesses\Item\Appointments\AppointmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\BookingBusinesses\Item\CalendarView\CalendarViewRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\BookingBusinesses\Item\Customers\CustomersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\BookingBusinesses\Item\CustomQuestions\CustomQuestionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\BookingBusinesses\Item\GetStaffAvailability\GetStaffAvailabilityRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\BookingBusinesses\Item\Publish\PublishRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\BookingBusinesses\Item\Services\ServicesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\BookingBusinesses\Item\StaffMembers\StaffMembersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\BookingBusinesses\Item\Unpublish\UnpublishRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\BookingBusiness;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

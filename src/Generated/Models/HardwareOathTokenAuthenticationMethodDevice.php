@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -83,7 +83,7 @@ class HardwareOathTokenAuthenticationMethodDevice extends AuthenticationMethodDe
     }
 
     /**
-     * Gets the lastUsedDateTime property value. The lastUsedDateTime property
+     * Gets the lastUsedDateTime property value. The date and time the authentication method was last used by the user. Read-only. Optional. This optional value is null if the authentication method doesn't populate it. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastUsedDateTime(): ?DateTime {
@@ -209,7 +209,7 @@ class HardwareOathTokenAuthenticationMethodDevice extends AuthenticationMethodDe
     }
 
     /**
-     * Sets the lastUsedDateTime property value. The lastUsedDateTime property
+     * Sets the lastUsedDateTime property value. The date and time the authentication method was last used by the user. Read-only. Optional. This optional value is null if the authentication method doesn't populate it. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the lastUsedDateTime property.
     */
     public function setLastUsedDateTime(?DateTime $value): void {

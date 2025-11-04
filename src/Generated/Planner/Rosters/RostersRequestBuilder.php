@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Planner\Rosters;
+namespace Microsoft\\Graph\\Beta\\Generated\Planner\Rosters;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PlannerRoster;
-use Microsoft\Graph\Beta\Generated\Models\PlannerRosterCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Planner\Rosters\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Planner\Rosters\Item\PlannerRosterItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PlannerRoster;
+use Microsoft\\Graph\\Beta\\Generated\Models\PlannerRosterCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Planner\Rosters\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Planner\Rosters\Item\PlannerRosterItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

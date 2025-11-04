@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\ShipmentMethods\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\ShipmentMethods\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

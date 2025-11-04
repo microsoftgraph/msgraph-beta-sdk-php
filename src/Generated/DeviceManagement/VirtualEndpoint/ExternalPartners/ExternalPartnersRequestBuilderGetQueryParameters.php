@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ExternalPartners;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\VirtualEndpoint\ExternalPartners;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get externalPartners from deviceManagement
+ * Get a list of the cloudPcExternalPartner objects and their properties.
 */
 class ExternalPartnersRequestBuilderGetQueryParameters 
 {

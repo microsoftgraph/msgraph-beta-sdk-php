@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\ManagedTenants;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\ManagedTenants;
 
 use DateTime;
-use Microsoft\Graph\Beta\Generated\Models\GenericError;
+use Microsoft\\Graph\\Beta\\Generated\Models\GenericError;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

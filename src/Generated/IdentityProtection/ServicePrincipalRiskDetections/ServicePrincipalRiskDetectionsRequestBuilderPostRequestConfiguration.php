@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityProtection\ServicePrincipalRiskDetections;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityProtection\ServicePrincipalRiskDetections;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

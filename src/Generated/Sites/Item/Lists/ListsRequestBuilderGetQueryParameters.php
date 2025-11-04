@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\Lists;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\Lists;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

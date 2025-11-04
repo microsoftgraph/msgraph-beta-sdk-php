@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\IosManagedAppProtections\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\IosManagedAppProtections\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

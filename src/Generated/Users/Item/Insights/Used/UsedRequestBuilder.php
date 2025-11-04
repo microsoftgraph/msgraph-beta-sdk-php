@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Insights\Used;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Insights\Used;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UsedInsight;
-use Microsoft\Graph\Beta\Generated\Models\UsedInsightCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Users\Item\Insights\Used\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Insights\Used\Item\UsedInsightItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UsedInsight;
+use Microsoft\\Graph\\Beta\\Generated\Models\UsedInsightCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Insights\Used\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Insights\Used\Item\UsedInsightItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
