@@ -12,6 +12,7 @@ use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Application
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\ConnectorGroups\ConnectorGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Connectors\ConnectorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\PublishedResources\PublishedResourcesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\OnPremisesPublishingProfiles\Item\Sensors\SensorsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -62,6 +63,13 @@ class OnPremisesPublishingProfileItemRequestBuilder extends BaseRequestBuilder
     */
     public function publishedResources(): PublishedResourcesRequestBuilder {
         return new PublishedResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the sensors property of the microsoft.graph.onPremisesPublishingProfile entity.
+    */
+    public function sensors(): SensorsRequestBuilder {
+        return new SensorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

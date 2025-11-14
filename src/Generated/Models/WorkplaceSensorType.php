@@ -11,4 +11,5 @@ class WorkplaceSensorType extends Enum {
     public const HEARTBEAT = "heartbeat";
     public const BADGE = "badge";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const WIFI = "wifi";
 }

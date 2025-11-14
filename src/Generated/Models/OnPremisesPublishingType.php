@@ -12,4 +12,5 @@ class OnPremisesPublishingType extends Enum {
     public const INTUNE_PFX = "intunePfx";
     public const OFLINE_DOMAIN_JOIN = "oflineDomainJoin";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const PRIVATE_ACCESS = "privateAccess";
 }

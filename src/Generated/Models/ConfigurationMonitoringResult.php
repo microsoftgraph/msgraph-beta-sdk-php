@@ -39,6 +39,18 @@ class ConfigurationMonitoringResult extends Entity implements Parsable
     }
 
     /**
+     * Gets the driftsFixed property value. The driftsFixed property
+     * @return int|null
+    */
+    public function getDriftsFixed(): ?int {
+        $val = $this->getBackingStore()->get('driftsFixed');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'driftsFixed'");
+    }
+
+    /**
      * Gets the errorDetails property value. The errorDetails property
      * @return array<ErrorDetail>|null
     */
@@ -60,11 +72,13 @@ class ConfigurationMonitoringResult extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'driftsCount' => fn(ParseNode $n) => $o->setDriftsCount($n->getIntegerValue()),
+            'driftsFixed' => fn(ParseNode $n) => $o->setDriftsFixed($n->getIntegerValue()),
             'errorDetails' => fn(ParseNode $n) => $o->setErrorDetails($n->getCollectionOfObjectValues([ErrorDetail::class, 'createFromDiscriminatorValue'])),
             'monitorId' => fn(ParseNode $n) => $o->setMonitorId($n->getStringValue()),
             'runCompletionDateTime' => fn(ParseNode $n) => $o->setRunCompletionDateTime($n->getDateTimeValue()),
             'runInitiationDateTime' => fn(ParseNode $n) => $o->setRunInitiationDateTime($n->getDateTimeValue()),
             'runStatus' => fn(ParseNode $n) => $o->setRunStatus($n->getEnumValue(MonitorRunStatus::class)),
+            'runType' => fn(ParseNode $n) => $o->setRunType($n->getEnumValue(MonitorRunType::class)),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
         ]);
     }
@@ -118,6 +132,18 @@ class ConfigurationMonitoringResult extends Entity implements Parsable
     }
 
     /**
+     * Gets the runType property value. The runType property
+     * @return MonitorRunType|null
+    */
+    public function getRunType(): ?MonitorRunType {
+        $val = $this->getBackingStore()->get('runType');
+        if (is_null($val) || $val instanceof MonitorRunType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'runType'");
+    }
+
+    /**
      * Gets the tenantId property value. The tenantId property
      * @return string|null
     */
@@ -136,6 +162,7 @@ class ConfigurationMonitoringResult extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('runStatus', $this->getRunStatus());
+        $writer->writeEnumValue('runType', $this->getRunType());
     }
 
     /**
@@ -144,6 +171,14 @@ class ConfigurationMonitoringResult extends Entity implements Parsable
     */
     public function setDriftsCount(?int $value): void {
         $this->getBackingStore()->set('driftsCount', $value);
+    }
+
+    /**
+     * Sets the driftsFixed property value. The driftsFixed property
+     * @param int|null $value Value to set for the driftsFixed property.
+    */
+    public function setDriftsFixed(?int $value): void {
+        $this->getBackingStore()->set('driftsFixed', $value);
     }
 
     /**
@@ -184,6 +219,14 @@ class ConfigurationMonitoringResult extends Entity implements Parsable
     */
     public function setRunStatus(?MonitorRunStatus $value): void {
         $this->getBackingStore()->set('runStatus', $value);
+    }
+
+    /**
+     * Sets the runType property value. The runType property
+     * @param MonitorRunType|null $value Value to set for the runType property.
+    */
+    public function setRunType(?MonitorRunType $value): void {
+        $this->getBackingStore()->set('runType', $value);
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -26,7 +27,7 @@ class ApplicationTemplate extends Entity implements Parsable
     }
 
     /**
-     * Gets the categories property value. The list of categories for the application. Supported values can be: Collaboration, Business Management, Consumer, Content management, CRM, Data services, Developer services, E-commerce, Education, ERP, Finance, Health, Human resources, IT infrastructure, Mail, Management, Marketing, Media, Productivity, Project management, Telecommunications, Tools, Travel, and Web design & hosting.
+     * Gets the categories property value. The list of categories for the application. Supported values can be: Collaboration, Business Management, Consumer, Content management, CRM, Data services, Developer services, E-commerce, Education, ERP, Finance, Health, Human resources, IT infrastructure, Mail, Management, Marketing, Media, Productivity, Project management, Telecommunications, Tools, Travel, and Web design & hosting.  Supports $filter (contains).
      * @return array<string>|null
     */
     public function getCategories(): ?array {
@@ -66,7 +67,7 @@ class ApplicationTemplate extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The name of the application.
+     * Gets the displayName property value. The name of the application. Supports $filter (contains).
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -75,6 +76,20 @@ class ApplicationTemplate extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
+    }
+
+    /**
+     * Gets the endpoints property value. A collection of string URLs representing various domains that are used by this application.
+     * @return array<string>|null
+    */
+    public function getEndpoints(): ?array {
+        $val = $this->getBackingStore()->get('endpoints');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'endpoints'");
     }
 
     /**
@@ -95,10 +110,21 @@ class ApplicationTemplate extends Entity implements Parsable
             'configurationUris' => fn(ParseNode $n) => $o->setConfigurationUris($n->getCollectionOfObjectValues([ConfigurationUri::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'endpoints' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setEndpoints($val);
+            },
             'homePageUrl' => fn(ParseNode $n) => $o->setHomePageUrl($n->getStringValue()),
             'informationalUrls' => fn(ParseNode $n) => $o->setInformationalUrls($n->getObjectValue([InformationalUrls::class, 'createFromDiscriminatorValue'])),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'logoUrl' => fn(ParseNode $n) => $o->setLogoUrl($n->getStringValue()),
             'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
+            'riskFactors' => fn(ParseNode $n) => $o->setRiskFactors($n->getObjectValue([ApplicationRiskFactors::class, 'createFromDiscriminatorValue'])),
+            'riskScore' => fn(ParseNode $n) => $o->setRiskScore($n->getObjectValue([ApplicationRiskScore::class, 'createFromDiscriminatorValue'])),
             'supportedClaimConfiguration' => fn(ParseNode $n) => $o->setSupportedClaimConfiguration($n->getObjectValue([SupportedClaimConfiguration::class, 'createFromDiscriminatorValue'])),
             'supportedProvisioningTypes' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -144,6 +170,18 @@ class ApplicationTemplate extends Entity implements Parsable
     }
 
     /**
+     * Gets the lastModifiedDateTime property value. The date and time when the data for the application was last updated, represented using ISO 8601 format and always in UTC time.
+     * @return DateTime|null
+    */
+    public function getLastModifiedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('lastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
+    }
+
+    /**
      * Gets the logoUrl property value. The URL to get the logo for this application.
      * @return string|null
     */
@@ -165,6 +203,30 @@ class ApplicationTemplate extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'publisher'");
+    }
+
+    /**
+     * Gets the riskFactors property value. General business and operational information about the application provider. Returned only when $select is used.
+     * @return ApplicationRiskFactors|null
+    */
+    public function getRiskFactors(): ?ApplicationRiskFactors {
+        $val = $this->getBackingStore()->get('riskFactors');
+        if (is_null($val) || $val instanceof ApplicationRiskFactors) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'riskFactors'");
+    }
+
+    /**
+     * Gets the riskScore property value. Represents the Microsoft-generated numerical risk score assessment for the application. Supported $orderby on total (for example, $orderBy=riskScore/total desc). Returned only when $select is used.
+     * @return ApplicationRiskScore|null
+    */
+    public function getRiskScore(): ?ApplicationRiskScore {
+        $val = $this->getBackingStore()->get('riskScore');
+        if (is_null($val) || $val instanceof ApplicationRiskScore) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'riskScore'");
     }
 
     /**
@@ -217,17 +279,21 @@ class ApplicationTemplate extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('configurationUris', $this->getConfigurationUris());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfPrimitiveValues('endpoints', $this->getEndpoints());
         $writer->writeStringValue('homePageUrl', $this->getHomePageUrl());
         $writer->writeObjectValue('informationalUrls', $this->getInformationalUrls());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('logoUrl', $this->getLogoUrl());
         $writer->writeStringValue('publisher', $this->getPublisher());
+        $writer->writeObjectValue('riskFactors', $this->getRiskFactors());
+        $writer->writeObjectValue('riskScore', $this->getRiskScore());
         $writer->writeObjectValue('supportedClaimConfiguration', $this->getSupportedClaimConfiguration());
         $writer->writeCollectionOfPrimitiveValues('supportedProvisioningTypes', $this->getSupportedProvisioningTypes());
         $writer->writeCollectionOfPrimitiveValues('supportedSingleSignOnModes', $this->getSupportedSingleSignOnModes());
     }
 
     /**
-     * Sets the categories property value. The list of categories for the application. Supported values can be: Collaboration, Business Management, Consumer, Content management, CRM, Data services, Developer services, E-commerce, Education, ERP, Finance, Health, Human resources, IT infrastructure, Mail, Management, Marketing, Media, Productivity, Project management, Telecommunications, Tools, Travel, and Web design & hosting.
+     * Sets the categories property value. The list of categories for the application. Supported values can be: Collaboration, Business Management, Consumer, Content management, CRM, Data services, Developer services, E-commerce, Education, ERP, Finance, Health, Human resources, IT infrastructure, Mail, Management, Marketing, Media, Productivity, Project management, Telecommunications, Tools, Travel, and Web design & hosting.  Supports $filter (contains).
      * @param array<string>|null $value Value to set for the categories property.
     */
     public function setCategories(?array $value): void {
@@ -251,11 +317,19 @@ class ApplicationTemplate extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The name of the application.
+     * Sets the displayName property value. The name of the application. Supports $filter (contains).
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the endpoints property value. A collection of string URLs representing various domains that are used by this application.
+     * @param array<string>|null $value Value to set for the endpoints property.
+    */
+    public function setEndpoints(?array $value): void {
+        $this->getBackingStore()->set('endpoints', $value);
     }
 
     /**
@@ -275,6 +349,14 @@ class ApplicationTemplate extends Entity implements Parsable
     }
 
     /**
+     * Sets the lastModifiedDateTime property value. The date and time when the data for the application was last updated, represented using ISO 8601 format and always in UTC time.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
+    */
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
+    }
+
+    /**
      * Sets the logoUrl property value. The URL to get the logo for this application.
      * @param string|null $value Value to set for the logoUrl property.
     */
@@ -288,6 +370,22 @@ class ApplicationTemplate extends Entity implements Parsable
     */
     public function setPublisher(?string $value): void {
         $this->getBackingStore()->set('publisher', $value);
+    }
+
+    /**
+     * Sets the riskFactors property value. General business and operational information about the application provider. Returned only when $select is used.
+     * @param ApplicationRiskFactors|null $value Value to set for the riskFactors property.
+    */
+    public function setRiskFactors(?ApplicationRiskFactors $value): void {
+        $this->getBackingStore()->set('riskFactors', $value);
+    }
+
+    /**
+     * Sets the riskScore property value. Represents the Microsoft-generated numerical risk score assessment for the application. Supported $orderby on total (for example, $orderBy=riskScore/total desc). Returned only when $select is used.
+     * @param ApplicationRiskScore|null $value Value to set for the riskScore property.
+    */
+    public function setRiskScore(?ApplicationRiskScore $value): void {
+        $this->getBackingStore()->set('riskScore', $value);
     }
 
     /**

@@ -14,6 +14,7 @@ class AdditionalDataDictionary extends Dictionary implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.partner.security.additionalDataDictionary');
     }
 
     /**

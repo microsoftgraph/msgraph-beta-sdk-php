@@ -49,6 +49,20 @@ class IdentityProtectionRoot implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
+     * Gets the agentRiskDetections property value. The agentRiskDetections property
+     * @return array<AgentRiskDetection>|null
+    */
+    public function getAgentRiskDetections(): ?array {
+        $val = $this->getBackingStore()->get('agentRiskDetections');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AgentRiskDetection::class);
+            /** @var array<AgentRiskDetection>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'agentRiskDetections'");
+    }
+
+    /**
      * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -63,8 +77,10 @@ class IdentityProtectionRoot implements AdditionalDataHolder, BackedModel, Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'agentRiskDetections' => fn(ParseNode $n) => $o->setAgentRiskDetections($n->getCollectionOfObjectValues([AgentRiskDetection::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'riskDetections' => fn(ParseNode $n) => $o->setRiskDetections($n->getCollectionOfObjectValues([RiskDetection::class, 'createFromDiscriminatorValue'])),
+            'riskyAgents' => fn(ParseNode $n) => $o->setRiskyAgents($n->getCollectionOfObjectValues([RiskyAgent::class, 'createFromDiscriminatorValue'])),
             'riskyServicePrincipals' => fn(ParseNode $n) => $o->setRiskyServicePrincipals($n->getCollectionOfObjectValues([RiskyServicePrincipal::class, 'createFromDiscriminatorValue'])),
             'riskyUsers' => fn(ParseNode $n) => $o->setRiskyUsers($n->getCollectionOfObjectValues([RiskyUser::class, 'createFromDiscriminatorValue'])),
             'servicePrincipalRiskDetections' => fn(ParseNode $n) => $o->setServicePrincipalRiskDetections($n->getCollectionOfObjectValues([ServicePrincipalRiskDetection::class, 'createFromDiscriminatorValue'])),
@@ -95,6 +111,20 @@ class IdentityProtectionRoot implements AdditionalDataHolder, BackedModel, Parsa
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'riskDetections'");
+    }
+
+    /**
+     * Gets the riskyAgents property value. The riskyAgents property
+     * @return array<RiskyAgent>|null
+    */
+    public function getRiskyAgents(): ?array {
+        $val = $this->getBackingStore()->get('riskyAgents');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RiskyAgent::class);
+            /** @var array<RiskyAgent>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'riskyAgents'");
     }
 
     /**
@@ -144,8 +174,10 @@ class IdentityProtectionRoot implements AdditionalDataHolder, BackedModel, Parsa
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeCollectionOfObjectValues('agentRiskDetections', $this->getAgentRiskDetections());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('riskDetections', $this->getRiskDetections());
+        $writer->writeCollectionOfObjectValues('riskyAgents', $this->getRiskyAgents());
         $writer->writeCollectionOfObjectValues('riskyServicePrincipals', $this->getRiskyServicePrincipals());
         $writer->writeCollectionOfObjectValues('riskyUsers', $this->getRiskyUsers());
         $writer->writeCollectionOfObjectValues('servicePrincipalRiskDetections', $this->getServicePrincipalRiskDetections());
@@ -158,6 +190,14 @@ class IdentityProtectionRoot implements AdditionalDataHolder, BackedModel, Parsa
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the agentRiskDetections property value. The agentRiskDetections property
+     * @param array<AgentRiskDetection>|null $value Value to set for the agentRiskDetections property.
+    */
+    public function setAgentRiskDetections(?array $value): void {
+        $this->getBackingStore()->set('agentRiskDetections', $value);
     }
 
     /**
@@ -182,6 +222,14 @@ class IdentityProtectionRoot implements AdditionalDataHolder, BackedModel, Parsa
     */
     public function setRiskDetections(?array $value): void {
         $this->getBackingStore()->set('riskDetections', $value);
+    }
+
+    /**
+     * Sets the riskyAgents property value. The riskyAgents property
+     * @param array<RiskyAgent>|null $value Value to set for the riskyAgents property.
+    */
+    public function setRiskyAgents(?array $value): void {
+        $this->getBackingStore()->set('riskyAgents', $value);
     }
 
     /**

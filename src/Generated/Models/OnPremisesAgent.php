@@ -91,7 +91,7 @@ class OnPremisesAgent extends Entity implements Parsable
     }
 
     /**
-     * Gets the supportedPublishingTypes property value. Possible values are: applicationProxy, exchangeOnline, authentication, provisioning, adAdministration.
+     * Gets the supportedPublishingTypes property value. Possible values are: applicationProxy, exchangeOnline, authentication, provisioning, intunePfx, oflineDomainJoin, unknownFutureValue, privateAccess. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: privateAccess.
      * @return array<OnPremisesPublishingType>|null
     */
     public function getSupportedPublishingTypes(): ?array {
@@ -150,7 +150,7 @@ class OnPremisesAgent extends Entity implements Parsable
     }
 
     /**
-     * Sets the supportedPublishingTypes property value. Possible values are: applicationProxy, exchangeOnline, authentication, provisioning, adAdministration.
+     * Sets the supportedPublishingTypes property value. Possible values are: applicationProxy, exchangeOnline, authentication, provisioning, intunePfx, oflineDomainJoin, unknownFutureValue, privateAccess. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: privateAccess.
      * @param array<OnPremisesPublishingType>|null $value Value to set for the supportedPublishingTypes property.
     */
     public function setSupportedPublishingTypes(?array $value): void {

@@ -7,6 +7,7 @@ use Microsoft\Graph\Beta\Generated\AccessReviews\AccessReviewsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Activitystatistics\ActivitystatisticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\AdminRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\AdministrativeUnitsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Agents\AgentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AgreementAcceptances\AgreementAcceptancesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Agreements\AgreementsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AllowedDataLocations\AllowedDataLocationsRequestBuilder;
@@ -178,6 +179,13 @@ class BaseGraphClient extends BaseRequestBuilder
     */
     public function administrativeUnits(): AdministrativeUnitsRequestBuilder {
         return new AdministrativeUnitsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the collection of agent entities.
+    */
+    public function agents(): AgentsRequestBuilder {
+        return new AgentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -678,7 +686,7 @@ class BaseGraphClient extends BaseRequestBuilder
     }
     
     /**
-     * The places property
+     * Provides operations to manage the collection of place entities.
     */
     public function places(): PlacesRequestBuilder {
         return new PlacesRequestBuilder($this->pathParameters, $this->requestAdapter);

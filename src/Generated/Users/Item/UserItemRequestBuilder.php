@@ -86,6 +86,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Oauth2PermissionGrants\Oauth2Permi
 use Microsoft\Graph\Beta\Generated\Users\Item\Onenote\OnenoteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetings\OnlineMeetingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\OnlineMeetingsWithJoinWebUrl\OnlineMeetingsWithJoinWebUrlRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\OnPremisesSyncBehavior\OnPremisesSyncBehaviorRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Outlook\OutlookRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\OwnedDevices\OwnedDevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\OwnedObjects\OwnedObjectsRequestBuilder;
@@ -658,6 +659,13 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     */
     public function onlineMeetings(): OnlineMeetingsRequestBuilder {
         return new OnlineMeetingsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the onPremisesSyncBehavior property of the microsoft.graph.user entity.
+    */
+    public function onPremisesSyncBehavior(): OnPremisesSyncBehaviorRequestBuilder {
+        return new OnPremisesSyncBehaviorRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

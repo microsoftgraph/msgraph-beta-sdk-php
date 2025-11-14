@@ -8,8 +8,11 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAccountEn
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAccountEnterpriseSettings\ApproveApps\ApproveAppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAccountEnterpriseSettings\CompleteSignup\CompleteSignupRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAccountEnterpriseSettings\CreateGooglePlayWebToken\CreateGooglePlayWebTokenRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAccountEnterpriseSettings\RequestEnterpriseUpgradeUrl\RequestEnterpriseUpgradeUrlRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAccountEnterpriseSettings\RequestSignupUrl\RequestSignupUrlRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAccountEnterpriseSettings\RetrieveStoreLayout\RetrieveStoreLayoutRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAccountEnterpriseSettings\SetAndroidDeviceOwnerFullyManagedEnrollmentState\SetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAccountEnterpriseSettings\SetStoreLayout\SetStoreLayoutRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAccountEnterpriseSettings\SyncApps\SyncAppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAccountEnterpriseSettings\Unbind\UnbindRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AndroidManagedStoreAccountEnterpriseSettings;
@@ -53,6 +56,13 @@ class AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder extends BaseReq
     }
     
     /**
+     * Provides operations to call the requestEnterpriseUpgradeUrl method.
+    */
+    public function requestEnterpriseUpgradeUrl(): RequestEnterpriseUpgradeUrlRequestBuilder {
+        return new RequestEnterpriseUpgradeUrlRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the requestSignupUrl method.
     */
     public function requestSignupUrl(): RequestSignupUrlRequestBuilder {
@@ -60,10 +70,24 @@ class AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder extends BaseReq
     }
     
     /**
+     * Provides operations to call the retrieveStoreLayout method.
+    */
+    public function retrieveStoreLayout(): RetrieveStoreLayoutRequestBuilder {
+        return new RetrieveStoreLayoutRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the setAndroidDeviceOwnerFullyManagedEnrollmentState method.
     */
     public function setAndroidDeviceOwnerFullyManagedEnrollmentState(): SetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestBuilder {
         return new SetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the setStoreLayout method.
+    */
+    public function setStoreLayout(): SetStoreLayoutRequestBuilder {
+        return new SetStoreLayoutRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

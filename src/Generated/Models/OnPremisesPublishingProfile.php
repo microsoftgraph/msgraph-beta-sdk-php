@@ -111,6 +111,7 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
             'isDefaultAccessEnabled' => fn(ParseNode $n) => $o->setIsDefaultAccessEnabled($n->getBooleanValue()),
             'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
             'publishedResources' => fn(ParseNode $n) => $o->setPublishedResources($n->getCollectionOfObjectValues([PublishedResource::class, 'createFromDiscriminatorValue'])),
+            'sensors' => fn(ParseNode $n) => $o->setSensors($n->getCollectionOfObjectValues([PrivateAccessSensor::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -165,6 +166,20 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
     }
 
     /**
+     * Gets the sensors property value. A lightweight agent installed on domain controllers that helps secure access and enforce MFA to on-premise resources.
+     * @return array<PrivateAccessSensor>|null
+    */
+    public function getSensors(): ?array {
+        $val = $this->getBackingStore()->get('sensors');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PrivateAccessSensor::class);
+            /** @var array<PrivateAccessSensor>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sensors'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -179,6 +194,7 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
         $writer->writeBooleanValue('isDefaultAccessEnabled', $this->getIsDefaultAccessEnabled());
         $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
         $writer->writeCollectionOfObjectValues('publishedResources', $this->getPublishedResources());
+        $writer->writeCollectionOfObjectValues('sensors', $this->getSensors());
     }
 
     /**
@@ -251,6 +267,14 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
     */
     public function setPublishedResources(?array $value): void {
         $this->getBackingStore()->set('publishedResources', $value);
+    }
+
+    /**
+     * Sets the sensors property value. A lightweight agent installed on domain controllers that helps secure access and enforce MFA to on-premise resources.
+     * @param array<PrivateAccessSensor>|null $value Value to set for the sensors property.
+    */
+    public function setSensors(?array $value): void {
+        $this->getBackingStore()->set('sensors', $value);
     }
 
 }

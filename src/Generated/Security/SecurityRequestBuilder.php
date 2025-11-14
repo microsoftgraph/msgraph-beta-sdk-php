@@ -31,6 +31,7 @@ use Microsoft\Graph\Beta\Generated\Security\Rules\RulesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SecureScoreControlProfiles\SecureScoreControlProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SecureScores\SecureScoresRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SecurityActions\SecurityActionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\SecurityCopilot\SecurityCopilotRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\SubjectRightsRequestsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatIntelligence\ThreatIntelligenceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ThreatSubmission\ThreatSubmissionRequestBuilder;
@@ -221,6 +222,13 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     */
     public function securityActions(): SecurityActionsRequestBuilder {
         return new SecurityActionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the securityCopilot property of the microsoft.graph.security entity.
+    */
+    public function securityCopilot(): SecurityCopilotRequestBuilder {
+        return new SecurityCopilotRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

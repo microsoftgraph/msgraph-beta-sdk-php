@@ -13,6 +13,7 @@ class FileStorageContainerCustomPropertyDictionary extends Dictionary implements
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.fileStorageContainerCustomPropertyDictionary');
     }
 
     /**

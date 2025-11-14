@@ -74,16 +74,17 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '_id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
-            '_score' => fn(ParseNode $n) => $o->setScore($n->getIntegerValue()),
-            '_source' => fn(ParseNode $n) => $o->setSource($n->getObjectValue([Entity::class, 'createFromDiscriminatorValue'])),
             'contentSource' => fn(ParseNode $n) => $o->setContentSource($n->getStringValue()),
             'hitId' => fn(ParseNode $n) => $o->setHitId($n->getStringValue()),
+            '_id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
             'isCollapsed' => fn(ParseNode $n) => $o->setIsCollapsed($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'rank' => fn(ParseNode $n) => $o->setRank($n->getIntegerValue()),
             'resource' => fn(ParseNode $n) => $o->setResource($n->getObjectValue([Entity::class, 'createFromDiscriminatorValue'])),
             'resultTemplateId' => fn(ParseNode $n) => $o->setResultTemplateId($n->getStringValue()),
+            '_score' => fn(ParseNode $n) => $o->setScore($n->getIntegerValue()),
+            '_summary' => fn(ParseNode $n) => $o->setSearchHitSummary($n->getStringValue()),
+            '_source' => fn(ParseNode $n) => $o->setSource($n->getObjectValue([Entity::class, 'createFromDiscriminatorValue'])),
             'summary' => fn(ParseNode $n) => $o->setSummary($n->getStringValue()),
         ];
     }
@@ -101,15 +102,15 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the _id property value. The _id property
+     * Gets the _id property value. The id property
      * @return string|null
     */
     public function getId(): ?string {
-        $val = $this->getBackingStore()->get('_id');
+        $val = $this->getBackingStore()->get('id');
         if (is_null($val) || is_string($val)) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for '_id'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'id'");
     }
 
     /**
@@ -173,27 +174,39 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the _score property value. The _score property
+     * Gets the _score property value. The score property
      * @return int|null
     */
     public function getScore(): ?int {
-        $val = $this->getBackingStore()->get('_score');
+        $val = $this->getBackingStore()->get('score');
         if (is_null($val) || is_int($val)) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for '_score'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'score'");
     }
 
     /**
-     * Gets the _source property value. The _source property
+     * Gets the _summary property value. The summary property
+     * @return string|null
+    */
+    public function getSearchHitSummary(): ?string {
+        $val = $this->getBackingStore()->get('searchHitSummary');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'searchHitSummary'");
+    }
+
+    /**
+     * Gets the _source property value. The source property
      * @return Entity|null
     */
     public function getSource(): ?Entity {
-        $val = $this->getBackingStore()->get('_source');
+        $val = $this->getBackingStore()->get('source');
         if (is_null($val) || $val instanceof Entity) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for '_source'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'source'");
     }
 
     /**
@@ -215,15 +228,16 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('contentSource', $this->getContentSource());
         $writer->writeStringValue('hitId', $this->getHitId());
+        $writer->writeStringValue('_id', $this->getId());
         $writer->writeBooleanValue('isCollapsed', $this->getIsCollapsed());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeIntegerValue('rank', $this->getRank());
         $writer->writeObjectValue('resource', $this->getResource());
         $writer->writeStringValue('resultTemplateId', $this->getResultTemplateId());
-        $writer->writeStringValue('summary', $this->getSummary());
-        $writer->writeStringValue('_id', $this->getId());
         $writer->writeIntegerValue('_score', $this->getScore());
+        $writer->writeStringValue('_summary', $this->getSearchHitSummary());
         $writer->writeObjectValue('_source', $this->getSource());
+        $writer->writeStringValue('summary', $this->getSummary());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -260,11 +274,11 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the _id property value. The _id property
+     * Sets the _id property value. The id property
      * @param string|null $value Value to set for the _id property.
     */
     public function setId(?string $value): void {
-        $this->getBackingStore()->set('_id', $value);
+        $this->getBackingStore()->set('id', $value);
     }
 
     /**
@@ -308,19 +322,27 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the _score property value. The _score property
+     * Sets the _score property value. The score property
      * @param int|null $value Value to set for the _score property.
     */
     public function setScore(?int $value): void {
-        $this->getBackingStore()->set('_score', $value);
+        $this->getBackingStore()->set('score', $value);
     }
 
     /**
-     * Sets the _source property value. The _source property
+     * Sets the _summary property value. The summary property
+     * @param string|null $value Value to set for the _summary property.
+    */
+    public function setSearchHitSummary(?string $value): void {
+        $this->getBackingStore()->set('searchHitSummary', $value);
+    }
+
+    /**
+     * Sets the _source property value. The source property
      * @param Entity|null $value Value to set for the _source property.
     */
     public function setSource(?Entity $value): void {
-        $this->getBackingStore()->set('_source', $value);
+        $this->getBackingStore()->set('source', $value);
     }
 
     /**

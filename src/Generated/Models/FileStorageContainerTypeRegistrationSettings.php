@@ -48,6 +48,18 @@ class FileStorageContainerTypeRegistrationSettings implements AdditionalDataHold
     }
 
     /**
+     * Gets the agent property value. Contains agent-related settings.
+     * @return FileStorageContainerTypeAgentSettings|null
+    */
+    public function getAgent(): ?FileStorageContainerTypeAgentSettings {
+        $val = $this->getBackingStore()->get('agent');
+        if (is_null($val) || $val instanceof FileStorageContainerTypeAgentSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'agent'");
+    }
+
+    /**
      * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -62,6 +74,7 @@ class FileStorageContainerTypeRegistrationSettings implements AdditionalDataHold
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'agent' => fn(ParseNode $n) => $o->setAgent($n->getObjectValue([FileStorageContainerTypeAgentSettings::class, 'createFromDiscriminatorValue'])),
             'isDiscoverabilityEnabled' => fn(ParseNode $n) => $o->setIsDiscoverabilityEnabled($n->getBooleanValue()),
             'isItemVersioningEnabled' => fn(ParseNode $n) => $o->setIsItemVersioningEnabled($n->getBooleanValue()),
             'isSearchEnabled' => fn(ParseNode $n) => $o->setIsSearchEnabled($n->getBooleanValue()),
@@ -187,6 +200,7 @@ class FileStorageContainerTypeRegistrationSettings implements AdditionalDataHold
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('agent', $this->getAgent());
         $writer->writeBooleanValue('isDiscoverabilityEnabled', $this->getIsDiscoverabilityEnabled());
         $writer->writeBooleanValue('isItemVersioningEnabled', $this->getIsItemVersioningEnabled());
         $writer->writeBooleanValue('isSearchEnabled', $this->getIsSearchEnabled());
@@ -205,6 +219,14 @@ class FileStorageContainerTypeRegistrationSettings implements AdditionalDataHold
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the agent property value. Contains agent-related settings.
+     * @param FileStorageContainerTypeAgentSettings|null $value Value to set for the agent property.
+    */
+    public function setAgent(?FileStorageContainerTypeAgentSettings $value): void {
+        $this->getBackingStore()->set('agent', $value);
     }
 
     /**

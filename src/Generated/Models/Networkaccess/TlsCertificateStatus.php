@@ -11,4 +11,6 @@ class TlsCertificateStatus extends Enum {
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
     public const EXPIRING = "expiring";
     public const EXPIRED = "expired";
+    public const ENABLED = "enabled";
+    public const DISABLED = "disabled";
 }

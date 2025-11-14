@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Models\Networkaccess\Settings;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Settings\ConditionalAccess\ConditionalAccessRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Settings\CrossTenantAccess\CrossTenantAccessRequestBuilder;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Settings\CustomBlockPage\CustomBlockPageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Settings\ForwardingOptions\ForwardingOptionsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -31,6 +32,13 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     */
     public function crossTenantAccess(): CrossTenantAccessRequestBuilder {
         return new CrossTenantAccessRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the customBlockPage property of the microsoft.graph.networkaccess.settings entity.
+    */
+    public function customBlockPage(): CustomBlockPageRequestBuilder {
+        return new CustomBlockPageRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

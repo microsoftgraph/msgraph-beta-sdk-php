@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\EmployeeExperience\AssignedR
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Users who have been assigned this role.
+ * Users that have this role assigned.
 */
 class MembersRequestBuilderGetQueryParameters 
 {

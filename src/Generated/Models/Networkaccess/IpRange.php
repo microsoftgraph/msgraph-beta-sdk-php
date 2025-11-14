@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class IpRange extends RuleDestination implements Parsable 
+class IpRange extends IpDestination implements Parsable 
 {
     /**
      * Instantiates a new IpRange and sets the default values.
