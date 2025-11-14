@@ -45,7 +45,7 @@ class EducationSubmissionResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get dependentResources from education
+     * A collection of submission resources that depend on the parent educationSubmissionResource.
      * @param EducationSubmissionResourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationSubmissionResource|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class EducationSubmissionResourceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get dependentResources from education
+     * A collection of submission resources that depend on the parent educationSubmissionResource.
      * @param EducationSubmissionResourceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

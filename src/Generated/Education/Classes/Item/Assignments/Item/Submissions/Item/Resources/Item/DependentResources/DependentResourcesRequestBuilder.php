@@ -52,10 +52,11 @@ class DependentResourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get dependentResources from education
+     * List the dependent education submission resources for a given education submission resource.
      * @param DependentResourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationSubmissionResourceCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/educationsubmissionresource-list-dependentresources?view=graph-rest-beta Find more info here
     */
     public function get(?DependentResourcesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class DependentResourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get dependentResources from education
+     * List the dependent education submission resources for a given education submission resource.
      * @param DependentResourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

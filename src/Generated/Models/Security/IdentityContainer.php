@@ -38,6 +38,7 @@ class IdentityContainer extends Entity implements Parsable
             'sensorCandidateActivationConfiguration' => fn(ParseNode $n) => $o->setSensorCandidateActivationConfiguration($n->getObjectValue([SensorCandidateActivationConfiguration::class, 'createFromDiscriminatorValue'])),
             'sensorCandidates' => fn(ParseNode $n) => $o->setSensorCandidates($n->getCollectionOfObjectValues([SensorCandidate::class, 'createFromDiscriminatorValue'])),
             'sensors' => fn(ParseNode $n) => $o->setSensors($n->getCollectionOfObjectValues([Sensor::class, 'createFromDiscriminatorValue'])),
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([SettingsContainer::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -82,7 +83,7 @@ class IdentityContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the sensorCandidates property value. The sensorCandidates property
+     * Gets the sensorCandidates property value. Represents Microsoft Defender for Identity sensors that are ready to be activated.
      * @return array<SensorCandidate>|null
     */
     public function getSensorCandidates(): ?array {
@@ -110,6 +111,18 @@ class IdentityContainer extends Entity implements Parsable
     }
 
     /**
+     * Gets the settings property value. Represents a container for security identities settings APIs.
+     * @return SettingsContainer|null
+    */
+    public function getSettings(): ?SettingsContainer {
+        $val = $this->getBackingStore()->get('settings');
+        if (is_null($val) || $val instanceof SettingsContainer) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settings'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -120,6 +133,7 @@ class IdentityContainer extends Entity implements Parsable
         $writer->writeObjectValue('sensorCandidateActivationConfiguration', $this->getSensorCandidateActivationConfiguration());
         $writer->writeCollectionOfObjectValues('sensorCandidates', $this->getSensorCandidates());
         $writer->writeCollectionOfObjectValues('sensors', $this->getSensors());
+        $writer->writeObjectValue('settings', $this->getSettings());
     }
 
     /**
@@ -147,7 +161,7 @@ class IdentityContainer extends Entity implements Parsable
     }
 
     /**
-     * Sets the sensorCandidates property value. The sensorCandidates property
+     * Sets the sensorCandidates property value. Represents Microsoft Defender for Identity sensors that are ready to be activated.
      * @param array<SensorCandidate>|null $value Value to set for the sensorCandidates property.
     */
     public function setSensorCandidates(?array $value): void {
@@ -160,6 +174,14 @@ class IdentityContainer extends Entity implements Parsable
     */
     public function setSensors(?array $value): void {
         $this->getBackingStore()->set('sensors', $value);
+    }
+
+    /**
+     * Sets the settings property value. Represents a container for security identities settings APIs.
+     * @param SettingsContainer|null $value Value to set for the settings property.
+    */
+    public function setSettings(?SettingsContainer $value): void {
+        $this->getBackingStore()->set('settings', $value);
     }
 
 }

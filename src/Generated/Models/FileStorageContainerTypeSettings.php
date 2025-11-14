@@ -48,6 +48,18 @@ class FileStorageContainerTypeSettings implements AdditionalDataHolder, BackedMo
     }
 
     /**
+     * Gets the agent property value. Contains agent-related settings. Optional
+     * @return FileStorageContainerTypeAgentSettings|null
+    */
+    public function getAgent(): ?FileStorageContainerTypeAgentSettings {
+        $val = $this->getBackingStore()->get('agent');
+        if (is_null($val) || $val instanceof FileStorageContainerTypeAgentSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'agent'");
+    }
+
+    /**
      * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -74,6 +86,7 @@ class FileStorageContainerTypeSettings implements AdditionalDataHolder, BackedMo
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'agent' => fn(ParseNode $n) => $o->setAgent($n->getObjectValue([FileStorageContainerTypeAgentSettings::class, 'createFromDiscriminatorValue'])),
             'consumingTenantOverridables' => fn(ParseNode $n) => $o->setConsumingTenantOverridables($n->getEnumValue(FileStorageContainerTypeSettingsOverride::class)),
             'isDiscoverabilityEnabled' => fn(ParseNode $n) => $o->setIsDiscoverabilityEnabled($n->getBooleanValue()),
             'isItemVersioningEnabled' => fn(ParseNode $n) => $o->setIsItemVersioningEnabled($n->getBooleanValue()),
@@ -200,6 +213,7 @@ class FileStorageContainerTypeSettings implements AdditionalDataHolder, BackedMo
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('agent', $this->getAgent());
         $writer->writeEnumValue('consumingTenantOverridables', $this->getConsumingTenantOverridables());
         $writer->writeBooleanValue('isDiscoverabilityEnabled', $this->getIsDiscoverabilityEnabled());
         $writer->writeBooleanValue('isItemVersioningEnabled', $this->getIsItemVersioningEnabled());
@@ -219,6 +233,14 @@ class FileStorageContainerTypeSettings implements AdditionalDataHolder, BackedMo
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the agent property value. Contains agent-related settings. Optional
+     * @param FileStorageContainerTypeAgentSettings|null $value Value to set for the agent property.
+    */
+    public function setAgent(?FileStorageContainerTypeAgentSettings $value): void {
+        $this->getBackingStore()->set('agent', $value);
     }
 
     /**

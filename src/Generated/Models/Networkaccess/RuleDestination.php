@@ -37,6 +37,7 @@ class RuleDestination implements AdditionalDataHolder, BackedModel, Parsable
             switch ($mappingValue) {
                 case '#microsoft.graph.networkaccess.fqdn': return new Fqdn();
                 case '#microsoft.graph.networkaccess.ipAddress': return new IpAddress();
+                case '#microsoft.graph.networkaccess.ipDestination': return new IpDestination();
                 case '#microsoft.graph.networkaccess.ipRange': return new IpRange();
                 case '#microsoft.graph.networkaccess.ipSubnet': return new IpSubnet();
                 case '#microsoft.graph.networkaccess.url': return new Url();

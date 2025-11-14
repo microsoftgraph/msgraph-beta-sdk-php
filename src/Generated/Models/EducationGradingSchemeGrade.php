@@ -68,7 +68,7 @@ class EducationGradingSchemeGrade implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the displayName property value. The name of the grading scheme.
+     * Gets the displayName property value. The name of this individual grade.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -154,7 +154,7 @@ class EducationGradingSchemeGrade implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the displayName property value. The name of the grading scheme.
+     * Sets the displayName property value. The name of this individual grade.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {

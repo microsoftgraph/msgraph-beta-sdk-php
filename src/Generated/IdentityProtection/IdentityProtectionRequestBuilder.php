@@ -4,7 +4,9 @@ namespace Microsoft\Graph\Beta\Generated\IdentityProtection;
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\IdentityProtection\AgentRiskDetections\AgentRiskDetectionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskDetections\RiskDetectionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyAgents\RiskyAgentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyServicePrincipals\RiskyServicePrincipalsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyUsers\RiskyUsersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityProtection\ServicePrincipalRiskDetections\ServicePrincipalRiskDetectionsRequestBuilder;
@@ -21,10 +23,24 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 class IdentityProtectionRequestBuilder extends BaseRequestBuilder 
 {
     /**
+     * Provides operations to manage the agentRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
+    */
+    public function agentRiskDetections(): AgentRiskDetectionsRequestBuilder {
+        return new AgentRiskDetectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the riskDetections property of the microsoft.graph.identityProtectionRoot entity.
     */
     public function riskDetections(): RiskDetectionsRequestBuilder {
         return new RiskDetectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the riskyAgents property of the microsoft.graph.identityProtectionRoot entity.
+    */
+    public function riskyAgents(): RiskyAgentsRequestBuilder {
+        return new RiskyAgentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

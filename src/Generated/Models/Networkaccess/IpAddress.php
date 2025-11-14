@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class IpAddress extends RuleDestination implements Parsable 
+class IpAddress extends IpDestination implements Parsable 
 {
     /**
      * Instantiates a new IpAddress and sets the default values.

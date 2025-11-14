@@ -212,6 +212,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
                 $this->setScopeIds($val);
             },
             'userExperienceType' => fn(ParseNode $n) => $o->setUserExperienceType($n->getEnumValue(CloudPcUserExperienceType::class)),
+            'userSettingsPersistenceConfiguration' => fn(ParseNode $n) => $o->setUserSettingsPersistenceConfiguration($n->getObjectValue([CloudPcUserSettingsPersistenceConfiguration::class, 'createFromDiscriminatorValue'])),
             'windowsSetting' => fn(ParseNode $n) => $o->setWindowsSetting($n->getObjectValue([CloudPcWindowsSetting::class, 'createFromDiscriminatorValue'])),
             'windowsSettings' => fn(ParseNode $n) => $o->setWindowsSettings($n->getObjectValue([CloudPcWindowsSettings::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -364,6 +365,18 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the userSettingsPersistenceConfiguration property value. Indicates specific settings that enable the persistence of user application settings between Cloud PC sessions. The default value is null. This feature is only available for Cloud PC provisioning policies of type sharedByEntraGroup. Supports $select.
+     * @return CloudPcUserSettingsPersistenceConfiguration|null
+    */
+    public function getUserSettingsPersistenceConfiguration(): ?CloudPcUserSettingsPersistenceConfiguration {
+        $val = $this->getBackingStore()->get('userSettingsPersistenceConfiguration');
+        if (is_null($val) || $val instanceof CloudPcUserSettingsPersistenceConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userSettingsPersistenceConfiguration'");
+    }
+
+    /**
      * Gets the windowsSetting property value. Indicates a specific Windows setting to configure during the creation of Cloud PCs for this provisioning policy. Supports $select.
      * @return CloudPcWindowsSetting|null
     */
@@ -417,6 +430,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
         $writer->writeEnumValue('provisioningType', $this->getProvisioningType());
         $writer->writeCollectionOfPrimitiveValues('scopeIds', $this->getScopeIds());
         $writer->writeEnumValue('userExperienceType', $this->getUserExperienceType());
+        $writer->writeObjectValue('userSettingsPersistenceConfiguration', $this->getUserSettingsPersistenceConfiguration());
         $writer->writeObjectValue('windowsSetting', $this->getWindowsSetting());
         $writer->writeObjectValue('windowsSettings', $this->getWindowsSettings());
     }
@@ -611,6 +625,14 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     */
     public function setUserExperienceType(?CloudPcUserExperienceType $value): void {
         $this->getBackingStore()->set('userExperienceType', $value);
+    }
+
+    /**
+     * Sets the userSettingsPersistenceConfiguration property value. Indicates specific settings that enable the persistence of user application settings between Cloud PC sessions. The default value is null. This feature is only available for Cloud PC provisioning policies of type sharedByEntraGroup. Supports $select.
+     * @param CloudPcUserSettingsPersistenceConfiguration|null $value Value to set for the userSettingsPersistenceConfiguration property.
+    */
+    public function setUserSettingsPersistenceConfiguration(?CloudPcUserSettingsPersistenceConfiguration $value): void {
+        $this->getBackingStore()->set('userSettingsPersistenceConfiguration', $value);
     }
 
     /**

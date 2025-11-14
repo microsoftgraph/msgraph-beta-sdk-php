@@ -26,7 +26,7 @@ class EducationAssignmentResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the dependentResources property value. The dependentResources property
+     * Gets the dependentResources property value. A collection of assignment resources that depend on the parent educationAssignmentResource.
      * @return array<EducationAssignmentResource>|null
     */
     public function getDependentResources(): ?array {
@@ -88,7 +88,7 @@ class EducationAssignmentResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the dependentResources property value. The dependentResources property
+     * Sets the dependentResources property value. A collection of assignment resources that depend on the parent educationAssignmentResource.
      * @param array<EducationAssignmentResource>|null $value Value to set for the dependentResources property.
     */
     public function setDependentResources(?array $value): void {

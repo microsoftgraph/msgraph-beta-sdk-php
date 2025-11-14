@@ -53,7 +53,7 @@ class EngagementRoleMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Users who have been assigned this role.
+     * Users that have this role assigned.
      * @param EngagementRoleMemberItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EngagementRoleMember|null>
      * @throws Exception
@@ -100,7 +100,7 @@ class EngagementRoleMemberItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Users who have been assigned this role.
+     * Users that have this role assigned.
      * @param EngagementRoleMemberItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

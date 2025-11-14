@@ -47,7 +47,7 @@ class UserRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * User entity of the member who has been assigned the role.
+     * The user who has this role assigned.
      * @param UserRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<User|null>
      * @throws Exception
@@ -61,7 +61,7 @@ class UserRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * User entity of the member who has been assigned the role.
+     * The user who has this role assigned.
      * @param UserRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

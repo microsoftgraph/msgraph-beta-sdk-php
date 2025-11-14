@@ -181,8 +181,11 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
             'customAuthenticationExtensions' => fn(ParseNode $n) => $o->setCustomAuthenticationExtensions($n->getCollectionOfObjectValues([CustomAuthenticationExtension::class, 'createFromDiscriminatorValue'])),
             'identityProviders' => fn(ParseNode $n) => $o->setIdentityProviders($n->getCollectionOfObjectValues([IdentityProviderBase::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'riskPrevention' => fn(ParseNode $n) => $o->setRiskPrevention($n->getObjectValue([RiskPreventionContainer::class, 'createFromDiscriminatorValue'])),
+            'signInIdentifiers' => fn(ParseNode $n) => $o->setSignInIdentifiers($n->getCollectionOfObjectValues([SignInIdentifierBase::class, 'createFromDiscriminatorValue'])),
             'userFlowAttributes' => fn(ParseNode $n) => $o->setUserFlowAttributes($n->getCollectionOfObjectValues([IdentityUserFlowAttribute::class, 'createFromDiscriminatorValue'])),
             'userFlows' => fn(ParseNode $n) => $o->setUserFlows($n->getCollectionOfObjectValues([IdentityUserFlow::class, 'createFromDiscriminatorValue'])),
+            'verifiedId' => fn(ParseNode $n) => $o->setVerifiedId($n->getObjectValue([IdentityVerifiedIdRoot::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
@@ -210,6 +213,32 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
+     * Gets the riskPrevention property value. Represents the entry point for fraud and risk prevention configurations in Microsoft Entra External ID, including third-party provider settings.
+     * @return RiskPreventionContainer|null
+    */
+    public function getRiskPrevention(): ?RiskPreventionContainer {
+        $val = $this->getBackingStore()->get('riskPrevention');
+        if (is_null($val) || $val instanceof RiskPreventionContainer) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'riskPrevention'");
+    }
+
+    /**
+     * Gets the signInIdentifiers property value. The signInIdentifiers property
+     * @return array<SignInIdentifierBase>|null
+    */
+    public function getSignInIdentifiers(): ?array {
+        $val = $this->getBackingStore()->get('signInIdentifiers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SignInIdentifierBase::class);
+            /** @var array<SignInIdentifierBase>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signInIdentifiers'");
     }
 
     /**
@@ -241,6 +270,18 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the verifiedId property value. The verifiedId property
+     * @return IdentityVerifiedIdRoot|null
+    */
+    public function getVerifiedId(): ?IdentityVerifiedIdRoot {
+        $val = $this->getBackingStore()->get('verifiedId');
+        if (is_null($val) || $val instanceof IdentityVerifiedIdRoot) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'verifiedId'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -255,8 +296,11 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeCollectionOfObjectValues('customAuthenticationExtensions', $this->getCustomAuthenticationExtensions());
         $writer->writeCollectionOfObjectValues('identityProviders', $this->getIdentityProviders());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('riskPrevention', $this->getRiskPrevention());
+        $writer->writeCollectionOfObjectValues('signInIdentifiers', $this->getSignInIdentifiers());
         $writer->writeCollectionOfObjectValues('userFlowAttributes', $this->getUserFlowAttributes());
         $writer->writeCollectionOfObjectValues('userFlows', $this->getUserFlows());
+        $writer->writeObjectValue('verifiedId', $this->getVerifiedId());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -357,6 +401,22 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Sets the riskPrevention property value. Represents the entry point for fraud and risk prevention configurations in Microsoft Entra External ID, including third-party provider settings.
+     * @param RiskPreventionContainer|null $value Value to set for the riskPrevention property.
+    */
+    public function setRiskPrevention(?RiskPreventionContainer $value): void {
+        $this->getBackingStore()->set('riskPrevention', $value);
+    }
+
+    /**
+     * Sets the signInIdentifiers property value. The signInIdentifiers property
+     * @param array<SignInIdentifierBase>|null $value Value to set for the signInIdentifiers property.
+    */
+    public function setSignInIdentifiers(?array $value): void {
+        $this->getBackingStore()->set('signInIdentifiers', $value);
+    }
+
+    /**
      * Sets the userFlowAttributes property value. Represents entry point for identity userflow attributes.
      * @param array<IdentityUserFlowAttribute>|null $value Value to set for the userFlowAttributes property.
     */
@@ -370,6 +430,14 @@ class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setUserFlows(?array $value): void {
         $this->getBackingStore()->set('userFlows', $value);
+    }
+
+    /**
+     * Sets the verifiedId property value. The verifiedId property
+     * @param IdentityVerifiedIdRoot|null $value Value to set for the verifiedId property.
+    */
+    public function setVerifiedId(?IdentityVerifiedIdRoot $value): void {
+        $this->getBackingStore()->set('verifiedId', $value);
     }
 
 }

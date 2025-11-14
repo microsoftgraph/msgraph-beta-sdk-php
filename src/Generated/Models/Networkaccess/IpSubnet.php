@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class IpSubnet extends RuleDestination implements Parsable 
+class IpSubnet extends IpDestination implements Parsable 
 {
     /**
      * Instantiates a new IpSubnet and sets the default values.

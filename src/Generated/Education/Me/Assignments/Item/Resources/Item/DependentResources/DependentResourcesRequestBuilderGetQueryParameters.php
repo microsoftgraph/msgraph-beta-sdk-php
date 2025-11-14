@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Education\Me\Assignments\Item\Resources
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get dependentResources from education
+ * A collection of assignment resources that depend on the parent educationAssignmentResource.
 */
 class DependentResourcesRequestBuilderGetQueryParameters 
 {

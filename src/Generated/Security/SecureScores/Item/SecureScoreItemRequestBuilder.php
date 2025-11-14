@@ -45,7 +45,7 @@ class SecureScoreItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Measurements of tenants’ security posture to help protect them from threats.
+     * Measurements of tenants' security posture to help protect them from threats.
      * @param SecureScoreItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SecureScore|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class SecureScoreItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Measurements of tenants’ security posture to help protect them from threats.
+     * Measurements of tenants' security posture to help protect them from threats.
      * @param SecureScoreItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

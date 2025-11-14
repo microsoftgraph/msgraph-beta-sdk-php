@@ -97,14 +97,41 @@ class ConfigurationMonitor extends Entity implements Parsable
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'inactivationReason' => fn(ParseNode $n) => $o->setInactivationReason($n->getStringValue()),
+            'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'mode' => fn(ParseNode $n) => $o->setMode($n->getEnumValue(MonitorMode::class)),
             'monitorRunFrequencyInHours' => fn(ParseNode $n) => $o->setMonitorRunFrequencyInHours($n->getIntegerValue()),
             'parameters' => fn(ParseNode $n) => $o->setParameters($n->getObjectValue([OpenComplexDictionaryType::class, 'createFromDiscriminatorValue'])),
+            'runAsUTCMServicePrincipal' => fn(ParseNode $n) => $o->setRunAsUTCMServicePrincipal($n->getBooleanValue()),
             'runningOnBehalfOf' => fn(ParseNode $n) => $o->setRunningOnBehalfOf($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(MonitorStatus::class)),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the inactivationReason property value. The inactivationReason property
+     * @return string|null
+    */
+    public function getInactivationReason(): ?string {
+        $val = $this->getBackingStore()->get('inactivationReason');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inactivationReason'");
+    }
+
+    /**
+     * Gets the lastModifiedBy property value. The lastModifiedBy property
+     * @return IdentitySet|null
+    */
+    public function getLastModifiedBy(): ?IdentitySet {
+        $val = $this->getBackingStore()->get('lastModifiedBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedBy'");
     }
 
     /**
@@ -156,6 +183,18 @@ class ConfigurationMonitor extends Entity implements Parsable
     }
 
     /**
+     * Gets the runAsUTCMServicePrincipal property value. The runAsUTCMServicePrincipal property
+     * @return bool|null
+    */
+    public function getRunAsUTCMServicePrincipal(): ?bool {
+        $val = $this->getBackingStore()->get('runAsUTCMServicePrincipal');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'runAsUTCMServicePrincipal'");
+    }
+
+    /**
      * Gets the runningOnBehalfOf property value. The runningOnBehalfOf property
      * @return IdentitySet|null
     */
@@ -201,8 +240,11 @@ class ConfigurationMonitor extends Entity implements Parsable
         $writer->writeObjectValue('createdBy', $this->getCreatedBy());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeEnumValue('mode', $this->getMode());
+        $writer->writeIntegerValue('monitorRunFrequencyInHours', $this->getMonitorRunFrequencyInHours());
         $writer->writeObjectValue('parameters', $this->getParameters());
+        $writer->writeBooleanValue('runAsUTCMServicePrincipal', $this->getRunAsUTCMServicePrincipal());
         $writer->writeObjectValue('runningOnBehalfOf', $this->getRunningOnBehalfOf());
         $writer->writeEnumValue('status', $this->getStatus());
     }
@@ -248,6 +290,22 @@ class ConfigurationMonitor extends Entity implements Parsable
     }
 
     /**
+     * Sets the inactivationReason property value. The inactivationReason property
+     * @param string|null $value Value to set for the inactivationReason property.
+    */
+    public function setInactivationReason(?string $value): void {
+        $this->getBackingStore()->set('inactivationReason', $value);
+    }
+
+    /**
+     * Sets the lastModifiedBy property value. The lastModifiedBy property
+     * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
+    */
+    public function setLastModifiedBy(?IdentitySet $value): void {
+        $this->getBackingStore()->set('lastModifiedBy', $value);
+    }
+
+    /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
@@ -277,6 +335,14 @@ class ConfigurationMonitor extends Entity implements Parsable
     */
     public function setParameters(?OpenComplexDictionaryType $value): void {
         $this->getBackingStore()->set('parameters', $value);
+    }
+
+    /**
+     * Sets the runAsUTCMServicePrincipal property value. The runAsUTCMServicePrincipal property
+     * @param bool|null $value Value to set for the runAsUTCMServicePrincipal property.
+    */
+    public function setRunAsUTCMServicePrincipal(?bool $value): void {
+        $this->getBackingStore()->set('runAsUTCMServicePrincipal', $value);
     }
 
     /**

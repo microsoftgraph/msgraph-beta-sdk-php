@@ -52,7 +52,7 @@ class DependentResourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get dependentResources from education
+     * A collection of assignment resources that depend on the parent educationAssignmentResource.
      * @param DependentResourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EducationAssignmentResourceCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class DependentResourcesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get dependentResources from education
+     * A collection of assignment resources that depend on the parent educationAssignmentResource.
      * @param DependentResourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

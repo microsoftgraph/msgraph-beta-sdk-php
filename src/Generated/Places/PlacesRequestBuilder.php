@@ -2,15 +2,26 @@
 
 namespace Microsoft\Graph\Beta\Generated\Places;
 
+use Exception;
+use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Place;
 use Microsoft\Graph\Beta\Generated\Places\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Places\GraphBuilding\GraphBuildingRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Places\GraphDesk\GraphDeskRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Places\GraphFloor\GraphFloorRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Places\GraphRoom\GraphRoomRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Places\GraphRoomList\GraphRoomListRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Places\GraphSection\GraphSectionRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Places\GraphWorkspace\GraphWorkspaceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Places\Item\PlaceItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
+use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
+use Microsoft\Kiota\Abstractions\RequestInformation;
 
 /**
- * Builds and executes requests for operations under /places
+ * Provides operations to manage the collection of place entities.
 */
 class PlacesRequestBuilder extends BaseRequestBuilder 
 {
@@ -19,6 +30,27 @@ class PlacesRequestBuilder extends BaseRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to building.
+    */
+    public function graphBuilding(): GraphBuildingRequestBuilder {
+        return new GraphBuildingRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to desk.
+    */
+    public function graphDesk(): GraphDeskRequestBuilder {
+        return new GraphDeskRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to floor.
+    */
+    public function graphFloor(): GraphFloorRequestBuilder {
+        return new GraphFloorRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -33,6 +65,20 @@ class PlacesRequestBuilder extends BaseRequestBuilder
     */
     public function graphRoomList(): GraphRoomListRequestBuilder {
         return new GraphRoomListRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to section.
+    */
+    public function graphSection(): GraphSectionRequestBuilder {
+        return new GraphSectionRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Casts the previous resource to workspace.
+    */
+    public function graphWorkspace(): GraphWorkspaceRequestBuilder {
+        return new GraphWorkspaceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -58,6 +104,51 @@ class PlacesRequestBuilder extends BaseRequestBuilder
         } else {
             $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
         }
+    }
+
+    /**
+     * Create a new place object. You can also use this method to create the following child object types: building, floor, section, room, workspace, or desk.
+     * @param Place $body The request body
+     * @param PlacesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise<Place|null>
+     * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/place-post?view=graph-rest-beta Find more info here
+    */
+    public function post(Place $body, ?PlacesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
+        $errorMappings = [
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [Place::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Create a new place object. You can also use this method to create the following child object types: building, floor, section, room, workspace, or desk.
+     * @param Place $body The request body
+     * @param PlacesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return RequestInformation
+    */
+    public function toPostRequestInformation(Place $body, ?PlacesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+        $requestInfo = new RequestInformation();
+        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->pathParameters = $this->pathParameters;
+        $requestInfo->httpMethod = HttpMethod::POST;
+        if ($requestConfiguration !== null) {
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
+        }
+        $requestInfo->tryAddHeader('Accept', "application/json");
+        $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        return $requestInfo;
+    }
+
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return PlacesRequestBuilder
+    */
+    public function withUrl(string $rawUrl): PlacesRequestBuilder {
+        return new PlacesRequestBuilder($rawUrl, $this->requestAdapter);
     }
 
 }

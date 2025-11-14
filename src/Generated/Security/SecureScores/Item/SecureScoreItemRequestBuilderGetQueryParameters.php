@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\SecureScores\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Measurements of tenants’ security posture to help protect them from threats.
+ * Measurements of tenants' security posture to help protect them from threats.
 */
 class SecureScoreItemRequestBuilderGetQueryParameters 
 {

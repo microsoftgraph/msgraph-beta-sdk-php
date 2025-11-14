@@ -191,7 +191,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the frontlineCloudPcAvailability property value. The current availability of a frontline assigned Cloud PC. Possible values: notApplicable, available,notAvailable and unknownFutureValue. Default value is notApplicable. Read Only.
+     * Gets the frontlineCloudPcAvailability property value. The current availability of a frontline assigned Cloud PC. Possible values: notApplicable, available, notAvailable, and unknownFutureValue. Default value is notApplicable. Read-only. This property is deprecated and will stop returning data on October 30, 2025. Going forward use the retrieveFrontlineCloudPcDetail API.
      * @return FrontlineCloudPcAvailability|null
     */
     public function getFrontlineCloudPcAvailability(): ?FrontlineCloudPcAvailability {
@@ -459,7 +459,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the sharedDeviceDetail property value. Indicates the Cloud PC device details (for example, assignedToUserPrincipalName) associated with the frontline shared service plan.
+     * Gets the sharedDeviceDetail property value. Indicates the Cloud PC device details associated with the frontline shared service plan, including the user's UPN and the session start date and time.
      * @return CloudPcFrontlineSharedDeviceDetail|null
     */
     public function getSharedDeviceDetail(): ?CloudPcFrontlineSharedDeviceDetail {
@@ -674,7 +674,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the frontlineCloudPcAvailability property value. The current availability of a frontline assigned Cloud PC. Possible values: notApplicable, available,notAvailable and unknownFutureValue. Default value is notApplicable. Read Only.
+     * Sets the frontlineCloudPcAvailability property value. The current availability of a frontline assigned Cloud PC. Possible values: notApplicable, available, notAvailable, and unknownFutureValue. Default value is notApplicable. Read-only. This property is deprecated and will stop returning data on October 30, 2025. Going forward use the retrieveFrontlineCloudPcDetail API.
      * @param FrontlineCloudPcAvailability|null $value Value to set for the frontlineCloudPcAvailability property.
     */
     public function setFrontlineCloudPcAvailability(?FrontlineCloudPcAvailability $value): void {
@@ -850,7 +850,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the sharedDeviceDetail property value. Indicates the Cloud PC device details (for example, assignedToUserPrincipalName) associated with the frontline shared service plan.
+     * Sets the sharedDeviceDetail property value. Indicates the Cloud PC device details associated with the frontline shared service plan, including the user's UPN and the session start date and time.
      * @param CloudPcFrontlineSharedDeviceDetail|null $value Value to set for the sharedDeviceDetail property.
     */
     public function setSharedDeviceDetail(?CloudPcFrontlineSharedDeviceDetail $value): void {

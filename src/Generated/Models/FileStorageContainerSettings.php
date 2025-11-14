@@ -64,6 +64,7 @@ class FileStorageContainerSettings implements AdditionalDataHolder, BackedModel,
         return  [
             'isItemVersioningEnabled' => fn(ParseNode $n) => $o->setIsItemVersioningEnabled($n->getBooleanValue()),
             'isOcrEnabled' => fn(ParseNode $n) => $o->setIsOcrEnabled($n->getBooleanValue()),
+            'itemDefaultSensitivityLabelId' => fn(ParseNode $n) => $o->setItemDefaultSensitivityLabelId($n->getStringValue()),
             'itemMajorVersionLimit' => fn(ParseNode $n) => $o->setItemMajorVersionLimit($n->getIntegerValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
@@ -91,6 +92,18 @@ class FileStorageContainerSettings implements AdditionalDataHolder, BackedModel,
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isOcrEnabled'");
+    }
+
+    /**
+     * Gets the itemDefaultSensitivityLabelId property value. The ID of the default sensitivity label for items in the container. Optional. Read-write.
+     * @return string|null
+    */
+    public function getItemDefaultSensitivityLabelId(): ?string {
+        $val = $this->getBackingStore()->get('itemDefaultSensitivityLabelId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'itemDefaultSensitivityLabelId'");
     }
 
     /**
@@ -124,6 +137,7 @@ class FileStorageContainerSettings implements AdditionalDataHolder, BackedModel,
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('isItemVersioningEnabled', $this->getIsItemVersioningEnabled());
         $writer->writeBooleanValue('isOcrEnabled', $this->getIsOcrEnabled());
+        $writer->writeStringValue('itemDefaultSensitivityLabelId', $this->getItemDefaultSensitivityLabelId());
         $writer->writeIntegerValue('itemMajorVersionLimit', $this->getItemMajorVersionLimit());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -159,6 +173,14 @@ class FileStorageContainerSettings implements AdditionalDataHolder, BackedModel,
     */
     public function setIsOcrEnabled(?bool $value): void {
         $this->getBackingStore()->set('isOcrEnabled', $value);
+    }
+
+    /**
+     * Sets the itemDefaultSensitivityLabelId property value. The ID of the default sensitivity label for items in the container. Optional. Read-write.
+     * @param string|null $value Value to set for the itemDefaultSensitivityLabelId property.
+    */
+    public function setItemDefaultSensitivityLabelId(?string $value): void {
+        $this->getBackingStore()->set('itemDefaultSensitivityLabelId', $value);
     }
 
     /**

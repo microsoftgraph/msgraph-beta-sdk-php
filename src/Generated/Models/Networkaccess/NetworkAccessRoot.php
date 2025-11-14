@@ -62,9 +62,7 @@ class NetworkAccessRoot extends Entity implements Parsable
             'alerts' => fn(ParseNode $n) => $o->setAlerts($n->getCollectionOfObjectValues([Alert::class, 'createFromDiscriminatorValue'])),
             'connectivity' => fn(ParseNode $n) => $o->setConnectivity($n->getObjectValue([Connectivity::class, 'createFromDiscriminatorValue'])),
             'filteringPolicies' => fn(ParseNode $n) => $o->setFilteringPolicies($n->getCollectionOfObjectValues([FilteringPolicy::class, 'createFromDiscriminatorValue'])),
-            'filteringProfiles' => fn(ParseNode $n) => $o->setFilteringProfiles($n->getCollectionOfObjectValues([FilteringProfile::class, 'createFromDiscriminatorValue'])),
             'forwardingPolicies' => fn(ParseNode $n) => $o->setForwardingPolicies($n->getCollectionOfObjectValues([ForwardingPolicy::class, 'createFromDiscriminatorValue'])),
-            'forwardingProfiles' => fn(ParseNode $n) => $o->setForwardingProfiles($n->getCollectionOfObjectValues([ForwardingProfile::class, 'createFromDiscriminatorValue'])),
             'logs' => fn(ParseNode $n) => $o->setLogs($n->getObjectValue([Logs::class, 'createFromDiscriminatorValue'])),
             'reports' => fn(ParseNode $n) => $o->setReports($n->getObjectValue([Reports::class, 'createFromDiscriminatorValue'])),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([Settings::class, 'createFromDiscriminatorValue'])),
@@ -90,20 +88,6 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the filteringProfiles property value. A filtering profile associates network access policies with Microsoft Entra ID Conditional Access policies, so that access policies can be applied to users and groups.
-     * @return array<FilteringProfile>|null
-    */
-    public function getFilteringProfiles(): ?array {
-        $val = $this->getBackingStore()->get('filteringProfiles');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, FilteringProfile::class);
-            /** @var array<FilteringProfile>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'filteringProfiles'");
-    }
-
-    /**
      * Gets the forwardingPolicies property value. The forwardingPolicies property
      * @return array<ForwardingPolicy>|null
     */
@@ -115,20 +99,6 @@ class NetworkAccessRoot extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'forwardingPolicies'");
-    }
-
-    /**
-     * Gets the forwardingProfiles property value. The forwardingProfiles property
-     * @return array<ForwardingProfile>|null
-    */
-    public function getForwardingProfiles(): ?array {
-        $val = $this->getBackingStore()->get('forwardingProfiles');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, ForwardingProfile::class);
-            /** @var array<ForwardingProfile>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'forwardingProfiles'");
     }
 
     /**
@@ -228,9 +198,7 @@ class NetworkAccessRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('alerts', $this->getAlerts());
         $writer->writeObjectValue('connectivity', $this->getConnectivity());
         $writer->writeCollectionOfObjectValues('filteringPolicies', $this->getFilteringPolicies());
-        $writer->writeCollectionOfObjectValues('filteringProfiles', $this->getFilteringProfiles());
         $writer->writeCollectionOfObjectValues('forwardingPolicies', $this->getForwardingPolicies());
-        $writer->writeCollectionOfObjectValues('forwardingProfiles', $this->getForwardingProfiles());
         $writer->writeObjectValue('logs', $this->getLogs());
         $writer->writeObjectValue('reports', $this->getReports());
         $writer->writeObjectValue('settings', $this->getSettings());
@@ -265,27 +233,11 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the filteringProfiles property value. A filtering profile associates network access policies with Microsoft Entra ID Conditional Access policies, so that access policies can be applied to users and groups.
-     * @param array<FilteringProfile>|null $value Value to set for the filteringProfiles property.
-    */
-    public function setFilteringProfiles(?array $value): void {
-        $this->getBackingStore()->set('filteringProfiles', $value);
-    }
-
-    /**
      * Sets the forwardingPolicies property value. The forwardingPolicies property
      * @param array<ForwardingPolicy>|null $value Value to set for the forwardingPolicies property.
     */
     public function setForwardingPolicies(?array $value): void {
         $this->getBackingStore()->set('forwardingPolicies', $value);
-    }
-
-    /**
-     * Sets the forwardingProfiles property value. The forwardingProfiles property
-     * @param array<ForwardingProfile>|null $value Value to set for the forwardingProfiles property.
-    */
-    public function setForwardingProfiles(?array $value): void {
-        $this->getBackingStore()->set('forwardingProfiles', $value);
     }
 
     /**

@@ -17,4 +17,5 @@ class ManagementState extends Enum {
     public const WIPE_CANCELED = "wipeCanceled";
     public const RETIRE_CANCELED = "retireCanceled";
     public const DISCOVERED = "discovered";
+    public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

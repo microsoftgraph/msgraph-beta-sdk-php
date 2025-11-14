@@ -18,7 +18,9 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Ite
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\Reprovision\ReprovisionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\Resize\ResizeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\Restore\RestoreRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\RetrieveCloudPcLaunchDetail\RetrieveCloudPcLaunchDetailRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\RetrieveCloudPCRemoteActionResults\RetrieveCloudPCRemoteActionResultsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\RetrieveFrontlineCloudPcDetail\RetrieveFrontlineCloudPcDetailRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\RetrieveReviewStatus\RetrieveReviewStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\RetrieveSnapshots\RetrieveSnapshotsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\RetryPartnerAgentInstallation\RetryPartnerAgentInstallationRequestBuilder;
@@ -137,10 +139,24 @@ class CloudPCItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the retrieveCloudPcLaunchDetail method.
+    */
+    public function retrieveCloudPcLaunchDetail(): RetrieveCloudPcLaunchDetailRequestBuilder {
+        return new RetrieveCloudPcLaunchDetailRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the retrieveCloudPCRemoteActionResults method.
     */
     public function retrieveCloudPCRemoteActionResults(): RetrieveCloudPCRemoteActionResultsRequestBuilder {
         return new RetrieveCloudPCRemoteActionResultsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retrieveFrontlineCloudPcDetail method.
+    */
+    public function retrieveFrontlineCloudPcDetail(): RetrieveFrontlineCloudPcDetailRequestBuilder {
+        return new RetrieveFrontlineCloudPcDetailRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

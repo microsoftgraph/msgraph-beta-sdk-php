@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Partner;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * A container that safeguards the Microsoft Azure resources of Microsoft Cloud Solution Provider (CSP) partners’ customers, including alerts, scores, and all aspects of security.
+ * A container that safeguards the Microsoft Azure resources of Microsoft Cloud Solution Provider (CSP) partners' customers, including alerts, scores, and all aspects of security.
 */
 class PartnerRequestBuilderGetQueryParameters 
 {

@@ -191,7 +191,7 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Cloud PC related reports.
+     * Cloud PC-related reports.
      * @param ReportsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcReports|null>
      * @throws Exception
@@ -256,7 +256,7 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Cloud PC related reports.
+     * Cloud PC-related reports.
      * @param ReportsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

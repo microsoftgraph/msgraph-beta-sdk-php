@@ -9,9 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Alerts\AlertsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\ConnectivityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\FilteringPolicies\FilteringPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\FilteringProfiles\FilteringProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\ForwardingPolicies\ForwardingPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\ForwardingProfiles\ForwardingProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\LogsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\MicrosoftGraphNetworkaccessOnboard\MicrosoftGraphNetworkaccessOnboardRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\ReportsRequestBuilder;
@@ -52,24 +50,10 @@ class NetworkAccessRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to manage the filteringProfiles property of the microsoft.graph.networkaccess.networkAccessRoot entity.
-    */
-    public function filteringProfiles(): FilteringProfilesRequestBuilder {
-        return new FilteringProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the forwardingPolicies property of the microsoft.graph.networkaccess.networkAccessRoot entity.
     */
     public function forwardingPolicies(): ForwardingPoliciesRequestBuilder {
         return new ForwardingPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the forwardingProfiles property of the microsoft.graph.networkaccess.networkAccessRoot entity.
-    */
-    public function forwardingProfiles(): ForwardingProfilesRequestBuilder {
-        return new ForwardingProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

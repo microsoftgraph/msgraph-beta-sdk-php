@@ -50,6 +50,18 @@ class Settings extends Entity implements Parsable
     }
 
     /**
+     * Gets the customBlockPage property value. The customBlockPage property
+     * @return CustomBlockPage|null
+    */
+    public function getCustomBlockPage(): ?CustomBlockPage {
+        $val = $this->getBackingStore()->get('customBlockPage');
+        if (is_null($val) || $val instanceof CustomBlockPage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customBlockPage'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -58,6 +70,7 @@ class Settings extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'conditionalAccess' => fn(ParseNode $n) => $o->setConditionalAccess($n->getObjectValue([ConditionalAccessSettings::class, 'createFromDiscriminatorValue'])),
             'crossTenantAccess' => fn(ParseNode $n) => $o->setCrossTenantAccess($n->getObjectValue([CrossTenantAccessSettings::class, 'createFromDiscriminatorValue'])),
+            'customBlockPage' => fn(ParseNode $n) => $o->setCustomBlockPage($n->getObjectValue([CustomBlockPage::class, 'createFromDiscriminatorValue'])),
             'forwardingOptions' => fn(ParseNode $n) => $o->setForwardingOptions($n->getObjectValue([ForwardingOptions::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -82,6 +95,7 @@ class Settings extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeObjectValue('conditionalAccess', $this->getConditionalAccess());
         $writer->writeObjectValue('crossTenantAccess', $this->getCrossTenantAccess());
+        $writer->writeObjectValue('customBlockPage', $this->getCustomBlockPage());
         $writer->writeObjectValue('forwardingOptions', $this->getForwardingOptions());
     }
 
@@ -99,6 +113,14 @@ class Settings extends Entity implements Parsable
     */
     public function setCrossTenantAccess(?CrossTenantAccessSettings $value): void {
         $this->getBackingStore()->set('crossTenantAccess', $value);
+    }
+
+    /**
+     * Sets the customBlockPage property value. The customBlockPage property
+     * @param CustomBlockPage|null $value Value to set for the customBlockPage property.
+    */
+    public function setCustomBlockPage(?CustomBlockPage $value): void {
+        $this->getBackingStore()->set('customBlockPage', $value);
     }
 
     /**

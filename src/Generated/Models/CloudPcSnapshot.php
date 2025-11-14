@@ -79,7 +79,7 @@ class CloudPcSnapshot extends Entity implements Parsable
     }
 
     /**
-     * Gets the healthCheckStatus property value. Indicates the health check status of the Cloud PC snapshot. Possible values are, unknown, healthy, unhealthy, unknownFutureValue. The default value is unknown. Read-only. Nullable.
+     * Gets the healthCheckStatus property value. Indicates the health check status of the Cloud PC snapshot. The possible values are: unknown, healthy, unhealthy, unknownFutureValue. The default value is unknown. Read-only. Nullable.
      * @return CloudPcSnapshotHealthCheckStatus|null
     */
     public function getHealthCheckStatus(): ?CloudPcSnapshotHealthCheckStatus {
@@ -166,7 +166,7 @@ class CloudPcSnapshot extends Entity implements Parsable
     }
 
     /**
-     * Sets the healthCheckStatus property value. Indicates the health check status of the Cloud PC snapshot. Possible values are, unknown, healthy, unhealthy, unknownFutureValue. The default value is unknown. Read-only. Nullable.
+     * Sets the healthCheckStatus property value. Indicates the health check status of the Cloud PC snapshot. The possible values are: unknown, healthy, unhealthy, unknownFutureValue. The default value is unknown. Read-only. Nullable.
      * @param CloudPcSnapshotHealthCheckStatus|null $value Value to set for the healthCheckStatus property.
     */
     public function setHealthCheckStatus(?CloudPcSnapshotHealthCheckStatus $value): void {

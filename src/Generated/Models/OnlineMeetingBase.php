@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -266,6 +267,18 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
+     * Gets the expiryDateTime property value. The expiryDateTime property
+     * @return DateTime|null
+    */
+    public function getExpiryDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('expiryDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'expiryDateTime'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -291,6 +304,7 @@ class OnlineMeetingBase extends Entity implements Parsable
             'audioConferencing' => fn(ParseNode $n) => $o->setAudioConferencing($n->getObjectValue([AudioConferencing::class, 'createFromDiscriminatorValue'])),
             'chatInfo' => fn(ParseNode $n) => $o->setChatInfo($n->getObjectValue([ChatInfo::class, 'createFromDiscriminatorValue'])),
             'chatRestrictions' => fn(ParseNode $n) => $o->setChatRestrictions($n->getObjectValue([ChatRestrictions::class, 'createFromDiscriminatorValue'])),
+            'expiryDateTime' => fn(ParseNode $n) => $o->setExpiryDateTime($n->getDateTimeValue()),
             'isEndToEndEncryptionEnabled' => fn(ParseNode $n) => $o->setIsEndToEndEncryptionEnabled($n->getBooleanValue()),
             'isEntryExitAnnounced' => fn(ParseNode $n) => $o->setIsEntryExitAnnounced($n->getBooleanValue()),
             'joinInformation' => fn(ParseNode $n) => $o->setJoinInformation($n->getObjectValue([ItemBody::class, 'createFromDiscriminatorValue'])),
@@ -462,6 +476,7 @@ class OnlineMeetingBase extends Entity implements Parsable
         $writer->writeObjectValue('audioConferencing', $this->getAudioConferencing());
         $writer->writeObjectValue('chatInfo', $this->getChatInfo());
         $writer->writeObjectValue('chatRestrictions', $this->getChatRestrictions());
+        $writer->writeDateTimeValue('expiryDateTime', $this->getExpiryDateTime());
         $writer->writeBooleanValue('isEndToEndEncryptionEnabled', $this->getIsEndToEndEncryptionEnabled());
         $writer->writeBooleanValue('isEntryExitAnnounced', $this->getIsEntryExitAnnounced());
         $writer->writeObjectValue('joinInformation', $this->getJoinInformation());
@@ -625,6 +640,14 @@ class OnlineMeetingBase extends Entity implements Parsable
     */
     public function setChatRestrictions(?ChatRestrictions $value): void {
         $this->getBackingStore()->set('chatRestrictions', $value);
+    }
+
+    /**
+     * Sets the expiryDateTime property value. The expiryDateTime property
+     * @param DateTime|null $value Value to set for the expiryDateTime property.
+    */
+    public function setExpiryDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('expiryDateTime', $value);
     }
 
     /**

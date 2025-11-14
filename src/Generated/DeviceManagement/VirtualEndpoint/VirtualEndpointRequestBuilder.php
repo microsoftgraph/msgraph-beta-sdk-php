@@ -15,6 +15,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ExternalPart
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\FrontLineServicePlans\FrontLineServicePlansRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\GalleryImages\GalleryImagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\GetEffectivePermissions\GetEffectivePermissionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ManagedLicenses\ManagedLicensesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\OnPremisesConnections\OnPremisesConnectionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\OrganizationSettings\OrganizationSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\ProvisioningPoliciesRequestBuilder;
@@ -112,6 +113,13 @@ class VirtualEndpointRequestBuilder extends BaseRequestBuilder
     */
     public function getEffectivePermissions(): GetEffectivePermissionsRequestBuilder {
         return new GetEffectivePermissionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the managedLicenses property of the microsoft.graph.virtualEndpoint entity.
+    */
+    public function managedLicenses(): ManagedLicensesRequestBuilder {
+        return new ManagedLicensesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

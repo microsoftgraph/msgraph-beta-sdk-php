@@ -69,12 +69,12 @@ class FileStorageContainerTypeRegistrationItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Update the properties of a fileStorageContainerTypeRegistration object. ETag is used for optimistic concurrency control. It must match the value from Create, Get or the previous Update.
+     * Create or replace a fileStorageContainerTypeRegistration object. This method registers a fileStorageContainerType in the tenant.  For standard containers, billing must be valid for the registration to complete successfully. Settings can't be modified during registration.
      * @param FileStorageContainerTypeRegistration $body The request body
      * @param FileStorageContainerTypeRegistrationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FileStorageContainerTypeRegistration|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/filestoragecontainertyperegistration-update?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/filestorage-post-containertyperegistrations?view=graph-rest-beta Find more info here
     */
     public function patch(FileStorageContainerTypeRegistration $body, ?FileStorageContainerTypeRegistrationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -124,7 +124,7 @@ class FileStorageContainerTypeRegistrationItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Update the properties of a fileStorageContainerTypeRegistration object. ETag is used for optimistic concurrency control. It must match the value from Create, Get or the previous Update.
+     * Create or replace a fileStorageContainerTypeRegistration object. This method registers a fileStorageContainerType in the tenant.  For standard containers, billing must be valid for the registration to complete successfully. Settings can't be modified during registration.
      * @param FileStorageContainerTypeRegistration $body The request body
      * @param FileStorageContainerTypeRegistrationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

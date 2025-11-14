@@ -45,7 +45,7 @@ class SensorCandidateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sensorCandidates from security
+     * Represents Microsoft Defender for Identity sensors that are ready to be activated.
      * @param SensorCandidateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SensorCandidate|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class SensorCandidateItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sensorCandidates from security
+     * Represents Microsoft Defender for Identity sensors that are ready to be activated.
      * @param SensorCandidateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

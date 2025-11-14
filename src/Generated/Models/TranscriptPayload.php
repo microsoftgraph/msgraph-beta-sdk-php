@@ -77,7 +77,6 @@ class TranscriptPayload implements AdditionalDataHolder, BackedModel, Parsable
         return  [
             'audioCaptureDateTime' => fn(ParseNode $n) => $o->setAudioCaptureDateTime($n->getDateTimeValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'sequenceId' => fn(ParseNode $n) => $o->setSequenceId($n->getIntegerValue()),
             'speaker' => fn(ParseNode $n) => $o->setSpeaker($n->getObjectValue([TranscriptSpeaker::class, 'createFromDiscriminatorValue'])),
             'spokenLanguage' => fn(ParseNode $n) => $o->setSpokenLanguage($n->getStringValue()),
             'text' => fn(ParseNode $n) => $o->setText($n->getStringValue()),
@@ -94,18 +93,6 @@ class TranscriptPayload implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
-    }
-
-    /**
-     * Gets the sequenceId property value. The sequenceId property
-     * @return int|null
-    */
-    public function getSequenceId(): ?int {
-        $val = $this->getBackingStore()->get('sequenceId');
-        if (is_null($val) || is_int($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'sequenceId'");
     }
 
     /**
@@ -151,7 +138,6 @@ class TranscriptPayload implements AdditionalDataHolder, BackedModel, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeDateTimeValue('audioCaptureDateTime', $this->getAudioCaptureDateTime());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
-        $writer->writeIntegerValue('sequenceId', $this->getSequenceId());
         $writer->writeObjectValue('speaker', $this->getSpeaker());
         $writer->writeStringValue('spokenLanguage', $this->getSpokenLanguage());
         $writer->writeStringValue('text', $this->getText());
@@ -188,14 +174,6 @@ class TranscriptPayload implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
-    }
-
-    /**
-     * Sets the sequenceId property value. The sequenceId property
-     * @param int|null $value Value to set for the sequenceId property.
-    */
-    public function setSequenceId(?int $value): void {
-        $this->getBackingStore()->set('sequenceId', $value);
     }
 
     /**

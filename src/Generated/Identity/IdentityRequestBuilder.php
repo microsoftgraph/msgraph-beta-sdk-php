@@ -13,8 +13,11 @@ use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\ConditionalAccessR
 use Microsoft\Graph\Beta\Generated\Identity\ContinuousAccessEvaluationPolicy\ContinuousAccessEvaluationPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\CustomAuthenticationExtensions\CustomAuthenticationExtensionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\IdentityProviders\IdentityProvidersRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\RiskPrevention\RiskPreventionRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\SignInIdentifiers\SignInIdentifiersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\UserFlowAttributes\UserFlowAttributesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\UserFlows\UserFlowsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\VerifiedId\VerifiedIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityContainer;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -91,6 +94,20 @@ class IdentityRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the riskPrevention property of the microsoft.graph.identityContainer entity.
+    */
+    public function riskPrevention(): RiskPreventionRequestBuilder {
+        return new RiskPreventionRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the signInIdentifiers property of the microsoft.graph.identityContainer entity.
+    */
+    public function signInIdentifiers(): SignInIdentifiersRequestBuilder {
+        return new SignInIdentifiersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity.
     */
     public function userFlowAttributes(): UserFlowAttributesRequestBuilder {
@@ -102,6 +119,13 @@ class IdentityRequestBuilder extends BaseRequestBuilder
     */
     public function userFlows(): UserFlowsRequestBuilder {
         return new UserFlowsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the verifiedId property of the microsoft.graph.identityContainer entity.
+    */
+    public function verifiedId(): VerifiedIdRequestBuilder {
+        return new VerifiedIdRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -176,7 +176,7 @@ class AccessPackageResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the originSystem property value. The type of the resource in the origin system, such as SharePointOnline, AadApplication, or AadGroup. Supports $filter (eq).
+     * Gets the originSystem property value. The type of the resource in the origin system, such as SharePointOnline, AadApplication, AadGroup or CustomDataProvidedResource. Supports $filter (eq).
      * @return string|null
     */
     public function getOriginSystem(): ?string {
@@ -313,7 +313,7 @@ class AccessPackageResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the originSystem property value. The type of the resource in the origin system, such as SharePointOnline, AadApplication, or AadGroup. Supports $filter (eq).
+     * Sets the originSystem property value. The type of the resource in the origin system, such as SharePointOnline, AadApplication, AadGroup or CustomDataProvidedResource. Supports $filter (eq).
      * @param string|null $value Value to set for the originSystem property.
     */
     public function setOriginSystem(?string $value): void {

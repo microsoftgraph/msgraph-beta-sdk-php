@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Teamwork\DeletedTeams\Item\Channels\Item\AllM
 use Microsoft\Graph\Beta\Generated\Teamwork\DeletedTeams\Item\Channels\Item\Archive\ArchiveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\DeletedTeams\Item\Channels\Item\CompleteMigration\CompleteMigrationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\DeletedTeams\Item\Channels\Item\DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName\DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teamwork\DeletedTeams\Item\Channels\Item\EnabledApps\EnabledAppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\DeletedTeams\Item\Channels\Item\FilesFolder\FilesFolderRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\DeletedTeams\Item\Channels\Item\Members\MembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\DeletedTeams\Item\Channels\Item\Messages\MessagesRequestBuilder;
@@ -55,6 +56,13 @@ class ChannelItemRequestBuilder extends BaseRequestBuilder
     */
     public function doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName(): DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder {
         return new DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the enabledApps property of the microsoft.graph.channel entity.
+    */
+    public function enabledApps(): EnabledAppsRequestBuilder {
+        return new EnabledAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

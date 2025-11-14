@@ -34,6 +34,18 @@ class CallEvent extends Entity implements Parsable
     }
 
     /**
+     * Gets the callConversationId property value. The callConversationId property
+     * @return string|null
+    */
+    public function getCallConversationId(): ?string {
+        $val = $this->getBackingStore()->get('callConversationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'callConversationId'");
+    }
+
+    /**
      * Gets the callEventType property value. The event type of the call. Possible values are: callStarted, callEnded, unknownFutureValue, rosterUpdated. You must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: rosterUpdated.
      * @return CallEventType|null
     */
@@ -46,7 +58,7 @@ class CallEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the eventDateTime property value. The time when event occurred.
+     * Gets the eventDateTime property value. The date and time when the event occurred. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getEventDateTime(): ?DateTime {
@@ -64,6 +76,7 @@ class CallEvent extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'callConversationId' => fn(ParseNode $n) => $o->setCallConversationId($n->getStringValue()),
             'callEventType' => fn(ParseNode $n) => $o->setCallEventType($n->getEnumValue(CallEventType::class)),
             'eventDateTime' => fn(ParseNode $n) => $o->setEventDateTime($n->getDateTimeValue()),
             'participants' => fn(ParseNode $n) => $o->setParticipants($n->getCollectionOfObjectValues([Participant::class, 'createFromDiscriminatorValue'])),
@@ -116,11 +129,20 @@ class CallEvent extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('callConversationId', $this->getCallConversationId());
         $writer->writeEnumValue('callEventType', $this->getCallEventType());
         $writer->writeDateTimeValue('eventDateTime', $this->getEventDateTime());
         $writer->writeCollectionOfObjectValues('participants', $this->getParticipants());
         $writer->writeObjectValue('recordingState', $this->getRecordingState());
         $writer->writeObjectValue('transcriptionState', $this->getTranscriptionState());
+    }
+
+    /**
+     * Sets the callConversationId property value. The callConversationId property
+     * @param string|null $value Value to set for the callConversationId property.
+    */
+    public function setCallConversationId(?string $value): void {
+        $this->getBackingStore()->set('callConversationId', $value);
     }
 
     /**
@@ -132,7 +154,7 @@ class CallEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the eventDateTime property value. The time when event occurred.
+     * Sets the eventDateTime property value. The date and time when the event occurred. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the eventDateTime property.
     */
     public function setEventDateTime(?DateTime $value): void {
