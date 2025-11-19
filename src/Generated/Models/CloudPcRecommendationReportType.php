@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Enum;
 
 class CloudPcRecommendationReportType extends Enum {
-    public const CLOUD_PC_USAGE_CATEGORY_REPORTS = "cloudPcUsageCategoryReports";
+    public const CLOUD_PC_USAGE_CATEGORY_REPORT = "cloudPcUsageCategoryReport";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const CLOUD_PC_USAGE_CATEGORY_REPORTS = "cloudPcUsageCategoryReports";
 }

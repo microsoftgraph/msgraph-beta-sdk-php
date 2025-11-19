@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\TransitiveReports;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve a count of transitive reports for a user.
+ * Get the transitive reports for an agentUser.
 */
 class TransitiveReportsRequestBuilderGetQueryParameters 
 {

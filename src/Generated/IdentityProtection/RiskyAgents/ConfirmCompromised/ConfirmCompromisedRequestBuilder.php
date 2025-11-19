@@ -30,11 +30,12 @@ class ConfirmCompromisedRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action confirmCompromised
+     * Confirm one or more riskyAgent objects as compromised. This action sets the targeted agent's riskLevel to high.
      * @param ConfirmCompromisedPostRequestBody $body The request body
      * @param ConfirmCompromisedRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/riskyagent-confirmcompromised?view=graph-rest-beta Find more info here
     */
     public function post(ConfirmCompromisedPostRequestBody $body, ?ConfirmCompromisedRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -45,7 +46,7 @@ class ConfirmCompromisedRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action confirmCompromised
+     * Confirm one or more riskyAgent objects as compromised. This action sets the targeted agent's riskLevel to high.
      * @param ConfirmCompromisedPostRequestBody $body The request body
      * @param ConfirmCompromisedRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

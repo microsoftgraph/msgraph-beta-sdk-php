@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityProtection\AgentRiskDetections\
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get agentRiskDetections from identityProtection
+ * Read the properties and relationships of agentRiskDetection object.
 */
 class AgentRiskDetectionItemRequestBuilderGetQueryParameters 
 {

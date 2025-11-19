@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\PlannerPlan;
 use Microsoft\Graph\Beta\Generated\Planner\Plans\Item\Archive\ArchiveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Plans\Item\Buckets\BucketsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Plans\Item\Details\DetailsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Planner\Plans\Item\GetUsageRights\GetUsageRightsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Plans\Item\MoveToContainer\MoveToContainerRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Plans\Item\Tasks\TasksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Plans\Item\Unarchive\UnarchiveRequestBuilder;
@@ -41,6 +42,13 @@ class PlannerPlanItemRequestBuilder extends BaseRequestBuilder
     */
     public function details(): DetailsRequestBuilder {
         return new DetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getUsageRights method.
+    */
+    public function getUsageRights(): GetUsageRightsRequestBuilder {
+        return new GetUsageRightsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

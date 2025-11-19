@@ -39,7 +39,7 @@ class AgentIdentity extends ServicePrincipal implements Parsable
     }
 
     /**
-     * Gets the agentIdentityBlueprintId property value. The agentIdentityBlueprintId property
+     * Gets the agentIdentityBlueprintId property value. The appId of the agent identity blueprint that defines the configuration for this agent identity.
      * @return string|null
     */
     public function getAgentIdentityBlueprintId(): ?string {
@@ -51,7 +51,7 @@ class AgentIdentity extends ServicePrincipal implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date and time the agent identity was created. Read-only. Inherited from servicePrincipal.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -95,7 +95,7 @@ class AgentIdentity extends ServicePrincipal implements Parsable
     }
 
     /**
-     * Sets the agentIdentityBlueprintId property value. The agentIdentityBlueprintId property
+     * Sets the agentIdentityBlueprintId property value. The appId of the agent identity blueprint that defines the configuration for this agent identity.
      * @param string|null $value Value to set for the agentIdentityBlueprintId property.
     */
     public function setAgentIdentityBlueprintId(?string $value): void {
@@ -103,7 +103,7 @@ class AgentIdentity extends ServicePrincipal implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date and time the agent identity was created. Read-only. Inherited from servicePrincipal.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
