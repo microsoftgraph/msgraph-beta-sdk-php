@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\TermsOfUse\Agreements\Item\Files\Item\Versions\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityGovernance\TermsOfUse\Agreements\Item\Files\Item\Versions\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

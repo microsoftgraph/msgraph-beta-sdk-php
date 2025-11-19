@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\OwnedObjects;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\OwnedObjects;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Directory objects owned by the user. Read-only. Nullable. Supports $expand, $select nested in $expand, and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
+ * Get the list of directory objects that are owned by the agentUser.
 */
 class OwnedObjectsRequestBuilderGetQueryParameters 
 {

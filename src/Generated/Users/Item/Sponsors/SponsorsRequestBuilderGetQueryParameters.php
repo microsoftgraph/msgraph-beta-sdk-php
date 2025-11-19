@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Sponsors;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Sponsors;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a user's sponsors. Sponsors are users and groups that are responsible for this guest's privileges in the tenant and for keeping the guest's information and access up to date.
+ * Get an agentUser's sponsors. Sponsors are users and groups that are responsible for this agent user's privileges in the tenant and for keeping the agent user's information and access up to date.
 */
 class SponsorsRequestBuilderGetQueryParameters 
 {

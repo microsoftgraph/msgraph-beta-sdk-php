@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -26,7 +26,7 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Gets the activityDateTime property value. The activityDateTime property
+     * Gets the activityDateTime property value. Date and time that the risky activity occurred. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Supports $filter (eq, le, and ge).
      * @return DateTime|null
     */
     public function getActivityDateTime(): ?DateTime {
@@ -38,7 +38,7 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Gets the additionalInfo property value. The additionalInfo property
+     * Gets the additionalInfo property value. Additional information associated with the risk detection.
      * @return string|null
     */
     public function getAdditionalInfo(): ?string {
@@ -50,7 +50,7 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Gets the agentDisplayName property value. The agentDisplayName property
+     * Gets the agentDisplayName property value. Name of the agent.  Supports $filter (eq, startsWith).
      * @return string|null
     */
     public function getAgentDisplayName(): ?string {
@@ -62,7 +62,7 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Gets the agentId property value. The agentId property
+     * Gets the agentId property value. The unique identifier for the agent. This is equivalent to 'id' to the specific agent type. See riskyAgentIdentity, riskyAgentIdentityBlueprintPrincipal, and riskyAgentUser.  Supports $filter (eq, startsWith).
      * @return string|null
     */
     public function getAgentId(): ?string {
@@ -74,7 +74,7 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Gets the detectedDateTime property value. The detectedDateTime property
+     * Gets the detectedDateTime property value. Date and time that the risk was detected. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Supports $filter (eq, le, and ge).
      * @return DateTime|null
     */
     public function getDetectedDateTime(): ?DateTime {
@@ -120,7 +120,7 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. Date and time that the risk detection was last updated.  Supports $filter (eq, le, and ge).
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -144,7 +144,7 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Gets the riskEventType property value. The riskEventType property
+     * Gets the riskEventType property value. The type of risk event detected.  Supports $filter (eq).
      * @return string|null
     */
     public function getRiskEventType(): ?string {
@@ -156,7 +156,7 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Gets the riskEvidence property value. The riskEvidence property
+     * Gets the riskEvidence property value. Evidence on the risky activity occurred.  Supports $filter (eq).
      * @return string|null
     */
     public function getRiskEvidence(): ?string {
@@ -212,7 +212,7 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Sets the activityDateTime property value. The activityDateTime property
+     * Sets the activityDateTime property value. Date and time that the risky activity occurred. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Supports $filter (eq, le, and ge).
      * @param DateTime|null $value Value to set for the activityDateTime property.
     */
     public function setActivityDateTime(?DateTime $value): void {
@@ -220,7 +220,7 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Sets the additionalInfo property value. The additionalInfo property
+     * Sets the additionalInfo property value. Additional information associated with the risk detection.
      * @param string|null $value Value to set for the additionalInfo property.
     */
     public function setAdditionalInfo(?string $value): void {
@@ -228,7 +228,7 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Sets the agentDisplayName property value. The agentDisplayName property
+     * Sets the agentDisplayName property value. Name of the agent.  Supports $filter (eq, startsWith).
      * @param string|null $value Value to set for the agentDisplayName property.
     */
     public function setAgentDisplayName(?string $value): void {
@@ -236,7 +236,7 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Sets the agentId property value. The agentId property
+     * Sets the agentId property value. The unique identifier for the agent. This is equivalent to 'id' to the specific agent type. See riskyAgentIdentity, riskyAgentIdentityBlueprintPrincipal, and riskyAgentUser.  Supports $filter (eq, startsWith).
      * @param string|null $value Value to set for the agentId property.
     */
     public function setAgentId(?string $value): void {
@@ -244,7 +244,7 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Sets the detectedDateTime property value. The detectedDateTime property
+     * Sets the detectedDateTime property value. Date and time that the risk was detected. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Supports $filter (eq, le, and ge).
      * @param DateTime|null $value Value to set for the detectedDateTime property.
     */
     public function setDetectedDateTime(?DateTime $value): void {
@@ -260,7 +260,7 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. Date and time that the risk detection was last updated.  Supports $filter (eq, le, and ge).
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
@@ -276,7 +276,7 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Sets the riskEventType property value. The riskEventType property
+     * Sets the riskEventType property value. The type of risk event detected.  Supports $filter (eq).
      * @param string|null $value Value to set for the riskEventType property.
     */
     public function setRiskEventType(?string $value): void {
@@ -284,7 +284,7 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Sets the riskEvidence property value. The riskEvidence property
+     * Sets the riskEvidence property value. Evidence on the risky activity occurred.  Supports $filter (eq).
      * @param string|null $value Value to set for the riskEvidence property.
     */
     public function setRiskEvidence(?string $value): void {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityProtection\AgentRiskDetections\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityProtection\AgentRiskDetections\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get agentRiskDetections from identityProtection
+ * Read the properties and relationships of agentRiskDetection object.
 */
 class AgentRiskDetectionItemRequestBuilderGetQueryParameters 
 {

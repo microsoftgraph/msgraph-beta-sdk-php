@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Domains\Item\FederationConfiguration;
+namespace Microsoft\\Graph\\Beta\\Generated\Domains\Item\FederationConfiguration;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

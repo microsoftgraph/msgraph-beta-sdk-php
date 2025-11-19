@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ApplicationsWithAppId;
+namespace Microsoft\\Graph\\Beta\\Generated\ApplicationsWithAppId;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the properties and relationships of an application object.
+ * Get the properties and relationships of an application object. This API can be used to get agentIdentityBlueprint objects as well by their ID.
 */
 class ApplicationsWithAppIdRequestBuilderGetQueryParameters 
 {

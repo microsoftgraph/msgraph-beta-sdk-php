@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Agents\DiscoverCopilotTools;
+namespace Microsoft\\Graph\\Beta\\Generated\Agents\DiscoverCopilotTools;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

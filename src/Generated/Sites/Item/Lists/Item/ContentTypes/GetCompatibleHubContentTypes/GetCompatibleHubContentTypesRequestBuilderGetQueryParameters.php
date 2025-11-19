@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\Item\Lists\Item\ContentTypes\GetCompatibleHubContentTypes;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\Item\Lists\Item\ContentTypes\GetCompatibleHubContentTypes;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

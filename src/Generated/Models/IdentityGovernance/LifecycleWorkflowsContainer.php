@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\IdentityGovernance;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\IdentityGovernance;
 
-use Microsoft\Graph\Beta\Generated\Models\DeletedItemContainer;
-use Microsoft\Graph\Beta\Generated\Models\Entity;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeletedItemContainer;
+use Microsoft\\Graph\\Beta\\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;

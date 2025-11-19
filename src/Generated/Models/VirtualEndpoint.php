@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -156,6 +156,7 @@ class VirtualEndpoint extends Entity implements Parsable
             'onPremisesConnections' => fn(ParseNode $n) => $o->setOnPremisesConnections($n->getCollectionOfObjectValues([CloudPcOnPremisesConnection::class, 'createFromDiscriminatorValue'])),
             'organizationSettings' => fn(ParseNode $n) => $o->setOrganizationSettings($n->getObjectValue([CloudPcOrganizationSettings::class, 'createFromDiscriminatorValue'])),
             'provisioningPolicies' => fn(ParseNode $n) => $o->setProvisioningPolicies($n->getCollectionOfObjectValues([CloudPcProvisioningPolicy::class, 'createFromDiscriminatorValue'])),
+            'report' => fn(ParseNode $n) => $o->setReport($n->getObjectValue([CloudPcReport::class, 'createFromDiscriminatorValue'])),
             'reports' => fn(ParseNode $n) => $o->setReports($n->getObjectValue([CloudPcReports::class, 'createFromDiscriminatorValue'])),
             'servicePlans' => fn(ParseNode $n) => $o->setServicePlans($n->getCollectionOfObjectValues([CloudPcServicePlan::class, 'createFromDiscriminatorValue'])),
             'snapshots' => fn(ParseNode $n) => $o->setSnapshots($n->getCollectionOfObjectValues([CloudPcSnapshot::class, 'createFromDiscriminatorValue'])),
@@ -247,6 +248,18 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
+     * Gets the report property value. Cloud PC-related reports. Read-only.
+     * @return CloudPcReport|null
+    */
+    public function getReport(): ?CloudPcReport {
+        $val = $this->getBackingStore()->get('report');
+        if (is_null($val) || $val instanceof CloudPcReport) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'report'");
+    }
+
+    /**
      * Gets the reports property value. Cloud PC-related reports.
      * @return CloudPcReports|null
     */
@@ -334,6 +347,7 @@ class VirtualEndpoint extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('onPremisesConnections', $this->getOnPremisesConnections());
         $writer->writeObjectValue('organizationSettings', $this->getOrganizationSettings());
         $writer->writeCollectionOfObjectValues('provisioningPolicies', $this->getProvisioningPolicies());
+        $writer->writeObjectValue('report', $this->getReport());
         $writer->writeObjectValue('reports', $this->getReports());
         $writer->writeCollectionOfObjectValues('servicePlans', $this->getServicePlans());
         $writer->writeCollectionOfObjectValues('snapshots', $this->getSnapshots());
@@ -451,6 +465,14 @@ class VirtualEndpoint extends Entity implements Parsable
     */
     public function setProvisioningPolicies(?array $value): void {
         $this->getBackingStore()->set('provisioningPolicies', $value);
+    }
+
+    /**
+     * Sets the report property value. Cloud PC-related reports. Read-only.
+     * @param CloudPcReport|null $value Value to set for the report property.
+    */
+    public function setReport(?CloudPcReport $value): void {
+        $this->getBackingStore()->set('report', $value);
     }
 
     /**

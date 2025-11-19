@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\DeletedItems\CrossTenantPartners\Item\IdentitySynchronization\Restore;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\DeletedItems\CrossTenantPartners\Item\IdentitySynchronization\Restore;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Events\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\VirtualEvent;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Cancel\CancelRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Presenters\PresentersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Publish\PublishRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\Sessions\SessionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\SessionsWithJoinWebUrl\SessionsWithJoinWebUrlRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\Events\Item\SetExternalEventInformation\SetExternalEventInformationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\VirtualEvent;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Events\Item\Cancel\CancelRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Events\Item\Presenters\PresentersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Events\Item\Publish\PublishRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Events\Item\Sessions\SessionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Events\Item\SessionsWithJoinWebUrl\SessionsWithJoinWebUrlRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\VirtualEvents\Events\Item\SetExternalEventInformation\SetExternalEventInformationRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

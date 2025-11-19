@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Financials\Companies\Item\GeneralLedgerEntries;
+namespace Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\GeneralLedgerEntries;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\GeneralLedgerEntries\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\GeneralLedgerEntries\Item\GeneralLedgerEntryItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\GeneralLedgerEntryCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\GeneralLedgerEntries\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Financials\Companies\Item\GeneralLedgerEntries\Item\GeneralLedgerEntryItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\GeneralLedgerEntryCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

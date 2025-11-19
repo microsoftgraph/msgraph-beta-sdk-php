@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AdministrativeUnits;
+namespace Microsoft\\Graph\\Beta\\Generated\AdministrativeUnits;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AdministrativeUnits\GetByIds\GetByIdsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AdministrativeUnits\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AdministrativeUnits\Item\AdministrativeUnitItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AdministrativeUnits\ValidateProperties\ValidatePropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AdministrativeUnit;
-use Microsoft\Graph\Beta\Generated\Models\AdministrativeUnitCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\AdministrativeUnits\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AdministrativeUnits\Delta\DeltaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AdministrativeUnits\GetByIds\GetByIdsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AdministrativeUnits\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AdministrativeUnits\Item\AdministrativeUnitItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AdministrativeUnits\ValidateProperties\ValidatePropertiesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AdministrativeUnit;
+use Microsoft\\Graph\\Beta\\Generated\Models\AdministrativeUnitCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

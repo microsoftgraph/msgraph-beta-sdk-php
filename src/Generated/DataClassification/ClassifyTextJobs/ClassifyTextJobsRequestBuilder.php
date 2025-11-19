@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DataClassification\ClassifyTextJobs;
+namespace Microsoft\\Graph\\Beta\\Generated\DataClassification\ClassifyTextJobs;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DataClassification\ClassifyTextJobs\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DataClassification\ClassifyTextJobs\Item\JobResponseBaseItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\JobResponseBase;
-use Microsoft\Graph\Beta\Generated\Models\JobResponseBaseCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DataClassification\ClassifyTextJobs\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DataClassification\ClassifyTextJobs\Item\JobResponseBaseItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\JobResponseBase;
+use Microsoft\\Graph\\Beta\\Generated\Models\JobResponseBaseCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

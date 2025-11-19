@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AuditLogs\SignInEventsSummary;
+namespace Microsoft\\Graph\\Beta\\Generated\AuditLogs\SignInEventsSummary;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\AuditLogs\SignInEventsSummary\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AuditLogs\SignInEventsSummary\Item\SignInEventsActivityItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SignInEventsActivity;
-use Microsoft\Graph\Beta\Generated\Models\SignInEventsActivityCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\SignInEventsSummary\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\AuditLogs\SignInEventsSummary\Item\SignInEventsActivityItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SignInEventsActivity;
+use Microsoft\\Graph\\Beta\\Generated\Models\SignInEventsActivityCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

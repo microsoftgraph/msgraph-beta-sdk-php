@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Teams\TelephoneNumberManagement\Operations\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Teams\TelephoneNumberManagement\Operations\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

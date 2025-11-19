@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Places\GraphSection\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Places\GraphSection\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

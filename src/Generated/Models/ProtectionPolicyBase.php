@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -97,6 +97,7 @@ class ProtectionPolicyBase extends Entity implements Parsable
             'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'protectionMode' => fn(ParseNode $n) => $o->setProtectionMode($n->getEnumValue(BackupPolicyProtectionMode::class)),
             'protectionPolicyArtifactCount' => fn(ParseNode $n) => $o->setProtectionPolicyArtifactCount($n->getObjectValue([ProtectionPolicyArtifactCount::class, 'createFromDiscriminatorValue'])),
             'retentionSettings' => fn(ParseNode $n) => $o->setRetentionSettings($n->getCollectionOfObjectValues([RetentionSetting::class, 'createFromDiscriminatorValue'])),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(ProtectionPolicyStatus::class)),
@@ -137,6 +138,18 @@ class ProtectionPolicyBase extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
+    }
+
+    /**
+     * Gets the protectionMode property value. The protectionMode property
+     * @return BackupPolicyProtectionMode|null
+    */
+    public function getProtectionMode(): ?BackupPolicyProtectionMode {
+        $val = $this->getBackingStore()->get('protectionMode');
+        if (is_null($val) || $val instanceof BackupPolicyProtectionMode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'protectionMode'");
     }
 
     /**
@@ -190,6 +203,7 @@ class ProtectionPolicyBase extends Entity implements Parsable
         $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeEnumValue('protectionMode', $this->getProtectionMode());
         $writer->writeObjectValue('protectionPolicyArtifactCount', $this->getProtectionPolicyArtifactCount());
         $writer->writeCollectionOfObjectValues('retentionSettings', $this->getRetentionSettings());
         $writer->writeEnumValue('status', $this->getStatus());
@@ -249,6 +263,14 @@ class ProtectionPolicyBase extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the protectionMode property value. The protectionMode property
+     * @param BackupPolicyProtectionMode|null $value Value to set for the protectionMode property.
+    */
+    public function setProtectionMode(?BackupPolicyProtectionMode $value): void {
+        $this->getBackingStore()->set('protectionMode', $value);
     }
 
     /**

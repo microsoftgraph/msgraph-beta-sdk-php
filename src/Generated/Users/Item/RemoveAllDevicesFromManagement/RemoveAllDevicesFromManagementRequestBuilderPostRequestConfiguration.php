@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\RemoveAllDevicesFromManagement;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\RemoveAllDevicesFromManagement;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

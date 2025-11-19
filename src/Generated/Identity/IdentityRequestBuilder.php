@@ -1,25 +1,25 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Identity\ApiConnectors\ApiConnectorsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventListeners\AuthenticationEventListenersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventsFlows\AuthenticationEventsFlowsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\B2cUserFlowsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\B2xUserFlowsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\ConditionalAccessRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\ContinuousAccessEvaluationPolicy\ContinuousAccessEvaluationPolicyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\CustomAuthenticationExtensions\CustomAuthenticationExtensionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\IdentityProviders\IdentityProvidersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\RiskPrevention\RiskPreventionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\SignInIdentifiers\SignInIdentifiersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\UserFlowAttributes\UserFlowAttributesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\UserFlows\UserFlowsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\VerifiedId\VerifiedIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\IdentityContainer;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Identity\ApiConnectors\ApiConnectorsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\AuthenticationEventListeners\AuthenticationEventListenersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\AuthenticationEventsFlows\AuthenticationEventsFlowsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\B2cUserFlows\B2cUserFlowsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\B2xUserFlows\B2xUserFlowsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\ConditionalAccess\ConditionalAccessRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\ContinuousAccessEvaluationPolicy\ContinuousAccessEvaluationPolicyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\CustomAuthenticationExtensions\CustomAuthenticationExtensionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\IdentityProviders\IdentityProvidersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\RiskPrevention\RiskPreventionRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\SignInIdentifiers\SignInIdentifiersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\UserFlowAttributes\UserFlowAttributesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\UserFlows\UserFlowsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\VerifiedId\VerifiedIdRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\IdentityContainer;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\HardwarePasswordDetails\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\HardwarePasswordDetails\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

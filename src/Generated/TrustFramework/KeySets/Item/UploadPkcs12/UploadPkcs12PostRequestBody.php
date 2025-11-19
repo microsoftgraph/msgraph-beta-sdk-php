@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\UploadPkcs12;
+namespace Microsoft\\Graph\\Beta\\Generated\TrustFramework\KeySets\Item\UploadPkcs12;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

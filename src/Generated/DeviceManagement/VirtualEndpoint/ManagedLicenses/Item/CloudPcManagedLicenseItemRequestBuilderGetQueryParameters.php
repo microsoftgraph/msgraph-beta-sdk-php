@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ManagedLicenses\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\VirtualEndpoint\ManagedLicenses\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

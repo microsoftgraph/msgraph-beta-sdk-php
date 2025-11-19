@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\CartToClassAssociations;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\CartToClassAssociations;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

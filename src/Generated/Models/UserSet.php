@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -35,6 +35,7 @@ class UserSet implements AdditionalDataHolder, BackedModel, Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.attributeRuleMembers': return new AttributeRuleMembers();
                 case '#microsoft.graph.connectedOrganizationMembers': return new ConnectedOrganizationMembers();
                 case '#microsoft.graph.externalSponsors': return new ExternalSponsors();
                 case '#microsoft.graph.groupMembers': return new GroupMembers();

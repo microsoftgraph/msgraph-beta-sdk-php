@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Teams\Policy\UserAssignments\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Teams\Policy\UserAssignments\Item;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

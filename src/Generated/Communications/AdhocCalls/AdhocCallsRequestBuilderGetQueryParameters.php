@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\AdhocCalls;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\AdhocCalls;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

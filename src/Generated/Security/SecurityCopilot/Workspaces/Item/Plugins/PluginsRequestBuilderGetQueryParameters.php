@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\SecurityCopilot\Workspaces\Item\Plugins;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\SecurityCopilot\Workspaces\Item\Plugins;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

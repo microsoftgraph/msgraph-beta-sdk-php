@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\MailboxInclusionRules;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\MailboxInclusionRules;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\MailboxProtectionRule;
-use Microsoft\Graph\Beta\Generated\Models\MailboxProtectionRuleCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\MailboxInclusionRules\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\MailboxInclusionRules\Item\MailboxProtectionRuleItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\MailboxProtectionRule;
+use Microsoft\\Graph\\Beta\\Generated\Models\MailboxProtectionRuleCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\MailboxInclusionRules\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\MailboxInclusionRules\Item\MailboxProtectionRuleItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

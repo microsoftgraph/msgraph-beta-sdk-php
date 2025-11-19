@@ -1,20 +1,20 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Places;
+namespace Microsoft\\Graph\\Beta\\Generated\Places;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Place;
-use Microsoft\Graph\Beta\Generated\Places\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Places\GraphBuilding\GraphBuildingRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Places\GraphDesk\GraphDeskRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Places\GraphFloor\GraphFloorRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Places\GraphRoom\GraphRoomRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Places\GraphRoomList\GraphRoomListRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Places\GraphSection\GraphSectionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Places\GraphWorkspace\GraphWorkspaceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Places\Item\PlaceItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Place;
+use Microsoft\\Graph\\Beta\\Generated\Places\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Places\GraphBuilding\GraphBuildingRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Places\GraphDesk\GraphDeskRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Places\GraphFloor\GraphFloorRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Places\GraphRoom\GraphRoomRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Places\GraphRoomList\GraphRoomListRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Places\GraphSection\GraphSectionRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Places\GraphWorkspace\GraphWorkspaceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Places\Item\PlaceItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

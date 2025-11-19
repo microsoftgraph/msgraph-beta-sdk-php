@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationRestrictedAppsViolations;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceConfigurationRestrictedAppsViolations;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationRestrictedAppsViolations\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationRestrictedAppsViolations\Item\RestrictedAppsViolationItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\RestrictedAppsViolation;
-use Microsoft\Graph\Beta\Generated\Models\RestrictedAppsViolationCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceConfigurationRestrictedAppsViolations\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\DeviceConfigurationRestrictedAppsViolations\Item\RestrictedAppsViolationItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\RestrictedAppsViolation;
+use Microsoft\\Graph\\Beta\\Generated\Models\RestrictedAppsViolationCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

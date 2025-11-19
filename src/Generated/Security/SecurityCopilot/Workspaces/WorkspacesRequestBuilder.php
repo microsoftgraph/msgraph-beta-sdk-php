@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\SecurityCopilot\Workspaces;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\SecurityCopilot\Workspaces;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\SecurityCopilot\Workspace;
-use Microsoft\Graph\Beta\Generated\Models\Security\SecurityCopilot\WorkspaceCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Security\SecurityCopilot\Workspaces\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\SecurityCopilot\Workspaces\Item\WorkspaceItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\SecurityCopilot\Workspace;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\SecurityCopilot\WorkspaceCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Security\SecurityCopilot\Workspaces\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\SecurityCopilot\Workspaces\Item\WorkspaceItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\SignInIdentifiers;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\SignInIdentifiers;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Connections\Item\Items\Item\MicrosoftGraphExternalConnectorsAddActivities;
+namespace Microsoft\\Graph\\Beta\\Generated\Connections\Item\Items\Item\MicrosoftGraphExternalConnectorsAddActivities;
 
-use Microsoft\Graph\Beta\Generated\Models\ExternalConnectors\ExternalActivity;
+use Microsoft\\Graph\\Beta\\Generated\Models\ExternalConnectors\ExternalActivity;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\RiskPrevention\FraudProtectionProviders\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\RiskPrevention\FraudProtectionProviders\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

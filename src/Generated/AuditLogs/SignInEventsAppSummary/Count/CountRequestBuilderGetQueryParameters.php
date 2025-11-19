@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AuditLogs\SignInEventsAppSummary\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\AuditLogs\SignInEventsAppSummary\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

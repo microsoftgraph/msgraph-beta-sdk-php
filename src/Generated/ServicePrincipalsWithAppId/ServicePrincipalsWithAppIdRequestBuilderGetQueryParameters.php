@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ServicePrincipalsWithAppId;
+namespace Microsoft\\Graph\\Beta\\Generated\ServicePrincipalsWithAppId;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the properties and relationships of a servicePrincipal object.
+ * Retrieve the properties and relationships of a servicePrincipal object. This API can be used to get agentIdentityBlueprintPrincipal objects as well by their ID.
 */
 class ServicePrincipalsWithAppIdRequestBuilderGetQueryParameters 
 {

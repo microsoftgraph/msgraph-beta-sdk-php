@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Teams\TelephoneNumberManagement\NumberAssignments\MicrosoftGraphTeamsAdministrationAssignNumber;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Teams\TelephoneNumberManagement\NumberAssignments\MicrosoftGraphTeamsAdministrationAssignNumber;
 
-use Microsoft\Graph\Beta\Generated\Models\TeamsAdministration\AssignmentCategory;
-use Microsoft\Graph\Beta\Generated\Models\TeamsAdministration\NumberType;
+use Microsoft\\Graph\\Beta\\Generated\Models\TeamsAdministration\AssignmentCategory;
+use Microsoft\\Graph\\Beta\\Generated\Models\TeamsAdministration\NumberType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

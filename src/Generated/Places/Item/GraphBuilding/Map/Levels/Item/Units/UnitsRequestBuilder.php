@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Places\Item\GraphBuilding\Map\Levels\Item\Units;
+namespace Microsoft\\Graph\\Beta\\Generated\Places\Item\GraphBuilding\Map\Levels\Item\Units;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UnitMap;
-use Microsoft\Graph\Beta\Generated\Models\UnitMapCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Places\Item\GraphBuilding\Map\Levels\Item\Units\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Places\Item\GraphBuilding\Map\Levels\Item\Units\Item\UnitMapItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UnitMap;
+use Microsoft\\Graph\\Beta\\Generated\Models\UnitMapCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Places\Item\GraphBuilding\Map\Levels\Item\Units\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Places\Item\GraphBuilding\Map\Levels\Item\Units\Item\UnitMapItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

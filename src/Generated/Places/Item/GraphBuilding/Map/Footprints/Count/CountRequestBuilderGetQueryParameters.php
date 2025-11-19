@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Places\Item\GraphBuilding\Map\Footprints\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Places\Item\GraphBuilding\Map\Footprints\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

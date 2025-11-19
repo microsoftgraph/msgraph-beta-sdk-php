@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ProtectionPolicies\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\ProtectionPolicies\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\ProtectionPolicyBase;
-use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ProtectionPolicies\Item\Activate\ActivateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ProtectionPolicies\Item\Deactivate\DeactivateRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\ProtectionPolicyBase;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\ProtectionPolicies\Item\Activate\ActivateRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Solutions\BackupRestore\ProtectionPolicies\Item\Deactivate\DeactivateRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

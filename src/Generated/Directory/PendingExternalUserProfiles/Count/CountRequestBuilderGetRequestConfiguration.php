@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\PendingExternalUserProfiles\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\PendingExternalUserProfiles\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

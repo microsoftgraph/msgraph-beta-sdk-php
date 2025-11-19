@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\SecurityCopilot\Workspaces\Item\Plugins;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\SecurityCopilot\Workspaces\Item\Plugins;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\SecurityCopilot\Plugin;
-use Microsoft\Graph\Beta\Generated\Models\Security\SecurityCopilot\PluginCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Security\SecurityCopilot\Workspaces\Item\Plugins\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\SecurityCopilot\Workspaces\Item\Plugins\Item\PluginNameItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\SecurityCopilot\Plugin;
+use Microsoft\\Graph\\Beta\\Generated\Models\Security\SecurityCopilot\PluginCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Security\SecurityCopilot\Workspaces\Item\Plugins\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Security\SecurityCopilot\Workspaces\Item\Plugins\Item\PluginNameItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

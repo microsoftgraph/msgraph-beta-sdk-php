@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -23,6 +23,56 @@ class BackupRestoreRoot extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): BackupRestoreRoot {
         return new BackupRestoreRoot();
+    }
+
+    /**
+     * Gets the allDrivesBackup property value. The allDrivesBackup property
+     * @return AllDrivesBackup|null
+    */
+    public function getAllDrivesBackup(): ?AllDrivesBackup {
+        $val = $this->getBackingStore()->get('allDrivesBackup');
+        if (is_null($val) || $val instanceof AllDrivesBackup) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allDrivesBackup'");
+    }
+
+    /**
+     * Gets the allMailboxesBackup property value. The allMailboxesBackup property
+     * @return AllMailboxesBackup|null
+    */
+    public function getAllMailboxesBackup(): ?AllMailboxesBackup {
+        $val = $this->getBackingStore()->get('allMailboxesBackup');
+        if (is_null($val) || $val instanceof AllMailboxesBackup) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allMailboxesBackup'");
+    }
+
+    /**
+     * Gets the allSitesBackup property value. The allSitesBackup property
+     * @return AllSitesBackup|null
+    */
+    public function getAllSitesBackup(): ?AllSitesBackup {
+        $val = $this->getBackingStore()->get('allSitesBackup');
+        if (is_null($val) || $val instanceof AllSitesBackup) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allSitesBackup'");
+    }
+
+    /**
+     * Gets the browseSessions property value. The browseSessions property
+     * @return array<BrowseSessionBase>|null
+    */
+    public function getBrowseSessions(): ?array {
+        $val = $this->getBackingStore()->get('browseSessions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, BrowseSessionBase::class);
+            /** @var array<BrowseSessionBase>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'browseSessions'");
     }
 
     /**
@@ -114,6 +164,10 @@ class BackupRestoreRoot extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'allDrivesBackup' => fn(ParseNode $n) => $o->setAllDrivesBackup($n->getObjectValue([AllDrivesBackup::class, 'createFromDiscriminatorValue'])),
+            'allMailboxesBackup' => fn(ParseNode $n) => $o->setAllMailboxesBackup($n->getObjectValue([AllMailboxesBackup::class, 'createFromDiscriminatorValue'])),
+            'allSitesBackup' => fn(ParseNode $n) => $o->setAllSitesBackup($n->getObjectValue([AllSitesBackup::class, 'createFromDiscriminatorValue'])),
+            'browseSessions' => fn(ParseNode $n) => $o->setBrowseSessions($n->getCollectionOfObjectValues([BrowseSessionBase::class, 'createFromDiscriminatorValue'])),
             'driveInclusionRules' => fn(ParseNode $n) => $o->setDriveInclusionRules($n->getCollectionOfObjectValues([DriveProtectionRule::class, 'createFromDiscriminatorValue'])),
             'driveProtectionUnits' => fn(ParseNode $n) => $o->setDriveProtectionUnits($n->getCollectionOfObjectValues([DriveProtectionUnit::class, 'createFromDiscriminatorValue'])),
             'driveProtectionUnitsBulkAdditionJobs' => fn(ParseNode $n) => $o->setDriveProtectionUnitsBulkAdditionJobs($n->getCollectionOfObjectValues([DriveProtectionUnitsBulkAdditionJob::class, 'createFromDiscriminatorValue'])),
@@ -123,6 +177,7 @@ class BackupRestoreRoot extends Entity implements Parsable
             'mailboxInclusionRules' => fn(ParseNode $n) => $o->setMailboxInclusionRules($n->getCollectionOfObjectValues([MailboxProtectionRule::class, 'createFromDiscriminatorValue'])),
             'mailboxProtectionUnits' => fn(ParseNode $n) => $o->setMailboxProtectionUnits($n->getCollectionOfObjectValues([MailboxProtectionUnit::class, 'createFromDiscriminatorValue'])),
             'mailboxProtectionUnitsBulkAdditionJobs' => fn(ParseNode $n) => $o->setMailboxProtectionUnitsBulkAdditionJobs($n->getCollectionOfObjectValues([MailboxProtectionUnitsBulkAdditionJob::class, 'createFromDiscriminatorValue'])),
+            'oneDriveForBusinessBrowseSessions' => fn(ParseNode $n) => $o->setOneDriveForBusinessBrowseSessions($n->getCollectionOfObjectValues([OneDriveForBusinessBrowseSession::class, 'createFromDiscriminatorValue'])),
             'oneDriveForBusinessProtectionPolicies' => fn(ParseNode $n) => $o->setOneDriveForBusinessProtectionPolicies($n->getCollectionOfObjectValues([OneDriveForBusinessProtectionPolicy::class, 'createFromDiscriminatorValue'])),
             'oneDriveForBusinessRestoreSessions' => fn(ParseNode $n) => $o->setOneDriveForBusinessRestoreSessions($n->getCollectionOfObjectValues([OneDriveForBusinessRestoreSession::class, 'createFromDiscriminatorValue'])),
             'protectionPolicies' => fn(ParseNode $n) => $o->setProtectionPolicies($n->getCollectionOfObjectValues([ProtectionPolicyBase::class, 'createFromDiscriminatorValue'])),
@@ -131,6 +186,7 @@ class BackupRestoreRoot extends Entity implements Parsable
             'restoreSessions' => fn(ParseNode $n) => $o->setRestoreSessions($n->getCollectionOfObjectValues([RestoreSessionBase::class, 'createFromDiscriminatorValue'])),
             'serviceApps' => fn(ParseNode $n) => $o->setServiceApps($n->getCollectionOfObjectValues([ServiceApp::class, 'createFromDiscriminatorValue'])),
             'serviceStatus' => fn(ParseNode $n) => $o->setServiceStatus($n->getObjectValue([ServiceStatus::class, 'createFromDiscriminatorValue'])),
+            'sharePointBrowseSessions' => fn(ParseNode $n) => $o->setSharePointBrowseSessions($n->getCollectionOfObjectValues([SharePointBrowseSession::class, 'createFromDiscriminatorValue'])),
             'sharePointProtectionPolicies' => fn(ParseNode $n) => $o->setSharePointProtectionPolicies($n->getCollectionOfObjectValues([SharePointProtectionPolicy::class, 'createFromDiscriminatorValue'])),
             'sharePointRestoreSessions' => fn(ParseNode $n) => $o->setSharePointRestoreSessions($n->getCollectionOfObjectValues([SharePointRestoreSession::class, 'createFromDiscriminatorValue'])),
             'siteInclusionRules' => fn(ParseNode $n) => $o->setSiteInclusionRules($n->getCollectionOfObjectValues([SiteProtectionRule::class, 'createFromDiscriminatorValue'])),
@@ -179,6 +235,20 @@ class BackupRestoreRoot extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'mailboxProtectionUnitsBulkAdditionJobs'");
+    }
+
+    /**
+     * Gets the oneDriveForBusinessBrowseSessions property value. The oneDriveForBusinessBrowseSessions property
+     * @return array<OneDriveForBusinessBrowseSession>|null
+    */
+    public function getOneDriveForBusinessBrowseSessions(): ?array {
+        $val = $this->getBackingStore()->get('oneDriveForBusinessBrowseSessions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, OneDriveForBusinessBrowseSession::class);
+            /** @var array<OneDriveForBusinessBrowseSession>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'oneDriveForBusinessBrowseSessions'");
     }
 
     /**
@@ -292,6 +362,20 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the sharePointBrowseSessions property value. The sharePointBrowseSessions property
+     * @return array<SharePointBrowseSession>|null
+    */
+    public function getSharePointBrowseSessions(): ?array {
+        $val = $this->getBackingStore()->get('sharePointBrowseSessions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SharePointBrowseSession::class);
+            /** @var array<SharePointBrowseSession>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sharePointBrowseSessions'");
+    }
+
+    /**
      * Gets the sharePointProtectionPolicies property value. The list of SharePoint protection policies in the tenant.
      * @return array<SharePointProtectionPolicy>|null
     */
@@ -367,6 +451,10 @@ class BackupRestoreRoot extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('allDrivesBackup', $this->getAllDrivesBackup());
+        $writer->writeObjectValue('allMailboxesBackup', $this->getAllMailboxesBackup());
+        $writer->writeObjectValue('allSitesBackup', $this->getAllSitesBackup());
+        $writer->writeCollectionOfObjectValues('browseSessions', $this->getBrowseSessions());
         $writer->writeCollectionOfObjectValues('driveInclusionRules', $this->getDriveInclusionRules());
         $writer->writeCollectionOfObjectValues('driveProtectionUnits', $this->getDriveProtectionUnits());
         $writer->writeCollectionOfObjectValues('driveProtectionUnitsBulkAdditionJobs', $this->getDriveProtectionUnitsBulkAdditionJobs());
@@ -376,6 +464,7 @@ class BackupRestoreRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('mailboxInclusionRules', $this->getMailboxInclusionRules());
         $writer->writeCollectionOfObjectValues('mailboxProtectionUnits', $this->getMailboxProtectionUnits());
         $writer->writeCollectionOfObjectValues('mailboxProtectionUnitsBulkAdditionJobs', $this->getMailboxProtectionUnitsBulkAdditionJobs());
+        $writer->writeCollectionOfObjectValues('oneDriveForBusinessBrowseSessions', $this->getOneDriveForBusinessBrowseSessions());
         $writer->writeCollectionOfObjectValues('oneDriveForBusinessProtectionPolicies', $this->getOneDriveForBusinessProtectionPolicies());
         $writer->writeCollectionOfObjectValues('oneDriveForBusinessRestoreSessions', $this->getOneDriveForBusinessRestoreSessions());
         $writer->writeCollectionOfObjectValues('protectionPolicies', $this->getProtectionPolicies());
@@ -384,11 +473,44 @@ class BackupRestoreRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('restoreSessions', $this->getRestoreSessions());
         $writer->writeCollectionOfObjectValues('serviceApps', $this->getServiceApps());
         $writer->writeObjectValue('serviceStatus', $this->getServiceStatus());
+        $writer->writeCollectionOfObjectValues('sharePointBrowseSessions', $this->getSharePointBrowseSessions());
         $writer->writeCollectionOfObjectValues('sharePointProtectionPolicies', $this->getSharePointProtectionPolicies());
         $writer->writeCollectionOfObjectValues('sharePointRestoreSessions', $this->getSharePointRestoreSessions());
         $writer->writeCollectionOfObjectValues('siteInclusionRules', $this->getSiteInclusionRules());
         $writer->writeCollectionOfObjectValues('siteProtectionUnits', $this->getSiteProtectionUnits());
         $writer->writeCollectionOfObjectValues('siteProtectionUnitsBulkAdditionJobs', $this->getSiteProtectionUnitsBulkAdditionJobs());
+    }
+
+    /**
+     * Sets the allDrivesBackup property value. The allDrivesBackup property
+     * @param AllDrivesBackup|null $value Value to set for the allDrivesBackup property.
+    */
+    public function setAllDrivesBackup(?AllDrivesBackup $value): void {
+        $this->getBackingStore()->set('allDrivesBackup', $value);
+    }
+
+    /**
+     * Sets the allMailboxesBackup property value. The allMailboxesBackup property
+     * @param AllMailboxesBackup|null $value Value to set for the allMailboxesBackup property.
+    */
+    public function setAllMailboxesBackup(?AllMailboxesBackup $value): void {
+        $this->getBackingStore()->set('allMailboxesBackup', $value);
+    }
+
+    /**
+     * Sets the allSitesBackup property value. The allSitesBackup property
+     * @param AllSitesBackup|null $value Value to set for the allSitesBackup property.
+    */
+    public function setAllSitesBackup(?AllSitesBackup $value): void {
+        $this->getBackingStore()->set('allSitesBackup', $value);
+    }
+
+    /**
+     * Sets the browseSessions property value. The browseSessions property
+     * @param array<BrowseSessionBase>|null $value Value to set for the browseSessions property.
+    */
+    public function setBrowseSessions(?array $value): void {
+        $this->getBackingStore()->set('browseSessions', $value);
     }
 
     /**
@@ -464,6 +586,14 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
+     * Sets the oneDriveForBusinessBrowseSessions property value. The oneDriveForBusinessBrowseSessions property
+     * @param array<OneDriveForBusinessBrowseSession>|null $value Value to set for the oneDriveForBusinessBrowseSessions property.
+    */
+    public function setOneDriveForBusinessBrowseSessions(?array $value): void {
+        $this->getBackingStore()->set('oneDriveForBusinessBrowseSessions', $value);
+    }
+
+    /**
      * Sets the oneDriveForBusinessProtectionPolicies property value. The list of OneDrive for Business protection policies in the tenant.
      * @param array<OneDriveForBusinessProtectionPolicy>|null $value Value to set for the oneDriveForBusinessProtectionPolicies property.
     */
@@ -525,6 +655,14 @@ class BackupRestoreRoot extends Entity implements Parsable
     */
     public function setServiceStatus(?ServiceStatus $value): void {
         $this->getBackingStore()->set('serviceStatus', $value);
+    }
+
+    /**
+     * Sets the sharePointBrowseSessions property value. The sharePointBrowseSessions property
+     * @param array<SharePointBrowseSession>|null $value Value to set for the sharePointBrowseSessions property.
+    */
+    public function setSharePointBrowseSessions(?array $value): void {
+        $this->getBackingStore()->set('sharePointBrowseSessions', $value);
     }
 
     /**

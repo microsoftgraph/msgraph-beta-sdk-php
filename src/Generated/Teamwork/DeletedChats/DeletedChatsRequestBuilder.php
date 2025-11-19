@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teamwork\DeletedChats;
+namespace Microsoft\\Graph\\Beta\\Generated\Teamwork\DeletedChats;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DeletedChat;
-use Microsoft\Graph\Beta\Generated\Models\DeletedChatCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Teamwork\DeletedChats\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\DeletedChats\Item\DeletedChatItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeletedChat;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeletedChatCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Teamwork\DeletedChats\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teamwork\DeletedChats\Item\DeletedChatItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Teams\Policy\UserAssignments\MicrosoftGraphTeamsAdministrationUnassign;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Teams\Policy\UserAssignments\MicrosoftGraphTeamsAdministrationUnassign;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

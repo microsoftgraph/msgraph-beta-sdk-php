@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityProtection;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityProtection;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\IdentityProtection\AgentRiskDetections\AgentRiskDetectionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskDetections\RiskDetectionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyAgents\RiskyAgentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyServicePrincipals\RiskyServicePrincipalsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyUsers\RiskyUsersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityProtection\ServicePrincipalRiskDetections\ServicePrincipalRiskDetectionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\IdentityProtectionRoot;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\IdentityProtection\AgentRiskDetections\AgentRiskDetectionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityProtection\RiskDetections\RiskDetectionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityProtection\RiskyAgents\RiskyAgentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityProtection\RiskyServicePrincipals\RiskyServicePrincipalsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityProtection\RiskyUsers\RiskyUsersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityProtection\ServicePrincipalRiskDetections\ServicePrincipalRiskDetectionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\IdentityProtectionRoot;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

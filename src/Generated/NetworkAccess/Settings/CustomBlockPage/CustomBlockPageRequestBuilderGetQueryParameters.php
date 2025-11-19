@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Settings\CustomBlockPage;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\Settings\CustomBlockPage;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

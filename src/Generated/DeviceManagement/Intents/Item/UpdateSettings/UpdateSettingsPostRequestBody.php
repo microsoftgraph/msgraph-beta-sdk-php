@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\UpdateSettings;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Intents\Item\UpdateSettings;
 
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagementSettingInstance;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagementSettingInstance;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

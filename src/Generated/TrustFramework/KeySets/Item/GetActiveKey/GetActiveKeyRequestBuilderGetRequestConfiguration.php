@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\TrustFramework\KeySets\Item\GetActiveKey;
+namespace Microsoft\\Graph\\Beta\\Generated\TrustFramework\KeySets\Item\GetActiveKey;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

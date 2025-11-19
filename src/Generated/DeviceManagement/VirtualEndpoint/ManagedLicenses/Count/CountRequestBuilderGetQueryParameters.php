@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ManagedLicenses\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\VirtualEndpoint\ManagedLicenses\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

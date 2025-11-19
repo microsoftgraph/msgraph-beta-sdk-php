@@ -1,10 +1,10 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyAgents\ConfirmSafe;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityProtection\RiskyAgents\ConfirmSafe;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -30,11 +30,12 @@ class ConfirmSafeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action confirmSafe
+     * Confirm one or more riskyAgent objects as safe. This action sets the targeted agent's riskLevel to none.
      * @param ConfirmSafePostRequestBody $body The request body
      * @param ConfirmSafeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/riskyagent-confirmsafe?view=graph-rest-beta Find more info here
     */
     public function post(ConfirmSafePostRequestBody $body, ?ConfirmSafeRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -45,7 +46,7 @@ class ConfirmSafeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action confirmSafe
+     * Confirm one or more riskyAgent objects as safe. This action sets the targeted agent's riskLevel to none.
      * @param ConfirmSafePostRequestBody $body The request body
      * @param ConfirmSafeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

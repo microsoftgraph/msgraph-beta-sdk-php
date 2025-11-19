@@ -1,19 +1,19 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\Jobs\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Shares\Item\Jobs\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\Jobs\Item\Abort\AbortRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\Jobs\Item\Cancel\CancelRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\Jobs\Item\CancelPrintJob\CancelPrintJobRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\Jobs\Item\Documents\DocumentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\Jobs\Item\Redirect\RedirectRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\Jobs\Item\Start\StartRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\Jobs\Item\StartPrintJob\StartPrintJobRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EscapedPrint\Shares\Item\Jobs\Item\Tasks\TasksRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PrintJob;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Shares\Item\Jobs\Item\Abort\AbortRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Shares\Item\Jobs\Item\Cancel\CancelRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Shares\Item\Jobs\Item\CancelPrintJob\CancelPrintJobRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Shares\Item\Jobs\Item\Documents\DocumentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Shares\Item\Jobs\Item\Redirect\RedirectRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Shares\Item\Jobs\Item\Start\StartRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Shares\Item\Jobs\Item\StartPrintJob\StartPrintJobRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\EscapedPrint\Shares\Item\Jobs\Item\Tasks\TasksRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\PrintJob;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Approvals\Item\Steps;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Approvals\Item\Steps;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ApprovalStep;
-use Microsoft\Graph\Beta\Generated\Models\ApprovalStepCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\Approvals\Item\Steps\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Approvals\Item\Steps\Item\ApprovalStepItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ApprovalStep;
+use Microsoft\\Graph\\Beta\\Generated\Models\ApprovalStepCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Approvals\Item\Steps\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Approvals\Item\Steps\Item\ApprovalStepItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\DirectReports;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\DirectReports;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The users and contacts that report to the user. (The users and contacts with their manager property set to this user.) Read-only. Nullable. Supports $expand.
+ * Get an agentUser's direct reports. Returns the users and contacts for whom this agent user is assigned as manager.
 */
 class DirectReportsRequestBuilderGetQueryParameters 
 {

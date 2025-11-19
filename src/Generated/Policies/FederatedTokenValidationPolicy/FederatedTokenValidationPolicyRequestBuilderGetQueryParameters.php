@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\FederatedTokenValidationPolicy;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\FederatedTokenValidationPolicy;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

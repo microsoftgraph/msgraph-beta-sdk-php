@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -62,6 +62,18 @@ class PlannerPlan extends PlannerDelta implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'container'");
+    }
+
+    /**
+     * Gets the contentSensitivityLabelAssignment property value. The sensitivity label assignment for the plan. Used to classify and protect the plan content based on organizational policies. This property is null if no sensitivity label is assigned. Optional.
+     * @return ContentSensitivityLabelAssignment|null
+    */
+    public function getContentSensitivityLabelAssignment(): ?ContentSensitivityLabelAssignment {
+        $val = $this->getBackingStore()->get('contentSensitivityLabelAssignment');
+        if (is_null($val) || $val instanceof ContentSensitivityLabelAssignment) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentSensitivityLabelAssignment'");
     }
 
     /**
@@ -134,6 +146,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
             'archivalInfo' => fn(ParseNode $n) => $o->setArchivalInfo($n->getObjectValue([PlannerArchivalInfo::class, 'createFromDiscriminatorValue'])),
             'buckets' => fn(ParseNode $n) => $o->setBuckets($n->getCollectionOfObjectValues([PlannerBucket::class, 'createFromDiscriminatorValue'])),
             'container' => fn(ParseNode $n) => $o->setContainer($n->getObjectValue([PlannerPlanContainer::class, 'createFromDiscriminatorValue'])),
+            'contentSensitivityLabelAssignment' => fn(ParseNode $n) => $o->setContentSensitivityLabelAssignment($n->getObjectValue([ContentSensitivityLabelAssignment::class, 'createFromDiscriminatorValue'])),
             'contexts' => fn(ParseNode $n) => $o->setContexts($n->getObjectValue([PlannerPlanContextCollection::class, 'createFromDiscriminatorValue'])),
             'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
@@ -220,6 +233,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
         $writer->writeObjectValue('archivalInfo', $this->getArchivalInfo());
         $writer->writeCollectionOfObjectValues('buckets', $this->getBuckets());
         $writer->writeObjectValue('container', $this->getContainer());
+        $writer->writeObjectValue('contentSensitivityLabelAssignment', $this->getContentSensitivityLabelAssignment());
         $writer->writeObjectValue('contexts', $this->getContexts());
         $writer->writeObjectValue('createdBy', $this->getCreatedBy());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
@@ -254,6 +268,14 @@ class PlannerPlan extends PlannerDelta implements Parsable
     */
     public function setContainer(?PlannerPlanContainer $value): void {
         $this->getBackingStore()->set('container', $value);
+    }
+
+    /**
+     * Sets the contentSensitivityLabelAssignment property value. The sensitivity label assignment for the plan. Used to classify and protect the plan content based on organizational policies. This property is null if no sensitivity label is assigned. Optional.
+     * @param ContentSensitivityLabelAssignment|null $value Value to set for the contentSensitivityLabelAssignment property.
+    */
+    public function setContentSensitivityLabelAssignment(?ContentSensitivityLabelAssignment $value): void {
+        $this->getBackingStore()->set('contentSensitivityLabelAssignment', $value);
     }
 
     /**

@@ -1,20 +1,20 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Presence;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Presence;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Presence;
-use Microsoft\Graph\Beta\Generated\Users\Item\Presence\ClearAutomaticLocation\ClearAutomaticLocationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Presence\ClearLocation\ClearLocationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Presence\ClearPresence\ClearPresenceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Presence\ClearUserPreferredPresence\ClearUserPreferredPresenceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Presence\SetAutomaticLocation\SetAutomaticLocationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Presence\SetManualLocation\SetManualLocationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Presence\SetPresence\SetPresenceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Presence\SetStatusMessage\SetStatusMessageRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Presence\SetUserPreferredPresence\SetUserPreferredPresenceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Presence;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Presence\ClearAutomaticLocation\ClearAutomaticLocationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Presence\ClearLocation\ClearLocationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Presence\ClearPresence\ClearPresenceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Presence\ClearUserPreferredPresence\ClearUserPreferredPresenceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Presence\SetAutomaticLocation\SetAutomaticLocationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Presence\SetManualLocation\SetManualLocationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Presence\SetPresence\SetPresenceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Presence\SetStatusMessage\SetStatusMessageRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\Presence\SetUserPreferredPresence\SetUserPreferredPresenceRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

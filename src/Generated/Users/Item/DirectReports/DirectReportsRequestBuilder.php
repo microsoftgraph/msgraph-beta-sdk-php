@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\DirectReports;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\DirectReports;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DirectoryObjectCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\DirectReports\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\DirectReports\GraphOrgContact\GraphOrgContactRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\DirectReports\GraphUser\GraphUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\DirectReports\Item\DirectoryObjectItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DirectoryObjectCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\DirectReports\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\DirectReports\GraphOrgContact\GraphOrgContactRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\DirectReports\GraphUser\GraphUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\DirectReports\Item\DirectoryObjectItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -67,10 +67,11 @@ class DirectReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The users and contacts that report to the user. (The users and contacts with their manager property set to this user.) Read-only. Nullable. Supports $expand.
+     * Get an agentUser's direct reports. Returns the users and contacts for whom this agent user is assigned as manager.
      * @param DirectReportsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectoryObjectCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/agentuser-list-directreports?view=graph-rest-beta Find more info here
     */
     public function get(?DirectReportsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class DirectReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The users and contacts that report to the user. (The users and contacts with their manager property set to this user.) Read-only. Nullable. Supports $expand.
+     * Get an agentUser's direct reports. Returns the users and contacts for whom this agent user is assigned as manager.
      * @param DirectReportsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

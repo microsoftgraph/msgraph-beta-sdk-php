@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Places\Item\GraphFloor;
+namespace Microsoft\\Graph\\Beta\\Generated\Places\Item\GraphFloor;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

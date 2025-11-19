@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Catalog\Entries;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Windows\Updates\Catalog\Entries;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Templates\DeviceTemplates\Item\Owners;
+namespace Microsoft\\Graph\\Beta\\Generated\Templates\DeviceTemplates\Item\Owners;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DirectoryObjectCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Templates\DeviceTemplates\Item\Owners\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Templates\DeviceTemplates\Item\Owners\Item\DirectoryObjectItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DirectoryObjectCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Templates\DeviceTemplates\Item\Owners\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Templates\DeviceTemplates\Item\Owners\Item\DirectoryObjectItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -99,7 +99,7 @@ class ConditionalAccessClientApplications implements AdditionalDataHolder, Backe
     }
 
     /**
-     * Gets the includeServicePrincipals property value. Service principal IDs included in the policy scope, or ServicePrincipalsInMyTenant.
+     * Gets the includeServicePrincipals property value. Service principal IDs included in the policy scope or ServicePrincipalsInMyTenant.
      * @return array<string>|null
     */
     public function getIncludeServicePrincipals(): ?array {
@@ -173,7 +173,7 @@ class ConditionalAccessClientApplications implements AdditionalDataHolder, Backe
     }
 
     /**
-     * Sets the includeServicePrincipals property value. Service principal IDs included in the policy scope, or ServicePrincipalsInMyTenant.
+     * Sets the includeServicePrincipals property value. Service principal IDs included in the policy scope or ServicePrincipalsInMyTenant.
      * @param array<string>|null $value Value to set for the includeServicePrincipals property.
     */
     public function setIncludeServicePrincipals(?array $value): void {

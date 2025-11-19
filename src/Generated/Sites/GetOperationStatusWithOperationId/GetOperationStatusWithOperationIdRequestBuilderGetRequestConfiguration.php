@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Sites\GetOperationStatusWithOperationId;
+namespace Microsoft\\Graph\\Beta\\Generated\Sites\GetOperationStatusWithOperationId;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

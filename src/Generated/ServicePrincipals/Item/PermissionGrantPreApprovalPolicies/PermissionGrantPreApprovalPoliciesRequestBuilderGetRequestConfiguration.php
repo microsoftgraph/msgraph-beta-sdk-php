@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\PermissionGrantPreApprovalPolicies;
+namespace Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\PermissionGrantPreApprovalPolicies;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

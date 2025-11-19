@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\UpdateWindowsDeviceAccount;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\ManagedDevices\Item\UpdateWindowsDeviceAccount;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

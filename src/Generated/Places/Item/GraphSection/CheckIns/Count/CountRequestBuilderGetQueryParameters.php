@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Places\Item\GraphSection\CheckIns\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Places\Item\GraphSection\CheckIns\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

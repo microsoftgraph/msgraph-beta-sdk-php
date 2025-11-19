@@ -1,24 +1,24 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Contacts\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Contacts\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\DirectReports\DirectReportsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\Manager\ManagerRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\MemberOf\MemberOfRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\OnPremisesSyncBehavior\OnPremisesSyncBehaviorRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\Restore\RestoreRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\RetryServiceProvisioning\RetryServiceProvisioningRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\ServiceProvisioningErrors\ServiceProvisioningErrorsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\TransitiveMemberOf\TransitiveMemberOfRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\TransitiveReports\TransitiveReportsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\OrgContact;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\DirectReports\DirectReportsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\Manager\ManagerRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\MemberOf\MemberOfRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\OnPremisesSyncBehavior\OnPremisesSyncBehaviorRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\Restore\RestoreRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\RetryServiceProvisioning\RetryServiceProvisioningRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\ServiceProvisioningErrors\ServiceProvisioningErrorsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\TransitiveMemberOf\TransitiveMemberOfRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\TransitiveReports\TransitiveReportsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\OrgContact;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

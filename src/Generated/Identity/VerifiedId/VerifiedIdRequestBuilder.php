@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\VerifiedId;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\VerifiedId;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Identity\VerifiedId\Profiles\ProfilesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\IdentityVerifiedIdRoot;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Identity\VerifiedId\Profiles\ProfilesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\IdentityVerifiedIdRoot;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

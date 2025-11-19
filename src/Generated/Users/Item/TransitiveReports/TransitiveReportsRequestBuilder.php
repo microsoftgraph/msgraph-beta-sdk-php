@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\TransitiveReports;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\TransitiveReports;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DirectoryObjectCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\TransitiveReports\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\TransitiveReports\Item\DirectoryObjectItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DirectoryObjectCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\TransitiveReports\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\TransitiveReports\Item\DirectoryObjectItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -51,11 +51,11 @@ class TransitiveReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a count of transitive reports for a user.
+     * Get the transitive reports for an agentUser.
      * @param TransitiveReportsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectoryObjectCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/user-get-transitivereports?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/agentuser-list-transitivereports?view=graph-rest-beta Find more info here
     */
     public function get(?TransitiveReportsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,7 +66,7 @@ class TransitiveReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve a count of transitive reports for a user.
+     * Get the transitive reports for an agentUser.
      * @param TransitiveReportsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

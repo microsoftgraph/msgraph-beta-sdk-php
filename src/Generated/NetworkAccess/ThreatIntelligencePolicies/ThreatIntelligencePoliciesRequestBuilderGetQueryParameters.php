@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\NetworkAccess\ThreatIntelligencePolicies;
+namespace Microsoft\\Graph\\Beta\\Generated\NetworkAccess\ThreatIntelligencePolicies;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

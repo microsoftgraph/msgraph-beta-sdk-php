@@ -1,20 +1,20 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Places\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Places\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Place;
-use Microsoft\Graph\Beta\Generated\Places\Item\CheckIns\CheckInsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Places\Item\Descendants\DescendantsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Places\Item\GraphBuilding\GraphBuildingRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Places\Item\GraphDesk\GraphDeskRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Places\Item\GraphFloor\GraphFloorRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Places\Item\GraphRoom\GraphRoomRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Places\Item\GraphRoomList\GraphRoomListRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Places\Item\GraphSection\GraphSectionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Places\Item\GraphWorkspace\GraphWorkspaceRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Place;
+use Microsoft\\Graph\\Beta\\Generated\Places\Item\CheckIns\CheckInsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Places\Item\Descendants\DescendantsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Places\Item\GraphBuilding\GraphBuildingRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Places\Item\GraphDesk\GraphDeskRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Places\Item\GraphFloor\GraphFloorRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Places\Item\GraphRoom\GraphRoomRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Places\Item\GraphRoomList\GraphRoomListRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Places\Item\GraphSection\GraphSectionRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Places\Item\GraphWorkspace\GraphWorkspaceRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

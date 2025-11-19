@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\VerifiedId\Profiles\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\VerifiedId\Profiles\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

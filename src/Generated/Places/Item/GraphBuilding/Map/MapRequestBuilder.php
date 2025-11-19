@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Places\Item\GraphBuilding\Map;
+namespace Microsoft\\Graph\\Beta\\Generated\Places\Item\GraphBuilding\Map;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\BuildingMap;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Places\Item\GraphBuilding\Map\Footprints\FootprintsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Places\Item\GraphBuilding\Map\Levels\LevelsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\BuildingMap;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Places\Item\GraphBuilding\Map\Footprints\FootprintsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Places\Item\GraphBuilding\Map\Levels\LevelsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

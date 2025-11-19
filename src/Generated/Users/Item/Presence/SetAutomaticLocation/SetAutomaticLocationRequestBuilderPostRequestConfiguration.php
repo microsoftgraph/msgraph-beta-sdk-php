@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Presence\SetAutomaticLocation;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Presence\SetAutomaticLocation;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

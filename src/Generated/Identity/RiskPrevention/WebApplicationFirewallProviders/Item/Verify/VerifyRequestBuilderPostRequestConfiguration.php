@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\RiskPrevention\WebApplicationFirewallProviders\Item\Verify;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\RiskPrevention\WebApplicationFirewallProviders\Item\Verify;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

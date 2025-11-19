@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\RiskPrevention\WebApplicationFirewallProviders\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\RiskPrevention\WebApplicationFirewallProviders\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Identity\RiskPrevention\WebApplicationFirewallProviders\Item\Verify\VerifyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\WebApplicationFirewallProvider;
+use Microsoft\\Graph\\Beta\\Generated\Identity\RiskPrevention\WebApplicationFirewallProviders\Item\Verify\VerifyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\WebApplicationFirewallProvider;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

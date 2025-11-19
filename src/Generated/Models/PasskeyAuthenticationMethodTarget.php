@@ -1,10 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class PasskeyAuthenticationMethodTarget extends AuthenticationMethodTarget implements Parsable 
 {
@@ -25,12 +26,34 @@ class PasskeyAuthenticationMethodTarget extends AuthenticationMethodTarget imple
     }
 
     /**
+     * Gets the allowedPasskeyProfiles property value. List of passkey profiles scoped to the targets. Required.
+     * @return array<string>|null
+    */
+    public function getAllowedPasskeyProfiles(): ?array {
+        $val = $this->getBackingStore()->get('allowedPasskeyProfiles');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedPasskeyProfiles'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'allowedPasskeyProfiles' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setAllowedPasskeyProfiles($val);
+            },
         ]);
     }
 
@@ -40,6 +63,15 @@ class PasskeyAuthenticationMethodTarget extends AuthenticationMethodTarget imple
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfPrimitiveValues('allowedPasskeyProfiles', $this->getAllowedPasskeyProfiles());
+    }
+
+    /**
+     * Sets the allowedPasskeyProfiles property value. List of passkey profiles scoped to the targets. Required.
+     * @param array<string>|null $value Value to set for the allowedPasskeyProfiles property.
+    */
+    public function setAllowedPasskeyProfiles(?array $value): void {
+        $this->getBackingStore()->set('allowedPasskeyProfiles', $value);
     }
 
 }

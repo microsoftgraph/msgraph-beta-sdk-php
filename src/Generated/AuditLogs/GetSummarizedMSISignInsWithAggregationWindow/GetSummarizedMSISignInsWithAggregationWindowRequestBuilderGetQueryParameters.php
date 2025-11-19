@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AuditLogs\GetSummarizedMSISignInsWithAggregationWindow;
+namespace Microsoft\\Graph\\Beta\\Generated\AuditLogs\GetSummarizedMSISignInsWithAggregationWindow;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

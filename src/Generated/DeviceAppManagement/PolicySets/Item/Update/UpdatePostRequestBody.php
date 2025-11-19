@@ -1,9 +1,9 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\PolicySets\Item\Update;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\PolicySets\Item\Update;
 
-use Microsoft\Graph\Beta\Generated\Models\PolicySetAssignment;
-use Microsoft\Graph\Beta\Generated\Models\PolicySetItem;
+use Microsoft\\Graph\\Beta\\Generated\Models\PolicySetAssignment;
+use Microsoft\\Graph\\Beta\\Generated\Models\PolicySetItem;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

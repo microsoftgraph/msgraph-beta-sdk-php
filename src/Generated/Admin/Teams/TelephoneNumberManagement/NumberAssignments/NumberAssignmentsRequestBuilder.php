@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Teams\TelephoneNumberManagement\NumberAssignments;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Teams\TelephoneNumberManagement\NumberAssignments;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Admin\Teams\TelephoneNumberManagement\NumberAssignments\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Teams\TelephoneNumberManagement\NumberAssignments\Item\NumberAssignmentItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Teams\TelephoneNumberManagement\NumberAssignments\MicrosoftGraphTeamsAdministrationAssignNumber\MicrosoftGraphTeamsAdministrationAssignNumberRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Teams\TelephoneNumberManagement\NumberAssignments\MicrosoftGraphTeamsAdministrationUnassignNumber\MicrosoftGraphTeamsAdministrationUnassignNumberRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Teams\TelephoneNumberManagement\NumberAssignments\MicrosoftGraphTeamsAdministrationUpdateNumber\MicrosoftGraphTeamsAdministrationUpdateNumberRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TeamsAdministration\NumberAssignment;
-use Microsoft\Graph\Beta\Generated\Models\TeamsAdministration\NumberAssignmentCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Teams\TelephoneNumberManagement\NumberAssignments\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Teams\TelephoneNumberManagement\NumberAssignments\Item\NumberAssignmentItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Teams\TelephoneNumberManagement\NumberAssignments\MicrosoftGraphTeamsAdministrationAssignNumber\MicrosoftGraphTeamsAdministrationAssignNumberRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Teams\TelephoneNumberManagement\NumberAssignments\MicrosoftGraphTeamsAdministrationUnassignNumber\MicrosoftGraphTeamsAdministrationUnassignNumberRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Teams\TelephoneNumberManagement\NumberAssignments\MicrosoftGraphTeamsAdministrationUpdateNumber\MicrosoftGraphTeamsAdministrationUpdateNumberRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TeamsAdministration\NumberAssignment;
+use Microsoft\\Graph\\Beta\\Generated\Models\TeamsAdministration\NumberAssignmentCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\GovernanceRoleSettings\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\GovernanceRoleSettings\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

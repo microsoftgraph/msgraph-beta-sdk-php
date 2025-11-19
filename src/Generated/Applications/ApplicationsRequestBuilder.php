@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Applications;
+namespace Microsoft\\Graph\\Beta\\Generated\Applications;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Applications\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\GetByIds\GetByIdsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\ApplicationItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\ValidateProperties\ValidatePropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Application;
-use Microsoft\Graph\Beta\Generated\Models\ApplicationCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Delta\DeltaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\GetByIds\GetByIdsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\ApplicationItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\ValidateProperties\ValidatePropertiesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Application;
+use Microsoft\\Graph\\Beta\\Generated\Models\ApplicationCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -84,7 +84,7 @@ class ApplicationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of applications in this organization.
+     * Get the list of applications in this organization. This API also returns agentIdentityBlueprint objects, which are identified by the @odata.type property of #microsoft.graph.agentIdentityBlueprint.
      * @param ApplicationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApplicationCollectionResponse|null>
      * @throws Exception
@@ -99,7 +99,7 @@ class ApplicationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new application object.
+     * Create a new application object. This API can also create an agentIdentityBlueprint object when the @odata.type property is set to #microsoft.graph.agentIdentityBlueprint.
      * @param Application $body The request body
      * @param ApplicationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Application|null>
@@ -115,7 +115,7 @@ class ApplicationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of applications in this organization.
+     * Get the list of applications in this organization. This API also returns agentIdentityBlueprint objects, which are identified by the @odata.type property of #microsoft.graph.agentIdentityBlueprint.
      * @param ApplicationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -136,7 +136,7 @@ class ApplicationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new application object.
+     * Create a new application object. This API can also create an agentIdentityBlueprint object when the @odata.type property is set to #microsoft.graph.agentIdentityBlueprint.
      * @param Application $body The request body
      * @param ApplicationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DataClassification\ClassifyExactMatches;
+namespace Microsoft\\Graph\\Beta\\Generated\DataClassification\ClassifyExactMatches;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

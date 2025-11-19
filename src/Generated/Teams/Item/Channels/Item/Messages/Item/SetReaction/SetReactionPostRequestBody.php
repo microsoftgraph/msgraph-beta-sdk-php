@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\Messages\Item\SetReaction;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\Item\Channels\Item\Messages\Item\SetReaction;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

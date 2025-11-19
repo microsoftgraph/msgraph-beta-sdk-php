@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\PrivilegedSignupStatus\CompleteSetup;
+namespace Microsoft\\Graph\\Beta\\Generated\PrivilegedSignupStatus\CompleteSetup;
 
-use Microsoft\Graph\Beta\Generated\Models\TenantSetupInfo;
+use Microsoft\\Graph\\Beta\\Generated\Models\TenantSetupInfo;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

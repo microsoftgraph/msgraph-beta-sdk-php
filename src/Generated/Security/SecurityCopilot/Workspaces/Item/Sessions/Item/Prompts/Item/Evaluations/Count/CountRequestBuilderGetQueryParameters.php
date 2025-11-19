@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\SecurityCopilot\Workspaces\Item\Sessions\Item\Prompts\Item\Evaluations\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\SecurityCopilot\Workspaces\Item\Sessions\Item\Prompts\Item\Evaluations\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

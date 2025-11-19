@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Places\Item\GraphWorkspace;
+namespace Microsoft\\Graph\\Beta\\Generated\Places\Item\GraphWorkspace;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Workspace;
-use Microsoft\Graph\Beta\Generated\Places\Item\GraphWorkspace\CheckIns\CheckInsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Workspace;
+use Microsoft\\Graph\\Beta\\Generated\Places\Item\GraphWorkspace\CheckIns\CheckInsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Directory\Templates\DeviceTemplates\Item\CreateDeviceFromTemplate;
+namespace Microsoft\\Graph\\Beta\\Generated\Directory\Templates\DeviceTemplates\Item\CreateDeviceFromTemplate;
 
-use Microsoft\Graph\Beta\Generated\Models\KeyCredential;
+use Microsoft\\Graph\\Beta\\Generated\Models\KeyCredential;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

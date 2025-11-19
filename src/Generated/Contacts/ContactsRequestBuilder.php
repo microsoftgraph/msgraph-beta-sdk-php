@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Contacts;
+namespace Microsoft\\Graph\\Beta\\Generated\Contacts;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Contacts\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\GetByIds\GetByIdsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\Item\OrgContactItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Contacts\ValidateProperties\ValidatePropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\OrgContactCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Delta\DeltaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\GetByIds\GetByIdsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\Item\OrgContactItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Contacts\ValidateProperties\ValidatePropertiesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\OrgContactCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

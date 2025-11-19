@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\TransitiveMemberOf;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\TransitiveMemberOf;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\DirectoryObjectCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Users\Item\TransitiveMemberOf\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\TransitiveMemberOf\GraphAdministrativeUnit\GraphAdministrativeUnitRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\TransitiveMemberOf\GraphDirectoryRole\GraphDirectoryRoleRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\TransitiveMemberOf\GraphGroup\GraphGroupRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DirectoryObjectCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\TransitiveMemberOf\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\TransitiveMemberOf\GraphAdministrativeUnit\GraphAdministrativeUnitRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\TransitiveMemberOf\GraphDirectoryRole\GraphDirectoryRoleRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\TransitiveMemberOf\GraphGroup\GraphGroupRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Users\Item\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -75,11 +75,11 @@ class TransitiveMemberOfRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get groups, directory roles, and administrative units that the user is a member of through either direct or transitive membership.
+     * Get groups, directory roles, and administrative units that the agentUser is a member of through either direct or transitive membership.
      * @param TransitiveMemberOfRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectoryObjectCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/user-list-transitivememberof?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/agentuser-list-transitivememberof?view=graph-rest-beta Find more info here
     */
     public function get(?TransitiveMemberOfRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -90,7 +90,7 @@ class TransitiveMemberOfRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get groups, directory roles, and administrative units that the user is a member of through either direct or transitive membership.
+     * Get groups, directory roles, and administrative units that the agentUser is a member of through either direct or transitive membership.
      * @param TransitiveMemberOfRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

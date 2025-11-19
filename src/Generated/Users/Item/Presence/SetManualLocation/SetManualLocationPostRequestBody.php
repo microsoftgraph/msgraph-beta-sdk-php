@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Presence\SetManualLocation;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Presence\SetManualLocation;
 
-use Microsoft\Graph\Beta\Generated\Models\WorkLocationType;
+use Microsoft\\Graph\\Beta\\Generated\Models\WorkLocationType;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

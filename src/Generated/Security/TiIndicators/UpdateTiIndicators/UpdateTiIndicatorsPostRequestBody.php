@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\TiIndicators\UpdateTiIndicators;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\TiIndicators\UpdateTiIndicators;
 
-use Microsoft\Graph\Beta\Generated\Models\TiIndicator;
+use Microsoft\\Graph\\Beta\\Generated\Models\TiIndicator;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

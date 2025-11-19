@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Participants\MuteAll;
+namespace Microsoft\\Graph\\Beta\\Generated\Communications\Calls\Item\Participants\MuteAll;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\AuditLogs\SignInEventsAppSummary\Item\Application\Logo;
+namespace Microsoft\\Graph\\Beta\\Generated\AuditLogs\SignInEventsAppSummary\Item\Application\Logo;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

@@ -1,18 +1,18 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Organization;
+namespace Microsoft\\Graph\\Beta\\Generated\Organization;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Organization;
-use Microsoft\Graph\Beta\Generated\Models\OrganizationCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Organization\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\GetByIds\GetByIdsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\Item\OrganizationItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Organization\ValidateProperties\ValidatePropertiesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\Organization;
+use Microsoft\\Graph\\Beta\\Generated\Models\OrganizationCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Delta\DeltaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\GetByIds\GetByIdsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\Item\OrganizationItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Organization\ValidateProperties\ValidatePropertiesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

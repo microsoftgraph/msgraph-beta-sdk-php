@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AppleUserInitiatedEnrollmentProfiles;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AppleUserInitiatedEnrollmentProfiles;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AppleUserInitiatedEnrollmentProfiles\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AppleUserInitiatedEnrollmentProfiles\Item\AppleUserInitiatedEnrollmentProfileItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\AppleUserInitiatedEnrollmentProfile;
-use Microsoft\Graph\Beta\Generated\Models\AppleUserInitiatedEnrollmentProfileCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AppleUserInitiatedEnrollmentProfiles\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AppleUserInitiatedEnrollmentProfiles\Item\AppleUserInitiatedEnrollmentProfileItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\AppleUserInitiatedEnrollmentProfile;
+use Microsoft\\Graph\\Beta\\Generated\Models\AppleUserInitiatedEnrollmentProfileCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyAgents\ConfirmCompromised;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityProtection\RiskyAgents\ConfirmCompromised;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

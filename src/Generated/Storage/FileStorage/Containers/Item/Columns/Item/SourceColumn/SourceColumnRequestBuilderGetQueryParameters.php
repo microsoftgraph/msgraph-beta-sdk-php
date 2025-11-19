@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\Columns\Item\SourceColumn;
+namespace Microsoft\\Graph\\Beta\\Generated\Storage\FileStorage\Containers\Item\Columns\Item\SourceColumn;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

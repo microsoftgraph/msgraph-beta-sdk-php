@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\SignInIdentifiers;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\SignInIdentifiers;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Identity\SignInIdentifiers\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Identity\SignInIdentifiers\Item\SignInIdentifierBaseNameItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SignInIdentifierBase;
-use Microsoft\Graph\Beta\Generated\Models\SignInIdentifierBaseCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Identity\SignInIdentifiers\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Identity\SignInIdentifiers\Item\SignInIdentifierBaseNameItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SignInIdentifierBase;
+use Microsoft\\Graph\\Beta\\Generated\Models\SignInIdentifierBaseCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

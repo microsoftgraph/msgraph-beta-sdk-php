@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Agents\Item\CopilotTools;
+namespace Microsoft\\Graph\\Beta\\Generated\Agents\Item\CopilotTools;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Agents\Item\CopilotTools\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Agents\Item\CopilotTools\Item\CopilotToolCopilotToolNameItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\CopilotTool;
-use Microsoft\Graph\Beta\Generated\Models\CopilotToolCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Agents\Item\CopilotTools\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Agents\Item\CopilotTools\Item\CopilotToolCopilotToolNameItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\CopilotTool;
+use Microsoft\\Graph\\Beta\\Generated\Models\CopilotToolCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

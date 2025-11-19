@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\Categories\Item\Settings;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Intents\Item\Categories\Item\Settings;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\Categories\Item\Settings\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\Categories\Item\Settings\Item\DeviceManagementSettingInstanceItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagementSettingInstance;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagementSettingInstanceCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Intents\Item\Categories\Item\Settings\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\DeviceManagement\Intents\Item\Categories\Item\Settings\Item\DeviceManagementSettingInstanceItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagementSettingInstance;
+use Microsoft\\Graph\\Beta\\Generated\Models\DeviceManagementSettingInstanceCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

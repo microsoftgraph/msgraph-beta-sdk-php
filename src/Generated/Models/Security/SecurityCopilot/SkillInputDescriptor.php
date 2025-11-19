@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\Security\SecurityCopilot;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\Security\SecurityCopilot;
 
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

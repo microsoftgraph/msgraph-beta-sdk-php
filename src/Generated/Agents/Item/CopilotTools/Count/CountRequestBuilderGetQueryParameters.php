@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Agents\Item\CopilotTools\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\Agents\Item\CopilotTools\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

@@ -1,43 +1,43 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\ServicePrincipal;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\AddTokenSigningCertificate\AddTokenSigningCertificateRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\AppManagementPolicies\AppManagementPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\AppRoleAssignedTo\AppRoleAssignedToRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\AppRoleAssignments\AppRoleAssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\ClaimsMappingPolicies\ClaimsMappingPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\ClaimsPolicy\ClaimsPolicyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\CreatedObjects\CreatedObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\CreatePasswordSingleSignOnCredentials\CreatePasswordSingleSignOnCredentialsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\DelegatedPermissionClassifications\DelegatedPermissionClassificationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\DeletePasswordSingleSignOnCredentials\DeletePasswordSingleSignOnCredentialsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Endpoints\EndpointsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\FederatedIdentityCredentials\FederatedIdentityCredentialsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\FederatedIdentityCredentialsWithName\FederatedIdentityCredentialsWithNameRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\GetPasswordSingleSignOnCredentials\GetPasswordSingleSignOnCredentialsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\HomeRealmDiscoveryPolicies\HomeRealmDiscoveryPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\LicenseDetails\LicenseDetailsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\MemberOf\MemberOfRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Oauth2PermissionGrants\Oauth2PermissionGrantsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\OwnedObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\OwnersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\PermissionGrantPreApprovalPolicies\PermissionGrantPreApprovalPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\RemoteDesktopSecurityConfiguration\RemoteDesktopSecurityConfigurationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Restore\RestoreRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\SynchronizationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\TokenIssuancePolicies\TokenIssuancePoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\TokenLifetimePolicies\TokenLifetimePoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\TransitiveMemberOf\TransitiveMemberOfRequestBuilder;
-use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\UpdatePasswordSingleSignOnCredentials\UpdatePasswordSingleSignOnCredentialsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\ServicePrincipal;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\AddTokenSigningCertificate\AddTokenSigningCertificateRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\AppManagementPolicies\AppManagementPoliciesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\AppRoleAssignedTo\AppRoleAssignedToRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\AppRoleAssignments\AppRoleAssignmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\ClaimsMappingPolicies\ClaimsMappingPoliciesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\ClaimsPolicy\ClaimsPolicyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\CreatedObjects\CreatedObjectsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\CreatePasswordSingleSignOnCredentials\CreatePasswordSingleSignOnCredentialsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\DelegatedPermissionClassifications\DelegatedPermissionClassificationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\DeletePasswordSingleSignOnCredentials\DeletePasswordSingleSignOnCredentialsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\Endpoints\EndpointsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\FederatedIdentityCredentials\FederatedIdentityCredentialsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\FederatedIdentityCredentialsWithName\FederatedIdentityCredentialsWithNameRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\GetPasswordSingleSignOnCredentials\GetPasswordSingleSignOnCredentialsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\HomeRealmDiscoveryPolicies\HomeRealmDiscoveryPoliciesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\LicenseDetails\LicenseDetailsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\MemberOf\MemberOfRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\Oauth2PermissionGrants\Oauth2PermissionGrantsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\OwnedObjects\OwnedObjectsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\Owners\OwnersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\PermissionGrantPreApprovalPolicies\PermissionGrantPreApprovalPoliciesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\RemoteDesktopSecurityConfiguration\RemoteDesktopSecurityConfigurationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\Restore\RestoreRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\Synchronization\SynchronizationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\TokenIssuancePolicies\TokenIssuancePoliciesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\TokenLifetimePolicies\TokenLifetimePoliciesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\TransitiveMemberOf\TransitiveMemberOfRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\ServicePrincipals\Item\UpdatePasswordSingleSignOnCredentials\UpdatePasswordSingleSignOnCredentialsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -280,7 +280,7 @@ class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a servicePrincipal object.
+     * Delete a servicePrincipal object. This API can also delete an agentIdentityBlueprintPrincipal object by its ID.
      * @param ServicePrincipalItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -304,7 +304,7 @@ class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a servicePrincipal object.
+     * Retrieve the properties and relationships of a servicePrincipal object. This API can be used to get agentIdentityBlueprintPrincipal objects as well by their ID.
      * @param ServicePrincipalItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServicePrincipal|null>
      * @throws Exception
@@ -319,7 +319,7 @@ class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new servicePrincipal object if it doesn't exist, or update the properties of an existing servicePrincipal object.
+     * Create a new servicePrincipal object if it doesn't exist, or update the properties of an existing servicePrincipal object. This API can also create an agentIdentityBlueprintPrincipal object from an agentIdentityBlueprint if it doesn't exist, or update properties of an existing agentIdentityBlueprintPrincipal, when the @odata.type property is set to #microsoft.graph.agentIdentityBlueprintPrincipal.
      * @param ServicePrincipal $body The request body
      * @param ServicePrincipalItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServicePrincipal|null>
@@ -335,7 +335,7 @@ class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a servicePrincipal object.
+     * Delete a servicePrincipal object. This API can also delete an agentIdentityBlueprintPrincipal object by its ID.
      * @param ServicePrincipalItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -353,7 +353,7 @@ class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Retrieve the properties and relationships of a servicePrincipal object.
+     * Retrieve the properties and relationships of a servicePrincipal object. This API can be used to get agentIdentityBlueprintPrincipal objects as well by their ID.
      * @param ServicePrincipalItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -374,7 +374,7 @@ class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new servicePrincipal object if it doesn't exist, or update the properties of an existing servicePrincipal object.
+     * Create a new servicePrincipal object if it doesn't exist, or update the properties of an existing servicePrincipal object. This API can also create an agentIdentityBlueprintPrincipal object from an agentIdentityBlueprint if it doesn't exist, or update properties of an existing agentIdentityBlueprintPrincipal, when the @odata.type property is set to #microsoft.graph.agentIdentityBlueprintPrincipal.
      * @param ServicePrincipal $body The request body
      * @param ServicePrincipalItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

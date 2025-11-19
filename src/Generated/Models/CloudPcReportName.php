@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Enum;
 
@@ -32,4 +32,5 @@ class CloudPcReportName extends Enum {
     public const TROUBLESHOOT_ISSUE_COUNT_REPORT = "troubleshootIssueCountReport";
     public const CLOUD_PC_INSIGHT_REPORT = "cloudPcInsightReport";
     public const REGIONAL_INACCESSIBLE_CLOUD_PC_TREND_REPORT = "regionalInaccessibleCloudPcTrendReport";
+    public const CLOUD_PC_USAGE_CATEGORY_REPORT = "cloudPcUsageCategoryReport";
 }

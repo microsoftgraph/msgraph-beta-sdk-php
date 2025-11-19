@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\HasPayloadLinks;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\MobileApps\HasPayloadLinks;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

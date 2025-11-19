@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models;
+namespace Microsoft\\Graph\\Beta\\Generated\Models;
 
 use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -35,7 +35,7 @@ class RiskyAgent extends Entity implements Parsable
     }
 
     /**
-     * Gets the agentDisplayName property value. The agentDisplayName property
+     * Gets the agentDisplayName property value. Name of the agent.  Supports $filter (eq, startsWith).
      * @return string|null
     */
     public function getAgentDisplayName(): ?string {
@@ -65,7 +65,7 @@ class RiskyAgent extends Entity implements Parsable
     }
 
     /**
-     * Gets the isDeleted property value. The isDeleted property
+     * Gets the isDeleted property value. Indicates whether the agent is deleted.
      * @return bool|null
     */
     public function getIsDeleted(): ?bool {
@@ -77,7 +77,7 @@ class RiskyAgent extends Entity implements Parsable
     }
 
     /**
-     * Gets the isEnabled property value. The isEnabled property
+     * Gets the isEnabled property value. Indicates whether the agent is enabled.
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
@@ -89,7 +89,7 @@ class RiskyAgent extends Entity implements Parsable
     }
 
     /**
-     * Gets the isProcessing property value. The isProcessing property
+     * Gets the isProcessing property value. Indicates whether an agent's risky state is processing in the backend.
      * @return bool|null
     */
     public function getIsProcessing(): ?bool {
@@ -113,7 +113,7 @@ class RiskyAgent extends Entity implements Parsable
     }
 
     /**
-     * Gets the riskLastModifiedDateTime property value. The riskLastModifiedDateTime property
+     * Gets the riskLastModifiedDateTime property value. The date and time that the risky agent was last updated. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Supports $filter (eq, le, and ge).
      * @return DateTime|null
     */
     public function getRiskLastModifiedDateTime(): ?DateTime {
@@ -165,7 +165,7 @@ class RiskyAgent extends Entity implements Parsable
     }
 
     /**
-     * Sets the agentDisplayName property value. The agentDisplayName property
+     * Sets the agentDisplayName property value. Name of the agent.  Supports $filter (eq, startsWith).
      * @param string|null $value Value to set for the agentDisplayName property.
     */
     public function setAgentDisplayName(?string $value): void {
@@ -173,7 +173,7 @@ class RiskyAgent extends Entity implements Parsable
     }
 
     /**
-     * Sets the isDeleted property value. The isDeleted property
+     * Sets the isDeleted property value. Indicates whether the agent is deleted.
      * @param bool|null $value Value to set for the isDeleted property.
     */
     public function setIsDeleted(?bool $value): void {
@@ -181,7 +181,7 @@ class RiskyAgent extends Entity implements Parsable
     }
 
     /**
-     * Sets the isEnabled property value. The isEnabled property
+     * Sets the isEnabled property value. Indicates whether the agent is enabled.
      * @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value): void {
@@ -189,7 +189,7 @@ class RiskyAgent extends Entity implements Parsable
     }
 
     /**
-     * Sets the isProcessing property value. The isProcessing property
+     * Sets the isProcessing property value. Indicates whether an agent's risky state is processing in the backend.
      * @param bool|null $value Value to set for the isProcessing property.
     */
     public function setIsProcessing(?bool $value): void {
@@ -205,7 +205,7 @@ class RiskyAgent extends Entity implements Parsable
     }
 
     /**
-     * Sets the riskLastModifiedDateTime property value. The riskLastModifiedDateTime property
+     * Sets the riskLastModifiedDateTime property value. The date and time that the risky agent was last updated. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Supports $filter (eq, le, and ge).
      * @param DateTime|null $value Value to set for the riskLastModifiedDateTime property.
     */
     public function setRiskLastModifiedDateTime(?DateTime $value): void {

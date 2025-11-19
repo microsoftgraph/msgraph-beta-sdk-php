@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\VppTokens\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceAppManagement\VppTokens\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

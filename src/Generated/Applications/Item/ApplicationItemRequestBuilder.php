@@ -1,34 +1,34 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Applications\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Applications\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Applications\Item\AddKey\AddKeyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\AddPassword\AddPasswordRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\AppManagementPolicies\AppManagementPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\ConnectorGroup\ConnectorGroupRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\CreatedOnBehalfOf\CreatedOnBehalfOfRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\ExtensionProperties\ExtensionPropertiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\FederatedIdentityCredentials\FederatedIdentityCredentialsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\FederatedIdentityCredentialsWithName\FederatedIdentityCredentialsWithNameRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\HomeRealmDiscoveryPolicies\HomeRealmDiscoveryPoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Logo\LogoRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Owners\OwnersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\RemoveKey\RemoveKeyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\RemovePassword\RemovePasswordRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Restore\RestoreRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\SetVerifiedPublisher\SetVerifiedPublisherRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\SynchronizationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\TokenIssuancePolicies\TokenIssuancePoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\TokenLifetimePolicies\TokenLifetimePoliciesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\UnsetVerifiedPublisher\UnsetVerifiedPublisherRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Application;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\AddKey\AddKeyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\AddPassword\AddPasswordRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\AppManagementPolicies\AppManagementPoliciesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\ConnectorGroup\ConnectorGroupRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\CreatedOnBehalfOf\CreatedOnBehalfOfRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\ExtensionProperties\ExtensionPropertiesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\FederatedIdentityCredentials\FederatedIdentityCredentialsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\FederatedIdentityCredentialsWithName\FederatedIdentityCredentialsWithNameRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\HomeRealmDiscoveryPolicies\HomeRealmDiscoveryPoliciesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\Logo\LogoRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\Owners\OwnersRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\RemoveKey\RemoveKeyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\RemovePassword\RemovePasswordRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\Restore\RestoreRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\SetVerifiedPublisher\SetVerifiedPublisherRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\Synchronization\SynchronizationRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\TokenIssuancePolicies\TokenIssuancePoliciesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\TokenLifetimePolicies\TokenLifetimePoliciesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\UnsetVerifiedPublisher\UnsetVerifiedPublisherRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Application;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -208,7 +208,7 @@ class ApplicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an application. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted.
+     * Deletes an application. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted. This API can also delete an agentIdentityBlueprint object by its ID.
      * @param ApplicationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -232,7 +232,7 @@ class ApplicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of an application object.
+     * Get the properties and relationships of an application object. This API can be used to get agentIdentityBlueprint objects as well by their ID.
      * @param ApplicationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Application|null>
      * @throws Exception
@@ -247,7 +247,7 @@ class ApplicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new application object if it doesn't exist, or update the properties of an existing application object.
+     * Create a new application object if it doesn't exist, or update the properties of an existing application object. This API can also create an agentIdentityBlueprint object from an agentIdentityBlueprint if it doesn't exist, or update properties of an existing agentIdentityBlueprint, when the @odata.type property is set to #microsoft.graph.agentIdentityBlueprint.
      * @param Application $body The request body
      * @param ApplicationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Application|null>
@@ -263,7 +263,7 @@ class ApplicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Deletes an application. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted.
+     * Deletes an application. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted. This API can also delete an agentIdentityBlueprint object by its ID.
      * @param ApplicationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -281,7 +281,7 @@ class ApplicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties and relationships of an application object.
+     * Get the properties and relationships of an application object. This API can be used to get agentIdentityBlueprint objects as well by their ID.
      * @param ApplicationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -302,7 +302,7 @@ class ApplicationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new application object if it doesn't exist, or update the properties of an existing application object.
+     * Create a new application object if it doesn't exist, or update the properties of an existing application object. This API can also create an agentIdentityBlueprint object from an agentIdentityBlueprint if it doesn't exist, or update properties of an existing agentIdentityBlueprint, when the @odata.type property is set to #microsoft.graph.agentIdentityBlueprint.
      * @param Application $body The request body
      * @param ApplicationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

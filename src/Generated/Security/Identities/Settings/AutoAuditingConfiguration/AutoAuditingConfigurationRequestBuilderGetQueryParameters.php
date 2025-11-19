@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Identities\Settings\AutoAuditingConfiguration;
+namespace Microsoft\\Graph\\Beta\\Generated\Security\Identities\Settings\AutoAuditingConfiguration;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

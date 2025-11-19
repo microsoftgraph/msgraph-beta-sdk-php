@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AssignmentFilters\GetPlatformSupportedPropertiesWithPlatform;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\AssignmentFilters\GetPlatformSupportedPropertiesWithPlatform;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

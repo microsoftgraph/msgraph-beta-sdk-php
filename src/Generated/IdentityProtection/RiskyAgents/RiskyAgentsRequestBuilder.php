@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyAgents;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityProtection\RiskyAgents;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyAgents\ConfirmCompromised\ConfirmCompromisedRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyAgents\ConfirmSafe\ConfirmSafeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyAgents\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyAgents\Dismiss\DismissRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyAgents\Item\RiskyAgentItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\RiskyAgent;
-use Microsoft\Graph\Beta\Generated\Models\RiskyAgentCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\IdentityProtection\RiskyAgents\ConfirmCompromised\ConfirmCompromisedRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityProtection\RiskyAgents\ConfirmSafe\ConfirmSafeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityProtection\RiskyAgents\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityProtection\RiskyAgents\Dismiss\DismissRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\IdentityProtection\RiskyAgents\Item\RiskyAgentItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\RiskyAgent;
+use Microsoft\\Graph\\Beta\\Generated\Models\RiskyAgentCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -76,10 +76,11 @@ class RiskyAgentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get riskyAgents from identityProtection
+     * Retrieve the properties and relationships of a collection of riskyAgent objects.
      * @param RiskyAgentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RiskyAgentCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/riskyagent-list?view=graph-rest-beta Find more info here
     */
     public function get(?RiskyAgentsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -105,7 +106,7 @@ class RiskyAgentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get riskyAgents from identityProtection
+     * Retrieve the properties and relationships of a collection of riskyAgent objects.
      * @param RiskyAgentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

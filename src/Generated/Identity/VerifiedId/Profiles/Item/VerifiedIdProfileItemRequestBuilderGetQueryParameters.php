@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\VerifiedId\Profiles\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Identity\VerifiedId\Profiles\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

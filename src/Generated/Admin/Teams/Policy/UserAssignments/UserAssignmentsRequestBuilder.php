@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Teams\Policy\UserAssignments;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Teams\Policy\UserAssignments;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Admin\Teams\Policy\UserAssignments\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Teams\Policy\UserAssignments\Item\TeamsPolicyUserAssignmentItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Teams\Policy\UserAssignments\MicrosoftGraphTeamsAdministrationAssign\MicrosoftGraphTeamsAdministrationAssignRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Teams\Policy\UserAssignments\MicrosoftGraphTeamsAdministrationUnassign\MicrosoftGraphTeamsAdministrationUnassignRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TeamsAdministration\TeamsPolicyUserAssignment;
-use Microsoft\Graph\Beta\Generated\Models\TeamsAdministration\TeamsPolicyUserAssignmentCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Teams\Policy\UserAssignments\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Teams\Policy\UserAssignments\Item\TeamsPolicyUserAssignmentItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Teams\Policy\UserAssignments\MicrosoftGraphTeamsAdministrationAssign\MicrosoftGraphTeamsAdministrationAssignRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Teams\Policy\UserAssignments\MicrosoftGraphTeamsAdministrationUnassign\MicrosoftGraphTeamsAdministrationUnassignRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TeamsAdministration\TeamsPolicyUserAssignment;
+use Microsoft\\Graph\\Beta\\Generated\Models\TeamsAdministration\TeamsPolicyUserAssignmentCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

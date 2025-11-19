@@ -1,16 +1,16 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\RoleManagement\Exchange;
+namespace Microsoft\\Graph\\Beta\\Generated\RoleManagement\Exchange;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\UnifiedRbacApplication;
-use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\CustomAppScopes\CustomAppScopesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\ResourceNamespaces\ResourceNamespacesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\RoleAssignments\RoleAssignmentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\RoleDefinitions\RoleDefinitionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\Exchange\TransitiveRoleAssignments\TransitiveRoleAssignmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\UnifiedRbacApplication;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\Exchange\CustomAppScopes\CustomAppScopesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\Exchange\ResourceNamespaces\ResourceNamespacesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\Exchange\RoleAssignments\RoleAssignmentsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\Exchange\RoleDefinitions\RoleDefinitionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\RoleManagement\Exchange\TransitiveRoleAssignments\TransitiveRoleAssignmentsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

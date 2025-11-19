@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\External\IndustryData\ReferenceDefinitions\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\External\IndustryData\ReferenceDefinitions\Count;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

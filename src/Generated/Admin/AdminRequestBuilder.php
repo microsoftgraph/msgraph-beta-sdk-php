@@ -1,26 +1,26 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Admin\AppsAndServices\AppsAndServicesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\ConfigurationManagementRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Dynamics\DynamicsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Edge\EdgeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Entra\EntraRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Exchange\ExchangeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Forms\FormsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Microsoft365Apps\Microsoft365AppsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\People\PeopleRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\ReportSettings\ReportSettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\ServiceAnnouncementRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Sharepoint\SharepointRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Teams\TeamsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Todo\TodoRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\WindowsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\Admin;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Admin\AppsAndServices\AppsAndServicesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\ConfigurationManagement\ConfigurationManagementRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Dynamics\DynamicsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Edge\EdgeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Entra\EntraRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Exchange\ExchangeRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Forms\FormsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Microsoft365Apps\Microsoft365AppsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\People\PeopleRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\ReportSettings\ReportSettingsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\ServiceAnnouncement\ServiceAnnouncementRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Sharepoint\SharepointRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Teams\TeamsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Todo\TodoRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Windows\WindowsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\Admin;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityProtection\AgentRiskDetections\Count;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityProtection\AgentRiskDetections\Count;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

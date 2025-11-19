@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\Outlook\Tasks\Item\Attachments;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\Outlook\Tasks\Item\Attachments;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

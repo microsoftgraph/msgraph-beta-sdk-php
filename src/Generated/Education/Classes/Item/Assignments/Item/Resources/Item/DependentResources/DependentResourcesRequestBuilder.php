@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Resources\Item\DependentResources;
+namespace Microsoft\\Graph\\Beta\\Generated\Education\Classes\Item\Assignments\Item\Resources\Item\DependentResources;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Resources\Item\DependentResources\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Education\Classes\Item\Assignments\Item\Resources\Item\DependentResources\Item\EducationAssignmentResourceItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\EducationAssignmentResource;
-use Microsoft\Graph\Beta\Generated\Models\EducationAssignmentResourceCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Education\Classes\Item\Assignments\Item\Resources\Item\DependentResources\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Education\Classes\Item\Assignments\Item\Resources\Item\DependentResources\Item\EducationAssignmentResourceItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\EducationAssignmentResource;
+use Microsoft\\Graph\\Beta\\Generated\Models\EducationAssignmentResourceCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

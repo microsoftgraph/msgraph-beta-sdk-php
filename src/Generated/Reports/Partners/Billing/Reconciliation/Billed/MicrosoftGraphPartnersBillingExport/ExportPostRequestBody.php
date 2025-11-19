@@ -1,8 +1,8 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Reports\Partners\Billing\Reconciliation\Billed\MicrosoftGraphPartnersBillingExport;
+namespace Microsoft\\Graph\\Beta\\Generated\Reports\Partners\Billing\Reconciliation\Billed\MicrosoftGraphPartnersBillingExport;
 
-use Microsoft\Graph\Beta\Generated\Models\Partners\Billing\AttributeSet;
+use Microsoft\\Graph\\Beta\\Generated\Models\Partners\Billing\AttributeSet;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;

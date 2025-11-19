@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\People\ProfileCardProperties;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\People\ProfileCardProperties;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Admin\People\ProfileCardProperties\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\People\ProfileCardProperties\Item\ProfileCardPropertyItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\ProfileCardProperty;
-use Microsoft\Graph\Beta\Generated\Models\ProfileCardPropertyCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Admin\People\ProfileCardProperties\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\People\ProfileCardProperties\Item\ProfileCardPropertyItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\ProfileCardProperty;
+use Microsoft\\Graph\\Beta\\Generated\Models\ProfileCardPropertyCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

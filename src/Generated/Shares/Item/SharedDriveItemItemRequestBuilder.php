@@ -1,20 +1,20 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Shares\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\Shares\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SharedDriveItem;
-use Microsoft\Graph\Beta\Generated\Shares\Item\CreatedByUser\CreatedByUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\DriveItem\DriveItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\ListRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\Items\ItemsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\LastModifiedByUser\LastModifiedByUserRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\ListItem\ListItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\Permission\PermissionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\Root\RootRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\Site\SiteRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SharedDriveItem;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\CreatedByUser\CreatedByUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\DriveItem\DriveItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\EscapedList\ListRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\Items\ItemsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\LastModifiedByUser\LastModifiedByUserRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\ListItem\ListItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\Permission\PermissionRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\Root\RootRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Shares\Item\Site\SiteRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

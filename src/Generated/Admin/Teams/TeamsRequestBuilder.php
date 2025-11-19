@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Admin\Teams;
+namespace Microsoft\\Graph\\Beta\\Generated\Admin\Teams;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Admin\Teams\Policy\PolicyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Teams\TelephoneNumberManagement\TelephoneNumberManagementRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Teams\UserConfigurations\UserConfigurationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TeamsAdministration\TeamsAdminRoot;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Teams\Policy\PolicyRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Teams\TelephoneNumberManagement\TelephoneNumberManagementRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Admin\Teams\UserConfigurations\UserConfigurationsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\TeamsAdministration\TeamsAdminRoot;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Places\GraphDesk;
+namespace Microsoft\\Graph\\Beta\\Generated\Places\GraphDesk;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

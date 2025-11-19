@@ -1,15 +1,15 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Templates\Item\Schema;
+namespace Microsoft\\Graph\\Beta\\Generated\Applications\Item\Synchronization\Templates\Item\Schema;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Templates\Item\Schema\Directories\DirectoriesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Templates\Item\Schema\FilterOperators\FilterOperatorsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Templates\Item\Schema\Functions\FunctionsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Applications\Item\Synchronization\Templates\Item\Schema\ParseExpression\ParseExpressionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SynchronizationSchema;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\Synchronization\Templates\Item\Schema\Directories\DirectoriesRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\Synchronization\Templates\Item\Schema\FilterOperators\FilterOperatorsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\Synchronization\Templates\Item\Schema\Functions\FunctionsRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Applications\Item\Synchronization\Templates\Item\Schema\ParseExpression\ParseExpressionRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\SynchronizationSchema;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

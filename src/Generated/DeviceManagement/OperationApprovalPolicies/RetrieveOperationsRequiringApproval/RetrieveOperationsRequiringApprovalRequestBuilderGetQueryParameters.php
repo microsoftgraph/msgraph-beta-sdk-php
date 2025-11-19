@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\OperationApprovalPolicies\RetrieveOperationsRequiringApproval;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\OperationApprovalPolicies\RetrieveOperationsRequiringApproval;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

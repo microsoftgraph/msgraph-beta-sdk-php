@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\EnableEndpointPrivilegeManagement;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\EnableEndpointPrivilegeManagement;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

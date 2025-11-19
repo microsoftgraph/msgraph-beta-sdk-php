@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Users\Item\TranslateExchangeIds;
+namespace Microsoft\\Graph\\Beta\\Generated\Users\Item\TranslateExchangeIds;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

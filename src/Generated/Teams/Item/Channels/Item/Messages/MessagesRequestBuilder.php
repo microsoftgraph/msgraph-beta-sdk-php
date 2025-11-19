@@ -1,17 +1,17 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\Messages;
+namespace Microsoft\\Graph\\Beta\\Generated\Teams\Item\Channels\Item\Messages;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\ChatMessage;
-use Microsoft\Graph\Beta\Generated\Models\ChatMessageCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\Messages\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\Messages\Delta\DeltaRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\Messages\ForwardToChat\ForwardToChatRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\Messages\Item\ChatMessageItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\Messages\ReplyWithQuote\ReplyWithQuoteRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\ChatMessage;
+use Microsoft\\Graph\\Beta\\Generated\Models\ChatMessageCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Channels\Item\Messages\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Channels\Item\Messages\Delta\DeltaRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Channels\Item\Messages\ForwardToChat\ForwardToChatRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Channels\Item\Messages\Item\ChatMessageItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Teams\Item\Channels\Item\Messages\ReplyWithQuote\ReplyWithQuoteRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

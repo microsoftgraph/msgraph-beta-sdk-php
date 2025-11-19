@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Models\Agentic;
+namespace Microsoft\\Graph\\Beta\\Generated\Models\Agentic;
 
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -93,7 +93,7 @@ class AgentSignIn implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the parentAppId property value. The ID of the parent application for agentic instances.
+     * Gets the parentAppId property value. The appId of the parent agent where the agentType is agentic.
      * @return string|null
     */
     public function getParentAppId(): ?string {
@@ -148,7 +148,7 @@ class AgentSignIn implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the parentAppId property value. The ID of the parent application for agentic instances.
+     * Sets the parentAppId property value. The appId of the parent agent where the agentType is agentic.
      * @param string|null $value Value to set for the parentAppId property.
     */
     public function setParentAppId(?string $value): void {

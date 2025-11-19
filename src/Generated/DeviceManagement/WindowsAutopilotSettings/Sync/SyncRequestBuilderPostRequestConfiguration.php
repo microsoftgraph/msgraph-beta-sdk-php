@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotSettings\Sync;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\WindowsAutopilotSettings\Sync;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;

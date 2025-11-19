@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\IdentityProtection\AgentRiskDetections\Item;
+namespace Microsoft\\Graph\\Beta\\Generated\IdentityProtection\AgentRiskDetections\Item;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\AgentRiskDetection;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Models\AgentRiskDetection;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -45,10 +45,11 @@ class AgentRiskDetectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get agentRiskDetections from identityProtection
+     * Read the properties and relationships of agentRiskDetection object.
      * @param AgentRiskDetectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AgentRiskDetection|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/agentriskdetection-get?view=graph-rest-beta Find more info here
     */
     public function get(?AgentRiskDetectionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -92,7 +93,7 @@ class AgentRiskDetectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get agentRiskDetections from identityProtection
+     * Read the properties and relationships of agentRiskDetection object.
      * @param AgentRiskDetectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

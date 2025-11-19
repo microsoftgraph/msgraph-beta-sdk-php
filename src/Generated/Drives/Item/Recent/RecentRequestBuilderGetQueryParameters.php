@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Drives\Item\Recent;
+namespace Microsoft\\Graph\\Beta\\Generated\Drives\Item\Recent;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 

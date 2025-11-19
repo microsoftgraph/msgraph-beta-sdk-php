@@ -1,14 +1,14 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Policies\DeletedItems\CrossTenantSyncPolicyPartners;
+namespace Microsoft\\Graph\\Beta\\Generated\Policies\DeletedItems\CrossTenantSyncPolicyPartners;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Models\CrossTenantIdentitySyncPolicyPartner;
-use Microsoft\Graph\Beta\Generated\Models\CrossTenantIdentitySyncPolicyPartnerCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Policies\DeletedItems\CrossTenantSyncPolicyPartners\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Policies\DeletedItems\CrossTenantSyncPolicyPartners\Item\CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Models\CrossTenantIdentitySyncPolicyPartner;
+use Microsoft\\Graph\\Beta\\Generated\Models\CrossTenantIdentitySyncPolicyPartnerCollectionResponse;
+use Microsoft\\Graph\\Beta\\Generated\Models\ODataErrors\ODataError;
+use Microsoft\\Graph\\Beta\\Generated\Policies\DeletedItems\CrossTenantSyncPolicyPartners\Count\CountRequestBuilder;
+use Microsoft\\Graph\\Beta\\Generated\Policies\DeletedItems\CrossTenantSyncPolicyPartners\Item\CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;

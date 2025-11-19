@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ApplePushNotificationCertificate\GenerateApplePushNotificationCertificateSigningRequest;
+namespace Microsoft\\Graph\\Beta\\Generated\DeviceManagement\ApplePushNotificationCertificate\GenerateApplePushNotificationCertificateSigningRequest;
 
 use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
 use Microsoft\Kiota\Abstractions\RequestOption;
