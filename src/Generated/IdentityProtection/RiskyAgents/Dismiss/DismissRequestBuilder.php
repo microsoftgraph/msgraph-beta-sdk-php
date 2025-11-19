@@ -30,11 +30,12 @@ class DismissRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action dismiss
+     * Dismiss the risk of one or more riskyAgent objects. This action sets the targeted agent's riskLevel to none.
      * @param DismissPostRequestBody $body The request body
      * @param DismissRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/riskyagent-dismiss?view=graph-rest-beta Find more info here
     */
     public function post(DismissPostRequestBody $body, ?DismissRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -45,7 +46,7 @@ class DismissRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action dismiss
+     * Dismiss the risk of one or more riskyAgent objects. This action sets the targeted agent's riskLevel to none.
      * @param DismissPostRequestBody $body The request body
      * @param DismissRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

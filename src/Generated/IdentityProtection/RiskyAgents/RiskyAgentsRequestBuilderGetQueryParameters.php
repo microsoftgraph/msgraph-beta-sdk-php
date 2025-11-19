@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityProtection\RiskyAgents;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get riskyAgents from identityProtection
+ * Retrieve the properties and relationships of a collection of riskyAgent objects.
 */
 class RiskyAgentsRequestBuilderGetQueryParameters 
 {

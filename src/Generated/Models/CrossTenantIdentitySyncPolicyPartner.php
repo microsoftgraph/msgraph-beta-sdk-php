@@ -58,9 +58,22 @@ class CrossTenantIdentitySyncPolicyPartner extends PolicyDeletableItem implement
         return array_merge(parent::getFieldDeserializers(), [
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'externalCloudAuthorizedApplicationId' => fn(ParseNode $n) => $o->setExternalCloudAuthorizedApplicationId($n->getStringValue()),
+            'groupSyncInbound' => fn(ParseNode $n) => $o->setGroupSyncInbound($n->getObjectValue([CrossTenantGroupSyncInbound::class, 'createFromDiscriminatorValue'])),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
             'userSyncInbound' => fn(ParseNode $n) => $o->setUserSyncInbound($n->getObjectValue([CrossTenantUserSyncInbound::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the groupSyncInbound property value. The groupSyncInbound property
+     * @return CrossTenantGroupSyncInbound|null
+    */
+    public function getGroupSyncInbound(): ?CrossTenantGroupSyncInbound {
+        $val = $this->getBackingStore()->get('groupSyncInbound');
+        if (is_null($val) || $val instanceof CrossTenantGroupSyncInbound) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupSyncInbound'");
     }
 
     /**
@@ -95,6 +108,7 @@ class CrossTenantIdentitySyncPolicyPartner extends PolicyDeletableItem implement
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('externalCloudAuthorizedApplicationId', $this->getExternalCloudAuthorizedApplicationId());
+        $writer->writeObjectValue('groupSyncInbound', $this->getGroupSyncInbound());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeObjectValue('userSyncInbound', $this->getUserSyncInbound());
     }
@@ -113,6 +127,14 @@ class CrossTenantIdentitySyncPolicyPartner extends PolicyDeletableItem implement
     */
     public function setExternalCloudAuthorizedApplicationId(?string $value): void {
         $this->getBackingStore()->set('externalCloudAuthorizedApplicationId', $value);
+    }
+
+    /**
+     * Sets the groupSyncInbound property value. The groupSyncInbound property
+     * @param CrossTenantGroupSyncInbound|null $value Value to set for the groupSyncInbound property.
+    */
+    public function setGroupSyncInbound(?CrossTenantGroupSyncInbound $value): void {
+        $this->getBackingStore()->set('groupSyncInbound', $value);
     }
 
     /**

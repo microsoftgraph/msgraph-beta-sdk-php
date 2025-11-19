@@ -76,11 +76,12 @@ class AccessReviewInstanceDecisionItemItemRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Update the navigation property decisions in identityGovernance
+     * Update access decisions, known as accessReviewInstanceDecisionItems, for which the user is the reviewer.
      * @param AccessReviewInstanceDecisionItem $body The request body
      * @param AccessReviewInstanceDecisionItemItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessReviewInstanceDecisionItem|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/accessreviewinstancedecisionitem-update?view=graph-rest-beta Find more info here
     */
     public function patch(AccessReviewInstanceDecisionItem $body, ?AccessReviewInstanceDecisionItemItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -130,7 +131,7 @@ class AccessReviewInstanceDecisionItemItemRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Update the navigation property decisions in identityGovernance
+     * Update access decisions, known as accessReviewInstanceDecisionItems, for which the user is the reviewer.
      * @param AccessReviewInstanceDecisionItem $body The request body
      * @param AccessReviewInstanceDecisionItemItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

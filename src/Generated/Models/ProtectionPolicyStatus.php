@@ -10,4 +10,5 @@ class ProtectionPolicyStatus extends Enum {
     public const UPDATING = "updating";
     public const ACTIVE = "active";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const DORMANT = "dormant";
 }

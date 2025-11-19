@@ -52,10 +52,11 @@ class AgentRiskDetectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get agentRiskDetections from identityProtection
+     * Retrieve the properties of a collection of agentRiskDetection objects.
      * @param AgentRiskDetectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AgentRiskDetectionCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/identityprotectionroot-list-agentriskdetections?view=graph-rest-beta Find more info here
     */
     public function get(?AgentRiskDetectionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class AgentRiskDetectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get agentRiskDetections from identityProtection
+     * Retrieve the properties of a collection of agentRiskDetection objects.
      * @param AgentRiskDetectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

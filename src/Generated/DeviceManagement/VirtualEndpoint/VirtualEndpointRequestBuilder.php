@@ -19,6 +19,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ManagedLicen
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\OnPremisesConnections\OnPremisesConnectionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\OrganizationSettings\OrganizationSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\ProvisioningPoliciesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Report\ReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\ReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\RetrieveScopedPermissions\RetrieveScopedPermissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\RetrieveTenantEncryptionSetting\RetrieveTenantEncryptionSettingRequestBuilder;
@@ -141,6 +142,13 @@ class VirtualEndpointRequestBuilder extends BaseRequestBuilder
     */
     public function provisioningPolicies(): ProvisioningPoliciesRequestBuilder {
         return new ProvisioningPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the report property of the microsoft.graph.virtualEndpoint entity.
+    */
+    public function report(): ReportRequestBuilder {
+        return new ReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

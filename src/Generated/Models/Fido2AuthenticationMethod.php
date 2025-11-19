@@ -95,6 +95,7 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
             'attestationLevel' => fn(ParseNode $n) => $o->setAttestationLevel($n->getEnumValue(AttestationLevel::class)),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
+            'passkeyType' => fn(ParseNode $n) => $o->setPasskeyType($n->getEnumValue(PasskeyType::class)),
             'publicKeyCredential' => fn(ParseNode $n) => $o->setPublicKeyCredential($n->getObjectValue([WebauthnPublicKeyCredential::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -109,6 +110,18 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'model'");
+    }
+
+    /**
+     * Gets the passkeyType property value. The type of passkey allowed in the passkey profile. The possible values are: deviceBound, synced, unknownFutureValue.
+     * @return PasskeyType|null
+    */
+    public function getPasskeyType(): ?PasskeyType {
+        $val = $this->getBackingStore()->get('passkeyType');
+        if (is_null($val) || $val instanceof PasskeyType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'passkeyType'");
     }
 
     /**
@@ -134,6 +147,7 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
         $writer->writeEnumValue('attestationLevel', $this->getAttestationLevel());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('model', $this->getModel());
+        $writer->writeEnumValue('passkeyType', $this->getPasskeyType());
         $writer->writeObjectValue('publicKeyCredential', $this->getPublicKeyCredential());
     }
 
@@ -175,6 +189,14 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
     */
     public function setModel(?string $value): void {
         $this->getBackingStore()->set('model', $value);
+    }
+
+    /**
+     * Sets the passkeyType property value. The type of passkey allowed in the passkey profile. The possible values are: deviceBound, synced, unknownFutureValue.
+     * @param PasskeyType|null $value Value to set for the passkeyType property.
+    */
+    public function setPasskeyType(?PasskeyType $value): void {
+        $this->getBackingStore()->set('passkeyType', $value);
     }
 
     /**

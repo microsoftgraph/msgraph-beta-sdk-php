@@ -64,7 +64,7 @@ class SensorCandidate extends Entity implements Parsable
     }
 
     /**
-     * Gets the senseClientVersion property value. The version of the Defender for Identity sensor client. Supports $filter (eq).
+     * Gets the senseClientVersion property value. The version of the Defender for Identity sensor client.  Supports $filter (eq).
      * @return string|null
     */
     public function getSenseClientVersion(): ?string {
@@ -103,7 +103,7 @@ class SensorCandidate extends Entity implements Parsable
     }
 
     /**
-     * Sets the senseClientVersion property value. The version of the Defender for Identity sensor client. Supports $filter (eq).
+     * Sets the senseClientVersion property value. The version of the Defender for Identity sensor client.  Supports $filter (eq).
      * @param string|null $value Value to set for the senseClientVersion property.
     */
     public function setSenseClientVersion(?string $value): void {

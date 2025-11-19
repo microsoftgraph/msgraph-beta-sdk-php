@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Delta;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get newly created, updated, or deleted applications without having to perform a full read of the entire resource collection. For more information, see Use delta query to track changes in Microsoft Graph data for details.
+ * Get newly created, updated, or deleted applications and agent identity blueprints without having to perform a full read of the entire resource collection. For more information, see Use delta query to track changes in Microsoft Graph data for details.
 */
 class DeltaRequestBuilderGetQueryParameters 
 {

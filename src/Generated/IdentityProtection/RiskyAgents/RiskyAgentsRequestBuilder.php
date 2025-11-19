@@ -76,10 +76,11 @@ class RiskyAgentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get riskyAgents from identityProtection
+     * Retrieve the properties and relationships of a collection of riskyAgent objects.
      * @param RiskyAgentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RiskyAgentCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/riskyagent-list?view=graph-rest-beta Find more info here
     */
     public function get(?RiskyAgentsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -105,7 +106,7 @@ class RiskyAgentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get riskyAgents from identityProtection
+     * Retrieve the properties and relationships of a collection of riskyAgent objects.
      * @param RiskyAgentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -416,8 +416,11 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.aiUser': return new AiUser();
                 case '#microsoft.graph.akamaiWebApplicationFirewallProvider': return new AkamaiWebApplicationFirewallProvider();
                 case '#microsoft.graph.alert': return new \Microsoft\Graph\Beta\Generated\Models\Alert();
+                case '#microsoft.graph.allDrivesBackup': return new AllDrivesBackup();
+                case '#microsoft.graph.allMailboxesBackup': return new AllMailboxesBackup();
                 case '#microsoft.graph.allowedDataLocation': return new AllowedDataLocation();
                 case '#microsoft.graph.allowedValue': return new AllowedValue();
+                case '#microsoft.graph.allSitesBackup': return new AllSitesBackup();
                 case '#microsoft.graph.androidCertificateProfileBase': return new AndroidCertificateProfileBase();
                 case '#microsoft.graph.androidCompliancePolicy': return new AndroidCompliancePolicy();
                 case '#microsoft.graph.androidCustomConfiguration': return new AndroidCustomConfiguration();
@@ -621,6 +624,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.browserSharedCookie': return new BrowserSharedCookie();
                 case '#microsoft.graph.browserSite': return new BrowserSite();
                 case '#microsoft.graph.browserSiteList': return new BrowserSiteList();
+                case '#microsoft.graph.browseSessionBase': return new BrowseSessionBase();
                 case '#microsoft.graph.building': return new Building();
                 case '#microsoft.graph.buildingMap': return new BuildingMap();
                 case '#microsoft.graph.builtInIdentityProvider': return new BuiltInIdentityProvider();
@@ -709,6 +713,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.cloudPcOrganizationSettings': return new CloudPcOrganizationSettings();
                 case '#microsoft.graph.cloudPcProvisioningPolicy': return new CloudPcProvisioningPolicy();
                 case '#microsoft.graph.cloudPcProvisioningPolicyAssignment': return new CloudPcProvisioningPolicyAssignment();
+                case '#microsoft.graph.cloudPcReport': return new CloudPcReport();
                 case '#microsoft.graph.cloudPcReports': return new CloudPcReports();
                 case '#microsoft.graph.cloudPcServicePlan': return new CloudPcServicePlan();
                 case '#microsoft.graph.cloudPcSnapshot': return new CloudPcSnapshot();
@@ -750,9 +755,12 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.conversationMember': return new ConversationMember();
                 case '#microsoft.graph.conversationThread': return new ConversationThread();
                 case '#microsoft.graph.copilotAdmin': return new CopilotAdmin();
+                case '#microsoft.graph.copilotAdminCatalog': return new CopilotAdminCatalog();
                 case '#microsoft.graph.copilotAdminLimitedMode': return new CopilotAdminLimitedMode();
                 case '#microsoft.graph.copilotAdminSetting': return new CopilotAdminSetting();
                 case '#microsoft.graph.copilotCommunicationsRoot': return new CopilotCommunicationsRoot();
+                case '#microsoft.graph.copilotPackage': return new CopilotPackage();
+                case '#microsoft.graph.copilotPackageDetail': return new CopilotPackageDetail();
                 case '#microsoft.graph.copilotPeopleAdminSetting': return new CopilotPeopleAdminSetting();
                 case '#microsoft.graph.copilotSetting': return new CopilotSetting();
                 case '#microsoft.graph.corsConfiguration_v2': return new CorsConfiguration_v2();
@@ -1108,6 +1116,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.focusActivityStatistics': return new FocusActivityStatistics();
                 case '#microsoft.graph.footprintMap': return new FootprintMap();
                 case '#microsoft.graph.fraudProtectionProvider': return new FraudProtectionProvider();
+                case '#microsoft.graph.fullServiceBackupBase': return new FullServiceBackupBase();
                 case '#microsoft.graph.gcpAuthorizationSystem': return new GcpAuthorizationSystem();
                 case '#microsoft.graph.gcpAuthorizationSystemResource': return new GcpAuthorizationSystemResource();
                 case '#microsoft.graph.gcpAuthorizationSystemTypeAction': return new GcpAuthorizationSystemTypeAction();
@@ -1127,7 +1136,10 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.governanceRoleDefinition': return new GovernanceRoleDefinition();
                 case '#microsoft.graph.governanceRoleSetting': return new GovernanceRoleSetting();
                 case '#microsoft.graph.governanceSubject': return new GovernanceSubject();
+                case '#microsoft.graph.granularDriveRestoreArtifact': return new GranularDriveRestoreArtifact();
                 case '#microsoft.graph.granularMailboxRestoreArtifact': return new GranularMailboxRestoreArtifact();
+                case '#microsoft.graph.granularRestoreArtifactBase': return new GranularRestoreArtifactBase();
+                case '#microsoft.graph.granularSiteRestoreArtifact': return new GranularSiteRestoreArtifact();
                 case '#microsoft.graph.group': return new Group();
                 case '#microsoft.graph.groupLifecyclePolicy': return new GroupLifecyclePolicy();
                 case '#microsoft.graph.groupPolicyCategory': return new GroupPolicyCategory();
@@ -1580,6 +1592,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.onAttributeCollectionSubmitCustomExtension': return new OnAttributeCollectionSubmitCustomExtension();
                 case '#microsoft.graph.onAttributeCollectionSubmitListener': return new OnAttributeCollectionSubmitListener();
                 case '#microsoft.graph.onAuthenticationMethodLoadStartListener': return new OnAuthenticationMethodLoadStartListener();
+                case '#microsoft.graph.oneDriveForBusinessBrowseSession': return new OneDriveForBusinessBrowseSession();
                 case '#microsoft.graph.oneDriveForBusinessProtectionPolicy': return new OneDriveForBusinessProtectionPolicy();
                 case '#microsoft.graph.oneDriveForBusinessRestoreSession': return new OneDriveForBusinessRestoreSession();
                 case '#microsoft.graph.onEmailOtpSendListener': return new OnEmailOtpSendListener();
@@ -1662,6 +1675,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.partners.billing.unbilledReconciliation': return new UnbilledReconciliation();
                 case '#microsoft.graph.partners.billing.unbilledUsage': return new UnbilledUsage();
                 case '#microsoft.graph.passkeyAuthenticationMethodTarget': return new PasskeyAuthenticationMethodTarget();
+                case '#microsoft.graph.passkeyProfile': return new PasskeyProfile();
                 case '#microsoft.graph.passwordAuthenticationMethod': return new PasswordAuthenticationMethod();
                 case '#microsoft.graph.passwordlessMicrosoftAuthenticatorAuthenticationMethod': return new PasswordlessMicrosoftAuthenticatorAuthenticationMethod();
                 case '#microsoft.graph.payload': return new Payload();
@@ -2038,6 +2052,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.sharedPCConfiguration': return new SharedPCConfiguration();
                 case '#microsoft.graph.sharedWithChannelTeamInfo': return new SharedWithChannelTeamInfo();
                 case '#microsoft.graph.sharepoint': return new Sharepoint();
+                case '#microsoft.graph.sharePointBrowseSession': return new SharePointBrowseSession();
                 case '#microsoft.graph.sharePointGroup': return new SharePointGroup();
                 case '#microsoft.graph.sharePointGroupMember': return new SharePointGroupMember();
                 case '#microsoft.graph.sharePointMigrationEvent': return new SharePointMigrationEvent();
