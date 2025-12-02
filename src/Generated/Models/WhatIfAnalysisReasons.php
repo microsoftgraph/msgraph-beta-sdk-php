@@ -26,4 +26,6 @@ class WhatIfAnalysisReasons extends Enum {
     public const INSIDER_RISK = "insiderRisk";
     public const AUTHENTICATION_FLOW = "authenticationFlow";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const AGENT_ID_RISK = "agentIdRisk";
+    public const AGENT_IDENTITIES = "agentIdentities";
 }

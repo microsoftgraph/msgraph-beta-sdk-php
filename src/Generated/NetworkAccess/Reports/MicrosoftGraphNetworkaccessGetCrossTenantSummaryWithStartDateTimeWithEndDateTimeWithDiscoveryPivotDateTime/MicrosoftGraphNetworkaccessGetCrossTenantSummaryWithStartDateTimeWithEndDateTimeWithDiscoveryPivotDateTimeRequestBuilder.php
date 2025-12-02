@@ -39,7 +39,7 @@ class MicrosoftGraphNetworkaccessGetCrossTenantSummaryWithStartDateTimeWithEndDa
     }
 
     /**
-     * Get a summary of the cross-tenant access patterns.
+     * Get a summary of the cross-tenant access patterns as logged in Global Secure Access.
      * @param MicrosoftGraphNetworkaccessGetCrossTenantSummaryWithStartDateTimeWithEndDateTimeWithDiscoveryPivotDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CrossTenantSummary|null>
      * @throws Exception
@@ -53,7 +53,7 @@ class MicrosoftGraphNetworkaccessGetCrossTenantSummaryWithStartDateTimeWithEndDa
     }
 
     /**
-     * Get a summary of the cross-tenant access patterns.
+     * Get a summary of the cross-tenant access patterns as logged in Global Secure Access.
      * @param MicrosoftGraphNetworkaccessGetCrossTenantSummaryWithStartDateTimeWithEndDateTimeWithDiscoveryPivotDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -26,6 +26,13 @@ class User extends DirectoryObject implements Parsable
      * @return User
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): User {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.agentUser': return new AgentUser();
+            }
+        }
         return new User();
     }
 
@@ -879,6 +886,7 @@ class User extends DirectoryObject implements Parsable
             'givenName' => fn(ParseNode $n) => $o->setGivenName($n->getStringValue()),
             'hireDate' => fn(ParseNode $n) => $o->setHireDate($n->getDateTimeValue()),
             'identities' => fn(ParseNode $n) => $o->setIdentities($n->getCollectionOfObjectValues([ObjectIdentity::class, 'createFromDiscriminatorValue'])),
+            'identityParentId' => fn(ParseNode $n) => $o->setIdentityParentId($n->getStringValue()),
             'imAddresses' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -1092,6 +1100,18 @@ class User extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'identities'");
+    }
+
+    /**
+     * Gets the identityParentId property value. The object ID of the parent identity for agent users. Always null for regular user accounts. For agentUser resources, this property references the object ID of the associated agent identity.
+     * @return string|null
+    */
+    public function getIdentityParentId(): ?string {
+        $val = $this->getBackingStore()->get('identityParentId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityParentId'");
     }
 
     /**
@@ -2408,6 +2428,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeStringValue('givenName', $this->getGivenName());
         $writer->writeDateTimeValue('hireDate', $this->getHireDate());
         $writer->writeCollectionOfObjectValues('identities', $this->getIdentities());
+        $writer->writeStringValue('identityParentId', $this->getIdentityParentId());
         $writer->writeCollectionOfPrimitiveValues('imAddresses', $this->getImAddresses());
         $writer->writeObjectValue('inferenceClassification', $this->getInferenceClassification());
         $writer->writeCollectionOfPrimitiveValues('infoCatalogs', $this->getInfoCatalogs());
@@ -3017,6 +3038,14 @@ class User extends DirectoryObject implements Parsable
     */
     public function setIdentities(?array $value): void {
         $this->getBackingStore()->set('identities', $value);
+    }
+
+    /**
+     * Sets the identityParentId property value. The object ID of the parent identity for agent users. Always null for regular user accounts. For agentUser resources, this property references the object ID of the associated agent identity.
+     * @param string|null $value Value to set for the identityParentId property.
+    */
+    public function setIdentityParentId(?string $value): void {
+        $this->getBackingStore()->set('identityParentId', $value);
     }
 
     /**

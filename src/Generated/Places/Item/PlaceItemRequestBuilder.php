@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Place;
 use Microsoft\Graph\Beta\Generated\Places\Item\CheckIns\CheckInsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Places\Item\Children\ChildrenRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Places\Item\Descendants\DescendantsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Places\Item\GraphBuilding\GraphBuildingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Places\Item\GraphDesk\GraphDeskRequestBuilder;
@@ -30,6 +31,13 @@ class PlaceItemRequestBuilder extends BaseRequestBuilder
     */
     public function checkIns(): CheckInsRequestBuilder {
         return new CheckInsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the children property of the microsoft.graph.place entity.
+    */
+    public function children(): ChildrenRequestBuilder {
+        return new ChildrenRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

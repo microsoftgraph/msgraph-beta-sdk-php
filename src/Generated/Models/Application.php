@@ -25,6 +25,13 @@ class Application extends DirectoryObject implements Parsable
      * @return Application
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): Application {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.agentIdentityBlueprint': return new AgentIdentityBlueprint();
+            }
+        }
         return new Application();
     }
 
@@ -114,6 +121,18 @@ class Application extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'connectorGroup'");
+    }
+
+    /**
+     * Gets the createdByAppId property value. The globally unique appId (called Application (client) ID on the Microsoft Entra admin center) of the application that created this application. Set internally by Microsoft Entra ID. Read-only.
+     * @return string|null
+    */
+    public function getCreatedByAppId(): ?string {
+        $val = $this->getBackingStore()->get('createdByAppId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdByAppId'");
     }
 
     /**
@@ -230,6 +249,7 @@ class Application extends DirectoryObject implements Parsable
             'authenticationBehaviors' => fn(ParseNode $n) => $o->setAuthenticationBehaviors($n->getObjectValue([AuthenticationBehaviors::class, 'createFromDiscriminatorValue'])),
             'certification' => fn(ParseNode $n) => $o->setCertification($n->getObjectValue([Certification::class, 'createFromDiscriminatorValue'])),
             'connectorGroup' => fn(ParseNode $n) => $o->setConnectorGroup($n->getObjectValue([ConnectorGroup::class, 'createFromDiscriminatorValue'])),
+            'createdByAppId' => fn(ParseNode $n) => $o->setCreatedByAppId($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'createdOnBehalfOf' => fn(ParseNode $n) => $o->setCreatedOnBehalfOf($n->getObjectValue([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'defaultRedirectUri' => fn(ParseNode $n) => $o->setDefaultRedirectUri($n->getStringValue()),
@@ -715,6 +735,7 @@ class Application extends DirectoryObject implements Parsable
         $writer->writeObjectValue('authenticationBehaviors', $this->getAuthenticationBehaviors());
         $writer->writeObjectValue('certification', $this->getCertification());
         $writer->writeObjectValue('connectorGroup', $this->getConnectorGroup());
+        $writer->writeStringValue('createdByAppId', $this->getCreatedByAppId());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeObjectValue('createdOnBehalfOf', $this->getCreatedOnBehalfOf());
         $writer->writeStringValue('defaultRedirectUri', $this->getDefaultRedirectUri());
@@ -812,6 +833,14 @@ class Application extends DirectoryObject implements Parsable
     */
     public function setConnectorGroup(?ConnectorGroup $value): void {
         $this->getBackingStore()->set('connectorGroup', $value);
+    }
+
+    /**
+     * Sets the createdByAppId property value. The globally unique appId (called Application (client) ID on the Microsoft Entra admin center) of the application that created this application. Set internally by Microsoft Entra ID. Read-only.
+     * @param string|null $value Value to set for the createdByAppId property.
+    */
+    public function setCreatedByAppId(?string $value): void {
+        $this->getBackingStore()->set('createdByAppId', $value);
     }
 
     /**

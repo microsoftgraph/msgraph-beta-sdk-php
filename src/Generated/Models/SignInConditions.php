@@ -48,6 +48,18 @@ class SignInConditions implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the agentIdRiskLevel property value. Agent identity risk levels included in the policy. Possible values are: none, low, medium, high, unknownFutureValue. This enumeration is multivalued.
+     * @return AgentIdRiskLevel|null
+    */
+    public function getAgentIdRiskLevel(): ?AgentIdRiskLevel {
+        $val = $this->getBackingStore()->get('agentIdRiskLevel');
+        if (is_null($val) || $val instanceof AgentIdRiskLevel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'agentIdRiskLevel'");
+    }
+
+    /**
      * Gets the authenticationFlow property value. Type of authentication flow. The possible value is: deviceCodeFlow or authenticationTransfer. Default value is none.
      * @return AuthenticationFlow|null
     */
@@ -122,6 +134,7 @@ class SignInConditions implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'agentIdRiskLevel' => fn(ParseNode $n) => $o->setAgentIdRiskLevel($n->getEnumValue(AgentIdRiskLevel::class)),
             'authenticationFlow' => fn(ParseNode $n) => $o->setAuthenticationFlow($n->getObjectValue([AuthenticationFlow::class, 'createFromDiscriminatorValue'])),
             'clientAppType' => fn(ParseNode $n) => $o->setClientAppType($n->getEnumValue(ConditionalAccessClientApp::class)),
             'country' => fn(ParseNode $n) => $o->setCountry($n->getStringValue()),
@@ -213,6 +226,7 @@ class SignInConditions implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeEnumValue('agentIdRiskLevel', $this->getAgentIdRiskLevel());
         $writer->writeObjectValue('authenticationFlow', $this->getAuthenticationFlow());
         $writer->writeEnumValue('clientAppType', $this->getClientAppType());
         $writer->writeStringValue('country', $this->getCountry());
@@ -233,6 +247,14 @@ class SignInConditions implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the agentIdRiskLevel property value. Agent identity risk levels included in the policy. Possible values are: none, low, medium, high, unknownFutureValue. This enumeration is multivalued.
+     * @param AgentIdRiskLevel|null $value Value to set for the agentIdRiskLevel property.
+    */
+    public function setAgentIdRiskLevel(?AgentIdRiskLevel $value): void {
+        $this->getBackingStore()->set('agentIdRiskLevel', $value);
     }
 
     /**

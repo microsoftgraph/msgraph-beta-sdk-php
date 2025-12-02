@@ -29,6 +29,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
                 case '#microsoft.graph.agentIdentity': return new AgentIdentity();
+                case '#microsoft.graph.agentIdentityBlueprintPrincipal': return new AgentIdentityBlueprintPrincipal();
             }
         }
         return new ServicePrincipal();
@@ -229,6 +230,18 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the createdByAppId property value. The appId (called Application (client) ID on the Microsoft Entra admin center) of the application used to create the service principal. Set internally by Microsoft Entra ID. Read-only.
+     * @return string|null
+    */
+    public function getCreatedByAppId(): ?string {
+        $val = $this->getBackingStore()->get('createdByAppId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdByAppId'");
+    }
+
+    /**
      * Gets the createdObjects property value. Directory objects created by this service principal. Read-only. Nullable.
      * @return array<DirectoryObject>|null
     */
@@ -373,6 +386,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
             'appRoles' => fn(ParseNode $n) => $o->setAppRoles($n->getCollectionOfObjectValues([AppRole::class, 'createFromDiscriminatorValue'])),
             'claimsMappingPolicies' => fn(ParseNode $n) => $o->setClaimsMappingPolicies($n->getCollectionOfObjectValues([ClaimsMappingPolicy::class, 'createFromDiscriminatorValue'])),
             'claimsPolicy' => fn(ParseNode $n) => $o->setClaimsPolicy($n->getObjectValue([CustomClaimsPolicy::class, 'createFromDiscriminatorValue'])),
+            'createdByAppId' => fn(ParseNode $n) => $o->setCreatedByAppId($n->getStringValue()),
             'createdObjects' => fn(ParseNode $n) => $o->setCreatedObjects($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'customSecurityAttributes' => fn(ParseNode $n) => $o->setCustomSecurityAttributes($n->getObjectValue([CustomSecurityAttributeValue::class, 'createFromDiscriminatorValue'])),
             'delegatedPermissionClassifications' => fn(ParseNode $n) => $o->setDelegatedPermissionClassifications($n->getCollectionOfObjectValues([DelegatedPermissionClassification::class, 'createFromDiscriminatorValue'])),
@@ -923,6 +937,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('appRoles', $this->getAppRoles());
         $writer->writeCollectionOfObjectValues('claimsMappingPolicies', $this->getClaimsMappingPolicies());
         $writer->writeObjectValue('claimsPolicy', $this->getClaimsPolicy());
+        $writer->writeStringValue('createdByAppId', $this->getCreatedByAppId());
         $writer->writeCollectionOfObjectValues('createdObjects', $this->getCreatedObjects());
         $writer->writeObjectValue('customSecurityAttributes', $this->getCustomSecurityAttributes());
         $writer->writeCollectionOfObjectValues('delegatedPermissionClassifications', $this->getDelegatedPermissionClassifications());
@@ -1087,6 +1102,14 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     */
     public function setClaimsPolicy(?CustomClaimsPolicy $value): void {
         $this->getBackingStore()->set('claimsPolicy', $value);
+    }
+
+    /**
+     * Sets the createdByAppId property value. The appId (called Application (client) ID on the Microsoft Entra admin center) of the application used to create the service principal. Set internally by Microsoft Entra ID. Read-only.
+     * @param string|null $value Value to set for the createdByAppId property.
+    */
+    public function setCreatedByAppId(?string $value): void {
+        $this->getBackingStore()->set('createdByAppId', $value);
     }
 
     /**

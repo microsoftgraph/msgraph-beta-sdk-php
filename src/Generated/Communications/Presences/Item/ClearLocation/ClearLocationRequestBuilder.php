@@ -30,10 +30,11 @@ class ClearLocationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action clearLocation
+     * Clear the work location signals for a user, including both the manual and automatic layers for the current date.
      * @param ClearLocationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/presence-clearlocation?view=graph-rest-beta Find more info here
     */
     public function post(?ClearLocationRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -44,7 +45,7 @@ class ClearLocationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action clearLocation
+     * Clear the work location signals for a user, including both the manual and automatic layers for the current date.
      * @param ClearLocationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

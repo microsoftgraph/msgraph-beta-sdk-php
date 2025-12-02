@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Decisions\DecisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Definitions\DefinitionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\HistoryDefinitions\HistoryDefinitionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Instances\InstancesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Policy\PolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessReviewSet;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -39,6 +40,13 @@ class AccessReviewsRequestBuilder extends BaseRequestBuilder
     */
     public function historyDefinitions(): HistoryDefinitionsRequestBuilder {
         return new HistoryDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the instances property of the microsoft.graph.accessReviewSet entity.
+    */
+    public function instances(): InstancesRequestBuilder {
+        return new InstancesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -6,6 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\AccessReviewsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AppConsent\AppConsentRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\Catalogs\CatalogsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\CatalogsWithUniqueName\CatalogsWithUniqueNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\EntitlementManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\LifecycleWorkflowsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsAnalytics\PermissionsAnalyticsRequestBuilder;
@@ -37,6 +39,13 @@ class IdentityGovernanceRequestBuilder extends BaseRequestBuilder
     */
     public function appConsent(): AppConsentRequestBuilder {
         return new AppConsentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the catalogs property of the microsoft.graph.identityGovernance entity.
+    */
+    public function catalogs(): CatalogsRequestBuilder {
+        return new CatalogsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -88,6 +97,15 @@ class IdentityGovernanceRequestBuilder extends BaseRequestBuilder
         return new TermsOfUseRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
+    /**
+     * Provides operations to manage the catalogs property of the microsoft.graph.identityGovernance entity.
+     * @param string $uniqueName Alternate key of accessPackageCatalog
+     * @return CatalogsWithUniqueNameRequestBuilder
+    */
+    public function catalogsWithUniqueName(string $uniqueName): CatalogsWithUniqueNameRequestBuilder {
+        return new CatalogsWithUniqueNameRequestBuilder($this->pathParameters, $this->requestAdapter, $uniqueName);
+    }
+
     /**
      * Instantiates a new IdentityGovernanceRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

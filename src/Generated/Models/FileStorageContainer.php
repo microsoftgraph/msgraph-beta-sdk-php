@@ -165,6 +165,7 @@ class FileStorageContainer extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'drive' => fn(ParseNode $n) => $o->setDrive($n->getObjectValue([Drive::class, 'createFromDiscriminatorValue'])),
             'externalGroupId' => fn(ParseNode $n) => $o->setExternalGroupId($n->getStringValue()),
+            'informationBarrier' => fn(ParseNode $n) => $o->setInformationBarrier($n->getObjectValue([InformationBarrier::class, 'createFromDiscriminatorValue'])),
             'isItemVersioningEnabled' => fn(ParseNode $n) => $o->setIsItemVersioningEnabled($n->getBooleanValue()),
             'itemMajorVersionLimit' => fn(ParseNode $n) => $o->setItemMajorVersionLimit($n->getIntegerValue()),
             'lockState' => fn(ParseNode $n) => $o->setLockState($n->getEnumValue(SiteLockState::class)),
@@ -179,6 +180,18 @@ class FileStorageContainer extends Entity implements Parsable
             'storageUsedInBytes' => fn(ParseNode $n) => $o->setStorageUsedInBytes($n->getIntegerValue()),
             'viewpoint' => fn(ParseNode $n) => $o->setViewpoint($n->getObjectValue([FileStorageContainerViewpoint::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the informationBarrier property value. Information barrier of a fileStorageContainer. Read-write.
+     * @return InformationBarrier|null
+    */
+    public function getInformationBarrier(): ?InformationBarrier {
+        $val = $this->getBackingStore()->get('informationBarrier');
+        if (is_null($val) || $val instanceof InformationBarrier) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'informationBarrier'");
     }
 
     /**
@@ -361,6 +374,7 @@ class FileStorageContainer extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeObjectValue('drive', $this->getDrive());
         $writer->writeStringValue('externalGroupId', $this->getExternalGroupId());
+        $writer->writeObjectValue('informationBarrier', $this->getInformationBarrier());
         $writer->writeBooleanValue('isItemVersioningEnabled', $this->getIsItemVersioningEnabled());
         $writer->writeIntegerValue('itemMajorVersionLimit', $this->getItemMajorVersionLimit());
         $writer->writeEnumValue('lockState', $this->getLockState());
@@ -454,6 +468,14 @@ class FileStorageContainer extends Entity implements Parsable
     */
     public function setExternalGroupId(?string $value): void {
         $this->getBackingStore()->set('externalGroupId', $value);
+    }
+
+    /**
+     * Sets the informationBarrier property value. Information barrier of a fileStorageContainer. Read-write.
+     * @param InformationBarrier|null $value Value to set for the informationBarrier property.
+    */
+    public function setInformationBarrier(?InformationBarrier $value): void {
+        $this->getBackingStore()->set('informationBarrier', $value);
     }
 
     /**

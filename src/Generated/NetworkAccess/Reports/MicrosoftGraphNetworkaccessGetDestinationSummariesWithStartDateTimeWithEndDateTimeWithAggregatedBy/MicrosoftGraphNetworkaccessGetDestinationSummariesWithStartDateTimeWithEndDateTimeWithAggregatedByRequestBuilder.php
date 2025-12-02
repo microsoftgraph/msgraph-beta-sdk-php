@@ -38,7 +38,7 @@ class MicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEnd
     }
 
     /**
-     * Get counts of the visits to the top destination aggregations.
+     * Get counts of the visits to the top destination aggregations as logged in Global Secure Access
      * @param MicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedByRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedByGetResponse|null>
      * @throws Exception
@@ -52,7 +52,7 @@ class MicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEnd
     }
 
     /**
-     * Get counts of the visits to the top destination aggregations.
+     * Get counts of the visits to the top destination aggregations as logged in Global Secure Access
      * @param MicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedByRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

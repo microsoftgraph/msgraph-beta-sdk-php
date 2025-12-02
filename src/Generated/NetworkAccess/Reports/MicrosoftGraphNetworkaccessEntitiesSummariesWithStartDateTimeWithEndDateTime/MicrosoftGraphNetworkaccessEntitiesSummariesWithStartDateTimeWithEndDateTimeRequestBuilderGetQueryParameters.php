@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNet
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the number of users, devices, and workloads per traffic type in a specified time period.
+ * Get the number of users, devices, and workloads per traffic type in a specified time period as logged in Global Secure Access.
 */
 class MicrosoftGraphNetworkaccessEntitiesSummariesWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters 
 {

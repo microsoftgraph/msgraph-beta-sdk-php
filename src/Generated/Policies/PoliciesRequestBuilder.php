@@ -14,6 +14,7 @@ use Microsoft\Graph\Beta\Generated\Policies\AuthenticationFlowsPolicy\Authentica
 use Microsoft\Graph\Beta\Generated\Policies\AuthenticationMethodsPolicy\AuthenticationMethodsPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\AuthenticationStrengthPolicies\AuthenticationStrengthPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\AuthorizationPolicy\AuthorizationPolicyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Policies\B2bManagementPolicies\B2bManagementPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\B2cAuthenticationMethodsPolicy\B2cAuthenticationMethodsPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\ClaimsMappingPolicies\ClaimsMappingPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\ConditionalAccessPolicies\ConditionalAccessPoliciesRequestBuilder;
@@ -29,6 +30,7 @@ use Microsoft\Graph\Beta\Generated\Policies\HomeRealmDiscoveryPolicies\HomeRealm
 use Microsoft\Graph\Beta\Generated\Policies\IdentitySecurityDefaultsEnforcementPolicy\IdentitySecurityDefaultsEnforcementPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\MobileAppManagementPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies\MobileDeviceManagementPoliciesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Policies\OnPremAuthenticationPolicies\OnPremAuthenticationPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\PermissionGrantPolicies\PermissionGrantPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\PermissionGrantPreApprovalPolicies\PermissionGrantPreApprovalPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicies\RoleManagementPoliciesRequestBuilder;
@@ -100,6 +102,13 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     */
     public function authorizationPolicy(): AuthorizationPolicyRequestBuilder {
         return new AuthorizationPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the b2bManagementPolicies property of the microsoft.graph.policyRoot entity.
+    */
+    public function b2bManagementPolicies(): B2bManagementPoliciesRequestBuilder {
+        return new B2bManagementPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -205,6 +214,13 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     */
     public function mobileDeviceManagementPolicies(): MobileDeviceManagementPoliciesRequestBuilder {
         return new MobileDeviceManagementPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the onPremAuthenticationPolicies property of the microsoft.graph.policyRoot entity.
+    */
+    public function onPremAuthenticationPolicies(): OnPremAuthenticationPoliciesRequestBuilder {
+        return new OnPremAuthenticationPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

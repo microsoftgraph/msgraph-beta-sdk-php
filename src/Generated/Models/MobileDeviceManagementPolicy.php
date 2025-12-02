@@ -31,7 +31,20 @@ class MobileDeviceManagementPolicy extends MobilityManagementPolicy implements P
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'isMdmEnrollmentDuringRegistrationDisabled' => fn(ParseNode $n) => $o->setIsMdmEnrollmentDuringRegistrationDisabled($n->getBooleanValue()),
         ]);
+    }
+
+    /**
+     * Gets the isMdmEnrollmentDuringRegistrationDisabled property value. Controls the option if users in an automatic enrollment configuration on Microsoft Entra registered devices are prompted to MDM enroll their device in the Entra account registration flow.
+     * @return bool|null
+    */
+    public function getIsMdmEnrollmentDuringRegistrationDisabled(): ?bool {
+        $val = $this->getBackingStore()->get('isMdmEnrollmentDuringRegistrationDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isMdmEnrollmentDuringRegistrationDisabled'");
     }
 
     /**
@@ -40,6 +53,15 @@ class MobileDeviceManagementPolicy extends MobilityManagementPolicy implements P
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeBooleanValue('isMdmEnrollmentDuringRegistrationDisabled', $this->getIsMdmEnrollmentDuringRegistrationDisabled());
+    }
+
+    /**
+     * Sets the isMdmEnrollmentDuringRegistrationDisabled property value. Controls the option if users in an automatic enrollment configuration on Microsoft Entra registered devices are prompted to MDM enroll their device in the Entra account registration flow.
+     * @param bool|null $value Value to set for the isMdmEnrollmentDuringRegistrationDisabled property.
+    */
+    public function setIsMdmEnrollmentDuringRegistrationDisabled(?bool $value): void {
+        $this->getBackingStore()->set('isMdmEnrollmentDuringRegistrationDisabled', $value);
     }
 
 }

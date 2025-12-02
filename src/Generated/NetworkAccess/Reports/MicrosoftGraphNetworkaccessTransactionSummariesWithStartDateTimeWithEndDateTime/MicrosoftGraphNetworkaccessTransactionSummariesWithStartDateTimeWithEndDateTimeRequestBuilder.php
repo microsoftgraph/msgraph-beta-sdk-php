@@ -36,7 +36,7 @@ class MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDat
     }
 
     /**
-     * Get the total number of transactions and the number of blocked transactions, grouped by traffic type.
+     * Get the total number of transactions and the number of blocked transactions in Global Secure Access, grouped by traffic type.
      * @param MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TransactionSummariesWithStartDateTimeWithEndDateTimeGetResponse|null>
      * @throws Exception
@@ -51,7 +51,7 @@ class MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDat
     }
 
     /**
-     * Get the total number of transactions and the number of blocked transactions, grouped by traffic type.
+     * Get the total number of transactions and the number of blocked transactions in Global Secure Access, grouped by traffic type.
      * @param MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

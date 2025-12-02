@@ -35,6 +35,8 @@ class AccessReviewReviewerScope extends AccessReviewScope implements Parsable
             'query' => fn(ParseNode $n) => $o->setQuery($n->getStringValue()),
             'queryRoot' => fn(ParseNode $n) => $o->setQueryRoot($n->getStringValue()),
             'queryType' => fn(ParseNode $n) => $o->setQueryType($n->getStringValue()),
+            'reviewerId' => fn(ParseNode $n) => $o->setReviewerId($n->getStringValue()),
+            'scopeType' => fn(ParseNode $n) => $o->setScopeType($n->getEnumValue(AccessReviewReviewerScopeType::class)),
         ]);
     }
 
@@ -75,6 +77,30 @@ class AccessReviewReviewerScope extends AccessReviewScope implements Parsable
     }
 
     /**
+     * Gets the reviewerId property value. The reviewerId property
+     * @return string|null
+    */
+    public function getReviewerId(): ?string {
+        $val = $this->getBackingStore()->get('reviewerId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reviewerId'");
+    }
+
+    /**
+     * Gets the scopeType property value. The scopeType property
+     * @return AccessReviewReviewerScopeType|null
+    */
+    public function getScopeType(): ?AccessReviewReviewerScopeType {
+        $val = $this->getBackingStore()->get('scopeType');
+        if (is_null($val) || $val instanceof AccessReviewReviewerScopeType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'scopeType'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -83,6 +109,8 @@ class AccessReviewReviewerScope extends AccessReviewScope implements Parsable
         $writer->writeStringValue('query', $this->getQuery());
         $writer->writeStringValue('queryRoot', $this->getQueryRoot());
         $writer->writeStringValue('queryType', $this->getQueryType());
+        $writer->writeStringValue('reviewerId', $this->getReviewerId());
+        $writer->writeEnumValue('scopeType', $this->getScopeType());
     }
 
     /**
@@ -107,6 +135,22 @@ class AccessReviewReviewerScope extends AccessReviewScope implements Parsable
     */
     public function setQueryType(?string $value): void {
         $this->getBackingStore()->set('queryType', $value);
+    }
+
+    /**
+     * Sets the reviewerId property value. The reviewerId property
+     * @param string|null $value Value to set for the reviewerId property.
+    */
+    public function setReviewerId(?string $value): void {
+        $this->getBackingStore()->set('reviewerId', $value);
+    }
+
+    /**
+     * Sets the scopeType property value. The scopeType property
+     * @param AccessReviewReviewerScopeType|null $value Value to set for the scopeType property.
+    */
+    public function setScopeType(?AccessReviewReviewerScopeType $value): void {
+        $this->getBackingStore()->set('scopeType', $value);
     }
 
 }

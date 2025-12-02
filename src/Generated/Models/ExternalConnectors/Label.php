@@ -18,4 +18,21 @@ class Label extends Enum {
     public const CONTAINER_NAME = "containerName";
     public const CONTAINER_URL = "containerUrl";
     public const ICON_URL = "iconUrl";
+    public const ASSIGNED_TO_PEOPLE = "assignedToPeople";
+    public const CLOSED_BY = "closedBy";
+    public const CLOSED_DATE = "closedDate";
+    public const PRIORITY = "priority";
+    public const SPRINT_NAME = "sprintName";
+    public const TAGS = "tags";
+    public const SEVERITY = "severity";
+    public const STATE = "state";
+    public const DUE_DATE = "dueDate";
+    public const ITEM_PARENT_ID = "itemParentId";
+    public const ITEM_PATH = "itemPath";
+    public const ITEM_TYPE = "itemType";
+    public const NUMBER_OF_REACTIONS = "numberOfReactions";
+    public const PARENT_URL = "parentUrl";
+    public const PRIORITY_NORMALIZED = "priorityNormalized";
+    public const REPORTED_BY = "reportedBy";
+    public const SECONDARY_ID = "secondaryId";
 }
