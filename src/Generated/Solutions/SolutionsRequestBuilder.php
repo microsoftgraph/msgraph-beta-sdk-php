@@ -12,6 +12,8 @@ use Microsoft\Graph\Beta\Generated\Solutions\BookingBusinesses\BookingBusinesses
 use Microsoft\Graph\Beta\Generated\Solutions\BookingCurrencies\BookingCurrenciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenarios\BusinessScenariosRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BusinessScenariosWithUniqueName\BusinessScenariosWithUniqueNameRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\Migrations\MigrationsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\SharePoint\SharePointRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\VirtualEvents\VirtualEventsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -56,6 +58,20 @@ class SolutionsRequestBuilder extends BaseRequestBuilder
     */
     public function businessScenarios(): BusinessScenariosRequestBuilder {
         return new BusinessScenariosRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the migrations property of the microsoft.graph.solutionsRoot entity.
+    */
+    public function migrations(): MigrationsRequestBuilder {
+        return new MigrationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the sharePoint property of the microsoft.graph.solutionsRoot entity.
+    */
+    public function sharePoint(): SharePointRequestBuilder {
+        return new SharePointRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

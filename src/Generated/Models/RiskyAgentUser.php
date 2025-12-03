@@ -25,12 +25,25 @@ class RiskyAgentUser extends RiskyAgent implements Parsable
     }
 
     /**
+     * Gets the agentUser property value. The agentUser property
+     * @return AgentUser|null
+    */
+    public function getAgentUser(): ?AgentUser {
+        $val = $this->getBackingStore()->get('agentUser');
+        if (is_null($val) || $val instanceof AgentUser) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'agentUser'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'agentUser' => fn(ParseNode $n) => $o->setAgentUser($n->getObjectValue([AgentUser::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -40,6 +53,15 @@ class RiskyAgentUser extends RiskyAgent implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('agentUser', $this->getAgentUser());
+    }
+
+    /**
+     * Sets the agentUser property value. The agentUser property
+     * @param AgentUser|null $value Value to set for the agentUser property.
+    */
+    public function setAgentUser(?AgentUser $value): void {
+        $this->getBackingStore()->set('agentUser', $value);
     }
 
 }

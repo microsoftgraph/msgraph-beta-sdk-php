@@ -82,7 +82,7 @@ class UserWorkLocation implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the placeId property value. The placeId property
+     * Gets the placeId property value. Identifier of the place (when applicable).
      * @return string|null
     */
     public function getPlaceId(): ?string {
@@ -154,7 +154,7 @@ class UserWorkLocation implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the placeId property value. The placeId property
+     * Sets the placeId property value. Identifier of the place (when applicable).
      * @param string|null $value Value to set for the placeId property.
     */
     public function setPlaceId(?string $value): void {

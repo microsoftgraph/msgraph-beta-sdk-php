@@ -30,11 +30,12 @@ class SetManualLocationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action setManualLocation
+     * Set the manual work location signal for a user. The explicit value chosen by a user (or an authorized client) overrides any automatically detected or scheduled working hours and location.
      * @param SetManualLocationPostRequestBody $body The request body
      * @param SetManualLocationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/presence-setmanuallocation?view=graph-rest-beta Find more info here
     */
     public function post(SetManualLocationPostRequestBody $body, ?SetManualLocationRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -45,7 +46,7 @@ class SetManualLocationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action setManualLocation
+     * Set the manual work location signal for a user. The explicit value chosen by a user (or an authorized client) overrides any automatically detected or scheduled working hours and location.
      * @param SetManualLocationPostRequestBody $body The request body
      * @param SetManualLocationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

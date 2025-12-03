@@ -10,6 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class CloudApplicationReport implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -57,15 +58,17 @@ class CloudApplicationReport implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the category property value. The category property
-     * @return CloudApplicationCategory|null
+     * Gets the categories property value. The list of categories for the application. Supported values are: Collaboration, Business Management, Consumer, Content management, CRM, Data services, Developer services, E-commerce, Education, ERP, Finance, Health, Human resources, IT infrastructure, Mail, Management, Marketing, Media, Productivity, Project management, Telecommunications, Tools, Travel, and Web design & hosting.
+     * @return array<string>|null
     */
-    public function getCategory(): ?CloudApplicationCategory {
-        $val = $this->getBackingStore()->get('category');
-        if (is_null($val) || $val instanceof CloudApplicationCategory) {
+    public function getCategories(): ?array {
+        $val = $this->getBackingStore()->get('categories');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'category'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'categories'");
     }
 
     /**
@@ -111,7 +114,14 @@ class CloudApplicationReport implements AdditionalDataHolder, BackedModel, Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(CloudApplicationCategory::class)),
+            'categories' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setCategories($val);
+            },
             'cloudApplicationCatalogId' => fn(ParseNode $n) => $o->setCloudApplicationCatalogId($n->getStringValue()),
             'complianceScore' => fn(ParseNode $n) => $o->setComplianceScore($n->getIntegerValue()),
             'deviceCount' => fn(ParseNode $n) => $o->setDeviceCount($n->getIntegerValue()),
@@ -292,7 +302,7 @@ class CloudApplicationReport implements AdditionalDataHolder, BackedModel, Parsa
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeEnumValue('category', $this->getCategory());
+        $writer->writeCollectionOfPrimitiveValues('categories', $this->getCategories());
         $writer->writeStringValue('cloudApplicationCatalogId', $this->getCloudApplicationCatalogId());
         $writer->writeIntegerValue('complianceScore', $this->getComplianceScore());
         $writer->writeIntegerValue('deviceCount', $this->getDeviceCount());
@@ -329,11 +339,11 @@ class CloudApplicationReport implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the category property value. The category property
-     * @param CloudApplicationCategory|null $value Value to set for the category property.
+     * Sets the categories property value. The list of categories for the application. Supported values are: Collaboration, Business Management, Consumer, Content management, CRM, Data services, Developer services, E-commerce, Education, ERP, Finance, Health, Human resources, IT infrastructure, Mail, Management, Marketing, Media, Productivity, Project management, Telecommunications, Tools, Travel, and Web design & hosting.
+     * @param array<string>|null $value Value to set for the categories property.
     */
-    public function setCategory(?CloudApplicationCategory $value): void {
-        $this->getBackingStore()->set('category', $value);
+    public function setCategories(?array $value): void {
+        $this->getBackingStore()->set('categories', $value);
     }
 
     /**

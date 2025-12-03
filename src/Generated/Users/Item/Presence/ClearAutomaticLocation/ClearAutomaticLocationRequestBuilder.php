@@ -30,10 +30,11 @@ class ClearAutomaticLocationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action clearAutomaticLocation
+     * Clear the automatic work location signal for a user. After clearing, the user’s final aggregated work location is recomputed according to the precedence rules: Use this operation when you need to remove the current autodetected signal without affecting manual or scheduled layers.
      * @param ClearAutomaticLocationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/presence-clearautomaticlocation?view=graph-rest-beta Find more info here
     */
     public function post(?ClearAutomaticLocationRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -44,7 +45,7 @@ class ClearAutomaticLocationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action clearAutomaticLocation
+     * Clear the automatic work location signal for a user. After clearing, the user’s final aggregated work location is recomputed according to the precedence rules: Use this operation when you need to remove the current autodetected signal without affecting manual or scheduled layers.
      * @param ClearAutomaticLocationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

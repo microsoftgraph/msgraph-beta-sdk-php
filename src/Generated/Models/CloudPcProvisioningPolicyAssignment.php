@@ -48,6 +48,7 @@ class CloudPcProvisioningPolicyAssignment extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'assignedUsers' => fn(ParseNode $n) => $o->setAssignedUsers($n->getCollectionOfObjectValues([User::class, 'createFromDiscriminatorValue'])),
             'target' => fn(ParseNode $n) => $o->setTarget($n->getObjectValue([CloudPcManagementAssignmentTarget::class, 'createFromDiscriminatorValue'])),
+            'userSettingsPersistenceDetail' => fn(ParseNode $n) => $o->setUserSettingsPersistenceDetail($n->getObjectValue([CloudPCUserSettingsPersistenceDetail::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -64,6 +65,18 @@ class CloudPcProvisioningPolicyAssignment extends Entity implements Parsable
     }
 
     /**
+     * Gets the userSettingsPersistenceDetail property value. The assignment targeted user settings persistence for the provisioning policy. It allows user application data and Windows settings to be saved and applied between sessions.
+     * @return CloudPCUserSettingsPersistenceDetail|null
+    */
+    public function getUserSettingsPersistenceDetail(): ?CloudPCUserSettingsPersistenceDetail {
+        $val = $this->getBackingStore()->get('userSettingsPersistenceDetail');
+        if (is_null($val) || $val instanceof CloudPCUserSettingsPersistenceDetail) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'userSettingsPersistenceDetail'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -71,6 +84,7 @@ class CloudPcProvisioningPolicyAssignment extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('assignedUsers', $this->getAssignedUsers());
         $writer->writeObjectValue('target', $this->getTarget());
+        $writer->writeObjectValue('userSettingsPersistenceDetail', $this->getUserSettingsPersistenceDetail());
     }
 
     /**
@@ -87,6 +101,14 @@ class CloudPcProvisioningPolicyAssignment extends Entity implements Parsable
     */
     public function setTarget(?CloudPcManagementAssignmentTarget $value): void {
         $this->getBackingStore()->set('target', $value);
+    }
+
+    /**
+     * Sets the userSettingsPersistenceDetail property value. The assignment targeted user settings persistence for the provisioning policy. It allows user application data and Windows settings to be saved and applied between sessions.
+     * @param CloudPCUserSettingsPersistenceDetail|null $value Value to set for the userSettingsPersistenceDetail property.
+    */
+    public function setUserSettingsPersistenceDetail(?CloudPCUserSettingsPersistenceDetail $value): void {
+        $this->getBackingStore()->set('userSettingsPersistenceDetail', $value);
     }
 
 }

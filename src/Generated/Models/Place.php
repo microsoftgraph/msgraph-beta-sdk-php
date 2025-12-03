@@ -65,6 +65,20 @@ class Place extends Entity implements Parsable
     }
 
     /**
+     * Gets the children property value. The children property
+     * @return array<Place>|null
+    */
+    public function getChildren(): ?array {
+        $val = $this->getBackingStore()->get('children');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Place::class);
+            /** @var array<Place>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'children'");
+    }
+
+    /**
      * Gets the displayName property value. The name that is associated with the place.
      * @return string|null
     */
@@ -85,13 +99,13 @@ class Place extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'address' => fn(ParseNode $n) => $o->setAddress($n->getObjectValue([PhysicalAddress::class, 'createFromDiscriminatorValue'])),
             'checkIns' => fn(ParseNode $n) => $o->setCheckIns($n->getCollectionOfObjectValues([CheckInClaim::class, 'createFromDiscriminatorValue'])),
+            'children' => fn(ParseNode $n) => $o->setChildren($n->getCollectionOfObjectValues([Place::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'geoCoordinates' => fn(ParseNode $n) => $o->setGeoCoordinates($n->getObjectValue([OutlookGeoCoordinates::class, 'createFromDiscriminatorValue'])),
             'isWheelChairAccessible' => fn(ParseNode $n) => $o->setIsWheelChairAccessible($n->getBooleanValue()),
             'label' => fn(ParseNode $n) => $o->setLabel($n->getStringValue()),
             'parentId' => fn(ParseNode $n) => $o->setParentId($n->getStringValue()),
             'phone' => fn(ParseNode $n) => $o->setPhone($n->getStringValue()),
-            'placeId' => fn(ParseNode $n) => $o->setPlaceId($n->getStringValue()),
             'tags' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -164,18 +178,6 @@ class Place extends Entity implements Parsable
     }
 
     /**
-     * Gets the placeId property value. An alternate immutable unique identifier of the place. Read-only.
-     * @return string|null
-    */
-    public function getPlaceId(): ?string {
-        $val = $this->getBackingStore()->get('placeId');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'placeId'");
-    }
-
-    /**
      * Gets the tags property value. Custom tags that are associated with the place for categorization or filtering.
      * @return array<string>|null
     */
@@ -197,13 +199,13 @@ class Place extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeObjectValue('address', $this->getAddress());
         $writer->writeCollectionOfObjectValues('checkIns', $this->getCheckIns());
+        $writer->writeCollectionOfObjectValues('children', $this->getChildren());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeObjectValue('geoCoordinates', $this->getGeoCoordinates());
         $writer->writeBooleanValue('isWheelChairAccessible', $this->getIsWheelChairAccessible());
         $writer->writeStringValue('label', $this->getLabel());
         $writer->writeStringValue('parentId', $this->getParentId());
         $writer->writeStringValue('phone', $this->getPhone());
-        $writer->writeStringValue('placeId', $this->getPlaceId());
         $writer->writeCollectionOfPrimitiveValues('tags', $this->getTags());
     }
 
@@ -221,6 +223,14 @@ class Place extends Entity implements Parsable
     */
     public function setCheckIns(?array $value): void {
         $this->getBackingStore()->set('checkIns', $value);
+    }
+
+    /**
+     * Sets the children property value. The children property
+     * @param array<Place>|null $value Value to set for the children property.
+    */
+    public function setChildren(?array $value): void {
+        $this->getBackingStore()->set('children', $value);
     }
 
     /**
@@ -269,14 +279,6 @@ class Place extends Entity implements Parsable
     */
     public function setPhone(?string $value): void {
         $this->getBackingStore()->set('phone', $value);
-    }
-
-    /**
-     * Sets the placeId property value. An alternate immutable unique identifier of the place. Read-only.
-     * @param string|null $value Value to set for the placeId property.
-    */
-    public function setPlaceId(?string $value): void {
-        $this->getBackingStore()->set('placeId', $value);
     }
 
     /**

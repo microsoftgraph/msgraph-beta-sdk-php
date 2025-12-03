@@ -48,6 +48,30 @@ class AgentSignIn implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the agentSubjectParentId property value. The subject's parent object ID. This is either the id of the agentIdentity or agentIdentityBlueprint.
+     * @return string|null
+    */
+    public function getAgentSubjectParentId(): ?string {
+        $val = $this->getBackingStore()->get('agentSubjectParentId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'agentSubjectParentId'");
+    }
+
+    /**
+     * Gets the agentSubjectType property value. The agentSubjectType property
+     * @return AgentType|null
+    */
+    public function getAgentSubjectType(): ?AgentType {
+        $val = $this->getBackingStore()->get('agentSubjectType');
+        if (is_null($val) || $val instanceof AgentType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'agentSubjectType'");
+    }
+
+    /**
      * Gets the agentType property value. The agentType property
      * @return AgentType|null
     */
@@ -74,6 +98,8 @@ class AgentSignIn implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'agentSubjectParentId' => fn(ParseNode $n) => $o->setAgentSubjectParentId($n->getStringValue()),
+            'agentSubjectType' => fn(ParseNode $n) => $o->setAgentSubjectType($n->getEnumValue(AgentType::class)),
             'agentType' => fn(ParseNode $n) => $o->setAgentType($n->getEnumValue(AgentType::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'parentAppId' => fn(ParseNode $n) => $o->setParentAppId($n->getStringValue()),
@@ -109,6 +135,8 @@ class AgentSignIn implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('agentSubjectParentId', $this->getAgentSubjectParentId());
+        $writer->writeEnumValue('agentSubjectType', $this->getAgentSubjectType());
         $writer->writeEnumValue('agentType', $this->getAgentType());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('parentAppId', $this->getParentAppId());
@@ -121,6 +149,22 @@ class AgentSignIn implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the agentSubjectParentId property value. The subject's parent object ID. This is either the id of the agentIdentity or agentIdentityBlueprint.
+     * @param string|null $value Value to set for the agentSubjectParentId property.
+    */
+    public function setAgentSubjectParentId(?string $value): void {
+        $this->getBackingStore()->set('agentSubjectParentId', $value);
+    }
+
+    /**
+     * Sets the agentSubjectType property value. The agentSubjectType property
+     * @param AgentType|null $value Value to set for the agentSubjectType property.
+    */
+    public function setAgentSubjectType(?AgentType $value): void {
+        $this->getBackingStore()->set('agentSubjectType', $value);
     }
 
     /**

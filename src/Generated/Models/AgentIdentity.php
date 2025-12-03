@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class AgentIdentity extends ServicePrincipal implements Parsable 
 {
@@ -24,18 +25,6 @@ class AgentIdentity extends ServicePrincipal implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AgentIdentity {
         return new AgentIdentity();
-    }
-
-    /**
-     * Gets the agentAppId property value. The agentAppId property
-     * @return string|null
-    */
-    public function getAgentAppId(): ?string {
-        $val = $this->getBackingStore()->get('agentAppId');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'agentAppId'");
     }
 
     /**
@@ -69,10 +58,24 @@ class AgentIdentity extends ServicePrincipal implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'agentAppId' => fn(ParseNode $n) => $o->setAgentAppId($n->getStringValue()),
             'agentIdentityBlueprintId' => fn(ParseNode $n) => $o->setAgentIdentityBlueprintId($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'sponsors' => fn(ParseNode $n) => $o->setSponsors($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the sponsors property value. The sponsors for this agent identity.
+     * @return array<DirectoryObject>|null
+    */
+    public function getSponsors(): ?array {
+        $val = $this->getBackingStore()->get('sponsors');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DirectoryObject::class);
+            /** @var array<DirectoryObject>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sponsors'");
     }
 
     /**
@@ -81,17 +84,9 @@ class AgentIdentity extends ServicePrincipal implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('agentAppId', $this->getAgentAppId());
         $writer->writeStringValue('agentIdentityBlueprintId', $this->getAgentIdentityBlueprintId());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
-    }
-
-    /**
-     * Sets the agentAppId property value. The agentAppId property
-     * @param string|null $value Value to set for the agentAppId property.
-    */
-    public function setAgentAppId(?string $value): void {
-        $this->getBackingStore()->set('agentAppId', $value);
+        $writer->writeCollectionOfObjectValues('sponsors', $this->getSponsors());
     }
 
     /**
@@ -108,6 +103,14 @@ class AgentIdentity extends ServicePrincipal implements Parsable
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
+    }
+
+    /**
+     * Sets the sponsors property value. The sponsors for this agent identity.
+     * @param array<DirectoryObject>|null $value Value to set for the sponsors property.
+    */
+    public function setSponsors(?array $value): void {
+        $this->getBackingStore()->set('sponsors', $value);
     }
 
 }

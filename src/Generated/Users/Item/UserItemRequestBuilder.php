@@ -47,6 +47,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\ExportDeviceAndAppManagementData\E
 use Microsoft\Graph\Beta\Generated\Users\Item\ExportDeviceAndAppManagementDataWithSkipWithTop\ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ExportPersonalData\ExportPersonalDataRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Extensions\ExtensionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\FindMeetingLocations\FindMeetingLocationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\FindMeetingTimes\FindMeetingTimesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\FindRoomLists\FindRoomListsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\FindRooms\FindRoomsRequestBuilder;
@@ -400,6 +401,13 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     */
     public function extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the findMeetingLocations method.
+    */
+    public function findMeetingLocations(): FindMeetingLocationsRequestBuilder {
+        return new FindMeetingLocationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

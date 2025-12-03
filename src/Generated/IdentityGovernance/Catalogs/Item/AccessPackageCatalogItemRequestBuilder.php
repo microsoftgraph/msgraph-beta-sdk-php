@@ -1,0 +1,202 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\Catalogs\Item;
+
+use Exception;
+use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\Catalogs\Item\AccessPackageCustomWorkflowExtensions\AccessPackageCustomWorkflowExtensionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\Catalogs\Item\AccessPackageResourceRoles\AccessPackageResourceRolesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\Catalogs\Item\AccessPackageResources\AccessPackageResourcesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\Catalogs\Item\AccessPackageResourceScopes\AccessPackageResourceScopesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\Catalogs\Item\AccessPackages\AccessPackagesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\Catalogs\Item\AccessPackagesWithUniqueName\AccessPackagesWithUniqueNameRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\Catalogs\Item\CustomAccessPackageWorkflowExtensions\CustomAccessPackageWorkflowExtensionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Models\AccessPackageCatalog;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
+use Microsoft\Kiota\Abstractions\HttpMethod;
+use Microsoft\Kiota\Abstractions\RequestAdapter;
+use Microsoft\Kiota\Abstractions\RequestInformation;
+
+/**
+ * Provides operations to manage the catalogs property of the microsoft.graph.identityGovernance entity.
+*/
+class AccessPackageCatalogItemRequestBuilder extends BaseRequestBuilder 
+{
+    /**
+     * Provides operations to manage the accessPackageCustomWorkflowExtensions property of the microsoft.graph.accessPackageCatalog entity.
+    */
+    public function accessPackageCustomWorkflowExtensions(): AccessPackageCustomWorkflowExtensionsRequestBuilder {
+        return new AccessPackageCustomWorkflowExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the accessPackageResourceRoles property of the microsoft.graph.accessPackageCatalog entity.
+    */
+    public function accessPackageResourceRoles(): AccessPackageResourceRolesRequestBuilder {
+        return new AccessPackageResourceRolesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the accessPackageResources property of the microsoft.graph.accessPackageCatalog entity.
+    */
+    public function accessPackageResources(): AccessPackageResourcesRequestBuilder {
+        return new AccessPackageResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the accessPackageResourceScopes property of the microsoft.graph.accessPackageCatalog entity.
+    */
+    public function accessPackageResourceScopes(): AccessPackageResourceScopesRequestBuilder {
+        return new AccessPackageResourceScopesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the accessPackages property of the microsoft.graph.accessPackageCatalog entity.
+    */
+    public function accessPackages(): AccessPackagesRequestBuilder {
+        return new AccessPackagesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the customAccessPackageWorkflowExtensions property of the microsoft.graph.accessPackageCatalog entity.
+    */
+    public function customAccessPackageWorkflowExtensions(): CustomAccessPackageWorkflowExtensionsRequestBuilder {
+        return new CustomAccessPackageWorkflowExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the accessPackages property of the microsoft.graph.accessPackageCatalog entity.
+     * @param string $uniqueName Alternate key of accessPackage
+     * @return AccessPackagesWithUniqueNameRequestBuilder
+    */
+    public function accessPackagesWithUniqueName(string $uniqueName): AccessPackagesWithUniqueNameRequestBuilder {
+        return new AccessPackagesWithUniqueNameRequestBuilder($this->pathParameters, $this->requestAdapter, $uniqueName);
+    }
+
+    /**
+     * Instantiates a new AccessPackageCatalogItemRequestBuilder and sets the default values.
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
+     * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+    */
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
+        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/catalogs/{accessPackageCatalog%2Did}{?%24expand,%24select}');
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
+    }
+
+    /**
+     * Delete navigation property catalogs for identityGovernance
+     * @param AccessPackageCatalogItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise<void|null>
+     * @throws Exception
+    */
+    public function delete(?AccessPackageCatalogItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
+        $errorMappings = [
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
+    }
+
+    /**
+     * Get catalogs from identityGovernance
+     * @param AccessPackageCatalogItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise<AccessPackageCatalog|null>
+     * @throws Exception
+    */
+    public function get(?AccessPackageCatalogItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toGetRequestInformation($requestConfiguration);
+        $errorMappings = [
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [AccessPackageCatalog::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Update the navigation property catalogs in identityGovernance
+     * @param AccessPackageCatalog $body The request body
+     * @param AccessPackageCatalogItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise<AccessPackageCatalog|null>
+     * @throws Exception
+    */
+    public function patch(AccessPackageCatalog $body, ?AccessPackageCatalogItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
+        $errorMappings = [
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [AccessPackageCatalog::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Delete navigation property catalogs for identityGovernance
+     * @param AccessPackageCatalogItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return RequestInformation
+    */
+    public function toDeleteRequestInformation(?AccessPackageCatalogItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+        $requestInfo = new RequestInformation();
+        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->pathParameters = $this->pathParameters;
+        $requestInfo->httpMethod = HttpMethod::DELETE;
+        if ($requestConfiguration !== null) {
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
+        }
+        $requestInfo->tryAddHeader('Accept', "application/json");
+        return $requestInfo;
+    }
+
+    /**
+     * Get catalogs from identityGovernance
+     * @param AccessPackageCatalogItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return RequestInformation
+    */
+    public function toGetRequestInformation(?AccessPackageCatalogItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+        $requestInfo = new RequestInformation();
+        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->pathParameters = $this->pathParameters;
+        $requestInfo->httpMethod = HttpMethod::GET;
+        if ($requestConfiguration !== null) {
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            if ($requestConfiguration->queryParameters !== null) {
+                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
+            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
+        }
+        $requestInfo->tryAddHeader('Accept', "application/json");
+        return $requestInfo;
+    }
+
+    /**
+     * Update the navigation property catalogs in identityGovernance
+     * @param AccessPackageCatalog $body The request body
+     * @param AccessPackageCatalogItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return RequestInformation
+    */
+    public function toPatchRequestInformation(AccessPackageCatalog $body, ?AccessPackageCatalogItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+        $requestInfo = new RequestInformation();
+        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->pathParameters = $this->pathParameters;
+        $requestInfo->httpMethod = HttpMethod::PATCH;
+        if ($requestConfiguration !== null) {
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
+        }
+        $requestInfo->tryAddHeader('Accept', "application/json");
+        $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        return $requestInfo;
+    }
+
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return AccessPackageCatalogItemRequestBuilder
+    */
+    public function withUrl(string $rawUrl): AccessPackageCatalogItemRequestBuilder {
+        return new AccessPackageCatalogItemRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
+}

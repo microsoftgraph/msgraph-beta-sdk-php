@@ -267,7 +267,7 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the expiryDateTime property value. The expiryDateTime property
+     * Gets the expiryDateTime property value. Indicates the date and time when the meeting resource expires. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getExpiryDateTime(): ?DateTime {
@@ -311,6 +311,8 @@ class OnlineMeetingBase extends Entity implements Parsable
             'joinMeetingIdSettings' => fn(ParseNode $n) => $o->setJoinMeetingIdSettings($n->getObjectValue([JoinMeetingIdSettings::class, 'createFromDiscriminatorValue'])),
             'joinWebUrl' => fn(ParseNode $n) => $o->setJoinWebUrl($n->getStringValue()),
             'lobbyBypassSettings' => fn(ParseNode $n) => $o->setLobbyBypassSettings($n->getObjectValue([LobbyBypassSettings::class, 'createFromDiscriminatorValue'])),
+            'meetingOptionsWebUrl' => fn(ParseNode $n) => $o->setMeetingOptionsWebUrl($n->getStringValue()),
+            'meetingSpokenLanguageTag' => fn(ParseNode $n) => $o->setMeetingSpokenLanguageTag($n->getStringValue()),
             'recordAutomatically' => fn(ParseNode $n) => $o->setRecordAutomatically($n->getBooleanValue()),
             'shareMeetingChatHistoryDefault' => fn(ParseNode $n) => $o->setShareMeetingChatHistoryDefault($n->getEnumValue(MeetingChatHistoryDefaultMode::class)),
             'subject' => fn(ParseNode $n) => $o->setSubject($n->getStringValue()),
@@ -389,6 +391,30 @@ class OnlineMeetingBase extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lobbyBypassSettings'");
+    }
+
+    /**
+     * Gets the meetingOptionsWebUrl property value. Provides the URL to the Teams meeting options page for the specified meeting. This link allows only the organizer to configure meeting settings.
+     * @return string|null
+    */
+    public function getMeetingOptionsWebUrl(): ?string {
+        $val = $this->getBackingStore()->get('meetingOptionsWebUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'meetingOptionsWebUrl'");
+    }
+
+    /**
+     * Gets the meetingSpokenLanguageTag property value. Specifies the spoken language used during the meeting for recording and transcription purposes.
+     * @return string|null
+    */
+    public function getMeetingSpokenLanguageTag(): ?string {
+        $val = $this->getBackingStore()->get('meetingSpokenLanguageTag');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'meetingSpokenLanguageTag'");
     }
 
     /**
@@ -483,6 +509,8 @@ class OnlineMeetingBase extends Entity implements Parsable
         $writer->writeObjectValue('joinMeetingIdSettings', $this->getJoinMeetingIdSettings());
         $writer->writeStringValue('joinWebUrl', $this->getJoinWebUrl());
         $writer->writeObjectValue('lobbyBypassSettings', $this->getLobbyBypassSettings());
+        $writer->writeStringValue('meetingOptionsWebUrl', $this->getMeetingOptionsWebUrl());
+        $writer->writeStringValue('meetingSpokenLanguageTag', $this->getMeetingSpokenLanguageTag());
         $writer->writeBooleanValue('recordAutomatically', $this->getRecordAutomatically());
         $writer->writeEnumValue('shareMeetingChatHistoryDefault', $this->getShareMeetingChatHistoryDefault());
         $writer->writeStringValue('subject', $this->getSubject());
@@ -643,7 +671,7 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the expiryDateTime property value. The expiryDateTime property
+     * Sets the expiryDateTime property value. Indicates the date and time when the meeting resource expires. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the expiryDateTime property.
     */
     public function setExpiryDateTime(?DateTime $value): void {
@@ -696,6 +724,22 @@ class OnlineMeetingBase extends Entity implements Parsable
     */
     public function setLobbyBypassSettings(?LobbyBypassSettings $value): void {
         $this->getBackingStore()->set('lobbyBypassSettings', $value);
+    }
+
+    /**
+     * Sets the meetingOptionsWebUrl property value. Provides the URL to the Teams meeting options page for the specified meeting. This link allows only the organizer to configure meeting settings.
+     * @param string|null $value Value to set for the meetingOptionsWebUrl property.
+    */
+    public function setMeetingOptionsWebUrl(?string $value): void {
+        $this->getBackingStore()->set('meetingOptionsWebUrl', $value);
+    }
+
+    /**
+     * Sets the meetingSpokenLanguageTag property value. Specifies the spoken language used during the meeting for recording and transcription purposes.
+     * @param string|null $value Value to set for the meetingSpokenLanguageTag property.
+    */
+    public function setMeetingSpokenLanguageTag(?string $value): void {
+        $this->getBackingStore()->set('meetingSpokenLanguageTag', $value);
     }
 
     /**

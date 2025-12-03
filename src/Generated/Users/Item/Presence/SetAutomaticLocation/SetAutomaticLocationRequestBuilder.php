@@ -30,11 +30,12 @@ class SetAutomaticLocationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action setAutomaticLocation
+     * Update the automatic work location for a user. The automatic layer participates in the standard precedence model: Use this operation from clients or services that automatically detect location (for example, Teams, network/location agents, or OEM docking apps). It doesn't clear manual or scheduled signals.
      * @param SetAutomaticLocationPostRequestBody $body The request body
      * @param SetAutomaticLocationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/presence-setautomaticlocation?view=graph-rest-beta Find more info here
     */
     public function post(SetAutomaticLocationPostRequestBody $body, ?SetAutomaticLocationRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -45,7 +46,7 @@ class SetAutomaticLocationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action setAutomaticLocation
+     * Update the automatic work location for a user. The automatic layer participates in the standard precedence model: Use this operation from clients or services that automatically detect location (for example, Teams, network/location agents, or OEM docking apps). It doesn't clear manual or scheduled signals.
      * @param SetAutomaticLocationPostRequestBody $body The request body
      * @param SetAutomaticLocationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

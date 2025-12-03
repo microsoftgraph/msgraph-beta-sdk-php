@@ -49,6 +49,18 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
     }
 
     /**
+     * Gets the agentIdRiskLevels property value. Agent identity risk levels included in the policy. Possible values are: low, medium, high, unknownFutureValue. This enumeration is multivalued.
+     * @return ConditionalAccessAgentIdRiskLevels|null
+    */
+    public function getAgentIdRiskLevels(): ?ConditionalAccessAgentIdRiskLevels {
+        $val = $this->getBackingStore()->get('agentIdRiskLevels');
+        if (is_null($val) || $val instanceof ConditionalAccessAgentIdRiskLevels) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'agentIdRiskLevels'");
+    }
+
+    /**
      * Gets the applications property value. Applications and user actions included in and excluded from the policy. Required.
      * @return ConditionalAccessApplications|null
     */
@@ -137,6 +149,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'agentIdRiskLevels' => fn(ParseNode $n) => $o->setAgentIdRiskLevels($n->getEnumValue(ConditionalAccessAgentIdRiskLevels::class)),
             'applications' => fn(ParseNode $n) => $o->setApplications($n->getObjectValue([ConditionalAccessApplications::class, 'createFromDiscriminatorValue'])),
             'authenticationFlows' => fn(ParseNode $n) => $o->setAuthenticationFlows($n->getObjectValue([ConditionalAccessAuthenticationFlows::class, 'createFromDiscriminatorValue'])),
             'clientApplications' => fn(ParseNode $n) => $o->setClientApplications($n->getObjectValue([ConditionalAccessClientApplications::class, 'createFromDiscriminatorValue'])),
@@ -261,6 +274,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeEnumValue('agentIdRiskLevels', $this->getAgentIdRiskLevels());
         $writer->writeObjectValue('applications', $this->getApplications());
         $writer->writeObjectValue('authenticationFlows', $this->getAuthenticationFlows());
         $writer->writeObjectValue('clientApplications', $this->getClientApplications());
@@ -284,6 +298,14 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the agentIdRiskLevels property value. Agent identity risk levels included in the policy. Possible values are: low, medium, high, unknownFutureValue. This enumeration is multivalued.
+     * @param ConditionalAccessAgentIdRiskLevels|null $value Value to set for the agentIdRiskLevels property.
+    */
+    public function setAgentIdRiskLevels(?ConditionalAccessAgentIdRiskLevels $value): void {
+        $this->getBackingStore()->set('agentIdRiskLevels', $value);
     }
 
     /**

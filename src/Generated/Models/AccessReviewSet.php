@@ -63,6 +63,7 @@ class AccessReviewSet extends Entity implements Parsable
             'decisions' => fn(ParseNode $n) => $o->setDecisions($n->getCollectionOfObjectValues([AccessReviewInstanceDecisionItem::class, 'createFromDiscriminatorValue'])),
             'definitions' => fn(ParseNode $n) => $o->setDefinitions($n->getCollectionOfObjectValues([AccessReviewScheduleDefinition::class, 'createFromDiscriminatorValue'])),
             'historyDefinitions' => fn(ParseNode $n) => $o->setHistoryDefinitions($n->getCollectionOfObjectValues([AccessReviewHistoryDefinition::class, 'createFromDiscriminatorValue'])),
+            'instances' => fn(ParseNode $n) => $o->setInstances($n->getCollectionOfObjectValues([AccessReviewInstance::class, 'createFromDiscriminatorValue'])),
             'policy' => fn(ParseNode $n) => $o->setPolicy($n->getObjectValue([AccessReviewPolicy::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -79,6 +80,20 @@ class AccessReviewSet extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'historyDefinitions'");
+    }
+
+    /**
+     * Gets the instances property value. Represents the instance of a review.
+     * @return array<AccessReviewInstance>|null
+    */
+    public function getInstances(): ?array {
+        $val = $this->getBackingStore()->get('instances');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AccessReviewInstance::class);
+            /** @var array<AccessReviewInstance>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'instances'");
     }
 
     /**
@@ -102,6 +117,7 @@ class AccessReviewSet extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('decisions', $this->getDecisions());
         $writer->writeCollectionOfObjectValues('definitions', $this->getDefinitions());
         $writer->writeCollectionOfObjectValues('historyDefinitions', $this->getHistoryDefinitions());
+        $writer->writeCollectionOfObjectValues('instances', $this->getInstances());
         $writer->writeObjectValue('policy', $this->getPolicy());
     }
 
@@ -127,6 +143,14 @@ class AccessReviewSet extends Entity implements Parsable
     */
     public function setHistoryDefinitions(?array $value): void {
         $this->getBackingStore()->set('historyDefinitions', $value);
+    }
+
+    /**
+     * Sets the instances property value. Represents the instance of a review.
+     * @param array<AccessReviewInstance>|null $value Value to set for the instances property.
+    */
+    public function setInstances(?array $value): void {
+        $this->getBackingStore()->set('instances', $value);
     }
 
     /**

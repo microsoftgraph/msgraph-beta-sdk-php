@@ -50,6 +50,18 @@ class AccessPackageApprovalStage implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
+     * Gets the approverInformationVisibility property value. The approverInformationVisibility property
+     * @return ApproverInformationVisibility|null
+    */
+    public function getApproverInformationVisibility(): ?ApproverInformationVisibility {
+        $val = $this->getBackingStore()->get('approverInformationVisibility');
+        if (is_null($val) || $val instanceof ApproverInformationVisibility) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'approverInformationVisibility'");
+    }
+
+    /**
      * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -130,6 +142,7 @@ class AccessPackageApprovalStage implements AdditionalDataHolder, BackedModel, P
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'approverInformationVisibility' => fn(ParseNode $n) => $o->setApproverInformationVisibility($n->getEnumValue(ApproverInformationVisibility::class)),
             'durationBeforeAutomaticDenial' => fn(ParseNode $n) => $o->setDurationBeforeAutomaticDenial($n->getDateIntervalValue()),
             'durationBeforeEscalation' => fn(ParseNode $n) => $o->setDurationBeforeEscalation($n->getDateIntervalValue()),
             'escalationApprovers' => fn(ParseNode $n) => $o->setEscalationApprovers($n->getCollectionOfObjectValues([SubjectSet::class, 'createFromDiscriminatorValue'])),
@@ -197,6 +210,7 @@ class AccessPackageApprovalStage implements AdditionalDataHolder, BackedModel, P
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeEnumValue('approverInformationVisibility', $this->getApproverInformationVisibility());
         $writer->writeDateIntervalValue('durationBeforeAutomaticDenial', $this->getDurationBeforeAutomaticDenial());
         $writer->writeDateIntervalValue('durationBeforeEscalation', $this->getDurationBeforeEscalation());
         $writer->writeCollectionOfObjectValues('escalationApprovers', $this->getEscalationApprovers());
@@ -215,6 +229,14 @@ class AccessPackageApprovalStage implements AdditionalDataHolder, BackedModel, P
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the approverInformationVisibility property value. The approverInformationVisibility property
+     * @param ApproverInformationVisibility|null $value Value to set for the approverInformationVisibility property.
+    */
+    public function setApproverInformationVisibility(?ApproverInformationVisibility $value): void {
+        $this->getBackingStore()->set('approverInformationVisibility', $value);
     }
 
     /**

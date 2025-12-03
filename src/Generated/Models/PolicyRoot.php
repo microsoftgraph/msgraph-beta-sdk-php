@@ -130,6 +130,20 @@ class PolicyRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the b2bManagementPolicies property value. The policy to manage Microsoft Entra B2B features in Microsoft Entra External ID for workforce tenants.
+     * @return array<B2bManagementPolicy>|null
+    */
+    public function getB2bManagementPolicies(): ?array {
+        $val = $this->getBackingStore()->get('b2bManagementPolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, B2bManagementPolicy::class);
+            /** @var array<B2bManagementPolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'b2bManagementPolicies'");
+    }
+
+    /**
      * Gets the b2cAuthenticationMethodsPolicy property value. The Azure AD B2C policies that define how end users register via local accounts.
      * @return B2cAuthenticationMethodsPolicy|null
     */
@@ -282,6 +296,7 @@ class PolicyRoot extends Entity implements Parsable
             'authenticationMethodsPolicy' => fn(ParseNode $n) => $o->setAuthenticationMethodsPolicy($n->getObjectValue([AuthenticationMethodsPolicy::class, 'createFromDiscriminatorValue'])),
             'authenticationStrengthPolicies' => fn(ParseNode $n) => $o->setAuthenticationStrengthPolicies($n->getCollectionOfObjectValues([AuthenticationStrengthPolicy::class, 'createFromDiscriminatorValue'])),
             'authorizationPolicy' => fn(ParseNode $n) => $o->setAuthorizationPolicy($n->getCollectionOfObjectValues([AuthorizationPolicy::class, 'createFromDiscriminatorValue'])),
+            'b2bManagementPolicies' => fn(ParseNode $n) => $o->setB2bManagementPolicies($n->getCollectionOfObjectValues([B2bManagementPolicy::class, 'createFromDiscriminatorValue'])),
             'b2cAuthenticationMethodsPolicy' => fn(ParseNode $n) => $o->setB2cAuthenticationMethodsPolicy($n->getObjectValue([B2cAuthenticationMethodsPolicy::class, 'createFromDiscriminatorValue'])),
             'claimsMappingPolicies' => fn(ParseNode $n) => $o->setClaimsMappingPolicies($n->getCollectionOfObjectValues([ClaimsMappingPolicy::class, 'createFromDiscriminatorValue'])),
             'conditionalAccessPolicies' => fn(ParseNode $n) => $o->setConditionalAccessPolicies($n->getCollectionOfObjectValues([ConditionalAccessPolicy::class, 'createFromDiscriminatorValue'])),
@@ -297,6 +312,7 @@ class PolicyRoot extends Entity implements Parsable
             'identitySecurityDefaultsEnforcementPolicy' => fn(ParseNode $n) => $o->setIdentitySecurityDefaultsEnforcementPolicy($n->getObjectValue([IdentitySecurityDefaultsEnforcementPolicy::class, 'createFromDiscriminatorValue'])),
             'mobileAppManagementPolicies' => fn(ParseNode $n) => $o->setMobileAppManagementPolicies($n->getCollectionOfObjectValues([MobileAppManagementPolicy::class, 'createFromDiscriminatorValue'])),
             'mobileDeviceManagementPolicies' => fn(ParseNode $n) => $o->setMobileDeviceManagementPolicies($n->getCollectionOfObjectValues([MobileDeviceManagementPolicy::class, 'createFromDiscriminatorValue'])),
+            'onPremAuthenticationPolicies' => fn(ParseNode $n) => $o->setOnPremAuthenticationPolicies($n->getCollectionOfObjectValues([OnPremAuthenticationPolicy::class, 'createFromDiscriminatorValue'])),
             'permissionGrantPolicies' => fn(ParseNode $n) => $o->setPermissionGrantPolicies($n->getCollectionOfObjectValues([PermissionGrantPolicy::class, 'createFromDiscriminatorValue'])),
             'permissionGrantPreApprovalPolicies' => fn(ParseNode $n) => $o->setPermissionGrantPreApprovalPolicies($n->getCollectionOfObjectValues([PermissionGrantPreApprovalPolicy::class, 'createFromDiscriminatorValue'])),
             'roleManagementPolicies' => fn(ParseNode $n) => $o->setRoleManagementPolicies($n->getCollectionOfObjectValues([UnifiedRoleManagementPolicy::class, 'createFromDiscriminatorValue'])),
@@ -359,6 +375,20 @@ class PolicyRoot extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'mobileDeviceManagementPolicies'");
+    }
+
+    /**
+     * Gets the onPremAuthenticationPolicies property value. The policy that controls how authentication requests from on-premises environments are managed.
+     * @return array<OnPremAuthenticationPolicy>|null
+    */
+    public function getOnPremAuthenticationPolicies(): ?array {
+        $val = $this->getBackingStore()->get('onPremAuthenticationPolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, OnPremAuthenticationPolicy::class);
+            /** @var array<OnPremAuthenticationPolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremAuthenticationPolicies'");
     }
 
     /**
@@ -473,6 +503,7 @@ class PolicyRoot extends Entity implements Parsable
         $writer->writeObjectValue('authenticationMethodsPolicy', $this->getAuthenticationMethodsPolicy());
         $writer->writeCollectionOfObjectValues('authenticationStrengthPolicies', $this->getAuthenticationStrengthPolicies());
         $writer->writeCollectionOfObjectValues('authorizationPolicy', $this->getAuthorizationPolicy());
+        $writer->writeCollectionOfObjectValues('b2bManagementPolicies', $this->getB2bManagementPolicies());
         $writer->writeObjectValue('b2cAuthenticationMethodsPolicy', $this->getB2cAuthenticationMethodsPolicy());
         $writer->writeCollectionOfObjectValues('claimsMappingPolicies', $this->getClaimsMappingPolicies());
         $writer->writeCollectionOfObjectValues('conditionalAccessPolicies', $this->getConditionalAccessPolicies());
@@ -488,6 +519,7 @@ class PolicyRoot extends Entity implements Parsable
         $writer->writeObjectValue('identitySecurityDefaultsEnforcementPolicy', $this->getIdentitySecurityDefaultsEnforcementPolicy());
         $writer->writeCollectionOfObjectValues('mobileAppManagementPolicies', $this->getMobileAppManagementPolicies());
         $writer->writeCollectionOfObjectValues('mobileDeviceManagementPolicies', $this->getMobileDeviceManagementPolicies());
+        $writer->writeCollectionOfObjectValues('onPremAuthenticationPolicies', $this->getOnPremAuthenticationPolicies());
         $writer->writeCollectionOfObjectValues('permissionGrantPolicies', $this->getPermissionGrantPolicies());
         $writer->writeCollectionOfObjectValues('permissionGrantPreApprovalPolicies', $this->getPermissionGrantPreApprovalPolicies());
         $writer->writeCollectionOfObjectValues('roleManagementPolicies', $this->getRoleManagementPolicies());
@@ -559,6 +591,14 @@ class PolicyRoot extends Entity implements Parsable
     */
     public function setAuthorizationPolicy(?array $value): void {
         $this->getBackingStore()->set('authorizationPolicy', $value);
+    }
+
+    /**
+     * Sets the b2bManagementPolicies property value. The policy to manage Microsoft Entra B2B features in Microsoft Entra External ID for workforce tenants.
+     * @param array<B2bManagementPolicy>|null $value Value to set for the b2bManagementPolicies property.
+    */
+    public function setB2bManagementPolicies(?array $value): void {
+        $this->getBackingStore()->set('b2bManagementPolicies', $value);
     }
 
     /**
@@ -679,6 +719,14 @@ class PolicyRoot extends Entity implements Parsable
     */
     public function setMobileDeviceManagementPolicies(?array $value): void {
         $this->getBackingStore()->set('mobileDeviceManagementPolicies', $value);
+    }
+
+    /**
+     * Sets the onPremAuthenticationPolicies property value. The policy that controls how authentication requests from on-premises environments are managed.
+     * @param array<OnPremAuthenticationPolicy>|null $value Value to set for the onPremAuthenticationPolicies property.
+    */
+    public function setOnPremAuthenticationPolicies(?array $value): void {
+        $this->getBackingStore()->set('onPremAuthenticationPolicies', $value);
     }
 
     /**

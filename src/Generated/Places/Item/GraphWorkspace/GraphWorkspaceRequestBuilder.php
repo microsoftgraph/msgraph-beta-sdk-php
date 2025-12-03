@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Workspace;
 use Microsoft\Graph\Beta\Generated\Places\Item\GraphWorkspace\CheckIns\CheckInsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Places\Item\GraphWorkspace\Children\ChildrenRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -22,6 +23,13 @@ class GraphWorkspaceRequestBuilder extends BaseRequestBuilder
     */
     public function checkIns(): CheckInsRequestBuilder {
         return new CheckInsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the children property of the microsoft.graph.place entity.
+    */
+    public function children(): ChildrenRequestBuilder {
+        return new ChildrenRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

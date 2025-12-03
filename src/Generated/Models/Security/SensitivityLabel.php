@@ -92,7 +92,7 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Gets the hasProtection property value. Indicates whether the label has protection actions configured.
+     * Gets the hasProtection property value. Indicates whether the label has protection actions (such as encryption or do not forward) configured.
      * @return bool|null
     */
     public function getHasProtection(): ?bool {
@@ -218,7 +218,7 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Sets the hasProtection property value. Indicates whether the label has protection actions configured.
+     * Sets the hasProtection property value. Indicates whether the label has protection actions (such as encryption or do not forward) configured.
      * @param bool|null $value Value to set for the hasProtection property.
     */
     public function setHasProtection(?bool $value): void {

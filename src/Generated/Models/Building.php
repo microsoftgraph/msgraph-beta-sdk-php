@@ -36,6 +36,7 @@ class Building extends Place implements Parsable
             'hasWiFi' => fn(ParseNode $n) => $o->setHasWiFi($n->getBooleanValue()),
             'map' => fn(ParseNode $n) => $o->setMap($n->getObjectValue([BuildingMap::class, 'createFromDiscriminatorValue'])),
             'resourceLinks' => fn(ParseNode $n) => $o->setResourceLinks($n->getCollectionOfObjectValues([ResourceLink::class, 'createFromDiscriminatorValue'])),
+            'wifiState' => fn(ParseNode $n) => $o->setWifiState($n->getEnumValue(PlaceFeatureEnablement::class)),
         ]);
     }
 
@@ -78,6 +79,18 @@ class Building extends Place implements Parsable
     }
 
     /**
+     * Gets the wifiState property value. The wifiState property
+     * @return PlaceFeatureEnablement|null
+    */
+    public function getWifiState(): ?PlaceFeatureEnablement {
+        $val = $this->getBackingStore()->get('wifiState');
+        if (is_null($val) || $val instanceof PlaceFeatureEnablement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wifiState'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -86,6 +99,7 @@ class Building extends Place implements Parsable
         $writer->writeBooleanValue('hasWiFi', $this->getHasWiFi());
         $writer->writeObjectValue('map', $this->getMap());
         $writer->writeCollectionOfObjectValues('resourceLinks', $this->getResourceLinks());
+        $writer->writeEnumValue('wifiState', $this->getWifiState());
     }
 
     /**
@@ -110,6 +124,14 @@ class Building extends Place implements Parsable
     */
     public function setResourceLinks(?array $value): void {
         $this->getBackingStore()->set('resourceLinks', $value);
+    }
+
+    /**
+     * Sets the wifiState property value. The wifiState property
+     * @param PlaceFeatureEnablement|null $value Value to set for the wifiState property.
+    */
+    public function setWifiState(?PlaceFeatureEnablement $value): void {
+        $this->getBackingStore()->set('wifiState', $value);
     }
 
 }

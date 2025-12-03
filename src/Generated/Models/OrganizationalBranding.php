@@ -34,6 +34,7 @@ class OrganizationalBranding extends OrganizationalBrandingProperties implements
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'localizations' => fn(ParseNode $n) => $o->setLocalizations($n->getCollectionOfObjectValues([OrganizationalBrandingLocalization::class, 'createFromDiscriminatorValue'])),
+            'themes' => fn(ParseNode $n) => $o->setThemes($n->getCollectionOfObjectValues([OrganizationalBrandingTheme::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -52,12 +53,27 @@ class OrganizationalBranding extends OrganizationalBrandingProperties implements
     }
 
     /**
+     * Gets the themes property value. Collection of branding themes for the tenant.
+     * @return array<OrganizationalBrandingTheme>|null
+    */
+    public function getThemes(): ?array {
+        $val = $this->getBackingStore()->get('themes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, OrganizationalBrandingTheme::class);
+            /** @var array<OrganizationalBrandingTheme>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'themes'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('localizations', $this->getLocalizations());
+        $writer->writeCollectionOfObjectValues('themes', $this->getThemes());
     }
 
     /**
@@ -66,6 +82,14 @@ class OrganizationalBranding extends OrganizationalBrandingProperties implements
     */
     public function setLocalizations(?array $value): void {
         $this->getBackingStore()->set('localizations', $value);
+    }
+
+    /**
+     * Sets the themes property value. Collection of branding themes for the tenant.
+     * @param array<OrganizationalBrandingTheme>|null $value Value to set for the themes property.
+    */
+    public function setThemes(?array $value): void {
+        $this->getBackingStore()->set('themes', $value);
     }
 
 }

@@ -7,10 +7,9 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\RoomList;
 use Microsoft\Graph\Beta\Generated\Places\Item\GraphRoomList\CheckIns\CheckInsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Places\Item\GraphRoomList\Children\ChildrenRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Places\Item\GraphRoomList\Rooms\RoomsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Places\Item\GraphRoomList\RoomsWithPlaceId\RoomsWithPlaceIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Places\Item\GraphRoomList\Workspaces\WorkspacesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Places\Item\GraphRoomList\WorkspacesWithPlaceId\WorkspacesWithPlaceIdRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -26,6 +25,13 @@ class GraphRoomListRequestBuilder extends BaseRequestBuilder
     */
     public function checkIns(): CheckInsRequestBuilder {
         return new CheckInsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the children property of the microsoft.graph.place entity.
+    */
+    public function children(): ChildrenRequestBuilder {
+        return new ChildrenRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -71,15 +77,6 @@ class GraphRoomListRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Provides operations to manage the rooms property of the microsoft.graph.roomList entity.
-     * @param string $placeId Alternate key of room
-     * @return RoomsWithPlaceIdRequestBuilder
-    */
-    public function roomsWithPlaceId(string $placeId): RoomsWithPlaceIdRequestBuilder {
-        return new RoomsWithPlaceIdRequestBuilder($this->pathParameters, $this->requestAdapter, $placeId);
-    }
-
-    /**
      * Get the item of type microsoft.graph.place as microsoft.graph.roomList
      * @param GraphRoomListRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -107,15 +104,6 @@ class GraphRoomListRequestBuilder extends BaseRequestBuilder
     */
     public function withUrl(string $rawUrl): GraphRoomListRequestBuilder {
         return new GraphRoomListRequestBuilder($rawUrl, $this->requestAdapter);
-    }
-
-    /**
-     * Provides operations to manage the workspaces property of the microsoft.graph.roomList entity.
-     * @param string $placeId Alternate key of workspace
-     * @return WorkspacesWithPlaceIdRequestBuilder
-    */
-    public function workspacesWithPlaceId(string $placeId): WorkspacesWithPlaceIdRequestBuilder {
-        return new WorkspacesWithPlaceIdRequestBuilder($this->pathParameters, $this->requestAdapter, $placeId);
     }
 
 }
