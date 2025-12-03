@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNet
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get counts of the visits to the top destination aggregations.
+ * Get counts of the visits to the top destination aggregations as logged in Global Secure Access
 */
 class MicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedByRequestBuilderGetQueryParameters 
 {

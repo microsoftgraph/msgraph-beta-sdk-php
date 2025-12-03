@@ -25,12 +25,25 @@ class RiskyAgentIdentityBlueprintPrincipal extends RiskyAgent implements Parsabl
     }
 
     /**
+     * Gets the agentIdentityBlueprintPrincipal property value. The agentIdentityBlueprintPrincipal property
+     * @return AgentIdentityBlueprintPrincipal|null
+    */
+    public function getAgentIdentityBlueprintPrincipal(): ?AgentIdentityBlueprintPrincipal {
+        $val = $this->getBackingStore()->get('agentIdentityBlueprintPrincipal');
+        if (is_null($val) || $val instanceof AgentIdentityBlueprintPrincipal) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'agentIdentityBlueprintPrincipal'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'agentIdentityBlueprintPrincipal' => fn(ParseNode $n) => $o->setAgentIdentityBlueprintPrincipal($n->getObjectValue([AgentIdentityBlueprintPrincipal::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -40,6 +53,15 @@ class RiskyAgentIdentityBlueprintPrincipal extends RiskyAgent implements Parsabl
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('agentIdentityBlueprintPrincipal', $this->getAgentIdentityBlueprintPrincipal());
+    }
+
+    /**
+     * Sets the agentIdentityBlueprintPrincipal property value. The agentIdentityBlueprintPrincipal property
+     * @param AgentIdentityBlueprintPrincipal|null $value Value to set for the agentIdentityBlueprintPrincipal property.
+    */
+    public function setAgentIdentityBlueprintPrincipal(?AgentIdentityBlueprintPrincipal $value): void {
+        $this->getBackingStore()->set('agentIdentityBlueprintPrincipal', $value);
     }
 
 }

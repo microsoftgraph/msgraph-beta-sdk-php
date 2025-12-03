@@ -37,8 +37,8 @@ class PlaceMode implements AdditionalDataHolder, BackedModel, Parsable
             switch ($mappingValue) {
                 case '#microsoft.graph.assignedPlaceMode': return new AssignedPlaceMode();
                 case '#microsoft.graph.dropInPlaceMode': return new DropInPlaceMode();
-                case '#microsoft.graph.offlinePlaceMode': return new OfflinePlaceMode();
                 case '#microsoft.graph.reservablePlaceMode': return new ReservablePlaceMode();
+                case '#microsoft.graph.unavailablePlaceMode': return new UnavailablePlaceMode();
             }
         }
         return new PlaceMode();

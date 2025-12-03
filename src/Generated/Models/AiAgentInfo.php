@@ -25,7 +25,7 @@ class AiAgentInfo extends AiInteractionEntity implements Parsable
     }
 
     /**
-     * Gets the blueprintId property value. The blueprintId property
+     * Gets the blueprintId property value. Identifier of the parent agent blueprint that defines the identity and configuration of the agent.
      * @return string|null
     */
     public function getBlueprintId(): ?string {
@@ -57,7 +57,7 @@ class AiAgentInfo extends AiInteractionEntity implements Parsable
     }
 
     /**
-     * Sets the blueprintId property value. The blueprintId property
+     * Sets the blueprintId property value. Identifier of the parent agent blueprint that defines the identity and configuration of the agent.
      * @param string|null $value Value to set for the blueprintId property.
     */
     public function setBlueprintId(?string $value): void {

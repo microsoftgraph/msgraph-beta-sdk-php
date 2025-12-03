@@ -7,6 +7,7 @@ use Microsoft\Graph\Beta\Generated\AccessReviews\AccessReviewsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Activitystatistics\ActivitystatisticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\AdminRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AdministrativeUnits\AdministrativeUnitsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AgentRegistry\AgentRegistryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Agents\AgentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AgreementAcceptances\AgreementAcceptancesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Agreements\AgreementsRequestBuilder;
@@ -85,7 +86,6 @@ use Microsoft\Graph\Beta\Generated\Organization\OrganizationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PayloadResponse\PayloadResponseRequestBuilder;
 use Microsoft\Graph\Beta\Generated\PermissionGrants\PermissionGrantsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Places\PlacesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\PlacesWithPlaceId\PlacesWithPlaceIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\PlannerRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\PoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Privacy\PrivacyRequestBuilder;
@@ -179,6 +179,13 @@ class BaseGraphClient extends BaseRequestBuilder
     */
     public function administrativeUnits(): AdministrativeUnitsRequestBuilder {
         return new AdministrativeUnitsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the agentRegistry singleton.
+    */
+    public function agentRegistry(): AgentRegistryRequestBuilder {
+        return new AgentRegistryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -1036,15 +1043,6 @@ class BaseGraphClient extends BaseRequestBuilder
     */
     public function groupsWithUniqueName(string $uniqueName): GroupsWithUniqueNameRequestBuilder {
         return new GroupsWithUniqueNameRequestBuilder($this->pathParameters, $this->requestAdapter, $uniqueName);
-    }
-
-    /**
-     * Provides operations to manage the collection of place entities.
-     * @param string $placeId Alternate key of place
-     * @return PlacesWithPlaceIdRequestBuilder
-    */
-    public function placesWithPlaceId(string $placeId): PlacesWithPlaceIdRequestBuilder {
-        return new PlacesWithPlaceIdRequestBuilder($this->pathParameters, $this->requestAdapter, $placeId);
     }
 
     /**

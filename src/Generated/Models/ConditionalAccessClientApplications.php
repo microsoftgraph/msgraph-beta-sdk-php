@@ -49,11 +49,37 @@ class ConditionalAccessClientApplications implements AdditionalDataHolder, Backe
     }
 
     /**
+     * Gets the agentIdServicePrincipalFilter property value. Filter that defines rules based on custom security attribute tags to include/exclude agent identities in the policy.
+     * @return ConditionalAccessFilter|null
+    */
+    public function getAgentIdServicePrincipalFilter(): ?ConditionalAccessFilter {
+        $val = $this->getBackingStore()->get('agentIdServicePrincipalFilter');
+        if (is_null($val) || $val instanceof ConditionalAccessFilter) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'agentIdServicePrincipalFilter'");
+    }
+
+    /**
      * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
     public function getBackingStore(): BackingStore {
         return $this->backingStore;
+    }
+
+    /**
+     * Gets the excludeAgentIdServicePrincipals property value. Agent identity object IDs excluded from the policy.
+     * @return array<string>|null
+    */
+    public function getExcludeAgentIdServicePrincipals(): ?array {
+        $val = $this->getBackingStore()->get('excludeAgentIdServicePrincipals');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'excludeAgentIdServicePrincipals'");
     }
 
     /**
@@ -77,6 +103,15 @@ class ConditionalAccessClientApplications implements AdditionalDataHolder, Backe
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'agentIdServicePrincipalFilter' => fn(ParseNode $n) => $o->setAgentIdServicePrincipalFilter($n->getObjectValue([ConditionalAccessFilter::class, 'createFromDiscriminatorValue'])),
+            'excludeAgentIdServicePrincipals' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setExcludeAgentIdServicePrincipals($val);
+            },
             'excludeServicePrincipals' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -84,6 +119,14 @@ class ConditionalAccessClientApplications implements AdditionalDataHolder, Backe
                 }
                 /** @var array<string>|null $val */
                 $this->setExcludeServicePrincipals($val);
+            },
+            'includeAgentIdServicePrincipals' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setIncludeAgentIdServicePrincipals($val);
             },
             'includeServicePrincipals' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -96,6 +139,20 @@ class ConditionalAccessClientApplications implements AdditionalDataHolder, Backe
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'servicePrincipalFilter' => fn(ParseNode $n) => $o->setServicePrincipalFilter($n->getObjectValue([ConditionalAccessFilter::class, 'createFromDiscriminatorValue'])),
         ];
+    }
+
+    /**
+     * Gets the includeAgentIdServicePrincipals property value. Agent identity object IDs included in the policy.
+     * @return array<string>|null
+    */
+    public function getIncludeAgentIdServicePrincipals(): ?array {
+        $val = $this->getBackingStore()->get('includeAgentIdServicePrincipals');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'includeAgentIdServicePrincipals'");
     }
 
     /**
@@ -141,7 +198,10 @@ class ConditionalAccessClientApplications implements AdditionalDataHolder, Backe
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('agentIdServicePrincipalFilter', $this->getAgentIdServicePrincipalFilter());
+        $writer->writeCollectionOfPrimitiveValues('excludeAgentIdServicePrincipals', $this->getExcludeAgentIdServicePrincipals());
         $writer->writeCollectionOfPrimitiveValues('excludeServicePrincipals', $this->getExcludeServicePrincipals());
+        $writer->writeCollectionOfPrimitiveValues('includeAgentIdServicePrincipals', $this->getIncludeAgentIdServicePrincipals());
         $writer->writeCollectionOfPrimitiveValues('includeServicePrincipals', $this->getIncludeServicePrincipals());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('servicePrincipalFilter', $this->getServicePrincipalFilter());
@@ -157,6 +217,14 @@ class ConditionalAccessClientApplications implements AdditionalDataHolder, Backe
     }
 
     /**
+     * Sets the agentIdServicePrincipalFilter property value. Filter that defines rules based on custom security attribute tags to include/exclude agent identities in the policy.
+     * @param ConditionalAccessFilter|null $value Value to set for the agentIdServicePrincipalFilter property.
+    */
+    public function setAgentIdServicePrincipalFilter(?ConditionalAccessFilter $value): void {
+        $this->getBackingStore()->set('agentIdServicePrincipalFilter', $value);
+    }
+
+    /**
      * Sets the BackingStore property value. Stores model information.
      * @param BackingStore $value Value to set for the BackingStore property.
     */
@@ -165,11 +233,27 @@ class ConditionalAccessClientApplications implements AdditionalDataHolder, Backe
     }
 
     /**
+     * Sets the excludeAgentIdServicePrincipals property value. Agent identity object IDs excluded from the policy.
+     * @param array<string>|null $value Value to set for the excludeAgentIdServicePrincipals property.
+    */
+    public function setExcludeAgentIdServicePrincipals(?array $value): void {
+        $this->getBackingStore()->set('excludeAgentIdServicePrincipals', $value);
+    }
+
+    /**
      * Sets the excludeServicePrincipals property value. Service principal IDs excluded from the policy scope.
      * @param array<string>|null $value Value to set for the excludeServicePrincipals property.
     */
     public function setExcludeServicePrincipals(?array $value): void {
         $this->getBackingStore()->set('excludeServicePrincipals', $value);
+    }
+
+    /**
+     * Sets the includeAgentIdServicePrincipals property value. Agent identity object IDs included in the policy.
+     * @param array<string>|null $value Value to set for the includeAgentIdServicePrincipals property.
+    */
+    public function setIncludeAgentIdServicePrincipals(?array $value): void {
+        $this->getBackingStore()->set('includeAgentIdServicePrincipals', $value);
     }
 
     /**

@@ -31,6 +31,13 @@ class TimeSlot implements AdditionalDataHolder, BackedModel, Parsable
      * @return TimeSlot
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): TimeSlot {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.timeSlotAvailability': return new TimeSlotAvailability();
+            }
+        }
         return new TimeSlot();
     }
 

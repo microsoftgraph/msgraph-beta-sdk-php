@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNet
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the total number of transactions and the number of blocked transactions, grouped by traffic type.
+ * Get the total number of transactions and the number of blocked transactions in Global Secure Access, grouped by traffic type.
 */
 class MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters 
 {

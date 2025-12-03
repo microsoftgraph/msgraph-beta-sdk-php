@@ -68,6 +68,18 @@ class ApprovalStage implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the approverInformationVisibility property value. The approverInformationVisibility property
+     * @return ApproverInformationVisibility|null
+    */
+    public function getApproverInformationVisibility(): ?ApproverInformationVisibility {
+        $val = $this->getBackingStore()->get('approverInformationVisibility');
+        if (is_null($val) || $val instanceof ApproverInformationVisibility) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'approverInformationVisibility'");
+    }
+
+    /**
      * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -109,6 +121,7 @@ class ApprovalStage implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             'approvalStageTimeOutInDays' => fn(ParseNode $n) => $o->setApprovalStageTimeOutInDays($n->getIntegerValue()),
+            'approverInformationVisibility' => fn(ParseNode $n) => $o->setApproverInformationVisibility($n->getEnumValue(ApproverInformationVisibility::class)),
             'escalationApprovers' => fn(ParseNode $n) => $o->setEscalationApprovers($n->getCollectionOfObjectValues([UserSet::class, 'createFromDiscriminatorValue'])),
             'escalationTimeInMinutes' => fn(ParseNode $n) => $o->setEscalationTimeInMinutes($n->getIntegerValue()),
             'isApproverJustificationRequired' => fn(ParseNode $n) => $o->setIsApproverJustificationRequired($n->getBooleanValue()),
@@ -174,6 +187,7 @@ class ApprovalStage implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeIntegerValue('approvalStageTimeOutInDays', $this->getApprovalStageTimeOutInDays());
+        $writer->writeEnumValue('approverInformationVisibility', $this->getApproverInformationVisibility());
         $writer->writeCollectionOfObjectValues('escalationApprovers', $this->getEscalationApprovers());
         $writer->writeIntegerValue('escalationTimeInMinutes', $this->getEscalationTimeInMinutes());
         $writer->writeBooleanValue('isApproverJustificationRequired', $this->getIsApproverJustificationRequired());
@@ -197,6 +211,14 @@ class ApprovalStage implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setApprovalStageTimeOutInDays(?int $value): void {
         $this->getBackingStore()->set('approvalStageTimeOutInDays', $value);
+    }
+
+    /**
+     * Sets the approverInformationVisibility property value. The approverInformationVisibility property
+     * @param ApproverInformationVisibility|null $value Value to set for the approverInformationVisibility property.
+    */
+    public function setApproverInformationVisibility(?ApproverInformationVisibility $value): void {
+        $this->getBackingStore()->set('approverInformationVisibility', $value);
     }
 
     /**

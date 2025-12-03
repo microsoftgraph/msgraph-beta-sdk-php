@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Place;
 use Microsoft\Graph\Beta\Generated\Places\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Places\GetOperationWithId\GetOperationWithIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Places\GraphBuilding\GraphBuildingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Places\GraphDesk\GraphDeskRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Places\GraphFloor\GraphFloorRequestBuilder;
@@ -15,6 +16,7 @@ use Microsoft\Graph\Beta\Generated\Places\GraphRoomList\GraphRoomListRequestBuil
 use Microsoft\Graph\Beta\Generated\Places\GraphSection\GraphSectionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Places\GraphWorkspace\GraphWorkspaceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Places\Item\PlaceItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Places\ListOperations\ListOperationsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -82,6 +84,13 @@ class PlacesRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the listOperations method.
+    */
+    public function listOperations(): ListOperationsRequestBuilder {
+        return new ListOperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the collection of place entities.
      * @param string $placeId The unique identifier of place
      * @return PlaceItemRequestBuilder
@@ -104,6 +113,15 @@ class PlacesRequestBuilder extends BaseRequestBuilder
         } else {
             $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
         }
+    }
+
+    /**
+     * Provides operations to call the getOperation method.
+     * @param string $id Usage: id='{id}'
+     * @return GetOperationWithIdRequestBuilder
+    */
+    public function getOperationWithId(string $id): GetOperationWithIdRequestBuilder {
+        return new GetOperationWithIdRequestBuilder($this->pathParameters, $this->requestAdapter, $id);
     }
 
     /**

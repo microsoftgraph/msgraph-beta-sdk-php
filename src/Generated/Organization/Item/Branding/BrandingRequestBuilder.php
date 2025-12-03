@@ -14,6 +14,7 @@ use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\HeaderLogo\HeaderL
 use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\LocalizationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\SquareLogo\SquareLogoRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\SquareLogoDark\SquareLogoDarkRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Themes\ThemesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -78,6 +79,13 @@ class BrandingRequestBuilder extends BaseRequestBuilder
     */
     public function squareLogoDark(): SquareLogoDarkRequestBuilder {
         return new SquareLogoDarkRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the themes property of the microsoft.graph.organizationalBranding entity.
+    */
+    public function themes(): ThemesRequestBuilder {
+        return new ThemesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

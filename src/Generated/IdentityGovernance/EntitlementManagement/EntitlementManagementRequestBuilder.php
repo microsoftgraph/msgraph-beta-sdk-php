@@ -16,8 +16,10 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Acce
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageResourceRoleScopes\AccessPackageResourceRoleScopesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageResources\AccessPackageResourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackages\AccessPackagesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageSuggestions\AccessPackageSuggestionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackagesWithUniqueName\AccessPackagesWithUniqueNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AssignmentRequests\AssignmentRequestsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AvailableAccessPackages\AvailableAccessPackagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\ConnectedOrganizations\ConnectedOrganizationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Subjects\SubjectsRequestBuilder;
@@ -112,10 +114,24 @@ class EntitlementManagementRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the accessPackageSuggestions property of the microsoft.graph.entitlementManagement entity.
+    */
+    public function accessPackageSuggestions(): AccessPackageSuggestionsRequestBuilder {
+        return new AccessPackageSuggestionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the assignmentRequests property of the microsoft.graph.entitlementManagement entity.
     */
     public function assignmentRequests(): AssignmentRequestsRequestBuilder {
         return new AssignmentRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the availableAccessPackages property of the microsoft.graph.entitlementManagement entity.
+    */
+    public function availableAccessPackages(): AvailableAccessPackagesRequestBuilder {
+        return new AvailableAccessPackagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -26,7 +26,7 @@ class CertificateBasedAuthConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the certificateAuthorities property value. Collection of certificate authorities which creates a trusted certificate chain.
+     * Gets the certificateAuthorities property value. Collection of certificate authorities that creates a trusted certificate chain.
      * @return array<CertificateAuthority>|null
     */
     public function getCertificateAuthorities(): ?array {
@@ -60,7 +60,7 @@ class CertificateBasedAuthConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the certificateAuthorities property value. Collection of certificate authorities which creates a trusted certificate chain.
+     * Sets the certificateAuthorities property value. Collection of certificate authorities that creates a trusted certificate chain.
      * @param array<CertificateAuthority>|null $value Value to set for the certificateAuthorities property.
     */
     public function setCertificateAuthorities(?array $value): void {

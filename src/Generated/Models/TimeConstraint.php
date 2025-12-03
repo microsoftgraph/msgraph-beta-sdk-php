@@ -77,6 +77,7 @@ class TimeConstraint implements AdditionalDataHolder, BackedModel, Parsable
         return  [
             'activityDomain' => fn(ParseNode $n) => $o->setActivityDomain($n->getEnumValue(ActivityDomain::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'recurrence' => fn(ParseNode $n) => $o->setRecurrence($n->getObjectValue([PatternedRecurrence::class, 'createFromDiscriminatorValue'])),
             'timeSlots' => fn(ParseNode $n) => $o->setTimeSlots($n->getCollectionOfObjectValues([TimeSlot::class, 'createFromDiscriminatorValue'])),
         ];
     }
@@ -91,6 +92,18 @@ class TimeConstraint implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
+     * Gets the recurrence property value. The recurrence property
+     * @return PatternedRecurrence|null
+    */
+    public function getRecurrence(): ?PatternedRecurrence {
+        $val = $this->getBackingStore()->get('recurrence');
+        if (is_null($val) || $val instanceof PatternedRecurrence) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recurrence'");
     }
 
     /**
@@ -114,6 +127,7 @@ class TimeConstraint implements AdditionalDataHolder, BackedModel, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('activityDomain', $this->getActivityDomain());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('recurrence', $this->getRecurrence());
         $writer->writeCollectionOfObjectValues('timeSlots', $this->getTimeSlots());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -148,6 +162,14 @@ class TimeConstraint implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the recurrence property value. The recurrence property
+     * @param PatternedRecurrence|null $value Value to set for the recurrence property.
+    */
+    public function setRecurrence(?PatternedRecurrence $value): void {
+        $this->getBackingStore()->set('recurrence', $value);
     }
 
     /**

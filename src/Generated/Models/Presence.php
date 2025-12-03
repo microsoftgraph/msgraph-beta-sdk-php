@@ -101,7 +101,7 @@ class Presence extends Entity implements Parsable
     }
 
     /**
-     * Gets the workLocation property value. The workLocation property
+     * Gets the workLocation property value. Represents the user’s aggregated work location state.
      * @return UserWorkLocation|null
     */
     public function getWorkLocation(): ?UserWorkLocation {
@@ -166,7 +166,7 @@ class Presence extends Entity implements Parsable
     }
 
     /**
-     * Sets the workLocation property value. The workLocation property
+     * Sets the workLocation property value. Represents the user’s aggregated work location state.
      * @param UserWorkLocation|null $value Value to set for the workLocation property.
     */
     public function setWorkLocation(?UserWorkLocation $value): void {

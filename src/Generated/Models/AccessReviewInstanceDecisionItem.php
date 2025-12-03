@@ -63,6 +63,18 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     }
 
     /**
+     * Gets the applyDescription property value. The description of the apply result.
+     * @return string|null
+    */
+    public function getApplyDescription(): ?string {
+        $val = $this->getBackingStore()->get('applyDescription');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applyDescription'");
+    }
+
+    /**
      * Gets the applyResult property value. The result of applying the decision. Possible values: New, AppliedSuccessfully, AppliedWithUnknownFailure, AppliedSuccessfullyButObjectNotFound, and ApplyNotSupported. Supports $select, $orderby, and $filter (eq only). Read-only.
      * @return string|null
     */
@@ -96,11 +108,13 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
             'accessReviewId' => fn(ParseNode $n) => $o->setAccessReviewId($n->getStringValue()),
             'appliedBy' => fn(ParseNode $n) => $o->setAppliedBy($n->getObjectValue([UserIdentity::class, 'createFromDiscriminatorValue'])),
             'appliedDateTime' => fn(ParseNode $n) => $o->setAppliedDateTime($n->getDateTimeValue()),
+            'applyDescription' => fn(ParseNode $n) => $o->setApplyDescription($n->getStringValue()),
             'applyResult' => fn(ParseNode $n) => $o->setApplyResult($n->getStringValue()),
             'decision' => fn(ParseNode $n) => $o->setDecision($n->getStringValue()),
             'insights' => fn(ParseNode $n) => $o->setInsights($n->getCollectionOfObjectValues([GovernanceInsight::class, 'createFromDiscriminatorValue'])),
             'instance' => fn(ParseNode $n) => $o->setInstance($n->getObjectValue([AccessReviewInstance::class, 'createFromDiscriminatorValue'])),
             'justification' => fn(ParseNode $n) => $o->setJustification($n->getStringValue()),
+            'permission' => fn(ParseNode $n) => $o->setPermission($n->getObjectValue([AccessReviewInstanceDecisionItemPermission::class, 'createFromDiscriminatorValue'])),
             'principal' => fn(ParseNode $n) => $o->setPrincipal($n->getObjectValue([Identity::class, 'createFromDiscriminatorValue'])),
             'principalLink' => fn(ParseNode $n) => $o->setPrincipalLink($n->getStringValue()),
             'principalResourceMembership' => fn(ParseNode $n) => $o->setPrincipalResourceMembership($n->getObjectValue([DecisionItemPrincipalResourceMembership::class, 'createFromDiscriminatorValue'])),
@@ -149,6 +163,18 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'justification'");
+    }
+
+    /**
+     * Gets the permission property value. The permission that grants the principal access to a resource.
+     * @return AccessReviewInstanceDecisionItemPermission|null
+    */
+    public function getPermission(): ?AccessReviewInstanceDecisionItemPermission {
+        $val = $this->getBackingStore()->get('permission');
+        if (is_null($val) || $val instanceof AccessReviewInstanceDecisionItemPermission) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'permission'");
     }
 
     /**
@@ -268,11 +294,13 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
         $writer->writeStringValue('accessReviewId', $this->getAccessReviewId());
         $writer->writeObjectValue('appliedBy', $this->getAppliedBy());
         $writer->writeDateTimeValue('appliedDateTime', $this->getAppliedDateTime());
+        $writer->writeStringValue('applyDescription', $this->getApplyDescription());
         $writer->writeStringValue('applyResult', $this->getApplyResult());
         $writer->writeStringValue('decision', $this->getDecision());
         $writer->writeCollectionOfObjectValues('insights', $this->getInsights());
         $writer->writeObjectValue('instance', $this->getInstance());
         $writer->writeStringValue('justification', $this->getJustification());
+        $writer->writeObjectValue('permission', $this->getPermission());
         $writer->writeObjectValue('principal', $this->getPrincipal());
         $writer->writeStringValue('principalLink', $this->getPrincipalLink());
         $writer->writeObjectValue('principalResourceMembership', $this->getPrincipalResourceMembership());
@@ -306,6 +334,14 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     */
     public function setAppliedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('appliedDateTime', $value);
+    }
+
+    /**
+     * Sets the applyDescription property value. The description of the apply result.
+     * @param string|null $value Value to set for the applyDescription property.
+    */
+    public function setApplyDescription(?string $value): void {
+        $this->getBackingStore()->set('applyDescription', $value);
     }
 
     /**
@@ -346,6 +382,14 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     */
     public function setJustification(?string $value): void {
         $this->getBackingStore()->set('justification', $value);
+    }
+
+    /**
+     * Sets the permission property value. The permission that grants the principal access to a resource.
+     * @param AccessReviewInstanceDecisionItemPermission|null $value Value to set for the permission property.
+    */
+    public function setPermission(?AccessReviewInstanceDecisionItemPermission $value): void {
+        $this->getBackingStore()->set('permission', $value);
     }
 
     /**
