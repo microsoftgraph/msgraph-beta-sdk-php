@@ -30,7 +30,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
     }
 
     /**
-     * Gets the authenticationMethod property value. Specify the authentication method. Possible values are: certificate, usernameAndPassword, derivedCredential.
+     * Gets the authenticationMethod property value. Specify the authentication method. The possible values are: certificate, usernameAndPassword, derivedCredential.
      * @return WiFiAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?WiFiAuthenticationMethod {
@@ -66,7 +66,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
     }
 
     /**
-     * Gets the authenticationType property value. Specify whether to authenticate the user, the device, either, or to use guest authentication (none). If you’re using certificate authentication, make sure the certificate type matches the authentication type. Possible values are: none, user, machine, machineOrUser, guest.
+     * Gets the authenticationType property value. Specify whether to authenticate the user, the device, either, or to use guest authentication (none). If you’re using certificate authentication, make sure the certificate type matches the authentication type. The possible values are: none, user, machine, machineOrUser, guest.
      * @return WifiAuthenticationType|null
     */
     public function getAuthenticationType(): ?WifiAuthenticationType {
@@ -206,7 +206,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
     }
 
     /**
-     * Gets the innerAuthenticationProtocolForEAPTTLS property value. Specify inner authentication protocol for EAP TTLS. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
+     * Gets the innerAuthenticationProtocolForEAPTTLS property value. Specify inner authentication protocol for EAP TTLS. The possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
      * @return NonEapAuthenticationMethodForEapTtlsType|null
     */
     public function getInnerAuthenticationProtocolForEAPTTLS(): ?NonEapAuthenticationMethodForEapTtlsType {
@@ -290,7 +290,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
     }
 
     /**
-     * Gets the networkSingleSignOn property value. Specify the network single sign on type. Possible values are: disabled, prelogon, postlogon.
+     * Gets the networkSingleSignOn property value. Specify the network single sign on type. The possible values are: disabled, prelogon, postlogon.
      * @return NetworkSingleSignOnType|null
     */
     public function getNetworkSingleSignOn(): ?NetworkSingleSignOnType {
@@ -437,7 +437,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
     }
 
     /**
-     * Sets the authenticationMethod property value. Specify the authentication method. Possible values are: certificate, usernameAndPassword, derivedCredential.
+     * Sets the authenticationMethod property value. Specify the authentication method. The possible values are: certificate, usernameAndPassword, derivedCredential.
      * @param WiFiAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
     public function setAuthenticationMethod(?WiFiAuthenticationMethod $value): void {
@@ -461,7 +461,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
     }
 
     /**
-     * Sets the authenticationType property value. Specify whether to authenticate the user, the device, either, or to use guest authentication (none). If you’re using certificate authentication, make sure the certificate type matches the authentication type. Possible values are: none, user, machine, machineOrUser, guest.
+     * Sets the authenticationType property value. Specify whether to authenticate the user, the device, either, or to use guest authentication (none). If you’re using certificate authentication, make sure the certificate type matches the authentication type. The possible values are: none, user, machine, machineOrUser, guest.
      * @param WifiAuthenticationType|null $value Value to set for the authenticationType property.
     */
     public function setAuthenticationType(?WifiAuthenticationType $value): void {
@@ -525,7 +525,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
     }
 
     /**
-     * Sets the innerAuthenticationProtocolForEAPTTLS property value. Specify inner authentication protocol for EAP TTLS. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
+     * Sets the innerAuthenticationProtocolForEAPTTLS property value. Specify inner authentication protocol for EAP TTLS. The possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
      * @param NonEapAuthenticationMethodForEapTtlsType|null $value Value to set for the innerAuthenticationProtocolForEAPTTLS property.
     */
     public function setInnerAuthenticationProtocolForEAPTTLS(?NonEapAuthenticationMethodForEapTtlsType $value): void {
@@ -581,7 +581,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
     }
 
     /**
-     * Sets the networkSingleSignOn property value. Specify the network single sign on type. Possible values are: disabled, prelogon, postlogon.
+     * Sets the networkSingleSignOn property value. Specify the network single sign on type. The possible values are: disabled, prelogon, postlogon.
      * @param NetworkSingleSignOnType|null $value Value to set for the networkSingleSignOn property.
     */
     public function setNetworkSingleSignOn(?NetworkSingleSignOnType $value): void {

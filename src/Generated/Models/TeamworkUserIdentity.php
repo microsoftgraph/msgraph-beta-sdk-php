@@ -38,7 +38,7 @@ class TeamworkUserIdentity extends Identity implements Parsable
     }
 
     /**
-     * Gets the userIdentityType property value. Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, emailUser and azureCommunicationServicesUser.
+     * Gets the userIdentityType property value. Type of user. The possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, emailUser and azureCommunicationServicesUser.
      * @return TeamworkUserIdentityType|null
     */
     public function getUserIdentityType(): ?TeamworkUserIdentityType {
@@ -72,7 +72,7 @@ class TeamworkUserIdentity extends Identity implements Parsable
     }
 
     /**
-     * Sets the userIdentityType property value. Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, emailUser and azureCommunicationServicesUser.
+     * Sets the userIdentityType property value. Type of user. The possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, emailUser and azureCommunicationServicesUser.
      * @param TeamworkUserIdentityType|null $value Value to set for the userIdentityType property.
     */
     public function setUserIdentityType(?TeamworkUserIdentityType $value): void {

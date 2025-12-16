@@ -93,7 +93,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the externalAuthenticationType property value. Details the pre-authentication setting for the application. Pre-authentication enforces that users must authenticate before accessing the app. Pass through doesn't require authentication. Possible values are: passthru, aadPreAuthentication.
+     * Gets the externalAuthenticationType property value. Details the pre-authentication setting for the application. Pre-authentication enforces that users must authenticate before accessing the app. Pass through doesn't require authentication. The possible values are: passthru, aadPreAuthentication.
      * @return ExternalAuthenticationType|null
     */
     public function getExternalAuthenticationType(): ?ExternalAuthenticationType {
@@ -511,7 +511,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the externalAuthenticationType property value. Details the pre-authentication setting for the application. Pre-authentication enforces that users must authenticate before accessing the app. Pass through doesn't require authentication. Possible values are: passthru, aadPreAuthentication.
+     * Sets the externalAuthenticationType property value. Details the pre-authentication setting for the application. Pre-authentication enforces that users must authenticate before accessing the app. Pass through doesn't require authentication. The possible values are: passthru, aadPreAuthentication.
      * @param ExternalAuthenticationType|null $value Value to set for the externalAuthenticationType property.
     */
     public function setExternalAuthenticationType(?ExternalAuthenticationType $value): void {

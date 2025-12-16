@@ -83,7 +83,7 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowedLobbyAdmitters property value. Specifies the users who can admit from the lobby. Possible values are: organizerAndCoOrganizersAndPresenters, organizerAndCoOrganizers, unknownFutureValue.
+     * Gets the allowedLobbyAdmitters property value. Specifies the users who can admit from the lobby. The possible values are: organizerAndCoOrganizersAndPresenters, organizerAndCoOrganizers, unknownFutureValue.
      * @return AllowedLobbyAdmitterRoles|null
     */
     public function getAllowedLobbyAdmitters(): ?AllowedLobbyAdmitterRoles {
@@ -95,7 +95,7 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowedPresenters property value. Specifies who can be a presenter in a meeting. Possible values are: everyone, organization, roleIsPresenter, organizer, unknownFutureValue.
+     * Gets the allowedPresenters property value. Specifies who can be a presenter in a meeting. The possible values are: everyone, organization, roleIsPresenter, organizer, unknownFutureValue.
      * @return OnlineMeetingPresenters|null
     */
     public function getAllowedPresenters(): ?OnlineMeetingPresenters {
@@ -107,7 +107,7 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowLiveShare property value. Indicates whether live share is enabled for the meeting. Possible values are: enabled, disabled, unknownFutureValue.
+     * Gets the allowLiveShare property value. Indicates whether live share is enabled for the meeting. The possible values are: enabled, disabled, unknownFutureValue.
      * @return MeetingLiveShareOptions|null
     */
     public function getAllowLiveShare(): ?MeetingLiveShareOptions {
@@ -119,7 +119,7 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowMeetingChat property value. Specifies the mode of meeting chat. Possible values are: enabled, disabled, limited, unknownFutureValue.
+     * Gets the allowMeetingChat property value. Specifies the mode of meeting chat. The possible values are: enabled, disabled, limited, unknownFutureValue.
      * @return MeetingChatMode|null
     */
     public function getAllowMeetingChat(): ?MeetingChatMode {
@@ -203,7 +203,7 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the anonymizeIdentityForRoles property value. Specifies whose identity is anonymized in the meeting. Possible values are: attendee. The attendee value can't be removed through a PATCH operation once added.
+     * Gets the anonymizeIdentityForRoles property value. Specifies whose identity is anonymized in the meeting. The possible values are: attendee. The attendee value can't be removed through a PATCH operation once added.
      * @return array<OnlineMeetingRole>|null
     */
     public function getAnonymizeIdentityForRoles(): ?array {
@@ -314,6 +314,7 @@ class OnlineMeetingBase extends Entity implements Parsable
             'meetingOptionsWebUrl' => fn(ParseNode $n) => $o->setMeetingOptionsWebUrl($n->getStringValue()),
             'meetingSpokenLanguageTag' => fn(ParseNode $n) => $o->setMeetingSpokenLanguageTag($n->getStringValue()),
             'recordAutomatically' => fn(ParseNode $n) => $o->setRecordAutomatically($n->getBooleanValue()),
+            'sensitivityLabelAssignment' => fn(ParseNode $n) => $o->setSensitivityLabelAssignment($n->getObjectValue([OnlineMeetingSensitivityLabelAssignment::class, 'createFromDiscriminatorValue'])),
             'shareMeetingChatHistoryDefault' => fn(ParseNode $n) => $o->setShareMeetingChatHistoryDefault($n->getEnumValue(MeetingChatHistoryDefaultMode::class)),
             'subject' => fn(ParseNode $n) => $o->setSubject($n->getStringValue()),
             'videoTeleconferenceId' => fn(ParseNode $n) => $o->setVideoTeleconferenceId($n->getStringValue()),
@@ -430,7 +431,19 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the shareMeetingChatHistoryDefault property value. Specifies whether meeting chat history is shared with participants.  Possible values are: all, none, unknownFutureValue.
+     * Gets the sensitivityLabelAssignment property value. Specifies the sensitivity label applied to the Teams meeting.
+     * @return OnlineMeetingSensitivityLabelAssignment|null
+    */
+    public function getSensitivityLabelAssignment(): ?OnlineMeetingSensitivityLabelAssignment {
+        $val = $this->getBackingStore()->get('sensitivityLabelAssignment');
+        if (is_null($val) || $val instanceof OnlineMeetingSensitivityLabelAssignment) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sensitivityLabelAssignment'");
+    }
+
+    /**
+     * Gets the shareMeetingChatHistoryDefault property value. Specifies whether meeting chat history is shared with participants.  The possible values are: all, none, unknownFutureValue.
      * @return MeetingChatHistoryDefaultMode|null
     */
     public function getShareMeetingChatHistoryDefault(): ?MeetingChatHistoryDefaultMode {
@@ -512,6 +525,7 @@ class OnlineMeetingBase extends Entity implements Parsable
         $writer->writeStringValue('meetingOptionsWebUrl', $this->getMeetingOptionsWebUrl());
         $writer->writeStringValue('meetingSpokenLanguageTag', $this->getMeetingSpokenLanguageTag());
         $writer->writeBooleanValue('recordAutomatically', $this->getRecordAutomatically());
+        $writer->writeObjectValue('sensitivityLabelAssignment', $this->getSensitivityLabelAssignment());
         $writer->writeEnumValue('shareMeetingChatHistoryDefault', $this->getShareMeetingChatHistoryDefault());
         $writer->writeStringValue('subject', $this->getSubject());
         $writer->writeStringValue('videoTeleconferenceId', $this->getVideoTeleconferenceId());
@@ -551,7 +565,7 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the allowedLobbyAdmitters property value. Specifies the users who can admit from the lobby. Possible values are: organizerAndCoOrganizersAndPresenters, organizerAndCoOrganizers, unknownFutureValue.
+     * Sets the allowedLobbyAdmitters property value. Specifies the users who can admit from the lobby. The possible values are: organizerAndCoOrganizersAndPresenters, organizerAndCoOrganizers, unknownFutureValue.
      * @param AllowedLobbyAdmitterRoles|null $value Value to set for the allowedLobbyAdmitters property.
     */
     public function setAllowedLobbyAdmitters(?AllowedLobbyAdmitterRoles $value): void {
@@ -559,7 +573,7 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the allowedPresenters property value. Specifies who can be a presenter in a meeting. Possible values are: everyone, organization, roleIsPresenter, organizer, unknownFutureValue.
+     * Sets the allowedPresenters property value. Specifies who can be a presenter in a meeting. The possible values are: everyone, organization, roleIsPresenter, organizer, unknownFutureValue.
      * @param OnlineMeetingPresenters|null $value Value to set for the allowedPresenters property.
     */
     public function setAllowedPresenters(?OnlineMeetingPresenters $value): void {
@@ -567,7 +581,7 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the allowLiveShare property value. Indicates whether live share is enabled for the meeting. Possible values are: enabled, disabled, unknownFutureValue.
+     * Sets the allowLiveShare property value. Indicates whether live share is enabled for the meeting. The possible values are: enabled, disabled, unknownFutureValue.
      * @param MeetingLiveShareOptions|null $value Value to set for the allowLiveShare property.
     */
     public function setAllowLiveShare(?MeetingLiveShareOptions $value): void {
@@ -575,7 +589,7 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the allowMeetingChat property value. Specifies the mode of meeting chat. Possible values are: enabled, disabled, limited, unknownFutureValue.
+     * Sets the allowMeetingChat property value. Specifies the mode of meeting chat. The possible values are: enabled, disabled, limited, unknownFutureValue.
      * @param MeetingChatMode|null $value Value to set for the allowMeetingChat property.
     */
     public function setAllowMeetingChat(?MeetingChatMode $value): void {
@@ -631,7 +645,7 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the anonymizeIdentityForRoles property value. Specifies whose identity is anonymized in the meeting. Possible values are: attendee. The attendee value can't be removed through a PATCH operation once added.
+     * Sets the anonymizeIdentityForRoles property value. Specifies whose identity is anonymized in the meeting. The possible values are: attendee. The attendee value can't be removed through a PATCH operation once added.
      * @param array<OnlineMeetingRole>|null $value Value to set for the anonymizeIdentityForRoles property.
     */
     public function setAnonymizeIdentityForRoles(?array $value): void {
@@ -751,7 +765,15 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the shareMeetingChatHistoryDefault property value. Specifies whether meeting chat history is shared with participants.  Possible values are: all, none, unknownFutureValue.
+     * Sets the sensitivityLabelAssignment property value. Specifies the sensitivity label applied to the Teams meeting.
+     * @param OnlineMeetingSensitivityLabelAssignment|null $value Value to set for the sensitivityLabelAssignment property.
+    */
+    public function setSensitivityLabelAssignment(?OnlineMeetingSensitivityLabelAssignment $value): void {
+        $this->getBackingStore()->set('sensitivityLabelAssignment', $value);
+    }
+
+    /**
+     * Sets the shareMeetingChatHistoryDefault property value. Specifies whether meeting chat history is shared with participants.  The possible values are: all, none, unknownFutureValue.
      * @param MeetingChatHistoryDefaultMode|null $value Value to set for the shareMeetingChatHistoryDefault property.
     */
     public function setShareMeetingChatHistoryDefault(?MeetingChatHistoryDefaultMode $value): void {

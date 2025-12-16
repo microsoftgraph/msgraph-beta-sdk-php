@@ -26,7 +26,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Gets the activeModalities property value. The list of active modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data. Read-only.
+     * Gets the activeModalities property value. The list of active modalities. The possible values are: unknown, audio, video, videoBasedScreenSharing, data. Read-only.
      * @return array<Modality>|null
     */
     public function getActiveModalities(): ?array {
@@ -294,7 +294,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Gets the requestedModalities property value. The list of requested modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data.
+     * Gets the requestedModalities property value. The list of requested modalities. The possible values are: unknown, audio, video, videoBasedScreenSharing, data.
      * @return array<Modality>|null
     */
     public function getRequestedModalities(): ?array {
@@ -332,7 +332,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Gets the routingPolicies property value. This property is applicable for peer to peer calls only. Possible values are: none, noMissedCall, disableForwardingExceptPhone, disableForwarding, preferSkypeForBusiness, unknownFutureValue.
+     * Gets the routingPolicies property value. This property is applicable for peer to peer calls only. The possible values are: none, noMissedCall, disableForwardingExceptPhone, disableForwarding, preferSkypeForBusiness, unknownFutureValue.
      * @return array<RoutingPolicy>|null
     */
     public function getRoutingPolicies(): ?array {
@@ -358,7 +358,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Gets the state property value. The call state. Possible values are: incoming, establishing, ringing, established, hold, transferring, transferAccepted, redirecting, terminating, terminated. Read-only.
+     * Gets the state property value. The call state. The possible values are: incoming, establishing, ringing, established, hold, transferring, transferAccepted, redirecting, terminating, terminated. Read-only.
      * @return CallState|null
     */
     public function getState(): ?CallState {
@@ -482,7 +482,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Sets the activeModalities property value. The list of active modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data. Read-only.
+     * Sets the activeModalities property value. The list of active modalities. The possible values are: unknown, audio, video, videoBasedScreenSharing, data. Read-only.
      * @param array<Modality>|null $value Value to set for the activeModalities property.
     */
     public function setActiveModalities(?array $value): void {
@@ -626,7 +626,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Sets the requestedModalities property value. The list of requested modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data.
+     * Sets the requestedModalities property value. The list of requested modalities. The possible values are: unknown, audio, video, videoBasedScreenSharing, data.
      * @param array<Modality>|null $value Value to set for the requestedModalities property.
     */
     public function setRequestedModalities(?array $value): void {
@@ -650,7 +650,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Sets the routingPolicies property value. This property is applicable for peer to peer calls only. Possible values are: none, noMissedCall, disableForwardingExceptPhone, disableForwarding, preferSkypeForBusiness, unknownFutureValue.
+     * Sets the routingPolicies property value. This property is applicable for peer to peer calls only. The possible values are: none, noMissedCall, disableForwardingExceptPhone, disableForwarding, preferSkypeForBusiness, unknownFutureValue.
      * @param array<RoutingPolicy>|null $value Value to set for the routingPolicies property.
     */
     public function setRoutingPolicies(?array $value): void {
@@ -666,7 +666,7 @@ class Call extends Entity implements Parsable
     }
 
     /**
-     * Sets the state property value. The call state. Possible values are: incoming, establishing, ringing, established, hold, transferring, transferAccepted, redirecting, terminating, terminated. Read-only.
+     * Sets the state property value. The call state. The possible values are: incoming, establishing, ringing, established, hold, transferring, transferAccepted, redirecting, terminating, terminated. Read-only.
      * @param CallState|null $value Value to set for the state property.
     */
     public function setState(?CallState $value): void {

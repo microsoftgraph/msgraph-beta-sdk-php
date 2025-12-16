@@ -34,10 +34,11 @@ class GetBySourceGroupMailNicknameWithSourceGroupMailNicknameRequestBuilder exte
     }
 
     /**
-     * Invoke function getBySourceGroupMailNickname
+     * Get a sharePointMigrationTask that was previously created for a group, using the source group mail nickname. The returned sharePointMigrationTask object includes the source and target site URLs, migration status, optional timestamps (startedDateTime and finishedDateTime), and error details about issues during processing.
      * @param GetBySourceGroupMailNicknameWithSourceGroupMailNicknameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SharePointMigrationTask|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/sharepointmigrationtask-getbysourcegroupmailnickname?view=graph-rest-beta Find more info here
     */
     public function get(?GetBySourceGroupMailNicknameWithSourceGroupMailNicknameRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -48,7 +49,7 @@ class GetBySourceGroupMailNicknameWithSourceGroupMailNicknameRequestBuilder exte
     }
 
     /**
-     * Invoke function getBySourceGroupMailNickname
+     * Get a sharePointMigrationTask that was previously created for a group, using the source group mail nickname. The returned sharePointMigrationTask object includes the source and target site URLs, migration status, optional timestamps (startedDateTime and finishedDateTime), and error details about issues during processing.
      * @param GetBySourceGroupMailNicknameWithSourceGroupMailNicknameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

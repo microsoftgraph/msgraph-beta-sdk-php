@@ -48,7 +48,7 @@ class SiteCollection implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the archivalDetails property value. Represents whether the site collection is recently archived, fully archived, or reactivating. Possible values are: recentlyArchived, fullyArchived, reactivating, unknownFutureValue. To update this property, use the site: archive or site: unarchive APIs.
+     * Gets the archivalDetails property value. Represents whether the site collection is recently archived, fully archived, or reactivating. The possible values are: recentlyArchived, fullyArchived, reactivating, unknownFutureValue. To update this property, use the site: archive or site: unarchive APIs.
      * @return SiteArchivalDetails|null
     */
     public function getArchivalDetails(): ?SiteArchivalDetails {
@@ -152,7 +152,7 @@ class SiteCollection implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the archivalDetails property value. Represents whether the site collection is recently archived, fully archived, or reactivating. Possible values are: recentlyArchived, fullyArchived, reactivating, unknownFutureValue. To update this property, use the site: archive or site: unarchive APIs.
+     * Sets the archivalDetails property value. Represents whether the site collection is recently archived, fully archived, or reactivating. The possible values are: recentlyArchived, fullyArchived, reactivating, unknownFutureValue. To update this property, use the site: archive or site: unarchive APIs.
      * @param SiteArchivalDetails|null $value Value to set for the archivalDetails property.
     */
     public function setArchivalDetails(?SiteArchivalDetails $value): void {

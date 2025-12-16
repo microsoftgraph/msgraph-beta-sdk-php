@@ -236,7 +236,7 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
     }
 
     /**
-     * Gets the userDomainNameSource property value. UserDomainname attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: fullDomainName, netBiosDomainName.
+     * Gets the userDomainNameSource property value. UserDomainname attribute that is picked from AAD and injected into this profile before installing on the device. The possible values are: fullDomainName, netBiosDomainName.
      * @return DomainNameSource|null
     */
     public function getUserDomainNameSource(): ?DomainNameSource {
@@ -405,7 +405,7 @@ class AndroidEasEmailProfileConfiguration extends DeviceConfiguration implements
     }
 
     /**
-     * Sets the userDomainNameSource property value. UserDomainname attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: fullDomainName, netBiosDomainName.
+     * Sets the userDomainNameSource property value. UserDomainname attribute that is picked from AAD and injected into this profile before installing on the device. The possible values are: fullDomainName, netBiosDomainName.
      * @param DomainNameSource|null $value Value to set for the userDomainNameSource property.
     */
     public function setUserDomainNameSource(?DomainNameSource $value): void {

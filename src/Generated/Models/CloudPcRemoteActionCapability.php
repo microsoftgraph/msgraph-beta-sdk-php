@@ -35,7 +35,7 @@ class CloudPcRemoteActionCapability implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the actionCapability property value. Indicates the state of the supported action capability to perform a Cloud PC remote action. Possible values are: enabled, disabled. Default value is enabled.
+     * Gets the actionCapability property value. Indicates the state of the supported action capability to perform a Cloud PC remote action. The possible values are: enabled, disabled. Default value is enabled.
      * @return ActionCapability|null
     */
     public function getActionCapability(): ?ActionCapability {
@@ -47,7 +47,7 @@ class CloudPcRemoteActionCapability implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the actionName property value. The name of the supported Cloud PC remote action. Possible values are: unknown, restart, rename, restore, resize, reprovision, troubleShoot, changeUserAccountType, placeUnderReview. Default value is unknown.
+     * Gets the actionName property value. The name of the supported Cloud PC remote action. The possible values are: unknown, restart, rename, restore, resize, reprovision, troubleShoot, changeUserAccountType, placeUnderReview. Default value is unknown.
      * @return CloudPcRemoteActionName|null
     */
     public function getActionName(): ?CloudPcRemoteActionName {
@@ -116,7 +116,7 @@ class CloudPcRemoteActionCapability implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the actionCapability property value. Indicates the state of the supported action capability to perform a Cloud PC remote action. Possible values are: enabled, disabled. Default value is enabled.
+     * Sets the actionCapability property value. Indicates the state of the supported action capability to perform a Cloud PC remote action. The possible values are: enabled, disabled. Default value is enabled.
      * @param ActionCapability|null $value Value to set for the actionCapability property.
     */
     public function setActionCapability(?ActionCapability $value): void {
@@ -124,7 +124,7 @@ class CloudPcRemoteActionCapability implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the actionName property value. The name of the supported Cloud PC remote action. Possible values are: unknown, restart, rename, restore, resize, reprovision, troubleShoot, changeUserAccountType, placeUnderReview. Default value is unknown.
+     * Sets the actionName property value. The name of the supported Cloud PC remote action. The possible values are: unknown, restart, rename, restore, resize, reprovision, troubleShoot, changeUserAccountType, placeUnderReview. Default value is unknown.
      * @param CloudPcRemoteActionName|null $value Value to set for the actionName property.
     */
     public function setActionName(?CloudPcRemoteActionName $value): void {

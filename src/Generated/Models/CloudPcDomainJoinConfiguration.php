@@ -56,7 +56,7 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the domainJoinType property value. Specifies the method by which the provisioned Cloud PC joins Microsoft Entra ID. If you choose the hybridAzureADJoin type, only provide a value for the onPremisesConnectionId property and leave the regionName property empty. If you choose the azureADJoin type, provide a value for either the onPremisesConnectionId or the regionName property. Possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
+     * Gets the domainJoinType property value. Specifies the method by which the provisioned Cloud PC joins Microsoft Entra ID. If you choose the hybridAzureADJoin type, only provide a value for the onPremisesConnectionId property and leave the regionName property empty. If you choose the azureADJoin type, provide a value for either the onPremisesConnectionId or the regionName property. The possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
      * @return CloudPcDomainJoinType|null
     */
     public function getDomainJoinType(): ?CloudPcDomainJoinType {
@@ -85,7 +85,7 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the geographicLocationType property value. The geographic location where the region is located. Possible values are: default, asia, australasia, canada, europe, india, africa, usCentral, usEast, usWest, southAmerica, middleEast, centralAmerica, usGovernment, unknownFutureValue. Default value is default. Read-only.
+     * Gets the geographicLocationType property value. The geographic location where the region is located. The possible values are: default, asia, australasia, canada, europe, india, africa, usCentral, usEast, usWest, southAmerica, middleEast, centralAmerica, usGovernment, unknownFutureValue. Default value is default. Read-only.
      * @return CloudPcGeographicLocationType|null
     */
     public function getGeographicLocationType(): ?CloudPcGeographicLocationType {
@@ -121,7 +121,7 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the regionGroup property value. The logical geographic group this region belongs to. Multiple regions can belong to one region group. A customer can select a regionGroup when they provision a Cloud PC, and the Cloud PC is put in one of the regions in the group based on resource status. For example, the Europe region group contains the Northern Europe and Western Europe regions. Possible values are: default, australia, canada, usCentral, usEast, usWest, france, germany, europeUnion, unitedKingdom, japan, asia, india, southAmerica, euap, usGovernment, usGovernmentDOD, unknownFutureValue, norway, switzerland, southKorea, middleEast, mexico, australasia, europe. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: norway, switzerland, southKorea, middleEast, mexico, australasia, europe. Read-only.
+     * Gets the regionGroup property value. The logical geographic group this region belongs to. Multiple regions can belong to one region group. A customer can select a regionGroup when they provision a Cloud PC, and the Cloud PC is put in one of the regions in the group based on resource status. For example, the Europe region group contains the Northern Europe and Western Europe regions. The possible values are: default, australia, canada, usCentral, usEast, usWest, france, germany, europeUnion, unitedKingdom, japan, asia, india, southAmerica, euap, usGovernment, usGovernmentDOD, unknownFutureValue, norway, switzerland, southKorea, middleEast, mexico, australasia, europe. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: norway, switzerland, southKorea, middleEast, mexico, australasia, europe. Read-only.
      * @return CloudPcRegionGroup|null
     */
     public function getRegionGroup(): ?CloudPcRegionGroup {
@@ -188,7 +188,7 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the domainJoinType property value. Specifies the method by which the provisioned Cloud PC joins Microsoft Entra ID. If you choose the hybridAzureADJoin type, only provide a value for the onPremisesConnectionId property and leave the regionName property empty. If you choose the azureADJoin type, provide a value for either the onPremisesConnectionId or the regionName property. Possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
+     * Sets the domainJoinType property value. Specifies the method by which the provisioned Cloud PC joins Microsoft Entra ID. If you choose the hybridAzureADJoin type, only provide a value for the onPremisesConnectionId property and leave the regionName property empty. If you choose the azureADJoin type, provide a value for either the onPremisesConnectionId or the regionName property. The possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
      * @param CloudPcDomainJoinType|null $value Value to set for the domainJoinType property.
     */
     public function setDomainJoinType(?CloudPcDomainJoinType $value): void {
@@ -196,7 +196,7 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the geographicLocationType property value. The geographic location where the region is located. Possible values are: default, asia, australasia, canada, europe, india, africa, usCentral, usEast, usWest, southAmerica, middleEast, centralAmerica, usGovernment, unknownFutureValue. Default value is default. Read-only.
+     * Sets the geographicLocationType property value. The geographic location where the region is located. The possible values are: default, asia, australasia, canada, europe, india, africa, usCentral, usEast, usWest, southAmerica, middleEast, centralAmerica, usGovernment, unknownFutureValue. Default value is default. Read-only.
      * @param CloudPcGeographicLocationType|null $value Value to set for the geographicLocationType property.
     */
     public function setGeographicLocationType(?CloudPcGeographicLocationType $value): void {
@@ -220,7 +220,7 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the regionGroup property value. The logical geographic group this region belongs to. Multiple regions can belong to one region group. A customer can select a regionGroup when they provision a Cloud PC, and the Cloud PC is put in one of the regions in the group based on resource status. For example, the Europe region group contains the Northern Europe and Western Europe regions. Possible values are: default, australia, canada, usCentral, usEast, usWest, france, germany, europeUnion, unitedKingdom, japan, asia, india, southAmerica, euap, usGovernment, usGovernmentDOD, unknownFutureValue, norway, switzerland, southKorea, middleEast, mexico, australasia, europe. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: norway, switzerland, southKorea, middleEast, mexico, australasia, europe. Read-only.
+     * Sets the regionGroup property value. The logical geographic group this region belongs to. Multiple regions can belong to one region group. A customer can select a regionGroup when they provision a Cloud PC, and the Cloud PC is put in one of the regions in the group based on resource status. For example, the Europe region group contains the Northern Europe and Western Europe regions. The possible values are: default, australia, canada, usCentral, usEast, usWest, france, germany, europeUnion, unitedKingdom, japan, asia, india, southAmerica, euap, usGovernment, usGovernmentDOD, unknownFutureValue, norway, switzerland, southKorea, middleEast, mexico, australasia, europe. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: norway, switzerland, southKorea, middleEast, mexico, australasia, europe. Read-only.
      * @param CloudPcRegionGroup|null $value Value to set for the regionGroup property.
     */
     public function setRegionGroup(?CloudPcRegionGroup $value): void {

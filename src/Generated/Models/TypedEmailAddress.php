@@ -50,7 +50,7 @@ class TypedEmailAddress extends EmailAddress implements Parsable
     }
 
     /**
-     * Gets the type property value. The type of email address. Possible values are: unknown, work, personal, main, other. The default value is unknown, which means address has not been set as a specific type.
+     * Gets the type property value. The type of email address. The possible values are: unknown, work, personal, main, other. The default value is unknown, which means address has not been set as a specific type.
      * @return EmailType|null
     */
     public function getType(): ?EmailType {
@@ -80,7 +80,7 @@ class TypedEmailAddress extends EmailAddress implements Parsable
     }
 
     /**
-     * Sets the type property value. The type of email address. Possible values are: unknown, work, personal, main, other. The default value is unknown, which means address has not been set as a specific type.
+     * Sets the type property value. The type of email address. The possible values are: unknown, work, personal, main, other. The default value is unknown, which means address has not been set as a specific type.
      * @param EmailType|null $value Value to set for the type property.
     */
     public function setType(?EmailType $value): void {

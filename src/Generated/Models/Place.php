@@ -65,7 +65,7 @@ class Place extends Entity implements Parsable
     }
 
     /**
-     * Gets the children property value. The children property
+     * Gets the children property value. A collection of children places that is only used in the Upsert places API.
      * @return array<Place>|null
     */
     public function getChildren(): ?array {
@@ -226,7 +226,7 @@ class Place extends Entity implements Parsable
     }
 
     /**
-     * Sets the children property value. The children property
+     * Sets the children property value. A collection of children places that is only used in the Upsert places API.
      * @param array<Place>|null $value Value to set for the children property.
     */
     public function setChildren(?array $value): void {

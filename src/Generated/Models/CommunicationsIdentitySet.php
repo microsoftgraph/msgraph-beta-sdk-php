@@ -74,7 +74,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
     }
 
     /**
-     * Gets the endpointType property value. Type of endpoint the participant uses. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue.
+     * Gets the endpointType property value. Type of endpoint the participant uses. The possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue.
      * @return EndpointType|null
     */
     public function getEndpointType(): ?EndpointType {
@@ -188,7 +188,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
     }
 
     /**
-     * Sets the endpointType property value. Type of endpoint the participant uses. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue.
+     * Sets the endpointType property value. Type of endpoint the participant uses. The possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue.
      * @param EndpointType|null $value Value to set for the endpointType property.
     */
     public function setEndpointType(?EndpointType $value): void {

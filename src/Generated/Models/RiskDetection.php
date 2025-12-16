@@ -26,7 +26,7 @@ class RiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Gets the activity property value. Indicates the activity type the detected risk is linked to. The possible values are signin, user, unknownFutureValue.
+     * Gets the activity property value. Indicates the activity type the detected risk is linked to.
      * @return ActivityType|null
     */
     public function getActivity(): ?ActivityType {
@@ -338,7 +338,7 @@ class RiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Sets the activity property value. Indicates the activity type the detected risk is linked to. The possible values are signin, user, unknownFutureValue.
+     * Sets the activity property value. Indicates the activity type the detected risk is linked to.
      * @param ActivityType|null $value Value to set for the activity property.
     */
     public function setActivity(?ActivityType $value): void {

@@ -57,7 +57,7 @@ class MeetingTimeSuggestionsResult implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the emptySuggestionsReason property value. A reason for not returning any meeting suggestions. Possible values are: attendeesUnavailable, attendeesUnavailableOrUnknown, locationsUnavailable, organizerUnavailable, or unknown. This property is an empty string if the meetingTimeSuggestions property does include any meeting suggestions.
+     * Gets the emptySuggestionsReason property value. A reason for not returning any meeting suggestions. The possible values are: attendeesUnavailable, attendeesUnavailableOrUnknown, locationsUnavailable, organizerUnavailable, or unknown. This property is an empty string if the meetingTimeSuggestions property does include any meeting suggestions.
      * @return string|null
     */
     public function getEmptySuggestionsReason(): ?string {
@@ -135,7 +135,7 @@ class MeetingTimeSuggestionsResult implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Sets the emptySuggestionsReason property value. A reason for not returning any meeting suggestions. Possible values are: attendeesUnavailable, attendeesUnavailableOrUnknown, locationsUnavailable, organizerUnavailable, or unknown. This property is an empty string if the meetingTimeSuggestions property does include any meeting suggestions.
+     * Sets the emptySuggestionsReason property value. A reason for not returning any meeting suggestions. The possible values are: attendeesUnavailable, attendeesUnavailableOrUnknown, locationsUnavailable, organizerUnavailable, or unknown. This property is an empty string if the meetingTimeSuggestions property does include any meeting suggestions.
      * @param string|null $value Value to set for the emptySuggestionsReason property.
     */
     public function setEmptySuggestionsReason(?string $value): void {

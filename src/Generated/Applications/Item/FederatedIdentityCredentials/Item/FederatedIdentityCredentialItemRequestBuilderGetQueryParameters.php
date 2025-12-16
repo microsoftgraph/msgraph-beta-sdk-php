@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Applications\Item\FederatedIdentityCred
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a federatedIdentityCredential object.
+ * Read the properties and relationships of a federatedIdentityCredential object assigned to an application or an agentIdentityBlueprint.
 */
 class FederatedIdentityCredentialItemRequestBuilderGetQueryParameters 
 {

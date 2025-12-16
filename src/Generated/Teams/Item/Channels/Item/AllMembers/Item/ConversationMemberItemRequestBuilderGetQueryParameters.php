@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\AllMembers\Ite
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * A collection of membership records associated with the channel. It includes both direct and indirect members of shared channels.
+ * Retrieve a single conversationMember (direct or indirect) from the allMembers collection using the membership ID. This API provides access to the following member types:- *Direct members*: Users who are added directly to the channel, including users from other tenants (cross-tenant).- *Indirect members*: Users who are members of a team with which the channel is shared, including teams in the same tenant or in a different tenant (cross-tenant). When you retrieve an indirect member, the @microsoft.graph.originalSourceMembershipUrl property identifies the original source team, which indicates that the user is an indirect member of the shared channel.
 */
 class ConversationMemberItemRequestBuilderGetQueryParameters 
 {

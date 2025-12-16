@@ -81,7 +81,7 @@ class KerberosSignOnSettings implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the kerberosSignOnMappingAttributeType property value. The Delegated Login Identity for the connector to use on behalf of your users. For more information, see Working with different on-premises and cloud identities . Possible values are: userPrincipalName, onPremisesUserPrincipalName, userPrincipalUsername, onPremisesUserPrincipalUsername, onPremisesSAMAccountName.
+     * Gets the kerberosSignOnMappingAttributeType property value. The Delegated Login Identity for the connector to use on behalf of your users. For more information, see Working with different on-premises and cloud identities . The possible values are: userPrincipalName, onPremisesUserPrincipalName, userPrincipalUsername, onPremisesUserPrincipalUsername, onPremisesSAMAccountName.
      * @return KerberosSignOnMappingAttributeType|null
     */
     public function getKerberosSignOnMappingAttributeType(): ?KerberosSignOnMappingAttributeType {
@@ -140,7 +140,7 @@ class KerberosSignOnSettings implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the kerberosSignOnMappingAttributeType property value. The Delegated Login Identity for the connector to use on behalf of your users. For more information, see Working with different on-premises and cloud identities . Possible values are: userPrincipalName, onPremisesUserPrincipalName, userPrincipalUsername, onPremisesUserPrincipalUsername, onPremisesSAMAccountName.
+     * Sets the kerberosSignOnMappingAttributeType property value. The Delegated Login Identity for the connector to use on behalf of your users. For more information, see Working with different on-premises and cloud identities . The possible values are: userPrincipalName, onPremisesUserPrincipalName, userPrincipalUsername, onPremisesUserPrincipalUsername, onPremisesSAMAccountName.
      * @param KerberosSignOnMappingAttributeType|null $value Value to set for the kerberosSignOnMappingAttributeType property.
     */
     public function setKerberosSignOnMappingAttributeType(?KerberosSignOnMappingAttributeType $value): void {

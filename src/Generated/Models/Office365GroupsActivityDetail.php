@@ -129,7 +129,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
     }
 
     /**
-     * Gets the groupType property value. The group type. Possible values are: Public or Private.
+     * Gets the groupType property value. The group type. The possible values are: Public or Private.
      * @return string|null
     */
     public function getGroupType(): ?string {
@@ -386,7 +386,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
     }
 
     /**
-     * Sets the groupType property value. The group type. Possible values are: Public or Private.
+     * Sets the groupType property value. The group type. The possible values are: Public or Private.
      * @param string|null $value Value to set for the groupType property.
     */
     public function setGroupType(?string $value): void {

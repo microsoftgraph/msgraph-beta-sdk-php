@@ -54,7 +54,7 @@ class EventMessageRequest extends EventMessage implements Parsable
     }
 
     /**
-     * Gets the meetingRequestType property value. The type of meeting request. Possible values are: none, newMeetingRequest, fullUpdate, informationalUpdate, silentUpdate, outdated, and principalWantsCopy.
+     * Gets the meetingRequestType property value. The type of meeting request. The possible values are: none, newMeetingRequest, fullUpdate, informationalUpdate, silentUpdate, outdated, and principalWantsCopy.
      * @return MeetingRequestType|null
     */
     public function getMeetingRequestType(): ?MeetingRequestType {
@@ -136,7 +136,7 @@ class EventMessageRequest extends EventMessage implements Parsable
     }
 
     /**
-     * Sets the meetingRequestType property value. The type of meeting request. Possible values are: none, newMeetingRequest, fullUpdate, informationalUpdate, silentUpdate, outdated, and principalWantsCopy.
+     * Sets the meetingRequestType property value. The type of meeting request. The possible values are: none, newMeetingRequest, fullUpdate, informationalUpdate, silentUpdate, outdated, and principalWantsCopy.
      * @param MeetingRequestType|null $value Value to set for the meetingRequestType property.
     */
     public function setMeetingRequestType(?MeetingRequestType $value): void {

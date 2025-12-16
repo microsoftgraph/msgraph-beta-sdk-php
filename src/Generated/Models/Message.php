@@ -242,7 +242,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the inferenceClassification property value. The classification of the message for the user, based on inferred relevance or importance, or on an explicit override. Possible values are: focused, other.
+     * Gets the inferenceClassification property value. The classification of the message for the user, based on inferred relevance or importance, or on an explicit override. The possible values are: focused, other.
      * @return InferenceClassificationType|null
     */
     public function getInferenceClassification(): ?InferenceClassificationType {
@@ -658,7 +658,7 @@ class Message extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the inferenceClassification property value. The classification of the message for the user, based on inferred relevance or importance, or on an explicit override. Possible values are: focused, other.
+     * Sets the inferenceClassification property value. The classification of the message for the user, based on inferred relevance or importance, or on an explicit override. The possible values are: focused, other.
      * @param InferenceClassificationType|null $value Value to set for the inferenceClassification property.
     */
     public function setInferenceClassification(?InferenceClassificationType $value): void {

@@ -1,0 +1,13 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Models;
+
+use Microsoft\Kiota\Abstractions\Enum;
+
+class PurviewInsiderRiskManagementLevel extends Enum {
+    public const NONE = "none";
+    public const MINOR = "minor";
+    public const MODERATE = "moderate";
+    public const ELEVATED = "elevated";
+    public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+}

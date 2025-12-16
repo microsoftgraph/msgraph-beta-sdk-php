@@ -155,7 +155,7 @@ class WorkbookDocumentTaskChange extends Entity implements Parsable
     }
 
     /**
-     * Gets the type property value. The type of the change history. Possible values are: create, assign, unassign, unassignAll, setPriority, setTitle, setPercentComplete, setSchedule, remove, restore, undo.
+     * Gets the type property value. The type of the change history. The possible values are: create, assign, unassign, unassignAll, setPriority, setTitle, setPercentComplete, setSchedule, remove, restore, undo.
      * @return string|null
     */
     public function getType(): ?string {
@@ -270,7 +270,7 @@ class WorkbookDocumentTaskChange extends Entity implements Parsable
     }
 
     /**
-     * Sets the type property value. The type of the change history. Possible values are: create, assign, unassign, unassignAll, setPriority, setTitle, setPercentComplete, setSchedule, remove, restore, undo.
+     * Sets the type property value. The type of the change history. The possible values are: create, assign, unassign, unassignAll, setPriority, setTitle, setPercentComplete, setSchedule, remove, restore, undo.
      * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {

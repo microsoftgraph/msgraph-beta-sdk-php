@@ -158,7 +158,7 @@ class PhysicalAddress implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the type property value. The type of address. Possible values are: unknown, home, business, other.
+     * Gets the type property value. The type of address. The possible values are: unknown, home, business, other.
      * @return PhysicalAddressType|null
     */
     public function getType(): ?PhysicalAddressType {
@@ -258,7 +258,7 @@ class PhysicalAddress implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the type property value. The type of address. Possible values are: unknown, home, business, other.
+     * Sets the type property value. The type of address. The possible values are: unknown, home, business, other.
      * @param PhysicalAddressType|null $value Value to set for the type property.
     */
     public function setType(?PhysicalAddressType $value): void {

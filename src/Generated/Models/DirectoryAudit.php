@@ -160,7 +160,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Gets the result property value. Indicates the result of the activity. Possible values are: success, failure, timeout, unknownFutureValue.
+     * Gets the result property value. Indicates the result of the activity. The possible values are: success, failure, timeout, unknownFutureValue.
      * @return OperationResult|null
     */
     public function getResult(): ?OperationResult {
@@ -303,7 +303,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Sets the result property value. Indicates the result of the activity. Possible values are: success, failure, timeout, unknownFutureValue.
+     * Sets the result property value. Indicates the result of the activity. The possible values are: success, failure, timeout, unknownFutureValue.
      * @param OperationResult|null $value Value to set for the result property.
     */
     public function setResult(?OperationResult $value): void {

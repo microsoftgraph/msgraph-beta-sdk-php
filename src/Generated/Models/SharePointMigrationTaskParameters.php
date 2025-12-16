@@ -97,7 +97,7 @@ class SharePointMigrationTaskParameters implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Gets the preferredLatestStartDateTime property value. The preferredLatestStartDateTime property
+     * Gets the preferredLatestStartDateTime property value. The preferred latest start date and time. The system cancels the sharePointMigrationTask if it doesn't start by this time. The value must be greater than the preferredStartDateTime, if present. Optional. Only on OneDrive and SharePoint.
      * @return DateTime|null
     */
     public function getPreferredLatestStartDateTime(): ?DateTime {
@@ -109,7 +109,7 @@ class SharePointMigrationTaskParameters implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Gets the preferredStartDateTime property value. The preferredStartDateTime property
+     * Gets the preferredStartDateTime property value. The preferred start date and time that allows the sharePointMigrationTask to start at a future time instead of as soon as possible (default). Optional. Only on OneDrive and SharePoint.
      * @return DateTime|null
     */
     public function getPreferredStartDateTime(): ?DateTime {
@@ -121,7 +121,7 @@ class SharePointMigrationTaskParameters implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Gets the sourceSiteUrl property value. The sourceSiteUrl property
+     * Gets the sourceSiteUrl property value. The SharePoint URL of the source site. Optional. Exactly one of sourceSiteId or sourceUrl must be specified. If both or neither are specified, it's an error. Only on OneDrive and SharePoint.
      * @return string|null
     */
     public function getSourceSiteUrl(): ?string {
@@ -133,7 +133,7 @@ class SharePointMigrationTaskParameters implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Gets the targetDataLocationCode property value. The targetDataLocationCode property
+     * Gets the targetDataLocationCode property value. In Microsoft Entra, this value represents the geographic location (for example, JPN, NAM) of the target organization where the resource must be migrated to ensure data residency and compliance. This property isn't required for single-geo target organizations or when the migration is to the default GEO of a multi-geo target organization. Optional. Only on OneDrive and SharePoint.
      * @return string|null
     */
     public function getTargetDataLocationCode(): ?string {
@@ -145,7 +145,7 @@ class SharePointMigrationTaskParameters implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Gets the targetOrganizationHost property value. The targetOrganizationHost property
+     * Gets the targetOrganizationHost property value. The root, admin, or my site host of the specific multi-geo instance of the target organization where the resource must be migrated to ensure data residency and compliance. This property isn't required for single-geo target organizations or when the migration is to the default GEO of a multi-geo target organization. Optional. Only on OneDrive and SharePoint.
      * @return string|null
     */
     public function getTargetOrganizationHost(): ?string {
@@ -157,7 +157,7 @@ class SharePointMigrationTaskParameters implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Gets the targetOrganizationId property value. The targetOrganizationId property
+     * Gets the targetOrganizationId property value. The unique Microsoft Entra company ID of the target organization to which the source resource must be migrated. Only on OneDrive and SharePoint.
      * @return string|null
     */
     public function getTargetOrganizationId(): ?string {
@@ -169,7 +169,7 @@ class SharePointMigrationTaskParameters implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Gets the targetSiteUrl property value. The targetSiteUrl property
+     * Gets the targetSiteUrl property value. The SharePoint URL of the target site. Only on OneDrive and SharePoint.
      * @return string|null
     */
     public function getTargetSiteUrl(): ?string {
@@ -181,7 +181,7 @@ class SharePointMigrationTaskParameters implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Gets the validateOnly property value. The validateOnly property
+     * Gets the validateOnly property value. Indicates whether this task is an actual migration or only a validation. If the parameter is missing, the system treats it as false. The default behavior is a real migration. Optional. Only on OneDrive and SharePoint.
      * @return bool|null
     */
     public function getValidateOnly(): ?bool {
@@ -234,7 +234,7 @@ class SharePointMigrationTaskParameters implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Sets the preferredLatestStartDateTime property value. The preferredLatestStartDateTime property
+     * Sets the preferredLatestStartDateTime property value. The preferred latest start date and time. The system cancels the sharePointMigrationTask if it doesn't start by this time. The value must be greater than the preferredStartDateTime, if present. Optional. Only on OneDrive and SharePoint.
      * @param DateTime|null $value Value to set for the preferredLatestStartDateTime property.
     */
     public function setPreferredLatestStartDateTime(?DateTime $value): void {
@@ -242,7 +242,7 @@ class SharePointMigrationTaskParameters implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Sets the preferredStartDateTime property value. The preferredStartDateTime property
+     * Sets the preferredStartDateTime property value. The preferred start date and time that allows the sharePointMigrationTask to start at a future time instead of as soon as possible (default). Optional. Only on OneDrive and SharePoint.
      * @param DateTime|null $value Value to set for the preferredStartDateTime property.
     */
     public function setPreferredStartDateTime(?DateTime $value): void {
@@ -250,7 +250,7 @@ class SharePointMigrationTaskParameters implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Sets the sourceSiteUrl property value. The sourceSiteUrl property
+     * Sets the sourceSiteUrl property value. The SharePoint URL of the source site. Optional. Exactly one of sourceSiteId or sourceUrl must be specified. If both or neither are specified, it's an error. Only on OneDrive and SharePoint.
      * @param string|null $value Value to set for the sourceSiteUrl property.
     */
     public function setSourceSiteUrl(?string $value): void {
@@ -258,7 +258,7 @@ class SharePointMigrationTaskParameters implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Sets the targetDataLocationCode property value. The targetDataLocationCode property
+     * Sets the targetDataLocationCode property value. In Microsoft Entra, this value represents the geographic location (for example, JPN, NAM) of the target organization where the resource must be migrated to ensure data residency and compliance. This property isn't required for single-geo target organizations or when the migration is to the default GEO of a multi-geo target organization. Optional. Only on OneDrive and SharePoint.
      * @param string|null $value Value to set for the targetDataLocationCode property.
     */
     public function setTargetDataLocationCode(?string $value): void {
@@ -266,7 +266,7 @@ class SharePointMigrationTaskParameters implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Sets the targetOrganizationHost property value. The targetOrganizationHost property
+     * Sets the targetOrganizationHost property value. The root, admin, or my site host of the specific multi-geo instance of the target organization where the resource must be migrated to ensure data residency and compliance. This property isn't required for single-geo target organizations or when the migration is to the default GEO of a multi-geo target organization. Optional. Only on OneDrive and SharePoint.
      * @param string|null $value Value to set for the targetOrganizationHost property.
     */
     public function setTargetOrganizationHost(?string $value): void {
@@ -274,7 +274,7 @@ class SharePointMigrationTaskParameters implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Sets the targetOrganizationId property value. The targetOrganizationId property
+     * Sets the targetOrganizationId property value. The unique Microsoft Entra company ID of the target organization to which the source resource must be migrated. Only on OneDrive and SharePoint.
      * @param string|null $value Value to set for the targetOrganizationId property.
     */
     public function setTargetOrganizationId(?string $value): void {
@@ -282,7 +282,7 @@ class SharePointMigrationTaskParameters implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Sets the targetSiteUrl property value. The targetSiteUrl property
+     * Sets the targetSiteUrl property value. The SharePoint URL of the target site. Only on OneDrive and SharePoint.
      * @param string|null $value Value to set for the targetSiteUrl property.
     */
     public function setTargetSiteUrl(?string $value): void {
@@ -290,7 +290,7 @@ class SharePointMigrationTaskParameters implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Sets the validateOnly property value. The validateOnly property
+     * Sets the validateOnly property value. Indicates whether this task is an actual migration or only a validation. If the parameter is missing, the system treats it as false. The default behavior is a real migration. Optional. Only on OneDrive and SharePoint.
      * @param bool|null $value Value to set for the validateOnly property.
     */
     public function setValidateOnly(?bool $value): void {

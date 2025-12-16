@@ -130,7 +130,7 @@ class Location implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the locationType property value. The type of location. Possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
+     * Gets the locationType property value. The type of location. The possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
      * @return LocationType|null
     */
     public function getLocationType(): ?LocationType {
@@ -255,7 +255,7 @@ class Location implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the locationType property value. The type of location. Possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
+     * Sets the locationType property value. The type of location. The possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
      * @param LocationType|null $value Value to set for the locationType property.
     */
     public function setLocationType(?LocationType $value): void {

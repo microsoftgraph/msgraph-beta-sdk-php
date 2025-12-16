@@ -95,7 +95,7 @@ class RelatedPerson implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the relationship property value. Possible values are: manager, colleague, directReport, dotLineReport, assistant, dotLineManager, alternateContact, friend, spouse, sibling, child, parent, sponsor, emergencyContact, other, unknownFutureValue.
+     * Gets the relationship property value. The possible values are: manager, colleague, directReport, dotLineReport, assistant, dotLineManager, alternateContact, friend, spouse, sibling, child, parent, sponsor, emergencyContact, other, unknownFutureValue.
      * @return PersonRelationship|null
     */
     public function getRelationship(): ?PersonRelationship {
@@ -176,7 +176,7 @@ class RelatedPerson implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the relationship property value. Possible values are: manager, colleague, directReport, dotLineReport, assistant, dotLineManager, alternateContact, friend, spouse, sibling, child, parent, sponsor, emergencyContact, other, unknownFutureValue.
+     * Sets the relationship property value. The possible values are: manager, colleague, directReport, dotLineReport, assistant, dotLineManager, alternateContact, friend, spouse, sibling, child, parent, sponsor, emergencyContact, other, unknownFutureValue.
      * @param PersonRelationship|null $value Value to set for the relationship property.
     */
     public function setRelationship(?PersonRelationship $value): void {

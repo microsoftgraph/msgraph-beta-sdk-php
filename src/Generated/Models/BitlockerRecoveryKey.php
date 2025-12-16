@@ -76,7 +76,7 @@ class BitlockerRecoveryKey extends Entity implements Parsable
     }
 
     /**
-     * Gets the volumeType property value. Indicates the type of volume the BitLocker key is associated with. Possible values are: operatingSystemVolume, fixedDataVolume, removableDataVolume, unknownFutureValue.
+     * Gets the volumeType property value. Indicates the type of volume the BitLocker key is associated with. The possible values are: operatingSystemVolume, fixedDataVolume, removableDataVolume, unknownFutureValue.
      * @return VolumeType|null
     */
     public function getVolumeType(): ?VolumeType {
@@ -124,7 +124,7 @@ class BitlockerRecoveryKey extends Entity implements Parsable
     }
 
     /**
-     * Sets the volumeType property value. Indicates the type of volume the BitLocker key is associated with. Possible values are: operatingSystemVolume, fixedDataVolume, removableDataVolume, unknownFutureValue.
+     * Sets the volumeType property value. Indicates the type of volume the BitLocker key is associated with. The possible values are: operatingSystemVolume, fixedDataVolume, removableDataVolume, unknownFutureValue.
      * @param VolumeType|null $value Value to set for the volumeType property.
     */
     public function setVolumeType(?VolumeType $value): void {

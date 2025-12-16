@@ -151,7 +151,7 @@ class MeetingTimeSuggestion implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the organizerAvailability property value. Availability of the meeting organizer for this meeting suggestion. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
+     * Gets the organizerAvailability property value. Availability of the meeting organizer for this meeting suggestion. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
      * @return FreeBusyStatus|null
     */
     public function getOrganizerAvailability(): ?FreeBusyStatus {
@@ -255,7 +255,7 @@ class MeetingTimeSuggestion implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the organizerAvailability property value. Availability of the meeting organizer for this meeting suggestion. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
+     * Sets the organizerAvailability property value. Availability of the meeting organizer for this meeting suggestion. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
      * @param FreeBusyStatus|null $value Value to set for the organizerAvailability property.
     */
     public function setOrganizerAvailability(?FreeBusyStatus $value): void {

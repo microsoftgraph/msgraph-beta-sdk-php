@@ -53,7 +53,7 @@ class CloudPcSupportedRegion extends Entity implements Parsable
     }
 
     /**
-     * Gets the geographicLocationType property value. The geographic location where the region is located. Possible values are: default, asia, australasia, canada, europe, india, africa, usCentral, usEast, usWest, southAmerica, middleEast, centralAmerica, usGovernment, unknownFutureValue. Default value is default. Read-only.
+     * Gets the geographicLocationType property value. The geographic location where the region is located. The possible values are: default, asia, australasia, canada, europe, india, africa, usCentral, usEast, usWest, southAmerica, middleEast, centralAmerica, usGovernment, unknownFutureValue. Default value is default. Read-only.
      * @return CloudPcGeographicLocationType|null
     */
     public function getGeographicLocationType(): ?CloudPcGeographicLocationType {
@@ -89,7 +89,7 @@ class CloudPcSupportedRegion extends Entity implements Parsable
     }
 
     /**
-     * Gets the regionStatus property value. The status of the supported region. Possible values are: available, restricted, unavailable, unknownFutureValue. Read-only.
+     * Gets the regionStatus property value. The status of the supported region. The possible values are: available, restricted, unavailable, unknownFutureValue. Read-only.
      * @return CloudPcSupportedRegionStatus|null
     */
     public function getRegionStatus(): ?CloudPcSupportedRegionStatus {
@@ -135,7 +135,7 @@ class CloudPcSupportedRegion extends Entity implements Parsable
     }
 
     /**
-     * Sets the geographicLocationType property value. The geographic location where the region is located. Possible values are: default, asia, australasia, canada, europe, india, africa, usCentral, usEast, usWest, southAmerica, middleEast, centralAmerica, usGovernment, unknownFutureValue. Default value is default. Read-only.
+     * Sets the geographicLocationType property value. The geographic location where the region is located. The possible values are: default, asia, australasia, canada, europe, india, africa, usCentral, usEast, usWest, southAmerica, middleEast, centralAmerica, usGovernment, unknownFutureValue. Default value is default. Read-only.
      * @param CloudPcGeographicLocationType|null $value Value to set for the geographicLocationType property.
     */
     public function setGeographicLocationType(?CloudPcGeographicLocationType $value): void {
@@ -159,7 +159,7 @@ class CloudPcSupportedRegion extends Entity implements Parsable
     }
 
     /**
-     * Sets the regionStatus property value. The status of the supported region. Possible values are: available, restricted, unavailable, unknownFutureValue. Read-only.
+     * Sets the regionStatus property value. The status of the supported region. The possible values are: available, restricted, unavailable, unknownFutureValue. Read-only.
      * @param CloudPcSupportedRegionStatus|null $value Value to set for the regionStatus property.
     */
     public function setRegionStatus(?CloudPcSupportedRegionStatus $value): void {

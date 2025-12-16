@@ -26,7 +26,7 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Gets the authMethods property value. Represents the authentication method that the user has registered. Possible values are: email, mobilePhone, officePhone,  securityQuestion (only used for self-service password reset), appNotification,  appCode, alternateMobilePhone (supported only in registration),  fido,  appPassword,  unknownFutureValue.
+     * Gets the authMethods property value. Represents the authentication method that the user has registered. The possible values are: email, mobilePhone, officePhone,  securityQuestion (only used for self-service password reset), appNotification,  appCode, alternateMobilePhone (supported only in registration),  fido,  appPassword,  unknownFutureValue.
      * @return array<RegistrationAuthMethod>|null
     */
     public function getAuthMethods(): ?array {
@@ -144,7 +144,7 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
-     * Sets the authMethods property value. Represents the authentication method that the user has registered. Possible values are: email, mobilePhone, officePhone,  securityQuestion (only used for self-service password reset), appNotification,  appCode, alternateMobilePhone (supported only in registration),  fido,  appPassword,  unknownFutureValue.
+     * Sets the authMethods property value. Represents the authentication method that the user has registered. The possible values are: email, mobilePhone, officePhone,  securityQuestion (only used for self-service password reset), appNotification,  appCode, alternateMobilePhone (supported only in registration),  fido,  appPassword,  unknownFutureValue.
      * @param array<RegistrationAuthMethod>|null $value Value to set for the authMethods property.
     */
     public function setAuthMethods(?array $value): void {

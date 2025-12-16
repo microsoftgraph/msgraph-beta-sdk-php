@@ -166,8 +166,6 @@ class FileStorageContainer extends Entity implements Parsable
             'drive' => fn(ParseNode $n) => $o->setDrive($n->getObjectValue([Drive::class, 'createFromDiscriminatorValue'])),
             'externalGroupId' => fn(ParseNode $n) => $o->setExternalGroupId($n->getStringValue()),
             'informationBarrier' => fn(ParseNode $n) => $o->setInformationBarrier($n->getObjectValue([InformationBarrier::class, 'createFromDiscriminatorValue'])),
-            'isItemVersioningEnabled' => fn(ParseNode $n) => $o->setIsItemVersioningEnabled($n->getBooleanValue()),
-            'itemMajorVersionLimit' => fn(ParseNode $n) => $o->setItemMajorVersionLimit($n->getIntegerValue()),
             'lockState' => fn(ParseNode $n) => $o->setLockState($n->getEnumValue(SiteLockState::class)),
             'migrationJobs' => fn(ParseNode $n) => $o->setMigrationJobs($n->getCollectionOfObjectValues([SharePointMigrationJob::class, 'createFromDiscriminatorValue'])),
             'owners' => fn(ParseNode $n) => $o->setOwners($n->getCollectionOfObjectValues([UserIdentity::class, 'createFromDiscriminatorValue'])),
@@ -192,30 +190,6 @@ class FileStorageContainer extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'informationBarrier'");
-    }
-
-    /**
-     * Gets the isItemVersioningEnabled property value. The isItemVersioningEnabled property
-     * @return bool|null
-    */
-    public function getIsItemVersioningEnabled(): ?bool {
-        $val = $this->getBackingStore()->get('isItemVersioningEnabled');
-        if (is_null($val) || is_bool($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'isItemVersioningEnabled'");
-    }
-
-    /**
-     * Gets the itemMajorVersionLimit property value. The itemMajorVersionLimit property
-     * @return int|null
-    */
-    public function getItemMajorVersionLimit(): ?int {
-        $val = $this->getBackingStore()->get('itemMajorVersionLimit');
-        if (is_null($val) || is_int($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'itemMajorVersionLimit'");
     }
 
     /**
@@ -375,8 +349,6 @@ class FileStorageContainer extends Entity implements Parsable
         $writer->writeObjectValue('drive', $this->getDrive());
         $writer->writeStringValue('externalGroupId', $this->getExternalGroupId());
         $writer->writeObjectValue('informationBarrier', $this->getInformationBarrier());
-        $writer->writeBooleanValue('isItemVersioningEnabled', $this->getIsItemVersioningEnabled());
-        $writer->writeIntegerValue('itemMajorVersionLimit', $this->getItemMajorVersionLimit());
         $writer->writeEnumValue('lockState', $this->getLockState());
         $writer->writeCollectionOfObjectValues('migrationJobs', $this->getMigrationJobs());
         $writer->writeCollectionOfObjectValues('owners', $this->getOwners());
@@ -476,22 +448,6 @@ class FileStorageContainer extends Entity implements Parsable
     */
     public function setInformationBarrier(?InformationBarrier $value): void {
         $this->getBackingStore()->set('informationBarrier', $value);
-    }
-
-    /**
-     * Sets the isItemVersioningEnabled property value. The isItemVersioningEnabled property
-     * @param bool|null $value Value to set for the isItemVersioningEnabled property.
-    */
-    public function setIsItemVersioningEnabled(?bool $value): void {
-        $this->getBackingStore()->set('isItemVersioningEnabled', $value);
-    }
-
-    /**
-     * Sets the itemMajorVersionLimit property value. The itemMajorVersionLimit property
-     * @param int|null $value Value to set for the itemMajorVersionLimit property.
-    */
-    public function setItemMajorVersionLimit(?int $value): void {
-        $this->getBackingStore()->set('itemMajorVersionLimit', $value);
     }
 
     /**

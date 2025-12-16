@@ -294,7 +294,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the providerType property value. Provider type for per-app VPN. Possible values are: notConfigured, appProxy, packetTunnel.
+     * Gets the providerType property value. Provider type for per-app VPN. The possible values are: notConfigured, appProxy, packetTunnel.
      * @return VpnProviderType|null
     */
     public function getProviderType(): ?VpnProviderType {
@@ -526,7 +526,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the providerType property value. Provider type for per-app VPN. Possible values are: notConfigured, appProxy, packetTunnel.
+     * Sets the providerType property value. Provider type for per-app VPN. The possible values are: notConfigured, appProxy, packetTunnel.
      * @param VpnProviderType|null $value Value to set for the providerType property.
     */
     public function setProviderType(?VpnProviderType $value): void {

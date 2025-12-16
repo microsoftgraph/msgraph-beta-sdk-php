@@ -145,7 +145,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the externalSource property value. The type of external source this resource was generated from (automatically determined from externalSourceDetail). Possible values are: sis, lms, or manual.
+     * Gets the externalSource property value. The type of external source this resource was generated from (automatically determined from externalSourceDetail). The possible values are: sis, lms, or manual.
      * @return EducationExternalSource|null
     */
     public function getExternalSource(): ?EducationExternalSource {
@@ -676,7 +676,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the externalSource property value. The type of external source this resource was generated from (automatically determined from externalSourceDetail). Possible values are: sis, lms, or manual.
+     * Sets the externalSource property value. The type of external source this resource was generated from (automatically determined from externalSourceDetail). The possible values are: sis, lms, or manual.
      * @param EducationExternalSource|null $value Value to set for the externalSource property.
     */
     public function setExternalSource(?EducationExternalSource $value): void {

@@ -97,7 +97,7 @@ class SkillProficiency extends ItemFacet implements Parsable
     }
 
     /**
-     * Gets the proficiency property value. Detail of the users proficiency with this skill. Possible values are: elementary, limitedWorking, generalProfessional, advancedProfessional, expert, unknownFutureValue.
+     * Gets the proficiency property value. Detail of the users proficiency with this skill. The possible values are: elementary, limitedWorking, generalProfessional, advancedProfessional, expert, unknownFutureValue.
      * @return SkillProficiencyLevel|null
     */
     public function getProficiency(): ?SkillProficiencyLevel {
@@ -171,7 +171,7 @@ class SkillProficiency extends ItemFacet implements Parsable
     }
 
     /**
-     * Sets the proficiency property value. Detail of the users proficiency with this skill. Possible values are: elementary, limitedWorking, generalProfessional, advancedProfessional, expert, unknownFutureValue.
+     * Sets the proficiency property value. Detail of the users proficiency with this skill. The possible values are: elementary, limitedWorking, generalProfessional, advancedProfessional, expert, unknownFutureValue.
      * @param SkillProficiencyLevel|null $value Value to set for the proficiency property.
     */
     public function setProficiency(?SkillProficiencyLevel $value): void {

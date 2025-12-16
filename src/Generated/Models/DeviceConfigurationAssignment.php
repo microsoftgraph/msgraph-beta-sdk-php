@@ -42,7 +42,7 @@ class DeviceConfigurationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the intent property value. The admin intent to apply or remove the profile. Possible values are: apply, remove.
+     * Gets the intent property value. The admin intent to apply or remove the profile. The possible values are: apply, remove.
      * @return DeviceConfigAssignmentIntent|null
     */
     public function getIntent(): ?DeviceConfigAssignmentIntent {
@@ -101,7 +101,7 @@ class DeviceConfigurationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the intent property value. The admin intent to apply or remove the profile. Possible values are: apply, remove.
+     * Sets the intent property value. The admin intent to apply or remove the profile. The possible values are: apply, remove.
      * @param DeviceConfigAssignmentIntent|null $value Value to set for the intent property.
     */
     public function setIntent(?DeviceConfigAssignmentIntent $value): void {

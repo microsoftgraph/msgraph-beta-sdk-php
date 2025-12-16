@@ -101,7 +101,7 @@ class PlannerPlanContainer implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the type property value. The type of the resource that contains the plan. For supported types, see the previous table. Possible values are: group, unknownFutureValue, roster, project, driveItem, user, teamsChannel, and plannerTask. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: roster, project, driveItem, user, teamsChannel, and plannerTask. Optional.
+     * Gets the type property value. The type of the resource that contains the plan. For supported types, see the previous table. The possible values are: group, unknownFutureValue, roster, project, driveItem, user, teamsChannel, and plannerTask. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: roster, project, driveItem, user, teamsChannel, and plannerTask. Optional.
      * @return PlannerContainerType|null
     */
     public function getType(): ?PlannerContainerType {
@@ -169,7 +169,7 @@ class PlannerPlanContainer implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the type property value. The type of the resource that contains the plan. For supported types, see the previous table. Possible values are: group, unknownFutureValue, roster, project, driveItem, user, teamsChannel, and plannerTask. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: roster, project, driveItem, user, teamsChannel, and plannerTask. Optional.
+     * Sets the type property value. The type of the resource that contains the plan. For supported types, see the previous table. The possible values are: group, unknownFutureValue, roster, project, driveItem, user, teamsChannel, and plannerTask. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: roster, project, driveItem, user, teamsChannel, and plannerTask. Optional.
      * @param PlannerContainerType|null $value Value to set for the type property.
     */
     public function setType(?PlannerContainerType $value): void {

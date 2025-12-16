@@ -67,7 +67,7 @@ class RiskyUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the isDeleted property value. Indicates whether the user is deleted. Possible values are: true, false.
+     * Gets the isDeleted property value. Indicates whether the user is deleted. The possible values are: true, false.
      * @return bool|null
     */
     public function getIsDeleted(): ?bool {
@@ -127,7 +127,7 @@ class RiskyUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the riskState property value. State of the user's risk. Possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue.
+     * Gets the riskState property value. State of the user's risk. The possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue.
      * @return RiskState|null
     */
     public function getRiskState(): ?RiskState {
@@ -188,7 +188,7 @@ class RiskyUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the isDeleted property value. Indicates whether the user is deleted. Possible values are: true, false.
+     * Sets the isDeleted property value. Indicates whether the user is deleted. The possible values are: true, false.
      * @param bool|null $value Value to set for the isDeleted property.
     */
     public function setIsDeleted(?bool $value): void {
@@ -228,7 +228,7 @@ class RiskyUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the riskState property value. State of the user's risk. Possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue.
+     * Sets the riskState property value. State of the user's risk. The possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue.
      * @param RiskState|null $value Value to set for the riskState property.
     */
     public function setRiskState(?RiskState $value): void {

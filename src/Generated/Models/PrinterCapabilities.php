@@ -407,7 +407,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the mediaColors property value. The media (that is, paper) colors supported by the printer.
+     * Gets the mediaColors property value. The media (for example, paper) colors supported by the printer.
      * @return array<string>|null
     */
     public function getMediaColors(): ?array {
@@ -421,7 +421,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the mediaSizes property value. The media sizes supported by the printer. Supports standard size names for ISO and ANSI media sizes. Valid values are in the following table.
+     * Gets the mediaSizes property value. The media sizes supported by the printer. Supports standard size names for ISO and ANSI media sizes. For the list of supported values, see mediaSizes values.
      * @return array<string>|null
     */
     public function getMediaSizes(): ?array {
@@ -939,7 +939,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the mediaColors property value. The media (that is, paper) colors supported by the printer.
+     * Sets the mediaColors property value. The media (for example, paper) colors supported by the printer.
      * @param array<string>|null $value Value to set for the mediaColors property.
     */
     public function setMediaColors(?array $value): void {
@@ -947,7 +947,7 @@ class PrinterCapabilities implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the mediaSizes property value. The media sizes supported by the printer. Supports standard size names for ISO and ANSI media sizes. Valid values are in the following table.
+     * Sets the mediaSizes property value. The media sizes supported by the printer. Supports standard size names for ISO and ANSI media sizes. For the list of supported values, see mediaSizes values.
      * @param array<string>|null $value Value to set for the mediaSizes property.
     */
     public function setMediaSizes(?array $value): void {

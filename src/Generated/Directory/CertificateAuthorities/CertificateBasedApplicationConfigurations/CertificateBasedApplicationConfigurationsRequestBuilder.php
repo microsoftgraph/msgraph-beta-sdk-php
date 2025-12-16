@@ -67,11 +67,12 @@ class CertificateBasedApplicationConfigurationsRequestBuilder extends BaseReques
     }
 
     /**
-     * Create new navigation property to certificateBasedApplicationConfigurations for directory
+     * Create a new certificateBasedApplicationConfiguration  object.
      * @param CertificateBasedApplicationConfiguration $body The request body
      * @param CertificateBasedApplicationConfigurationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CertificateBasedApplicationConfiguration|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/certificateauthoritypath-post-certificatebasedapplicationconfigurations?view=graph-rest-beta Find more info here
     */
     public function post(CertificateBasedApplicationConfiguration $body, ?CertificateBasedApplicationConfigurationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -103,7 +104,7 @@ class CertificateBasedApplicationConfigurationsRequestBuilder extends BaseReques
     }
 
     /**
-     * Create new navigation property to certificateBasedApplicationConfigurations for directory
+     * Create a new certificateBasedApplicationConfiguration  object.
      * @param CertificateBasedApplicationConfiguration $body The request body
      * @param CertificateBasedApplicationConfigurationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

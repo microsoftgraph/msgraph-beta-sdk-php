@@ -40,7 +40,7 @@ class SharePointMigrationsRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the crossOrganizationMigrationTasks property value. The crossOrganizationMigrationTasks property
+     * Gets the crossOrganizationMigrationTasks property value. A collection of sharePointMigrationTask resources that represent cross-organization migration tasks.
      * @return array<SharePointMigrationTask>|null
     */
     public function getCrossOrganizationMigrationTasks(): ?array {
@@ -100,7 +100,7 @@ class SharePointMigrationsRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the crossOrganizationMigrationTasks property value. The crossOrganizationMigrationTasks property
+     * Sets the crossOrganizationMigrationTasks property value. A collection of sharePointMigrationTask resources that represent cross-organization migration tasks.
      * @param array<SharePointMigrationTask>|null $value Value to set for the crossOrganizationMigrationTasks property.
     */
     public function setCrossOrganizationMigrationTasks(?array $value): void {

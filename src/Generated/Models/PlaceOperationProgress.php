@@ -56,7 +56,7 @@ class PlaceOperationProgress implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the failedPlaceCount property value. The failedPlaceCount property
+     * Gets the failedPlaceCount property value. The count of places failed to upsert.
      * @return int|null
     */
     public function getFailedPlaceCount(): ?int {
@@ -94,7 +94,7 @@ class PlaceOperationProgress implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the succeededPlaceCount property value. The succeededPlaceCount property
+     * Gets the succeededPlaceCount property value. The count of places succeeded to upsert.
      * @return int|null
     */
     public function getSucceededPlaceCount(): ?int {
@@ -106,7 +106,7 @@ class PlaceOperationProgress implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the totalPlaceCount property value. The totalPlaceCount property
+     * Gets the totalPlaceCount property value. The total count of places in the request.
      * @return int|null
     */
     public function getTotalPlaceCount(): ?int {
@@ -146,7 +146,7 @@ class PlaceOperationProgress implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the failedPlaceCount property value. The failedPlaceCount property
+     * Sets the failedPlaceCount property value. The count of places failed to upsert.
      * @param int|null $value Value to set for the failedPlaceCount property.
     */
     public function setFailedPlaceCount(?int $value): void {
@@ -162,7 +162,7 @@ class PlaceOperationProgress implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the succeededPlaceCount property value. The succeededPlaceCount property
+     * Sets the succeededPlaceCount property value. The count of places succeeded to upsert.
      * @param int|null $value Value to set for the succeededPlaceCount property.
     */
     public function setSucceededPlaceCount(?int $value): void {
@@ -170,7 +170,7 @@ class PlaceOperationProgress implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the totalPlaceCount property value. The totalPlaceCount property
+     * Sets the totalPlaceCount property value. The total count of places in the request.
      * @param int|null $value Value to set for the totalPlaceCount property.
     */
     public function setTotalPlaceCount(?int $value): void {

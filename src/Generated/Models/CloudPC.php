@@ -311,7 +311,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the osVersion property value. The version of the operating system (OS) to provision on Cloud PCs. Possible values are: windows10, windows11, unknownFutureValue.
+     * Gets the osVersion property value. The version of the operating system (OS) to provision on Cloud PCs. The possible values are: windows10, windows11, unknownFutureValue.
      * @return CloudPcOperatingSystem|null
     */
     public function getOsVersion(): ?CloudPcOperatingSystem {
@@ -397,7 +397,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the provisioningType property value. The type of licenses to be used when provisioning Cloud PCs using this policy. Possible values are: dedicated, shared, unknownFutureValue, sharedByUser, sharedByEntraGroup, reserve. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: sharedByUser, sharedByEntraGroup, reserve. The default value is dedicated. The shared member is deprecated and will stop returning on April 30, 2027; going forward, use the sharedByUser member.
+     * Gets the provisioningType property value. The type of licenses to be used when provisioning Cloud PCs using this policy. The possible values are: dedicated, shared, unknownFutureValue, sharedByUser, sharedByEntraGroup, reserve. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: sharedByUser, sharedByEntraGroup, reserve. The default value is dedicated. The shared member is deprecated and will stop returning on April 30, 2027; going forward, use the sharedByUser member.
      * @return CloudPcProvisioningType|null
     */
     public function getProvisioningType(): ?CloudPcProvisioningType {
@@ -507,7 +507,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the userAccountType property value. The account type of the user on provisioned Cloud PCs. Possible values are: standardUser, administrator, unknownFutureValue.
+     * Gets the userAccountType property value. The account type of the user on provisioned Cloud PCs. The possible values are: standardUser, administrator, unknownFutureValue.
      * @return CloudPcUserAccountType|null
     */
     public function getUserAccountType(): ?CloudPcUserAccountType {
@@ -754,7 +754,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the osVersion property value. The version of the operating system (OS) to provision on Cloud PCs. Possible values are: windows10, windows11, unknownFutureValue.
+     * Sets the osVersion property value. The version of the operating system (OS) to provision on Cloud PCs. The possible values are: windows10, windows11, unknownFutureValue.
      * @param CloudPcOperatingSystem|null $value Value to set for the osVersion property.
     */
     public function setOsVersion(?CloudPcOperatingSystem $value): void {
@@ -810,7 +810,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the provisioningType property value. The type of licenses to be used when provisioning Cloud PCs using this policy. Possible values are: dedicated, shared, unknownFutureValue, sharedByUser, sharedByEntraGroup, reserve. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: sharedByUser, sharedByEntraGroup, reserve. The default value is dedicated. The shared member is deprecated and will stop returning on April 30, 2027; going forward, use the sharedByUser member.
+     * Sets the provisioningType property value. The type of licenses to be used when provisioning Cloud PCs using this policy. The possible values are: dedicated, shared, unknownFutureValue, sharedByUser, sharedByEntraGroup, reserve. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: sharedByUser, sharedByEntraGroup, reserve. The default value is dedicated. The shared member is deprecated and will stop returning on April 30, 2027; going forward, use the sharedByUser member.
      * @param CloudPcProvisioningType|null $value Value to set for the provisioningType property.
     */
     public function setProvisioningType(?CloudPcProvisioningType $value): void {
@@ -882,7 +882,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the userAccountType property value. The account type of the user on provisioned Cloud PCs. Possible values are: standardUser, administrator, unknownFutureValue.
+     * Sets the userAccountType property value. The account type of the user on provisioned Cloud PCs. The possible values are: standardUser, administrator, unknownFutureValue.
      * @param CloudPcUserAccountType|null $value Value to set for the userAccountType property.
     */
     public function setUserAccountType(?CloudPcUserAccountType $value): void {

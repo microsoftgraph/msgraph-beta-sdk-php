@@ -27,7 +27,7 @@ class ManagedDeviceCompliance extends Entity implements Parsable
     }
 
     /**
-     * Gets the complianceStatus property value. Compliance state of the device. This property is read-only. Possible values are: unknown, compliant, noncompliant, conflict, error, inGracePeriod, configManager. Optional. Read-only.
+     * Gets the complianceStatus property value. Compliance state of the device. This property is read-only. The possible values are: unknown, compliant, noncompliant, conflict, error, inGracePeriod, configManager. Optional. Read-only.
      * @return string|null
     */
     public function getComplianceStatus(): ?string {
@@ -39,7 +39,7 @@ class ManagedDeviceCompliance extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceType property value. Platform of the device. This property is read-only. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.  Optional. Read-only.
+     * Gets the deviceType property value. Platform of the device. This property is read-only. The possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.  Optional. Read-only.
      * @return string|null
     */
     public function getDeviceType(): ?string {
@@ -241,7 +241,7 @@ class ManagedDeviceCompliance extends Entity implements Parsable
     }
 
     /**
-     * Sets the complianceStatus property value. Compliance state of the device. This property is read-only. Possible values are: unknown, compliant, noncompliant, conflict, error, inGracePeriod, configManager. Optional. Read-only.
+     * Sets the complianceStatus property value. Compliance state of the device. This property is read-only. The possible values are: unknown, compliant, noncompliant, conflict, error, inGracePeriod, configManager. Optional. Read-only.
      * @param string|null $value Value to set for the complianceStatus property.
     */
     public function setComplianceStatus(?string $value): void {
@@ -249,7 +249,7 @@ class ManagedDeviceCompliance extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceType property value. Platform of the device. This property is read-only. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.  Optional. Read-only.
+     * Sets the deviceType property value. Platform of the device. This property is read-only. The possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.  Optional. Read-only.
      * @param string|null $value Value to set for the deviceType property.
     */
     public function setDeviceType(?string $value): void {

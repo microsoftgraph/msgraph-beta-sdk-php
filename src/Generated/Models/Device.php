@@ -142,7 +142,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the deviceOwnership property value. Ownership of the device. Intune sets this property. Possible values are: unknown, company, personal.
+     * Gets the deviceOwnership property value. Ownership of the device. Intune sets this property. The possible values are: unknown, company, personal.
      * @return string|null
     */
     public function getDeviceOwnership(): ?string {
@@ -216,7 +216,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the enrollmentType property value. Enrollment type of the device. Intune sets this property. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth,appleUserEnrollment, appleUserEnrollmentWithServiceAccount. NOTE: This property might return other values apart from those listed.
+     * Gets the enrollmentType property value. Enrollment type of the device. Intune sets this property. The possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth,appleUserEnrollment, appleUserEnrollmentWithServiceAccount. NOTE: This property might return other values apart from those listed.
      * @return string|null
     */
     public function getEnrollmentType(): ?string {
@@ -412,7 +412,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the managementType property value. Management channel of the device. Intune sets this property. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController.
+     * Gets the managementType property value. Management channel of the device. Intune sets this property. The possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController.
      * @return string|null
     */
     public function getManagementType(): ?string {
@@ -816,7 +816,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the deviceOwnership property value. Ownership of the device. Intune sets this property. Possible values are: unknown, company, personal.
+     * Sets the deviceOwnership property value. Ownership of the device. Intune sets this property. The possible values are: unknown, company, personal.
      * @param string|null $value Value to set for the deviceOwnership property.
     */
     public function setDeviceOwnership(?string $value): void {
@@ -864,7 +864,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the enrollmentType property value. Enrollment type of the device. Intune sets this property. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth,appleUserEnrollment, appleUserEnrollmentWithServiceAccount. NOTE: This property might return other values apart from those listed.
+     * Sets the enrollmentType property value. Enrollment type of the device. Intune sets this property. The possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth,appleUserEnrollment, appleUserEnrollmentWithServiceAccount. NOTE: This property might return other values apart from those listed.
      * @param string|null $value Value to set for the enrollmentType property.
     */
     public function setEnrollmentType(?string $value): void {
@@ -936,7 +936,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the managementType property value. Management channel of the device. Intune sets this property. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController.
+     * Sets the managementType property value. Management channel of the device. Intune sets this property. The possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController.
      * @param string|null $value Value to set for the managementType property.
     */
     public function setManagementType(?string $value): void {

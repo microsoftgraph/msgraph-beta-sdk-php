@@ -100,11 +100,11 @@ class UsersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the agentUser objects and their properties.
+     * Retrieve a list of user objects. This API also returns agentUser objects. This operation returns by default only a subset of the more commonly used properties for each user and agentUser. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation and specify the properties in a $select OData query option.
      * @param UsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/agentuser-list?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/user-list?view=graph-rest-beta Find more info here
     */
     public function get(?UsersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -131,7 +131,7 @@ class UsersRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the agentUser objects and their properties.
+     * Retrieve a list of user objects. This API also returns agentUser objects. This operation returns by default only a subset of the more commonly used properties for each user and agentUser. These default properties are noted in the Properties section. To get properties that are not returned by default, do a GET operation and specify the properties in a $select OData query option.
      * @param UsersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

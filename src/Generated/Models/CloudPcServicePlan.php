@@ -55,7 +55,7 @@ class CloudPcServicePlan extends Entity implements Parsable
     }
 
     /**
-     * Gets the provisioningType property value. Specifies the type of license used when provisioning Cloud PCs. By default, the license type is dedicated. Possible values are: dedicated, shared, unknownFutureValue, sharedByUser, sharedByEntraGroup, reserve. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: sharedByUser, sharedByEntraGroup, reserve. The shared member is deprecated and will stop returning on April 30, 2027; going forward, use the sharedByUser member.
+     * Gets the provisioningType property value. Specifies the type of license used when provisioning Cloud PCs. By default, the license type is dedicated. The possible values are: dedicated, shared, unknownFutureValue, sharedByUser, sharedByEntraGroup, reserve. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: sharedByUser, sharedByEntraGroup, reserve. The shared member is deprecated and will stop returning on April 30, 2027; going forward, use the sharedByUser member.
      * @return CloudPcProvisioningType|null
     */
     public function getProvisioningType(): ?CloudPcProvisioningType {
@@ -103,7 +103,7 @@ class CloudPcServicePlan extends Entity implements Parsable
     }
 
     /**
-     * Gets the type property value. The type of the service plan. Possible values are: enterprise, business, unknownFutureValue. Read-only.
+     * Gets the type property value. The type of the service plan. The possible values are: enterprise, business, unknownFutureValue. Read-only.
      * @return CloudPcServicePlanType|null
     */
     public function getType(): ?CloudPcServicePlanType {
@@ -163,7 +163,7 @@ class CloudPcServicePlan extends Entity implements Parsable
     }
 
     /**
-     * Sets the provisioningType property value. Specifies the type of license used when provisioning Cloud PCs. By default, the license type is dedicated. Possible values are: dedicated, shared, unknownFutureValue, sharedByUser, sharedByEntraGroup, reserve. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: sharedByUser, sharedByEntraGroup, reserve. The shared member is deprecated and will stop returning on April 30, 2027; going forward, use the sharedByUser member.
+     * Sets the provisioningType property value. Specifies the type of license used when provisioning Cloud PCs. By default, the license type is dedicated. The possible values are: dedicated, shared, unknownFutureValue, sharedByUser, sharedByEntraGroup, reserve. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: sharedByUser, sharedByEntraGroup, reserve. The shared member is deprecated and will stop returning on April 30, 2027; going forward, use the sharedByUser member.
      * @param CloudPcProvisioningType|null $value Value to set for the provisioningType property.
     */
     public function setProvisioningType(?CloudPcProvisioningType $value): void {
@@ -195,7 +195,7 @@ class CloudPcServicePlan extends Entity implements Parsable
     }
 
     /**
-     * Sets the type property value. The type of the service plan. Possible values are: enterprise, business, unknownFutureValue. Read-only.
+     * Sets the type property value. The type of the service plan. The possible values are: enterprise, business, unknownFutureValue. Read-only.
      * @param CloudPcServicePlanType|null $value Value to set for the type property.
     */
     public function setType(?CloudPcServicePlanType $value): void {

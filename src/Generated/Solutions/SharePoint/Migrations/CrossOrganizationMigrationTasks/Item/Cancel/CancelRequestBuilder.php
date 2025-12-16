@@ -30,10 +30,11 @@ class CancelRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action cancel
+     * Cancel a sharePointMigrationTask that moves a specific object from a source organization to a target organization. Only cancel the sharePointMigrationTask before it starts and when reverting doesn't cause system instability.
      * @param CancelRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/sharepointmigrationtask-cancel?view=graph-rest-beta Find more info here
     */
     public function post(?CancelRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -44,7 +45,7 @@ class CancelRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action cancel
+     * Cancel a sharePointMigrationTask that moves a specific object from a source organization to a target organization. Only cancel the sharePointMigrationTask before it starts and when reverting doesn't cause system instability.
      * @param CancelRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

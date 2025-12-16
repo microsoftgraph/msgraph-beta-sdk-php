@@ -34,7 +34,7 @@ class MobilityManagementPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the appliesTo property value. Indicates the user scope of the mobility management policy. Possible values are: none, all, selected.
+     * Gets the appliesTo property value. Indicates the user scope of the mobility management policy. The possible values are: none, all, selected.
      * @return PolicyScope|null
     */
     public function getAppliesTo(): ?PolicyScope {
@@ -166,7 +166,7 @@ class MobilityManagementPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the appliesTo property value. Indicates the user scope of the mobility management policy. Possible values are: none, all, selected.
+     * Sets the appliesTo property value. Indicates the user scope of the mobility management policy. The possible values are: none, all, selected.
      * @param PolicyScope|null $value Value to set for the appliesTo property.
     */
     public function setAppliesTo(?PolicyScope $value): void {

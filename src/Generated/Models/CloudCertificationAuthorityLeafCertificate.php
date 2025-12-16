@@ -90,7 +90,7 @@ class CloudCertificationAuthorityLeafCertificate extends Entity implements Parsa
     }
 
     /**
-     * Gets the devicePlatform property value. The platform of the device for which the certificate was created. Possible values are: Android, AndroidForWork, iOS, MacOS, WindowsPhone81, Windows81AndLater, Windows10AndLater, AndroidWorkProfile, Unknown, AndroidAOSP, AndroidMobileApplicationManagement, iOSMobileApplicationManagement. Default value: Unknown. Read-only. Supports $select.
+     * Gets the devicePlatform property value. The platform of the device for which the certificate was created. The possible values are: Android, AndroidForWork, iOS, MacOS, WindowsPhone81, Windows81AndLater, Windows10AndLater, AndroidWorkProfile, Unknown, AndroidAOSP, AndroidMobileApplicationManagement, iOSMobileApplicationManagement. Default value: Unknown. Read-only. Supports $select.
      * @return string|null
     */
     public function getDevicePlatform(): ?string {
@@ -372,7 +372,7 @@ class CloudCertificationAuthorityLeafCertificate extends Entity implements Parsa
     }
 
     /**
-     * Sets the devicePlatform property value. The platform of the device for which the certificate was created. Possible values are: Android, AndroidForWork, iOS, MacOS, WindowsPhone81, Windows81AndLater, Windows10AndLater, AndroidWorkProfile, Unknown, AndroidAOSP, AndroidMobileApplicationManagement, iOSMobileApplicationManagement. Default value: Unknown. Read-only. Supports $select.
+     * Sets the devicePlatform property value. The platform of the device for which the certificate was created. The possible values are: Android, AndroidForWork, iOS, MacOS, WindowsPhone81, Windows81AndLater, Windows10AndLater, AndroidWorkProfile, Unknown, AndroidAOSP, AndroidMobileApplicationManagement, iOSMobileApplicationManagement. Default value: Unknown. Read-only. Supports $select.
      * @param string|null $value Value to set for the devicePlatform property.
     */
     public function setDevicePlatform(?string $value): void {

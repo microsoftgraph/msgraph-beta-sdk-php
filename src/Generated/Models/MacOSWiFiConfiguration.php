@@ -60,7 +60,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. Possible values are: deviceChannel, userChannel, unknownFutureValue.
+     * Gets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. The possible values are: deviceChannel, userChannel, unknownFutureValue.
      * @return AppleDeploymentChannel|null
     */
     public function getDeploymentChannel(): ?AppleDeploymentChannel {
@@ -224,7 +224,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. Possible values are: deviceChannel, userChannel, unknownFutureValue.
+     * Sets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. The possible values are: deviceChannel, userChannel, unknownFutureValue.
      * @param AppleDeploymentChannel|null $value Value to set for the deploymentChannel property.
     */
     public function setDeploymentChannel(?AppleDeploymentChannel $value): void {

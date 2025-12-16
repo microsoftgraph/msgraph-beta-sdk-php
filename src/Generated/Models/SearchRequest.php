@@ -125,7 +125,7 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the entityTypes property value. One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem, acronym, bookmark, chatMessage. For details about combinations of two or more entity types that are supported in the same search request, see known limitations. Required.
+     * Gets the entityTypes property value. One or more types of resources expected in the response. The possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem, acronym, bookmark, chatMessage. For details about combinations of two or more entity types that are supported in the same search request, see known limitations. Required.
      * @return array<EntityType>|null
     */
     public function getEntityTypes(): ?array {
@@ -427,7 +427,7 @@ class SearchRequest implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the entityTypes property value. One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem, acronym, bookmark, chatMessage. For details about combinations of two or more entity types that are supported in the same search request, see known limitations. Required.
+     * Sets the entityTypes property value. One or more types of resources expected in the response. The possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem, acronym, bookmark, chatMessage. For details about combinations of two or more entity types that are supported in the same search request, see known limitations. Required.
      * @param array<EntityType>|null $value Value to set for the entityTypes property.
     */
     public function setEntityTypes(?array $value): void {

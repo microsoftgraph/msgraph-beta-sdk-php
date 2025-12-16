@@ -50,7 +50,7 @@ class AppConsentRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the consentType property value. The consent type of the request. Possible values are: Static and Dynamic. These represent static and dynamic permissions, respectively, requested in the consent workflow. Supports $filter (eq only) and $orderby. Required.
+     * Gets the consentType property value. The consent type of the request. The possible values are: Static and Dynamic. These represent static and dynamic permissions, respectively, requested in the consent workflow. Supports $filter (eq only) and $orderby. Required.
      * @return string|null
     */
     public function getConsentType(): ?string {
@@ -134,7 +134,7 @@ class AppConsentRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the consentType property value. The consent type of the request. Possible values are: Static and Dynamic. These represent static and dynamic permissions, respectively, requested in the consent workflow. Supports $filter (eq only) and $orderby. Required.
+     * Sets the consentType property value. The consent type of the request. The possible values are: Static and Dynamic. These represent static and dynamic permissions, respectively, requested in the consent workflow. Supports $filter (eq only) and $orderby. Required.
      * @param string|null $value Value to set for the consentType property.
     */
     public function setConsentType(?string $value): void {

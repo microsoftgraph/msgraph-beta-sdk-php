@@ -51,7 +51,7 @@ class UserConfigurationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get userConfigurations from users
+     * The user configuration objects associated to the mailFolder.
      * @param UserConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserConfigurationCollectionResponse|null>
      * @throws Exception
@@ -65,7 +65,7 @@ class UserConfigurationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get userConfigurations from users
+     * The user configuration objects associated to the mailFolder.
      * @param UserConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

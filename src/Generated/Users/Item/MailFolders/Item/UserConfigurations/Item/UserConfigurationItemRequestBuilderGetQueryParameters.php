@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\UserConfigu
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get userConfigurations from users
+ * The user configuration objects associated to the mailFolder.
 */
 class UserConfigurationItemRequestBuilderGetQueryParameters 
 {

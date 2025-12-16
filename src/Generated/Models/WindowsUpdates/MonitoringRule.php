@@ -35,7 +35,7 @@ class MonitoringRule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the action property value. The action triggered when the threshold for the given signal is reached. Possible values are: alertError, pauseDeployment, offerFallback, unknownFutureValue. The offerFallback member is only supported on feature update deployments of Windows 11 and must be paired with the ineligible signal. The fallback version offered is the version 22H2 of Windows 10.
+     * Gets the action property value. The action triggered when the threshold for the given signal is reached. The possible values are: alertError, pauseDeployment, offerFallback, unknownFutureValue. The offerFallback member is only supported on feature update deployments of Windows 11 and must be paired with the ineligible signal. The fallback version offered is the version 22H2 of Windows 10.
      * @return MonitoringAction|null
     */
     public function getAction(): ?MonitoringAction {
@@ -94,7 +94,7 @@ class MonitoringRule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the signal property value. The signal to monitor. Possible values are: rollback, ineligible, unknownFutureValue. The ineligible member is only supported on feature update deployments of Windows 11 and must be paired with the offerFallback action.
+     * Gets the signal property value. The signal to monitor. The possible values are: rollback, ineligible, unknownFutureValue. The ineligible member is only supported on feature update deployments of Windows 11 and must be paired with the offerFallback action.
      * @return MonitoringSignal|null
     */
     public function getSignal(): ?MonitoringSignal {
@@ -130,7 +130,7 @@ class MonitoringRule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the action property value. The action triggered when the threshold for the given signal is reached. Possible values are: alertError, pauseDeployment, offerFallback, unknownFutureValue. The offerFallback member is only supported on feature update deployments of Windows 11 and must be paired with the ineligible signal. The fallback version offered is the version 22H2 of Windows 10.
+     * Sets the action property value. The action triggered when the threshold for the given signal is reached. The possible values are: alertError, pauseDeployment, offerFallback, unknownFutureValue. The offerFallback member is only supported on feature update deployments of Windows 11 and must be paired with the ineligible signal. The fallback version offered is the version 22H2 of Windows 10.
      * @param MonitoringAction|null $value Value to set for the action property.
     */
     public function setAction(?MonitoringAction $value): void {
@@ -162,7 +162,7 @@ class MonitoringRule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the signal property value. The signal to monitor. Possible values are: rollback, ineligible, unknownFutureValue. The ineligible member is only supported on feature update deployments of Windows 11 and must be paired with the offerFallback action.
+     * Sets the signal property value. The signal to monitor. The possible values are: rollback, ineligible, unknownFutureValue. The ineligible member is only supported on feature update deployments of Windows 11 and must be paired with the offerFallback action.
      * @param MonitoringSignal|null $value Value to set for the signal property.
     */
     public function setSignal(?MonitoringSignal $value): void {

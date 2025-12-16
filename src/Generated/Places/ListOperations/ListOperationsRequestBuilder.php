@@ -30,10 +30,11 @@ class ListOperationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function listOperations
+     * List all existing placeOperation objects. This API doesn't return operation details.
      * @param ListOperationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ListOperationsGetResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/place-listoperations?view=graph-rest-beta Find more info here
     */
     public function get(?ListOperationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -44,7 +45,7 @@ class ListOperationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function listOperations
+     * List all existing placeOperation objects. This API doesn't return operation details.
      * @param ListOperationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

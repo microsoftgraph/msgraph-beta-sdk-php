@@ -353,7 +353,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the userExperienceType property value. Specifies the type of cloud object the end user can access. Possible values are: cloudPc, cloudApp, unknownFutureValue. cloudPc indicates that the end user can access the entire desktop. cloudApp indicates that the end user can only access apps published under this provisioning policy. The type can't be changed once the provisioning policy is created. If not specified during creation, the default value is cloudPc. When cloudApp is selected, the provisioningType must be sharedByEntraGroup. Supports $filter, $select, $orderBy.
+     * Gets the userExperienceType property value. Specifies the type of cloud object the end user can access. The possible values are: cloudPc, cloudApp, unknownFutureValue. cloudPc indicates that the end user can access the entire desktop. cloudApp indicates that the end user can only access apps published under this provisioning policy. The type can't be changed once the provisioning policy is created. If not specified during creation, the default value is cloudPc. When cloudApp is selected, the provisioningType must be sharedByEntraGroup. Supports $filter, $select, $orderBy.
      * @return CloudPcUserExperienceType|null
     */
     public function getUserExperienceType(): ?CloudPcUserExperienceType {
@@ -620,7 +620,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the userExperienceType property value. Specifies the type of cloud object the end user can access. Possible values are: cloudPc, cloudApp, unknownFutureValue. cloudPc indicates that the end user can access the entire desktop. cloudApp indicates that the end user can only access apps published under this provisioning policy. The type can't be changed once the provisioning policy is created. If not specified during creation, the default value is cloudPc. When cloudApp is selected, the provisioningType must be sharedByEntraGroup. Supports $filter, $select, $orderBy.
+     * Sets the userExperienceType property value. Specifies the type of cloud object the end user can access. The possible values are: cloudPc, cloudApp, unknownFutureValue. cloudPc indicates that the end user can access the entire desktop. cloudApp indicates that the end user can only access apps published under this provisioning policy. The type can't be changed once the provisioning policy is created. If not specified during creation, the default value is cloudPc. When cloudApp is selected, the provisioningType must be sharedByEntraGroup. Supports $filter, $select, $orderBy.
      * @param CloudPcUserExperienceType|null $value Value to set for the userExperienceType property.
     */
     public function setUserExperienceType(?CloudPcUserExperienceType $value): void {

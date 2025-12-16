@@ -34,10 +34,11 @@ class GetOperationWithIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function getOperation
+     * Get a placeOperation by ID.
      * @param GetOperationWithIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlaceOperation|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/place-getoperation?view=graph-rest-beta Find more info here
     */
     public function get(?GetOperationWithIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -48,7 +49,7 @@ class GetOperationWithIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function getOperation
+     * Get a placeOperation by ID.
      * @param GetOperationWithIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

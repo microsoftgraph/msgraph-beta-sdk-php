@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Security\Identities\Settings\AutoAuditingConfiguration;
+namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\ControlConfigurations\Item;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the properties and relationships of an microsoft.graph.security.autoAuditingConfiguration object.
+ * Represents the policies that control lifecycle and access to access packages across the organization.
 */
-class AutoAuditingConfigurationRequestBuilderGetQueryParameters 
+class ControlConfigurationItemRequestBuilderGetQueryParameters 
 {
     /**
      * @QueryParameter("%24expand")
@@ -22,7 +22,7 @@ class AutoAuditingConfigurationRequestBuilderGetQueryParameters
     public ?array $select = null;
     
     /**
-     * Instantiates a new AutoAuditingConfigurationRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new ControlConfigurationItemRequestBuilderGetQueryParameters and sets the default values.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
     */

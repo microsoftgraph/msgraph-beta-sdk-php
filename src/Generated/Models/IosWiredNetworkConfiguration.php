@@ -30,7 +30,7 @@ class IosWiredNetworkConfiguration extends DeviceConfiguration implements Parsab
     }
 
     /**
-     * Gets the authenticationMethod property value. Authentication Method when EAP Type is configured to PEAP or EAP-TTLS. Possible values are: certificate, usernameAndPassword, derivedCredential, unknownFutureValue.
+     * Gets the authenticationMethod property value. Authentication Method when EAP Type is configured to PEAP or EAP-TTLS. The possible values are: certificate, usernameAndPassword, derivedCredential, unknownFutureValue.
      * @return WiredNetworkAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?WiredNetworkAuthenticationMethod {
@@ -42,7 +42,7 @@ class IosWiredNetworkConfiguration extends DeviceConfiguration implements Parsab
     }
 
     /**
-     * Gets the eapFastConfiguration property value. EAP-FAST Configuration Option when EAP-FAST is the selected EAP Type. Possible values are: noProtectedAccessCredential, useProtectedAccessCredential, useProtectedAccessCredentialAndProvision, useProtectedAccessCredentialAndProvisionAnonymously.
+     * Gets the eapFastConfiguration property value. EAP-FAST Configuration Option when EAP-FAST is the selected EAP Type. The possible values are: noProtectedAccessCredential, useProtectedAccessCredential, useProtectedAccessCredentialAndProvision, useProtectedAccessCredentialAndProvisionAnonymously.
      * @return EapFastConfiguration|null
     */
     public function getEapFastConfiguration(): ?EapFastConfiguration {
@@ -129,7 +129,7 @@ class IosWiredNetworkConfiguration extends DeviceConfiguration implements Parsab
     }
 
     /**
-     * Gets the nonEapAuthenticationMethodForEapTtls property value. Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
+     * Gets the nonEapAuthenticationMethodForEapTtls property value. Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password. The possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
      * @return NonEapAuthenticationMethodForEapTtlsType|null
     */
     public function getNonEapAuthenticationMethodForEapTtls(): ?NonEapAuthenticationMethodForEapTtlsType {
@@ -197,7 +197,7 @@ class IosWiredNetworkConfiguration extends DeviceConfiguration implements Parsab
     }
 
     /**
-     * Sets the authenticationMethod property value. Authentication Method when EAP Type is configured to PEAP or EAP-TTLS. Possible values are: certificate, usernameAndPassword, derivedCredential, unknownFutureValue.
+     * Sets the authenticationMethod property value. Authentication Method when EAP Type is configured to PEAP or EAP-TTLS. The possible values are: certificate, usernameAndPassword, derivedCredential, unknownFutureValue.
      * @param WiredNetworkAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
     public function setAuthenticationMethod(?WiredNetworkAuthenticationMethod $value): void {
@@ -205,7 +205,7 @@ class IosWiredNetworkConfiguration extends DeviceConfiguration implements Parsab
     }
 
     /**
-     * Sets the eapFastConfiguration property value. EAP-FAST Configuration Option when EAP-FAST is the selected EAP Type. Possible values are: noProtectedAccessCredential, useProtectedAccessCredential, useProtectedAccessCredentialAndProvision, useProtectedAccessCredentialAndProvisionAnonymously.
+     * Sets the eapFastConfiguration property value. EAP-FAST Configuration Option when EAP-FAST is the selected EAP Type. The possible values are: noProtectedAccessCredential, useProtectedAccessCredential, useProtectedAccessCredentialAndProvision, useProtectedAccessCredentialAndProvisionAnonymously.
      * @param EapFastConfiguration|null $value Value to set for the eapFastConfiguration property.
     */
     public function setEapFastConfiguration(?EapFastConfiguration $value): void {
@@ -245,7 +245,7 @@ class IosWiredNetworkConfiguration extends DeviceConfiguration implements Parsab
     }
 
     /**
-     * Sets the nonEapAuthenticationMethodForEapTtls property value. Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
+     * Sets the nonEapAuthenticationMethodForEapTtls property value. Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password. The possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
      * @param NonEapAuthenticationMethodForEapTtlsType|null $value Value to set for the nonEapAuthenticationMethodForEapTtls property.
     */
     public function setNonEapAuthenticationMethodForEapTtls(?NonEapAuthenticationMethodForEapTtlsType $value): void {

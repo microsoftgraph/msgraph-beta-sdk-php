@@ -169,7 +169,7 @@ class Channel extends Entity implements Parsable
     }
 
     /**
-     * Gets the layoutType property value. The layoutType property
+     * Gets the layoutType property value. The layout type of the channel. Can be set during creation and can be updated. The possible values are: post, chat, unknownFutureValue. The default value is post. Channels with post layout use traditional post-reply conversation format, while channels with chat layout provide a chat-like threading experience similar to group chats.
      * @return ChannelLayoutType|null
     */
     public function getLayoutType(): ?ChannelLayoutType {
@@ -409,7 +409,7 @@ class Channel extends Entity implements Parsable
     }
 
     /**
-     * Sets the layoutType property value. The layoutType property
+     * Sets the layoutType property value. The layout type of the channel. Can be set during creation and can be updated. The possible values are: post, chat, unknownFutureValue. The default value is post. Channels with post layout use traditional post-reply conversation format, while channels with chat layout provide a chat-like threading experience similar to group chats.
      * @param ChannelLayoutType|null $value Value to set for the layoutType property.
     */
     public function setLayoutType(?ChannelLayoutType $value): void {

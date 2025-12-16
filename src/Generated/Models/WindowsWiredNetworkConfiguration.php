@@ -42,7 +42,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
     }
 
     /**
-     * Gets the authenticationMethod property value. Specify the authentication method. Possible values are: certificate, usernameAndPassword, derivedCredential. Possible values are: certificate, usernameAndPassword, derivedCredential, unknownFutureValue.
+     * Gets the authenticationMethod property value. Specify the authentication method. The possible values are: certificate, usernameAndPassword, derivedCredential. The possible values are: certificate, usernameAndPassword, derivedCredential, unknownFutureValue.
      * @return WiredNetworkAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?WiredNetworkAuthenticationMethod {
@@ -78,7 +78,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
     }
 
     /**
-     * Gets the authenticationType property value. Specify whether to authenticate the user, the device, either, or to use guest authentication (none). If you're using certificate authentication, make sure the certificate type matches the authentication type. Possible values are: none, user, machine, machineOrUser, guest. Possible values are: none, user, machine, machineOrUser, guest, unknownFutureValue.
+     * Gets the authenticationType property value. Specify whether to authenticate the user, the device, either, or to use guest authentication (none). If you're using certificate authentication, make sure the certificate type matches the authentication type. The possible values are: none, user, machine, machineOrUser, guest. The possible values are: none, user, machine, machineOrUser, guest, unknownFutureValue.
      * @return WiredNetworkAuthenticationType|null
     */
     public function getAuthenticationType(): ?WiredNetworkAuthenticationType {
@@ -215,7 +215,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
     }
 
     /**
-     * Gets the innerAuthenticationProtocolForEAPTTLS property value. Specify inner authentication protocol for EAP TTLS. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
+     * Gets the innerAuthenticationProtocolForEAPTTLS property value. Specify inner authentication protocol for EAP TTLS. The possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo. The possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
      * @return NonEapAuthenticationMethodForEapTtlsType|null
     */
     public function getInnerAuthenticationProtocolForEAPTTLS(): ?NonEapAuthenticationMethodForEapTtlsType {
@@ -313,7 +313,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
     }
 
     /**
-     * Gets the secondaryAuthenticationMethod property value. Specify the secondary authentication method. Possible values are: certificate, usernameAndPassword, derivedCredential. Possible values are: certificate, usernameAndPassword, derivedCredential, unknownFutureValue.
+     * Gets the secondaryAuthenticationMethod property value. Specify the secondary authentication method. The possible values are: certificate, usernameAndPassword, derivedCredential. The possible values are: certificate, usernameAndPassword, derivedCredential, unknownFutureValue.
      * @return WiredNetworkAuthenticationMethod|null
     */
     public function getSecondaryAuthenticationMethod(): ?WiredNetworkAuthenticationMethod {
@@ -403,7 +403,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
     }
 
     /**
-     * Sets the authenticationMethod property value. Specify the authentication method. Possible values are: certificate, usernameAndPassword, derivedCredential. Possible values are: certificate, usernameAndPassword, derivedCredential, unknownFutureValue.
+     * Sets the authenticationMethod property value. Specify the authentication method. The possible values are: certificate, usernameAndPassword, derivedCredential. The possible values are: certificate, usernameAndPassword, derivedCredential, unknownFutureValue.
      * @param WiredNetworkAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
     public function setAuthenticationMethod(?WiredNetworkAuthenticationMethod $value): void {
@@ -427,7 +427,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
     }
 
     /**
-     * Sets the authenticationType property value. Specify whether to authenticate the user, the device, either, or to use guest authentication (none). If you're using certificate authentication, make sure the certificate type matches the authentication type. Possible values are: none, user, machine, machineOrUser, guest. Possible values are: none, user, machine, machineOrUser, guest, unknownFutureValue.
+     * Sets the authenticationType property value. Specify whether to authenticate the user, the device, either, or to use guest authentication (none). If you're using certificate authentication, make sure the certificate type matches the authentication type. The possible values are: none, user, machine, machineOrUser, guest. The possible values are: none, user, machine, machineOrUser, guest, unknownFutureValue.
      * @param WiredNetworkAuthenticationType|null $value Value to set for the authenticationType property.
     */
     public function setAuthenticationType(?WiredNetworkAuthenticationType $value): void {
@@ -491,7 +491,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
     }
 
     /**
-     * Sets the innerAuthenticationProtocolForEAPTTLS property value. Specify inner authentication protocol for EAP TTLS. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
+     * Sets the innerAuthenticationProtocolForEAPTTLS property value. Specify inner authentication protocol for EAP TTLS. The possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo. The possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
      * @param NonEapAuthenticationMethodForEapTtlsType|null $value Value to set for the innerAuthenticationProtocolForEAPTTLS property.
     */
     public function setInnerAuthenticationProtocolForEAPTTLS(?NonEapAuthenticationMethodForEapTtlsType $value): void {
@@ -555,7 +555,7 @@ class WindowsWiredNetworkConfiguration extends DeviceConfiguration implements Pa
     }
 
     /**
-     * Sets the secondaryAuthenticationMethod property value. Specify the secondary authentication method. Possible values are: certificate, usernameAndPassword, derivedCredential. Possible values are: certificate, usernameAndPassword, derivedCredential, unknownFutureValue.
+     * Sets the secondaryAuthenticationMethod property value. Specify the secondary authentication method. The possible values are: certificate, usernameAndPassword, derivedCredential. The possible values are: certificate, usernameAndPassword, derivedCredential, unknownFutureValue.
      * @param WiredNetworkAuthenticationMethod|null $value Value to set for the secondaryAuthenticationMethod property.
     */
     public function setSecondaryAuthenticationMethod(?WiredNetworkAuthenticationMethod $value): void {

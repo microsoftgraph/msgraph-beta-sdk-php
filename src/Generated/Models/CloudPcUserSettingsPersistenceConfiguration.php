@@ -93,7 +93,7 @@ class CloudPcUserSettingsPersistenceConfiguration implements AdditionalDataHolde
     }
 
     /**
-     * Gets the userSettingsPersistenceStorageSizeCategory property value. Indicates the storage size for persisting user application settings. Possible values are: fourGB, eightGB, sixteenGB, thirtyTwoGB, sixtyFourGB, unknownFutureValue. The default value is fourGB.
+     * Gets the userSettingsPersistenceStorageSizeCategory property value. Indicates the storage size for persisting user application settings. The possible values are: fourGB, eightGB, sixteenGB, thirtyTwoGB, sixtyFourGB, unknownFutureValue. The default value is fourGB.
      * @return CloudPcUserSettingsPersistenceStorageSizeCategory|null
     */
     public function getUserSettingsPersistenceStorageSizeCategory(): ?CloudPcUserSettingsPersistenceStorageSizeCategory {
@@ -148,7 +148,7 @@ class CloudPcUserSettingsPersistenceConfiguration implements AdditionalDataHolde
     }
 
     /**
-     * Sets the userSettingsPersistenceStorageSizeCategory property value. Indicates the storage size for persisting user application settings. Possible values are: fourGB, eightGB, sixteenGB, thirtyTwoGB, sixtyFourGB, unknownFutureValue. The default value is fourGB.
+     * Sets the userSettingsPersistenceStorageSizeCategory property value. Indicates the storage size for persisting user application settings. The possible values are: fourGB, eightGB, sixteenGB, thirtyTwoGB, sixtyFourGB, unknownFutureValue. The default value is fourGB.
      * @param CloudPcUserSettingsPersistenceStorageSizeCategory|null $value Value to set for the userSettingsPersistenceStorageSizeCategory property.
     */
     public function setUserSettingsPersistenceStorageSizeCategory(?CloudPcUserSettingsPersistenceStorageSizeCategory $value): void {

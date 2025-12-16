@@ -96,7 +96,7 @@ class AlertHistoryState implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the feedback property value. Analyst feedback on the alert in this update. Possible values are: unknown, truePositive, falsePositive, benignPositive.
+     * Gets the feedback property value. Analyst feedback on the alert in this update. The possible values are: unknown, truePositive, falsePositive, benignPositive.
      * @return AlertFeedback|null
     */
     public function getFeedback(): ?AlertFeedback {
@@ -145,7 +145,7 @@ class AlertHistoryState implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the status property value. Alert status value (if updated). Possible values are: unknown, newAlert, inProgress, resolved, dismissed.
+     * Gets the status property value. Alert status value (if updated). The possible values are: unknown, newAlert, inProgress, resolved, dismissed.
      * @return AlertStatus|null
     */
     public function getStatus(): ?AlertStatus {
@@ -237,7 +237,7 @@ class AlertHistoryState implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the feedback property value. Analyst feedback on the alert in this update. Possible values are: unknown, truePositive, falsePositive, benignPositive.
+     * Sets the feedback property value. Analyst feedback on the alert in this update. The possible values are: unknown, truePositive, falsePositive, benignPositive.
      * @param AlertFeedback|null $value Value to set for the feedback property.
     */
     public function setFeedback(?AlertFeedback $value): void {
@@ -253,7 +253,7 @@ class AlertHistoryState implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the status property value. Alert status value (if updated). Possible values are: unknown, newAlert, inProgress, resolved, dismissed.
+     * Sets the status property value. Alert status value (if updated). The possible values are: unknown, newAlert, inProgress, resolved, dismissed.
      * @param AlertStatus|null $value Value to set for the status property.
     */
     public function setStatus(?AlertStatus $value): void {

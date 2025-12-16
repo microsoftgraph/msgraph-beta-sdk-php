@@ -191,7 +191,6 @@ use Microsoft\Graph\Beta\Generated\Models\Security\AuditCoreRoot;
 use Microsoft\Graph\Beta\Generated\Models\Security\AuditLogQuery;
 use Microsoft\Graph\Beta\Generated\Models\Security\AuditLogRecord;
 use Microsoft\Graph\Beta\Generated\Models\Security\AuthorityTemplate;
-use Microsoft\Graph\Beta\Generated\Models\Security\AutoAuditingConfiguration;
 use Microsoft\Graph\Beta\Generated\Models\Security\CasesRoot;
 use Microsoft\Graph\Beta\Generated\Models\Security\CategoryTemplate;
 use Microsoft\Graph\Beta\Generated\Models\Security\CitationTemplate;
@@ -766,6 +765,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.contentType': return new ContentType();
                 case '#microsoft.graph.continuousAccessEvaluationPolicy': return new ContinuousAccessEvaluationPolicy();
                 case '#microsoft.graph.contract': return new Contract();
+                case '#microsoft.graph.controlConfiguration': return new ControlConfiguration();
                 case '#microsoft.graph.conversation': return new Conversation();
                 case '#microsoft.graph.conversationMember': return new ConversationMember();
                 case '#microsoft.graph.conversationThread': return new ConversationThread();
@@ -1053,6 +1053,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.endpointPrivilegeManagementProvisioningStatus': return new EndpointPrivilegeManagementProvisioningStatus();
                 case '#microsoft.graph.endUserNotification': return new EndUserNotification();
                 case '#microsoft.graph.endUserNotificationDetail': return new EndUserNotificationDetail();
+                case '#microsoft.graph.endUserSettings': return new EndUserSettings();
                 case '#microsoft.graph.engagementAsyncOperation': return new EngagementAsyncOperation();
                 case '#microsoft.graph.engagementConversation': return new EngagementConversation();
                 case '#microsoft.graph.engagementConversationDiscussionMessage': return new EngagementConversationDiscussionMessage();
@@ -1071,6 +1072,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.entitlementManagement': return new EntitlementManagement();
                 case '#microsoft.graph.entitlementManagementSettings': return new EntitlementManagementSettings();
                 case '#microsoft.graph.entra': return new Entra();
+                case '#microsoft.graph.entraIdProtectionRiskyUserApproval': return new EntraIdProtectionRiskyUserApproval();
                 case '#microsoft.graph.evaluateLabelJobResponse': return new EvaluateLabelJobResponse();
                 case '#microsoft.graph.event': return new Event();
                 case '#microsoft.graph.eventMessage': return new EventMessage();
@@ -1279,6 +1281,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.informationProtection': return new InformationProtection();
                 case '#microsoft.graph.informationProtectionLabel': return new InformationProtectionLabel();
                 case '#microsoft.graph.informationProtectionPolicy': return new InformationProtectionPolicy();
+                case '#microsoft.graph.insiderRiskyUserApproval': return new InsiderRiskyUserApproval();
                 case '#microsoft.graph.insightsSettings': return new InsightsSettings();
                 case '#microsoft.graph.insightSummary': return new InsightSummary();
                 case '#microsoft.graph.internalDomainFederation': return new InternalDomainFederation();
@@ -1927,7 +1930,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.security.auditLogQuery': return new AuditLogQuery();
                 case '#microsoft.graph.security.auditLogRecord': return new AuditLogRecord();
                 case '#microsoft.graph.security.authorityTemplate': return new AuthorityTemplate();
-                case '#microsoft.graph.security.autoAuditingConfiguration': return new AutoAuditingConfiguration();
                 case '#microsoft.graph.security.case': return new \Microsoft\Graph\Beta\Generated\Models\Security\EscapedCase();
                 case '#microsoft.graph.security.caseOperation': return new \Microsoft\Graph\Beta\Generated\Models\Security\CaseOperation();
                 case '#microsoft.graph.security.casesRoot': return new CasesRoot();

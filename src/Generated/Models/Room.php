@@ -38,7 +38,7 @@ class Room extends Place implements Parsable
     }
 
     /**
-     * Gets the bookingType property value. Specifies how the room can be booked. Possible values are:unknown - Unspecified booking behavior. We don't recommend that you use this value.standard - Available for general booking.reserved - Reserved for specific users or purposes.
+     * Gets the bookingType property value. Specifies how the room can be booked. The possible values are:unknown - Unspecified booking behavior. We don't recommend that you use this value.standard - Available for general booking.reserved - Reserved for specific users or purposes.
      * @return BookingType|null
     */
     public function getBookingType(): ?BookingType {
@@ -234,7 +234,7 @@ class Room extends Place implements Parsable
     }
 
     /**
-     * Sets the bookingType property value. Specifies how the room can be booked. Possible values are:unknown - Unspecified booking behavior. We don't recommend that you use this value.standard - Available for general booking.reserved - Reserved for specific users or purposes.
+     * Sets the bookingType property value. Specifies how the room can be booked. The possible values are:unknown - Unspecified booking behavior. We don't recommend that you use this value.standard - Available for general booking.reserved - Reserved for specific users or purposes.
      * @param BookingType|null $value Value to set for the bookingType property.
     */
     public function setBookingType(?BookingType $value): void {

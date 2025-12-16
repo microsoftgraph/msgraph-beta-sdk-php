@@ -61,7 +61,7 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the accountType property value. User Account type, per Windows definition. Possible values are: unknown, standard, power, administrator.
+     * Gets the accountType property value. User Account type, per Windows definition. The possible values are: unknown, standard, power, administrator.
      * @return UserAccountSecurityType|null
     */
     public function getAccountType(): ?UserAccountSecurityType {
@@ -148,7 +148,7 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the logonTypes property value. Collection of the logon types observed for the logged on user from when first to last seen. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
+     * Gets the logonTypes property value. Collection of the logon types observed for the logged on user from when first to last seen. The possible values are: unknown, interactive, remoteInteractive, network, batch, service.
      * @return array<LogonType>|null
     */
     public function getLogonTypes(): ?array {
@@ -206,7 +206,7 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the accountType property value. User Account type, per Windows definition. Possible values are: unknown, standard, power, administrator.
+     * Sets the accountType property value. User Account type, per Windows definition. The possible values are: unknown, standard, power, administrator.
      * @param UserAccountSecurityType|null $value Value to set for the accountType property.
     */
     public function setAccountType(?UserAccountSecurityType $value): void {
@@ -254,7 +254,7 @@ class LogonUser implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the logonTypes property value. Collection of the logon types observed for the logged on user from when first to last seen. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
+     * Sets the logonTypes property value. Collection of the logon types observed for the logged on user from when first to last seen. The possible values are: unknown, interactive, remoteInteractive, network, batch, service.
      * @param array<LogonType>|null $value Value to set for the logonTypes property.
     */
     public function setLogonTypes(?array $value): void {

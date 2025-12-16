@@ -69,7 +69,7 @@ class WorkloadAction implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the category property value. The category for the workload action. Possible values are: automated, manual, unknownFutureValue. Optional. Read-only.
+     * Gets the category property value. The category for the workload action. The possible values are: automated, manual, unknownFutureValue. Optional. Read-only.
      * @return WorkloadActionCategory|null
     */
     public function getCategory(): ?WorkloadActionCategory {
@@ -222,7 +222,7 @@ class WorkloadAction implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the category property value. The category for the workload action. Possible values are: automated, manual, unknownFutureValue. Optional. Read-only.
+     * Sets the category property value. The category for the workload action. The possible values are: automated, manual, unknownFutureValue. Optional. Read-only.
      * @param WorkloadActionCategory|null $value Value to set for the category property.
     */
     public function setCategory(?WorkloadActionCategory $value): void {

@@ -38,7 +38,7 @@ class SharePointUserMigrationTaskParameters extends SharePointMigrationTaskParam
     }
 
     /**
-     * Gets the sourceUserIdentity property value. The sourceUserIdentity property
+     * Gets the sourceUserIdentity property value. The source user in the source tenant, including the user object ID and the user principal name.
      * @return UserIdentity|null
     */
     public function getSourceUserIdentity(): ?UserIdentity {
@@ -50,7 +50,7 @@ class SharePointUserMigrationTaskParameters extends SharePointMigrationTaskParam
     }
 
     /**
-     * Gets the targetUserIdentity property value. The targetUserIdentity property
+     * Gets the targetUserIdentity property value. The target user in the target tenant, including the user object ID and the user principal name.
      * @return UserIdentity|null
     */
     public function getTargetUserIdentity(): ?UserIdentity {
@@ -72,7 +72,7 @@ class SharePointUserMigrationTaskParameters extends SharePointMigrationTaskParam
     }
 
     /**
-     * Sets the sourceUserIdentity property value. The sourceUserIdentity property
+     * Sets the sourceUserIdentity property value. The source user in the source tenant, including the user object ID and the user principal name.
      * @param UserIdentity|null $value Value to set for the sourceUserIdentity property.
     */
     public function setSourceUserIdentity(?UserIdentity $value): void {
@@ -80,7 +80,7 @@ class SharePointUserMigrationTaskParameters extends SharePointMigrationTaskParam
     }
 
     /**
-     * Sets the targetUserIdentity property value. The targetUserIdentity property
+     * Sets the targetUserIdentity property value. The target user in the target tenant, including the user object ID and the user principal name.
      * @param UserIdentity|null $value Value to set for the targetUserIdentity property.
     */
     public function setTargetUserIdentity(?UserIdentity $value): void {

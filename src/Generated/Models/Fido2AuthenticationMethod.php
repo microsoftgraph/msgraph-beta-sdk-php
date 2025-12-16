@@ -53,7 +53,7 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
     }
 
     /**
-     * Gets the attestationLevel property value. The attestation level of this FIDO2 security key. Possible values are: attested, notAttested, unknownFutureValue.
+     * Gets the attestationLevel property value. The attestation level of this FIDO2 security key. The possible values are: attested, notAttested, unknownFutureValue.
      * @return AttestationLevel|null
     */
     public function getAttestationLevel(): ?AttestationLevel {
@@ -168,7 +168,7 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
     }
 
     /**
-     * Sets the attestationLevel property value. The attestation level of this FIDO2 security key. Possible values are: attested, notAttested, unknownFutureValue.
+     * Sets the attestationLevel property value. The attestation level of this FIDO2 security key. The possible values are: attested, notAttested, unknownFutureValue.
      * @param AttestationLevel|null $value Value to set for the attestationLevel property.
     */
     public function setAttestationLevel(?AttestationLevel $value): void {

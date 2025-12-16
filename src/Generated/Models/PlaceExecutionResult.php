@@ -57,7 +57,7 @@ class PlaceExecutionResult implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the children property value. The children property
+     * Gets the children property value. The upsert results of children places of the place.
      * @return array<PlaceExecutionResult>|null
     */
     public function getChildren(): ?array {
@@ -71,7 +71,7 @@ class PlaceExecutionResult implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the error property value. The error property
+     * Gets the error property value. The error that occurred during the upsert of the place.
      * @return PublicError|null
     */
     public function getError(): ?PublicError {
@@ -149,7 +149,7 @@ class PlaceExecutionResult implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the children property value. The children property
+     * Sets the children property value. The upsert results of children places of the place.
      * @param array<PlaceExecutionResult>|null $value Value to set for the children property.
     */
     public function setChildren(?array $value): void {
@@ -157,7 +157,7 @@ class PlaceExecutionResult implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the error property value. The error property
+     * Sets the error property value. The error that occurred during the upsert of the place.
      * @param PublicError|null $value Value to set for the error property.
     */
     public function setError(?PublicError $value): void {

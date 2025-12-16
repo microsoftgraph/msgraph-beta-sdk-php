@@ -84,7 +84,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the installStatus property value. The status of a partner agent installation. Possible values are: installed, installFailed, installing, uninstalling, uninstallFailed and licensed. Read-Only.
+     * Gets the installStatus property value. The status of a partner agent installation. The possible values are: installed, installFailed, installing, uninstalling, uninstallFailed and licensed. Read-Only.
      * @return CloudPcPartnerAgentInstallStatus|null
     */
     public function getInstallStatus(): ?CloudPcPartnerAgentInstallStatus {
@@ -182,7 +182,7 @@ class CloudPcPartnerAgentInstallResult implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the installStatus property value. The status of a partner agent installation. Possible values are: installed, installFailed, installing, uninstalling, uninstallFailed and licensed. Read-Only.
+     * Sets the installStatus property value. The status of a partner agent installation. The possible values are: installed, installFailed, installing, uninstalling, uninstallFailed and licensed. Read-Only.
      * @param CloudPcPartnerAgentInstallStatus|null $value Value to set for the installStatus property.
     */
     public function setInstallStatus(?CloudPcPartnerAgentInstallStatus $value): void {

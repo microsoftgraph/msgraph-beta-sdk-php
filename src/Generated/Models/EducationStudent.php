@@ -98,7 +98,7 @@ class EducationStudent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the gender property value. Possible values are: female, male, other.
+     * Gets the gender property value. The possible values are: female, male, other.
      * @return EducationGender|null
     */
     public function getGender(): ?EducationGender {
@@ -205,7 +205,7 @@ class EducationStudent implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the gender property value. Possible values are: female, male, other.
+     * Sets the gender property value. The possible values are: female, male, other.
      * @param EducationGender|null $value Value to set for the gender property.
     */
     public function setGender(?EducationGender $value): void {

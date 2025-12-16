@@ -68,7 +68,7 @@ class ItemBody implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the contentType property value. The type of the content indicated by the enum value of bodyType. Possible values are: text, html, unknownFutureValue.
+     * Gets the contentType property value. The type of the content indicated by the enum value of bodyType. The possible values are: text, html, unknownFutureValue.
      * @return BodyType|null
     */
     public function getContentType(): ?BodyType {
@@ -140,7 +140,7 @@ class ItemBody implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the contentType property value. The type of the content indicated by the enum value of bodyType. Possible values are: text, html, unknownFutureValue.
+     * Sets the contentType property value. The type of the content indicated by the enum value of bodyType. The possible values are: text, html, unknownFutureValue.
      * @param BodyType|null $value Value to set for the contentType property.
     */
     public function setContentType(?BodyType $value): void {

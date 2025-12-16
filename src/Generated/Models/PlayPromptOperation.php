@@ -25,7 +25,7 @@ class PlayPromptOperation extends CommsOperation implements Parsable
     }
 
     /**
-     * Gets the completionReason property value. Possible values are: unknown, completedSuccessfully, mediaOperationCanceled.
+     * Gets the completionReason property value. The possible values are: unknown, completedSuccessfully, mediaOperationCanceled.
      * @return PlayPromptCompletionReason|null
     */
     public function getCompletionReason(): ?PlayPromptCompletionReason {
@@ -57,7 +57,7 @@ class PlayPromptOperation extends CommsOperation implements Parsable
     }
 
     /**
-     * Sets the completionReason property value. Possible values are: unknown, completedSuccessfully, mediaOperationCanceled.
+     * Sets the completionReason property value. The possible values are: unknown, completedSuccessfully, mediaOperationCanceled.
      * @param PlayPromptCompletionReason|null $value Value to set for the completionReason property.
     */
     public function setCompletionReason(?PlayPromptCompletionReason $value): void {

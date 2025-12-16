@@ -54,7 +54,7 @@ class ReferenceAttachment extends Attachment implements Parsable
     }
 
     /**
-     * Gets the permission property value. Specifies the permissions granted for the attachment by the type of provider in providerType. Possible values are: other, view, edit, anonymousView, anonymousEdit, organizationView, organizationEdit. Optional.
+     * Gets the permission property value. Specifies the permissions granted for the attachment by the type of provider in providerType. The possible values are: other, view, edit, anonymousView, anonymousEdit, organizationView, organizationEdit. Optional.
      * @return ReferenceAttachmentPermission|null
     */
     public function getPermission(): ?ReferenceAttachmentPermission {
@@ -78,7 +78,7 @@ class ReferenceAttachment extends Attachment implements Parsable
     }
 
     /**
-     * Gets the providerType property value. The type of provider that supports an attachment of this contentType. Possible values are: other, oneDriveBusiness, oneDriveConsumer, dropbox. Optional.
+     * Gets the providerType property value. The type of provider that supports an attachment of this contentType. The possible values are: other, oneDriveBusiness, oneDriveConsumer, dropbox. Optional.
      * @return ReferenceAttachmentProvider|null
     */
     public function getProviderType(): ?ReferenceAttachmentProvider {
@@ -136,7 +136,7 @@ class ReferenceAttachment extends Attachment implements Parsable
     }
 
     /**
-     * Sets the permission property value. Specifies the permissions granted for the attachment by the type of provider in providerType. Possible values are: other, view, edit, anonymousView, anonymousEdit, organizationView, organizationEdit. Optional.
+     * Sets the permission property value. Specifies the permissions granted for the attachment by the type of provider in providerType. The possible values are: other, view, edit, anonymousView, anonymousEdit, organizationView, organizationEdit. Optional.
      * @param ReferenceAttachmentPermission|null $value Value to set for the permission property.
     */
     public function setPermission(?ReferenceAttachmentPermission $value): void {
@@ -152,7 +152,7 @@ class ReferenceAttachment extends Attachment implements Parsable
     }
 
     /**
-     * Sets the providerType property value. The type of provider that supports an attachment of this contentType. Possible values are: other, oneDriveBusiness, oneDriveConsumer, dropbox. Optional.
+     * Sets the providerType property value. The type of provider that supports an attachment of this contentType. The possible values are: other, oneDriveBusiness, oneDriveConsumer, dropbox. Optional.
      * @param ReferenceAttachmentProvider|null $value Value to set for the providerType property.
     */
     public function setProviderType(?ReferenceAttachmentProvider $value): void {

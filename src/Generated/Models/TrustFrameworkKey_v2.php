@@ -105,7 +105,7 @@ class TrustFrameworkKey_v2 implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the use property value. The use (public key use) parameter identifies the intended use of the public key. The use parameter is employed to indicate whether a public key is used for encrypting data or verifying the signature on data. Possible values are: sig (signature), enc (encryption).
+     * Gets the use property value. The use (public key use) parameter identifies the intended use of the public key. The use parameter is employed to indicate whether a public key is used for encrypting data or verifying the signature on data. The possible values are: sig (signature), enc (encryption).
      * @return string|null
     */
     public function getEscapedUse(): ?string {
@@ -384,7 +384,7 @@ class TrustFrameworkKey_v2 implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the use property value. The use (public key use) parameter identifies the intended use of the public key. The use parameter is employed to indicate whether a public key is used for encrypting data or verifying the signature on data. Possible values are: sig (signature), enc (encryption).
+     * Sets the use property value. The use (public key use) parameter identifies the intended use of the public key. The use parameter is employed to indicate whether a public key is used for encrypting data or verifying the signature on data. The possible values are: sig (signature), enc (encryption).
      * @param string|null $value Value to set for the use property.
     */
     public function setEscapedUse(?string $value): void {

@@ -26,7 +26,7 @@ class PlannerRoster extends Entity implements Parsable
     }
 
     /**
-     * Gets the assignedSensitivityLabel property value. The sensitivity label applied to the roster. If mandatory labeling is enabled for the user and no label is specified, the user can't create the roster. Also, if labels are mandatory for the user, the user can't change the label of the roster to null. Possible values are: standard, privileged, auto, unknownFutureValue.
+     * Gets the assignedSensitivityLabel property value. The sensitivity label applied to the roster. If mandatory labeling is enabled for the user and no label is specified, the user can't create the roster. Also, if labels are mandatory for the user, the user can't change the label of the roster to null. The possible values are: standard, privileged, auto, unknownFutureValue.
      * @return SensitivityLabelAssignment|null
     */
     public function getAssignedSensitivityLabel(): ?SensitivityLabelAssignment {
@@ -90,7 +90,7 @@ class PlannerRoster extends Entity implements Parsable
     }
 
     /**
-     * Sets the assignedSensitivityLabel property value. The sensitivity label applied to the roster. If mandatory labeling is enabled for the user and no label is specified, the user can't create the roster. Also, if labels are mandatory for the user, the user can't change the label of the roster to null. Possible values are: standard, privileged, auto, unknownFutureValue.
+     * Sets the assignedSensitivityLabel property value. The sensitivity label applied to the roster. If mandatory labeling is enabled for the user and no label is specified, the user can't create the roster. Also, if labels are mandatory for the user, the user can't change the label of the roster to null. The possible values are: standard, privileged, auto, unknownFutureValue.
      * @param SensitivityLabelAssignment|null $value Value to set for the assignedSensitivityLabel property.
     */
     public function setAssignedSensitivityLabel(?SensitivityLabelAssignment $value): void {

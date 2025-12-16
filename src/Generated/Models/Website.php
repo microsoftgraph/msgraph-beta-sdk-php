@@ -106,7 +106,7 @@ class Website implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the type property value. Possible values are: other, home, work, blog, profile.
+     * Gets the type property value. The possible values are: other, home, work, blog, profile.
      * @return WebsiteType|null
     */
     public function getType(): ?WebsiteType {
@@ -170,7 +170,7 @@ class Website implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the type property value. Possible values are: other, home, work, blog, profile.
+     * Sets the type property value. The possible values are: other, home, work, blog, profile.
      * @param WebsiteType|null $value Value to set for the type property.
     */
     public function setType(?WebsiteType $value): void {
