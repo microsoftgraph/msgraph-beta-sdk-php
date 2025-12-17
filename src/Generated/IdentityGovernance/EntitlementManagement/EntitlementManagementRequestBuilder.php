@@ -21,6 +21,7 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Acce
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AssignmentRequests\AssignmentRequestsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AvailableAccessPackages\AvailableAccessPackagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\ConnectedOrganizations\ConnectedOrganizationsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\ControlConfigurations\ControlConfigurationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Subjects\SubjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\SubjectsWithObjectId\SubjectsWithObjectIdRequestBuilder;
@@ -139,6 +140,13 @@ class EntitlementManagementRequestBuilder extends BaseRequestBuilder
     */
     public function connectedOrganizations(): ConnectedOrganizationsRequestBuilder {
         return new ConnectedOrganizationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the controlConfigurations property of the microsoft.graph.entitlementManagement entity.
+    */
+    public function controlConfigurations(): ControlConfigurationsRequestBuilder {
+        return new ControlConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

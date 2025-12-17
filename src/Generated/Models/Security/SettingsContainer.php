@@ -26,25 +26,12 @@ class SettingsContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the autoAuditingConfiguration property value. Represents automatic configuration for collection of Windows event logs as needed for Defender for Identity sensors.
-     * @return AutoAuditingConfiguration|null
-    */
-    public function getAutoAuditingConfiguration(): ?AutoAuditingConfiguration {
-        $val = $this->getBackingStore()->get('autoAuditingConfiguration');
-        if (is_null($val) || $val instanceof AutoAuditingConfiguration) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'autoAuditingConfiguration'");
-    }
-
-    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'autoAuditingConfiguration' => fn(ParseNode $n) => $o->setAutoAuditingConfiguration($n->getObjectValue([AutoAuditingConfiguration::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -54,15 +41,6 @@ class SettingsContainer extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('autoAuditingConfiguration', $this->getAutoAuditingConfiguration());
-    }
-
-    /**
-     * Sets the autoAuditingConfiguration property value. Represents automatic configuration for collection of Windows event logs as needed for Defender for Identity sensors.
-     * @param AutoAuditingConfiguration|null $value Value to set for the autoAuditingConfiguration property.
-    */
-    public function setAutoAuditingConfiguration(?AutoAuditingConfiguration $value): void {
-        $this->getBackingStore()->set('autoAuditingConfiguration', $value);
     }
 
 }

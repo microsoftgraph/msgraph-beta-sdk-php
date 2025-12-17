@@ -38,7 +38,7 @@ class SharePointGroupMigrationTaskParameters extends SharePointMigrationTaskPara
     }
 
     /**
-     * Gets the sourceGroupIdentity property value. The sourceGroupIdentity property
+     * Gets the sourceGroupIdentity property value. The identity of the source group in the source tenant, including its mail nickname.
      * @return GroupIdentity|null
     */
     public function getSourceGroupIdentity(): ?GroupIdentity {
@@ -50,7 +50,7 @@ class SharePointGroupMigrationTaskParameters extends SharePointMigrationTaskPara
     }
 
     /**
-     * Gets the targetGroupIdentity property value. The targetGroupIdentity property
+     * Gets the targetGroupIdentity property value. The identity of the target group in the target tenant, including its mail nickname.
      * @return GroupIdentity|null
     */
     public function getTargetGroupIdentity(): ?GroupIdentity {
@@ -72,7 +72,7 @@ class SharePointGroupMigrationTaskParameters extends SharePointMigrationTaskPara
     }
 
     /**
-     * Sets the sourceGroupIdentity property value. The sourceGroupIdentity property
+     * Sets the sourceGroupIdentity property value. The identity of the source group in the source tenant, including its mail nickname.
      * @param GroupIdentity|null $value Value to set for the sourceGroupIdentity property.
     */
     public function setSourceGroupIdentity(?GroupIdentity $value): void {
@@ -80,7 +80,7 @@ class SharePointGroupMigrationTaskParameters extends SharePointMigrationTaskPara
     }
 
     /**
-     * Sets the targetGroupIdentity property value. The targetGroupIdentity property
+     * Sets the targetGroupIdentity property value. The identity of the target group in the target tenant, including its mail nickname.
      * @param GroupIdentity|null $value Value to set for the targetGroupIdentity property.
     */
     public function setTargetGroupIdentity(?GroupIdentity $value): void {

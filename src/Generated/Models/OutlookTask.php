@@ -129,7 +129,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the importance property value. The importance of the event. Possible values are: low, normal, high.
+     * Gets the importance property value. The importance of the event. The possible values are: low, normal, high.
      * @return Importance|null
     */
     public function getImportance(): ?Importance {
@@ -215,7 +215,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the sensitivity property value. Indicates the level of privacy for the task. Possible values are: normal, personal, private, confidential.
+     * Gets the sensitivity property value. Indicates the level of privacy for the task. The possible values are: normal, personal, private, confidential.
      * @return Sensitivity|null
     */
     public function getSensitivity(): ?Sensitivity {
@@ -253,7 +253,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the status property value. Indicates the state or progress of the task. Possible values are: notStarted, inProgress, completed, waitingOnOthers, deferred.
+     * Gets the status property value. Indicates the state or progress of the task. The possible values are: notStarted, inProgress, completed, waitingOnOthers, deferred.
      * @return TaskStatus|null
     */
     public function getStatus(): ?TaskStatus {
@@ -351,7 +351,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the importance property value. The importance of the event. Possible values are: low, normal, high.
+     * Sets the importance property value. The importance of the event. The possible values are: low, normal, high.
      * @param Importance|null $value Value to set for the importance property.
     */
     public function setImportance(?Importance $value): void {
@@ -407,7 +407,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the sensitivity property value. Indicates the level of privacy for the task. Possible values are: normal, personal, private, confidential.
+     * Sets the sensitivity property value. Indicates the level of privacy for the task. The possible values are: normal, personal, private, confidential.
      * @param Sensitivity|null $value Value to set for the sensitivity property.
     */
     public function setSensitivity(?Sensitivity $value): void {
@@ -431,7 +431,7 @@ class OutlookTask extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the status property value. Indicates the state or progress of the task. Possible values are: notStarted, inProgress, completed, waitingOnOthers, deferred.
+     * Sets the status property value. Indicates the state or progress of the task. The possible values are: notStarted, inProgress, completed, waitingOnOthers, deferred.
      * @param TaskStatus|null $value Value to set for the status property.
     */
     public function setStatus(?TaskStatus $value): void {

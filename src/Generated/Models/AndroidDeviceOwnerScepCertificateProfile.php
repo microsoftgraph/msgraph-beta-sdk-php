@@ -30,7 +30,7 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
     }
 
     /**
-     * Gets the certificateAccessType property value. Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
+     * Gets the certificateAccessType property value. Certificate access type. The possible values are: userApproval, specificApps, unknownFutureValue.
      * @return AndroidDeviceOwnerCertificateAccessType|null
     */
     public function getCertificateAccessType(): ?AndroidDeviceOwnerCertificateAccessType {
@@ -42,7 +42,7 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
     }
 
     /**
-     * Gets the certificateStore property value. Target store certificate. Possible values are: user, machine.
+     * Gets the certificateStore property value. Target store certificate. The possible values are: user, machine.
      * @return CertificateStore|null
     */
     public function getCertificateStore(): ?CertificateStore {
@@ -217,7 +217,7 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
     }
 
     /**
-     * Sets the certificateAccessType property value. Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
+     * Sets the certificateAccessType property value. Certificate access type. The possible values are: userApproval, specificApps, unknownFutureValue.
      * @param AndroidDeviceOwnerCertificateAccessType|null $value Value to set for the certificateAccessType property.
     */
     public function setCertificateAccessType(?AndroidDeviceOwnerCertificateAccessType $value): void {
@@ -225,7 +225,7 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
     }
 
     /**
-     * Sets the certificateStore property value. Target store certificate. Possible values are: user, machine.
+     * Sets the certificateStore property value. Target store certificate. The possible values are: user, machine.
      * @param CertificateStore|null $value Value to set for the certificateStore property.
     */
     public function setCertificateStore(?CertificateStore $value): void {

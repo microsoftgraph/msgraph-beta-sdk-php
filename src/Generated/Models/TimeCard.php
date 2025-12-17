@@ -119,7 +119,7 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the state property value. The current state of the timeCard during its life cycle.Possible values are: clockedIn, onBreak, clockedOut, unknownFutureValue.
+     * Gets the state property value. The current state of the timeCard during its life cycle. The possible values are: clockedIn, onBreak, clockedOut, unknownFutureValue.
      * @return TimeCardState|null
     */
     public function getState(): ?TimeCardState {
@@ -207,7 +207,7 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the state property value. The current state of the timeCard during its life cycle.Possible values are: clockedIn, onBreak, clockedOut, unknownFutureValue.
+     * Sets the state property value. The current state of the timeCard during its life cycle. The possible values are: clockedIn, onBreak, clockedOut, unknownFutureValue.
      * @param TimeCardState|null $value Value to set for the state property.
     */
     public function setState(?TimeCardState $value): void {

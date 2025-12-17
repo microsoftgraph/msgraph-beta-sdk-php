@@ -56,7 +56,7 @@ class PlannerTaskRoleBasedRule implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the defaultRule property value. Default rule that applies when a property or action-specific rule is not provided. Possible values are: Allow, Block
+     * Gets the defaultRule property value. Default rule that applies when a property or action-specific rule is not provided. The possible values are: Allow, Block
      * @return string|null
     */
     public function getDefaultRule(): ?string {
@@ -146,7 +146,7 @@ class PlannerTaskRoleBasedRule implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the defaultRule property value. Default rule that applies when a property or action-specific rule is not provided. Possible values are: Allow, Block
+     * Sets the defaultRule property value. Default rule that applies when a property or action-specific rule is not provided. The possible values are: Allow, Block
      * @param string|null $value Value to set for the defaultRule property.
     */
     public function setDefaultRule(?string $value): void {

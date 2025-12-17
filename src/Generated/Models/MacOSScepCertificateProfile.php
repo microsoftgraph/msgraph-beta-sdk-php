@@ -42,7 +42,7 @@ class MacOSScepCertificateProfile extends MacOSCertificateProfileBase implements
     }
 
     /**
-     * Gets the certificateStore property value. Target store certificate. Possible values are: user, machine.
+     * Gets the certificateStore property value. Target store certificate. The possible values are: user, machine.
      * @return CertificateStore|null
     */
     public function getCertificateStore(): ?CertificateStore {
@@ -68,7 +68,7 @@ class MacOSScepCertificateProfile extends MacOSCertificateProfileBase implements
     }
 
     /**
-     * Gets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. Possible values are: deviceChannel, userChannel, unknownFutureValue.
+     * Gets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. The possible values are: deviceChannel, userChannel, unknownFutureValue.
      * @return AppleDeploymentChannel|null
     */
     public function getDeploymentChannel(): ?AppleDeploymentChannel {
@@ -124,7 +124,7 @@ class MacOSScepCertificateProfile extends MacOSCertificateProfileBase implements
     }
 
     /**
-     * Gets the hashAlgorithm property value. SCEP Hash Algorithm. Possible values are: sha1, sha2.
+     * Gets the hashAlgorithm property value. SCEP Hash Algorithm. The possible values are: sha1, sha2.
      * @return HashAlgorithms|null
     */
     public function getHashAlgorithm(): ?HashAlgorithms {
@@ -253,7 +253,7 @@ class MacOSScepCertificateProfile extends MacOSCertificateProfileBase implements
     }
 
     /**
-     * Sets the certificateStore property value. Target store certificate. Possible values are: user, machine.
+     * Sets the certificateStore property value. Target store certificate. The possible values are: user, machine.
      * @param CertificateStore|null $value Value to set for the certificateStore property.
     */
     public function setCertificateStore(?CertificateStore $value): void {
@@ -269,7 +269,7 @@ class MacOSScepCertificateProfile extends MacOSCertificateProfileBase implements
     }
 
     /**
-     * Sets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. Possible values are: deviceChannel, userChannel, unknownFutureValue.
+     * Sets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. The possible values are: deviceChannel, userChannel, unknownFutureValue.
      * @param AppleDeploymentChannel|null $value Value to set for the deploymentChannel property.
     */
     public function setDeploymentChannel(?AppleDeploymentChannel $value): void {
@@ -285,7 +285,7 @@ class MacOSScepCertificateProfile extends MacOSCertificateProfileBase implements
     }
 
     /**
-     * Sets the hashAlgorithm property value. SCEP Hash Algorithm. Possible values are: sha1, sha2.
+     * Sets the hashAlgorithm property value. SCEP Hash Algorithm. The possible values are: sha1, sha2.
      * @param HashAlgorithms|null $value Value to set for the hashAlgorithm property.
     */
     public function setHashAlgorithm(?HashAlgorithms $value): void {

@@ -29,7 +29,7 @@ class Tag extends Entity implements Parsable
     }
 
     /**
-     * Gets the childSelectability property value. Indicates whether a single or multiple child tags can be associated with a document. Possible values are: One, Many.  This value controls whether the UX presents the tags as checkboxes or a radio button group.
+     * Gets the childSelectability property value. Indicates whether a single or multiple child tags can be associated with a document. The possible values are: One, Many.  This value controls whether the UX presents the tags as checkboxes or a radio button group.
      * @return ChildSelectability|null
     */
     public function getChildSelectability(): ?ChildSelectability {
@@ -147,7 +147,7 @@ class Tag extends Entity implements Parsable
     }
 
     /**
-     * Sets the childSelectability property value. Indicates whether a single or multiple child tags can be associated with a document. Possible values are: One, Many.  This value controls whether the UX presents the tags as checkboxes or a radio button group.
+     * Sets the childSelectability property value. Indicates whether a single or multiple child tags can be associated with a document. The possible values are: One, Many.  This value controls whether the UX presents the tags as checkboxes or a radio button group.
      * @param ChildSelectability|null $value Value to set for the childSelectability property.
     */
     public function setChildSelectability(?ChildSelectability $value): void {

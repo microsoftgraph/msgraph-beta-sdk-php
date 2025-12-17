@@ -532,7 +532,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
     }
 
     /**
-     * Gets the defenderPotentiallyUnwantedAppAction property value. Gets or sets Defender’s action to take on Potentially Unwanted Application (PUA), which includes software with behaviors of ad-injection, software bundling, persistent solicitation for payment or subscription, etc. Defender alerts user when PUA is being downloaded or attempts to install itself. Added in Windows 10 for desktop. Possible values are: deviceDefault, block, audit.
+     * Gets the defenderPotentiallyUnwantedAppAction property value. Gets or sets Defender’s action to take on Potentially Unwanted Application (PUA), which includes software with behaviors of ad-injection, software bundling, persistent solicitation for payment or subscription, etc. Defender alerts user when PUA is being downloaded or attempts to install itself. Added in Windows 10 for desktop. The possible values are: deviceDefault, block, audit.
      * @return DefenderPotentiallyUnwantedAppAction|null
     */
     public function getDefenderPotentiallyUnwantedAppAction(): ?DefenderPotentiallyUnwantedAppAction {
@@ -786,7 +786,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
     }
 
     /**
-     * Gets the defenderSubmitSamplesConsentType property value. Checks for the user consent level in Windows Defender to send data. Possible values are: sendSafeSamplesAutomatically, alwaysPrompt, neverSend, sendAllSamplesAutomatically.
+     * Gets the defenderSubmitSamplesConsentType property value. Checks for the user consent level in Windows Defender to send data. The possible values are: sendSafeSamplesAutomatically, alwaysPrompt, neverSend, sendAllSamplesAutomatically.
      * @return DefenderSubmitSamplesConsentType|null
     */
     public function getDefenderSubmitSamplesConsentType(): ?DefenderSubmitSamplesConsentType {
@@ -4432,7 +4432,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
     }
 
     /**
-     * Sets the defenderPotentiallyUnwantedAppAction property value. Gets or sets Defender’s action to take on Potentially Unwanted Application (PUA), which includes software with behaviors of ad-injection, software bundling, persistent solicitation for payment or subscription, etc. Defender alerts user when PUA is being downloaded or attempts to install itself. Added in Windows 10 for desktop. Possible values are: deviceDefault, block, audit.
+     * Sets the defenderPotentiallyUnwantedAppAction property value. Gets or sets Defender’s action to take on Potentially Unwanted Application (PUA), which includes software with behaviors of ad-injection, software bundling, persistent solicitation for payment or subscription, etc. Defender alerts user when PUA is being downloaded or attempts to install itself. Added in Windows 10 for desktop. The possible values are: deviceDefault, block, audit.
      * @param DefenderPotentiallyUnwantedAppAction|null $value Value to set for the defenderPotentiallyUnwantedAppAction property.
     */
     public function setDefenderPotentiallyUnwantedAppAction(?DefenderPotentiallyUnwantedAppAction $value): void {
@@ -4600,7 +4600,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
     }
 
     /**
-     * Sets the defenderSubmitSamplesConsentType property value. Checks for the user consent level in Windows Defender to send data. Possible values are: sendSafeSamplesAutomatically, alwaysPrompt, neverSend, sendAllSamplesAutomatically.
+     * Sets the defenderSubmitSamplesConsentType property value. Checks for the user consent level in Windows Defender to send data. The possible values are: sendSafeSamplesAutomatically, alwaysPrompt, neverSend, sendAllSamplesAutomatically.
      * @param DefenderSubmitSamplesConsentType|null $value Value to set for the defenderSubmitSamplesConsentType property.
     */
     public function setDefenderSubmitSamplesConsentType(?DefenderSubmitSamplesConsentType $value): void {

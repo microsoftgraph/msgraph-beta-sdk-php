@@ -93,7 +93,7 @@ class OnPremisesPublishingSingleSignOn implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the singleSignOnMode property value. The preferred single-sign on mode for the application. Possible values are: none, onPremisesKerberos, aadHeaderBased,pingHeaderBased, oAuthToken.
+     * Gets the singleSignOnMode property value. The preferred single-sign on mode for the application. The possible values are: none, onPremisesKerberos, aadHeaderBased,pingHeaderBased, oAuthToken.
      * @return SingleSignOnMode|null
     */
     public function getSingleSignOnMode(): ?SingleSignOnMode {
@@ -148,7 +148,7 @@ class OnPremisesPublishingSingleSignOn implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the singleSignOnMode property value. The preferred single-sign on mode for the application. Possible values are: none, onPremisesKerberos, aadHeaderBased,pingHeaderBased, oAuthToken.
+     * Sets the singleSignOnMode property value. The preferred single-sign on mode for the application. The possible values are: none, onPremisesKerberos, aadHeaderBased,pingHeaderBased, oAuthToken.
      * @param SingleSignOnMode|null $value Value to set for the singleSignOnMode property.
     */
     public function setSingleSignOnMode(?SingleSignOnMode $value): void {

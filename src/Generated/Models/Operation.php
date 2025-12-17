@@ -70,7 +70,7 @@ class Operation extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Possible values are: notStarted, running, completed, failed. Read-only.
+     * Gets the status property value. The possible values are: notStarted, running, completed, failed. Read-only.
      * @return OperationStatus|null
     */
     public function getStatus(): ?OperationStatus {
@@ -109,7 +109,7 @@ class Operation extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Possible values are: notStarted, running, completed, failed. Read-only.
+     * Sets the status property value. The possible values are: notStarted, running, completed, failed. Read-only.
      * @param OperationStatus|null $value Value to set for the status property.
     */
     public function setStatus(?OperationStatus $value): void {

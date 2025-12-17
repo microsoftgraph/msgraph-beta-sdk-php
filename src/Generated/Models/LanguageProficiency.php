@@ -67,7 +67,7 @@ class LanguageProficiency extends ItemFacet implements Parsable
     }
 
     /**
-     * Gets the reading property value. Represents the users reading comprehension for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
+     * Gets the reading property value. Represents the users reading comprehension for the language represented by the object. The possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
      * @return LanguageProficiencyLevel|null
     */
     public function getReading(): ?LanguageProficiencyLevel {
@@ -79,7 +79,7 @@ class LanguageProficiency extends ItemFacet implements Parsable
     }
 
     /**
-     * Gets the spoken property value. Represents the users spoken proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
+     * Gets the spoken property value. Represents the users spoken proficiency for the language represented by the object. The possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
      * @return LanguageProficiencyLevel|null
     */
     public function getSpoken(): ?LanguageProficiencyLevel {
@@ -115,7 +115,7 @@ class LanguageProficiency extends ItemFacet implements Parsable
     }
 
     /**
-     * Gets the written property value. Represents the users written proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
+     * Gets the written property value. Represents the users written proficiency for the language represented by the object. The possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
      * @return LanguageProficiencyLevel|null
     */
     public function getWritten(): ?LanguageProficiencyLevel {
@@ -158,7 +158,7 @@ class LanguageProficiency extends ItemFacet implements Parsable
     }
 
     /**
-     * Sets the reading property value. Represents the users reading comprehension for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
+     * Sets the reading property value. Represents the users reading comprehension for the language represented by the object. The possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
      * @param LanguageProficiencyLevel|null $value Value to set for the reading property.
     */
     public function setReading(?LanguageProficiencyLevel $value): void {
@@ -166,7 +166,7 @@ class LanguageProficiency extends ItemFacet implements Parsable
     }
 
     /**
-     * Sets the spoken property value. Represents the users spoken proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
+     * Sets the spoken property value. Represents the users spoken proficiency for the language represented by the object. The possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
      * @param LanguageProficiencyLevel|null $value Value to set for the spoken property.
     */
     public function setSpoken(?LanguageProficiencyLevel $value): void {
@@ -190,7 +190,7 @@ class LanguageProficiency extends ItemFacet implements Parsable
     }
 
     /**
-     * Sets the written property value. Represents the users written proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
+     * Sets the written property value. Represents the users written proficiency for the language represented by the object. The possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
      * @param LanguageProficiencyLevel|null $value Value to set for the written property.
     */
     public function setWritten(?LanguageProficiencyLevel $value): void {

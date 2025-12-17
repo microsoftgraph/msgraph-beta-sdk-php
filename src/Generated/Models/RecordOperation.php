@@ -25,7 +25,7 @@ class RecordOperation extends CommsOperation implements Parsable
     }
 
     /**
-     * Gets the completionReason property value. Possible values are: operationCanceled, stopToneDetected, maxRecordDurationReached, initialSilenceTimeout, maxSilenceTimeout, playPromptFailed, playBeepFailed, mediaReceiveTimeout, unspecifiedError, none.
+     * Gets the completionReason property value. The possible values are: operationCanceled, stopToneDetected, maxRecordDurationReached, initialSilenceTimeout, maxSilenceTimeout, playPromptFailed, playBeepFailed, mediaReceiveTimeout, unspecifiedError, none.
      * @return RecordCompletionReason|null
     */
     public function getCompletionReason(): ?RecordCompletionReason {
@@ -85,7 +85,7 @@ class RecordOperation extends CommsOperation implements Parsable
     }
 
     /**
-     * Sets the completionReason property value. Possible values are: operationCanceled, stopToneDetected, maxRecordDurationReached, initialSilenceTimeout, maxSilenceTimeout, playPromptFailed, playBeepFailed, mediaReceiveTimeout, unspecifiedError, none.
+     * Sets the completionReason property value. The possible values are: operationCanceled, stopToneDetected, maxRecordDurationReached, initialSilenceTimeout, maxSilenceTimeout, playPromptFailed, playBeepFailed, mediaReceiveTimeout, unspecifiedError, none.
      * @param RecordCompletionReason|null $value Value to set for the completionReason property.
     */
     public function setCompletionReason(?RecordCompletionReason $value): void {

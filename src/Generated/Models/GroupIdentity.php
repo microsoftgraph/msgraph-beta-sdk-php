@@ -37,7 +37,7 @@ class GroupIdentity extends Identity implements Parsable
     }
 
     /**
-     * Gets the mailNickname property value. The mailNickname property
+     * Gets the mailNickname property value. The mail nick name, also known as group alias of the group-connected site.
      * @return string|null
     */
     public function getMailNickname(): ?string {
@@ -58,7 +58,7 @@ class GroupIdentity extends Identity implements Parsable
     }
 
     /**
-     * Sets the mailNickname property value. The mailNickname property
+     * Sets the mailNickname property value. The mail nick name, also known as group alias of the group-connected site.
      * @param string|null $value Value to set for the mailNickname property.
     */
     public function setMailNickname(?string $value): void {

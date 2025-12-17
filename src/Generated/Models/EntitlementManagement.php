@@ -236,6 +236,20 @@ class EntitlementManagement extends Entity implements Parsable
     }
 
     /**
+     * Gets the controlConfigurations property value. Represents the policies that control lifecycle and access to access packages across the organization.
+     * @return array<ControlConfiguration>|null
+    */
+    public function getControlConfigurations(): ?array {
+        $val = $this->getBackingStore()->get('controlConfigurations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ControlConfiguration::class);
+            /** @var array<ControlConfiguration>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'controlConfigurations'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -257,6 +271,7 @@ class EntitlementManagement extends Entity implements Parsable
             'assignmentRequests' => fn(ParseNode $n) => $o->setAssignmentRequests($n->getCollectionOfObjectValues([AccessPackageAssignmentRequest::class, 'createFromDiscriminatorValue'])),
             'availableAccessPackages' => fn(ParseNode $n) => $o->setAvailableAccessPackages($n->getCollectionOfObjectValues([AvailableAccessPackage::class, 'createFromDiscriminatorValue'])),
             'connectedOrganizations' => fn(ParseNode $n) => $o->setConnectedOrganizations($n->getCollectionOfObjectValues([ConnectedOrganization::class, 'createFromDiscriminatorValue'])),
+            'controlConfigurations' => fn(ParseNode $n) => $o->setControlConfigurations($n->getCollectionOfObjectValues([ControlConfiguration::class, 'createFromDiscriminatorValue'])),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([EntitlementManagementSettings::class, 'createFromDiscriminatorValue'])),
             'subjects' => fn(ParseNode $n) => $o->setSubjects($n->getCollectionOfObjectValues([AccessPackageSubject::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -309,6 +324,7 @@ class EntitlementManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('assignmentRequests', $this->getAssignmentRequests());
         $writer->writeCollectionOfObjectValues('availableAccessPackages', $this->getAvailableAccessPackages());
         $writer->writeCollectionOfObjectValues('connectedOrganizations', $this->getConnectedOrganizations());
+        $writer->writeCollectionOfObjectValues('controlConfigurations', $this->getControlConfigurations());
         $writer->writeObjectValue('settings', $this->getSettings());
         $writer->writeCollectionOfObjectValues('subjects', $this->getSubjects());
     }
@@ -431,6 +447,14 @@ class EntitlementManagement extends Entity implements Parsable
     */
     public function setConnectedOrganizations(?array $value): void {
         $this->getBackingStore()->set('connectedOrganizations', $value);
+    }
+
+    /**
+     * Sets the controlConfigurations property value. Represents the policies that control lifecycle and access to access packages across the organization.
+     * @param array<ControlConfiguration>|null $value Value to set for the controlConfigurations property.
+    */
+    public function setControlConfigurations(?array $value): void {
+        $this->getBackingStore()->set('controlConfigurations', $value);
     }
 
     /**

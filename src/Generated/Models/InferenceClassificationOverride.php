@@ -25,7 +25,7 @@ class InferenceClassificationOverride extends Entity implements Parsable
     }
 
     /**
-     * Gets the classifyAs property value. Specifies how incoming messages from a specific sender should always be classified as. Possible values are: focused, other.
+     * Gets the classifyAs property value. Specifies how incoming messages from a specific sender should always be classified as. The possible values are: focused, other.
      * @return InferenceClassificationType|null
     */
     public function getClassifyAs(): ?InferenceClassificationType {
@@ -71,7 +71,7 @@ class InferenceClassificationOverride extends Entity implements Parsable
     }
 
     /**
-     * Sets the classifyAs property value. Specifies how incoming messages from a specific sender should always be classified as. Possible values are: focused, other.
+     * Sets the classifyAs property value. Specifies how incoming messages from a specific sender should always be classified as. The possible values are: focused, other.
      * @param InferenceClassificationType|null $value Value to set for the classifyAs property.
     */
     public function setClassifyAs(?InferenceClassificationType $value): void {

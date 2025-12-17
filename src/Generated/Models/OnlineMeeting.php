@@ -94,7 +94,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Gets the capabilities property value. The list of meeting capabilities. Possible values are: questionAndAnswer,unknownFutureValue.
+     * Gets the capabilities property value. The list of meeting capabilities. The possible values are: questionAndAnswer,unknownFutureValue.
      * @return array<MeetingCapabilities>|null
     */
     public function getCapabilities(): ?array {
@@ -364,7 +364,7 @@ class OnlineMeeting extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Sets the capabilities property value. The list of meeting capabilities. Possible values are: questionAndAnswer,unknownFutureValue.
+     * Sets the capabilities property value. The list of meeting capabilities. The possible values are: questionAndAnswer,unknownFutureValue.
      * @param array<MeetingCapabilities>|null $value Value to set for the capabilities property.
     */
     public function setCapabilities(?array $value): void {

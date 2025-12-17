@@ -29,7 +29,7 @@ class ManagementTemplate extends Entity implements Parsable
     }
 
     /**
-     * Gets the category property value. The management category for the management template. Possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only.
+     * Gets the category property value. The management category for the management template. The possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only.
      * @return ManagementCategory|null
     */
     public function getCategory(): ?ManagementCategory {
@@ -281,7 +281,7 @@ class ManagementTemplate extends Entity implements Parsable
     }
 
     /**
-     * Sets the category property value. The management category for the management template. Possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only.
+     * Sets the category property value. The management category for the management template. The possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only.
      * @param ManagementCategory|null $value Value to set for the category property.
     */
     public function setCategory(?ManagementCategory $value): void {

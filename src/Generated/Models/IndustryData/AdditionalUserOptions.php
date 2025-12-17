@@ -106,7 +106,7 @@ class AdditionalUserOptions implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the studentAgeGroup property value. Indicates the age group classification for students. Possible values are: minor, notAdult, adult, unknownFutureValue. Use null to disable age group enforcement.
+     * Gets the studentAgeGroup property value. Indicates the age group classification for students. The possible values are: minor, notAdult, adult, unknownFutureValue. Use null to disable age group enforcement.
      * @return StudentAgeGroup|null
     */
     public function getStudentAgeGroup(): ?StudentAgeGroup {
@@ -170,7 +170,7 @@ class AdditionalUserOptions implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the studentAgeGroup property value. Indicates the age group classification for students. Possible values are: minor, notAdult, adult, unknownFutureValue. Use null to disable age group enforcement.
+     * Sets the studentAgeGroup property value. Indicates the age group classification for students. The possible values are: minor, notAdult, adult, unknownFutureValue. Use null to disable age group enforcement.
      * @param StudentAgeGroup|null $value Value to set for the studentAgeGroup property.
     */
     public function setStudentAgeGroup(?StudentAgeGroup $value): void {

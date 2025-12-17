@@ -107,7 +107,7 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the meteredConnectionLimit property value. Specify the metered connection limit type for the wifi connection. Possible values are: unrestricted, fixed, variable.
+     * Gets the meteredConnectionLimit property value. Specify the metered connection limit type for the wifi connection. The possible values are: unrestricted, fixed, variable.
      * @return MeteredConnectionLimitType|null
     */
     public function getMeteredConnectionLimit(): ?MeteredConnectionLimitType {
@@ -179,7 +179,7 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the proxySetting property value. Specify the proxy setting for Wi-Fi configuration. Possible values are: none, manual, automatic, unknownFutureValue.
+     * Gets the proxySetting property value. Specify the proxy setting for Wi-Fi configuration. The possible values are: none, manual, automatic, unknownFutureValue.
      * @return WiFiProxySetting|null
     */
     public function getProxySetting(): ?WiFiProxySetting {
@@ -203,7 +203,7 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the wifiSecurityType property value. Specify the Wifi Security Type. Possible values are: open, wpaPersonal, wpaEnterprise, wep, wpa2Personal, wpa2Enterprise.
+     * Gets the wifiSecurityType property value. Specify the Wifi Security Type. The possible values are: open, wpaPersonal, wpaEnterprise, wep, wpa2Personal, wpa2Enterprise.
      * @return WiFiSecurityType|null
     */
     public function getWifiSecurityType(): ?WiFiSecurityType {
@@ -268,7 +268,7 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the meteredConnectionLimit property value. Specify the metered connection limit type for the wifi connection. Possible values are: unrestricted, fixed, variable.
+     * Sets the meteredConnectionLimit property value. Specify the metered connection limit type for the wifi connection. The possible values are: unrestricted, fixed, variable.
      * @param MeteredConnectionLimitType|null $value Value to set for the meteredConnectionLimit property.
     */
     public function setMeteredConnectionLimit(?MeteredConnectionLimitType $value): void {
@@ -316,7 +316,7 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the proxySetting property value. Specify the proxy setting for Wi-Fi configuration. Possible values are: none, manual, automatic, unknownFutureValue.
+     * Sets the proxySetting property value. Specify the proxy setting for Wi-Fi configuration. The possible values are: none, manual, automatic, unknownFutureValue.
      * @param WiFiProxySetting|null $value Value to set for the proxySetting property.
     */
     public function setProxySetting(?WiFiProxySetting $value): void {
@@ -332,7 +332,7 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the wifiSecurityType property value. Specify the Wifi Security Type. Possible values are: open, wpaPersonal, wpaEnterprise, wep, wpa2Personal, wpa2Enterprise.
+     * Sets the wifiSecurityType property value. Specify the Wifi Security Type. The possible values are: open, wpaPersonal, wpaEnterprise, wep, wpa2Personal, wpa2Enterprise.
      * @param WiFiSecurityType|null $value Value to set for the wifiSecurityType property.
     */
     public function setWifiSecurityType(?WiFiSecurityType $value): void {

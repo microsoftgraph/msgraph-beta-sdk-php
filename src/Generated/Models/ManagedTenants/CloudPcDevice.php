@@ -27,7 +27,7 @@ class CloudPcDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the cloudPcStatus property value. The status of the cloud PC. Possible values are: notProvisioned, provisioning, provisioned, upgrading, inGracePeriod, deprovisioning, failed. Required. Read-only.
+     * Gets the cloudPcStatus property value. The status of the cloud PC. The possible values are: notProvisioned, provisioning, provisioned, upgrading, inGracePeriod, deprovisioning, failed. Required. Read-only.
      * @return string|null
     */
     public function getCloudPcStatus(): ?string {
@@ -213,7 +213,7 @@ class CloudPcDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the cloudPcStatus property value. The status of the cloud PC. Possible values are: notProvisioned, provisioning, provisioned, upgrading, inGracePeriod, deprovisioning, failed. Required. Read-only.
+     * Sets the cloudPcStatus property value. The status of the cloud PC. The possible values are: notProvisioned, provisioning, provisioned, upgrading, inGracePeriod, deprovisioning, failed. Required. Read-only.
      * @param string|null $value Value to set for the cloudPcStatus property.
     */
     public function setCloudPcStatus(?string $value): void {

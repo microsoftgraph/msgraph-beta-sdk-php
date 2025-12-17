@@ -94,7 +94,7 @@ class CloudPcTenantEncryptionSetting implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the tenantDiskEncryptionType property value. Indicates the Cloud PC disk encryption type for a tenant. It is a tenant-level setting that applies globally to all Cloud PCs in the tenant. Possible values are: platformManagedKey, customerManagedKey, unknownFutureValue. Read-only.
+     * Gets the tenantDiskEncryptionType property value. Indicates the Cloud PC disk encryption type for a tenant. It is a tenant-level setting that applies globally to all Cloud PCs in the tenant. The possible values are: platformManagedKey, customerManagedKey, unknownFutureValue. Read-only.
      * @return CloudPcDiskEncryptionType|null
     */
     public function getTenantDiskEncryptionType(): ?CloudPcDiskEncryptionType {
@@ -149,7 +149,7 @@ class CloudPcTenantEncryptionSetting implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the tenantDiskEncryptionType property value. Indicates the Cloud PC disk encryption type for a tenant. It is a tenant-level setting that applies globally to all Cloud PCs in the tenant. Possible values are: platformManagedKey, customerManagedKey, unknownFutureValue. Read-only.
+     * Sets the tenantDiskEncryptionType property value. Indicates the Cloud PC disk encryption type for a tenant. It is a tenant-level setting that applies globally to all Cloud PCs in the tenant. The possible values are: platformManagedKey, customerManagedKey, unknownFutureValue. Read-only.
      * @param CloudPcDiskEncryptionType|null $value Value to set for the tenantDiskEncryptionType property.
     */
     public function setTenantDiskEncryptionType(?CloudPcDiskEncryptionType $value): void {

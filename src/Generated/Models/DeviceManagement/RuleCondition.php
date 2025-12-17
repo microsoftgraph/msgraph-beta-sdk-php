@@ -68,7 +68,7 @@ class RuleCondition implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the conditionCategory property value. The property that the rule condition monitors. Possible values are: provisionFailures, imageUploadFailures, azureNetworkConnectionCheckFailures, cloudPcInGracePeriod, frontlineInsufficientLicenses, cloudPcConnectionErrors, cloudPcHostHealthCheckFailures, cloudPcZoneOutage, unknownFutureValue, frontlineBufferUsageDuration, frontlineBufferUsageThreshold, cloudPcUserSettingsPersistenceUsageThreshold, cloudPcDeprovisionedThreshold, cloudPcReserveDeprovisionFailedThreshold. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: frontlineBufferUsageDuration, frontlineBufferUsageThreshold, cloudPcUserSettingsPersistenceUsageThreshold, cloudPcDeprovisionedThreshold, cloudPcReserveDeprovisionFailedThreshold.
+     * Gets the conditionCategory property value. The property that the rule condition monitors. The possible values are: provisionFailures, imageUploadFailures, azureNetworkConnectionCheckFailures, cloudPcInGracePeriod, frontlineInsufficientLicenses, cloudPcConnectionErrors, cloudPcHostHealthCheckFailures, cloudPcZoneOutage, unknownFutureValue, frontlineBufferUsageDuration, frontlineBufferUsageThreshold, cloudPcUserSettingsPersistenceUsageThreshold, cloudPcDeprovisionedThreshold, cloudPcReserveDeprovisionFailedThreshold. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: frontlineBufferUsageDuration, frontlineBufferUsageThreshold, cloudPcUserSettingsPersistenceUsageThreshold, cloudPcDeprovisionedThreshold, cloudPcReserveDeprovisionFailedThreshold.
      * @return ConditionCategory|null
     */
     public function getConditionCategory(): ?ConditionCategory {
@@ -120,7 +120,7 @@ class RuleCondition implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the relationshipType property value. The relationship type.  Possible values are: and, or.
+     * Gets the relationshipType property value. The relationship type.  The possible values are: and, or.
      * @return RelationshipType|null
     */
     public function getRelationshipType(): ?RelationshipType {
@@ -182,7 +182,7 @@ class RuleCondition implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the conditionCategory property value. The property that the rule condition monitors. Possible values are: provisionFailures, imageUploadFailures, azureNetworkConnectionCheckFailures, cloudPcInGracePeriod, frontlineInsufficientLicenses, cloudPcConnectionErrors, cloudPcHostHealthCheckFailures, cloudPcZoneOutage, unknownFutureValue, frontlineBufferUsageDuration, frontlineBufferUsageThreshold, cloudPcUserSettingsPersistenceUsageThreshold, cloudPcDeprovisionedThreshold, cloudPcReserveDeprovisionFailedThreshold. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: frontlineBufferUsageDuration, frontlineBufferUsageThreshold, cloudPcUserSettingsPersistenceUsageThreshold, cloudPcDeprovisionedThreshold, cloudPcReserveDeprovisionFailedThreshold.
+     * Sets the conditionCategory property value. The property that the rule condition monitors. The possible values are: provisionFailures, imageUploadFailures, azureNetworkConnectionCheckFailures, cloudPcInGracePeriod, frontlineInsufficientLicenses, cloudPcConnectionErrors, cloudPcHostHealthCheckFailures, cloudPcZoneOutage, unknownFutureValue, frontlineBufferUsageDuration, frontlineBufferUsageThreshold, cloudPcUserSettingsPersistenceUsageThreshold, cloudPcDeprovisionedThreshold, cloudPcReserveDeprovisionFailedThreshold. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: frontlineBufferUsageDuration, frontlineBufferUsageThreshold, cloudPcUserSettingsPersistenceUsageThreshold, cloudPcDeprovisionedThreshold, cloudPcReserveDeprovisionFailedThreshold.
      * @param ConditionCategory|null $value Value to set for the conditionCategory property.
     */
     public function setConditionCategory(?ConditionCategory $value): void {
@@ -206,7 +206,7 @@ class RuleCondition implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the relationshipType property value. The relationship type.  Possible values are: and, or.
+     * Sets the relationshipType property value. The relationship type.  The possible values are: and, or.
      * @param RelationshipType|null $value Value to set for the relationshipType property.
     */
     public function setRelationshipType(?RelationshipType $value): void {

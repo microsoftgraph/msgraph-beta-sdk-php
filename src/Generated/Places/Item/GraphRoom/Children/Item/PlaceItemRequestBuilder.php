@@ -31,7 +31,7 @@ class PlaceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get children from places
+     * A collection of children places that is only used in the Upsert places API.
      * @param PlaceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Place|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class PlaceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get children from places
+     * A collection of children places that is only used in the Upsert places API.
      * @param PlaceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

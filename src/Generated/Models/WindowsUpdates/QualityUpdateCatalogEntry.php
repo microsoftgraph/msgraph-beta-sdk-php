@@ -94,7 +94,7 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
     }
 
     /**
-     * Gets the qualityUpdateCadence property value. The publishing cadence of the quality update. Possible values are: monthly, outOfBand, unknownFutureValue. Read-only.
+     * Gets the qualityUpdateCadence property value. The publishing cadence of the quality update. The possible values are: monthly, outOfBand, unknownFutureValue. Read-only.
      * @return QualityUpdateCadence|null
     */
     public function getQualityUpdateCadence(): ?QualityUpdateCadence {
@@ -177,7 +177,7 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
     }
 
     /**
-     * Sets the qualityUpdateCadence property value. The publishing cadence of the quality update. Possible values are: monthly, outOfBand, unknownFutureValue. Read-only.
+     * Sets the qualityUpdateCadence property value. The publishing cadence of the quality update. The possible values are: monthly, outOfBand, unknownFutureValue. Read-only.
      * @param QualityUpdateCadence|null $value Value to set for the qualityUpdateCadence property.
     */
     public function setQualityUpdateCadence(?QualityUpdateCadence $value): void {

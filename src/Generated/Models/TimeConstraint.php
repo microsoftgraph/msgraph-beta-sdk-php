@@ -36,7 +36,7 @@ class TimeConstraint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the activityDomain property value. The nature of the activity, optional. Possible values are: work, personal, unrestricted, or unknown.
+     * Gets the activityDomain property value. The nature of the activity, optional. The possible values are: work, personal, unrestricted, or unknown.
      * @return ActivityDomain|null
     */
     public function getActivityDomain(): ?ActivityDomain {
@@ -133,7 +133,7 @@ class TimeConstraint implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the activityDomain property value. The nature of the activity, optional. Possible values are: work, personal, unrestricted, or unknown.
+     * Sets the activityDomain property value. The nature of the activity, optional. The possible values are: work, personal, unrestricted, or unknown.
      * @param ActivityDomain|null $value Value to set for the activityDomain property.
     */
     public function setActivityDomain(?ActivityDomain $value): void {

@@ -26,7 +26,7 @@ class UserConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the binaryData property value. The binaryData property
+     * Gets the binaryData property value. Arbitrary binary data.
      * @return StreamInterface|null
     */
     public function getBinaryData(): ?StreamInterface {
@@ -58,7 +58,7 @@ class UserConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the binaryData property value. The binaryData property
+     * Sets the binaryData property value. Arbitrary binary data.
      * @param StreamInterface|null $value Value to set for the binaryData property.
     */
     public function setBinaryData(?StreamInterface $value): void {

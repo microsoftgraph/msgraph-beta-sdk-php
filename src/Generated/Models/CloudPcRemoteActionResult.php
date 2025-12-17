@@ -48,7 +48,7 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the actionState property value. State of the action. Possible values are: None, pending, canceled, active, done, failed, notSupported. Read-only.
+     * Gets the actionState property value. State of the action. The possible values are: None, pending, canceled, active, done, failed, notSupported. Read-only.
      * @return ActionState|null
     */
     public function getActionState(): ?ActionState {
@@ -209,7 +209,7 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the actionState property value. State of the action. Possible values are: None, pending, canceled, active, done, failed, notSupported. Read-only.
+     * Sets the actionState property value. State of the action. The possible values are: None, pending, canceled, active, done, failed, notSupported. Read-only.
      * @param ActionState|null $value Value to set for the actionState property.
     */
     public function setActionState(?ActionState $value): void {

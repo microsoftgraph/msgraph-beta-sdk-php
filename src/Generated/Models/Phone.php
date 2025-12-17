@@ -93,7 +93,7 @@ class Phone implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the type property value. The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
+     * Gets the type property value. The type of phone number. The possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
      * @return PhoneType|null
     */
     public function getType(): ?PhoneType {
@@ -148,7 +148,7 @@ class Phone implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the type property value. The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
+     * Sets the type property value. The type of phone number. The possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
      * @param PhoneType|null $value Value to set for the type property.
     */
     public function setType(?PhoneType $value): void {

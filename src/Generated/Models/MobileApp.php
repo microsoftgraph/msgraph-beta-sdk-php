@@ -375,7 +375,7 @@ class MobileApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the uploadState property value. The upload state. Possible values are: 0 - Not Ready, 1 - Ready, 2 - Processing. This property is read-only.
+     * Gets the uploadState property value. The upload state. The possible values are: 0 - Not Ready, 1 - Ready, 2 - Processing. This property is read-only.
      * @return int|null
     */
     public function getUploadState(): ?int {
@@ -578,7 +578,7 @@ class MobileApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the uploadState property value. The upload state. Possible values are: 0 - Not Ready, 1 - Ready, 2 - Processing. This property is read-only.
+     * Sets the uploadState property value. The upload state. The possible values are: 0 - Not Ready, 1 - Ready, 2 - Processing. This property is read-only.
      * @param int|null $value Value to set for the uploadState property.
     */
     public function setUploadState(?int $value): void {

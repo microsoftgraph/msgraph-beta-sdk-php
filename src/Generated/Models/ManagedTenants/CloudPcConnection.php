@@ -54,7 +54,7 @@ class CloudPcConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the healthCheckStatus property value. The health status of the cloud PC connection. Possible values are: pending, running, passed, failed, unknownFutureValue.  Required. Read-only.
+     * Gets the healthCheckStatus property value. The health status of the cloud PC connection. The possible values are: pending, running, passed, failed, unknownFutureValue.  Required. Read-only.
      * @return string|null
     */
     public function getHealthCheckStatus(): ?string {
@@ -123,7 +123,7 @@ class CloudPcConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the healthCheckStatus property value. The health status of the cloud PC connection. Possible values are: pending, running, passed, failed, unknownFutureValue.  Required. Read-only.
+     * Sets the healthCheckStatus property value. The health status of the cloud PC connection. The possible values are: pending, running, passed, failed, unknownFutureValue.  Required. Read-only.
      * @param string|null $value Value to set for the healthCheckStatus property.
     */
     public function setHealthCheckStatus(?string $value): void {

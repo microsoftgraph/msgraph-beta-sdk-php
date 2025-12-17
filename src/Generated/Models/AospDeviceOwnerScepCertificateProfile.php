@@ -30,7 +30,7 @@ class AospDeviceOwnerScepCertificateProfile extends AospDeviceOwnerCertificatePr
     }
 
     /**
-     * Gets the certificateStore property value. Target store certificate. This collection can contain a maximum of 500 elements. Possible values are: user, machine.
+     * Gets the certificateStore property value. Target store certificate. This collection can contain a maximum of 500 elements. The possible values are: user, machine.
      * @return CertificateStore|null
     */
     public function getCertificateStore(): ?CertificateStore {
@@ -187,7 +187,7 @@ class AospDeviceOwnerScepCertificateProfile extends AospDeviceOwnerCertificatePr
     }
 
     /**
-     * Sets the certificateStore property value. Target store certificate. This collection can contain a maximum of 500 elements. Possible values are: user, machine.
+     * Sets the certificateStore property value. Target store certificate. This collection can contain a maximum of 500 elements. The possible values are: user, machine.
      * @param CertificateStore|null $value Value to set for the certificateStore property.
     */
     public function setCertificateStore(?CertificateStore $value): void {

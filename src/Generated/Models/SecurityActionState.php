@@ -96,7 +96,7 @@ class SecurityActionState implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the status property value. Status of the securityAction in this update. Possible values are: NotStarted, Running, Completed, Failed.
+     * Gets the status property value. Status of the securityAction in this update. The possible values are: NotStarted, Running, Completed, Failed.
      * @return OperationStatus|null
     */
     public function getStatus(): ?OperationStatus {
@@ -177,7 +177,7 @@ class SecurityActionState implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the status property value. Status of the securityAction in this update. Possible values are: NotStarted, Running, Completed, Failed.
+     * Sets the status property value. Status of the securityAction in this update. The possible values are: NotStarted, Running, Completed, Failed.
      * @param OperationStatus|null $value Value to set for the status property.
     */
     public function setStatus(?OperationStatus $value): void {

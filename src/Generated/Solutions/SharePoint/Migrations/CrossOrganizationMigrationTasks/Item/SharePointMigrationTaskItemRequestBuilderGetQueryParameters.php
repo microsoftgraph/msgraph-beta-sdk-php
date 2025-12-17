@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\SharePoint\Migrations\CrossOr
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get crossOrganizationMigrationTasks from solutions
+ * Get a sharePointMigrationTask that was previously created, using the task ID. The returned sharePointMigrationTask object includes the source and target site URLs, migration status, optional timestamps (startedDateTime and finishedDateTime), and error details about issues during processing.
 */
 class SharePointMigrationTaskItemRequestBuilderGetQueryParameters 
 {

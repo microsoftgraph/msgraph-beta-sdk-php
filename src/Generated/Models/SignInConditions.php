@@ -48,7 +48,7 @@ class SignInConditions implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the agentIdRiskLevel property value. Agent identity risk levels included in the policy. Possible values are: none, low, medium, high, unknownFutureValue. This enumeration is multivalued.
+     * Gets the agentIdRiskLevel property value. Agent identity risk levels included in the policy. The possible values are: none, low, medium, high, unknownFutureValue. This enumeration is multivalued.
      * @return AgentIdRiskLevel|null
     */
     public function getAgentIdRiskLevel(): ?AgentIdRiskLevel {
@@ -250,7 +250,7 @@ class SignInConditions implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the agentIdRiskLevel property value. Agent identity risk levels included in the policy. Possible values are: none, low, medium, high, unknownFutureValue. This enumeration is multivalued.
+     * Sets the agentIdRiskLevel property value. Agent identity risk levels included in the policy. The possible values are: none, low, medium, high, unknownFutureValue. This enumeration is multivalued.
      * @param AgentIdRiskLevel|null $value Value to set for the agentIdRiskLevel property.
     */
     public function setAgentIdRiskLevel(?AgentIdRiskLevel $value): void {

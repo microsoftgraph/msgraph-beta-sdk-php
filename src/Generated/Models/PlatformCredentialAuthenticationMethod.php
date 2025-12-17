@@ -64,7 +64,7 @@ class PlatformCredentialAuthenticationMethod extends AuthenticationMethod implem
     }
 
     /**
-     * Gets the keyStrength property value. Key strength of this Platform Credential key. Possible values are: normal, weak, unknown.
+     * Gets the keyStrength property value. Key strength of this Platform Credential key. The possible values are: normal, weak, unknown.
      * @return AuthenticationMethodKeyStrength|null
     */
     public function getKeyStrength(): ?AuthenticationMethodKeyStrength {
@@ -76,7 +76,7 @@ class PlatformCredentialAuthenticationMethod extends AuthenticationMethod implem
     }
 
     /**
-     * Gets the platform property value. Platform on which this Platform Credential key is present. Possible values are: unknown, windows, macOS,iOS, android, linux.
+     * Gets the platform property value. Platform on which this Platform Credential key is present. The possible values are: unknown, windows, macOS,iOS, android, linux.
      * @return AuthenticationMethodPlatform|null
     */
     public function getPlatform(): ?AuthenticationMethodPlatform {
@@ -116,7 +116,7 @@ class PlatformCredentialAuthenticationMethod extends AuthenticationMethod implem
     }
 
     /**
-     * Sets the keyStrength property value. Key strength of this Platform Credential key. Possible values are: normal, weak, unknown.
+     * Sets the keyStrength property value. Key strength of this Platform Credential key. The possible values are: normal, weak, unknown.
      * @param AuthenticationMethodKeyStrength|null $value Value to set for the keyStrength property.
     */
     public function setKeyStrength(?AuthenticationMethodKeyStrength $value): void {
@@ -124,7 +124,7 @@ class PlatformCredentialAuthenticationMethod extends AuthenticationMethod implem
     }
 
     /**
-     * Sets the platform property value. Platform on which this Platform Credential key is present. Possible values are: unknown, windows, macOS,iOS, android, linux.
+     * Sets the platform property value. Platform on which this Platform Credential key is present. The possible values are: unknown, windows, macOS,iOS, android, linux.
      * @param AuthenticationMethodPlatform|null $value Value to set for the platform property.
     */
     public function setPlatform(?AuthenticationMethodPlatform $value): void {

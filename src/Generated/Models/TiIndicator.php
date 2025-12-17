@@ -27,7 +27,7 @@ class TiIndicator extends Entity implements Parsable
     }
 
     /**
-     * Gets the action property value. The action to apply if the indicator is matched from within the targetProduct security tool. Possible values are: unknown, allow, block, alert. Required.
+     * Gets the action property value. The action to apply if the indicator is matched from within the targetProduct security tool. The possible values are: unknown, allow, block, alert. Required.
      * @return TiAction|null
     */
     public function getAction(): ?TiAction {
@@ -101,7 +101,7 @@ class TiIndicator extends Entity implements Parsable
     }
 
     /**
-     * Gets the diamondModel property value. The area of the Diamond Model in which this indicator exists. Possible values are: unknown, adversary, capability, infrastructure, victim.
+     * Gets the diamondModel property value. The area of the Diamond Model in which this indicator exists. The possible values are: unknown, adversary, capability, infrastructure, victim.
      * @return DiamondModel|null
     */
     public function getDiamondModel(): ?DiamondModel {
@@ -779,7 +779,7 @@ class TiIndicator extends Entity implements Parsable
     }
 
     /**
-     * Gets the threatType property value. Each indicator must have a valid Indicator Threat Type. Possible values are: Botnet, C2, CryptoMining, Darknet, DDoS, MaliciousUrl, Malware, Phishing, Proxy, PUA, WatchList. Required.
+     * Gets the threatType property value. Each indicator must have a valid Indicator Threat Type. The possible values are: Botnet, C2, CryptoMining, Darknet, DDoS, MaliciousUrl, Malware, Phishing, Proxy, PUA, WatchList. Required.
      * @return string|null
     */
     public function getThreatType(): ?string {
@@ -791,7 +791,7 @@ class TiIndicator extends Entity implements Parsable
     }
 
     /**
-     * Gets the tlpLevel property value. Traffic Light Protocol value for the indicator. Possible values are: unknown, white, green, amber, red. Required.
+     * Gets the tlpLevel property value. Traffic Light Protocol value for the indicator. The possible values are: unknown, white, green, amber, red. Required.
      * @return TlpLevel|null
     */
     public function getTlpLevel(): ?TlpLevel {
@@ -893,7 +893,7 @@ class TiIndicator extends Entity implements Parsable
     }
 
     /**
-     * Sets the action property value. The action to apply if the indicator is matched from within the targetProduct security tool. Possible values are: unknown, allow, block, alert. Required.
+     * Sets the action property value. The action to apply if the indicator is matched from within the targetProduct security tool. The possible values are: unknown, allow, block, alert. Required.
      * @param TiAction|null $value Value to set for the action property.
     */
     public function setAction(?TiAction $value): void {
@@ -941,7 +941,7 @@ class TiIndicator extends Entity implements Parsable
     }
 
     /**
-     * Sets the diamondModel property value. The area of the Diamond Model in which this indicator exists. Possible values are: unknown, adversary, capability, infrastructure, victim.
+     * Sets the diamondModel property value. The area of the Diamond Model in which this indicator exists. The possible values are: unknown, adversary, capability, infrastructure, victim.
      * @param DiamondModel|null $value Value to set for the diamondModel property.
     */
     public function setDiamondModel(?DiamondModel $value): void {
@@ -1325,7 +1325,7 @@ class TiIndicator extends Entity implements Parsable
     }
 
     /**
-     * Sets the threatType property value. Each indicator must have a valid Indicator Threat Type. Possible values are: Botnet, C2, CryptoMining, Darknet, DDoS, MaliciousUrl, Malware, Phishing, Proxy, PUA, WatchList. Required.
+     * Sets the threatType property value. Each indicator must have a valid Indicator Threat Type. The possible values are: Botnet, C2, CryptoMining, Darknet, DDoS, MaliciousUrl, Malware, Phishing, Proxy, PUA, WatchList. Required.
      * @param string|null $value Value to set for the threatType property.
     */
     public function setThreatType(?string $value): void {
@@ -1333,7 +1333,7 @@ class TiIndicator extends Entity implements Parsable
     }
 
     /**
-     * Sets the tlpLevel property value. Traffic Light Protocol value for the indicator. Possible values are: unknown, white, green, amber, red. Required.
+     * Sets the tlpLevel property value. Traffic Light Protocol value for the indicator. The possible values are: unknown, white, green, amber, red. Required.
      * @param TlpLevel|null $value Value to set for the tlpLevel property.
     */
     public function setTlpLevel(?TlpLevel $value): void {

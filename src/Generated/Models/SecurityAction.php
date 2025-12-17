@@ -187,7 +187,7 @@ class SecurityAction extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Status of the action. Possible values are: NotStarted, Running, Completed, Failed.
+     * Gets the status property value. Status of the action. The possible values are: NotStarted, Running, Completed, Failed.
      * @return OperationStatus|null
     */
     public function getStatus(): ?OperationStatus {
@@ -333,7 +333,7 @@ class SecurityAction extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Status of the action. Possible values are: NotStarted, Running, Completed, Failed.
+     * Sets the status property value. Status of the action. The possible values are: NotStarted, Running, Completed, Failed.
      * @param OperationStatus|null $value Value to set for the status property.
     */
     public function setStatus(?OperationStatus $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Places\Item\GraphBuilding\Children\Item
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get children from places
+ * A collection of children places that is only used in the Upsert places API.
 */
 class PlaceItemRequestBuilderGetQueryParameters 
 {

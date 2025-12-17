@@ -184,7 +184,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status of this subscription. Possible values are: Enabled, Deleted, Suspended, Warning, LockedOut.
+     * Gets the status property value. The status of this subscription. The possible values are: Enabled, Deleted, Suspended, Warning, LockedOut.
      * @return string|null
     */
     public function getStatus(): ?string {
@@ -317,7 +317,7 @@ class CompanySubscription extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The status of this subscription. Possible values are: Enabled, Deleted, Suspended, Warning, LockedOut.
+     * Sets the status property value. The status of this subscription. The possible values are: Enabled, Deleted, Suspended, Warning, LockedOut.
      * @param string|null $value Value to set for the status property.
     */
     public function setStatus(?string $value): void {

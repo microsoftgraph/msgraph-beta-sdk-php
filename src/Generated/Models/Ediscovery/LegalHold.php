@@ -183,7 +183,7 @@ class LegalHold extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status of the legal hold. Possible values are: Pending, Error, Success, UnknownFutureValue.
+     * Gets the status property value. The status of the legal hold. The possible values are: Pending, Error, Success, UnknownFutureValue.
      * @return LegalHoldStatus|null
     */
     public function getStatus(): ?LegalHoldStatus {
@@ -324,7 +324,7 @@ class LegalHold extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The status of the legal hold. Possible values are: Pending, Error, Success, UnknownFutureValue.
+     * Sets the status property value. The status of the legal hold. The possible values are: Pending, Error, Success, UnknownFutureValue.
      * @param LegalHoldStatus|null $value Value to set for the status property.
     */
     public function setStatus(?LegalHoldStatus $value): void {

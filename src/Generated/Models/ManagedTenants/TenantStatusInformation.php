@@ -58,7 +58,7 @@ class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the delegatedPrivilegeStatus property value. The status of the delegated admin privilege relationship between the managing entity and the managed tenant. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue, granularDelegatedAdminPrivileges, delegatedAndGranularDelegetedAdminPrivileges. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: granularDelegatedAdminPrivileges , delegatedAndGranularDelegetedAdminPrivileges. Optional. Read-only.
+     * Gets the delegatedPrivilegeStatus property value. The status of the delegated admin privilege relationship between the managing entity and the managed tenant. The possible values are: none, delegatedAdminPrivileges, unknownFutureValue, granularDelegatedAdminPrivileges, delegatedAndGranularDelegetedAdminPrivileges. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: granularDelegatedAdminPrivileges , delegatedAndGranularDelegetedAdminPrivileges. Optional. Read-only.
      * @return DelegatedPrivilegeStatus|null
     */
     public function getDelegatedPrivilegeStatus(): ?DelegatedPrivilegeStatus {
@@ -162,7 +162,7 @@ class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the onboardingStatus property value. The onboarding status for the managed tenant.. Possible values are: ineligible, inProcess, active, inactive, unknownFutureValue. Optional. Read-only.
+     * Gets the onboardingStatus property value. The onboarding status for the managed tenant.. The possible values are: ineligible, inProcess, active, inactive, unknownFutureValue. Optional. Read-only.
      * @return TenantOnboardingStatus|null
     */
     public function getOnboardingStatus(): ?TenantOnboardingStatus {
@@ -174,7 +174,7 @@ class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the tenantOnboardingEligibilityReason property value. Organization's onboarding eligibility reason in Microsoft 365 Lighthouse.. Possible values are: none, contractType, delegatedAdminPrivileges,usersCount,license and unknownFutureValue. Optional. Read-only.
+     * Gets the tenantOnboardingEligibilityReason property value. Organization's onboarding eligibility reason in Microsoft 365 Lighthouse.. The possible values are: none, contractType, delegatedAdminPrivileges,usersCount,license and unknownFutureValue. Optional. Read-only.
      * @return TenantOnboardingEligibilityReason|null
     */
     public function getTenantOnboardingEligibilityReason(): ?TenantOnboardingEligibilityReason {
@@ -234,7 +234,7 @@ class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the delegatedPrivilegeStatus property value. The status of the delegated admin privilege relationship between the managing entity and the managed tenant. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue, granularDelegatedAdminPrivileges, delegatedAndGranularDelegetedAdminPrivileges. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: granularDelegatedAdminPrivileges , delegatedAndGranularDelegetedAdminPrivileges. Optional. Read-only.
+     * Sets the delegatedPrivilegeStatus property value. The status of the delegated admin privilege relationship between the managing entity and the managed tenant. The possible values are: none, delegatedAdminPrivileges, unknownFutureValue, granularDelegatedAdminPrivileges, delegatedAndGranularDelegetedAdminPrivileges. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: granularDelegatedAdminPrivileges , delegatedAndGranularDelegetedAdminPrivileges. Optional. Read-only.
      * @param DelegatedPrivilegeStatus|null $value Value to set for the delegatedPrivilegeStatus property.
     */
     public function setDelegatedPrivilegeStatus(?DelegatedPrivilegeStatus $value): void {
@@ -290,7 +290,7 @@ class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the onboardingStatus property value. The onboarding status for the managed tenant.. Possible values are: ineligible, inProcess, active, inactive, unknownFutureValue. Optional. Read-only.
+     * Sets the onboardingStatus property value. The onboarding status for the managed tenant.. The possible values are: ineligible, inProcess, active, inactive, unknownFutureValue. Optional. Read-only.
      * @param TenantOnboardingStatus|null $value Value to set for the onboardingStatus property.
     */
     public function setOnboardingStatus(?TenantOnboardingStatus $value): void {
@@ -298,7 +298,7 @@ class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the tenantOnboardingEligibilityReason property value. Organization's onboarding eligibility reason in Microsoft 365 Lighthouse.. Possible values are: none, contractType, delegatedAdminPrivileges,usersCount,license and unknownFutureValue. Optional. Read-only.
+     * Sets the tenantOnboardingEligibilityReason property value. Organization's onboarding eligibility reason in Microsoft 365 Lighthouse.. The possible values are: none, contractType, delegatedAdminPrivileges,usersCount,license and unknownFutureValue. Optional. Read-only.
      * @param TenantOnboardingEligibilityReason|null $value Value to set for the tenantOnboardingEligibilityReason property.
     */
     public function setTenantOnboardingEligibilityReason(?TenantOnboardingEligibilityReason $value): void {

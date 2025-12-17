@@ -213,7 +213,7 @@ class MailFolder extends Entity implements Parsable
     }
 
     /**
-     * Gets the userConfigurations property value. The userConfigurations property
+     * Gets the userConfigurations property value. The user configuration objects associated to the mailFolder.
      * @return array<UserConfiguration>|null
     */
     public function getUserConfigurations(): ?array {
@@ -357,7 +357,7 @@ class MailFolder extends Entity implements Parsable
     }
 
     /**
-     * Sets the userConfigurations property value. The userConfigurations property
+     * Sets the userConfigurations property value. The user configuration objects associated to the mailFolder.
      * @param array<UserConfiguration>|null $value Value to set for the userConfigurations property.
     */
     public function setUserConfigurations(?array $value): void {

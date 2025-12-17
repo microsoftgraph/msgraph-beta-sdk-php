@@ -91,7 +91,7 @@ class NetworkLocationDetail implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the networkType property value. Provides the type of network used when signing in. Possible values are: intranet, extranet, namedNetwork, trusted, unknownFutureValue.
+     * Gets the networkType property value. Provides the type of network used when signing in. The possible values are: intranet, extranet, namedNetwork, trusted, unknownFutureValue.
      * @return NetworkType|null
     */
     public function getNetworkType(): ?NetworkType {
@@ -150,7 +150,7 @@ class NetworkLocationDetail implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the networkType property value. Provides the type of network used when signing in. Possible values are: intranet, extranet, namedNetwork, trusted, unknownFutureValue.
+     * Sets the networkType property value. Provides the type of network used when signing in. The possible values are: intranet, extranet, namedNetwork, trusted, unknownFutureValue.
      * @param NetworkType|null $value Value to set for the networkType property.
     */
     public function setNetworkType(?NetworkType $value): void {

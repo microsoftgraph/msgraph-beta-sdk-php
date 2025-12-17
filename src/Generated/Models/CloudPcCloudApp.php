@@ -27,7 +27,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the actionFailedErrorCode property value. The error code if publishing, unpublishing, or resetting a cloud app fails. Possible values are: cloudAppQuotaExceeded, cloudPcLicenseNotFound, internalServerError, appDiscoveryFailed, unknownFutureValue. The default value is null. Supports $filter, $select, $orderBy. Read-only.
+     * Gets the actionFailedErrorCode property value. The error code if publishing, unpublishing, or resetting a cloud app fails. The possible values are: cloudAppQuotaExceeded, cloudPcLicenseNotFound, internalServerError, appDiscoveryFailed, unknownFutureValue. The default value is null. Supports $filter, $select, $orderBy. Read-only.
      * @return CloudPcCloudAppActionFailedErrorCode|null
     */
     public function getActionFailedErrorCode(): ?CloudPcCloudAppActionFailedErrorCode {
@@ -222,7 +222,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the actionFailedErrorCode property value. The error code if publishing, unpublishing, or resetting a cloud app fails. Possible values are: cloudAppQuotaExceeded, cloudPcLicenseNotFound, internalServerError, appDiscoveryFailed, unknownFutureValue. The default value is null. Supports $filter, $select, $orderBy. Read-only.
+     * Sets the actionFailedErrorCode property value. The error code if publishing, unpublishing, or resetting a cloud app fails. The possible values are: cloudAppQuotaExceeded, cloudPcLicenseNotFound, internalServerError, appDiscoveryFailed, unknownFutureValue. The default value is null. Supports $filter, $select, $orderBy. Read-only.
      * @param CloudPcCloudAppActionFailedErrorCode|null $value Value to set for the actionFailedErrorCode property.
     */
     public function setActionFailedErrorCode(?CloudPcCloudAppActionFailedErrorCode $value): void {

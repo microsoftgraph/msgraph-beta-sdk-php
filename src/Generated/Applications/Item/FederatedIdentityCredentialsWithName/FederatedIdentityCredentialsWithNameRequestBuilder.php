@@ -34,7 +34,7 @@ class FederatedIdentityCredentialsWithNameRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Deletes a federatedIdentityCredential object from an application.
+     * Delete a federatedIdentityCredential object from an application or an agentIdentityBlueprint.
      * @param FederatedIdentityCredentialsWithNameRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -49,7 +49,7 @@ class FederatedIdentityCredentialsWithNameRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Read the properties and relationships of a federatedIdentityCredential object.
+     * Read the properties and relationships of a federatedIdentityCredential object assigned to an application or an agentIdentityBlueprint.
      * @param FederatedIdentityCredentialsWithNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FederatedIdentityCredential|null>
      * @throws Exception
@@ -64,7 +64,7 @@ class FederatedIdentityCredentialsWithNameRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Create a new federatedIdentityCredential object for an application if it doesn't exist, or update the properties of an existing federatedIdentityCredential object. By configuring a trust relationship between your Microsoft Entra application registration and the identity provider for your compute platform, you can use tokens issued by that platform to authenticate with Microsoft identity platform and call APIs in the Microsoft ecosystem. Maximum of 20 objects can be added to an application.
+     * Create a new federatedIdentityCredential object for an application or an agentIdentityBlueprint if it doesn't exist, or update the properties of an existing federatedIdentityCredential object. By configuring a trust relationship between your Microsoft Entra application registration or agentIdentityBlueprint and the identity provider for your compute platform, you can use tokens issued by that platform to authenticate with Microsoft identity platform and call APIs in the Microsoft ecosystem. Maximum of 20 objects can be added to an application or agentIdentityBlueprint.
      * @param FederatedIdentityCredential $body The request body
      * @param FederatedIdentityCredentialsWithNameRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FederatedIdentityCredential|null>
@@ -80,7 +80,7 @@ class FederatedIdentityCredentialsWithNameRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Deletes a federatedIdentityCredential object from an application.
+     * Delete a federatedIdentityCredential object from an application or an agentIdentityBlueprint.
      * @param FederatedIdentityCredentialsWithNameRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -98,7 +98,7 @@ class FederatedIdentityCredentialsWithNameRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Read the properties and relationships of a federatedIdentityCredential object.
+     * Read the properties and relationships of a federatedIdentityCredential object assigned to an application or an agentIdentityBlueprint.
      * @param FederatedIdentityCredentialsWithNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +119,7 @@ class FederatedIdentityCredentialsWithNameRequestBuilder extends BaseRequestBuil
     }
 
     /**
-     * Create a new federatedIdentityCredential object for an application if it doesn't exist, or update the properties of an existing federatedIdentityCredential object. By configuring a trust relationship between your Microsoft Entra application registration and the identity provider for your compute platform, you can use tokens issued by that platform to authenticate with Microsoft identity platform and call APIs in the Microsoft ecosystem. Maximum of 20 objects can be added to an application.
+     * Create a new federatedIdentityCredential object for an application or an agentIdentityBlueprint if it doesn't exist, or update the properties of an existing federatedIdentityCredential object. By configuring a trust relationship between your Microsoft Entra application registration or agentIdentityBlueprint and the identity provider for your compute platform, you can use tokens issued by that platform to authenticate with Microsoft identity platform and call APIs in the Microsoft ecosystem. Maximum of 20 objects can be added to an application or agentIdentityBlueprint.
      * @param FederatedIdentityCredential $body The request body
      * @param FederatedIdentityCredentialsWithNameRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

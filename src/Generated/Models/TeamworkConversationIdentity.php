@@ -26,7 +26,7 @@ class TeamworkConversationIdentity extends Identity implements Parsable
     }
 
     /**
-     * Gets the conversationIdentityType property value. Type of conversation. Possible values are: team, channel, and chat.
+     * Gets the conversationIdentityType property value. Type of conversation. The possible values are: team, channel, and chat.
      * @return TeamworkConversationIdentityType|null
     */
     public function getConversationIdentityType(): ?TeamworkConversationIdentityType {
@@ -58,7 +58,7 @@ class TeamworkConversationIdentity extends Identity implements Parsable
     }
 
     /**
-     * Sets the conversationIdentityType property value. Type of conversation. Possible values are: team, channel, and chat.
+     * Sets the conversationIdentityType property value. Type of conversation. The possible values are: team, channel, and chat.
      * @param TeamworkConversationIdentityType|null $value Value to set for the conversationIdentityType property.
     */
     public function setConversationIdentityType(?TeamworkConversationIdentityType $value): void {

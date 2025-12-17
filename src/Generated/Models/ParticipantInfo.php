@@ -68,7 +68,7 @@ class ParticipantInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the endpointType property value. The type of endpoint the participant is using. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue. Read-only.
+     * Gets the endpointType property value. The type of endpoint the participant is using. The possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue. Read-only.
      * @return EndpointType|null
     */
     public function getEndpointType(): ?EndpointType {
@@ -224,7 +224,7 @@ class ParticipantInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the endpointType property value. The type of endpoint the participant is using. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue. Read-only.
+     * Sets the endpointType property value. The type of endpoint the participant is using. The possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue. Read-only.
      * @param EndpointType|null $value Value to set for the endpointType property.
     */
     public function setEndpointType(?EndpointType $value): void {

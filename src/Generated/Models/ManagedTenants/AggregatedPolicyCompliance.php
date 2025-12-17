@@ -51,7 +51,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
     }
 
     /**
-     * Gets the compliancePolicyPlatform property value. Platform for the device compliance policy. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, androidAOSP, all. Optional. Read-only.
+     * Gets the compliancePolicyPlatform property value. Platform for the device compliance policy. The possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, androidAOSP, all. Optional. Read-only.
      * @return string|null
     */
     public function getCompliancePolicyPlatform(): ?string {
@@ -215,7 +215,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
     }
 
     /**
-     * Sets the compliancePolicyPlatform property value. Platform for the device compliance policy. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, androidAOSP, all. Optional. Read-only.
+     * Sets the compliancePolicyPlatform property value. Platform for the device compliance policy. The possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, androidAOSP, all. Optional. Read-only.
      * @param string|null $value Value to set for the compliancePolicyPlatform property.
     */
     public function setCompliancePolicyPlatform(?string $value): void {

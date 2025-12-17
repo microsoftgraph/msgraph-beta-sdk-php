@@ -147,7 +147,7 @@ class CloudAppDiscoveryReport extends Entity implements Parsable
     }
 
     /**
-     * Gets the logDataProvider property value. The applicable log data provider. Possible values are: barracuda, bluecoat, checkpoint, ciscoAsa, ciscoIronportProxy, fortigate, paloAlto, squid, zscaler, mcafeeSwg, ciscoScanSafe, juniperSrx, sophosSg, websenseV75, websenseSiemCef, machineZoneMeraki, squidNative, ciscoFwsm, microsoftIsaW3C, sonicwall, sophosCyberoam, clavister, customParser, juniperSsg, zscalerQradar, juniperSrxSd, juniperSrxWelf, microsoftConditionalAppAccess, ciscoAsaFirepower, genericCef, genericLeef, genericW3C, iFilter, checkpointXml, checkpointSmartViewTracker, barracudaNextGenFw, barracudaNextGenFwWeblog, microsoftDefenderForEndpoint, zscalerCef, sophosXg, iboss, forcepoint, fortios, ciscoIronportWsaIi, paloAltoLeef, forcepointLeef, stormshield, contentkeeper, ciscoIronportWsaIii, checkpointCef, corrata, ciscoFirepowerV6, menloSecurityCef, watchguardXtm, openSystemsSecureWebGateway, wandera, unknownFutureValue.
+     * Gets the logDataProvider property value. The applicable log data provider. The possible values are: barracuda, bluecoat, checkpoint, ciscoAsa, ciscoIronportProxy, fortigate, paloAlto, squid, zscaler, mcafeeSwg, ciscoScanSafe, juniperSrx, sophosSg, websenseV75, websenseSiemCef, machineZoneMeraki, squidNative, ciscoFwsm, microsoftIsaW3C, sonicwall, sophosCyberoam, clavister, customParser, juniperSsg, zscalerQradar, juniperSrxSd, juniperSrxWelf, microsoftConditionalAppAccess, ciscoAsaFirepower, genericCef, genericLeef, genericW3C, iFilter, checkpointXml, checkpointSmartViewTracker, barracudaNextGenFw, barracudaNextGenFwWeblog, microsoftDefenderForEndpoint, zscalerCef, sophosXg, iboss, forcepoint, fortios, ciscoIronportWsaIi, paloAltoLeef, forcepointLeef, stormshield, contentkeeper, ciscoIronportWsaIii, checkpointCef, corrata, ciscoFirepowerV6, menloSecurityCef, watchguardXtm, openSystemsSecureWebGateway, wandera, unknownFutureValue.
      * @return LogDataProvider|null
     */
     public function getLogDataProvider(): ?LogDataProvider {
@@ -171,7 +171,7 @@ class CloudAppDiscoveryReport extends Entity implements Parsable
     }
 
     /**
-     * Gets the receiverProtocol property value. The applicable receiver protocol. Possible values are: ftp, ftps, syslogUdp, syslogTcp, syslogTls, unknownFutureValue.
+     * Gets the receiverProtocol property value. The applicable receiver protocol. The possible values are: ftp, ftps, syslogUdp, syslogTcp, syslogTls, unknownFutureValue.
      * @return ReceiverProtocol|null
     */
     public function getReceiverProtocol(): ?ReceiverProtocol {
@@ -183,7 +183,7 @@ class CloudAppDiscoveryReport extends Entity implements Parsable
     }
 
     /**
-     * Gets the supportedEntityTypes property value. The supported entity type. Possible values are: userName, ipAddress, machineName, other, unknown, unknownFutureValue.
+     * Gets the supportedEntityTypes property value. The supported entity type. The possible values are: userName, ipAddress, machineName, other, unknown, unknownFutureValue.
      * @return array<EntityType>|null
     */
     public function getSupportedEntityTypes(): ?array {
@@ -197,7 +197,7 @@ class CloudAppDiscoveryReport extends Entity implements Parsable
     }
 
     /**
-     * Gets the supportedTrafficTypes property value. The supported traffic type. Possible values are: downloadedBytes, uploadedBytes, unknown, unknownFutureValue.
+     * Gets the supportedTrafficTypes property value. The supported traffic type. The possible values are: downloadedBytes, uploadedBytes, unknown, unknownFutureValue.
      * @return array<TrafficType>|null
     */
     public function getSupportedTrafficTypes(): ?array {
@@ -296,7 +296,7 @@ class CloudAppDiscoveryReport extends Entity implements Parsable
     }
 
     /**
-     * Sets the logDataProvider property value. The applicable log data provider. Possible values are: barracuda, bluecoat, checkpoint, ciscoAsa, ciscoIronportProxy, fortigate, paloAlto, squid, zscaler, mcafeeSwg, ciscoScanSafe, juniperSrx, sophosSg, websenseV75, websenseSiemCef, machineZoneMeraki, squidNative, ciscoFwsm, microsoftIsaW3C, sonicwall, sophosCyberoam, clavister, customParser, juniperSsg, zscalerQradar, juniperSrxSd, juniperSrxWelf, microsoftConditionalAppAccess, ciscoAsaFirepower, genericCef, genericLeef, genericW3C, iFilter, checkpointXml, checkpointSmartViewTracker, barracudaNextGenFw, barracudaNextGenFwWeblog, microsoftDefenderForEndpoint, zscalerCef, sophosXg, iboss, forcepoint, fortios, ciscoIronportWsaIi, paloAltoLeef, forcepointLeef, stormshield, contentkeeper, ciscoIronportWsaIii, checkpointCef, corrata, ciscoFirepowerV6, menloSecurityCef, watchguardXtm, openSystemsSecureWebGateway, wandera, unknownFutureValue.
+     * Sets the logDataProvider property value. The applicable log data provider. The possible values are: barracuda, bluecoat, checkpoint, ciscoAsa, ciscoIronportProxy, fortigate, paloAlto, squid, zscaler, mcafeeSwg, ciscoScanSafe, juniperSrx, sophosSg, websenseV75, websenseSiemCef, machineZoneMeraki, squidNative, ciscoFwsm, microsoftIsaW3C, sonicwall, sophosCyberoam, clavister, customParser, juniperSsg, zscalerQradar, juniperSrxSd, juniperSrxWelf, microsoftConditionalAppAccess, ciscoAsaFirepower, genericCef, genericLeef, genericW3C, iFilter, checkpointXml, checkpointSmartViewTracker, barracudaNextGenFw, barracudaNextGenFwWeblog, microsoftDefenderForEndpoint, zscalerCef, sophosXg, iboss, forcepoint, fortios, ciscoIronportWsaIi, paloAltoLeef, forcepointLeef, stormshield, contentkeeper, ciscoIronportWsaIii, checkpointCef, corrata, ciscoFirepowerV6, menloSecurityCef, watchguardXtm, openSystemsSecureWebGateway, wandera, unknownFutureValue.
      * @param LogDataProvider|null $value Value to set for the logDataProvider property.
     */
     public function setLogDataProvider(?LogDataProvider $value): void {
@@ -312,7 +312,7 @@ class CloudAppDiscoveryReport extends Entity implements Parsable
     }
 
     /**
-     * Sets the receiverProtocol property value. The applicable receiver protocol. Possible values are: ftp, ftps, syslogUdp, syslogTcp, syslogTls, unknownFutureValue.
+     * Sets the receiverProtocol property value. The applicable receiver protocol. The possible values are: ftp, ftps, syslogUdp, syslogTcp, syslogTls, unknownFutureValue.
      * @param ReceiverProtocol|null $value Value to set for the receiverProtocol property.
     */
     public function setReceiverProtocol(?ReceiverProtocol $value): void {
@@ -320,7 +320,7 @@ class CloudAppDiscoveryReport extends Entity implements Parsable
     }
 
     /**
-     * Sets the supportedEntityTypes property value. The supported entity type. Possible values are: userName, ipAddress, machineName, other, unknown, unknownFutureValue.
+     * Sets the supportedEntityTypes property value. The supported entity type. The possible values are: userName, ipAddress, machineName, other, unknown, unknownFutureValue.
      * @param array<EntityType>|null $value Value to set for the supportedEntityTypes property.
     */
     public function setSupportedEntityTypes(?array $value): void {
@@ -328,7 +328,7 @@ class CloudAppDiscoveryReport extends Entity implements Parsable
     }
 
     /**
-     * Sets the supportedTrafficTypes property value. The supported traffic type. Possible values are: downloadedBytes, uploadedBytes, unknown, unknownFutureValue.
+     * Sets the supportedTrafficTypes property value. The supported traffic type. The possible values are: downloadedBytes, uploadedBytes, unknown, unknownFutureValue.
      * @param array<TrafficType>|null $value Value to set for the supportedTrafficTypes property.
     */
     public function setSupportedTrafficTypes(?array $value): void {

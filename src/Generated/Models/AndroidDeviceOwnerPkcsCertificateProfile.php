@@ -30,7 +30,7 @@ class AndroidDeviceOwnerPkcsCertificateProfile extends AndroidDeviceOwnerCertifi
     }
 
     /**
-     * Gets the certificateAccessType property value. Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
+     * Gets the certificateAccessType property value. Certificate access type. The possible values are: userApproval, specificApps, unknownFutureValue.
      * @return AndroidDeviceOwnerCertificateAccessType|null
     */
     public function getCertificateAccessType(): ?AndroidDeviceOwnerCertificateAccessType {
@@ -208,7 +208,7 @@ class AndroidDeviceOwnerPkcsCertificateProfile extends AndroidDeviceOwnerCertifi
     }
 
     /**
-     * Sets the certificateAccessType property value. Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
+     * Sets the certificateAccessType property value. Certificate access type. The possible values are: userApproval, specificApps, unknownFutureValue.
      * @param AndroidDeviceOwnerCertificateAccessType|null $value Value to set for the certificateAccessType property.
     */
     public function setCertificateAccessType(?AndroidDeviceOwnerCertificateAccessType $value): void {

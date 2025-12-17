@@ -46,7 +46,7 @@ class CallEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the callEventType property value. The event type of the call. Possible values are: callStarted, callEnded, unknownFutureValue, rosterUpdated. You must use the Prefer: include-unknown-enum-members request header to get the following members in this evolvable enum: rosterUpdated.
+     * Gets the callEventType property value. The event type of the call. The possible values are: callStarted, callEnded, unknownFutureValue, rosterUpdated. You must use the Prefer: include-unknown-enum-members request header to get the following members in this evolvable enum: rosterUpdated.
      * @return CallEventType|null
     */
     public function getCallEventType(): ?CallEventType {
@@ -146,7 +146,7 @@ class CallEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the callEventType property value. The event type of the call. Possible values are: callStarted, callEnded, unknownFutureValue, rosterUpdated. You must use the Prefer: include-unknown-enum-members request header to get the following members in this evolvable enum: rosterUpdated.
+     * Sets the callEventType property value. The event type of the call. The possible values are: callStarted, callEnded, unknownFutureValue, rosterUpdated. You must use the Prefer: include-unknown-enum-members request header to get the following members in this evolvable enum: rosterUpdated.
      * @param CallEventType|null $value Value to set for the callEventType property.
     */
     public function setCallEventType(?CallEventType $value): void {

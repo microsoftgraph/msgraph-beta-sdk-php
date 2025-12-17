@@ -54,7 +54,7 @@ class SharePointMigrationTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the finishedDateTime property value. The finishedDateTime property
+     * Gets the finishedDateTime property value. Date and time when the sharePointMigrationTask ended, if available. The task might complete successfully or fail, but it ends at that time. Read-only. Only on OneDrive and SharePoint. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getFinishedDateTime(): ?DateTime {
@@ -66,7 +66,7 @@ class SharePointMigrationTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * Gets the lastUpdatedDateTime property value. Date and time when the sharePointMigrationTask was last updated or processed, if available. Use this property to find tasks that stopped processing for a long time. Read-only. Optional. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
@@ -90,7 +90,7 @@ class SharePointMigrationTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the startedDateTime property value. The startedDateTime property
+     * Gets the startedDateTime property value. Date and time when the sharePointMigrationTask started, if available. Read-only. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getStartedDateTime(): ?DateTime {
@@ -136,7 +136,7 @@ class SharePointMigrationTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the finishedDateTime property value. The finishedDateTime property
+     * Sets the finishedDateTime property value. Date and time when the sharePointMigrationTask ended, if available. The task might complete successfully or fail, but it ends at that time. Read-only. Only on OneDrive and SharePoint. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the finishedDateTime property.
     */
     public function setFinishedDateTime(?DateTime $value): void {
@@ -144,7 +144,7 @@ class SharePointMigrationTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * Sets the lastUpdatedDateTime property value. Date and time when the sharePointMigrationTask was last updated or processed, if available. Use this property to find tasks that stopped processing for a long time. Read-only. Optional. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {
@@ -160,7 +160,7 @@ class SharePointMigrationTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the startedDateTime property value. The startedDateTime property
+     * Sets the startedDateTime property value. Date and time when the sharePointMigrationTask started, if available. Read-only. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the startedDateTime property.
     */
     public function setStartedDateTime(?DateTime $value): void {

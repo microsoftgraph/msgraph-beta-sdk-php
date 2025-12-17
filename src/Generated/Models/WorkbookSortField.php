@@ -80,7 +80,7 @@ class WorkbookSortField implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the dataOption property value. Represents additional sorting options for this field. Possible values are: Normal, TextAsNumber.
+     * Gets the dataOption property value. Represents additional sorting options for this field. The possible values are: Normal, TextAsNumber.
      * @return string|null
     */
     public function getDataOption(): ?string {
@@ -145,7 +145,7 @@ class WorkbookSortField implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the sortOn property value. Represents the type of sorting of this condition. Possible values are: Value, CellColor, FontColor, Icon.
+     * Gets the sortOn property value. Represents the type of sorting of this condition. The possible values are: Value, CellColor, FontColor, Icon.
      * @return string|null
     */
     public function getSortOn(): ?string {
@@ -204,7 +204,7 @@ class WorkbookSortField implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the dataOption property value. Represents additional sorting options for this field. Possible values are: Normal, TextAsNumber.
+     * Sets the dataOption property value. Represents additional sorting options for this field. The possible values are: Normal, TextAsNumber.
      * @param string|null $value Value to set for the dataOption property.
     */
     public function setDataOption(?string $value): void {
@@ -236,7 +236,7 @@ class WorkbookSortField implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the sortOn property value. Represents the type of sorting of this condition. Possible values are: Value, CellColor, FontColor, Icon.
+     * Sets the sortOn property value. Represents the type of sorting of this condition. The possible values are: Value, CellColor, FontColor, Icon.
      * @param string|null $value Value to set for the sortOn property.
     */
     public function setSortOn(?string $value): void {

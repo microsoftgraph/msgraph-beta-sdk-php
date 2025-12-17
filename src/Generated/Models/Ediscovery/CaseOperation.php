@@ -42,7 +42,7 @@ class CaseOperation extends Entity implements Parsable
     }
 
     /**
-     * Gets the action property value. The type of action the operation represents. Possible values are: addToReviewSet,applyTags,contentExport,convertToPdf,estimateStatistics, purgeData
+     * Gets the action property value. The type of action the operation represents. The possible values are: addToReviewSet,applyTags,contentExport,convertToPdf,estimateStatistics, purgeData
      * @return CaseAction|null
     */
     public function getAction(): ?CaseAction {
@@ -131,7 +131,7 @@ class CaseOperation extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status of the case operation. Possible values are: notStarted, submissionFailed, running, succeeded, partiallySucceeded, failed.
+     * Gets the status property value. The status of the case operation. The possible values are: notStarted, submissionFailed, running, succeeded, partiallySucceeded, failed.
      * @return CaseOperationStatus|null
     */
     public function getStatus(): ?CaseOperationStatus {
@@ -158,7 +158,7 @@ class CaseOperation extends Entity implements Parsable
     }
 
     /**
-     * Sets the action property value. The type of action the operation represents. Possible values are: addToReviewSet,applyTags,contentExport,convertToPdf,estimateStatistics, purgeData
+     * Sets the action property value. The type of action the operation represents. The possible values are: addToReviewSet,applyTags,contentExport,convertToPdf,estimateStatistics, purgeData
      * @param CaseAction|null $value Value to set for the action property.
     */
     public function setAction(?CaseAction $value): void {
@@ -206,7 +206,7 @@ class CaseOperation extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The status of the case operation. Possible values are: notStarted, submissionFailed, running, succeeded, partiallySucceeded, failed.
+     * Sets the status property value. The status of the case operation. The possible values are: notStarted, submissionFailed, running, succeeded, partiallySucceeded, failed.
      * @param CaseOperationStatus|null $value Value to set for the status property.
     */
     public function setStatus(?CaseOperationStatus $value): void {

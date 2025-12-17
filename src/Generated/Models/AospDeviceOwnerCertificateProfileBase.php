@@ -117,7 +117,7 @@ class AospDeviceOwnerCertificateProfileBase extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the subjectAlternativeNameType property value. Certificate Subject Alternative Name Type. This collection can contain a maximum of 500 elements. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
+     * Gets the subjectAlternativeNameType property value. Certificate Subject Alternative Name Type. This collection can contain a maximum of 500 elements. The possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
      * @return SubjectAlternativeNameType|null
     */
     public function getSubjectAlternativeNameType(): ?SubjectAlternativeNameType {
@@ -129,7 +129,7 @@ class AospDeviceOwnerCertificateProfileBase extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the subjectNameFormat property value. Certificate Subject Name Format. This collection can contain a maximum of 500 elements. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
+     * Gets the subjectNameFormat property value. Certificate Subject Name Format. This collection can contain a maximum of 500 elements. The possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
      * @return SubjectNameFormat|null
     */
     public function getSubjectNameFormat(): ?SubjectNameFormat {
@@ -196,7 +196,7 @@ class AospDeviceOwnerCertificateProfileBase extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the subjectAlternativeNameType property value. Certificate Subject Alternative Name Type. This collection can contain a maximum of 500 elements. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
+     * Sets the subjectAlternativeNameType property value. Certificate Subject Alternative Name Type. This collection can contain a maximum of 500 elements. The possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
      * @param SubjectAlternativeNameType|null $value Value to set for the subjectAlternativeNameType property.
     */
     public function setSubjectAlternativeNameType(?SubjectAlternativeNameType $value): void {
@@ -204,7 +204,7 @@ class AospDeviceOwnerCertificateProfileBase extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the subjectNameFormat property value. Certificate Subject Name Format. This collection can contain a maximum of 500 elements. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
+     * Sets the subjectNameFormat property value. Certificate Subject Name Format. This collection can contain a maximum of 500 elements. The possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
      * @param SubjectNameFormat|null $value Value to set for the subjectNameFormat property.
     */
     public function setSubjectNameFormat(?SubjectNameFormat $value): void {

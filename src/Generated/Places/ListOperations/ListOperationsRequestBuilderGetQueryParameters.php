@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Places\ListOperations;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function listOperations
+ * List all existing placeOperation objects. This API doesn't return operation details.
 */
 class ListOperationsRequestBuilderGetQueryParameters 
 {

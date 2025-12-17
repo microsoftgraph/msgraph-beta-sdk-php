@@ -107,7 +107,7 @@ class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the replyRestriction property value. Indicates who is allowed to reply to the teams channel. Possible values are: everyone, authorAndModerators, unknownFutureValue.
+     * Gets the replyRestriction property value. Indicates who is allowed to reply to the teams channel. The possible values are: everyone, authorAndModerators, unknownFutureValue.
      * @return ReplyRestriction|null
     */
     public function getReplyRestriction(): ?ReplyRestriction {
@@ -119,7 +119,7 @@ class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the userNewMessageRestriction property value. Indicates who is allowed to post messages to teams channel. Possible values are: everyone, everyoneExceptGuests, moderators, unknownFutureValue.
+     * Gets the userNewMessageRestriction property value. Indicates who is allowed to post messages to teams channel. The possible values are: everyone, everyoneExceptGuests, moderators, unknownFutureValue.
      * @return UserNewMessageRestriction|null
     */
     public function getUserNewMessageRestriction(): ?UserNewMessageRestriction {
@@ -184,7 +184,7 @@ class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the replyRestriction property value. Indicates who is allowed to reply to the teams channel. Possible values are: everyone, authorAndModerators, unknownFutureValue.
+     * Sets the replyRestriction property value. Indicates who is allowed to reply to the teams channel. The possible values are: everyone, authorAndModerators, unknownFutureValue.
      * @param ReplyRestriction|null $value Value to set for the replyRestriction property.
     */
     public function setReplyRestriction(?ReplyRestriction $value): void {
@@ -192,7 +192,7 @@ class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the userNewMessageRestriction property value. Indicates who is allowed to post messages to teams channel. Possible values are: everyone, everyoneExceptGuests, moderators, unknownFutureValue.
+     * Sets the userNewMessageRestriction property value. Indicates who is allowed to post messages to teams channel. The possible values are: everyone, everyoneExceptGuests, moderators, unknownFutureValue.
      * @param UserNewMessageRestriction|null $value Value to set for the userNewMessageRestriction property.
     */
     public function setUserNewMessageRestriction(?UserNewMessageRestriction $value): void {

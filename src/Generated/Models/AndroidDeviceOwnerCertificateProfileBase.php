@@ -118,7 +118,7 @@ class AndroidDeviceOwnerCertificateProfileBase extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the subjectAlternativeNameType property value. Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
+     * Gets the subjectAlternativeNameType property value. Certificate Subject Alternative Name Type. The possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
      * @return SubjectAlternativeNameType|null
     */
     public function getSubjectAlternativeNameType(): ?SubjectAlternativeNameType {
@@ -130,7 +130,7 @@ class AndroidDeviceOwnerCertificateProfileBase extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the subjectNameFormat property value. Certificate Subject Name Format. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
+     * Gets the subjectNameFormat property value. Certificate Subject Name Format. The possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
      * @return SubjectNameFormat|null
     */
     public function getSubjectNameFormat(): ?SubjectNameFormat {
@@ -197,7 +197,7 @@ class AndroidDeviceOwnerCertificateProfileBase extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the subjectAlternativeNameType property value. Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
+     * Sets the subjectAlternativeNameType property value. Certificate Subject Alternative Name Type. The possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
      * @param SubjectAlternativeNameType|null $value Value to set for the subjectAlternativeNameType property.
     */
     public function setSubjectAlternativeNameType(?SubjectAlternativeNameType $value): void {
@@ -205,7 +205,7 @@ class AndroidDeviceOwnerCertificateProfileBase extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the subjectNameFormat property value. Certificate Subject Name Format. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
+     * Sets the subjectNameFormat property value. Certificate Subject Name Format. The possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
      * @param SubjectNameFormat|null $value Value to set for the subjectNameFormat property.
     */
     public function setSubjectNameFormat(?SubjectNameFormat $value): void {

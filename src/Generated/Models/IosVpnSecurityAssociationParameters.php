@@ -110,7 +110,7 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Backe
     }
 
     /**
-     * Gets the securityEncryptionAlgorithm property value. Encryption algorithm. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
+     * Gets the securityEncryptionAlgorithm property value. Encryption algorithm. The possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
      * @return VpnEncryptionAlgorithmType|null
     */
     public function getSecurityEncryptionAlgorithm(): ?VpnEncryptionAlgorithmType {
@@ -122,7 +122,7 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Backe
     }
 
     /**
-     * Gets the securityIntegrityAlgorithm property value. Integrity algorithm. Possible values are: sha2256, sha196, sha1160, sha2384, sha2_512, md5.
+     * Gets the securityIntegrityAlgorithm property value. Integrity algorithm. The possible values are: sha2256, sha196, sha1160, sha2384, sha2_512, md5.
      * @return VpnIntegrityAlgorithmType|null
     */
     public function getSecurityIntegrityAlgorithm(): ?VpnIntegrityAlgorithmType {
@@ -187,7 +187,7 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Backe
     }
 
     /**
-     * Sets the securityEncryptionAlgorithm property value. Encryption algorithm. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
+     * Sets the securityEncryptionAlgorithm property value. Encryption algorithm. The possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
      * @param VpnEncryptionAlgorithmType|null $value Value to set for the securityEncryptionAlgorithm property.
     */
     public function setSecurityEncryptionAlgorithm(?VpnEncryptionAlgorithmType $value): void {
@@ -195,7 +195,7 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Backe
     }
 
     /**
-     * Sets the securityIntegrityAlgorithm property value. Integrity algorithm. Possible values are: sha2256, sha196, sha1160, sha2384, sha2_512, md5.
+     * Sets the securityIntegrityAlgorithm property value. Integrity algorithm. The possible values are: sha2256, sha196, sha1160, sha2384, sha2_512, md5.
      * @param VpnIntegrityAlgorithmType|null $value Value to set for the securityIntegrityAlgorithm property.
     */
     public function setSecurityIntegrityAlgorithm(?VpnIntegrityAlgorithmType $value): void {

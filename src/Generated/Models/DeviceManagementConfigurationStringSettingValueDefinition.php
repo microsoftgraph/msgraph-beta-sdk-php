@@ -67,7 +67,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Gets the format property value. Pre-defined format of the string. Possible values are: none, email, guid, ip, base64, url, version, xml, date, time, binary, regEx, json, dateTime, surfaceHub, bashScript, unknownFutureValue.
+     * Gets the format property value. Pre-defined format of the string. The possible values are: none, email, guid, ip, base64, url, version, xml, date, time, binary, regEx, json, dateTime, surfaceHub, bashScript, unknownFutureValue.
      * @return DeviceManagementConfigurationStringFormat|null
     */
     public function getFormat(): ?DeviceManagementConfigurationStringFormat {
@@ -149,7 +149,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Sets the format property value. Pre-defined format of the string. Possible values are: none, email, guid, ip, base64, url, version, xml, date, time, binary, regEx, json, dateTime, surfaceHub, bashScript, unknownFutureValue.
+     * Sets the format property value. Pre-defined format of the string. The possible values are: none, email, guid, ip, base64, url, version, xml, date, time, binary, regEx, json, dateTime, surfaceHub, bashScript, unknownFutureValue.
      * @param DeviceManagementConfigurationStringFormat|null $value Value to set for the format property.
     */
     public function setFormat(?DeviceManagementConfigurationStringFormat $value): void {

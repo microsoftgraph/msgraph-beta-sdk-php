@@ -38,7 +38,7 @@ class AgentIdentityBlueprint extends Application implements Parsable
     }
 
     /**
-     * Gets the sponsors property value. The sponsors for this agent identity blueprint. Sponsors are users or groups who can authorize and manage the lifecycle of agent identity instances.
+     * Gets the sponsors property value. The sponsors for this agent identity blueprint. Sponsors are users or groups who can authorize and manage the lifecycle of agent identity instances. Required during the create operation.
      * @return array<DirectoryObject>|null
     */
     public function getSponsors(): ?array {
@@ -61,7 +61,7 @@ class AgentIdentityBlueprint extends Application implements Parsable
     }
 
     /**
-     * Sets the sponsors property value. The sponsors for this agent identity blueprint. Sponsors are users or groups who can authorize and manage the lifecycle of agent identity instances.
+     * Sets the sponsors property value. The sponsors for this agent identity blueprint. Sponsors are users or groups who can authorize and manage the lifecycle of agent identity instances. Required during the create operation.
      * @param array<DirectoryObject>|null $value Value to set for the sponsors property.
     */
     public function setSponsors(?array $value): void {

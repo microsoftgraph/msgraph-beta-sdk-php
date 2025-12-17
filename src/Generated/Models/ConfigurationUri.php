@@ -49,7 +49,7 @@ class ConfigurationUri implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the appliesToSingleSignOnMode property value. The single sign-on mode that the URI is configured for. Possible values are: saml, password.
+     * Gets the appliesToSingleSignOnMode property value. The single sign-on mode that the URI is configured for. The possible values are: saml, password.
      * @return string|null
     */
     public function getAppliesToSingleSignOnMode(): ?string {
@@ -185,7 +185,7 @@ class ConfigurationUri implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the appliesToSingleSignOnMode property value. The single sign-on mode that the URI is configured for. Possible values are: saml, password.
+     * Sets the appliesToSingleSignOnMode property value. The single sign-on mode that the URI is configured for. The possible values are: saml, password.
      * @param string|null $value Value to set for the appliesToSingleSignOnMode property.
     */
     public function setAppliesToSingleSignOnMode(?string $value): void {

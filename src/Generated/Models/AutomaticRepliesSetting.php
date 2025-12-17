@@ -56,7 +56,7 @@ class AutomaticRepliesSetting implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the externalAudience property value. The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. Possible values are: none, contactsOnly, all.
+     * Gets the externalAudience property value. The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. The possible values are: none, contactsOnly, all.
      * @return ExternalAudienceScope|null
     */
     public function getExternalAudience(): ?ExternalAudienceScope {
@@ -145,7 +145,7 @@ class AutomaticRepliesSetting implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the status property value. Configurations status for automatic replies. Possible values are: disabled, alwaysEnabled, scheduled.
+     * Gets the status property value. Configurations status for automatic replies. The possible values are: disabled, alwaysEnabled, scheduled.
      * @return AutomaticRepliesStatus|null
     */
     public function getStatus(): ?AutomaticRepliesStatus {
@@ -188,7 +188,7 @@ class AutomaticRepliesSetting implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the externalAudience property value. The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. Possible values are: none, contactsOnly, all.
+     * Sets the externalAudience property value. The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. The possible values are: none, contactsOnly, all.
      * @param ExternalAudienceScope|null $value Value to set for the externalAudience property.
     */
     public function setExternalAudience(?ExternalAudienceScope $value): void {
@@ -236,7 +236,7 @@ class AutomaticRepliesSetting implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the status property value. Configurations status for automatic replies. Possible values are: disabled, alwaysEnabled, scheduled.
+     * Sets the status property value. Configurations status for automatic replies. The possible values are: disabled, alwaysEnabled, scheduled.
      * @param AutomaticRepliesStatus|null $value Value to set for the status property.
     */
     public function setStatus(?AutomaticRepliesStatus $value): void {

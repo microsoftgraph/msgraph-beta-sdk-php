@@ -161,7 +161,7 @@ class ConnectedOrganization extends Entity implements Parsable
     }
 
     /**
-     * Gets the state property value. The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not. Possible values are: configured, proposed.
+     * Gets the state property value. The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not. The possible values are: configured, proposed.
      * @return ConnectedOrganizationState|null
     */
     public function getState(): ?ConnectedOrganizationState {
@@ -263,7 +263,7 @@ class ConnectedOrganization extends Entity implements Parsable
     }
 
     /**
-     * Sets the state property value. The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not. Possible values are: configured, proposed.
+     * Sets the state property value. The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not. The possible values are: configured, proposed.
      * @param ConnectedOrganizationState|null $value Value to set for the state property.
     */
     public function setState(?ConnectedOrganizationState $value): void {

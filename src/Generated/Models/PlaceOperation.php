@@ -26,7 +26,7 @@ class PlaceOperation extends Entity implements Parsable
     }
 
     /**
-     * Gets the details property value. The details property
+     * Gets the details property value. The detailed result of the operation, including errors and successful places.
      * @return array<PlaceExecutionResult>|null
     */
     public function getDetails(): ?array {
@@ -53,7 +53,7 @@ class PlaceOperation extends Entity implements Parsable
     }
 
     /**
-     * Gets the progress property value. The progress property
+     * Gets the progress property value. The progress of the operation.
      * @return PlaceOperationProgress|null
     */
     public function getProgress(): ?PlaceOperationProgress {
@@ -88,7 +88,7 @@ class PlaceOperation extends Entity implements Parsable
     }
 
     /**
-     * Sets the details property value. The details property
+     * Sets the details property value. The detailed result of the operation, including errors and successful places.
      * @param array<PlaceExecutionResult>|null $value Value to set for the details property.
     */
     public function setDetails(?array $value): void {
@@ -96,7 +96,7 @@ class PlaceOperation extends Entity implements Parsable
     }
 
     /**
-     * Sets the progress property value. The progress property
+     * Sets the progress property value. The progress of the operation.
      * @param PlaceOperationProgress|null $value Value to set for the progress property.
     */
     public function setProgress(?PlaceOperationProgress $value): void {

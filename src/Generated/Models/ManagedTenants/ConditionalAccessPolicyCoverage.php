@@ -27,7 +27,7 @@ class ConditionalAccessPolicyCoverage extends Entity implements Parsable
     }
 
     /**
-     * Gets the conditionalAccessPolicyState property value. The state for the conditional access policy. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required. Read-only.
+     * Gets the conditionalAccessPolicyState property value. The state for the conditional access policy. The possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required. Read-only.
      * @return string|null
     */
     public function getConditionalAccessPolicyState(): ?string {
@@ -101,7 +101,7 @@ class ConditionalAccessPolicyCoverage extends Entity implements Parsable
     }
 
     /**
-     * Sets the conditionalAccessPolicyState property value. The state for the conditional access policy. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required. Read-only.
+     * Sets the conditionalAccessPolicyState property value. The state for the conditional access policy. The possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required. Read-only.
      * @param string|null $value Value to set for the conditionalAccessPolicyState property.
     */
     public function setConditionalAccessPolicyState(?string $value): void {

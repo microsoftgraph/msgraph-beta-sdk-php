@@ -60,7 +60,7 @@ class AttendeeAvailability implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the availability property value. The availability status of the attendee. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
+     * Gets the availability property value. The availability status of the attendee. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
      * @return FreeBusyStatus|null
     */
     public function getAvailability(): ?FreeBusyStatus {
@@ -132,7 +132,7 @@ class AttendeeAvailability implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the availability property value. The availability status of the attendee. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
+     * Sets the availability property value. The availability status of the attendee. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
      * @param FreeBusyStatus|null $value Value to set for the availability property.
     */
     public function setAvailability(?FreeBusyStatus $value): void {

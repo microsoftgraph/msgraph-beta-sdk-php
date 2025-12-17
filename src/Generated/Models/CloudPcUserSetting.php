@@ -134,7 +134,7 @@ class CloudPcUserSetting extends Entity implements Parsable
     }
 
     /**
-     * Gets the provisioningSourceType property value. Indicates the provisioning source of the Cloud PC prepared for an end user. Possible values are: image, snapshot, unknownFutureValue. The default value is image. If this property isn't set or set to null, its functionality is the same as setting it to image.
+     * Gets the provisioningSourceType property value. Indicates the provisioning source of the Cloud PC prepared for an end user. The possible values are: image, snapshot, unknownFutureValue. The default value is image. If this property isn't set or set to null, its functionality is the same as setting it to image.
      * @return CloudPcProvisioningSourceType|null
     */
     public function getProvisioningSourceType(): ?CloudPcProvisioningSourceType {
@@ -257,7 +257,7 @@ class CloudPcUserSetting extends Entity implements Parsable
     }
 
     /**
-     * Sets the provisioningSourceType property value. Indicates the provisioning source of the Cloud PC prepared for an end user. Possible values are: image, snapshot, unknownFutureValue. The default value is image. If this property isn't set or set to null, its functionality is the same as setting it to image.
+     * Sets the provisioningSourceType property value. Indicates the provisioning source of the Cloud PC prepared for an end user. The possible values are: image, snapshot, unknownFutureValue. The default value is image. If this property isn't set or set to null, its functionality is the same as setting it to image.
      * @param CloudPcProvisioningSourceType|null $value Value to set for the provisioningSourceType property.
     */
     public function setProvisioningSourceType(?CloudPcProvisioningSourceType $value): void {
