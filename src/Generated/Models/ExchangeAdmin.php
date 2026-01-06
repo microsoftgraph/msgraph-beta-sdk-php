@@ -34,6 +34,7 @@ class ExchangeAdmin extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'mailboxes' => fn(ParseNode $n) => $o->setMailboxes($n->getCollectionOfObjectValues([Mailbox::class, 'createFromDiscriminatorValue'])),
             'messageTraces' => fn(ParseNode $n) => $o->setMessageTraces($n->getCollectionOfObjectValues([MessageTrace::class, 'createFromDiscriminatorValue'])),
+            'tracing' => fn(ParseNode $n) => $o->setTracing($n->getObjectValue([MessageTracingRoot::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -66,6 +67,18 @@ class ExchangeAdmin extends Entity implements Parsable
     }
 
     /**
+     * Gets the tracing property value. The tracing property
+     * @return MessageTracingRoot|null
+    */
+    public function getTracing(): ?MessageTracingRoot {
+        $val = $this->getBackingStore()->get('tracing');
+        if (is_null($val) || $val instanceof MessageTracingRoot) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tracing'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -73,6 +86,7 @@ class ExchangeAdmin extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('mailboxes', $this->getMailboxes());
         $writer->writeCollectionOfObjectValues('messageTraces', $this->getMessageTraces());
+        $writer->writeObjectValue('tracing', $this->getTracing());
     }
 
     /**
@@ -89,6 +103,14 @@ class ExchangeAdmin extends Entity implements Parsable
     */
     public function setMessageTraces(?array $value): void {
         $this->getBackingStore()->set('messageTraces', $value);
+    }
+
+    /**
+     * Sets the tracing property value. The tracing property
+     * @param MessageTracingRoot|null $value Value to set for the tracing property.
+    */
+    public function setTracing(?MessageTracingRoot $value): void {
+        $this->getBackingStore()->set('tracing', $value);
     }
 
 }

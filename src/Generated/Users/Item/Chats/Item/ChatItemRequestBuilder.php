@@ -19,6 +19,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\PermissionGrants\Permis
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\PinnedMessages\PinnedMessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\RemoveAllAccessForUser\RemoveAllAccessForUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\SendActivityNotification\SendActivityNotificationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\StartMigration\StartMigrationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Tabs\TabsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\UnhideForUser\UnhideForUserRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -120,6 +121,13 @@ class ChatItemRequestBuilder extends BaseRequestBuilder
     */
     public function sendActivityNotification(): SendActivityNotificationRequestBuilder {
         return new SendActivityNotificationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the startMigration method.
+    */
+    public function startMigration(): StartMigrationRequestBuilder {
+        return new StartMigrationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

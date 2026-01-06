@@ -270,6 +270,7 @@ class Application extends DirectoryObject implements Parsable
             },
             'info' => fn(ParseNode $n) => $o->setInfo($n->getObjectValue([InformationalUrl::class, 'createFromDiscriminatorValue'])),
             'isDeviceOnlyAuthSupported' => fn(ParseNode $n) => $o->setIsDeviceOnlyAuthSupported($n->getBooleanValue()),
+            'isDisabled' => fn(ParseNode $n) => $o->setIsDisabled($n->getBooleanValue()),
             'isFallbackPublicClient' => fn(ParseNode $n) => $o->setIsFallbackPublicClient($n->getBooleanValue()),
             'keyCredentials' => fn(ParseNode $n) => $o->setKeyCredentials($n->getCollectionOfObjectValues([KeyCredential::class, 'createFromDiscriminatorValue'])),
             'logo' => fn(ParseNode $n) => $o->setLogo($n->getBinaryContent()),
@@ -288,6 +289,7 @@ class Application extends DirectoryObject implements Parsable
             'serviceManagementReference' => fn(ParseNode $n) => $o->setServiceManagementReference($n->getStringValue()),
             'servicePrincipalLockConfiguration' => fn(ParseNode $n) => $o->setServicePrincipalLockConfiguration($n->getObjectValue([ServicePrincipalLockConfiguration::class, 'createFromDiscriminatorValue'])),
             'signInAudience' => fn(ParseNode $n) => $o->setSignInAudience($n->getStringValue()),
+            'signInAudienceRestrictions' => fn(ParseNode $n) => $o->setSignInAudienceRestrictions($n->getObjectValue([SignInAudienceRestrictionsBase::class, 'createFromDiscriminatorValue'])),
             'spa' => fn(ParseNode $n) => $o->setSpa($n->getObjectValue([SpaApplication::class, 'createFromDiscriminatorValue'])),
             'synchronization' => fn(ParseNode $n) => $o->setSynchronization($n->getObjectValue([Synchronization::class, 'createFromDiscriminatorValue'])),
             'tags' => function (ParseNode $n) {
@@ -370,6 +372,18 @@ class Application extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isDeviceOnlyAuthSupported'");
+    }
+
+    /**
+     * Gets the isDisabled property value. Specifies whether the service principal of the app in a tenant or across tenants for multi-tenant apps can obtain new access tokens or access protected resources. When set to true, existing tokens remain valid until they expire based on their configured lifetimes, and the app stays visible in the Enterprise apps list but users cannot sign in.true if the application is deactivated (disabled); otherwise false.
+     * @return bool|null
+    */
+    public function getIsDisabled(): ?bool {
+        $val = $this->getBackingStore()->get('isDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDisabled'");
     }
 
     /**
@@ -597,6 +611,18 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the signInAudienceRestrictions property value. The signInAudienceRestrictions property
+     * @return SignInAudienceRestrictionsBase|null
+    */
+    public function getSignInAudienceRestrictions(): ?SignInAudienceRestrictionsBase {
+        $val = $this->getBackingStore()->get('signInAudienceRestrictions');
+        if (is_null($val) || $val instanceof SignInAudienceRestrictionsBase) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signInAudienceRestrictions'");
+    }
+
+    /**
      * Gets the spa property value. Specifies settings for a single-page application, including sign out URLs and redirect URIs for authorization codes and access tokens.
      * @return SpaApplication|null
     */
@@ -749,6 +775,7 @@ class Application extends DirectoryObject implements Parsable
         $writer->writeCollectionOfPrimitiveValues('identifierUris', $this->getIdentifierUris());
         $writer->writeObjectValue('info', $this->getInfo());
         $writer->writeBooleanValue('isDeviceOnlyAuthSupported', $this->getIsDeviceOnlyAuthSupported());
+        $writer->writeBooleanValue('isDisabled', $this->getIsDisabled());
         $writer->writeBooleanValue('isFallbackPublicClient', $this->getIsFallbackPublicClient());
         $writer->writeCollectionOfObjectValues('keyCredentials', $this->getKeyCredentials());
         $writer->writeBinaryContent('logo', $this->getLogo());
@@ -767,6 +794,7 @@ class Application extends DirectoryObject implements Parsable
         $writer->writeStringValue('serviceManagementReference', $this->getServiceManagementReference());
         $writer->writeObjectValue('servicePrincipalLockConfiguration', $this->getServicePrincipalLockConfiguration());
         $writer->writeStringValue('signInAudience', $this->getSignInAudience());
+        $writer->writeObjectValue('signInAudienceRestrictions', $this->getSignInAudienceRestrictions());
         $writer->writeObjectValue('spa', $this->getSpa());
         $writer->writeObjectValue('synchronization', $this->getSynchronization());
         $writer->writeCollectionOfPrimitiveValues('tags', $this->getTags());
@@ -948,6 +976,14 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
+     * Sets the isDisabled property value. Specifies whether the service principal of the app in a tenant or across tenants for multi-tenant apps can obtain new access tokens or access protected resources. When set to true, existing tokens remain valid until they expire based on their configured lifetimes, and the app stays visible in the Enterprise apps list but users cannot sign in.true if the application is deactivated (disabled); otherwise false.
+     * @param bool|null $value Value to set for the isDisabled property.
+    */
+    public function setIsDisabled(?bool $value): void {
+        $this->getBackingStore()->set('isDisabled', $value);
+    }
+
+    /**
      * Sets the isFallbackPublicClient property value. Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false, which means the fallback application type is confidential client such as a web app. There are certain scenarios where Microsoft Entra ID can't determine the client application type. For example, the ROPC flow where the application is configured without specifying a redirect URI. In those cases Microsoft Entra ID interprets the application type based on the value of this property.
      * @param bool|null $value Value to set for the isFallbackPublicClient property.
     */
@@ -1089,6 +1125,14 @@ class Application extends DirectoryObject implements Parsable
     */
     public function setSignInAudience(?string $value): void {
         $this->getBackingStore()->set('signInAudience', $value);
+    }
+
+    /**
+     * Sets the signInAudienceRestrictions property value. The signInAudienceRestrictions property
+     * @param SignInAudienceRestrictionsBase|null $value Value to set for the signInAudienceRestrictions property.
+    */
+    public function setSignInAudienceRestrictions(?SignInAudienceRestrictionsBase $value): void {
+        $this->getBackingStore()->set('signInAudienceRestrictions', $value);
     }
 
     /**

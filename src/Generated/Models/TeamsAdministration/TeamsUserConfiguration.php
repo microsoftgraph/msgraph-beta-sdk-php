@@ -29,7 +29,7 @@ class TeamsUserConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the accountType property value. The type of the account in the Teams context. The possible values are: user, resourceAccount, guest, sfbOnPremUser, unknown, unknownFutureValue, ineligibleUser. Use the Prefer: include-unknown-enum-members request header to get the following value from this enum evolvable enum: ineligibleUser.
+     * Gets the accountType property value. The accountType property
      * @return AccountType|null
     */
     public function getAccountType(): ?AccountType {
@@ -200,7 +200,7 @@ class TeamsUserConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the accountType property value. The type of the account in the Teams context. The possible values are: user, resourceAccount, guest, sfbOnPremUser, unknown, unknownFutureValue, ineligibleUser. Use the Prefer: include-unknown-enum-members request header to get the following value from this enum evolvable enum: ineligibleUser.
+     * Sets the accountType property value. The accountType property
      * @param AccountType|null $value Value to set for the accountType property.
     */
     public function setAccountType(?AccountType $value): void {

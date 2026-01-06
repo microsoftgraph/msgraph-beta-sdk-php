@@ -30,10 +30,11 @@ class RetryRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action retry
+     * Retry the provisioning operation for Cloud PCs that used the current frontline shared policy and failed to apply the provisioning policy.
      * @param RetryRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-retry?view=graph-rest-beta Find more info here
     */
     public function post(?RetryRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -44,7 +45,7 @@ class RetryRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action retry
+     * Retry the provisioning operation for Cloud PCs that used the current frontline shared policy and failed to apply the provisioning policy.
      * @param RetryRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

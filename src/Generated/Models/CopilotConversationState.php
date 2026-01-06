@@ -4,8 +4,8 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 
 use Microsoft\Kiota\Abstractions\Enum;
 
-class CloudPcImageOsArchitectureType extends Enum {
-    public const X64 = "x64";
-    public const ARM64 = "arm64";
+class CopilotConversationState extends Enum {
+    public const ACTIVE = "active";
+    public const DISENGAGED_FOR_RAI = "disengagedForRai";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

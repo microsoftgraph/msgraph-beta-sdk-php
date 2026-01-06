@@ -48,7 +48,7 @@ class CloudPcAutopilotConfiguration implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the applicationTimeoutInMinutes property value. Indicates the number of minutes allowed for the Autopilot application to apply the device preparation profile (DPP) configurations to the device. If the Autopilot application doesn't finish within the specified time (applicationTimeoutInMinutes), the application error is added to the statusDetail property of the cloudPC object. The supported value is an integer between 10 and 360. Required.
+     * Gets the applicationTimeoutInMinutes property value. Indicates the number of minutes allowed for the Autopilot application to apply the device preparation profile (DPP) configurations to the device. If the Autopilot application doesn't finish within the specified time (applicationTimeoutInMinutes), the application error is added to the statusDetail property of the cloudPC object. The supported value is an integer between 30 and 360. Required.
      * @return int|null
     */
     public function getApplicationTimeoutInMinutes(): ?int {
@@ -138,7 +138,7 @@ class CloudPcAutopilotConfiguration implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the applicationTimeoutInMinutes property value. Indicates the number of minutes allowed for the Autopilot application to apply the device preparation profile (DPP) configurations to the device. If the Autopilot application doesn't finish within the specified time (applicationTimeoutInMinutes), the application error is added to the statusDetail property of the cloudPC object. The supported value is an integer between 10 and 360. Required.
+     * Sets the applicationTimeoutInMinutes property value. Indicates the number of minutes allowed for the Autopilot application to apply the device preparation profile (DPP) configurations to the device. If the Autopilot application doesn't finish within the specified time (applicationTimeoutInMinutes), the application error is added to the statusDetail property of the cloudPC object. The supported value is an integer between 30 and 360. Required.
      * @param int|null $value Value to set for the applicationTimeoutInMinutes property.
     */
     public function setApplicationTimeoutInMinutes(?int $value): void {

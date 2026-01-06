@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Identities\Settings;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents a container for security identities settings APIs.
+ * Get settings from security
 */
 class SettingsRequestBuilderGetQueryParameters 
 {

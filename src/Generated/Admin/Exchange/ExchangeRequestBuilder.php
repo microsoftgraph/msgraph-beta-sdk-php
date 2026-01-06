@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Admin\Exchange\Mailboxes\MailboxesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Exchange\MessageTraces\MessageTracesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Exchange\Tracing\TracingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ExchangeAdmin;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -30,6 +31,13 @@ class ExchangeRequestBuilder extends BaseRequestBuilder
     */
     public function messageTraces(): MessageTracesRequestBuilder {
         return new MessageTracesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the tracing property of the microsoft.graph.exchangeAdmin entity.
+    */
+    public function tracing(): TracingRequestBuilder {
+        return new TracingRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

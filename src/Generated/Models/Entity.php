@@ -774,6 +774,10 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.copilotAdminLimitedMode': return new CopilotAdminLimitedMode();
                 case '#microsoft.graph.copilotAdminSetting': return new CopilotAdminSetting();
                 case '#microsoft.graph.copilotCommunicationsRoot': return new CopilotCommunicationsRoot();
+                case '#microsoft.graph.copilotConversation': return new CopilotConversation();
+                case '#microsoft.graph.copilotConversationMessage': return new CopilotConversationMessage();
+                case '#microsoft.graph.copilotConversationRequestMessage': return new CopilotConversationRequestMessage();
+                case '#microsoft.graph.copilotConversationResponseMessage': return new CopilotConversationResponseMessage();
                 case '#microsoft.graph.copilotPackage': return new CopilotPackage();
                 case '#microsoft.graph.copilotPackageDetail': return new CopilotPackageDetail();
                 case '#microsoft.graph.copilotPeopleAdminSetting': return new CopilotPeopleAdminSetting();
@@ -1086,6 +1090,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.exactMatchSessionBase': return new ExactMatchSessionBase();
                 case '#microsoft.graph.exactMatchUploadAgent': return new ExactMatchUploadAgent();
                 case '#microsoft.graph.exchangeAdmin': return new ExchangeAdmin();
+                case '#microsoft.graph.exchangeMessageTrace': return new ExchangeMessageTrace();
+                case '#microsoft.graph.exchangeMessageTraceDetail': return new ExchangeMessageTraceDetail();
                 case '#microsoft.graph.exchangeProtectionPolicy': return new ExchangeProtectionPolicy();
                 case '#microsoft.graph.exchangeRestoreSession': return new ExchangeRestoreSession();
                 case '#microsoft.graph.exchangeSettings': return new ExchangeSettings();
@@ -1497,6 +1503,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.messageRecipient': return new MessageRecipient();
                 case '#microsoft.graph.messageRule': return new MessageRule();
                 case '#microsoft.graph.messageTrace': return new MessageTrace();
+                case '#microsoft.graph.messageTracingRoot': return new MessageTracingRoot();
                 case '#microsoft.graph.mfaCompletionMetric': return new MfaCompletionMetric();
                 case '#microsoft.graph.mfaFailure': return new MfaFailure();
                 case '#microsoft.graph.mfaTelecomFraudMetric': return new MfaTelecomFraudMetric();
@@ -2581,8 +2588,11 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.workbookWorksheet': return new WorkbookWorksheet();
                 case '#microsoft.graph.workbookWorksheetProtection': return new WorkbookWorksheetProtection();
                 case '#microsoft.graph.workforceIntegration': return new WorkforceIntegration();
+                case '#microsoft.graph.workHoursAndLocationsSetting': return new WorkHoursAndLocationsSetting();
                 case '#microsoft.graph.workingTimeSchedule': return new WorkingTimeSchedule();
                 case '#microsoft.graph.workplaceSensorDevice': return new WorkplaceSensorDevice();
+                case '#microsoft.graph.workPlanOccurrence': return new WorkPlanOccurrence();
+                case '#microsoft.graph.workPlanRecurrence': return new WorkPlanRecurrence();
                 case '#microsoft.graph.workPosition': return new WorkPosition();
                 case '#microsoft.graph.workspace': return new Workspace();
                 case '#microsoft.graph.x509CertificateAuthenticationMethodConfiguration': return new X509CertificateAuthenticationMethodConfiguration();

@@ -89,6 +89,7 @@ class UserSettings extends Entity implements Parsable
             'shiftPreferences' => fn(ParseNode $n) => $o->setShiftPreferences($n->getObjectValue([ShiftPreferences::class, 'createFromDiscriminatorValue'])),
             'storage' => fn(ParseNode $n) => $o->setStorage($n->getObjectValue([UserStorage::class, 'createFromDiscriminatorValue'])),
             'windows' => fn(ParseNode $n) => $o->setWindows($n->getCollectionOfObjectValues([WindowsSetting::class, 'createFromDiscriminatorValue'])),
+            'workHoursAndLocations' => fn(ParseNode $n) => $o->setWorkHoursAndLocations($n->getObjectValue([WorkHoursAndLocationsSetting::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -155,6 +156,18 @@ class UserSettings extends Entity implements Parsable
     }
 
     /**
+     * Gets the workHoursAndLocations property value. The user's settings for work hours and location preferences for scheduling and availability management.
+     * @return WorkHoursAndLocationsSetting|null
+    */
+    public function getWorkHoursAndLocations(): ?WorkHoursAndLocationsSetting {
+        $val = $this->getBackingStore()->get('workHoursAndLocations');
+        if (is_null($val) || $val instanceof WorkHoursAndLocationsSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workHoursAndLocations'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -169,6 +182,7 @@ class UserSettings extends Entity implements Parsable
         $writer->writeObjectValue('shiftPreferences', $this->getShiftPreferences());
         $writer->writeObjectValue('storage', $this->getStorage());
         $writer->writeCollectionOfObjectValues('windows', $this->getWindows());
+        $writer->writeObjectValue('workHoursAndLocations', $this->getWorkHoursAndLocations());
     }
 
     /**
@@ -241,6 +255,14 @@ class UserSettings extends Entity implements Parsable
     */
     public function setWindows(?array $value): void {
         $this->getBackingStore()->set('windows', $value);
+    }
+
+    /**
+     * Sets the workHoursAndLocations property value. The user's settings for work hours and location preferences for scheduling and availability management.
+     * @param WorkHoursAndLocationsSetting|null $value Value to set for the workHoursAndLocations property.
+    */
+    public function setWorkHoursAndLocations(?WorkHoursAndLocationsSetting $value): void {
+        $this->getBackingStore()->set('workHoursAndLocations', $value);
     }
 
 }

@@ -76,7 +76,7 @@ class Desk extends Place implements Parsable
     }
 
     /**
-     * Gets the mode property value. The mode of the desk. The supported modes are:assignedPlaceMode - Desks that are assigned to a user.reservablePlaceMode - Desks that can be booked in advance using desk reservation tools.dropInPlaceMode - First come, first served desks. When you plug into a peripheral on one of these desks, the desk is booked for you, assuming the peripheral is associated with the desk in the Microsoft Teams Rooms Pro management portal.unavailablePlaceMode - Desk that is taken down for maintenance or marked as not reservable.
+     * Gets the mode property value. The mode of the desk. The supported modes are:assignedPlaceMode - Desks that are assigned to a user.reservablePlaceMode - Desks that can be booked in advance using desk reservation tools.dropInPlaceMode - First come, first served desks. When you plug into a peripheral on one of these desks, the desk is booked for you, assuming the peripheral is associated with the desk in the Microsoft Teams Rooms pro management portal.unavailablePlaceMode - Desks that are taken down for maintenance or marked as not reservable.
      * @return PlaceMode|null
     */
     public function getMode(): ?PlaceMode {
@@ -124,7 +124,7 @@ class Desk extends Place implements Parsable
     }
 
     /**
-     * Sets the mode property value. The mode of the desk. The supported modes are:assignedPlaceMode - Desks that are assigned to a user.reservablePlaceMode - Desks that can be booked in advance using desk reservation tools.dropInPlaceMode - First come, first served desks. When you plug into a peripheral on one of these desks, the desk is booked for you, assuming the peripheral is associated with the desk in the Microsoft Teams Rooms Pro management portal.unavailablePlaceMode - Desk that is taken down for maintenance or marked as not reservable.
+     * Sets the mode property value. The mode of the desk. The supported modes are:assignedPlaceMode - Desks that are assigned to a user.reservablePlaceMode - Desks that can be booked in advance using desk reservation tools.dropInPlaceMode - First come, first served desks. When you plug into a peripheral on one of these desks, the desk is booked for you, assuming the peripheral is associated with the desk in the Microsoft Teams Rooms pro management portal.unavailablePlaceMode - Desks that are taken down for maintenance or marked as not reservable.
      * @param PlaceMode|null $value Value to set for the mode property.
     */
     public function setMode(?PlaceMode $value): void {

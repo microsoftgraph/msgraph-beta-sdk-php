@@ -26,4 +26,5 @@ class RiskDetail extends Enum {
     public const ADMIN_CONFIRMED_AGENT_SAFE = "adminConfirmedAgentSafe";
     public const ADMIN_CONFIRMED_AGENT_COMPROMISED = "adminConfirmedAgentCompromised";
     public const ADMIN_DISMISSED_RISK_FOR_AGENT = "adminDismissedRiskForAgent";
+    public const MICROSOFT_REVOKED_SESSIONS = "microsoftRevokedSessions";
 }

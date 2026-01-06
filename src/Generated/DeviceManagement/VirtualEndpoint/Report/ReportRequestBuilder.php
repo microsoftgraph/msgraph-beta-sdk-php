@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Report
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Report\RetrieveCloudPcClientAppUsageReport\RetrieveCloudPcClientAppUsageReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Report\RetrieveCloudPcRecommendationReports\RetrieveCloudPcRecommendationReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcReport;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -17,6 +18,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class ReportRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to call the retrieveCloudPcClientAppUsageReport method.
+    */
+    public function retrieveCloudPcClientAppUsageReport(): RetrieveCloudPcClientAppUsageReportRequestBuilder {
+        return new RetrieveCloudPcClientAppUsageReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to call the retrieveCloudPcRecommendationReports method.
     */

@@ -42,6 +42,7 @@ class UserSet implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.internalSponsors': return new InternalSponsors();
                 case '#microsoft.graph.requestorManager': return new RequestorManager();
                 case '#microsoft.graph.singleUser': return new SingleUser();
+                case '#microsoft.graph.targetAgentIdentitySponsorsOrOwners': return new TargetAgentIdentitySponsorsOrOwners();
                 case '#microsoft.graph.targetUserSponsors': return new TargetUserSponsors();
             }
         }

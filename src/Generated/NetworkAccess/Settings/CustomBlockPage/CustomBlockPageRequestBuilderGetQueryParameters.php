@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Settings\CustomBlockPage;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get customBlockPage from networkAccess
+ * Read the properties and relationships of microsoft.graph.networkaccess.customBlockPage object.
 */
 class CustomBlockPageRequestBuilderGetQueryParameters 
 {

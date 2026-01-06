@@ -26,7 +26,7 @@ class CustomBlockPage extends Entity implements Parsable
     }
 
     /**
-     * Gets the configuration property value. The configuration property
+     * Gets the configuration property value. The current configuration of the customized message. The body can be input in limited markdown language, supporting links via the format: link.
      * @return BlockPageConfigurationBase|null
     */
     public function getConfiguration(): ?BlockPageConfigurationBase {
@@ -72,7 +72,7 @@ class CustomBlockPage extends Entity implements Parsable
     }
 
     /**
-     * Sets the configuration property value. The configuration property
+     * Sets the configuration property value. The current configuration of the customized message. The body can be input in limited markdown language, supporting links via the format: link.
      * @param BlockPageConfigurationBase|null $value Value to set for the configuration property.
     */
     public function setConfiguration(?BlockPageConfigurationBase $value): void {

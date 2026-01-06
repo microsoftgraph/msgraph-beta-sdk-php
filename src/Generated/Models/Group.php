@@ -450,6 +450,7 @@ class Group extends DirectoryObject implements Parsable
             'unseenCount' => fn(ParseNode $n) => $o->setUnseenCount($n->getIntegerValue()),
             'unseenMessagesCount' => fn(ParseNode $n) => $o->setUnseenMessagesCount($n->getIntegerValue()),
             'visibility' => fn(ParseNode $n) => $o->setVisibility($n->getStringValue()),
+            'welcomeMessageEnabled' => fn(ParseNode $n) => $o->setWelcomeMessageEnabled($n->getBooleanValue()),
             'writebackConfiguration' => fn(ParseNode $n) => $o->setWritebackConfiguration($n->getObjectValue([GroupWritebackConfiguration::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -1191,6 +1192,18 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the welcomeMessageEnabled property value. The welcomeMessageEnabled property
+     * @return bool|null
+    */
+    public function getWelcomeMessageEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('welcomeMessageEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'welcomeMessageEnabled'");
+    }
+
+    /**
      * Gets the writebackConfiguration property value. Specifies whether or not a group is configured to write back group object properties to on-premises Active Directory. These properties are used when group writeback is configured in the Microsoft Entra Connect sync client.
      * @return GroupWritebackConfiguration|null
     */
@@ -1289,6 +1302,7 @@ class Group extends DirectoryObject implements Parsable
         $writer->writeIntegerValue('unseenCount', $this->getUnseenCount());
         $writer->writeIntegerValue('unseenMessagesCount', $this->getUnseenMessagesCount());
         $writer->writeStringValue('visibility', $this->getVisibility());
+        $writer->writeBooleanValue('welcomeMessageEnabled', $this->getWelcomeMessageEnabled());
         $writer->writeObjectValue('writebackConfiguration', $this->getWritebackConfiguration());
     }
 
@@ -1938,6 +1952,14 @@ class Group extends DirectoryObject implements Parsable
     */
     public function setVisibility(?string $value): void {
         $this->getBackingStore()->set('visibility', $value);
+    }
+
+    /**
+     * Sets the welcomeMessageEnabled property value. The welcomeMessageEnabled property
+     * @param bool|null $value Value to set for the welcomeMessageEnabled property.
+    */
+    public function setWelcomeMessageEnabled(?bool $value): void {
+        $this->getBackingStore()->set('welcomeMessageEnabled', $value);
     }
 
     /**

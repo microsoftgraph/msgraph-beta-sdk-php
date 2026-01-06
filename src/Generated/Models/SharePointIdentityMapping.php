@@ -33,12 +33,25 @@ class SharePointIdentityMapping extends Entity implements Parsable
     }
 
     /**
+     * Gets the deleted property value. Indicates that an identity mapping was deleted successfully.
+     * @return Deleted|null
+    */
+    public function getDeleted(): ?Deleted {
+        $val = $this->getBackingStore()->get('deleted');
+        if (is_null($val) || $val instanceof Deleted) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deleted'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'deleted' => fn(ParseNode $n) => $o->setDeleted($n->getObjectValue([Deleted::class, 'createFromDiscriminatorValue'])),
             'sourceOrganizationId' => fn(ParseNode $n) => $o->setSourceOrganizationId($n->getStringValue()),
         ]);
     }
@@ -61,7 +74,16 @@ class SharePointIdentityMapping extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('deleted', $this->getDeleted());
         $writer->writeStringValue('sourceOrganizationId', $this->getSourceOrganizationId());
+    }
+
+    /**
+     * Sets the deleted property value. Indicates that an identity mapping was deleted successfully.
+     * @param Deleted|null $value Value to set for the deleted property.
+    */
+    public function setDeleted(?Deleted $value): void {
+        $this->getBackingStore()->set('deleted', $value);
     }
 
     /**
