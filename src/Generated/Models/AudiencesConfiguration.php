@@ -49,11 +49,11 @@ class AudiencesConfiguration implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Gets the azureAdMultipleOrgs property value. Setting to allow or disallow creation of apps with multitenant signInAudience.
-     * @return AudienceRestriction|null
+     * @return AzureAdMultipleOrgsAudienceRestriction|null
     */
-    public function getAzureAdMultipleOrgs(): ?AudienceRestriction {
+    public function getAzureAdMultipleOrgs(): ?AzureAdMultipleOrgsAudienceRestriction {
         $val = $this->getBackingStore()->get('azureAdMultipleOrgs');
-        if (is_null($val) || $val instanceof AudienceRestriction) {
+        if (is_null($val) || $val instanceof AzureAdMultipleOrgsAudienceRestriction) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'azureAdMultipleOrgs'");
@@ -74,7 +74,7 @@ class AudiencesConfiguration implements AdditionalDataHolder, BackedModel, Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'azureAdMultipleOrgs' => fn(ParseNode $n) => $o->setAzureAdMultipleOrgs($n->getObjectValue([AudienceRestriction::class, 'createFromDiscriminatorValue'])),
+            'azureAdMultipleOrgs' => fn(ParseNode $n) => $o->setAzureAdMultipleOrgs($n->getObjectValue([AzureAdMultipleOrgsAudienceRestriction::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'personalMicrosoftAccount' => fn(ParseNode $n) => $o->setPersonalMicrosoftAccount($n->getObjectValue([AudienceRestriction::class, 'createFromDiscriminatorValue'])),
         ];
@@ -125,9 +125,9 @@ class AudiencesConfiguration implements AdditionalDataHolder, BackedModel, Parsa
 
     /**
      * Sets the azureAdMultipleOrgs property value. Setting to allow or disallow creation of apps with multitenant signInAudience.
-     * @param AudienceRestriction|null $value Value to set for the azureAdMultipleOrgs property.
+     * @param AzureAdMultipleOrgsAudienceRestriction|null $value Value to set for the azureAdMultipleOrgs property.
     */
-    public function setAzureAdMultipleOrgs(?AudienceRestriction $value): void {
+    public function setAzureAdMultipleOrgs(?AzureAdMultipleOrgsAudienceRestriction $value): void {
         $this->getBackingStore()->set('azureAdMultipleOrgs', $value);
     }
 

@@ -32,6 +32,13 @@ class AudienceRestriction implements AdditionalDataHolder, BackedModel, Parsable
      * @return AudienceRestriction
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AudienceRestriction {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.azureAdMultipleOrgsAudienceRestriction': return new AzureAdMultipleOrgsAudienceRestriction();
+            }
+        }
         return new AudienceRestriction();
     }
 

@@ -16,6 +16,7 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Planner\Plann
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\ProvisionEmail\ProvisionEmailRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\RemoveEmail\RemoveEmailRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\SharedWithTeams\SharedWithTeamsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\StartMigration\StartMigrationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Tabs\TabsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Unarchive\UnarchiveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Channel;
@@ -112,6 +113,13 @@ class PrimaryChannelRequestBuilder extends BaseRequestBuilder
     */
     public function sharedWithTeams(): SharedWithTeamsRequestBuilder {
         return new SharedWithTeamsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the startMigration method.
+    */
+    public function startMigration(): StartMigrationRequestBuilder {
+        return new StartMigrationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

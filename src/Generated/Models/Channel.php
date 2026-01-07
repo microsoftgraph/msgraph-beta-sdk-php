@@ -122,7 +122,9 @@ class Channel extends Entity implements Parsable
             'members' => fn(ParseNode $n) => $o->setMembers($n->getCollectionOfObjectValues([ConversationMember::class, 'createFromDiscriminatorValue'])),
             'membershipType' => fn(ParseNode $n) => $o->setMembershipType($n->getEnumValue(ChannelMembershipType::class)),
             'messages' => fn(ParseNode $n) => $o->setMessages($n->getCollectionOfObjectValues([ChatMessage::class, 'createFromDiscriminatorValue'])),
+            'migrationMode' => fn(ParseNode $n) => $o->setMigrationMode($n->getEnumValue(MigrationMode::class)),
             'moderationSettings' => fn(ParseNode $n) => $o->setModerationSettings($n->getObjectValue([ChannelModerationSettings::class, 'createFromDiscriminatorValue'])),
+            'originalCreatedDateTime' => fn(ParseNode $n) => $o->setOriginalCreatedDateTime($n->getDateTimeValue()),
             'planner' => fn(ParseNode $n) => $o->setPlanner($n->getObjectValue([TeamsChannelPlanner::class, 'createFromDiscriminatorValue'])),
             'sharedWithTeams' => fn(ParseNode $n) => $o->setSharedWithTeams($n->getCollectionOfObjectValues([SharedWithChannelTeamInfo::class, 'createFromDiscriminatorValue'])),
             'summary' => fn(ParseNode $n) => $o->setSummary($n->getObjectValue([ChannelSummary::class, 'createFromDiscriminatorValue'])),
@@ -221,6 +223,18 @@ class Channel extends Entity implements Parsable
     }
 
     /**
+     * Gets the migrationMode property value. Indicates whether a channel is in migration mode. This value is null for channels that never entered migration mode. The possible values are: inProgress, completed, unknownFutureValue.
+     * @return MigrationMode|null
+    */
+    public function getMigrationMode(): ?MigrationMode {
+        $val = $this->getBackingStore()->get('migrationMode');
+        if (is_null($val) || $val instanceof MigrationMode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'migrationMode'");
+    }
+
+    /**
      * Gets the moderationSettings property value. Settings to configure channel moderation to control who can start new posts and reply to posts in that channel.
      * @return ChannelModerationSettings|null
     */
@@ -230,6 +244,18 @@ class Channel extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'moderationSettings'");
+    }
+
+    /**
+     * Gets the originalCreatedDateTime property value. Timestamp of the original creation time for the channel. The value is null if the channel never entered migration mode.
+     * @return DateTime|null
+    */
+    public function getOriginalCreatedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('originalCreatedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'originalCreatedDateTime'");
     }
 
     /**
@@ -327,7 +353,9 @@ class Channel extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('members', $this->getMembers());
         $writer->writeEnumValue('membershipType', $this->getMembershipType());
         $writer->writeCollectionOfObjectValues('messages', $this->getMessages());
+        $writer->writeEnumValue('migrationMode', $this->getMigrationMode());
         $writer->writeObjectValue('moderationSettings', $this->getModerationSettings());
+        $writer->writeDateTimeValue('originalCreatedDateTime', $this->getOriginalCreatedDateTime());
         $writer->writeObjectValue('planner', $this->getPlanner());
         $writer->writeCollectionOfObjectValues('sharedWithTeams', $this->getSharedWithTeams());
         $writer->writeObjectValue('summary', $this->getSummary());
@@ -441,11 +469,27 @@ class Channel extends Entity implements Parsable
     }
 
     /**
+     * Sets the migrationMode property value. Indicates whether a channel is in migration mode. This value is null for channels that never entered migration mode. The possible values are: inProgress, completed, unknownFutureValue.
+     * @param MigrationMode|null $value Value to set for the migrationMode property.
+    */
+    public function setMigrationMode(?MigrationMode $value): void {
+        $this->getBackingStore()->set('migrationMode', $value);
+    }
+
+    /**
      * Sets the moderationSettings property value. Settings to configure channel moderation to control who can start new posts and reply to posts in that channel.
      * @param ChannelModerationSettings|null $value Value to set for the moderationSettings property.
     */
     public function setModerationSettings(?ChannelModerationSettings $value): void {
         $this->getBackingStore()->set('moderationSettings', $value);
+    }
+
+    /**
+     * Sets the originalCreatedDateTime property value. Timestamp of the original creation time for the channel. The value is null if the channel never entered migration mode.
+     * @param DateTime|null $value Value to set for the originalCreatedDateTime property.
+    */
+    public function setOriginalCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('originalCreatedDateTime', $value);
     }
 
     /**

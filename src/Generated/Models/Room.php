@@ -169,7 +169,7 @@ class Room extends Place implements Parsable
     }
 
     /**
-     * Gets the placeId property value. An alternate immutable unique identifier of the room. Read-only.
+     * Gets the placeId property value. An alternative immutable unique identifier of the room. Read-only.
      * @return string|null
     */
     public function getPlaceId(): ?string {
@@ -306,7 +306,7 @@ class Room extends Place implements Parsable
     }
 
     /**
-     * Sets the placeId property value. An alternate immutable unique identifier of the room. Read-only.
+     * Sets the placeId property value. An alternative immutable unique identifier of the room. Read-only.
      * @param string|null $value Value to set for the placeId property.
     */
     public function setPlaceId(?string $value): void {

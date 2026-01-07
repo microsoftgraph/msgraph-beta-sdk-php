@@ -30,7 +30,7 @@ class SetManualLocationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set the manual work location signal for a user. The explicit value chosen by a user (or an authorized client) overrides any automatically detected or scheduled working hours and location.
+     * Set the manual work location signal for a user. The explicit value chosen by a user or an authorized client overrides any automatically detected or scheduled working hours and location.
      * @param SetManualLocationPostRequestBody $body The request body
      * @param SetManualLocationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -46,7 +46,7 @@ class SetManualLocationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Set the manual work location signal for a user. The explicit value chosen by a user (or an authorized client) overrides any automatically detected or scheduled working hours and location.
+     * Set the manual work location signal for a user. The explicit value chosen by a user or an authorized client overrides any automatically detected or scheduled working hours and location.
      * @param SetManualLocationPostRequestBody $body The request body
      * @param SetManualLocationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -18,6 +18,7 @@ use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Channels\Item\ProvisionEmail\ProvisionEmailRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Channels\Item\RemoveEmail\RemoveEmailRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Channels\Item\SharedWithTeams\SharedWithTeamsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Channels\Item\StartMigration\StartMigrationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Channels\Item\Tabs\TabsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Channels\Item\Unarchive\UnarchiveRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -112,6 +113,13 @@ class ChannelItemRequestBuilder extends BaseRequestBuilder
     */
     public function sharedWithTeams(): SharedWithTeamsRequestBuilder {
         return new SharedWithTeamsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the startMigration method.
+    */
+    public function startMigration(): StartMigrationRequestBuilder {
+        return new StartMigrationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

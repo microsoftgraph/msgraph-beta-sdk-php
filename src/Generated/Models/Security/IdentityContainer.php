@@ -83,7 +83,7 @@ class IdentityContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the sensorCandidates property value. Represents Microsoft Defender for Identity sensors that are ready to be activated.
+     * Gets the sensorCandidates property value. The sensorCandidates property
      * @return array<SensorCandidate>|null
     */
     public function getSensorCandidates(): ?array {
@@ -111,7 +111,7 @@ class IdentityContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the settings property value. Represents a container for security identities settings APIs.
+     * Gets the settings property value. The settings property
      * @return SettingsContainer|null
     */
     public function getSettings(): ?SettingsContainer {
@@ -161,7 +161,7 @@ class IdentityContainer extends Entity implements Parsable
     }
 
     /**
-     * Sets the sensorCandidates property value. Represents Microsoft Defender for Identity sensors that are ready to be activated.
+     * Sets the sensorCandidates property value. The sensorCandidates property
      * @param array<SensorCandidate>|null $value Value to set for the sensorCandidates property.
     */
     public function setSensorCandidates(?array $value): void {
@@ -177,7 +177,7 @@ class IdentityContainer extends Entity implements Parsable
     }
 
     /**
-     * Sets the settings property value. Represents a container for security identities settings APIs.
+     * Sets the settings property value. The settings property
      * @param SettingsContainer|null $value Value to set for the settings property.
     */
     public function setSettings(?SettingsContainer $value): void {

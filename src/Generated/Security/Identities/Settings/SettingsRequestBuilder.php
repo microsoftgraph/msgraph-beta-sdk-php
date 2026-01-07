@@ -45,7 +45,7 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents a container for security identities settings APIs.
+     * Get settings from security
      * @param SettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SettingsContainer|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents a container for security identities settings APIs.
+     * Get settings from security
      * @param SettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

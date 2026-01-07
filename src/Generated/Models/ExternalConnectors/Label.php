@@ -35,4 +35,23 @@ class Label extends Enum {
     public const PRIORITY_NORMALIZED = "priorityNormalized";
     public const REPORTED_BY = "reportedBy";
     public const SECONDARY_ID = "secondaryId";
+    public const PERSON_EMAILS = "personEmails";
+    public const PERSON_ADDRESSES = "personAddresses";
+    public const PERSON_ANNIVERSARIES = "personAnniversaries";
+    public const PERSON_NAME = "personName";
+    public const PERSON_NOTE = "personNote";
+    public const PERSON_PHONES = "personPhones";
+    public const PERSON_CURRENT_POSITION = "personCurrentPosition";
+    public const PERSON_WEB_ACCOUNTS = "personWebAccounts";
+    public const PERSON_WEB_SITE = "personWebSite";
+    public const PERSON_SKILLS = "personSkills";
+    public const PERSON_PROJECTS = "personProjects";
+    public const PERSON_ACCOUNT = "personAccount";
+    public const PERSON_AWARDS = "personAwards";
+    public const PERSON_CERTIFICATIONS = "personCertifications";
+    public const PERSON_ASSISTANTS = "personAssistants";
+    public const PERSON_COLLEAGUES = "personColleagues";
+    public const PERSON_MANAGER = "personManager";
+    public const PERSON_ALTERNATE_CONTACTS = "personAlternateContacts";
+    public const PERSON_EMERGENCY_CONTACTS = "personEmergencyContacts";
 }

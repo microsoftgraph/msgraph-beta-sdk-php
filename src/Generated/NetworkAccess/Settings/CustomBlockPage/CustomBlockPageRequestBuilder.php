@@ -45,10 +45,11 @@ class CustomBlockPageRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get customBlockPage from networkAccess
+     * Read the properties and relationships of microsoft.graph.networkaccess.customBlockPage object.
      * @param CustomBlockPageRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomBlockPage|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-customblockpage-get?view=graph-rest-beta Find more info here
     */
     public function get(?CustomBlockPageRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,11 +60,12 @@ class CustomBlockPageRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property customBlockPage in networkAccess
+     * Update the properties of a customBlockPage object.
      * @param CustomBlockPage $body The request body
      * @param CustomBlockPageRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomBlockPage|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/networkaccess-customblockpage-update?view=graph-rest-beta Find more info here
     */
     public function patch(CustomBlockPage $body, ?CustomBlockPageRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -92,7 +94,7 @@ class CustomBlockPageRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get customBlockPage from networkAccess
+     * Read the properties and relationships of microsoft.graph.networkaccess.customBlockPage object.
      * @param CustomBlockPageRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +115,7 @@ class CustomBlockPageRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property customBlockPage in networkAccess
+     * Update the properties of a customBlockPage object.
      * @param CustomBlockPage $body The request body
      * @param CustomBlockPageRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

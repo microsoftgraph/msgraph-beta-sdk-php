@@ -5,6 +5,8 @@ namespace Microsoft\Graph\Beta\Generated\Communications\AdhocCalls;
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Communications\AdhocCalls\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\AdhocCalls\GetAllRecordingsuserIdUserIdWithStartDateTimeWithEndDateTime\GetAllRecordingsuserIdUserIdWithStartDateTimeWithEndDateTimeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\AdhocCalls\GetAllTranscriptsuserIdUserIdWithStartDateTimeWithEndDateTime\GetAllTranscriptsuserIdUserIdWithStartDateTimeWithEndDateTimeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\AdhocCalls\Item\AdhocCallItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AdhocCall;
 use Microsoft\Graph\Beta\Generated\Models\AdhocCallCollectionResponse;
@@ -24,6 +26,20 @@ class AdhocCallsRequestBuilder extends BaseRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getAllRecordings method.
+    */
+    public function getAllRecordingsuserIdUserIdWithStartDateTimeWithEndDateTime(): GetAllRecordingsuserIdUserIdWithStartDateTimeWithEndDateTimeRequestBuilder {
+        return new GetAllRecordingsuserIdUserIdWithStartDateTimeWithEndDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getAllTranscripts method.
+    */
+    public function getAllTranscriptsuserIdUserIdWithStartDateTimeWithEndDateTime(): GetAllTranscriptsuserIdUserIdWithStartDateTimeWithEndDateTimeRequestBuilder {
+        return new GetAllTranscriptsuserIdUserIdWithStartDateTimeWithEndDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -31,4 +31,6 @@ class ProtocolType extends Enum {
     public const PRT_NON_BROKER_BASED = "prtNonBrokerBased";
     public const ON_BEHALF_OF = "onBehalfOf";
     public const SAML_ON_BEHALF_OF = "samlOnBehalfOf";
+    public const OFFICE_S2_S = "officeS2S";
+    public const WS_TRUST = "wsTrust";
 }

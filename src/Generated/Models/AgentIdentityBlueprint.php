@@ -33,8 +33,23 @@ class AgentIdentityBlueprint extends Application implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'inheritablePermissions' => fn(ParseNode $n) => $o->setInheritablePermissions($n->getCollectionOfObjectValues([InheritablePermission::class, 'createFromDiscriminatorValue'])),
             'sponsors' => fn(ParseNode $n) => $o->setSponsors($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the inheritablePermissions property value. Defines scopes of a resource application that may be automatically granted to agent identities without additional consent.
+     * @return array<InheritablePermission>|null
+    */
+    public function getInheritablePermissions(): ?array {
+        $val = $this->getBackingStore()->get('inheritablePermissions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, InheritablePermission::class);
+            /** @var array<InheritablePermission>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inheritablePermissions'");
     }
 
     /**
@@ -57,7 +72,16 @@ class AgentIdentityBlueprint extends Application implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('inheritablePermissions', $this->getInheritablePermissions());
         $writer->writeCollectionOfObjectValues('sponsors', $this->getSponsors());
+    }
+
+    /**
+     * Sets the inheritablePermissions property value. Defines scopes of a resource application that may be automatically granted to agent identities without additional consent.
+     * @param array<InheritablePermission>|null $value Value to set for the inheritablePermissions property.
+    */
+    public function setInheritablePermissions(?array $value): void {
+        $this->getBackingStore()->set('inheritablePermissions', $value);
     }
 
     /**

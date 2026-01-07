@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Identities\SensorCandidates\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents Microsoft Defender for Identity sensors that are ready to be activated.
+ * Get sensorCandidates from security
 */
 class SensorCandidateItemRequestBuilderGetQueryParameters 
 {

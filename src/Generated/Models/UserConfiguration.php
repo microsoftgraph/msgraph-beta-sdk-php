@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 use Psr\Http\Message\StreamInterface;
 
 class UserConfiguration extends Entity implements Parsable 
@@ -45,7 +46,35 @@ class UserConfiguration extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'binaryData' => fn(ParseNode $n) => $o->setBinaryData($n->getBinaryContent()),
+            'structuredData' => fn(ParseNode $n) => $o->setStructuredData($n->getCollectionOfObjectValues([StructuredDataEntry::class, 'createFromDiscriminatorValue'])),
+            'xmlData' => fn(ParseNode $n) => $o->setXmlData($n->getBinaryContent()),
         ]);
+    }
+
+    /**
+     * Gets the structuredData property value. Key-value pairs of supported data types.
+     * @return array<StructuredDataEntry>|null
+    */
+    public function getStructuredData(): ?array {
+        $val = $this->getBackingStore()->get('structuredData');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, StructuredDataEntry::class);
+            /** @var array<StructuredDataEntry>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'structuredData'");
+    }
+
+    /**
+     * Gets the xmlData property value. Binary data for storing serialized XML.
+     * @return StreamInterface|null
+    */
+    public function getXmlData(): ?StreamInterface {
+        $val = $this->getBackingStore()->get('xmlData');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'xmlData'");
     }
 
     /**
@@ -55,6 +84,8 @@ class UserConfiguration extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBinaryContent('binaryData', $this->getBinaryData());
+        $writer->writeCollectionOfObjectValues('structuredData', $this->getStructuredData());
+        $writer->writeBinaryContent('xmlData', $this->getXmlData());
     }
 
     /**
@@ -63,6 +94,22 @@ class UserConfiguration extends Entity implements Parsable
     */
     public function setBinaryData(?StreamInterface $value): void {
         $this->getBackingStore()->set('binaryData', $value);
+    }
+
+    /**
+     * Sets the structuredData property value. Key-value pairs of supported data types.
+     * @param array<StructuredDataEntry>|null $value Value to set for the structuredData property.
+    */
+    public function setStructuredData(?array $value): void {
+        $this->getBackingStore()->set('structuredData', $value);
+    }
+
+    /**
+     * Sets the xmlData property value. Binary data for storing serialized XML.
+     * @param StreamInterface|null $value Value to set for the xmlData property.
+    */
+    public function setXmlData(?StreamInterface $value): void {
+        $this->getBackingStore()->set('xmlData', $value);
     }
 
 }

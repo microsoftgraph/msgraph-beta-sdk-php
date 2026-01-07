@@ -37,7 +37,7 @@ class UnavailablePlaceMode extends PlaceMode implements Parsable
     }
 
     /**
-     * Gets the reason property value. Reason for marking a place unavailable.
+     * Gets the reason property value. The reason a place is marked unavailable.
      * @return string|null
     */
     public function getReason(): ?string {
@@ -58,7 +58,7 @@ class UnavailablePlaceMode extends PlaceMode implements Parsable
     }
 
     /**
-     * Sets the reason property value. Reason for marking a place unavailable.
+     * Sets the reason property value. The reason a place is marked unavailable.
      * @param string|null $value Value to set for the reason property.
     */
     public function setReason(?string $value): void {

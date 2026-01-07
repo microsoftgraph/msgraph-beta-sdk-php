@@ -13,6 +13,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Settings\RegionalAndLanguageSettin
 use Microsoft\Graph\Beta\Generated\Users\Item\Settings\ShiftPreferences\ShiftPreferencesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Settings\Storage\StorageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Settings\Windows\WindowsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Settings\WorkHoursAndLocations\WorkHoursAndLocationsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -70,6 +71,13 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     */
     public function windows(): WindowsRequestBuilder {
         return new WindowsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the workHoursAndLocations property of the microsoft.graph.userSettings entity.
+    */
+    public function workHoursAndLocations(): WorkHoursAndLocationsRequestBuilder {
+        return new WorkHoursAndLocationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

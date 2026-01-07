@@ -75,7 +75,6 @@ class CloudPcDeviceImage extends Entity implements Parsable
             'expirationDate' => fn(ParseNode $n) => $o->setExpirationDate($n->getDateValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'operatingSystem' => fn(ParseNode $n) => $o->setOperatingSystem($n->getStringValue()),
-            'osArchitecture' => fn(ParseNode $n) => $o->setOsArchitecture($n->getEnumValue(CloudPcImageOsArchitectureType::class)),
             'osBuildNumber' => fn(ParseNode $n) => $o->setOsBuildNumber($n->getStringValue()),
             'osStatus' => fn(ParseNode $n) => $o->setOsStatus($n->getEnumValue(CloudPcDeviceImageOsStatus::class)),
             'osVersionNumber' => fn(ParseNode $n) => $o->setOsVersionNumber($n->getStringValue()),
@@ -117,18 +116,6 @@ class CloudPcDeviceImage extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'operatingSystem'");
-    }
-
-    /**
-     * Gets the osArchitecture property value. The osArchitecture property
-     * @return CloudPcImageOsArchitectureType|null
-    */
-    public function getOsArchitecture(): ?CloudPcImageOsArchitectureType {
-        $val = $this->getBackingStore()->get('osArchitecture');
-        if (is_null($val) || $val instanceof CloudPcImageOsArchitectureType) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'osArchitecture'");
     }
 
     /**
@@ -252,7 +239,6 @@ class CloudPcDeviceImage extends Entity implements Parsable
         $writer->writeDateValue('expirationDate', $this->getExpirationDate());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('operatingSystem', $this->getOperatingSystem());
-        $writer->writeEnumValue('osArchitecture', $this->getOsArchitecture());
         $writer->writeStringValue('osBuildNumber', $this->getOsBuildNumber());
         $writer->writeEnumValue('osStatus', $this->getOsStatus());
         $writer->writeStringValue('osVersionNumber', $this->getOsVersionNumber());
@@ -302,14 +288,6 @@ class CloudPcDeviceImage extends Entity implements Parsable
     */
     public function setOperatingSystem(?string $value): void {
         $this->getBackingStore()->set('operatingSystem', $value);
-    }
-
-    /**
-     * Sets the osArchitecture property value. The osArchitecture property
-     * @param CloudPcImageOsArchitectureType|null $value Value to set for the osArchitecture property.
-    */
-    public function setOsArchitecture(?CloudPcImageOsArchitectureType $value): void {
-        $this->getBackingStore()->set('osArchitecture', $value);
     }
 
     /**

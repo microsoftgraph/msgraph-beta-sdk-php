@@ -399,6 +399,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
             'homepage' => fn(ParseNode $n) => $o->setHomepage($n->getStringValue()),
             'homeRealmDiscoveryPolicies' => fn(ParseNode $n) => $o->setHomeRealmDiscoveryPolicies($n->getCollectionOfObjectValues([HomeRealmDiscoveryPolicy::class, 'createFromDiscriminatorValue'])),
             'info' => fn(ParseNode $n) => $o->setInfo($n->getObjectValue([InformationalUrl::class, 'createFromDiscriminatorValue'])),
+            'isDisabled' => fn(ParseNode $n) => $o->setIsDisabled($n->getBooleanValue()),
             'keyCredentials' => fn(ParseNode $n) => $o->setKeyCredentials($n->getCollectionOfObjectValues([KeyCredential::class, 'createFromDiscriminatorValue'])),
             'licenseDetails' => fn(ParseNode $n) => $o->setLicenseDetails($n->getCollectionOfObjectValues([LicenseDetails::class, 'createFromDiscriminatorValue'])),
             'loginUrl' => fn(ParseNode $n) => $o->setLoginUrl($n->getStringValue()),
@@ -498,6 +499,18 @@ class ServicePrincipal extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'info'");
+    }
+
+    /**
+     * Gets the isDisabled property value. Specifies whether the service principal of the app in a tenant or across tenants for multi-tenant apps can obtain new access tokens or access protected resources. When set to true, existing tokens remain valid until they expire based on their configured lifetimes, and the app stays visible in the Enterprise apps list but users cannot sign in.true if the application is deactivated (disabled); otherwise false.
+     * @return bool|null
+    */
+    public function getIsDisabled(): ?bool {
+        $val = $this->getBackingStore()->get('isDisabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDisabled'");
     }
 
     /**
@@ -950,6 +963,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
         $writer->writeStringValue('homepage', $this->getHomepage());
         $writer->writeCollectionOfObjectValues('homeRealmDiscoveryPolicies', $this->getHomeRealmDiscoveryPolicies());
         $writer->writeObjectValue('info', $this->getInfo());
+        $writer->writeBooleanValue('isDisabled', $this->getIsDisabled());
         $writer->writeCollectionOfObjectValues('keyCredentials', $this->getKeyCredentials());
         $writer->writeCollectionOfObjectValues('licenseDetails', $this->getLicenseDetails());
         $writer->writeStringValue('loginUrl', $this->getLoginUrl());
@@ -1206,6 +1220,14 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     */
     public function setInfo(?InformationalUrl $value): void {
         $this->getBackingStore()->set('info', $value);
+    }
+
+    /**
+     * Sets the isDisabled property value. Specifies whether the service principal of the app in a tenant or across tenants for multi-tenant apps can obtain new access tokens or access protected resources. When set to true, existing tokens remain valid until they expire based on their configured lifetimes, and the app stays visible in the Enterprise apps list but users cannot sign in.true if the application is deactivated (disabled); otherwise false.
+     * @param bool|null $value Value to set for the isDisabled property.
+    */
+    public function setIsDisabled(?bool $value): void {
+        $this->getBackingStore()->set('isDisabled', $value);
     }
 
     /**
