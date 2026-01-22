@@ -36,6 +36,7 @@ class ProcessContentMetadataBase implements AdditionalDataHolder, BackedModel, P
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.contentActivityMetadata': return new ContentActivityMetadata();
                 case '#microsoft.graph.processConversationMetadata': return new ProcessConversationMetadata();
                 case '#microsoft.graph.processFileMetadata': return new ProcessFileMetadata();
             }

@@ -52,10 +52,11 @@ class MessageTracesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get messageTraces from admin
+     * Get a list of exchangeMessageTrace objects.
      * @param MessageTracesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExchangeMessageTraceCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/messagetracingroot-list-messagetraces?view=graph-rest-beta Find more info here
     */
     public function get(?MessageTracesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class MessageTracesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get messageTraces from admin
+     * Get a list of exchangeMessageTrace objects.
      * @param MessageTracesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -53,7 +53,7 @@ class TracingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get tracing from admin
+     * Represents a container for administrative resources to trace messages.
      * @param TracingRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MessageTracingRoot|null>
      * @throws Exception
@@ -100,7 +100,7 @@ class TracingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get tracing from admin
+     * Represents a container for administrative resources to trace messages.
      * @param TracingRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

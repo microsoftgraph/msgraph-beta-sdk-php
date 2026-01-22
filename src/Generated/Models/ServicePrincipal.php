@@ -814,7 +814,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the servicePrincipalType property value. Identifies if the service principal represents an application or a managed identity. This is set by Microsoft Entra ID internally. For a service principal that represents an application this is set as Application. For a service principal that represents a managed identity this is set as ManagedIdentity. The SocialIdp type is for internal use.
+     * Gets the servicePrincipalType property value. Identifies if the service principal represents an application or a managed identity. This property is set by Microsoft Entra ID internally. For a service principal that represents an application this is set as Application. For a service principal that represents a managed identity this is set as ManagedIdentity.For a service principal that represents an agent identity, this is set to ServiceIdentity. The SocialIdp type is for internal use.
      * @return string|null
     */
     public function getServicePrincipalType(): ?string {
@@ -1415,7 +1415,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the servicePrincipalType property value. Identifies if the service principal represents an application or a managed identity. This is set by Microsoft Entra ID internally. For a service principal that represents an application this is set as Application. For a service principal that represents a managed identity this is set as ManagedIdentity. The SocialIdp type is for internal use.
+     * Sets the servicePrincipalType property value. Identifies if the service principal represents an application or a managed identity. This property is set by Microsoft Entra ID internally. For a service principal that represents an application this is set as Application. For a service principal that represents a managed identity this is set as ManagedIdentity.For a service principal that represents an agent identity, this is set to ServiceIdentity. The SocialIdp type is for internal use.
      * @param string|null $value Value to set for the servicePrincipalType property.
     */
     public function setServicePrincipalType(?string $value): void {

@@ -40,7 +40,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion extends Entity 
     }
 
     /**
-     * Gets the appDisplayName property value. The friendly name of the application. The possible values are: Outlook, Excel. Supports: $select, $OrderBy. Read-only.
+     * Gets the appDisplayName property value. The friendly name of the application. Possible values are: Outlook, Excel. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getAppDisplayName(): ?string {
@@ -52,7 +52,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion extends Entity 
     }
 
     /**
-     * Gets the appName property value. The name of the application. The possible values are: outlook.exe, excel.exe. Supports: $select, $OrderBy. Read-only.
+     * Gets the appName property value. The name of the application. Possible values are: outlook.exe, excel.exe. Supports: $select, $OrderBy. Read-only.
      * @return string|null
     */
     public function getAppName(): ?string {
@@ -152,7 +152,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion extends Entity 
     }
 
     /**
-     * Sets the appDisplayName property value. The friendly name of the application. The possible values are: Outlook, Excel. Supports: $select, $OrderBy. Read-only.
+     * Sets the appDisplayName property value. The friendly name of the application. Possible values are: Outlook, Excel. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the appDisplayName property.
     */
     public function setAppDisplayName(?string $value): void {
@@ -160,7 +160,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion extends Entity 
     }
 
     /**
-     * Sets the appName property value. The name of the application. The possible values are: outlook.exe, excel.exe. Supports: $select, $OrderBy. Read-only.
+     * Sets the appName property value. The name of the application. Possible values are: outlook.exe, excel.exe. Supports: $select, $OrderBy. Read-only.
      * @param string|null $value Value to set for the appName property.
     */
     public function setAppName(?string $value): void {

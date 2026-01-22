@@ -1119,6 +1119,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.externallyAccessibleGcpStorageBucketFinding': return new ExternallyAccessibleGcpStorageBucketFinding();
                 case '#microsoft.graph.externalMeetingRegistrant': return new ExternalMeetingRegistrant();
                 case '#microsoft.graph.externalMeetingRegistration': return new ExternalMeetingRegistration();
+                case '#microsoft.graph.externalOriginResourceConnector': return new ExternalOriginResourceConnector();
                 case '#microsoft.graph.externalProfile': return new ExternalProfile();
                 case '#microsoft.graph.externalUserProfile': return new ExternalUserProfile();
                 case '#microsoft.graph.externalUsersSelfServiceSignUpEventsFlow': return new ExternalUsersSelfServiceSignUpEventsFlow();

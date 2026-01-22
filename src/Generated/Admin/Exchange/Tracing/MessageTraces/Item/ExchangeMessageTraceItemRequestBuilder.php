@@ -46,7 +46,7 @@ class ExchangeMessageTraceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get messageTraces from admin
+     * Represents the trace information of messages that pass-through Exchange Online organizations.
      * @param ExchangeMessageTraceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExchangeMessageTrace|null>
      * @throws Exception
@@ -102,7 +102,7 @@ class ExchangeMessageTraceItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get messageTraces from admin
+     * Represents the trace information of messages that pass-through Exchange Online organizations.
      * @param ExchangeMessageTraceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

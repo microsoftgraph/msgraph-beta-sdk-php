@@ -68,7 +68,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Gets the appsAutoUpdatePolicy property value. Indicates the value of the app auto update policy. The possible values are: notConfigured, userChoice, never, wiFiOnly, always.
+     * Gets the appsAutoUpdatePolicy property value. Indicates the value of the app auto update policy. Possible values are: notConfigured, userChoice, never, wiFiOnly, always.
      * @return AndroidDeviceOwnerAppAutoUpdatePolicyType|null
     */
     public function getAppsAutoUpdatePolicy(): ?AndroidDeviceOwnerAppAutoUpdatePolicyType {
@@ -80,7 +80,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Gets the appsDefaultPermissionPolicy property value. Indicates the permission policy for requests for runtime permissions if one is not defined for the app specifically. The possible values are: deviceDefault, prompt, autoGrant, autoDeny.
+     * Gets the appsDefaultPermissionPolicy property value. Indicates the permission policy for requests for runtime permissions if one is not defined for the app specifically. Possible values are: deviceDefault, prompt, autoGrant, autoDeny.
      * @return AndroidDeviceOwnerDefaultAppPermissionPolicyType|null
     */
     public function getAppsDefaultPermissionPolicy(): ?AndroidDeviceOwnerDefaultAppPermissionPolicyType {
@@ -190,7 +190,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Gets the crossProfilePoliciesAllowDataSharing property value. Indicates whether data from one profile (personal or work) can be shared with apps in the other profile. The possible values are: notConfigured, crossProfileDataSharingBlocked, dataSharingFromWorkToPersonalBlocked, crossProfileDataSharingAllowed, unkownFutureValue.
+     * Gets the crossProfilePoliciesAllowDataSharing property value. Indicates whether data from one profile (personal or work) can be shared with apps in the other profile. Possible values are: notConfigured, crossProfileDataSharingBlocked, dataSharingFromWorkToPersonalBlocked, crossProfileDataSharingAllowed, unkownFutureValue.
      * @return AndroidDeviceOwnerCrossProfileDataSharing|null
     */
     public function getCrossProfilePoliciesAllowDataSharing(): ?AndroidDeviceOwnerCrossProfileDataSharing {
@@ -250,7 +250,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Gets the deviceLocationMode property value. Indicates the location setting configuration for fully managed devices (COBO) and corporate owned devices with a work profile (COPE). The possible values are: notConfigured, disabled, unknownFutureValue.
+     * Gets the deviceLocationMode property value. Indicates the location setting configuration for fully managed devices (COBO) and corporate owned devices with a work profile (COPE). Possible values are: notConfigured, disabled, unknownFutureValue.
      * @return AndroidDeviceOwnerLocationMode|null
     */
     public function getDeviceLocationMode(): ?AndroidDeviceOwnerLocationMode {
@@ -524,7 +524,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Gets the kioskCustomizationStatusBar property value. Indicates whether system info and notifications are disabled in Kiosk Mode. The possible values are: notConfigured, notificationsAndSystemInfoEnabled, systemInfoOnly.
+     * Gets the kioskCustomizationStatusBar property value. Indicates whether system info and notifications are disabled in Kiosk Mode. Possible values are: notConfigured, notificationsAndSystemInfoEnabled, systemInfoOnly.
      * @return AndroidDeviceOwnerKioskCustomizationStatusBar|null
     */
     public function getKioskCustomizationStatusBar(): ?AndroidDeviceOwnerKioskCustomizationStatusBar {
@@ -548,7 +548,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Gets the kioskCustomizationSystemNavigation property value. Indicates which navigation features are enabled in Kiosk Mode. The possible values are: notConfigured, navigationEnabled, homeButtonOnly.
+     * Gets the kioskCustomizationSystemNavigation property value. Indicates which navigation features are enabled in Kiosk Mode. Possible values are: notConfigured, navigationEnabled, homeButtonOnly.
      * @return AndroidDeviceOwnerKioskCustomizationSystemNavigation|null
     */
     public function getKioskCustomizationSystemNavigation(): ?AndroidDeviceOwnerKioskCustomizationSystemNavigation {
@@ -660,7 +660,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Gets the kioskModeFolderIcon property value. Folder icon configuration for managed home screen in Kiosk Mode. The possible values are: notConfigured, darkSquare, darkCircle, lightSquare, lightCircle.
+     * Gets the kioskModeFolderIcon property value. Folder icon configuration for managed home screen in Kiosk Mode. Possible values are: notConfigured, darkSquare, darkCircle, lightSquare, lightCircle.
      * @return AndroidDeviceOwnerKioskModeFolderIcon|null
     */
     public function getKioskModeFolderIcon(): ?AndroidDeviceOwnerKioskModeFolderIcon {
@@ -696,7 +696,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Gets the kioskModeIconSize property value. Icon size configuration for managed home screen in Kiosk Mode. The possible values are: notConfigured, smallest, small, regular, large, largest.
+     * Gets the kioskModeIconSize property value. Icon size configuration for managed home screen in Kiosk Mode. Possible values are: notConfigured, smallest, small, regular, large, largest.
      * @return AndroidDeviceOwnerKioskModeIconSize|null
     */
     public function getKioskModeIconSize(): ?AndroidDeviceOwnerKioskModeIconSize {
@@ -784,7 +784,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Gets the kioskModeManagedHomeScreenPinComplexity property value. Complexity of PIN for sign-in session for Managed Home Screen. The possible values are: notConfigured, simple, complex.
+     * Gets the kioskModeManagedHomeScreenPinComplexity property value. Complexity of PIN for sign-in session for Managed Home Screen. Possible values are: notConfigured, simple, complex.
      * @return KioskModeManagedHomeScreenPinComplexity|null
     */
     public function getKioskModeManagedHomeScreenPinComplexity(): ?KioskModeManagedHomeScreenPinComplexity {
@@ -880,7 +880,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Gets the kioskModeScreenOrientation property value. Screen orientation configuration for managed home screen in Kiosk Mode. The possible values are: notConfigured, portrait, landscape, autoRotate.
+     * Gets the kioskModeScreenOrientation property value. Screen orientation configuration for managed home screen in Kiosk Mode. Possible values are: notConfigured, portrait, landscape, autoRotate.
      * @return AndroidDeviceOwnerKioskModeScreenOrientation|null
     */
     public function getKioskModeScreenOrientation(): ?AndroidDeviceOwnerKioskModeScreenOrientation {
@@ -976,7 +976,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Gets the kioskModeUseManagedHomeScreenApp property value. Whether or not to use single app kiosk mode or multi-app kiosk mode. The possible values are: notConfigured, singleAppMode, multiAppMode.
+     * Gets the kioskModeUseManagedHomeScreenApp property value. Whether or not to use single app kiosk mode or multi-app kiosk mode. Possible values are: notConfigured, singleAppMode, multiAppMode.
      * @return KioskModeType|null
     */
     public function getKioskModeUseManagedHomeScreenApp(): ?KioskModeType {
@@ -1000,7 +1000,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Gets the kioskModeVirtualHomeButtonType property value. Indicates whether the virtual home button is a swipe up home button or a floating home button. The possible values are: notConfigured, swipeUp, floating.
+     * Gets the kioskModeVirtualHomeButtonType property value. Indicates whether the virtual home button is a swipe up home button or a floating home button. Possible values are: notConfigured, swipeUp, floating.
      * @return AndroidDeviceOwnerVirtualHomeButtonType|null
     */
     public function getKioskModeVirtualHomeButtonType(): ?AndroidDeviceOwnerVirtualHomeButtonType {
@@ -1146,7 +1146,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Gets the microsoftLauncherDockPresenceConfiguration property value. Indicates whether or not you want to configure the device dock. The possible values are: notConfigured, show, hide, disabled.
+     * Gets the microsoftLauncherDockPresenceConfiguration property value. Indicates whether or not you want to configure the device dock. Possible values are: notConfigured, show, hide, disabled.
      * @return MicrosoftLauncherDockPresence|null
     */
     public function getMicrosoftLauncherDockPresenceConfiguration(): ?MicrosoftLauncherDockPresence {
@@ -1182,7 +1182,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Gets the microsoftLauncherSearchBarPlacementConfiguration property value. Indicates the search bar placement configuration on the device. The possible values are: notConfigured, top, bottom, hide.
+     * Gets the microsoftLauncherSearchBarPlacementConfiguration property value. Indicates the search bar placement configuration on the device. Possible values are: notConfigured, top, bottom, hide.
      * @return MicrosoftLauncherSearchBarPlacement|null
     */
     public function getMicrosoftLauncherSearchBarPlacementConfiguration(): ?MicrosoftLauncherSearchBarPlacement {
@@ -1364,7 +1364,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Gets the passwordRequiredType property value. Indicates the minimum password quality required on the device. The possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
+     * Gets the passwordRequiredType property value. Indicates the minimum password quality required on the device. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
      * @return AndroidDeviceOwnerRequiredPasswordType|null
     */
     public function getPasswordRequiredType(): ?AndroidDeviceOwnerRequiredPasswordType {
@@ -1376,7 +1376,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Gets the passwordRequireUnlock property value. Indicates the timeout period after which a device must be unlocked using a form of strong authentication. The possible values are: deviceDefault, daily, unkownFutureValue.
+     * Gets the passwordRequireUnlock property value. Indicates the timeout period after which a device must be unlocked using a form of strong authentication. Possible values are: deviceDefault, daily, unkownFutureValue.
      * @return AndroidDeviceOwnerRequiredPasswordUnlock|null
     */
     public function getPasswordRequireUnlock(): ?AndroidDeviceOwnerRequiredPasswordUnlock {
@@ -1438,7 +1438,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Gets the personalProfilePlayStoreMode property value. Used together with PersonalProfilePersonalApplications to control how apps in the personal profile are allowed or blocked. The possible values are: notConfigured, blockedApps, allowedApps.
+     * Gets the personalProfilePlayStoreMode property value. Used together with PersonalProfilePersonalApplications to control how apps in the personal profile are allowed or blocked. Possible values are: notConfigured, blockedApps, allowedApps.
      * @return PersonalProfilePersonalPlayStoreMode|null
     */
     public function getPersonalProfilePlayStoreMode(): ?PersonalProfilePersonalPlayStoreMode {
@@ -1462,7 +1462,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Gets the playStoreMode property value. Indicates the Play Store mode of the device. The possible values are: notConfigured, allowList, blockList.
+     * Gets the playStoreMode property value. Indicates the Play Store mode of the device. Possible values are: notConfigured, allowList, blockList.
      * @return AndroidDeviceOwnerPlayStoreMode|null
     */
     public function getPlayStoreMode(): ?AndroidDeviceOwnerPlayStoreMode {
@@ -1622,7 +1622,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Gets the systemUpdateInstallType property value. The type of system update configuration. The possible values are: deviceDefault, postpone, windowed, automatic.
+     * Gets the systemUpdateInstallType property value. The type of system update configuration. Possible values are: deviceDefault, postpone, windowed, automatic.
      * @return AndroidDeviceOwnerSystemUpdateInstallType|null
     */
     public function getSystemUpdateInstallType(): ?AndroidDeviceOwnerSystemUpdateInstallType {
@@ -1862,7 +1862,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Gets the workProfilePasswordRequiredType property value. Indicates the minimum password quality required on the work profile password. The possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
+     * Gets the workProfilePasswordRequiredType property value. Indicates the minimum password quality required on the work profile password. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
      * @return AndroidDeviceOwnerRequiredPasswordType|null
     */
     public function getWorkProfilePasswordRequiredType(): ?AndroidDeviceOwnerRequiredPasswordType {
@@ -1874,7 +1874,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Gets the workProfilePasswordRequireUnlock property value. Indicates the timeout period after which a work profile must be unlocked using a form of strong authentication. The possible values are: deviceDefault, daily, unkownFutureValue.
+     * Gets the workProfilePasswordRequireUnlock property value. Indicates the timeout period after which a work profile must be unlocked using a form of strong authentication. Possible values are: deviceDefault, daily, unkownFutureValue.
      * @return AndroidDeviceOwnerRequiredPasswordUnlock|null
     */
     public function getWorkProfilePasswordRequireUnlock(): ?AndroidDeviceOwnerRequiredPasswordUnlock {
@@ -2070,7 +2070,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Sets the appsAutoUpdatePolicy property value. Indicates the value of the app auto update policy. The possible values are: notConfigured, userChoice, never, wiFiOnly, always.
+     * Sets the appsAutoUpdatePolicy property value. Indicates the value of the app auto update policy. Possible values are: notConfigured, userChoice, never, wiFiOnly, always.
      * @param AndroidDeviceOwnerAppAutoUpdatePolicyType|null $value Value to set for the appsAutoUpdatePolicy property.
     */
     public function setAppsAutoUpdatePolicy(?AndroidDeviceOwnerAppAutoUpdatePolicyType $value): void {
@@ -2078,7 +2078,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Sets the appsDefaultPermissionPolicy property value. Indicates the permission policy for requests for runtime permissions if one is not defined for the app specifically. The possible values are: deviceDefault, prompt, autoGrant, autoDeny.
+     * Sets the appsDefaultPermissionPolicy property value. Indicates the permission policy for requests for runtime permissions if one is not defined for the app specifically. Possible values are: deviceDefault, prompt, autoGrant, autoDeny.
      * @param AndroidDeviceOwnerDefaultAppPermissionPolicyType|null $value Value to set for the appsDefaultPermissionPolicy property.
     */
     public function setAppsDefaultPermissionPolicy(?AndroidDeviceOwnerDefaultAppPermissionPolicyType $value): void {
@@ -2150,7 +2150,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Sets the crossProfilePoliciesAllowDataSharing property value. Indicates whether data from one profile (personal or work) can be shared with apps in the other profile. The possible values are: notConfigured, crossProfileDataSharingBlocked, dataSharingFromWorkToPersonalBlocked, crossProfileDataSharingAllowed, unkownFutureValue.
+     * Sets the crossProfilePoliciesAllowDataSharing property value. Indicates whether data from one profile (personal or work) can be shared with apps in the other profile. Possible values are: notConfigured, crossProfileDataSharingBlocked, dataSharingFromWorkToPersonalBlocked, crossProfileDataSharingAllowed, unkownFutureValue.
      * @param AndroidDeviceOwnerCrossProfileDataSharing|null $value Value to set for the crossProfilePoliciesAllowDataSharing property.
     */
     public function setCrossProfilePoliciesAllowDataSharing(?AndroidDeviceOwnerCrossProfileDataSharing $value): void {
@@ -2190,7 +2190,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Sets the deviceLocationMode property value. Indicates the location setting configuration for fully managed devices (COBO) and corporate owned devices with a work profile (COPE). The possible values are: notConfigured, disabled, unknownFutureValue.
+     * Sets the deviceLocationMode property value. Indicates the location setting configuration for fully managed devices (COBO) and corporate owned devices with a work profile (COPE). Possible values are: notConfigured, disabled, unknownFutureValue.
      * @param AndroidDeviceOwnerLocationMode|null $value Value to set for the deviceLocationMode property.
     */
     public function setDeviceLocationMode(?AndroidDeviceOwnerLocationMode $value): void {
@@ -2262,7 +2262,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Sets the kioskCustomizationStatusBar property value. Indicates whether system info and notifications are disabled in Kiosk Mode. The possible values are: notConfigured, notificationsAndSystemInfoEnabled, systemInfoOnly.
+     * Sets the kioskCustomizationStatusBar property value. Indicates whether system info and notifications are disabled in Kiosk Mode. Possible values are: notConfigured, notificationsAndSystemInfoEnabled, systemInfoOnly.
      * @param AndroidDeviceOwnerKioskCustomizationStatusBar|null $value Value to set for the kioskCustomizationStatusBar property.
     */
     public function setKioskCustomizationStatusBar(?AndroidDeviceOwnerKioskCustomizationStatusBar $value): void {
@@ -2278,7 +2278,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Sets the kioskCustomizationSystemNavigation property value. Indicates which navigation features are enabled in Kiosk Mode. The possible values are: notConfigured, navigationEnabled, homeButtonOnly.
+     * Sets the kioskCustomizationSystemNavigation property value. Indicates which navigation features are enabled in Kiosk Mode. Possible values are: notConfigured, navigationEnabled, homeButtonOnly.
      * @param AndroidDeviceOwnerKioskCustomizationSystemNavigation|null $value Value to set for the kioskCustomizationSystemNavigation property.
     */
     public function setKioskCustomizationSystemNavigation(?AndroidDeviceOwnerKioskCustomizationSystemNavigation $value): void {
@@ -2350,7 +2350,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Sets the kioskModeFolderIcon property value. Folder icon configuration for managed home screen in Kiosk Mode. The possible values are: notConfigured, darkSquare, darkCircle, lightSquare, lightCircle.
+     * Sets the kioskModeFolderIcon property value. Folder icon configuration for managed home screen in Kiosk Mode. Possible values are: notConfigured, darkSquare, darkCircle, lightSquare, lightCircle.
      * @param AndroidDeviceOwnerKioskModeFolderIcon|null $value Value to set for the kioskModeFolderIcon property.
     */
     public function setKioskModeFolderIcon(?AndroidDeviceOwnerKioskModeFolderIcon $value): void {
@@ -2374,7 +2374,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Sets the kioskModeIconSize property value. Icon size configuration for managed home screen in Kiosk Mode. The possible values are: notConfigured, smallest, small, regular, large, largest.
+     * Sets the kioskModeIconSize property value. Icon size configuration for managed home screen in Kiosk Mode. Possible values are: notConfigured, smallest, small, regular, large, largest.
      * @param AndroidDeviceOwnerKioskModeIconSize|null $value Value to set for the kioskModeIconSize property.
     */
     public function setKioskModeIconSize(?AndroidDeviceOwnerKioskModeIconSize $value): void {
@@ -2430,7 +2430,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Sets the kioskModeManagedHomeScreenPinComplexity property value. Complexity of PIN for sign-in session for Managed Home Screen. The possible values are: notConfigured, simple, complex.
+     * Sets the kioskModeManagedHomeScreenPinComplexity property value. Complexity of PIN for sign-in session for Managed Home Screen. Possible values are: notConfigured, simple, complex.
      * @param KioskModeManagedHomeScreenPinComplexity|null $value Value to set for the kioskModeManagedHomeScreenPinComplexity property.
     */
     public function setKioskModeManagedHomeScreenPinComplexity(?KioskModeManagedHomeScreenPinComplexity $value): void {
@@ -2494,7 +2494,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Sets the kioskModeScreenOrientation property value. Screen orientation configuration for managed home screen in Kiosk Mode. The possible values are: notConfigured, portrait, landscape, autoRotate.
+     * Sets the kioskModeScreenOrientation property value. Screen orientation configuration for managed home screen in Kiosk Mode. Possible values are: notConfigured, portrait, landscape, autoRotate.
      * @param AndroidDeviceOwnerKioskModeScreenOrientation|null $value Value to set for the kioskModeScreenOrientation property.
     */
     public function setKioskModeScreenOrientation(?AndroidDeviceOwnerKioskModeScreenOrientation $value): void {
@@ -2558,7 +2558,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Sets the kioskModeUseManagedHomeScreenApp property value. Whether or not to use single app kiosk mode or multi-app kiosk mode. The possible values are: notConfigured, singleAppMode, multiAppMode.
+     * Sets the kioskModeUseManagedHomeScreenApp property value. Whether or not to use single app kiosk mode or multi-app kiosk mode. Possible values are: notConfigured, singleAppMode, multiAppMode.
      * @param KioskModeType|null $value Value to set for the kioskModeUseManagedHomeScreenApp property.
     */
     public function setKioskModeUseManagedHomeScreenApp(?KioskModeType $value): void {
@@ -2574,7 +2574,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Sets the kioskModeVirtualHomeButtonType property value. Indicates whether the virtual home button is a swipe up home button or a floating home button. The possible values are: notConfigured, swipeUp, floating.
+     * Sets the kioskModeVirtualHomeButtonType property value. Indicates whether the virtual home button is a swipe up home button or a floating home button. Possible values are: notConfigured, swipeUp, floating.
      * @param AndroidDeviceOwnerVirtualHomeButtonType|null $value Value to set for the kioskModeVirtualHomeButtonType property.
     */
     public function setKioskModeVirtualHomeButtonType(?AndroidDeviceOwnerVirtualHomeButtonType $value): void {
@@ -2670,7 +2670,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Sets the microsoftLauncherDockPresenceConfiguration property value. Indicates whether or not you want to configure the device dock. The possible values are: notConfigured, show, hide, disabled.
+     * Sets the microsoftLauncherDockPresenceConfiguration property value. Indicates whether or not you want to configure the device dock. Possible values are: notConfigured, show, hide, disabled.
      * @param MicrosoftLauncherDockPresence|null $value Value to set for the microsoftLauncherDockPresenceConfiguration property.
     */
     public function setMicrosoftLauncherDockPresenceConfiguration(?MicrosoftLauncherDockPresence $value): void {
@@ -2694,7 +2694,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Sets the microsoftLauncherSearchBarPlacementConfiguration property value. Indicates the search bar placement configuration on the device. The possible values are: notConfigured, top, bottom, hide.
+     * Sets the microsoftLauncherSearchBarPlacementConfiguration property value. Indicates the search bar placement configuration on the device. Possible values are: notConfigured, top, bottom, hide.
      * @param MicrosoftLauncherSearchBarPlacement|null $value Value to set for the microsoftLauncherSearchBarPlacementConfiguration property.
     */
     public function setMicrosoftLauncherSearchBarPlacementConfiguration(?MicrosoftLauncherSearchBarPlacement $value): void {
@@ -2814,7 +2814,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Sets the passwordRequiredType property value. Indicates the minimum password quality required on the device. The possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
+     * Sets the passwordRequiredType property value. Indicates the minimum password quality required on the device. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
      * @param AndroidDeviceOwnerRequiredPasswordType|null $value Value to set for the passwordRequiredType property.
     */
     public function setPasswordRequiredType(?AndroidDeviceOwnerRequiredPasswordType $value): void {
@@ -2822,7 +2822,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Sets the passwordRequireUnlock property value. Indicates the timeout period after which a device must be unlocked using a form of strong authentication. The possible values are: deviceDefault, daily, unkownFutureValue.
+     * Sets the passwordRequireUnlock property value. Indicates the timeout period after which a device must be unlocked using a form of strong authentication. Possible values are: deviceDefault, daily, unkownFutureValue.
      * @param AndroidDeviceOwnerRequiredPasswordUnlock|null $value Value to set for the passwordRequireUnlock property.
     */
     public function setPasswordRequireUnlock(?AndroidDeviceOwnerRequiredPasswordUnlock $value): void {
@@ -2862,7 +2862,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Sets the personalProfilePlayStoreMode property value. Used together with PersonalProfilePersonalApplications to control how apps in the personal profile are allowed or blocked. The possible values are: notConfigured, blockedApps, allowedApps.
+     * Sets the personalProfilePlayStoreMode property value. Used together with PersonalProfilePersonalApplications to control how apps in the personal profile are allowed or blocked. Possible values are: notConfigured, blockedApps, allowedApps.
      * @param PersonalProfilePersonalPlayStoreMode|null $value Value to set for the personalProfilePlayStoreMode property.
     */
     public function setPersonalProfilePlayStoreMode(?PersonalProfilePersonalPlayStoreMode $value): void {
@@ -2878,7 +2878,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Sets the playStoreMode property value. Indicates the Play Store mode of the device. The possible values are: notConfigured, allowList, blockList.
+     * Sets the playStoreMode property value. Indicates the Play Store mode of the device. Possible values are: notConfigured, allowList, blockList.
      * @param AndroidDeviceOwnerPlayStoreMode|null $value Value to set for the playStoreMode property.
     */
     public function setPlayStoreMode(?AndroidDeviceOwnerPlayStoreMode $value): void {
@@ -2982,7 +2982,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Sets the systemUpdateInstallType property value. The type of system update configuration. The possible values are: deviceDefault, postpone, windowed, automatic.
+     * Sets the systemUpdateInstallType property value. The type of system update configuration. Possible values are: deviceDefault, postpone, windowed, automatic.
      * @param AndroidDeviceOwnerSystemUpdateInstallType|null $value Value to set for the systemUpdateInstallType property.
     */
     public function setSystemUpdateInstallType(?AndroidDeviceOwnerSystemUpdateInstallType $value): void {
@@ -3142,7 +3142,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Sets the workProfilePasswordRequiredType property value. Indicates the minimum password quality required on the work profile password. The possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
+     * Sets the workProfilePasswordRequiredType property value. Indicates the minimum password quality required on the work profile password. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
      * @param AndroidDeviceOwnerRequiredPasswordType|null $value Value to set for the workProfilePasswordRequiredType property.
     */
     public function setWorkProfilePasswordRequiredType(?AndroidDeviceOwnerRequiredPasswordType $value): void {
@@ -3150,7 +3150,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Sets the workProfilePasswordRequireUnlock property value. Indicates the timeout period after which a work profile must be unlocked using a form of strong authentication. The possible values are: deviceDefault, daily, unkownFutureValue.
+     * Sets the workProfilePasswordRequireUnlock property value. Indicates the timeout period after which a work profile must be unlocked using a form of strong authentication. Possible values are: deviceDefault, daily, unkownFutureValue.
      * @param AndroidDeviceOwnerRequiredPasswordUnlock|null $value Value to set for the workProfilePasswordRequireUnlock property.
     */
     public function setWorkProfilePasswordRequireUnlock(?AndroidDeviceOwnerRequiredPasswordUnlock $value): void {

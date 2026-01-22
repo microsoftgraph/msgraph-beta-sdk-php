@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinit
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get enabledApps from teamTemplateDefinition
+ * A collection of enabled apps in the channel.
 */
 class EnabledAppsRequestBuilderGetQueryParameters 
 {

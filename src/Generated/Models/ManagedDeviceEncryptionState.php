@@ -29,7 +29,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
     }
 
     /**
-     * Gets the advancedBitLockerStates property value. Advanced BitLocker State. The possible values are: success, noUserConsent, osVolumeUnprotected, osVolumeTpmRequired, osVolumeTpmOnlyRequired, osVolumeTpmPinRequired, osVolumeTpmStartupKeyRequired, osVolumeTpmPinStartupKeyRequired, osVolumeEncryptionMethodMismatch, recoveryKeyBackupFailed, fixedDriveNotEncrypted, fixedDriveEncryptionMethodMismatch, loggedOnUserNonAdmin, windowsRecoveryEnvironmentNotConfigured, tpmNotAvailable, tpmNotReady, networkError.
+     * Gets the advancedBitLockerStates property value. Advanced BitLocker State. Possible values are: success, noUserConsent, osVolumeUnprotected, osVolumeTpmRequired, osVolumeTpmOnlyRequired, osVolumeTpmPinRequired, osVolumeTpmStartupKeyRequired, osVolumeTpmPinStartupKeyRequired, osVolumeEncryptionMethodMismatch, recoveryKeyBackupFailed, fixedDriveNotEncrypted, fixedDriveEncryptionMethodMismatch, loggedOnUserNonAdmin, windowsRecoveryEnvironmentNotConfigured, tpmNotAvailable, tpmNotReady, networkError.
      * @return AdvancedBitLockerState|null
     */
     public function getAdvancedBitLockerStates(): ?AdvancedBitLockerState {
@@ -122,7 +122,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
     }
 
     /**
-     * Gets the fileVaultStates property value. FileVault State. The possible values are: success, driveEncryptedByUser, userDeferredEncryption, escrowNotEnabled.
+     * Gets the fileVaultStates property value. FileVault State. Possible values are: success, driveEncryptedByUser, userDeferredEncryption, escrowNotEnabled.
      * @return FileVaultState|null
     */
     public function getFileVaultStates(): ?FileVaultState {
@@ -203,7 +203,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the advancedBitLockerStates property value. Advanced BitLocker State. The possible values are: success, noUserConsent, osVolumeUnprotected, osVolumeTpmRequired, osVolumeTpmOnlyRequired, osVolumeTpmPinRequired, osVolumeTpmStartupKeyRequired, osVolumeTpmPinStartupKeyRequired, osVolumeEncryptionMethodMismatch, recoveryKeyBackupFailed, fixedDriveNotEncrypted, fixedDriveEncryptionMethodMismatch, loggedOnUserNonAdmin, windowsRecoveryEnvironmentNotConfigured, tpmNotAvailable, tpmNotReady, networkError.
+     * Sets the advancedBitLockerStates property value. Advanced BitLocker State. Possible values are: success, noUserConsent, osVolumeUnprotected, osVolumeTpmRequired, osVolumeTpmOnlyRequired, osVolumeTpmPinRequired, osVolumeTpmStartupKeyRequired, osVolumeTpmPinStartupKeyRequired, osVolumeEncryptionMethodMismatch, recoveryKeyBackupFailed, fixedDriveNotEncrypted, fixedDriveEncryptionMethodMismatch, loggedOnUserNonAdmin, windowsRecoveryEnvironmentNotConfigured, tpmNotAvailable, tpmNotReady, networkError.
      * @param AdvancedBitLockerState|null $value Value to set for the advancedBitLockerStates property.
     */
     public function setAdvancedBitLockerStates(?AdvancedBitLockerState $value): void {
@@ -251,7 +251,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the fileVaultStates property value. FileVault State. The possible values are: success, driveEncryptedByUser, userDeferredEncryption, escrowNotEnabled.
+     * Sets the fileVaultStates property value. FileVault State. Possible values are: success, driveEncryptedByUser, userDeferredEncryption, escrowNotEnabled.
      * @param FileVaultState|null $value Value to set for the fileVaultStates property.
     */
     public function setFileVaultStates(?FileVaultState $value): void {

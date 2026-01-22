@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\DeletedTeams\Item\Channels\Ite
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get enabledApps from teamwork
+ * A collection of enabled apps in the channel.
 */
 class TeamsAppItemRequestBuilderGetQueryParameters 
 {

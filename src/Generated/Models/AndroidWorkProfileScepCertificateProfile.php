@@ -30,7 +30,7 @@ class AndroidWorkProfileScepCertificateProfile extends AndroidWorkProfileCertifi
     }
 
     /**
-     * Gets the certificateStore property value. Target store certificate. The possible values are: user, machine.
+     * Gets the certificateStore property value. Target store certificate. Possible values are: user, machine.
      * @return CertificateStore|null
     */
     public function getCertificateStore(): ?CertificateStore {
@@ -187,7 +187,7 @@ class AndroidWorkProfileScepCertificateProfile extends AndroidWorkProfileCertifi
     }
 
     /**
-     * Sets the certificateStore property value. Target store certificate. The possible values are: user, machine.
+     * Sets the certificateStore property value. Target store certificate. Possible values are: user, machine.
      * @param CertificateStore|null $value Value to set for the certificateStore property.
     */
     public function setCertificateStore(?CertificateStore $value): void {

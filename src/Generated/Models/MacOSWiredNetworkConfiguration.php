@@ -30,7 +30,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
     }
 
     /**
-     * Gets the authenticationMethod property value. Authentication Method when EAP Type is configured to PEAP or EAP-TTLS. The possible values are: certificate, usernameAndPassword, derivedCredential.
+     * Gets the authenticationMethod property value. Authentication Method when EAP Type is configured to PEAP or EAP-TTLS. Possible values are: certificate, usernameAndPassword, derivedCredential.
      * @return WiFiAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?WiFiAuthenticationMethod {
@@ -42,7 +42,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
     }
 
     /**
-     * Gets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. The possible values are: deviceChannel, userChannel, unknownFutureValue.
+     * Gets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. Possible values are: deviceChannel, userChannel, unknownFutureValue.
      * @return AppleDeploymentChannel|null
     */
     public function getDeploymentChannel(): ?AppleDeploymentChannel {
@@ -54,7 +54,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
     }
 
     /**
-     * Gets the eapFastConfiguration property value. EAP-FAST Configuration Option when EAP-FAST is the selected EAP Type. The possible values are: noProtectedAccessCredential, useProtectedAccessCredential, useProtectedAccessCredentialAndProvision, useProtectedAccessCredentialAndProvisionAnonymously.
+     * Gets the eapFastConfiguration property value. EAP-FAST Configuration Option when EAP-FAST is the selected EAP Type. Possible values are: noProtectedAccessCredential, useProtectedAccessCredential, useProtectedAccessCredentialAndProvision, useProtectedAccessCredentialAndProvisionAnonymously.
      * @return EapFastConfiguration|null
     */
     public function getEapFastConfiguration(): ?EapFastConfiguration {
@@ -154,7 +154,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
     }
 
     /**
-     * Gets the nonEapAuthenticationMethodForEapTtls property value. Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password. The possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
+     * Gets the nonEapAuthenticationMethodForEapTtls property value. Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
      * @return NonEapAuthenticationMethodForEapTtlsType|null
     */
     public function getNonEapAuthenticationMethodForEapTtls(): ?NonEapAuthenticationMethodForEapTtlsType {
@@ -211,7 +211,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
     }
 
     /**
-     * Sets the authenticationMethod property value. Authentication Method when EAP Type is configured to PEAP or EAP-TTLS. The possible values are: certificate, usernameAndPassword, derivedCredential.
+     * Sets the authenticationMethod property value. Authentication Method when EAP Type is configured to PEAP or EAP-TTLS. Possible values are: certificate, usernameAndPassword, derivedCredential.
      * @param WiFiAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
     public function setAuthenticationMethod(?WiFiAuthenticationMethod $value): void {
@@ -219,7 +219,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
     }
 
     /**
-     * Sets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. The possible values are: deviceChannel, userChannel, unknownFutureValue.
+     * Sets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. Possible values are: deviceChannel, userChannel, unknownFutureValue.
      * @param AppleDeploymentChannel|null $value Value to set for the deploymentChannel property.
     */
     public function setDeploymentChannel(?AppleDeploymentChannel $value): void {
@@ -227,7 +227,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
     }
 
     /**
-     * Sets the eapFastConfiguration property value. EAP-FAST Configuration Option when EAP-FAST is the selected EAP Type. The possible values are: noProtectedAccessCredential, useProtectedAccessCredential, useProtectedAccessCredentialAndProvision, useProtectedAccessCredentialAndProvisionAnonymously.
+     * Sets the eapFastConfiguration property value. EAP-FAST Configuration Option when EAP-FAST is the selected EAP Type. Possible values are: noProtectedAccessCredential, useProtectedAccessCredential, useProtectedAccessCredentialAndProvision, useProtectedAccessCredentialAndProvisionAnonymously.
      * @param EapFastConfiguration|null $value Value to set for the eapFastConfiguration property.
     */
     public function setEapFastConfiguration(?EapFastConfiguration $value): void {
@@ -275,7 +275,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
     }
 
     /**
-     * Sets the nonEapAuthenticationMethodForEapTtls property value. Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password. The possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
+     * Sets the nonEapAuthenticationMethodForEapTtls property value. Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
      * @param NonEapAuthenticationMethodForEapTtlsType|null $value Value to set for the nonEapAuthenticationMethodForEapTtls property.
     */
     public function setNonEapAuthenticationMethodForEapTtls(?NonEapAuthenticationMethodForEapTtlsType $value): void {

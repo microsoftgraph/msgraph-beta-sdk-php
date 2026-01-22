@@ -809,7 +809,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
     }
 
     /**
-     * Gets the updateDelayPolicy property value. Determines whether to delay OS and/or app updates for macOS. The possible values are: none, delayOSUpdateVisibility, delayAppUpdateVisibility, unknownFutureValue, delayMajorOsUpdateVisibility.
+     * Gets the updateDelayPolicy property value. Determines whether to delay OS and/or app updates for macOS. Possible values are: none, delayOSUpdateVisibility, delayAppUpdateVisibility, unknownFutureValue, delayMajorOsUpdateVisibility.
      * @return MacOSSoftwareUpdateDelayPolicy|null
     */
     public function getUpdateDelayPolicy(): ?MacOSSoftwareUpdateDelayPolicy {
@@ -1365,7 +1365,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
     }
 
     /**
-     * Sets the updateDelayPolicy property value. Determines whether to delay OS and/or app updates for macOS. The possible values are: none, delayOSUpdateVisibility, delayAppUpdateVisibility, unknownFutureValue, delayMajorOsUpdateVisibility.
+     * Sets the updateDelayPolicy property value. Determines whether to delay OS and/or app updates for macOS. Possible values are: none, delayOSUpdateVisibility, delayAppUpdateVisibility, unknownFutureValue, delayMajorOsUpdateVisibility.
      * @param MacOSSoftwareUpdateDelayPolicy|null $value Value to set for the updateDelayPolicy property.
     */
     public function setUpdateDelayPolicy(?MacOSSoftwareUpdateDelayPolicy $value): void {

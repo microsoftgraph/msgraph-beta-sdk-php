@@ -59,7 +59,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the encryptionMethod property value. Select the encryption method for operating system drives. The possible values are: aesCbc128, aesCbc256, xtsAes128, xtsAes256.
+     * Gets the encryptionMethod property value. Select the encryption method for operating system drives. Possible values are: aesCbc128, aesCbc256, xtsAes128, xtsAes256.
      * @return BitLockerEncryptionMethod|null
     */
     public function getEncryptionMethod(): ?BitLockerEncryptionMethod {
@@ -275,7 +275,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the encryptionMethod property value. Select the encryption method for operating system drives. The possible values are: aesCbc128, aesCbc256, xtsAes128, xtsAes256.
+     * Sets the encryptionMethod property value. Select the encryption method for operating system drives. Possible values are: aesCbc128, aesCbc256, xtsAes128, xtsAes256.
      * @param BitLockerEncryptionMethod|null $value Value to set for the encryptionMethod property.
     */
     public function setEncryptionMethod(?BitLockerEncryptionMethod $value): void {

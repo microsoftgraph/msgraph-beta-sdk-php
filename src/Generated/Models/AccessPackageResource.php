@@ -136,6 +136,18 @@ class AccessPackageResource extends Entity implements Parsable
     }
 
     /**
+     * Gets the externalOriginResourceConnector property value. The externalOriginResourceConnector property
+     * @return ExternalOriginResourceConnector|null
+    */
+    public function getExternalOriginResourceConnector(): ?ExternalOriginResourceConnector {
+        $val = $this->getBackingStore()->get('externalOriginResourceConnector');
+        if (is_null($val) || $val instanceof ExternalOriginResourceConnector) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'externalOriginResourceConnector'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -150,6 +162,7 @@ class AccessPackageResource extends Entity implements Parsable
             'attributes' => fn(ParseNode $n) => $o->setAttributes($n->getCollectionOfObjectValues([AccessPackageResourceAttribute::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'externalOriginResourceConnector' => fn(ParseNode $n) => $o->setExternalOriginResourceConnector($n->getObjectValue([ExternalOriginResourceConnector::class, 'createFromDiscriminatorValue'])),
             'isPendingOnboarding' => fn(ParseNode $n) => $o->setIsPendingOnboarding($n->getBooleanValue()),
             'originId' => fn(ParseNode $n) => $o->setOriginId($n->getStringValue()),
             'originSystem' => fn(ParseNode $n) => $o->setOriginSystem($n->getStringValue()),
@@ -247,6 +260,7 @@ class AccessPackageResource extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('attributes', $this->getAttributes());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeObjectValue('externalOriginResourceConnector', $this->getExternalOriginResourceConnector());
         $writer->writeBooleanValue('isPendingOnboarding', $this->getIsPendingOnboarding());
         $writer->writeStringValue('originId', $this->getOriginId());
         $writer->writeStringValue('originSystem', $this->getOriginSystem());
@@ -317,6 +331,14 @@ class AccessPackageResource extends Entity implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the externalOriginResourceConnector property value. The externalOriginResourceConnector property
+     * @param ExternalOriginResourceConnector|null $value Value to set for the externalOriginResourceConnector property.
+    */
+    public function setExternalOriginResourceConnector(?ExternalOriginResourceConnector $value): void {
+        $this->getBackingStore()->set('externalOriginResourceConnector', $value);
     }
 
     /**

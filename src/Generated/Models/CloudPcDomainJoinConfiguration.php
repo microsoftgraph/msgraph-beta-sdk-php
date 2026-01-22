@@ -85,7 +85,7 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the geographicLocationType property value. The geographic location where the region is located. The possible values are: default, asia, australasia, canada, europe, india, africa, usCentral, usEast, usWest, southAmerica, middleEast, centralAmerica, usGovernment, unknownFutureValue. Default value is default. Read-only.
+     * Gets the geographicLocationType property value. The geographic location where the region is located. The possible values are: default, asia, australasia, canada, europe, india, africa, usCentral, usEast, usWest, southAmerica, middleEast, centralAmerica, usGovernment, unknownFutureValue, mexico. Use the Prefer: include-unknown-enum-members request header to get the following value from this evolvable enum: mexico. The default value is default. Read-only.
      * @return CloudPcGeographicLocationType|null
     */
     public function getGeographicLocationType(): ?CloudPcGeographicLocationType {
@@ -196,7 +196,7 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the geographicLocationType property value. The geographic location where the region is located. The possible values are: default, asia, australasia, canada, europe, india, africa, usCentral, usEast, usWest, southAmerica, middleEast, centralAmerica, usGovernment, unknownFutureValue. Default value is default. Read-only.
+     * Sets the geographicLocationType property value. The geographic location where the region is located. The possible values are: default, asia, australasia, canada, europe, india, africa, usCentral, usEast, usWest, southAmerica, middleEast, centralAmerica, usGovernment, unknownFutureValue, mexico. Use the Prefer: include-unknown-enum-members request header to get the following value from this evolvable enum: mexico. The default value is default. Read-only.
      * @param CloudPcGeographicLocationType|null $value Value to set for the geographicLocationType property.
     */
     public function setGeographicLocationType(?CloudPcGeographicLocationType $value): void {

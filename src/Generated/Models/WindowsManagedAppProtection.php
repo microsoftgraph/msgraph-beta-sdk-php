@@ -67,7 +67,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
     }
 
     /**
-     * Gets the appActionIfUnableToAuthenticateUser property value. If set, it will specify what action to take in the case where the user is unable to checkin because their authentication token is invalid. This happens when the user is deleted or disabled in AAD. Some possible values are block or wipe. If this property is not set, no action will be taken. The possible values are: block, wipe, warn, blockWhenSettingIsSupported.
+     * Gets the appActionIfUnableToAuthenticateUser property value. If set, it will specify what action to take in the case where the user is unable to checkin because their authentication token is invalid. This happens when the user is deleted or disabled in AAD. Some possible values are block or wipe. If this property is not set, no action will be taken. Possible values are: block, wipe, warn, blockWhenSettingIsSupported.
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfUnableToAuthenticateUser(): ?ManagedAppRemediationAction {
@@ -427,7 +427,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
     }
 
     /**
-     * Sets the appActionIfUnableToAuthenticateUser property value. If set, it will specify what action to take in the case where the user is unable to checkin because their authentication token is invalid. This happens when the user is deleted or disabled in AAD. Some possible values are block or wipe. If this property is not set, no action will be taken. The possible values are: block, wipe, warn, blockWhenSettingIsSupported.
+     * Sets the appActionIfUnableToAuthenticateUser property value. If set, it will specify what action to take in the case where the user is unable to checkin because their authentication token is invalid. This happens when the user is deleted or disabled in AAD. Some possible values are block or wipe. If this property is not set, no action will be taken. Possible values are: block, wipe, warn, blockWhenSettingIsSupported.
      * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfUnableToAuthenticateUser property.
     */
     public function setAppActionIfUnableToAuthenticateUser(?ManagedAppRemediationAction $value): void {

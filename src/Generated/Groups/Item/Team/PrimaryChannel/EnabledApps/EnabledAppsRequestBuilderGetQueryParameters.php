@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Enabled
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get enabledApps from groups
+ * A collection of enabled apps in the channel.
 */
 class EnabledAppsRequestBuilderGetQueryParameters 
 {

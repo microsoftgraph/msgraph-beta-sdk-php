@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\EnabledApps\I
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get enabledApps from teams
+ * A collection of enabled apps in the channel.
 */
 class TeamsAppItemRequestBuilderGetQueryParameters 
 {

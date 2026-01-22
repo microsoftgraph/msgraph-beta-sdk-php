@@ -41,7 +41,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
     }
 
     /**
-     * Gets the authenticationMethod property value. Authentication method for this Email profile. The possible values are: usernameAndPassword, certificate, derivedCredential.
+     * Gets the authenticationMethod property value. Authentication method for this Email profile. Possible values are: usernameAndPassword, certificate, derivedCredential.
      * @return EasAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?EasAuthenticationMethod {
@@ -113,7 +113,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
     }
 
     /**
-     * Gets the easServices property value. Exchange data to sync. The possible values are: none, calendars, contacts, email, notes, reminders.
+     * Gets the easServices property value. Exchange data to sync. Possible values are: none, calendars, contacts, email, notes, reminders.
      * @return EasServices|null
     */
     public function getEasServices(): ?EasServices {
@@ -149,7 +149,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
     }
 
     /**
-     * Gets the encryptionCertificateType property value. Encryption Certificate type for this Email profile. The possible values are: none, certificate, derivedCredential.
+     * Gets the encryptionCertificateType property value. Encryption Certificate type for this Email profile. Possible values are: none, certificate, derivedCredential.
      * @return EmailCertificateType|null
     */
     public function getEncryptionCertificateType(): ?EmailCertificateType {
@@ -258,7 +258,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
     }
 
     /**
-     * Gets the signingCertificateType property value. Signing Certificate type for this Email profile. The possible values are: none, certificate, derivedCredential.
+     * Gets the signingCertificateType property value. Signing Certificate type for this Email profile. Possible values are: none, certificate, derivedCredential.
      * @return EmailCertificateType|null
     */
     public function getSigningCertificateType(): ?EmailCertificateType {
@@ -433,7 +433,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
     }
 
     /**
-     * Sets the authenticationMethod property value. Authentication method for this Email profile. The possible values are: usernameAndPassword, certificate, derivedCredential.
+     * Sets the authenticationMethod property value. Authentication method for this Email profile. Possible values are: usernameAndPassword, certificate, derivedCredential.
      * @param EasAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
     public function setAuthenticationMethod(?EasAuthenticationMethod $value): void {
@@ -481,7 +481,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
     }
 
     /**
-     * Sets the easServices property value. Exchange data to sync. The possible values are: none, calendars, contacts, email, notes, reminders.
+     * Sets the easServices property value. Exchange data to sync. Possible values are: none, calendars, contacts, email, notes, reminders.
      * @param EasServices|null $value Value to set for the easServices property.
     */
     public function setEasServices(?EasServices $value): void {
@@ -505,7 +505,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
     }
 
     /**
-     * Sets the encryptionCertificateType property value. Encryption Certificate type for this Email profile. The possible values are: none, certificate, derivedCredential.
+     * Sets the encryptionCertificateType property value. Encryption Certificate type for this Email profile. Possible values are: none, certificate, derivedCredential.
      * @param EmailCertificateType|null $value Value to set for the encryptionCertificateType property.
     */
     public function setEncryptionCertificateType(?EmailCertificateType $value): void {
@@ -553,7 +553,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
     }
 
     /**
-     * Sets the signingCertificateType property value. Signing Certificate type for this Email profile. The possible values are: none, certificate, derivedCredential.
+     * Sets the signingCertificateType property value. Signing Certificate type for this Email profile. Possible values are: none, certificate, derivedCredential.
      * @param EmailCertificateType|null $value Value to set for the signingCertificateType property.
     */
     public function setSigningCertificateType(?EmailCertificateType $value): void {

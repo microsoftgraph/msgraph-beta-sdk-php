@@ -26,7 +26,7 @@ class ExchangeMessageTraceDetail extends Entity implements Parsable
     }
 
     /**
-     * Gets the action property value. The action property
+     * Gets the action property value. The action taken on the message during the event.
      * @return string|null
     */
     public function getAction(): ?string {
@@ -38,7 +38,7 @@ class ExchangeMessageTraceDetail extends Entity implements Parsable
     }
 
     /**
-     * Gets the data property value. The data property
+     * Gets the data property value. Additional data associated with the event, containing supplementary information specific to the event.
      * @return string|null
     */
     public function getData(): ?string {
@@ -50,7 +50,7 @@ class ExchangeMessageTraceDetail extends Entity implements Parsable
     }
 
     /**
-     * Gets the dateTime property value. The dateTime property
+     * Gets the dateTime property value. The date and time when the event occurred. The timestamp is in UTC format.
      * @return DateTime|null
     */
     public function getDateTime(): ?DateTime {
@@ -62,7 +62,7 @@ class ExchangeMessageTraceDetail extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. A detailed description that provides context about what happened during message processing.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -74,7 +74,7 @@ class ExchangeMessageTraceDetail extends Entity implements Parsable
     }
 
     /**
-     * Gets the event property value. The event property
+     * Gets the event property value. The event that occurred during message processing.
      * @return string|null
     */
     public function getEvent(): ?string {
@@ -102,7 +102,7 @@ class ExchangeMessageTraceDetail extends Entity implements Parsable
     }
 
     /**
-     * Gets the messageId property value. The messageId property
+     * Gets the messageId property value. The Message-ID header field of the message. The format depends on the messaging server that sent the message.
      * @return string|null
     */
     public function getMessageId(): ?string {
@@ -128,7 +128,7 @@ class ExchangeMessageTraceDetail extends Entity implements Parsable
     }
 
     /**
-     * Sets the action property value. The action property
+     * Sets the action property value. The action taken on the message during the event.
      * @param string|null $value Value to set for the action property.
     */
     public function setAction(?string $value): void {
@@ -136,7 +136,7 @@ class ExchangeMessageTraceDetail extends Entity implements Parsable
     }
 
     /**
-     * Sets the data property value. The data property
+     * Sets the data property value. Additional data associated with the event, containing supplementary information specific to the event.
      * @param string|null $value Value to set for the data property.
     */
     public function setData(?string $value): void {
@@ -144,7 +144,7 @@ class ExchangeMessageTraceDetail extends Entity implements Parsable
     }
 
     /**
-     * Sets the dateTime property value. The dateTime property
+     * Sets the dateTime property value. The date and time when the event occurred. The timestamp is in UTC format.
      * @param DateTime|null $value Value to set for the dateTime property.
     */
     public function setDateTime(?DateTime $value): void {
@@ -152,7 +152,7 @@ class ExchangeMessageTraceDetail extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. A detailed description that provides context about what happened during message processing.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -160,7 +160,7 @@ class ExchangeMessageTraceDetail extends Entity implements Parsable
     }
 
     /**
-     * Sets the event property value. The event property
+     * Sets the event property value. The event that occurred during message processing.
      * @param string|null $value Value to set for the event property.
     */
     public function setEvent(?string $value): void {
@@ -168,7 +168,7 @@ class ExchangeMessageTraceDetail extends Entity implements Parsable
     }
 
     /**
-     * Sets the messageId property value. The messageId property
+     * Sets the messageId property value. The Message-ID header field of the message. The format depends on the messaging server that sent the message.
      * @param string|null $value Value to set for the messageId property.
     */
     public function setMessageId(?string $value): void {

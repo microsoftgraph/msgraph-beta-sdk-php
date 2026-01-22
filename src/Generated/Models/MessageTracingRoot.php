@@ -37,7 +37,7 @@ class MessageTracingRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the messageTraces property value. The messageTraces property
+     * Gets the messageTraces property value. Represents the trace information of messages that pass-through Exchange Online organizations.
      * @return array<ExchangeMessageTrace>|null
     */
     public function getMessageTraces(): ?array {
@@ -60,7 +60,7 @@ class MessageTracingRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the messageTraces property value. The messageTraces property
+     * Sets the messageTraces property value. Represents the trace information of messages that pass-through Exchange Online organizations.
      * @param array<ExchangeMessageTrace>|null $value Value to set for the messageTraces property.
     */
     public function setMessageTraces(?array $value): void {
