@@ -88,7 +88,7 @@ class IosCertificateProfileBase extends IosCertificateProfile implements Parsabl
     }
 
     /**
-     * Gets the subjectAlternativeNameType property value. Certificate Subject Alternative Name type. The possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
+     * Gets the subjectAlternativeNameType property value. Certificate Subject Alternative Name type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
      * @return SubjectAlternativeNameType|null
     */
     public function getSubjectAlternativeNameType(): ?SubjectAlternativeNameType {
@@ -149,7 +149,7 @@ class IosCertificateProfileBase extends IosCertificateProfile implements Parsabl
     }
 
     /**
-     * Sets the subjectAlternativeNameType property value. Certificate Subject Alternative Name type. The possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
+     * Sets the subjectAlternativeNameType property value. Certificate Subject Alternative Name type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
      * @param SubjectAlternativeNameType|null $value Value to set for the subjectAlternativeNameType property.
     */
     public function setSubjectAlternativeNameType(?SubjectAlternativeNameType $value): void {

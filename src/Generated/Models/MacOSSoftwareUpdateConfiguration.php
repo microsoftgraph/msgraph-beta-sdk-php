@@ -123,7 +123,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
     }
 
     /**
-     * Gets the priority property value. The scheduling priority for downloading and preparing the requested update. Default: Low. Possible values: Null, Low, High. The possible values are: low, high, unknownFutureValue.
+     * Gets the priority property value. The scheduling priority for downloading and preparing the requested update. Default: Low. Possible values: Null, Low, High. Possible values are: low, high, unknownFutureValue.
      * @return MacOSPriority|null
     */
     public function getPriority(): ?MacOSPriority {
@@ -224,7 +224,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
     }
 
     /**
-     * Sets the priority property value. The scheduling priority for downloading and preparing the requested update. Default: Low. Possible values: Null, Low, High. The possible values are: low, high, unknownFutureValue.
+     * Sets the priority property value. The scheduling priority for downloading and preparing the requested update. Default: Low. Possible values: Null, Low, High. Possible values are: low, high, unknownFutureValue.
      * @param MacOSPriority|null $value Value to set for the priority property.
     */
     public function setPriority(?MacOSPriority $value): void {

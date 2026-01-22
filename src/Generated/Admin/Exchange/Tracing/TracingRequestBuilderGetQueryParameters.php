@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Exchange\Tracing;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get tracing from admin
+ * Represents a container for administrative resources to trace messages.
 */
 class TracingRequestBuilderGetQueryParameters 
 {

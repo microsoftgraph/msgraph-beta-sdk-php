@@ -89,7 +89,7 @@ class Channel extends Entity implements Parsable
     }
 
     /**
-     * Gets the enabledApps property value. The enabledApps property
+     * Gets the enabledApps property value. A collection of enabled apps in the channel.
      * @return array<TeamsApp>|null
     */
     public function getEnabledApps(): ?array {
@@ -405,7 +405,7 @@ class Channel extends Entity implements Parsable
     }
 
     /**
-     * Sets the enabledApps property value. The enabledApps property
+     * Sets the enabledApps property value. A collection of enabled apps in the channel.
      * @param array<TeamsApp>|null $value Value to set for the enabledApps property.
     */
     public function setEnabledApps(?array $value): void {

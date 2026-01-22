@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackageResourceScopes\Item\AccessPackageResource\AccessPackageResourceEnvironment\AccessPackageResourceEnvironmentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackageResourceScopes\Item\AccessPackageResource\AccessPackageResourceRoles\AccessPackageResourceRolesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackageResourceScopes\Item\AccessPackageResource\AccessPackageResourceScopes\AccessPackageResourceScopesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackageResourceScopes\Item\AccessPackageResource\ExternalOriginResourceConnector\ExternalOriginResourceConnectorRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackageResourceScopes\Item\AccessPackageResource\Refresh\RefreshRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackageResourceScopes\Item\AccessPackageResource\UploadSessions\UploadSessionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessPackageResource;
@@ -40,6 +41,13 @@ class AccessPackageResourceRequestBuilder extends BaseRequestBuilder
     */
     public function accessPackageResourceScopes(): AccessPackageResourceScopesRequestBuilder {
         return new AccessPackageResourceScopesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the externalOriginResourceConnector property of the microsoft.graph.accessPackageResource entity.
+    */
+    public function externalOriginResourceConnector(): ExternalOriginResourceConnectorRequestBuilder {
+        return new ExternalOriginResourceConnectorRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

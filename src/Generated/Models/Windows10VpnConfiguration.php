@@ -278,7 +278,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
     }
 
     /**
-     * Gets the profileTarget property value. Profile target type. The possible values are: user, device, autoPilotDevice.
+     * Gets the profileTarget property value. Profile target type. Possible values are: user, device, autoPilotDevice.
      * @return Windows10VpnProfileTarget|null
     */
     public function getProfileTarget(): ?Windows10VpnProfileTarget {
@@ -553,7 +553,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
     }
 
     /**
-     * Sets the profileTarget property value. Profile target type. The possible values are: user, device, autoPilotDevice.
+     * Sets the profileTarget property value. Profile target type. Possible values are: user, device, autoPilotDevice.
      * @param Windows10VpnProfileTarget|null $value Value to set for the profileTarget property.
     */
     public function setProfileTarget(?Windows10VpnProfileTarget $value): void {

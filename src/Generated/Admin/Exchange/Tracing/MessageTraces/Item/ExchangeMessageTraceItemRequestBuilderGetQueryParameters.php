@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Exchange\Tracing\MessageTraces\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get messageTraces from admin
+ * Represents the trace information of messages that pass-through Exchange Online organizations.
 */
 class ExchangeMessageTraceItemRequestBuilderGetQueryParameters 
 {

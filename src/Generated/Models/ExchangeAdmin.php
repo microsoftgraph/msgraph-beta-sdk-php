@@ -67,7 +67,7 @@ class ExchangeAdmin extends Entity implements Parsable
     }
 
     /**
-     * Gets the tracing property value. The tracing property
+     * Gets the tracing property value. Represents a container for administrative resources to trace messages.
      * @return MessageTracingRoot|null
     */
     public function getTracing(): ?MessageTracingRoot {
@@ -106,7 +106,7 @@ class ExchangeAdmin extends Entity implements Parsable
     }
 
     /**
-     * Sets the tracing property value. The tracing property
+     * Sets the tracing property value. Represents a container for administrative resources to trace messages.
      * @param MessageTracingRoot|null $value Value to set for the tracing property.
     */
     public function setTracing(?MessageTracingRoot $value): void {

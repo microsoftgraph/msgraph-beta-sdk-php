@@ -542,7 +542,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderCloudBlockLevel property value. Added in Windows 10, version 1709. This policy setting determines how aggressive Windows Defender Antivirus will be in blocking and scanning suspicious files. Value type is integer. This feature requires the 'Join Microsoft MAPS' setting enabled in order to function. The possible values are: notConfigured, high, highPlus, zeroTolerance.
+     * Gets the defenderCloudBlockLevel property value. Added in Windows 10, version 1709. This policy setting determines how aggressive Windows Defender Antivirus will be in blocking and scanning suspicious files. Value type is integer. This feature requires the 'Join Microsoft MAPS' setting enabled in order to function. Possible values are: notConfigured, high, highPlus, zeroTolerance.
      * @return DefenderCloudBlockLevelType|null
     */
     public function getDefenderCloudBlockLevel(): ?DefenderCloudBlockLevelType {
@@ -992,7 +992,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderPotentiallyUnwantedAppAction property value. Added in Windows 10, version 1607. Specifies the level of detection for potentially unwanted applications (PUAs). Windows Defender alerts you when potentially unwanted software is being downloaded or attempts to install itself on your computer. The possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Gets the defenderPotentiallyUnwantedAppAction property value. Added in Windows 10, version 1607. Specifies the level of detection for potentially unwanted applications (PUAs). Windows Defender alerts you when potentially unwanted software is being downloaded or attempts to install itself on your computer. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
      * @return DefenderProtectionType|null
     */
     public function getDefenderPotentiallyUnwantedAppAction(): ?DefenderProtectionType {
@@ -1054,7 +1054,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderScanDirection property value. Controls which sets of files should be monitored. The possible values are: monitorAllFiles, monitorIncomingFilesOnly, monitorOutgoingFilesOnly.
+     * Gets the defenderScanDirection property value. Controls which sets of files should be monitored. Possible values are: monitorAllFiles, monitorIncomingFilesOnly, monitorOutgoingFilesOnly.
      * @return DefenderRealtimeScanDirection|null
     */
     public function getDefenderScanDirection(): ?DefenderRealtimeScanDirection {
@@ -1078,7 +1078,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderScanType property value. Selects whether to perform a quick scan or full scan. The possible values are: userDefined, disabled, quick, full.
+     * Gets the defenderScanType property value. Selects whether to perform a quick scan or full scan. Possible values are: userDefined, disabled, quick, full.
      * @return DefenderScanType|null
     */
     public function getDefenderScanType(): ?DefenderScanType {
@@ -1102,7 +1102,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderScheduledScanDay property value. Selects the day that the Windows Defender scan should run. The possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday, noScheduledScan.
+     * Gets the defenderScheduledScanDay property value. Selects the day that the Windows Defender scan should run. Possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday, noScheduledScan.
      * @return WeeklySchedule|null
     */
     public function getDefenderScheduledScanDay(): ?WeeklySchedule {
@@ -1426,7 +1426,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderSubmitSamplesConsentType property value. Checks for the user consent level in Windows Defender to send data. The possible values are: sendSafeSamplesAutomatically, alwaysPrompt, neverSend, sendAllSamplesAutomatically.
+     * Gets the defenderSubmitSamplesConsentType property value. Checks for the user consent level in Windows Defender to send data. Possible values are: sendSafeSamplesAutomatically, alwaysPrompt, neverSend, sendAllSamplesAutomatically.
      * @return DefenderSubmitSamplesConsentType|null
     */
     public function getDefenderSubmitSamplesConsentType(): ?DefenderSubmitSamplesConsentType {
@@ -3615,7 +3615,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderCloudBlockLevel property value. Added in Windows 10, version 1709. This policy setting determines how aggressive Windows Defender Antivirus will be in blocking and scanning suspicious files. Value type is integer. This feature requires the 'Join Microsoft MAPS' setting enabled in order to function. The possible values are: notConfigured, high, highPlus, zeroTolerance.
+     * Sets the defenderCloudBlockLevel property value. Added in Windows 10, version 1709. This policy setting determines how aggressive Windows Defender Antivirus will be in blocking and scanning suspicious files. Value type is integer. This feature requires the 'Join Microsoft MAPS' setting enabled in order to function. Possible values are: notConfigured, high, highPlus, zeroTolerance.
      * @param DefenderCloudBlockLevelType|null $value Value to set for the defenderCloudBlockLevel property.
     */
     public function setDefenderCloudBlockLevel(?DefenderCloudBlockLevelType $value): void {
@@ -3911,7 +3911,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderPotentiallyUnwantedAppAction property value. Added in Windows 10, version 1607. Specifies the level of detection for potentially unwanted applications (PUAs). Windows Defender alerts you when potentially unwanted software is being downloaded or attempts to install itself on your computer. The possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Sets the defenderPotentiallyUnwantedAppAction property value. Added in Windows 10, version 1607. Specifies the level of detection for potentially unwanted applications (PUAs). Windows Defender alerts you when potentially unwanted software is being downloaded or attempts to install itself on your computer. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
      * @param DefenderProtectionType|null $value Value to set for the defenderPotentiallyUnwantedAppAction property.
     */
     public function setDefenderPotentiallyUnwantedAppAction(?DefenderProtectionType $value): void {
@@ -3951,7 +3951,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderScanDirection property value. Controls which sets of files should be monitored. The possible values are: monitorAllFiles, monitorIncomingFilesOnly, monitorOutgoingFilesOnly.
+     * Sets the defenderScanDirection property value. Controls which sets of files should be monitored. Possible values are: monitorAllFiles, monitorIncomingFilesOnly, monitorOutgoingFilesOnly.
      * @param DefenderRealtimeScanDirection|null $value Value to set for the defenderScanDirection property.
     */
     public function setDefenderScanDirection(?DefenderRealtimeScanDirection $value): void {
@@ -3967,7 +3967,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderScanType property value. Selects whether to perform a quick scan or full scan. The possible values are: userDefined, disabled, quick, full.
+     * Sets the defenderScanType property value. Selects whether to perform a quick scan or full scan. Possible values are: userDefined, disabled, quick, full.
      * @param DefenderScanType|null $value Value to set for the defenderScanType property.
     */
     public function setDefenderScanType(?DefenderScanType $value): void {
@@ -3983,7 +3983,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderScheduledScanDay property value. Selects the day that the Windows Defender scan should run. The possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday, noScheduledScan.
+     * Sets the defenderScheduledScanDay property value. Selects the day that the Windows Defender scan should run. Possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday, noScheduledScan.
      * @param WeeklySchedule|null $value Value to set for the defenderScheduledScanDay property.
     */
     public function setDefenderScheduledScanDay(?WeeklySchedule $value): void {
@@ -4199,7 +4199,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderSubmitSamplesConsentType property value. Checks for the user consent level in Windows Defender to send data. The possible values are: sendSafeSamplesAutomatically, alwaysPrompt, neverSend, sendAllSamplesAutomatically.
+     * Sets the defenderSubmitSamplesConsentType property value. Checks for the user consent level in Windows Defender to send data. Possible values are: sendSafeSamplesAutomatically, alwaysPrompt, neverSend, sendAllSamplesAutomatically.
      * @param DefenderSubmitSamplesConsentType|null $value Value to set for the defenderSubmitSamplesConsentType property.
     */
     public function setDefenderSubmitSamplesConsentType(?DefenderSubmitSamplesConsentType $value): void {

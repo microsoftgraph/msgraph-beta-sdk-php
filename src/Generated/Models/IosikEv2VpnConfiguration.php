@@ -89,7 +89,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
     }
 
     /**
-     * Gets the deadPeerDetectionRate property value. Determine how often to check if a peer connection is still active. . The possible values are: medium, none, low, high.
+     * Gets the deadPeerDetectionRate property value. Determine how often to check if a peer connection is still active. . Possible values are: medium, none, low, high.
      * @return VpnDeadPeerDetectionRate|null
     */
     public function getDeadPeerDetectionRate(): ?VpnDeadPeerDetectionRate {
@@ -290,7 +290,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
     }
 
     /**
-     * Gets the serverCertificateType property value. The type of certificate the VPN server will present to the VPN client for authentication. The possible values are: rsa, ecdsa256, ecdsa384, ecdsa521.
+     * Gets the serverCertificateType property value. The type of certificate the VPN server will present to the VPN client for authentication. Possible values are: rsa, ecdsa256, ecdsa384, ecdsa521.
      * @return VpnServerCertificateType|null
     */
     public function getServerCertificateType(): ?VpnServerCertificateType {
@@ -409,7 +409,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
     }
 
     /**
-     * Sets the deadPeerDetectionRate property value. Determine how often to check if a peer connection is still active. . The possible values are: medium, none, low, high.
+     * Sets the deadPeerDetectionRate property value. Determine how often to check if a peer connection is still active. . Possible values are: medium, none, low, high.
      * @param VpnDeadPeerDetectionRate|null $value Value to set for the deadPeerDetectionRate property.
     */
     public function setDeadPeerDetectionRate(?VpnDeadPeerDetectionRate $value): void {
@@ -521,7 +521,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
     }
 
     /**
-     * Sets the serverCertificateType property value. The type of certificate the VPN server will present to the VPN client for authentication. The possible values are: rsa, ecdsa256, ecdsa384, ecdsa521.
+     * Sets the serverCertificateType property value. The type of certificate the VPN server will present to the VPN client for authentication. Possible values are: rsa, ecdsa256, ecdsa384, ecdsa521.
      * @param VpnServerCertificateType|null $value Value to set for the serverCertificateType property.
     */
     public function setServerCertificateType(?VpnServerCertificateType $value): void {

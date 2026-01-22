@@ -31,7 +31,7 @@ class TeamsAppItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get enabledApps from teamwork
+     * A collection of enabled apps in the channel.
      * @param TeamsAppItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamsApp|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class TeamsAppItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get enabledApps from teamwork
+     * A collection of enabled apps in the channel.
      * @param TeamsAppItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

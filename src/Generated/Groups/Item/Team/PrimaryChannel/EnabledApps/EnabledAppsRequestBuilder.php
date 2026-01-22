@@ -51,7 +51,7 @@ class EnabledAppsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get enabledApps from groups
+     * A collection of enabled apps in the channel.
      * @param EnabledAppsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamsAppCollectionResponse|null>
      * @throws Exception
@@ -65,7 +65,7 @@ class EnabledAppsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get enabledApps from groups
+     * A collection of enabled apps in the channel.
      * @param EnabledAppsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

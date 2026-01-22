@@ -83,7 +83,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
     }
 
     /**
-     * Gets the macAddressRandomizationMode property value. The MAC address randomization mode for Android device Wi-Fi configuration. Possible values include automatic and hardware. Default value is automatic. The possible values are: automatic, hardware, unknownFutureValue.
+     * Gets the macAddressRandomizationMode property value. The MAC address randomization mode for Android device Wi-Fi configuration. Possible values include automatic and hardware. Default value is automatic. Possible values are: automatic, hardware, unknownFutureValue.
      * @return MacAddressRandomizationMode|null
     */
     public function getMacAddressRandomizationMode(): ?MacAddressRandomizationMode {
@@ -252,7 +252,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
     }
 
     /**
-     * Sets the macAddressRandomizationMode property value. The MAC address randomization mode for Android device Wi-Fi configuration. Possible values include automatic and hardware. Default value is automatic. The possible values are: automatic, hardware, unknownFutureValue.
+     * Sets the macAddressRandomizationMode property value. The MAC address randomization mode for Android device Wi-Fi configuration. Possible values include automatic and hardware. Default value is automatic. Possible values are: automatic, hardware, unknownFutureValue.
      * @param MacAddressRandomizationMode|null $value Value to set for the macAddressRandomizationMode property.
     */
     public function setMacAddressRandomizationMode(?MacAddressRandomizationMode $value): void {

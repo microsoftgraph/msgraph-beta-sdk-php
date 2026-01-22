@@ -45,7 +45,7 @@ class ExchangeMessageTrace extends Entity implements Parsable
     }
 
     /**
-     * Gets the fromIP property value. The fromIP property
+     * Gets the fromIP property value. The source IP address. For incoming messages, this value is the public IP address of the SMTP email server that sent the message.
      * @return string|null
     */
     public function getFromIP(): ?string {
@@ -57,7 +57,7 @@ class ExchangeMessageTrace extends Entity implements Parsable
     }
 
     /**
-     * Gets the messageId property value. The messageId property
+     * Gets the messageId property value. The Message-ID header field of the message. The format of the Message-ID depends on the messaging server that sent the message.
      * @return string|null
     */
     public function getMessageId(): ?string {
@@ -69,7 +69,7 @@ class ExchangeMessageTrace extends Entity implements Parsable
     }
 
     /**
-     * Gets the receivedDateTime property value. The receivedDateTime property
+     * Gets the receivedDateTime property value. The date and time when the message was received by Exchange Online. The timestamp is in UTC format.
      * @return DateTime|null
     */
     public function getReceivedDateTime(): ?DateTime {
@@ -81,7 +81,7 @@ class ExchangeMessageTrace extends Entity implements Parsable
     }
 
     /**
-     * Gets the recipientAddress property value. The recipientAddress property
+     * Gets the recipientAddress property value. The SMTP email address of the user that the message was addressed to.
      * @return string|null
     */
     public function getRecipientAddress(): ?string {
@@ -93,7 +93,7 @@ class ExchangeMessageTrace extends Entity implements Parsable
     }
 
     /**
-     * Gets the senderAddress property value. The senderAddress property
+     * Gets the senderAddress property value. The SMTP email address of the user the message was purportedly from.
      * @return string|null
     */
     public function getSenderAddress(): ?string {
@@ -105,7 +105,7 @@ class ExchangeMessageTrace extends Entity implements Parsable
     }
 
     /**
-     * Gets the size property value. The size property
+     * Gets the size property value. The size of the message in bytes.
      * @return int|null
     */
     public function getSize(): ?int {
@@ -129,7 +129,7 @@ class ExchangeMessageTrace extends Entity implements Parsable
     }
 
     /**
-     * Gets the subject property value. The subject property
+     * Gets the subject property value. The subject line of the message.
      * @return string|null
     */
     public function getSubject(): ?string {
@@ -141,7 +141,7 @@ class ExchangeMessageTrace extends Entity implements Parsable
     }
 
     /**
-     * Gets the toIP property value. The toIP property
+     * Gets the toIP property value. The destination IP address. For outgoing messages, this value is the public IP address in the resolved MX record for the destination domain. For incoming messages to Exchange Online, this value is blank.
      * @return string|null
     */
     public function getToIP(): ?string {
@@ -170,7 +170,7 @@ class ExchangeMessageTrace extends Entity implements Parsable
     }
 
     /**
-     * Sets the fromIP property value. The fromIP property
+     * Sets the fromIP property value. The source IP address. For incoming messages, this value is the public IP address of the SMTP email server that sent the message.
      * @param string|null $value Value to set for the fromIP property.
     */
     public function setFromIP(?string $value): void {
@@ -178,7 +178,7 @@ class ExchangeMessageTrace extends Entity implements Parsable
     }
 
     /**
-     * Sets the messageId property value. The messageId property
+     * Sets the messageId property value. The Message-ID header field of the message. The format of the Message-ID depends on the messaging server that sent the message.
      * @param string|null $value Value to set for the messageId property.
     */
     public function setMessageId(?string $value): void {
@@ -186,7 +186,7 @@ class ExchangeMessageTrace extends Entity implements Parsable
     }
 
     /**
-     * Sets the receivedDateTime property value. The receivedDateTime property
+     * Sets the receivedDateTime property value. The date and time when the message was received by Exchange Online. The timestamp is in UTC format.
      * @param DateTime|null $value Value to set for the receivedDateTime property.
     */
     public function setReceivedDateTime(?DateTime $value): void {
@@ -194,7 +194,7 @@ class ExchangeMessageTrace extends Entity implements Parsable
     }
 
     /**
-     * Sets the recipientAddress property value. The recipientAddress property
+     * Sets the recipientAddress property value. The SMTP email address of the user that the message was addressed to.
      * @param string|null $value Value to set for the recipientAddress property.
     */
     public function setRecipientAddress(?string $value): void {
@@ -202,7 +202,7 @@ class ExchangeMessageTrace extends Entity implements Parsable
     }
 
     /**
-     * Sets the senderAddress property value. The senderAddress property
+     * Sets the senderAddress property value. The SMTP email address of the user the message was purportedly from.
      * @param string|null $value Value to set for the senderAddress property.
     */
     public function setSenderAddress(?string $value): void {
@@ -210,7 +210,7 @@ class ExchangeMessageTrace extends Entity implements Parsable
     }
 
     /**
-     * Sets the size property value. The size property
+     * Sets the size property value. The size of the message in bytes.
      * @param int|null $value Value to set for the size property.
     */
     public function setSize(?int $value): void {
@@ -226,7 +226,7 @@ class ExchangeMessageTrace extends Entity implements Parsable
     }
 
     /**
-     * Sets the subject property value. The subject property
+     * Sets the subject property value. The subject line of the message.
      * @param string|null $value Value to set for the subject property.
     */
     public function setSubject(?string $value): void {
@@ -234,7 +234,7 @@ class ExchangeMessageTrace extends Entity implements Parsable
     }
 
     /**
-     * Sets the toIP property value. The toIP property
+     * Sets the toIP property value. The destination IP address. For outgoing messages, this value is the public IP address in the resolved MX record for the destination domain. For incoming messages to Exchange Online, this value is blank.
      * @param string|null $value Value to set for the toIP property.
     */
     public function setToIP(?string $value): void {

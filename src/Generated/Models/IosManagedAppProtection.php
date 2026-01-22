@@ -54,7 +54,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
-     * Gets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). The possible values are: block, wipe, warn, blockWhenSettingIsSupported.
+     * Gets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). Possible values are: block, wipe, warn, blockWhenSettingIsSupported.
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfAccountIsClockedOut(): ?ManagedAppRemediationAction {
@@ -265,7 +265,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
-     * Gets the genmojiConfigurationState property value. Configuration state (blocked or not blocked) for Apple Intelligence Genmoji setting. The possible values are: notBlocked, blocked, unknownFutureValue.
+     * Gets the genmojiConfigurationState property value. Configuration state (blocked or not blocked) for Apple Intelligence Genmoji setting. Possible values are: notBlocked, blocked, unknownFutureValue.
      * @return GenmojiIosManagedAppConfigurationState|null
     */
     public function getGenmojiConfigurationState(): ?GenmojiIosManagedAppConfigurationState {
@@ -351,7 +351,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
-     * Gets the screenCaptureConfigurationState property value. Configuration state (blocked or not blocked) for Apple Intelligence screen capture setting. The possible values are: notBlocked, blocked, unknownFutureValue.
+     * Gets the screenCaptureConfigurationState property value. Configuration state (blocked or not blocked) for Apple Intelligence screen capture setting. Possible values are: notBlocked, blocked, unknownFutureValue.
      * @return ScreenCaptureIosManagedAppConfigurationState|null
     */
     public function getScreenCaptureConfigurationState(): ?ScreenCaptureIosManagedAppConfigurationState {
@@ -375,7 +375,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
-     * Gets the writingToolsConfigurationState property value. Configuration state (blocked or not blocked) for Apple Intelligence writing tools setting. The possible values are: notBlocked, blocked, unknownFutureValue.
+     * Gets the writingToolsConfigurationState property value. Configuration state (blocked or not blocked) for Apple Intelligence writing tools setting. Possible values are: notBlocked, blocked, unknownFutureValue.
      * @return WritingToolsIosManagedAppConfigurationState|null
     */
     public function getWritingToolsConfigurationState(): ?WritingToolsIosManagedAppConfigurationState {
@@ -436,7 +436,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
-     * Sets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). The possible values are: block, wipe, warn, blockWhenSettingIsSupported.
+     * Sets the appActionIfAccountIsClockedOut property value. Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). Possible values are: block, wipe, warn, blockWhenSettingIsSupported.
      * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfAccountIsClockedOut property.
     */
     public function setAppActionIfAccountIsClockedOut(?ManagedAppRemediationAction $value): void {
@@ -540,7 +540,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
-     * Sets the genmojiConfigurationState property value. Configuration state (blocked or not blocked) for Apple Intelligence Genmoji setting. The possible values are: notBlocked, blocked, unknownFutureValue.
+     * Sets the genmojiConfigurationState property value. Configuration state (blocked or not blocked) for Apple Intelligence Genmoji setting. Possible values are: notBlocked, blocked, unknownFutureValue.
      * @param GenmojiIosManagedAppConfigurationState|null $value Value to set for the genmojiConfigurationState property.
     */
     public function setGenmojiConfigurationState(?GenmojiIosManagedAppConfigurationState $value): void {
@@ -596,7 +596,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
-     * Sets the screenCaptureConfigurationState property value. Configuration state (blocked or not blocked) for Apple Intelligence screen capture setting. The possible values are: notBlocked, blocked, unknownFutureValue.
+     * Sets the screenCaptureConfigurationState property value. Configuration state (blocked or not blocked) for Apple Intelligence screen capture setting. Possible values are: notBlocked, blocked, unknownFutureValue.
      * @param ScreenCaptureIosManagedAppConfigurationState|null $value Value to set for the screenCaptureConfigurationState property.
     */
     public function setScreenCaptureConfigurationState(?ScreenCaptureIosManagedAppConfigurationState $value): void {
@@ -612,7 +612,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
-     * Sets the writingToolsConfigurationState property value. Configuration state (blocked or not blocked) for Apple Intelligence writing tools setting. The possible values are: notBlocked, blocked, unknownFutureValue.
+     * Sets the writingToolsConfigurationState property value. Configuration state (blocked or not blocked) for Apple Intelligence writing tools setting. Possible values are: notBlocked, blocked, unknownFutureValue.
      * @param WritingToolsIosManagedAppConfigurationState|null $value Value to set for the writingToolsConfigurationState property.
     */
     public function setWritingToolsConfigurationState(?WritingToolsIosManagedAppConfigurationState $value): void {

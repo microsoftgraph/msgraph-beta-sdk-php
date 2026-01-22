@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Exchange\Tracing\MessageTraces\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Invoke function getDetailsByRecipient
+ * Get a list of exchangeMessageTraceDetail objects filtered on the recipient.
 */
 class GetDetailsByRecipientWithRecipientAddressRequestBuilderGetQueryParameters 
 {

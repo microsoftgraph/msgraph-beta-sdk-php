@@ -65,7 +65,7 @@ class WindowsPhoneEASEmailProfileConfiguration extends EasEmailProfileConfigurat
     }
 
     /**
-     * Gets the emailAddressSource property value. Email attribute that is picked from AAD and injected into this profile before installing on the device. The possible values are: userPrincipalName, primarySmtpAddress.
+     * Gets the emailAddressSource property value. Email attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.
      * @return UserEmailSource|null
     */
     public function getEmailAddressSource(): ?UserEmailSource {
@@ -210,7 +210,7 @@ class WindowsPhoneEASEmailProfileConfiguration extends EasEmailProfileConfigurat
     }
 
     /**
-     * Sets the emailAddressSource property value. Email attribute that is picked from AAD and injected into this profile before installing on the device. The possible values are: userPrincipalName, primarySmtpAddress.
+     * Sets the emailAddressSource property value. Email attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.
      * @param UserEmailSource|null $value Value to set for the emailAddressSource property.
     */
     public function setEmailAddressSource(?UserEmailSource $value): void {
