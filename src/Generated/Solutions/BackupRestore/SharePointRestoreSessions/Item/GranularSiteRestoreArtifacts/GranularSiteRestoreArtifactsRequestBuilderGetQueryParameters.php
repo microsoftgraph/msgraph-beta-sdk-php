@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointResto
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get granularSiteRestoreArtifacts from solutions
+ * Get a list of the granularSiteRestoreArtifact objects and their properties.
 */
 class GranularSiteRestoreArtifactsRequestBuilderGetQueryParameters 
 {

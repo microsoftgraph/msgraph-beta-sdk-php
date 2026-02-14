@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\SettingsContainer;
+use Microsoft\Graph\Beta\Generated\Security\Identities\Settings\AutoAuditingConfiguration\AutoAuditingConfigurationRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -16,6 +17,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class SettingsRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the autoAuditingConfiguration property of the microsoft.graph.security.settingsContainer entity.
+    */
+    public function autoAuditingConfiguration(): AutoAuditingConfigurationRequestBuilder {
+        return new AutoAuditingConfigurationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new SettingsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
@@ -45,7 +53,7 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get settings from security
+     * Represents a container for security identities settings APIs.
      * @param SettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SettingsContainer|null>
      * @throws Exception
@@ -92,7 +100,7 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get settings from security
+     * Represents a container for security identities settings APIs.
      * @param SettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

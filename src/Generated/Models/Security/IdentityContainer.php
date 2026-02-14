@@ -111,7 +111,7 @@ class IdentityContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the settings property value. The settings property
+     * Gets the settings property value. Represents a container for security identities settings APIs.
      * @return SettingsContainer|null
     */
     public function getSettings(): ?SettingsContainer {
@@ -177,7 +177,7 @@ class IdentityContainer extends Entity implements Parsable
     }
 
     /**
-     * Sets the settings property value. The settings property
+     * Sets the settings property value. Represents a container for security identities settings APIs.
      * @param SettingsContainer|null $value Value to set for the settings property.
     */
     public function setSettings(?SettingsContainer $value): void {

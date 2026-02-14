@@ -84,7 +84,7 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the detonationBehaviourDetails property value. Shows the exact events that took place during detonation, and problematic or benign observations that contain URLs, IPs, domains, and files that were found during detonation
+     * Gets the detonationBehaviourDetails property value. Shows the exact events that took place during detonation, and problematic or benign observations that contain URLs, IPs, domains, and files that were found during detonation. This property is deprecated and still stop returning data in March 2026. Use the detonationBehaviourDetailsV2 property instead.
      * @return DetonationBehaviourDetails|null
     */
     public function getDetonationBehaviourDetails(): ?DetonationBehaviourDetails {
@@ -93,6 +93,18 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'detonationBehaviourDetails'");
+    }
+
+    /**
+     * Gets the detonationBehaviourDetailsV2 property value. Shows the exact events that took place during detonation, and problematic or benign observations that contain URLs, IPs, domains, and files that were found during detonation in a JSON format.
+     * @return string|null
+    */
+    public function getDetonationBehaviourDetailsV2(): ?string {
+        $val = $this->getBackingStore()->get('detonationBehaviourDetailsV2');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'detonationBehaviourDetailsV2'");
     }
 
     /**
@@ -156,6 +168,18 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the entityMetadata property value. Additional metadata about the entity in JSON format.
+     * @return string|null
+    */
+    public function getEntityMetadata(): ?string {
+        $val = $this->getBackingStore()->get('entityMetadata');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'entityMetadata'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -165,13 +189,30 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
             'analysisDateTime' => fn(ParseNode $n) => $o->setAnalysisDateTime($n->getDateTimeValue()),
             'compromiseIndicators' => fn(ParseNode $n) => $o->setCompromiseIndicators($n->getCollectionOfObjectValues([CompromiseIndicator::class, 'createFromDiscriminatorValue'])),
             'detonationBehaviourDetails' => fn(ParseNode $n) => $o->setDetonationBehaviourDetails($n->getObjectValue([DetonationBehaviourDetails::class, 'createFromDiscriminatorValue'])),
+            'detonationBehaviourDetailsV2' => fn(ParseNode $n) => $o->setDetonationBehaviourDetailsV2($n->getStringValue()),
             'detonationChain' => fn(ParseNode $n) => $o->setDetonationChain($n->getObjectValue([DetonationChain::class, 'createFromDiscriminatorValue'])),
             'detonationObservables' => fn(ParseNode $n) => $o->setDetonationObservables($n->getObjectValue([DetonationObservables::class, 'createFromDiscriminatorValue'])),
             'detonationScreenshotUri' => fn(ParseNode $n) => $o->setDetonationScreenshotUri($n->getStringValue()),
             'detonationVerdict' => fn(ParseNode $n) => $o->setDetonationVerdict($n->getStringValue()),
             'detonationVerdictReason' => fn(ParseNode $n) => $o->setDetonationVerdictReason($n->getStringValue()),
+            'entityMetadata' => fn(ParseNode $n) => $o->setEntityMetadata($n->getStringValue()),
+            'mitreTechniques' => fn(ParseNode $n) => $o->setMitreTechniques($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'staticAnalysis' => fn(ParseNode $n) => $o->setStaticAnalysis($n->getStringValue()),
+            'submissionSource' => fn(ParseNode $n) => $o->setSubmissionSource($n->getStringValue()),
         ];
+    }
+
+    /**
+     * Gets the mitreTechniques property value. The attack techniques, as aligned with the MITRE ATT&CK framework.
+     * @return string|null
+    */
+    public function getMitreTechniques(): ?string {
+        $val = $this->getBackingStore()->get('mitreTechniques');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mitreTechniques'");
     }
 
     /**
@@ -187,6 +228,30 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the staticAnalysis property value. The results of static analysis performed on the file or URL.
+     * @return string|null
+    */
+    public function getStaticAnalysis(): ?string {
+        $val = $this->getBackingStore()->get('staticAnalysis');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'staticAnalysis'");
+    }
+
+    /**
+     * Gets the submissionSource property value. The source of the submission.
+     * @return string|null
+    */
+    public function getSubmissionSource(): ?string {
+        $val = $this->getBackingStore()->get('submissionSource');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'submissionSource'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -194,12 +259,17 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeDateTimeValue('analysisDateTime', $this->getAnalysisDateTime());
         $writer->writeCollectionOfObjectValues('compromiseIndicators', $this->getCompromiseIndicators());
         $writer->writeObjectValue('detonationBehaviourDetails', $this->getDetonationBehaviourDetails());
+        $writer->writeStringValue('detonationBehaviourDetailsV2', $this->getDetonationBehaviourDetailsV2());
         $writer->writeObjectValue('detonationChain', $this->getDetonationChain());
         $writer->writeObjectValue('detonationObservables', $this->getDetonationObservables());
         $writer->writeStringValue('detonationScreenshotUri', $this->getDetonationScreenshotUri());
         $writer->writeStringValue('detonationVerdict', $this->getDetonationVerdict());
         $writer->writeStringValue('detonationVerdictReason', $this->getDetonationVerdictReason());
+        $writer->writeStringValue('entityMetadata', $this->getEntityMetadata());
+        $writer->writeStringValue('mitreTechniques', $this->getMitreTechniques());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('staticAnalysis', $this->getStaticAnalysis());
+        $writer->writeStringValue('submissionSource', $this->getSubmissionSource());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -236,11 +306,19 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the detonationBehaviourDetails property value. Shows the exact events that took place during detonation, and problematic or benign observations that contain URLs, IPs, domains, and files that were found during detonation
+     * Sets the detonationBehaviourDetails property value. Shows the exact events that took place during detonation, and problematic or benign observations that contain URLs, IPs, domains, and files that were found during detonation. This property is deprecated and still stop returning data in March 2026. Use the detonationBehaviourDetailsV2 property instead.
      * @param DetonationBehaviourDetails|null $value Value to set for the detonationBehaviourDetails property.
     */
     public function setDetonationBehaviourDetails(?DetonationBehaviourDetails $value): void {
         $this->getBackingStore()->set('detonationBehaviourDetails', $value);
+    }
+
+    /**
+     * Sets the detonationBehaviourDetailsV2 property value. Shows the exact events that took place during detonation, and problematic or benign observations that contain URLs, IPs, domains, and files that were found during detonation in a JSON format.
+     * @param string|null $value Value to set for the detonationBehaviourDetailsV2 property.
+    */
+    public function setDetonationBehaviourDetailsV2(?string $value): void {
+        $this->getBackingStore()->set('detonationBehaviourDetailsV2', $value);
     }
 
     /**
@@ -284,11 +362,43 @@ class DetonationDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Sets the entityMetadata property value. Additional metadata about the entity in JSON format.
+     * @param string|null $value Value to set for the entityMetadata property.
+    */
+    public function setEntityMetadata(?string $value): void {
+        $this->getBackingStore()->set('entityMetadata', $value);
+    }
+
+    /**
+     * Sets the mitreTechniques property value. The attack techniques, as aligned with the MITRE ATT&CK framework.
+     * @param string|null $value Value to set for the mitreTechniques property.
+    */
+    public function setMitreTechniques(?string $value): void {
+        $this->getBackingStore()->set('mitreTechniques', $value);
+    }
+
+    /**
      * Sets the @odata.type property value. The OdataType property
      * @param string|null $value Value to set for the @odata.type property.
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the staticAnalysis property value. The results of static analysis performed on the file or URL.
+     * @param string|null $value Value to set for the staticAnalysis property.
+    */
+    public function setStaticAnalysis(?string $value): void {
+        $this->getBackingStore()->set('staticAnalysis', $value);
+    }
+
+    /**
+     * Sets the submissionSource property value. The source of the submission.
+     * @param string|null $value Value to set for the submissionSource property.
+    */
+    public function setSubmissionSource(?string $value): void {
+        $this->getBackingStore()->set('submissionSource', $value);
     }
 
 }

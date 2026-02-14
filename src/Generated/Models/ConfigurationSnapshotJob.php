@@ -27,7 +27,7 @@ class ConfigurationSnapshotJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the completedDateTime property value. The completedDateTime property
+     * Gets the completedDateTime property value. The date and time when the snapshot job was completed. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getCompletedDateTime(): ?DateTime {
@@ -51,7 +51,7 @@ class ConfigurationSnapshotJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date and time when the snapshot job was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -63,7 +63,7 @@ class ConfigurationSnapshotJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. User-friendly description of the snapshot given by the user.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -75,7 +75,7 @@ class ConfigurationSnapshotJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. User-friendly name provided by the user during snapshot creation.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -87,7 +87,7 @@ class ConfigurationSnapshotJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the errorDetails property value. The errorDetails property
+     * Gets the errorDetails property value. Details of errors related to the reasons why the snapshot can't complete.
      * @return array<string>|null
     */
     public function getErrorDetails(): ?array {
@@ -135,7 +135,7 @@ class ConfigurationSnapshotJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the resourceLocation property value. The resourceLocation property
+     * Gets the resourceLocation property value. The URL at which the snapshot file resides.
      * @return string|null
     */
     public function getResourceLocation(): ?string {
@@ -147,7 +147,7 @@ class ConfigurationSnapshotJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the resources property value. The resources property
+     * Gets the resources property value. The names of all resources included in the request body by the user who created the snapshot. Fetched by the system.
      * @return array<string>|null
     */
     public function getResources(): ?array {
@@ -173,7 +173,7 @@ class ConfigurationSnapshotJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the tenantId property value. The tenantId property
+     * Gets the tenantId property value. Globally unique identifier (GUID) of the tenant for which the snapshot is created.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -198,7 +198,7 @@ class ConfigurationSnapshotJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the completedDateTime property value. The completedDateTime property
+     * Sets the completedDateTime property value. The date and time when the snapshot job was completed. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the completedDateTime property.
     */
     public function setCompletedDateTime(?DateTime $value): void {
@@ -214,7 +214,7 @@ class ConfigurationSnapshotJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date and time when the snapshot job was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -222,7 +222,7 @@ class ConfigurationSnapshotJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. User-friendly description of the snapshot given by the user.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -230,7 +230,7 @@ class ConfigurationSnapshotJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. User-friendly name provided by the user during snapshot creation.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -238,7 +238,7 @@ class ConfigurationSnapshotJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the errorDetails property value. The errorDetails property
+     * Sets the errorDetails property value. Details of errors related to the reasons why the snapshot can't complete.
      * @param array<string>|null $value Value to set for the errorDetails property.
     */
     public function setErrorDetails(?array $value): void {
@@ -246,7 +246,7 @@ class ConfigurationSnapshotJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the resourceLocation property value. The resourceLocation property
+     * Sets the resourceLocation property value. The URL at which the snapshot file resides.
      * @param string|null $value Value to set for the resourceLocation property.
     */
     public function setResourceLocation(?string $value): void {
@@ -254,7 +254,7 @@ class ConfigurationSnapshotJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the resources property value. The resources property
+     * Sets the resources property value. The names of all resources included in the request body by the user who created the snapshot. Fetched by the system.
      * @param array<string>|null $value Value to set for the resources property.
     */
     public function setResources(?array $value): void {
@@ -270,7 +270,7 @@ class ConfigurationSnapshotJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the tenantId property value. The tenantId property
+     * Sets the tenantId property value. Globally unique identifier (GUID) of the tenant for which the snapshot is created.
      * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {

@@ -45,10 +45,11 @@ class ConfigurationMonitoringResultItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get configurationMonitoringResults from admin
+     * Read the properties and relationships of a configurationMonitoringResult object.
      * @param ConfigurationMonitoringResultItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConfigurationMonitoringResult|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/configurationmonitoringresult-get?view=graph-rest-beta Find more info here
     */
     public function get(?ConfigurationMonitoringResultItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -92,7 +93,7 @@ class ConfigurationMonitoringResultItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get configurationMonitoringResults from admin
+     * Read the properties and relationships of a configurationMonitoringResult object.
      * @param ConfigurationMonitoringResultItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

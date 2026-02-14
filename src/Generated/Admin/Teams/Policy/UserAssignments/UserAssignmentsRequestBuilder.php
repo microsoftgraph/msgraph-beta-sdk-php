@@ -68,7 +68,7 @@ class UserAssignmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Navigation property to the collection of user policy assignments.
+     * The collection of user policy assignments.
      * @param UserAssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamsPolicyUserAssignmentCollectionResponse|null>
      * @throws Exception
@@ -97,7 +97,7 @@ class UserAssignmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Navigation property to the collection of user policy assignments.
+     * The collection of user policy assignments.
      * @param UserAssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

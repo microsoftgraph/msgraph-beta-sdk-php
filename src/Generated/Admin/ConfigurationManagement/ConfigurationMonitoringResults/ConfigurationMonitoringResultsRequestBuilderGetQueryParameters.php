@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\Configura
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get configurationMonitoringResults from admin
+ * Get a list of the configurationMonitoringResult objects and their properties.
 */
 class ConfigurationMonitoringResultsRequestBuilderGetQueryParameters 
 {

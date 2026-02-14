@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\Configura
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get baseline from admin
+ * Read the properties and relationships of a configurationBaseline object that is attached to a specific monitor.
 */
 class BaselineRequestBuilderGetQueryParameters 
 {

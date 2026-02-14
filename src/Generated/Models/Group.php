@@ -1192,7 +1192,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the welcomeMessageEnabled property value. The welcomeMessageEnabled property
+     * Gets the welcomeMessageEnabled property value. Indicates whether a welcome message is sent to new members when they are added to the group. The default value is true. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
      * @return bool|null
     */
     public function getWelcomeMessageEnabled(): ?bool {
@@ -1955,7 +1955,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the welcomeMessageEnabled property value. The welcomeMessageEnabled property
+     * Sets the welcomeMessageEnabled property value. Indicates whether a welcome message is sent to new members when they are added to the group. The default value is true. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
      * @param bool|null $value Value to set for the welcomeMessageEnabled property.
     */
     public function setWelcomeMessageEnabled(?bool $value): void {

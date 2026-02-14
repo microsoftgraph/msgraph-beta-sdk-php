@@ -49,6 +49,34 @@ class UserCloudLicensing implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the assignmentErrors property value. The assignmentErrors property
+     * @return array<AssignmentError>|null
+    */
+    public function getAssignmentErrors(): ?array {
+        $val = $this->getBackingStore()->get('assignmentErrors');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AssignmentError::class);
+            /** @var array<AssignmentError>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignmentErrors'");
+    }
+
+    /**
+     * Gets the assignments property value. The assignments property
+     * @return array<Assignment>|null
+    */
+    public function getAssignments(): ?array {
+        $val = $this->getBackingStore()->get('assignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Assignment::class);
+            /** @var array<Assignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignments'");
+    }
+
+    /**
      * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -63,8 +91,11 @@ class UserCloudLicensing implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'assignmentErrors' => fn(ParseNode $n) => $o->setAssignmentErrors($n->getCollectionOfObjectValues([AssignmentError::class, 'createFromDiscriminatorValue'])),
+            'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([Assignment::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'usageRights' => fn(ParseNode $n) => $o->setUsageRights($n->getCollectionOfObjectValues([UsageRight::class, 'createFromDiscriminatorValue'])),
+            'waitingMembers' => fn(ParseNode $n) => $o->setWaitingMembers($n->getCollectionOfObjectValues([WaitingMember::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
@@ -95,12 +126,29 @@ class UserCloudLicensing implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the waitingMembers property value. The waitingMembers property
+     * @return array<WaitingMember>|null
+    */
+    public function getWaitingMembers(): ?array {
+        $val = $this->getBackingStore()->get('waitingMembers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, WaitingMember::class);
+            /** @var array<WaitingMember>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'waitingMembers'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeCollectionOfObjectValues('assignmentErrors', $this->getAssignmentErrors());
+        $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('usageRights', $this->getUsageRights());
+        $writer->writeCollectionOfObjectValues('waitingMembers', $this->getWaitingMembers());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -110,6 +158,22 @@ class UserCloudLicensing implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the assignmentErrors property value. The assignmentErrors property
+     * @param array<AssignmentError>|null $value Value to set for the assignmentErrors property.
+    */
+    public function setAssignmentErrors(?array $value): void {
+        $this->getBackingStore()->set('assignmentErrors', $value);
+    }
+
+    /**
+     * Sets the assignments property value. The assignments property
+     * @param array<Assignment>|null $value Value to set for the assignments property.
+    */
+    public function setAssignments(?array $value): void {
+        $this->getBackingStore()->set('assignments', $value);
     }
 
     /**
@@ -134,6 +198,14 @@ class UserCloudLicensing implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setUsageRights(?array $value): void {
         $this->getBackingStore()->set('usageRights', $value);
+    }
+
+    /**
+     * Sets the waitingMembers property value. The waitingMembers property
+     * @param array<WaitingMember>|null $value Value to set for the waitingMembers property.
+    */
+    public function setWaitingMembers(?array $value): void {
+        $this->getBackingStore()->set('waitingMembers', $value);
     }
 
 }

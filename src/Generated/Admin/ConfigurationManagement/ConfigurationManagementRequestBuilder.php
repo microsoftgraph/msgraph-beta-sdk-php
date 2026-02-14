@@ -4,7 +4,6 @@ namespace Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\ConfigurationApplications\ConfigurationApplicationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\ConfigurationDrifts\ConfigurationDriftsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\ConfigurationMonitoringResults\ConfigurationMonitoringResultsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\ConfigurationMonitors\ConfigurationMonitorsRequestBuilder;
@@ -22,13 +21,6 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class ConfigurationManagementRequestBuilder extends BaseRequestBuilder 
 {
-    /**
-     * Provides operations to manage the configurationApplications property of the microsoft.graph.configurationManagement entity.
-    */
-    public function configurationApplications(): ConfigurationApplicationsRequestBuilder {
-        return new ConfigurationApplicationsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
     /**
      * Provides operations to manage the configurationDrifts property of the microsoft.graph.configurationManagement entity.
     */

@@ -54,6 +54,7 @@ class RiskyAgent extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'agentDisplayName' => fn(ParseNode $n) => $o->setAgentDisplayName($n->getStringValue()),
+            'identityType' => fn(ParseNode $n) => $o->setIdentityType($n->getEnumValue(AgentIdentityType::class)),
             'isDeleted' => fn(ParseNode $n) => $o->setIsDeleted($n->getBooleanValue()),
             'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
             'isProcessing' => fn(ParseNode $n) => $o->setIsProcessing($n->getBooleanValue()),
@@ -62,6 +63,18 @@ class RiskyAgent extends Entity implements Parsable
             'riskLevel' => fn(ParseNode $n) => $o->setRiskLevel($n->getEnumValue(RiskLevel::class)),
             'riskState' => fn(ParseNode $n) => $o->setRiskState($n->getEnumValue(RiskState::class)),
         ]);
+    }
+
+    /**
+     * Gets the identityType property value. The identityType property
+     * @return AgentIdentityType|null
+    */
+    public function getIdentityType(): ?AgentIdentityType {
+        $val = $this->getBackingStore()->get('identityType');
+        if (is_null($val) || $val instanceof AgentIdentityType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityType'");
     }
 
     /**
@@ -155,6 +168,7 @@ class RiskyAgent extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('agentDisplayName', $this->getAgentDisplayName());
+        $writer->writeEnumValue('identityType', $this->getIdentityType());
         $writer->writeBooleanValue('isDeleted', $this->getIsDeleted());
         $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
         $writer->writeBooleanValue('isProcessing', $this->getIsProcessing());
@@ -170,6 +184,14 @@ class RiskyAgent extends Entity implements Parsable
     */
     public function setAgentDisplayName(?string $value): void {
         $this->getBackingStore()->set('agentDisplayName', $value);
+    }
+
+    /**
+     * Sets the identityType property value. The identityType property
+     * @param AgentIdentityType|null $value Value to set for the identityType property.
+    */
+    public function setIdentityType(?AgentIdentityType $value): void {
+        $this->getBackingStore()->set('identityType', $value);
     }
 
     /**

@@ -27,7 +27,7 @@ class AllowedTenantsAudience extends SignInAudienceRestrictionsBase implements P
     }
 
     /**
-     * Gets the allowedTenantIds property value. The list of Entra tenant IDs where the application can be used as either a client application or a resource application (API). Must contain at least one value. The tenant ID where the application is registered may be included, but is not required (see isHomeTenantAllowed). Required.
+     * Gets the allowedTenantIds property value. The list of Entra tenant IDs where the application can be used as either a client application or a resource application (API). This property must contain at least one value and can't include more than 20 values. The tenant ID where the application is registered may be included, but is not required (see isHomeTenantAllowed). Required.
      * @return array<string>|null
     */
     public function getAllowedTenantIds(): ?array {
@@ -82,7 +82,7 @@ class AllowedTenantsAudience extends SignInAudienceRestrictionsBase implements P
     }
 
     /**
-     * Sets the allowedTenantIds property value. The list of Entra tenant IDs where the application can be used as either a client application or a resource application (API). Must contain at least one value. The tenant ID where the application is registered may be included, but is not required (see isHomeTenantAllowed). Required.
+     * Sets the allowedTenantIds property value. The list of Entra tenant IDs where the application can be used as either a client application or a resource application (API). This property must contain at least one value and can't include more than 20 values. The tenant ID where the application is registered may be included, but is not required (see isHomeTenantAllowed). Required.
      * @param array<string>|null $value Value to set for the allowedTenantIds property.
     */
     public function setAllowedTenantIds(?array $value): void {

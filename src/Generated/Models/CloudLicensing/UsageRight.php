@@ -27,12 +27,42 @@ class UsageRight extends Entity implements Parsable
     }
 
     /**
+     * Gets the allotments property value. The set of allotments associated with the assignments that combine to form this usageRight.
+     * @return array<Allotment>|null
+    */
+    public function getAllotments(): ?array {
+        $val = $this->getBackingStore()->get('allotments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Allotment::class);
+            /** @var array<Allotment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allotments'");
+    }
+
+    /**
+     * Gets the assignments property value. The set of assignments that combine to form this usageRight, including both direct assignments and assignments inherited through group membership.
+     * @return array<Assignment>|null
+    */
+    public function getAssignments(): ?array {
+        $val = $this->getBackingStore()->get('assignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Assignment::class);
+            /** @var array<Assignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignments'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'allotments' => fn(ParseNode $n) => $o->setAllotments($n->getCollectionOfObjectValues([Allotment::class, 'createFromDiscriminatorValue'])),
+            'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([Assignment::class, 'createFromDiscriminatorValue'])),
             'services' => fn(ParseNode $n) => $o->setServices($n->getCollectionOfObjectValues([Service::class, 'createFromDiscriminatorValue'])),
             'skuId' => fn(ParseNode $n) => $o->setSkuId($n->getStringValue()),
             'skuPartNumber' => fn(ParseNode $n) => $o->setSkuPartNumber($n->getStringValue()),
@@ -83,9 +113,27 @@ class UsageRight extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('allotments', $this->getAllotments());
+        $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
         $writer->writeCollectionOfObjectValues('services', $this->getServices());
         $writer->writeStringValue('skuId', $this->getSkuId());
         $writer->writeStringValue('skuPartNumber', $this->getSkuPartNumber());
+    }
+
+    /**
+     * Sets the allotments property value. The set of allotments associated with the assignments that combine to form this usageRight.
+     * @param array<Allotment>|null $value Value to set for the allotments property.
+    */
+    public function setAllotments(?array $value): void {
+        $this->getBackingStore()->set('allotments', $value);
+    }
+
+    /**
+     * Sets the assignments property value. The set of assignments that combine to form this usageRight, including both direct assignments and assignments inherited through group membership.
+     * @param array<Assignment>|null $value Value to set for the assignments property.
+    */
+    public function setAssignments(?array $value): void {
+        $this->getBackingStore()->set('assignments', $value);
     }
 
     /**

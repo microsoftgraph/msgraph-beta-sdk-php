@@ -56,7 +56,7 @@ class ErrorDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the errorMessage property value. The errorMessage property
+     * Gets the errorMessage property value. The message that describes the error to help the admin take action.
      * @return string|null
     */
     public function getErrorMessage(): ?string {
@@ -94,7 +94,7 @@ class ErrorDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the resourceInstanceName property value. The resourceInstanceName property
+     * Gets the resourceInstanceName property value. The resource type identifier.
      * @return string|null
     */
     public function getResourceInstanceName(): ?string {
@@ -106,7 +106,7 @@ class ErrorDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the resourceType property value. The resourceType property
+     * Gets the resourceType property value. Name of the resource type.
      * @return string|null
     */
     public function getResourceType(): ?string {
@@ -143,7 +143,7 @@ class ErrorDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the errorMessage property value. The errorMessage property
+     * Sets the errorMessage property value. The message that describes the error to help the admin take action.
      * @param string|null $value Value to set for the errorMessage property.
     */
     public function setErrorMessage(?string $value): void {
@@ -159,7 +159,7 @@ class ErrorDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the resourceInstanceName property value. The resourceInstanceName property
+     * Sets the resourceInstanceName property value. The resource type identifier.
      * @param string|null $value Value to set for the resourceInstanceName property.
     */
     public function setResourceInstanceName(?string $value): void {
@@ -167,7 +167,7 @@ class ErrorDetail implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the resourceType property value. The resourceType property
+     * Sets the resourceType property value. Name of the resource type.
      * @param string|null $value Value to set for the resourceType property.
     */
     public function setResourceType(?string $value): void {

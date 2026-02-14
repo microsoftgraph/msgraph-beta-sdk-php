@@ -56,6 +56,18 @@ class CloudPcSourceDeviceImage implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
+     * Gets the category property value. The category property
+     * @return CloudPcSourceImageCategory|null
+    */
+    public function getCategory(): ?CloudPcSourceImageCategory {
+        $val = $this->getBackingStore()->get('category');
+        if (is_null($val) || $val instanceof CloudPcSourceImageCategory) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'category'");
+    }
+
+    /**
      * Gets the displayName property value. The display name for the source image. Read-only.
      * @return string|null
     */
@@ -74,6 +86,7 @@ class CloudPcSourceDeviceImage implements AdditionalDataHolder, BackedModel, Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(CloudPcSourceImageCategory::class)),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -148,6 +161,7 @@ class CloudPcSourceDeviceImage implements AdditionalDataHolder, BackedModel, Par
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeEnumValue('category', $this->getCategory());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('id', $this->getId());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -171,6 +185,14 @@ class CloudPcSourceDeviceImage implements AdditionalDataHolder, BackedModel, Par
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the category property value. The category property
+     * @param CloudPcSourceImageCategory|null $value Value to set for the category property.
+    */
+    public function setCategory(?CloudPcSourceImageCategory $value): void {
+        $this->getBackingStore()->set('category', $value);
     }
 
     /**

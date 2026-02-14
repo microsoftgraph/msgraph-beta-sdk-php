@@ -51,7 +51,7 @@ class TeamsPolicyUserAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the policyType property value. The type of Teams policy assigned or unassigned, such as TeamsMeetingBroadcastPolicy.
+     * Gets the policyType property value. The type of Teams policy assigned or unassigned, such as teamsMeetingBroadcastPolicy.
      * @return string|null
     */
     public function getPolicyType(): ?string {
@@ -94,7 +94,7 @@ class TeamsPolicyUserAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the policyType property value. The type of Teams policy assigned or unassigned, such as TeamsMeetingBroadcastPolicy.
+     * Sets the policyType property value. The type of Teams policy assigned or unassigned, such as teamsMeetingBroadcastPolicy.
      * @param string|null $value Value to set for the policyType property.
     */
     public function setPolicyType(?string $value): void {

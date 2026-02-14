@@ -77,6 +77,7 @@ class CustomAppManagementApplicationConfiguration implements AdditionalDataHolde
             'audiences' => fn(ParseNode $n) => $o->setAudiences($n->getObjectValue([AudiencesConfiguration::class, 'createFromDiscriminatorValue'])),
             'identifierUris' => fn(ParseNode $n) => $o->setIdentifierUris($n->getObjectValue([IdentifierUriConfiguration::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'redirectUris' => fn(ParseNode $n) => $o->setRedirectUris($n->getObjectValue([RedirectUriConfiguration::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
@@ -105,6 +106,18 @@ class CustomAppManagementApplicationConfiguration implements AdditionalDataHolde
     }
 
     /**
+     * Gets the redirectUris property value. The redirectUris property
+     * @return RedirectUriConfiguration|null
+    */
+    public function getRedirectUris(): ?RedirectUriConfiguration {
+        $val = $this->getBackingStore()->get('redirectUris');
+        if (is_null($val) || $val instanceof RedirectUriConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'redirectUris'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -112,6 +125,7 @@ class CustomAppManagementApplicationConfiguration implements AdditionalDataHolde
         $writer->writeObjectValue('audiences', $this->getAudiences());
         $writer->writeObjectValue('identifierUris', $this->getIdentifierUris());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('redirectUris', $this->getRedirectUris());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -153,6 +167,14 @@ class CustomAppManagementApplicationConfiguration implements AdditionalDataHolde
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the redirectUris property value. The redirectUris property
+     * @param RedirectUriConfiguration|null $value Value to set for the redirectUris property.
+    */
+    public function setRedirectUris(?RedirectUriConfiguration $value): void {
+        $this->getBackingStore()->set('redirectUris', $value);
     }
 
 }

@@ -62,7 +62,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the browseSessions property value. The browseSessions property
+     * Gets the browseSessions property value. The list of browse sessions in the tenant.
      * @return array<BrowseSessionBase>|null
     */
     public function getBrowseSessions(): ?array {
@@ -238,7 +238,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the oneDriveForBusinessBrowseSessions property value. The oneDriveForBusinessBrowseSessions property
+     * Gets the oneDriveForBusinessBrowseSessions property value. The list of onedriveforbusiness browse sessions in the tenant.
      * @return array<OneDriveForBusinessBrowseSession>|null
     */
     public function getOneDriveForBusinessBrowseSessions(): ?array {
@@ -362,7 +362,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the sharePointBrowseSessions property value. The sharePointBrowseSessions property
+     * Gets the sharePointBrowseSessions property value. The list of sharepoint browse sessions in the tenant.
      * @return array<SharePointBrowseSession>|null
     */
     public function getSharePointBrowseSessions(): ?array {
@@ -506,7 +506,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the browseSessions property value. The browseSessions property
+     * Sets the browseSessions property value. The list of browse sessions in the tenant.
      * @param array<BrowseSessionBase>|null $value Value to set for the browseSessions property.
     */
     public function setBrowseSessions(?array $value): void {
@@ -586,7 +586,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the oneDriveForBusinessBrowseSessions property value. The oneDriveForBusinessBrowseSessions property
+     * Sets the oneDriveForBusinessBrowseSessions property value. The list of onedriveforbusiness browse sessions in the tenant.
      * @param array<OneDriveForBusinessBrowseSession>|null $value Value to set for the oneDriveForBusinessBrowseSessions property.
     */
     public function setOneDriveForBusinessBrowseSessions(?array $value): void {
@@ -658,7 +658,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the sharePointBrowseSessions property value. The sharePointBrowseSessions property
+     * Sets the sharePointBrowseSessions property value. The list of sharepoint browse sessions in the tenant.
      * @param array<SharePointBrowseSession>|null $value Value to set for the sharePointBrowseSessions property.
     */
     public function setSharePointBrowseSessions(?array $value): void {

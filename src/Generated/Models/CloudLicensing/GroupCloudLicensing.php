@@ -49,6 +49,20 @@ class GroupCloudLicensing implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the assignments property value. The assignments property
+     * @return array<Assignment>|null
+    */
+    public function getAssignments(): ?array {
+        $val = $this->getBackingStore()->get('assignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Assignment::class);
+            /** @var array<Assignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assignments'");
+    }
+
+    /**
      * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -63,6 +77,7 @@ class GroupCloudLicensing implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([Assignment::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'usageRights' => fn(ParseNode $n) => $o->setUsageRights($n->getCollectionOfObjectValues([UsageRight::class, 'createFromDiscriminatorValue'])),
         ];
@@ -99,6 +114,7 @@ class GroupCloudLicensing implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('usageRights', $this->getUsageRights());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -110,6 +126,14 @@ class GroupCloudLicensing implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the assignments property value. The assignments property
+     * @param array<Assignment>|null $value Value to set for the assignments property.
+    */
+    public function setAssignments(?array $value): void {
+        $this->getBackingStore()->set('assignments', $value);
     }
 
     /**

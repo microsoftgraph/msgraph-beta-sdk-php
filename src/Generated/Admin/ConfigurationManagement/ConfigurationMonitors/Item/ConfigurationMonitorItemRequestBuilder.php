@@ -39,10 +39,11 @@ class ConfigurationMonitorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property configurationMonitors for admin
+     * Delete a configurationMonitor object permanently. When deleted, the configurationMonitor data can't be restored.
      * @param ConfigurationMonitorItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/configurationmonitor-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?ConfigurationMonitorItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -53,10 +54,11 @@ class ConfigurationMonitorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get configurationMonitors from admin
+     * Get the properties and relationships of a configurationMonitor object.
      * @param ConfigurationMonitorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConfigurationMonitor|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/configurationmonitor-get?view=graph-rest-beta Find more info here
     */
     public function get(?ConfigurationMonitorItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,11 +69,12 @@ class ConfigurationMonitorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property configurationMonitors in admin
+     * Update the properties of a configurationMonitor object, including the monitor name, description, and baseline. You must provide the full monitor body when you call this API.
      * @param ConfigurationMonitor $body The request body
      * @param ConfigurationMonitorItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConfigurationMonitor|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/configurationmonitor-update?view=graph-rest-beta Find more info here
     */
     public function patch(ConfigurationMonitor $body, ?ConfigurationMonitorItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -82,7 +85,7 @@ class ConfigurationMonitorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property configurationMonitors for admin
+     * Delete a configurationMonitor object permanently. When deleted, the configurationMonitor data can't be restored.
      * @param ConfigurationMonitorItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -100,7 +103,7 @@ class ConfigurationMonitorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get configurationMonitors from admin
+     * Get the properties and relationships of a configurationMonitor object.
      * @param ConfigurationMonitorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +124,7 @@ class ConfigurationMonitorItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property configurationMonitors in admin
+     * Update the properties of a configurationMonitor object, including the monitor name, description, and baseline. You must provide the full monitor body when you call this API.
      * @param ConfigurationMonitor $body The request body
      * @param ConfigurationMonitorItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

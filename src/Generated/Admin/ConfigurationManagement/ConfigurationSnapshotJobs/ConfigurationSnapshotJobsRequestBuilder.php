@@ -52,10 +52,11 @@ class ConfigurationSnapshotJobsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get configurationSnapshotJobs from admin
+     * Get a list of the configurationSnapshotJob objects and their properties.
      * @param ConfigurationSnapshotJobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConfigurationSnapshotJobCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/configurationmanagement-list-configurationsnapshotjobs?view=graph-rest-beta Find more info here
     */
     public function get(?ConfigurationSnapshotJobsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class ConfigurationSnapshotJobsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get configurationSnapshotJobs from admin
+     * Get a list of the configurationSnapshotJob objects and their properties.
      * @param ConfigurationSnapshotJobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

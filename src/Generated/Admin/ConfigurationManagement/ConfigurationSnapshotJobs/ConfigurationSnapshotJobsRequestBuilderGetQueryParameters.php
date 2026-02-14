@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\Configura
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get configurationSnapshotJobs from admin
+ * Get a list of the configurationSnapshotJob objects and their properties.
 */
 class ConfigurationSnapshotJobsRequestBuilderGetQueryParameters 
 {

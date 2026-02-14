@@ -26,7 +26,7 @@ class ConfigurationBaseline extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. User-friendly description of the baseline given by the user.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -38,7 +38,7 @@ class ConfigurationBaseline extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. User-friendly name given by the user to the baseline.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -64,7 +64,7 @@ class ConfigurationBaseline extends Entity implements Parsable
     }
 
     /**
-     * Gets the parameters property value. The parameters property
+     * Gets the parameters property value. Collection of parameters attached to the baseline.
      * @return array<BaselineParameter>|null
     */
     public function getParameters(): ?array {
@@ -78,7 +78,7 @@ class ConfigurationBaseline extends Entity implements Parsable
     }
 
     /**
-     * Gets the resources property value. The resources property
+     * Gets the resources property value. Collection of resources and their properties that are added to the baseline. At least one property of one resource must be present in the baseline.
      * @return array<BaselineResource>|null
     */
     public function getResources(): ?array {
@@ -104,7 +104,7 @@ class ConfigurationBaseline extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. User-friendly description of the baseline given by the user.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -112,7 +112,7 @@ class ConfigurationBaseline extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. User-friendly name given by the user to the baseline.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -120,7 +120,7 @@ class ConfigurationBaseline extends Entity implements Parsable
     }
 
     /**
-     * Sets the parameters property value. The parameters property
+     * Sets the parameters property value. Collection of parameters attached to the baseline.
      * @param array<BaselineParameter>|null $value Value to set for the parameters property.
     */
     public function setParameters(?array $value): void {
@@ -128,7 +128,7 @@ class ConfigurationBaseline extends Entity implements Parsable
     }
 
     /**
-     * Sets the resources property value. The resources property
+     * Sets the resources property value. Collection of resources and their properties that are added to the baseline. At least one property of one resource must be present in the baseline.
      * @param array<BaselineResource>|null $value Value to set for the resources property.
     */
     public function setResources(?array $value): void {

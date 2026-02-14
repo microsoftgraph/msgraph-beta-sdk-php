@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointResto
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get granularSiteRestoreArtifacts from solutions
+ * A collection of browse session id and item key details that can be used to restore SharePoint files and folders.
 */
 class GranularSiteRestoreArtifactItemRequestBuilderGetQueryParameters 
 {

@@ -11,4 +11,5 @@ class RemediationAction extends Enum {
     public const SOFT_DELETE = "softDelete";
     public const MOVE_TO_DELETED_ITEMS = "moveToDeletedItems";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const MOVE_TO_QUARANTINE = "moveToQuarantine";
 }

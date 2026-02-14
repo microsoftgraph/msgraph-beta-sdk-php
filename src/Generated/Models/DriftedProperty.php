@@ -80,7 +80,7 @@ class DriftedProperty implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the propertyName property value. The propertyName property
+     * Gets the propertyName property value. The name of the property.
      * @return string|null
     */
     public function getPropertyName(): ?string {
@@ -125,7 +125,7 @@ class DriftedProperty implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the propertyName property value. The propertyName property
+     * Sets the propertyName property value. The name of the property.
      * @param string|null $value Value to set for the propertyName property.
     */
     public function setPropertyName(?string $value): void {
