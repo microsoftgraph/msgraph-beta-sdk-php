@@ -458,7 +458,7 @@ class Site extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the template property value. Specifies the template applied to the site. The possible values are: sitepagepublishing, group, sts, unknownFutureValue.
+     * Gets the template property value. Specifies the template applied to the site. The possible values are: sitepagepublishing, sts, unknownFutureValue.
      * @return SiteTemplateType|null
     */
     public function getTemplate(): ?SiteTemplateType {
@@ -762,7 +762,7 @@ class Site extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the template property value. Specifies the template applied to the site. The possible values are: sitepagepublishing, group, sts, unknownFutureValue.
+     * Sets the template property value. Specifies the template applied to the site. The possible values are: sitepagepublishing, sts, unknownFutureValue.
      * @param SiteTemplateType|null $value Value to set for the template property.
     */
     public function setTemplate(?SiteTemplateType $value): void {

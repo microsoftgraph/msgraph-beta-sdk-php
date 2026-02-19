@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Catalog\CatalogRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\DeploymentAudiencesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\DeploymentsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Policies\PoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\ProductsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\ResourceConnections\ResourceConnectionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\UpdatableAssetsRequestBuilder;
@@ -42,6 +43,13 @@ class UpdatesRequestBuilder extends BaseRequestBuilder
     */
     public function deployments(): DeploymentsRequestBuilder {
         return new DeploymentsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the policies property of the microsoft.graph.adminWindowsUpdates entity.
+    */
+    public function policies(): PoliciesRequestBuilder {
+        return new PoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -31,10 +31,11 @@ class ConfigurationSnapshotJobItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property configurationSnapshotJobs for admin
+     * Delete a configurationSnapshotJob object.
      * @param ConfigurationSnapshotJobItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/configurationsnapshotjob-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?ConfigurationSnapshotJobItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -45,10 +46,11 @@ class ConfigurationSnapshotJobItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get configurationSnapshotJobs from admin
+     * Read the properties and relationships of a configurationSnapshotJob object.
      * @param ConfigurationSnapshotJobItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConfigurationSnapshotJob|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/configurationsnapshotjob-get?view=graph-rest-beta Find more info here
     */
     public function get(?ConfigurationSnapshotJobItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,7 +76,7 @@ class ConfigurationSnapshotJobItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property configurationSnapshotJobs for admin
+     * Delete a configurationSnapshotJob object.
      * @param ConfigurationSnapshotJobItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -92,7 +94,7 @@ class ConfigurationSnapshotJobItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get configurationSnapshotJobs from admin
+     * Read the properties and relationships of a configurationSnapshotJob object.
      * @param ConfigurationSnapshotJobItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

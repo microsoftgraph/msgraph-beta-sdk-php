@@ -7,6 +7,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
+use Psr\Http\Message\StreamInterface;
 
 class CopilotPackage extends Entity implements Parsable 
 {
@@ -114,6 +115,7 @@ class CopilotPackage extends Entity implements Parsable
                 $this->setSupportedHosts($val);
             },
             'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(PackageType::class)),
+            'zipFile' => fn(ParseNode $n) => $o->setZipFile($n->getBinaryContent()),
         ]);
     }
 
@@ -192,6 +194,18 @@ class CopilotPackage extends Entity implements Parsable
     }
 
     /**
+     * Gets the zipFile property value. The zipFile property
+     * @return StreamInterface|null
+    */
+    public function getZipFile(): ?StreamInterface {
+        $val = $this->getBackingStore()->get('zipFile');
+        if (is_null($val) || $val instanceof StreamInterface) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'zipFile'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -207,6 +221,7 @@ class CopilotPackage extends Entity implements Parsable
         $writer->writeStringValue('shortDescription', $this->getShortDescription());
         $writer->writeCollectionOfPrimitiveValues('supportedHosts', $this->getSupportedHosts());
         $writer->writeEnumValue('type', $this->getType());
+        $writer->writeBinaryContent('zipFile', $this->getZipFile());
     }
 
     /**
@@ -287,6 +302,14 @@ class CopilotPackage extends Entity implements Parsable
     */
     public function setType(?PackageType $value): void {
         $this->getBackingStore()->set('type', $value);
+    }
+
+    /**
+     * Sets the zipFile property value. The zipFile property
+     * @param StreamInterface|null $value Value to set for the zipFile property.
+    */
+    public function setZipFile(?StreamInterface $value): void {
+        $this->getBackingStore()->set('zipFile', $value);
     }
 
 }

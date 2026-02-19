@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\InformationProtection\DataLossPreventio
 
 use Microsoft\Graph\Beta\Generated\Models\DlpEvaluationInput;
 use Microsoft\Graph\Beta\Generated\Models\DlpNotification;
+use Microsoft\Graph\Beta\Generated\Models\TextClassificationRequest;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -58,6 +59,18 @@ class EvaluatePostRequestBody implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
+     * Gets the classifyText property value. The classifyText property
+     * @return TextClassificationRequest|null
+    */
+    public function getClassifyText(): ?TextClassificationRequest {
+        $val = $this->getBackingStore()->get('classifyText');
+        if (is_null($val) || $val instanceof TextClassificationRequest) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'classifyText'");
+    }
+
+    /**
      * Gets the evaluationInput property value. The evaluationInput property
      * @return DlpEvaluationInput|null
     */
@@ -76,6 +89,7 @@ class EvaluatePostRequestBody implements AdditionalDataHolder, BackedModel, Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'classifyText' => fn(ParseNode $n) => $o->setClassifyText($n->getObjectValue([TextClassificationRequest::class, 'createFromDiscriminatorValue'])),
             'evaluationInput' => fn(ParseNode $n) => $o->setEvaluationInput($n->getObjectValue([DlpEvaluationInput::class, 'createFromDiscriminatorValue'])),
             'notificationInfo' => fn(ParseNode $n) => $o->setNotificationInfo($n->getObjectValue([DlpNotification::class, 'createFromDiscriminatorValue'])),
             'target' => fn(ParseNode $n) => $o->setTarget($n->getStringValue()),
@@ -111,6 +125,7 @@ class EvaluatePostRequestBody implements AdditionalDataHolder, BackedModel, Pars
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('classifyText', $this->getClassifyText());
         $writer->writeObjectValue('evaluationInput', $this->getEvaluationInput());
         $writer->writeObjectValue('notificationInfo', $this->getNotificationInfo());
         $writer->writeStringValue('target', $this->getTarget());
@@ -131,6 +146,14 @@ class EvaluatePostRequestBody implements AdditionalDataHolder, BackedModel, Pars
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the classifyText property value. The classifyText property
+     * @param TextClassificationRequest|null $value Value to set for the classifyText property.
+    */
+    public function setClassifyText(?TextClassificationRequest $value): void {
+        $this->getBackingStore()->set('classifyText', $value);
     }
 
     /**

@@ -22,6 +22,7 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Assi
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AvailableAccessPackages\AvailableAccessPackagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\ConnectedOrganizations\ConnectedOrganizationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\ControlConfigurations\ControlConfigurationsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\ExternalOriginResourceConnectors\ExternalOriginResourceConnectorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Subjects\SubjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\SubjectsWithObjectId\SubjectsWithObjectIdRequestBuilder;
@@ -147,6 +148,13 @@ class EntitlementManagementRequestBuilder extends BaseRequestBuilder
     */
     public function controlConfigurations(): ControlConfigurationsRequestBuilder {
         return new ControlConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the externalOriginResourceConnectors property of the microsoft.graph.entitlementManagement entity.
+    */
+    public function externalOriginResourceConnectors(): ExternalOriginResourceConnectorsRequestBuilder {
+        return new ExternalOriginResourceConnectorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

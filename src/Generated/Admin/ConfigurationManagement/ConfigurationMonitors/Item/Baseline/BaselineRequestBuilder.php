@@ -45,10 +45,11 @@ class BaselineRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get baseline from admin
+     * Read the properties and relationships of a configurationBaseline object that is attached to a specific monitor.
      * @param BaselineRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConfigurationBaseline|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/configurationbaseline-get?view=graph-rest-beta Find more info here
     */
     public function get(?BaselineRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -92,7 +93,7 @@ class BaselineRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get baseline from admin
+     * Read the properties and relationships of a configurationBaseline object that is attached to a specific monitor.
      * @param BaselineRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

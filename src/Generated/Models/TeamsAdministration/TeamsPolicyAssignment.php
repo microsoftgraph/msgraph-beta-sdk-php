@@ -38,7 +38,7 @@ class TeamsPolicyAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the userAssignments property value. Navigation property to the collection of user policy assignments.
+     * Gets the userAssignments property value. The collection of user policy assignments.
      * @return array<TeamsPolicyUserAssignment>|null
     */
     public function getUserAssignments(): ?array {
@@ -61,7 +61,7 @@ class TeamsPolicyAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the userAssignments property value. Navigation property to the collection of user policy assignments.
+     * Sets the userAssignments property value. The collection of user policy assignments.
      * @param array<TeamsPolicyUserAssignment>|null $value Value to set for the userAssignments property.
     */
     public function setUserAssignments(?array $value): void {

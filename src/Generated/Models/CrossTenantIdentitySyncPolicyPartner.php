@@ -65,7 +65,7 @@ class CrossTenantIdentitySyncPolicyPartner extends PolicyDeletableItem implement
     }
 
     /**
-     * Gets the groupSyncInbound property value. The groupSyncInbound property
+     * Gets the groupSyncInbound property value. Defines whether groups can be synchronized from a partner tenant. Key.
      * @return CrossTenantGroupSyncInbound|null
     */
     public function getGroupSyncInbound(): ?CrossTenantGroupSyncInbound {
@@ -130,7 +130,7 @@ class CrossTenantIdentitySyncPolicyPartner extends PolicyDeletableItem implement
     }
 
     /**
-     * Sets the groupSyncInbound property value. The groupSyncInbound property
+     * Sets the groupSyncInbound property value. Defines whether groups can be synchronized from a partner tenant. Key.
      * @param CrossTenantGroupSyncInbound|null $value Value to set for the groupSyncInbound property.
     */
     public function setGroupSyncInbound(?CrossTenantGroupSyncInbound $value): void {

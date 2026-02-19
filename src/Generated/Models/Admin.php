@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Graph\Beta\Generated\Models\CloudLicensing\AdminCloudLicensing;
 use Microsoft\Graph\Beta\Generated\Models\TeamsAdministration\TeamsAdminRoot;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -66,6 +67,18 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function getBackingStore(): BackingStore {
         return $this->backingStore;
+    }
+
+    /**
+     * Gets the cloudLicensing property value. The root of the cloud licensing API for the entire organization. Read-only.
+     * @return AdminCloudLicensing|null
+    */
+    public function getCloudLicensing(): ?AdminCloudLicensing {
+        $val = $this->getBackingStore()->get('cloudLicensing');
+        if (is_null($val) || $val instanceof AdminCloudLicensing) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudLicensing'");
     }
 
     /**
@@ -136,6 +149,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             'appsAndServices' => fn(ParseNode $n) => $o->setAppsAndServices($n->getObjectValue([AdminAppsAndServices::class, 'createFromDiscriminatorValue'])),
+            'cloudLicensing' => fn(ParseNode $n) => $o->setCloudLicensing($n->getObjectValue([AdminCloudLicensing::class, 'createFromDiscriminatorValue'])),
             'configurationManagement' => fn(ParseNode $n) => $o->setConfigurationManagement($n->getObjectValue([ConfigurationManagement::class, 'createFromDiscriminatorValue'])),
             'dynamics' => fn(ParseNode $n) => $o->setDynamics($n->getObjectValue([AdminDynamics::class, 'createFromDiscriminatorValue'])),
             'edge' => fn(ParseNode $n) => $o->setEdge($n->getObjectValue([Edge::class, 'createFromDiscriminatorValue'])),
@@ -280,6 +294,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('appsAndServices', $this->getAppsAndServices());
+        $writer->writeObjectValue('cloudLicensing', $this->getCloudLicensing());
         $writer->writeObjectValue('configurationManagement', $this->getConfigurationManagement());
         $writer->writeObjectValue('dynamics', $this->getDynamics());
         $writer->writeObjectValue('edge', $this->getEdge());
@@ -320,6 +335,14 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the cloudLicensing property value. The root of the cloud licensing API for the entire organization. Read-only.
+     * @param AdminCloudLicensing|null $value Value to set for the cloudLicensing property.
+    */
+    public function setCloudLicensing(?AdminCloudLicensing $value): void {
+        $this->getBackingStore()->set('cloudLicensing', $value);
     }
 
     /**

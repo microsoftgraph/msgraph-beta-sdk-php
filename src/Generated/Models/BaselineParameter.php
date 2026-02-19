@@ -56,7 +56,7 @@ class BaselineParameter implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. User-friendly description of the parameter.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -68,7 +68,7 @@ class BaselineParameter implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Parameter names such as FQDN and Tenant ID.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -146,7 +146,7 @@ class BaselineParameter implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. User-friendly description of the parameter.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -154,7 +154,7 @@ class BaselineParameter implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. Parameter names such as FQDN and Tenant ID.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {

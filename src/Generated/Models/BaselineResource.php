@@ -56,7 +56,7 @@ class BaselineResource implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Unique name of the resource.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -106,7 +106,7 @@ class BaselineResource implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the resourceType property value. The resourceType property
+     * Gets the resourceType property value. Name of the resource type.
      * @return string|null
     */
     public function getResourceType(): ?string {
@@ -146,7 +146,7 @@ class BaselineResource implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. Unique name of the resource.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -170,7 +170,7 @@ class BaselineResource implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the resourceType property value. The resourceType property
+     * Sets the resourceType property value. Name of the resource type.
      * @param string|null $value Value to set for the resourceType property.
     */
     public function setResourceType(?string $value): void {

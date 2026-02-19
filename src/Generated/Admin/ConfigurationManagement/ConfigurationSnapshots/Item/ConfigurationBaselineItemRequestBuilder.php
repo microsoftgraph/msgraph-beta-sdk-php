@@ -45,7 +45,7 @@ class ConfigurationBaselineItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get configurationSnapshots from admin
+     * A container for configuration snapshot baselines.
      * @param ConfigurationBaselineItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConfigurationBaseline|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class ConfigurationBaselineItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get configurationSnapshots from admin
+     * A container for configuration snapshot baselines.
      * @param ConfigurationBaselineItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

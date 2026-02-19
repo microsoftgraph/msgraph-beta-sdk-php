@@ -52,10 +52,11 @@ class ConfigurationDriftsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get configurationDrifts from admin
+     * Get a list of the configurationDrift objects and their properties.
      * @param ConfigurationDriftsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConfigurationDriftCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/configurationmanagement-list-configurationdrifts?view=graph-rest-beta Find more info here
     */
     public function get(?ConfigurationDriftsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class ConfigurationDriftsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get configurationDrifts from admin
+     * Get a list of the configurationDrift objects and their properties.
      * @param ConfigurationDriftsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

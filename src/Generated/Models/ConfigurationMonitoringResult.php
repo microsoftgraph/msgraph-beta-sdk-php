@@ -27,7 +27,7 @@ class ConfigurationMonitoringResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the driftsCount property value. The driftsCount property
+     * Gets the driftsCount property value. Number of drifts observed during a monitor run.
      * @return int|null
     */
     public function getDriftsCount(): ?int {
@@ -39,19 +39,7 @@ class ConfigurationMonitoringResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the driftsFixed property value. The driftsFixed property
-     * @return int|null
-    */
-    public function getDriftsFixed(): ?int {
-        $val = $this->getBackingStore()->get('driftsFixed');
-        if (is_null($val) || is_int($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'driftsFixed'");
-    }
-
-    /**
-     * Gets the errorDetails property value. The errorDetails property
+     * Gets the errorDetails property value. All the error details that prevent the monitor from running successfully. The error details are a contained entity.
      * @return array<ErrorDetail>|null
     */
     public function getErrorDetails(): ?array {
@@ -72,19 +60,17 @@ class ConfigurationMonitoringResult extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'driftsCount' => fn(ParseNode $n) => $o->setDriftsCount($n->getIntegerValue()),
-            'driftsFixed' => fn(ParseNode $n) => $o->setDriftsFixed($n->getIntegerValue()),
             'errorDetails' => fn(ParseNode $n) => $o->setErrorDetails($n->getCollectionOfObjectValues([ErrorDetail::class, 'createFromDiscriminatorValue'])),
             'monitorId' => fn(ParseNode $n) => $o->setMonitorId($n->getStringValue()),
             'runCompletionDateTime' => fn(ParseNode $n) => $o->setRunCompletionDateTime($n->getDateTimeValue()),
             'runInitiationDateTime' => fn(ParseNode $n) => $o->setRunInitiationDateTime($n->getDateTimeValue()),
             'runStatus' => fn(ParseNode $n) => $o->setRunStatus($n->getEnumValue(MonitorRunStatus::class)),
-            'runType' => fn(ParseNode $n) => $o->setRunType($n->getEnumValue(MonitorRunType::class)),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
         ]);
     }
 
     /**
-     * Gets the monitorId property value. The monitorId property
+     * Gets the monitorId property value. Globally unique identifier (GUID) of the monitor. System-generated.
      * @return string|null
     */
     public function getMonitorId(): ?string {
@@ -96,7 +82,7 @@ class ConfigurationMonitoringResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the runCompletionDateTime property value. The runCompletionDateTime property
+     * Gets the runCompletionDateTime property value. Date and time at which the monitor run completed. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getRunCompletionDateTime(): ?DateTime {
@@ -108,7 +94,7 @@ class ConfigurationMonitoringResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the runInitiationDateTime property value. The runInitiationDateTime property
+     * Gets the runInitiationDateTime property value. Date and time at which the monitor run initiated. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getRunInitiationDateTime(): ?DateTime {
@@ -132,19 +118,7 @@ class ConfigurationMonitoringResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the runType property value. The runType property
-     * @return MonitorRunType|null
-    */
-    public function getRunType(): ?MonitorRunType {
-        $val = $this->getBackingStore()->get('runType');
-        if (is_null($val) || $val instanceof MonitorRunType) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'runType'");
-    }
-
-    /**
-     * Gets the tenantId property value. The tenantId property
+     * Gets the tenantId property value. Globally unique identifier (GUID) of the tenant for which the monitor runs. Fetched automatically by the system.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -162,11 +136,10 @@ class ConfigurationMonitoringResult extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('runStatus', $this->getRunStatus());
-        $writer->writeEnumValue('runType', $this->getRunType());
     }
 
     /**
-     * Sets the driftsCount property value. The driftsCount property
+     * Sets the driftsCount property value. Number of drifts observed during a monitor run.
      * @param int|null $value Value to set for the driftsCount property.
     */
     public function setDriftsCount(?int $value): void {
@@ -174,15 +147,7 @@ class ConfigurationMonitoringResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the driftsFixed property value. The driftsFixed property
-     * @param int|null $value Value to set for the driftsFixed property.
-    */
-    public function setDriftsFixed(?int $value): void {
-        $this->getBackingStore()->set('driftsFixed', $value);
-    }
-
-    /**
-     * Sets the errorDetails property value. The errorDetails property
+     * Sets the errorDetails property value. All the error details that prevent the monitor from running successfully. The error details are a contained entity.
      * @param array<ErrorDetail>|null $value Value to set for the errorDetails property.
     */
     public function setErrorDetails(?array $value): void {
@@ -190,7 +155,7 @@ class ConfigurationMonitoringResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the monitorId property value. The monitorId property
+     * Sets the monitorId property value. Globally unique identifier (GUID) of the monitor. System-generated.
      * @param string|null $value Value to set for the monitorId property.
     */
     public function setMonitorId(?string $value): void {
@@ -198,7 +163,7 @@ class ConfigurationMonitoringResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the runCompletionDateTime property value. The runCompletionDateTime property
+     * Sets the runCompletionDateTime property value. Date and time at which the monitor run completed. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the runCompletionDateTime property.
     */
     public function setRunCompletionDateTime(?DateTime $value): void {
@@ -206,7 +171,7 @@ class ConfigurationMonitoringResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the runInitiationDateTime property value. The runInitiationDateTime property
+     * Sets the runInitiationDateTime property value. Date and time at which the monitor run initiated. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the runInitiationDateTime property.
     */
     public function setRunInitiationDateTime(?DateTime $value): void {
@@ -222,15 +187,7 @@ class ConfigurationMonitoringResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the runType property value. The runType property
-     * @param MonitorRunType|null $value Value to set for the runType property.
-    */
-    public function setRunType(?MonitorRunType $value): void {
-        $this->getBackingStore()->set('runType', $value);
-    }
-
-    /**
-     * Sets the tenantId property value. The tenantId property
+     * Sets the tenantId property value. Globally unique identifier (GUID) of the tenant for which the monitor runs. Fetched automatically by the system.
      * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {

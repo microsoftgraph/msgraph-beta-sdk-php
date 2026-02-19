@@ -46,6 +46,7 @@ class AppManagementApplicationConfiguration extends AppManagementConfiguration i
         return array_merge(parent::getFieldDeserializers(), [
             'audiences' => fn(ParseNode $n) => $o->setAudiences($n->getObjectValue([AudiencesConfiguration::class, 'createFromDiscriminatorValue'])),
             'identifierUris' => fn(ParseNode $n) => $o->setIdentifierUris($n->getObjectValue([IdentifierUriConfiguration::class, 'createFromDiscriminatorValue'])),
+            'redirectUris' => fn(ParseNode $n) => $o->setRedirectUris($n->getObjectValue([RedirectUriConfiguration::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -62,6 +63,18 @@ class AppManagementApplicationConfiguration extends AppManagementConfiguration i
     }
 
     /**
+     * Gets the redirectUris property value. The redirectUris property
+     * @return RedirectUriConfiguration|null
+    */
+    public function getRedirectUris(): ?RedirectUriConfiguration {
+        $val = $this->getBackingStore()->get('redirectUris');
+        if (is_null($val) || $val instanceof RedirectUriConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'redirectUris'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -69,6 +82,7 @@ class AppManagementApplicationConfiguration extends AppManagementConfiguration i
         parent::serialize($writer);
         $writer->writeObjectValue('audiences', $this->getAudiences());
         $writer->writeObjectValue('identifierUris', $this->getIdentifierUris());
+        $writer->writeObjectValue('redirectUris', $this->getRedirectUris());
     }
 
     /**
@@ -85,6 +99,14 @@ class AppManagementApplicationConfiguration extends AppManagementConfiguration i
     */
     public function setIdentifierUris(?IdentifierUriConfiguration $value): void {
         $this->getBackingStore()->set('identifierUris', $value);
+    }
+
+    /**
+     * Sets the redirectUris property value. The redirectUris property
+     * @param RedirectUriConfiguration|null $value Value to set for the redirectUris property.
+    */
+    public function setRedirectUris(?RedirectUriConfiguration $value): void {
+        $this->getBackingStore()->set('redirectUris', $value);
     }
 
 }

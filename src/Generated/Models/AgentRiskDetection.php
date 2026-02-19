@@ -110,6 +110,7 @@ class AgentRiskDetection extends Entity implements Parsable
             'agentId' => fn(ParseNode $n) => $o->setAgentId($n->getStringValue()),
             'detectedDateTime' => fn(ParseNode $n) => $o->setDetectedDateTime($n->getDateTimeValue()),
             'detectionTimingType' => fn(ParseNode $n) => $o->setDetectionTimingType($n->getEnumValue(RiskDetectionTimingType::class)),
+            'identityType' => fn(ParseNode $n) => $o->setIdentityType($n->getEnumValue(AgentIdentityType::class)),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'riskDetail' => fn(ParseNode $n) => $o->setRiskDetail($n->getEnumValue(RiskDetail::class)),
             'riskEventType' => fn(ParseNode $n) => $o->setRiskEventType($n->getStringValue()),
@@ -117,6 +118,18 @@ class AgentRiskDetection extends Entity implements Parsable
             'riskLevel' => fn(ParseNode $n) => $o->setRiskLevel($n->getEnumValue(RiskLevel::class)),
             'riskState' => fn(ParseNode $n) => $o->setRiskState($n->getEnumValue(RiskState::class)),
         ]);
+    }
+
+    /**
+     * Gets the identityType property value. The identityType property
+     * @return AgentIdentityType|null
+    */
+    public function getIdentityType(): ?AgentIdentityType {
+        $val = $this->getBackingStore()->get('identityType');
+        if (is_null($val) || $val instanceof AgentIdentityType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityType'");
     }
 
     /**
@@ -203,6 +216,7 @@ class AgentRiskDetection extends Entity implements Parsable
         $writer->writeStringValue('agentId', $this->getAgentId());
         $writer->writeDateTimeValue('detectedDateTime', $this->getDetectedDateTime());
         $writer->writeEnumValue('detectionTimingType', $this->getDetectionTimingType());
+        $writer->writeEnumValue('identityType', $this->getIdentityType());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeEnumValue('riskDetail', $this->getRiskDetail());
         $writer->writeStringValue('riskEventType', $this->getRiskEventType());
@@ -257,6 +271,14 @@ class AgentRiskDetection extends Entity implements Parsable
     */
     public function setDetectionTimingType(?RiskDetectionTimingType $value): void {
         $this->getBackingStore()->set('detectionTimingType', $value);
+    }
+
+    /**
+     * Sets the identityType property value. The identityType property
+     * @param AgentIdentityType|null $value Value to set for the identityType property.
+    */
+    public function setIdentityType(?AgentIdentityType $value): void {
+        $this->getBackingStore()->set('identityType', $value);
     }
 
     /**

@@ -68,7 +68,7 @@ class CrossTenantGroupSyncInbound implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the isSyncAllowed property value. The isSyncAllowed property
+     * Gets the isSyncAllowed property value. Defines whether group objects should be synchronized from the partner tenant. false stops any current group synchronization from the source tenant to the target tenant. This property has no impact on existing groups that were synchronized.
      * @return bool|null
     */
     public function getIsSyncAllowed(): ?bool {
@@ -118,7 +118,7 @@ class CrossTenantGroupSyncInbound implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the isSyncAllowed property value. The isSyncAllowed property
+     * Sets the isSyncAllowed property value. Defines whether group objects should be synchronized from the partner tenant. false stops any current group synchronization from the source tenant to the target tenant. This property has no impact on existing groups that were synchronized.
      * @param bool|null $value Value to set for the isSyncAllowed property.
     */
     public function setIsSyncAllowed(?bool $value): void {

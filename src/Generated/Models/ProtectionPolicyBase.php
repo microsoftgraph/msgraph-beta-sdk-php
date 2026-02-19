@@ -97,6 +97,7 @@ class ProtectionPolicyBase extends Entity implements Parsable
             'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'offboardRequestedDateTime' => fn(ParseNode $n) => $o->setOffboardRequestedDateTime($n->getDateTimeValue()),
             'protectionMode' => fn(ParseNode $n) => $o->setProtectionMode($n->getEnumValue(BackupPolicyProtectionMode::class)),
             'protectionPolicyArtifactCount' => fn(ParseNode $n) => $o->setProtectionPolicyArtifactCount($n->getObjectValue([ProtectionPolicyArtifactCount::class, 'createFromDiscriminatorValue'])),
             'retentionSettings' => fn(ParseNode $n) => $o->setRetentionSettings($n->getCollectionOfObjectValues([RetentionSetting::class, 'createFromDiscriminatorValue'])),
@@ -138,6 +139,18 @@ class ProtectionPolicyBase extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
+    }
+
+    /**
+     * Gets the offboardRequestedDateTime property value. The offboardRequestedDateTime property
+     * @return DateTime|null
+    */
+    public function getOffboardRequestedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('offboardRequestedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'offboardRequestedDateTime'");
     }
 
     /**
@@ -203,6 +216,7 @@ class ProtectionPolicyBase extends Entity implements Parsable
         $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeDateTimeValue('offboardRequestedDateTime', $this->getOffboardRequestedDateTime());
         $writer->writeEnumValue('protectionMode', $this->getProtectionMode());
         $writer->writeObjectValue('protectionPolicyArtifactCount', $this->getProtectionPolicyArtifactCount());
         $writer->writeCollectionOfObjectValues('retentionSettings', $this->getRetentionSettings());
@@ -263,6 +277,14 @@ class ProtectionPolicyBase extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the offboardRequestedDateTime property value. The offboardRequestedDateTime property
+     * @param DateTime|null $value Value to set for the offboardRequestedDateTime property.
+    */
+    public function setOffboardRequestedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('offboardRequestedDateTime', $value);
     }
 
     /**

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\Configura
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get configurationDrifts from admin
+ * Get a list of the configurationDrift objects and their properties.
 */
 class ConfigurationDriftsRequestBuilderGetQueryParameters 
 {

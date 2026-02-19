@@ -100,12 +100,25 @@ class SelfServiceSignUp extends Entity implements Parsable
             'appliedEventListeners' => fn(ParseNode $n) => $o->setAppliedEventListeners($n->getCollectionOfObjectValues([AppliedAuthenticationEventListener::class, 'createFromDiscriminatorValue'])),
             'correlationId' => fn(ParseNode $n) => $o->setCorrelationId($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'fraudProtectionDetails' => fn(ParseNode $n) => $o->setFraudProtectionDetails($n->getObjectValue([FraudProtectionDetails::class, 'createFromDiscriminatorValue'])),
             'signUpIdentity' => fn(ParseNode $n) => $o->setSignUpIdentity($n->getObjectValue([SignUpIdentity::class, 'createFromDiscriminatorValue'])),
             'signUpIdentityProvider' => fn(ParseNode $n) => $o->setSignUpIdentityProvider($n->getStringValue()),
             'signUpStage' => fn(ParseNode $n) => $o->setSignUpStage($n->getEnumValue(SignUpStage::class)),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getObjectValue([SignUpStatus::class, 'createFromDiscriminatorValue'])),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the fraudProtectionDetails property value. The fraudProtectionDetails property
+     * @return FraudProtectionDetails|null
+    */
+    public function getFraudProtectionDetails(): ?FraudProtectionDetails {
+        $val = $this->getBackingStore()->get('fraudProtectionDetails');
+        if (is_null($val) || $val instanceof FraudProtectionDetails) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'fraudProtectionDetails'");
     }
 
     /**
@@ -179,6 +192,7 @@ class SelfServiceSignUp extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('appliedEventListeners', $this->getAppliedEventListeners());
         $writer->writeStringValue('correlationId', $this->getCorrelationId());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeObjectValue('fraudProtectionDetails', $this->getFraudProtectionDetails());
         $writer->writeObjectValue('signUpIdentity', $this->getSignUpIdentity());
         $writer->writeStringValue('signUpIdentityProvider', $this->getSignUpIdentityProvider());
         $writer->writeEnumValue('signUpStage', $this->getSignUpStage());
@@ -224,6 +238,14 @@ class SelfServiceSignUp extends Entity implements Parsable
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
+    }
+
+    /**
+     * Sets the fraudProtectionDetails property value. The fraudProtectionDetails property
+     * @param FraudProtectionDetails|null $value Value to set for the fraudProtectionDetails property.
+    */
+    public function setFraudProtectionDetails(?FraudProtectionDetails $value): void {
+        $this->getBackingStore()->set('fraudProtectionDetails', $value);
     }
 
     /**

@@ -18,4 +18,6 @@ class CloudPcDeviceImageErrorCode extends Enum {
     public const SOURCE_IMAGE_WITH_DATA_DISK_NOT_SUPPORTED = "sourceImageWithDataDiskNotSupported";
     public const SOURCE_IMAGE_WITH_DISK_ENCRYPTION_SET_NOT_SUPPORTED = "sourceImageWithDiskEncryptionSetNotSupported";
     public const SOURCE_IMAGE_WITH_AZURE_DISK_ENCRYPTION_NOT_SUPPORTED = "sourceImageWithAzureDiskEncryptionNotSupported";
+    public const F_S_LOGIX_INSTALLED_SOURCE_IMAGE_NOT_SUPPORTED = "fSLogixInstalledSourceImageNotSupported";
+    public const START_MENU_APP_LIMIT_EXCEEDED = "startMenuAppLimitExceeded";
 }

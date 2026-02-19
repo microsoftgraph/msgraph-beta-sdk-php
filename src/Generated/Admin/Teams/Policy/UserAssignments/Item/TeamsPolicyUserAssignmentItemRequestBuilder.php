@@ -45,7 +45,7 @@ class TeamsPolicyUserAssignmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Navigation property to the collection of user policy assignments.
+     * The collection of user policy assignments.
      * @param TeamsPolicyUserAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamsPolicyUserAssignment|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class TeamsPolicyUserAssignmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Navigation property to the collection of user policy assignments.
+     * The collection of user policy assignments.
      * @param TeamsPolicyUserAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

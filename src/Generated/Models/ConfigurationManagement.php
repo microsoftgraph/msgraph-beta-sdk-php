@@ -26,21 +26,7 @@ class ConfigurationManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the configurationApplications property value. The configurationApplications property
-     * @return array<ConfigurationApplication>|null
-    */
-    public function getConfigurationApplications(): ?array {
-        $val = $this->getBackingStore()->get('configurationApplications');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, ConfigurationApplication::class);
-            /** @var array<ConfigurationApplication>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'configurationApplications'");
-    }
-
-    /**
-     * Gets the configurationDrifts property value. The configurationDrifts property
+     * Gets the configurationDrifts property value. A container for configuration drift resources.
      * @return array<ConfigurationDrift>|null
     */
     public function getConfigurationDrifts(): ?array {
@@ -54,7 +40,7 @@ class ConfigurationManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the configurationMonitoringResults property value. The configurationMonitoringResults property
+     * Gets the configurationMonitoringResults property value. A container for configuration monitoring results resources.
      * @return array<ConfigurationMonitoringResult>|null
     */
     public function getConfigurationMonitoringResults(): ?array {
@@ -68,7 +54,7 @@ class ConfigurationManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the configurationMonitors property value. The configurationMonitors property
+     * Gets the configurationMonitors property value. A container for configuration monitor resources.
      * @return array<ConfigurationMonitor>|null
     */
     public function getConfigurationMonitors(): ?array {
@@ -82,7 +68,7 @@ class ConfigurationManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the configurationSnapshotJobs property value. The configurationSnapshotJobs property
+     * Gets the configurationSnapshotJobs property value. A container for snapshot job resources.
      * @return array<ConfigurationSnapshotJob>|null
     */
     public function getConfigurationSnapshotJobs(): ?array {
@@ -96,7 +82,7 @@ class ConfigurationManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the configurationSnapshots property value. The configurationSnapshots property
+     * Gets the configurationSnapshots property value. A container for configuration snapshot baselines.
      * @return array<ConfigurationBaseline>|null
     */
     public function getConfigurationSnapshots(): ?array {
@@ -116,7 +102,6 @@ class ConfigurationManagement extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'configurationApplications' => fn(ParseNode $n) => $o->setConfigurationApplications($n->getCollectionOfObjectValues([ConfigurationApplication::class, 'createFromDiscriminatorValue'])),
             'configurationDrifts' => fn(ParseNode $n) => $o->setConfigurationDrifts($n->getCollectionOfObjectValues([ConfigurationDrift::class, 'createFromDiscriminatorValue'])),
             'configurationMonitoringResults' => fn(ParseNode $n) => $o->setConfigurationMonitoringResults($n->getCollectionOfObjectValues([ConfigurationMonitoringResult::class, 'createFromDiscriminatorValue'])),
             'configurationMonitors' => fn(ParseNode $n) => $o->setConfigurationMonitors($n->getCollectionOfObjectValues([ConfigurationMonitor::class, 'createFromDiscriminatorValue'])),
@@ -131,7 +116,6 @@ class ConfigurationManagement extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('configurationApplications', $this->getConfigurationApplications());
         $writer->writeCollectionOfObjectValues('configurationDrifts', $this->getConfigurationDrifts());
         $writer->writeCollectionOfObjectValues('configurationMonitoringResults', $this->getConfigurationMonitoringResults());
         $writer->writeCollectionOfObjectValues('configurationMonitors', $this->getConfigurationMonitors());
@@ -140,15 +124,7 @@ class ConfigurationManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the configurationApplications property value. The configurationApplications property
-     * @param array<ConfigurationApplication>|null $value Value to set for the configurationApplications property.
-    */
-    public function setConfigurationApplications(?array $value): void {
-        $this->getBackingStore()->set('configurationApplications', $value);
-    }
-
-    /**
-     * Sets the configurationDrifts property value. The configurationDrifts property
+     * Sets the configurationDrifts property value. A container for configuration drift resources.
      * @param array<ConfigurationDrift>|null $value Value to set for the configurationDrifts property.
     */
     public function setConfigurationDrifts(?array $value): void {
@@ -156,7 +132,7 @@ class ConfigurationManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the configurationMonitoringResults property value. The configurationMonitoringResults property
+     * Sets the configurationMonitoringResults property value. A container for configuration monitoring results resources.
      * @param array<ConfigurationMonitoringResult>|null $value Value to set for the configurationMonitoringResults property.
     */
     public function setConfigurationMonitoringResults(?array $value): void {
@@ -164,7 +140,7 @@ class ConfigurationManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the configurationMonitors property value. The configurationMonitors property
+     * Sets the configurationMonitors property value. A container for configuration monitor resources.
      * @param array<ConfigurationMonitor>|null $value Value to set for the configurationMonitors property.
     */
     public function setConfigurationMonitors(?array $value): void {
@@ -172,7 +148,7 @@ class ConfigurationManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the configurationSnapshotJobs property value. The configurationSnapshotJobs property
+     * Sets the configurationSnapshotJobs property value. A container for snapshot job resources.
      * @param array<ConfigurationSnapshotJob>|null $value Value to set for the configurationSnapshotJobs property.
     */
     public function setConfigurationSnapshotJobs(?array $value): void {
@@ -180,7 +156,7 @@ class ConfigurationManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the configurationSnapshots property value. The configurationSnapshots property
+     * Sets the configurationSnapshots property value. A container for configuration snapshot baselines.
      * @param array<ConfigurationBaseline>|null $value Value to set for the configurationSnapshots property.
     */
     public function setConfigurationSnapshots(?array $value): void {

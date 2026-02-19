@@ -27,7 +27,7 @@ class ConfigurationDrift extends Entity implements Parsable
     }
 
     /**
-     * Gets the baselineResourceDisplayName property value. The baselineResourceDisplayName property
+     * Gets the baselineResourceDisplayName property value. Resource instance for which the drift is detected.
      * @return string|null
     */
     public function getBaselineResourceDisplayName(): ?string {
@@ -39,7 +39,7 @@ class ConfigurationDrift extends Entity implements Parsable
     }
 
     /**
-     * Gets the driftedProperties property value. The driftedProperties property
+     * Gets the driftedProperties property value. Properties within one or more resource instances in which drift is detected.
      * @return array<DriftedProperty>|null
     */
     public function getDriftedProperties(): ?array {
@@ -71,7 +71,7 @@ class ConfigurationDrift extends Entity implements Parsable
     }
 
     /**
-     * Gets the firstReportedDateTime property value. The firstReportedDateTime property
+     * Gets the firstReportedDateTime property value. The date and time at which drift is first detected. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getFirstReportedDateTime(): ?DateTime {
@@ -83,7 +83,7 @@ class ConfigurationDrift extends Entity implements Parsable
     }
 
     /**
-     * Gets the monitorId property value. The monitorId property
+     * Gets the monitorId property value. Globally unique identifier (GUID) of the monitor. System-generated.
      * @return string|null
     */
     public function getMonitorId(): ?string {
@@ -107,7 +107,7 @@ class ConfigurationDrift extends Entity implements Parsable
     }
 
     /**
-     * Gets the resourceType property value. The resourceType property
+     * Gets the resourceType property value. Resource for which the drift is detected.
      * @return string|null
     */
     public function getResourceType(): ?string {
@@ -131,7 +131,7 @@ class ConfigurationDrift extends Entity implements Parsable
     }
 
     /**
-     * Gets the tenantId property value. The tenantId property
+     * Gets the tenantId property value. Globally unique identifier (GUID) of the tenant for which the monitor runs. Fetched automatically by the system.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -153,7 +153,7 @@ class ConfigurationDrift extends Entity implements Parsable
     }
 
     /**
-     * Sets the baselineResourceDisplayName property value. The baselineResourceDisplayName property
+     * Sets the baselineResourceDisplayName property value. Resource instance for which the drift is detected.
      * @param string|null $value Value to set for the baselineResourceDisplayName property.
     */
     public function setBaselineResourceDisplayName(?string $value): void {
@@ -161,7 +161,7 @@ class ConfigurationDrift extends Entity implements Parsable
     }
 
     /**
-     * Sets the driftedProperties property value. The driftedProperties property
+     * Sets the driftedProperties property value. Properties within one or more resource instances in which drift is detected.
      * @param array<DriftedProperty>|null $value Value to set for the driftedProperties property.
     */
     public function setDriftedProperties(?array $value): void {
@@ -169,7 +169,7 @@ class ConfigurationDrift extends Entity implements Parsable
     }
 
     /**
-     * Sets the firstReportedDateTime property value. The firstReportedDateTime property
+     * Sets the firstReportedDateTime property value. The date and time at which drift is first detected. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the firstReportedDateTime property.
     */
     public function setFirstReportedDateTime(?DateTime $value): void {
@@ -177,7 +177,7 @@ class ConfigurationDrift extends Entity implements Parsable
     }
 
     /**
-     * Sets the monitorId property value. The monitorId property
+     * Sets the monitorId property value. Globally unique identifier (GUID) of the monitor. System-generated.
      * @param string|null $value Value to set for the monitorId property.
     */
     public function setMonitorId(?string $value): void {
@@ -193,7 +193,7 @@ class ConfigurationDrift extends Entity implements Parsable
     }
 
     /**
-     * Sets the resourceType property value. The resourceType property
+     * Sets the resourceType property value. Resource for which the drift is detected.
      * @param string|null $value Value to set for the resourceType property.
     */
     public function setResourceType(?string $value): void {
@@ -209,7 +209,7 @@ class ConfigurationDrift extends Entity implements Parsable
     }
 
     /**
-     * Sets the tenantId property value. The tenantId property
+     * Sets the tenantId property value. Globally unique identifier (GUID) of the tenant for which the monitor runs. Fetched automatically by the system.
      * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {

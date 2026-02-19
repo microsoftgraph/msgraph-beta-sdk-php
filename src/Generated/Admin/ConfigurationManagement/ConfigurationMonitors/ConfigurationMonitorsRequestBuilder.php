@@ -52,10 +52,11 @@ class ConfigurationMonitorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get configurationMonitors from admin
+     * Get a list of the configurationMonitor objects and their properties.
      * @param ConfigurationMonitorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConfigurationMonitorCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/configurationmanagement-list-configurationmonitors?view=graph-rest-beta Find more info here
     */
     public function get(?ConfigurationMonitorsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class ConfigurationMonitorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to configurationMonitors for admin
+     * Create a new configurationMonitor object that runs periodically in the background at a scheduled frequency.
      * @param ConfigurationMonitor $body The request body
      * @param ConfigurationMonitorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConfigurationMonitor|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/configurationmanagement-post-configurationmonitors?view=graph-rest-beta Find more info here
     */
     public function post(ConfigurationMonitor $body, ?ConfigurationMonitorsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class ConfigurationMonitorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get configurationMonitors from admin
+     * Get a list of the configurationMonitor objects and their properties.
      * @param ConfigurationMonitorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class ConfigurationMonitorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to configurationMonitors for admin
+     * Create a new configurationMonitor object that runs periodically in the background at a scheduled frequency.
      * @param ConfigurationMonitor $body The request body
      * @param ConfigurationMonitorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

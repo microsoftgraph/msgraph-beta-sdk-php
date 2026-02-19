@@ -33,4 +33,5 @@ class UsageAuthMethod extends Enum {
     public const FIDO2_SECURITY_KEY = "fido2SecurityKey";
     public const ONE_TIME_PASSCODE = "oneTimePasscode";
     public const PASS_KEY_SYNCED = "passKeySynced";
+    public const QR_CODE = "qrCode";
 }

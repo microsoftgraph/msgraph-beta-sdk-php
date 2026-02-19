@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Teams\Policy\UserAssignments;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Navigation property to the collection of user policy assignments.
+ * The collection of user policy assignments.
 */
 class UserAssignmentsRequestBuilderGetQueryParameters 
 {

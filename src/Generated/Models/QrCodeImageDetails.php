@@ -69,7 +69,7 @@ class QrCodeImageDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the errorCorrectionLevel property value. Specifies how much of the QRCode can be corrupted while still maintaining its readable. The possible values are: l  (Low), m (Medium), q (Quartile), h ( High), unknownFutureValue.
+     * Gets the errorCorrectionLevel property value. Specifies how much of the QR code can be corrupted while still maintaining its readable. The possible values are: l  (Low), m (Medium), q (Quartile), h ( High), unknownFutureValue.
      * @return ErrorCorrectionLevel|null
     */
     public function getErrorCorrectionLevel(): ?ErrorCorrectionLevel {
@@ -169,7 +169,7 @@ class QrCodeImageDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the errorCorrectionLevel property value. Specifies how much of the QRCode can be corrupted while still maintaining its readable. The possible values are: l  (Low), m (Medium), q (Quartile), h ( High), unknownFutureValue.
+     * Sets the errorCorrectionLevel property value. Specifies how much of the QR code can be corrupted while still maintaining its readable. The possible values are: l  (Low), m (Medium), q (Quartile), h ( High), unknownFutureValue.
      * @param ErrorCorrectionLevel|null $value Value to set for the errorCorrectionLevel property.
     */
     public function setErrorCorrectionLevel(?ErrorCorrectionLevel $value): void {
