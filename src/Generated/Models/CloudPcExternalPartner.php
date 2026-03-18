@@ -26,6 +26,18 @@ class CloudPcExternalPartner extends Entity implements Parsable
     }
 
     /**
+     * Gets the agentSetting property value. The agent settings associated with the external partner.
+     * @return CloudPcExternalPartnerAgentSetting|null
+    */
+    public function getAgentSetting(): ?CloudPcExternalPartnerAgentSetting {
+        $val = $this->getBackingStore()->get('agentSetting');
+        if (is_null($val) || $val instanceof CloudPcExternalPartnerAgentSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'agentSetting'");
+    }
+
+    /**
      * Gets the connectionStatus property value. The connectionStatus property
      * @return CloudPcExternalPartnerStatus|null
     */
@@ -56,6 +68,7 @@ class CloudPcExternalPartner extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'agentSetting' => fn(ParseNode $n) => $o->setAgentSetting($n->getObjectValue([CloudPcExternalPartnerAgentSetting::class, 'createFromDiscriminatorValue'])),
             'connectionStatus' => fn(ParseNode $n) => $o->setConnectionStatus($n->getEnumValue(CloudPcExternalPartnerStatus::class)),
             'enableConnection' => fn(ParseNode $n) => $o->setEnableConnection($n->getBooleanValue()),
             'lastSyncDateTime' => fn(ParseNode $n) => $o->setLastSyncDateTime($n->getDateTimeValue()),
@@ -106,11 +119,20 @@ class CloudPcExternalPartner extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('agentSetting', $this->getAgentSetting());
         $writer->writeEnumValue('connectionStatus', $this->getConnectionStatus());
         $writer->writeBooleanValue('enableConnection', $this->getEnableConnection());
         $writer->writeDateTimeValue('lastSyncDateTime', $this->getLastSyncDateTime());
         $writer->writeStringValue('partnerId', $this->getPartnerId());
         $writer->writeStringValue('statusDetails', $this->getStatusDetails());
+    }
+
+    /**
+     * Sets the agentSetting property value. The agent settings associated with the external partner.
+     * @param CloudPcExternalPartnerAgentSetting|null $value Value to set for the agentSetting property.
+    */
+    public function setAgentSetting(?CloudPcExternalPartnerAgentSetting $value): void {
+        $this->getBackingStore()->set('agentSetting', $value);
     }
 
     /**

@@ -41,11 +41,24 @@ class MobileAppCatalogPackage extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'productDescription' => fn(ParseNode $n) => $o->setProductDescription($n->getStringValue()),
             'productDisplayName' => fn(ParseNode $n) => $o->setProductDisplayName($n->getStringValue()),
             'productId' => fn(ParseNode $n) => $o->setProductId($n->getStringValue()),
             'publisherDisplayName' => fn(ParseNode $n) => $o->setPublisherDisplayName($n->getStringValue()),
             'versionDisplayName' => fn(ParseNode $n) => $o->setVersionDisplayName($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the productDescription property value. The description of the product (example: "Fabrikam for Business is a productivity app."). Returned by default. Read-only. Supports: $filter, $search, $select. This property is read-only.
+     * @return string|null
+    */
+    public function getProductDescription(): ?string {
+        $val = $this->getBackingStore()->get('productDescription');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'productDescription'");
     }
 
     /**
@@ -102,6 +115,14 @@ class MobileAppCatalogPackage extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+    }
+
+    /**
+     * Sets the productDescription property value. The description of the product (example: "Fabrikam for Business is a productivity app."). Returned by default. Read-only. Supports: $filter, $search, $select. This property is read-only.
+     * @param string|null $value Value to set for the productDescription property.
+    */
+    public function setProductDescription(?string $value): void {
+        $this->getBackingStore()->set('productDescription', $value);
     }
 
     /**

@@ -48,6 +48,18 @@ class File implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the archiveStatus property value. The archiveStatus property
+     * @return FileArchiveStatus|null
+    */
+    public function getArchiveStatus(): ?FileArchiveStatus {
+        $val = $this->getBackingStore()->get('archiveStatus');
+        if (is_null($val) || $val instanceof FileArchiveStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'archiveStatus'");
+    }
+
+    /**
      * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -62,6 +74,7 @@ class File implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'archiveStatus' => fn(ParseNode $n) => $o->setArchiveStatus($n->getEnumValue(FileArchiveStatus::class)),
             'hashes' => fn(ParseNode $n) => $o->setHashes($n->getObjectValue([Hashes::class, 'createFromDiscriminatorValue'])),
             'mimeType' => fn(ParseNode $n) => $o->setMimeType($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -122,6 +135,7 @@ class File implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeEnumValue('archiveStatus', $this->getArchiveStatus());
         $writer->writeObjectValue('hashes', $this->getHashes());
         $writer->writeStringValue('mimeType', $this->getMimeType());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -135,6 +149,14 @@ class File implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the archiveStatus property value. The archiveStatus property
+     * @param FileArchiveStatus|null $value Value to set for the archiveStatus property.
+    */
+    public function setArchiveStatus(?FileArchiveStatus $value): void {
+        $this->getBackingStore()->set('archiveStatus', $value);
     }
 
     /**

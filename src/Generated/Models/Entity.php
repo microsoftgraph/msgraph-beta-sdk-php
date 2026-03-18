@@ -120,6 +120,9 @@ use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\WindowsDeviceMalwareSta
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\WindowsProtectionState;
 use Microsoft\Graph\Beta\Generated\Models\Networkaccess\BaseEntity;
 use Microsoft\Graph\Beta\Generated\Models\Networkaccess\BranchSite;
+use Microsoft\Graph\Beta\Generated\Models\Networkaccess\CloudFirewallPolicy;
+use Microsoft\Graph\Beta\Generated\Models\Networkaccess\CloudFirewallPolicyLink;
+use Microsoft\Graph\Beta\Generated\Models\Networkaccess\CloudFirewallRule;
 use Microsoft\Graph\Beta\Generated\Models\Networkaccess\ConditionalAccessPolicy;
 use Microsoft\Graph\Beta\Generated\Models\Networkaccess\ConditionalAccessSettings;
 use Microsoft\Graph\Beta\Generated\Models\Networkaccess\Connection;
@@ -209,6 +212,12 @@ use Microsoft\Graph\Beta\Generated\Models\Security\DetectionRule;
 use Microsoft\Graph\Beta\Generated\Models\Security\DiscoveredCloudAppDetail;
 use Microsoft\Graph\Beta\Generated\Models\Security\DiscoveredCloudAppInfo;
 use Microsoft\Graph\Beta\Generated\Models\Security\DispositionReviewStage;
+use Microsoft\Graph\Beta\Generated\Models\Security\Dlp\BaseAuditRecord;
+use Microsoft\Graph\Beta\Generated\Models\Security\Dlp\ComplianceBaseAuditRecord;
+use Microsoft\Graph\Beta\Generated\Models\Security\Dlp\ComplianceDLPBaseAuditRecord;
+use Microsoft\Graph\Beta\Generated\Models\Security\Dlp\ComplianceDlpEndpointAuditRecord;
+use Microsoft\Graph\Beta\Generated\Models\Security\Dlp\ComplianceDlpExchangeAuditRecord;
+use Microsoft\Graph\Beta\Generated\Models\Security\Dlp\ComplianceDlpSharePointAuditRecord;
 use Microsoft\Graph\Beta\Generated\Models\Security\EdiscoveryAddToReviewSetOperation;
 use Microsoft\Graph\Beta\Generated\Models\Security\EdiscoveryCase;
 use Microsoft\Graph\Beta\Generated\Models\Security\EdiscoveryCaseMember;
@@ -404,6 +413,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.activitiesContainer': return new ActivitiesContainer();
                 case '#microsoft.graph.activityBasedTimeoutPolicy': return new ActivityBasedTimeoutPolicy();
                 case '#microsoft.graph.activityHistoryItem': return new ActivityHistoryItem();
+                case '#microsoft.graph.activityLogBase': return new ActivityLogBase();
                 case '#microsoft.graph.activityStatistics': return new ActivityStatistics();
                 case '#microsoft.graph.addLargeGalleryViewOperation': return new AddLargeGalleryViewOperation();
                 case '#microsoft.graph.adhocCall': return new AdhocCall();
@@ -631,6 +641,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.b2cAuthenticationMethodsPolicy': return new B2cAuthenticationMethodsPolicy();
                 case '#microsoft.graph.b2cIdentityUserFlow': return new B2cIdentityUserFlow();
                 case '#microsoft.graph.b2xIdentityUserFlow': return new B2xIdentityUserFlow();
+                case '#microsoft.graph.backupPolicyActivityLog': return new BackupPolicyActivityLog();
+                case '#microsoft.graph.backupReport': return new BackupReport();
                 case '#microsoft.graph.backupRestoreRoot': return new BackupRestoreRoot();
                 case '#microsoft.graph.baseItem': return new BaseItem();
                 case '#microsoft.graph.baseItemVersion': return new BaseItemVersion();
@@ -814,6 +826,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.customCalloutExtension': return new CustomCalloutExtension();
                 case '#microsoft.graph.customClaimsPolicy': return new CustomClaimsPolicy();
                 case '#microsoft.graph.customDataProvidedResource': return new CustomDataProvidedResource();
+                case '#microsoft.graph.customDataProvidedResourceFile': return new CustomDataProvidedResourceFile();
                 case '#microsoft.graph.customDataProvidedResourceUploadSession': return new CustomDataProvidedResourceUploadSession();
                 case '#microsoft.graph.customExtensionHandler': return new CustomExtensionHandler();
                 case '#microsoft.graph.customExtensionStageSetting': return new CustomExtensionStageSetting();
@@ -1008,6 +1021,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.driveProtectionUnitsBulkAdditionJob': return new DriveProtectionUnitsBulkAdditionJob();
                 case '#microsoft.graph.driveRestoreArtifact': return new DriveRestoreArtifact();
                 case '#microsoft.graph.driveRestoreArtifactsBulkAdditionRequest': return new DriveRestoreArtifactsBulkAdditionRequest();
+                case '#microsoft.graph.dynamicRuleActivityLog': return new DynamicRuleActivityLog();
                 case '#microsoft.graph.easEmailProfileConfigurationBase': return new EasEmailProfileConfigurationBase();
                 case '#microsoft.graph.eBookInstallSummary': return new EBookInstallSummary();
                 case '#microsoft.graph.edge': return new Edge();
@@ -1579,6 +1593,9 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.networkaccess.alert': return new \Microsoft\Graph\Beta\Generated\Models\Networkaccess\Alert();
                 case '#microsoft.graph.networkaccess.baseEntity': return new BaseEntity();
                 case '#microsoft.graph.networkaccess.branchSite': return new BranchSite();
+                case '#microsoft.graph.networkaccess.cloudFirewallPolicy': return new CloudFirewallPolicy();
+                case '#microsoft.graph.networkaccess.cloudFirewallPolicyLink': return new CloudFirewallPolicyLink();
+                case '#microsoft.graph.networkaccess.cloudFirewallRule': return new CloudFirewallRule();
                 case '#microsoft.graph.networkaccess.conditionalAccessPolicy': return new ConditionalAccessPolicy();
                 case '#microsoft.graph.networkaccess.conditionalAccessSettings': return new ConditionalAccessSettings();
                 case '#microsoft.graph.networkaccess.connection': return new Connection();
@@ -1629,6 +1646,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.notification': return new Notification();
                 case '#microsoft.graph.notificationMessageTemplate': return new NotificationMessageTemplate();
                 case '#microsoft.graph.oAuth2PermissionGrant': return new OAuth2PermissionGrant();
+                case '#microsoft.graph.offboardingActivityLog': return new OffboardingActivityLog();
                 case '#microsoft.graph.offerShiftRequest': return new OfferShiftRequest();
                 case '#microsoft.graph.office365ActiveUserCounts': return new Office365ActiveUserCounts();
                 case '#microsoft.graph.office365ActiveUserDetail': return new Office365ActiveUserDetail();
@@ -1707,6 +1725,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.overprovisionedGcpServiceAccountFinding': return new OverprovisionedGcpServiceAccountFinding();
                 case '#microsoft.graph.overprovisionedServerlessFunctionFinding': return new OverprovisionedServerlessFunctionFinding();
                 case '#microsoft.graph.overprovisionedUserFinding': return new OverprovisionedUserFinding();
+                case '#microsoft.graph.ownerlessGroupPolicy': return new OwnerlessGroupPolicy();
                 case '#microsoft.graph.pageTemplate': return new PageTemplate();
                 case '#microsoft.graph.participant': return new Participant();
                 case '#microsoft.graph.participantJoiningNotification': return new ParticipantJoiningNotification();
@@ -1784,6 +1803,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.plannerRoster': return new PlannerRoster();
                 case '#microsoft.graph.plannerRosterMember': return new PlannerRosterMember();
                 case '#microsoft.graph.plannerTask': return new PlannerTask();
+                case '#microsoft.graph.plannerTaskChatMessage': return new PlannerTaskChatMessage();
                 case '#microsoft.graph.plannerTaskConfiguration': return new PlannerTaskConfiguration();
                 case '#microsoft.graph.plannerTaskDetails': return new PlannerTaskDetails();
                 case '#microsoft.graph.plannerUser': return new PlannerUser();
@@ -1901,6 +1921,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.restoreArtifactsBulkRequestBase': return new RestoreArtifactsBulkRequestBase();
                 case '#microsoft.graph.restorePoint': return new RestorePoint();
                 case '#microsoft.graph.restoreSessionBase': return new RestoreSessionBase();
+                case '#microsoft.graph.restoreTaskActivityLog': return new RestoreTaskActivityLog();
                 case '#microsoft.graph.restrictedAppsViolation': return new RestrictedAppsViolation();
                 case '#microsoft.graph.richLongRunningOperation': return new RichLongRunningOperation();
                 case '#microsoft.graph.riskDetection': return new RiskDetection();
@@ -1975,6 +1996,12 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.security.discoveredCloudAppDetail': return new DiscoveredCloudAppDetail();
                 case '#microsoft.graph.security.discoveredCloudAppInfo': return new DiscoveredCloudAppInfo();
                 case '#microsoft.graph.security.dispositionReviewStage': return new DispositionReviewStage();
+                case '#microsoft.graph.security.dlp.baseAuditRecord': return new BaseAuditRecord();
+                case '#microsoft.graph.security.dlp.complianceBaseAuditRecord': return new ComplianceBaseAuditRecord();
+                case '#microsoft.graph.security.dlp.complianceDLPBaseAuditRecord': return new ComplianceDLPBaseAuditRecord();
+                case '#microsoft.graph.security.dlp.complianceDlpEndpointAuditRecord': return new ComplianceDlpEndpointAuditRecord();
+                case '#microsoft.graph.security.dlp.complianceDlpExchangeAuditRecord': return new ComplianceDlpExchangeAuditRecord();
+                case '#microsoft.graph.security.dlp.complianceDlpSharePointAuditRecord': return new ComplianceDlpSharePointAuditRecord();
                 case '#microsoft.graph.security.ediscoveryAddToReviewSetOperation': return new EdiscoveryAddToReviewSetOperation();
                 case '#microsoft.graph.security.ediscoveryCase': return new EdiscoveryCase();
                 case '#microsoft.graph.security.ediscoveryCaseMember': return new EdiscoveryCaseMember();
@@ -2174,6 +2201,9 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.stopTranscriptionOperation': return new StopTranscriptionOperation();
                 case '#microsoft.graph.storageQuotaBreakdown': return new StorageQuotaBreakdown();
                 case '#microsoft.graph.storageSettings': return new StorageSettings();
+                case '#microsoft.graph.storyline': return new Storyline();
+                case '#microsoft.graph.storylineFollower': return new StorylineFollower();
+                case '#microsoft.graph.storylineFollowing': return new StorylineFollowing();
                 case '#microsoft.graph.strongAuthenticationDetail': return new StrongAuthenticationDetail();
                 case '#microsoft.graph.strongAuthenticationPhoneAppDetail': return new StrongAuthenticationPhoneAppDetail();
                 case '#microsoft.graph.stsPolicy': return new StsPolicy();
@@ -2195,6 +2225,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.synchronizationSchema': return new SynchronizationSchema();
                 case '#microsoft.graph.synchronizationTemplate': return new SynchronizationTemplate();
                 case '#microsoft.graph.targetDeviceGroup': return new TargetDeviceGroup();
+                case '#microsoft.graph.targetedChatMessage': return new TargetedChatMessage();
                 case '#microsoft.graph.targetedManagedAppConfiguration': return new TargetedManagedAppConfiguration();
                 case '#microsoft.graph.targetedManagedAppConfigurationPolicySetItem': return new TargetedManagedAppConfigurationPolicySetItem();
                 case '#microsoft.graph.targetedManagedAppPolicyAssignment': return new TargetedManagedAppPolicyAssignment();
@@ -2471,6 +2502,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.windowsAutopilotDeploymentProfilePolicySetItem': return new WindowsAutopilotDeploymentProfilePolicySetItem();
                 case '#microsoft.graph.windowsAutopilotDeviceIdentity': return new WindowsAutopilotDeviceIdentity();
                 case '#microsoft.graph.windowsAutopilotSettings': return new WindowsAutopilotSettings();
+                case '#microsoft.graph.windowsAutoUpdateCatalogApp': return new WindowsAutoUpdateCatalogApp();
                 case '#microsoft.graph.windowsCertificateProfileBase': return new WindowsCertificateProfileBase();
                 case '#microsoft.graph.windowsDefenderAdvancedThreatProtectionConfiguration': return new WindowsDefenderAdvancedThreatProtectionConfiguration();
                 case '#microsoft.graph.windowsDefenderApplicationControlSupplementalPolicy': return new WindowsDefenderApplicationControlSupplementalPolicy();

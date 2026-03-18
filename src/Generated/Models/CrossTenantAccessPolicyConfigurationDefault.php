@@ -85,6 +85,18 @@ class CrossTenantAccessPolicyConfigurationDefault extends Entity implements Pars
     }
 
     /**
+     * Gets the blockServiceProviderOutboundAccess property value. The blockServiceProviderOutboundAccess property
+     * @return bool|null
+    */
+    public function getBlockServiceProviderOutboundAccess(): ?bool {
+        $val = $this->getBackingStore()->get('blockServiceProviderOutboundAccess');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockServiceProviderOutboundAccess'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -96,6 +108,7 @@ class CrossTenantAccessPolicyConfigurationDefault extends Entity implements Pars
             'b2bCollaborationOutbound' => fn(ParseNode $n) => $o->setB2bCollaborationOutbound($n->getObjectValue([CrossTenantAccessPolicyB2BSetting::class, 'createFromDiscriminatorValue'])),
             'b2bDirectConnectInbound' => fn(ParseNode $n) => $o->setB2bDirectConnectInbound($n->getObjectValue([CrossTenantAccessPolicyB2BSetting::class, 'createFromDiscriminatorValue'])),
             'b2bDirectConnectOutbound' => fn(ParseNode $n) => $o->setB2bDirectConnectOutbound($n->getObjectValue([CrossTenantAccessPolicyB2BSetting::class, 'createFromDiscriminatorValue'])),
+            'blockServiceProviderOutboundAccess' => fn(ParseNode $n) => $o->setBlockServiceProviderOutboundAccess($n->getBooleanValue()),
             'inboundTrust' => fn(ParseNode $n) => $o->setInboundTrust($n->getObjectValue([CrossTenantAccessPolicyInboundTrust::class, 'createFromDiscriminatorValue'])),
             'invitationRedemptionIdentityProviderConfiguration' => fn(ParseNode $n) => $o->setInvitationRedemptionIdentityProviderConfiguration($n->getObjectValue([DefaultInvitationRedemptionIdentityProviderConfiguration::class, 'createFromDiscriminatorValue'])),
             'isServiceDefault' => fn(ParseNode $n) => $o->setIsServiceDefault($n->getBooleanValue()),
@@ -162,6 +175,7 @@ class CrossTenantAccessPolicyConfigurationDefault extends Entity implements Pars
         $writer->writeObjectValue('b2bCollaborationOutbound', $this->getB2bCollaborationOutbound());
         $writer->writeObjectValue('b2bDirectConnectInbound', $this->getB2bDirectConnectInbound());
         $writer->writeObjectValue('b2bDirectConnectOutbound', $this->getB2bDirectConnectOutbound());
+        $writer->writeBooleanValue('blockServiceProviderOutboundAccess', $this->getBlockServiceProviderOutboundAccess());
         $writer->writeObjectValue('inboundTrust', $this->getInboundTrust());
         $writer->writeObjectValue('invitationRedemptionIdentityProviderConfiguration', $this->getInvitationRedemptionIdentityProviderConfiguration());
         $writer->writeBooleanValue('isServiceDefault', $this->getIsServiceDefault());
@@ -206,6 +220,14 @@ class CrossTenantAccessPolicyConfigurationDefault extends Entity implements Pars
     */
     public function setB2bDirectConnectOutbound(?CrossTenantAccessPolicyB2BSetting $value): void {
         $this->getBackingStore()->set('b2bDirectConnectOutbound', $value);
+    }
+
+    /**
+     * Sets the blockServiceProviderOutboundAccess property value. The blockServiceProviderOutboundAccess property
+     * @param bool|null $value Value to set for the blockServiceProviderOutboundAccess property.
+    */
+    public function setBlockServiceProviderOutboundAccess(?bool $value): void {
+        $this->getBackingStore()->set('blockServiceProviderOutboundAccess', $value);
     }
 
     /**

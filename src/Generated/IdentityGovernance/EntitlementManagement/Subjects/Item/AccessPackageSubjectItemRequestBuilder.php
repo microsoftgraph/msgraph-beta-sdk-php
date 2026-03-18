@@ -67,7 +67,7 @@ class AccessPackageSubjectItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an existing accessPackageSubject object to change the subject lifecycle.
+     * Update an external directory user represented by an existing accessPackageSubject object to change the subject lifecycle.
      * @param AccessPackageSubject $body The request body
      * @param AccessPackageSubjectItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageSubject|null>
@@ -122,7 +122,7 @@ class AccessPackageSubjectItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an existing accessPackageSubject object to change the subject lifecycle.
+     * Update an external directory user represented by an existing accessPackageSubject object to change the subject lifecycle.
      * @param AccessPackageSubject $body The request body
      * @param AccessPackageSubjectItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

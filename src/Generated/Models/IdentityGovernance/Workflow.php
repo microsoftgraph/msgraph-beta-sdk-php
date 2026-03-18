@@ -3,6 +3,7 @@
 namespace Microsoft\Graph\Beta\Generated\Models\IdentityGovernance;
 
 use DateTime;
+use Microsoft\Graph\Beta\Generated\Models\DirectoryObject;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -64,6 +65,7 @@ class Workflow extends WorkflowBase implements Parsable
             'executionScope' => fn(ParseNode $n) => $o->setExecutionScope($n->getCollectionOfObjectValues([UserProcessingResult::class, 'createFromDiscriminatorValue'])),
             'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
             'nextScheduleRunDateTime' => fn(ParseNode $n) => $o->setNextScheduleRunDateTime($n->getDateTimeValue()),
+            'previewScope' => fn(ParseNode $n) => $o->setPreviewScope($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'runs' => fn(ParseNode $n) => $o->setRuns($n->getCollectionOfObjectValues([Run::class, 'createFromDiscriminatorValue'])),
             'taskReports' => fn(ParseNode $n) => $o->setTaskReports($n->getCollectionOfObjectValues([TaskReport::class, 'createFromDiscriminatorValue'])),
             'userProcessingResults' => fn(ParseNode $n) => $o->setUserProcessingResults($n->getCollectionOfObjectValues([UserProcessingResult::class, 'createFromDiscriminatorValue'])),
@@ -94,6 +96,20 @@ class Workflow extends WorkflowBase implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'nextScheduleRunDateTime'");
+    }
+
+    /**
+     * Gets the previewScope property value. The previewScope property
+     * @return array<DirectoryObject>|null
+    */
+    public function getPreviewScope(): ?array {
+        $val = $this->getBackingStore()->get('previewScope');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DirectoryObject::class);
+            /** @var array<DirectoryObject>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'previewScope'");
     }
 
     /**
@@ -174,6 +190,7 @@ class Workflow extends WorkflowBase implements Parsable
         $writer->writeCollectionOfObjectValues('executionScope', $this->getExecutionScope());
         $writer->writeStringValue('id', $this->getId());
         $writer->writeDateTimeValue('nextScheduleRunDateTime', $this->getNextScheduleRunDateTime());
+        $writer->writeCollectionOfObjectValues('previewScope', $this->getPreviewScope());
         $writer->writeCollectionOfObjectValues('runs', $this->getRuns());
         $writer->writeCollectionOfObjectValues('taskReports', $this->getTaskReports());
         $writer->writeCollectionOfObjectValues('userProcessingResults', $this->getUserProcessingResults());
@@ -211,6 +228,14 @@ class Workflow extends WorkflowBase implements Parsable
     */
     public function setNextScheduleRunDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('nextScheduleRunDateTime', $value);
+    }
+
+    /**
+     * Sets the previewScope property value. The previewScope property
+     * @param array<DirectoryObject>|null $value Value to set for the previewScope property.
+    */
+    public function setPreviewScope(?array $value): void {
+        $this->getBackingStore()->set('previewScope', $value);
     }
 
     /**

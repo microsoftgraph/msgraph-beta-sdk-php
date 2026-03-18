@@ -42,16 +42,21 @@ use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RemoteLock\Rem
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RemoveDeviceFirmwareConfigurationInterfaceManagement\RemoveDeviceFirmwareConfigurationInterfaceManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RequestRemoteAssistance\RequestRemoteAssistanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\ResetPasscode\ResetPasscodeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RestoreManagedHomeScreen\RestoreManagedHomeScreenRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\Retire\RetireRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RetrieveDeviceLocalAdminAccountDetail\RetrieveDeviceLocalAdminAccountDetailRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RetrieveMacOSManagedDeviceLocalAdminAccountDetail\RetrieveMacOSManagedDeviceLocalAdminAccountDetailRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RetrieveRecoveryLockPasscode\RetrieveRecoveryLockPasscodeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RevokeAppleVppLicenses\RevokeAppleVppLicensesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RotateBitLockerKeys\RotateBitLockerKeysRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RotateFileVaultKey\RotateFileVaultKeyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RotateLocalAdminPassword\RotateLocalAdminPasswordRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RotateRecoveryLockPasscode\RotateRecoveryLockPasscodeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\SecurityBaselineStates\SecurityBaselineStatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\SendCustomNotificationToCompanyPortal\SendCustomNotificationToCompanyPortalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\SetDeviceName\SetDeviceNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\ShutDown\ShutDownRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\SuspendManagedHomeScreen\SuspendManagedHomeScreenRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\SyncDevice\SyncDeviceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\TriggerConfigurationManagerAction\TriggerConfigurationManagerActionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\UpdateWindowsDeviceAccount\UpdateWindowsDeviceAccountRequestBuilder;
@@ -323,6 +328,13 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the restoreManagedHomeScreen method.
+    */
+    public function restoreManagedHomeScreen(): RestoreManagedHomeScreenRequestBuilder {
+        return new RestoreManagedHomeScreenRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the retire method.
     */
     public function retire(): RetireRequestBuilder {
@@ -330,10 +342,24 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the retrieveDeviceLocalAdminAccountDetail method.
+    */
+    public function retrieveDeviceLocalAdminAccountDetail(): RetrieveDeviceLocalAdminAccountDetailRequestBuilder {
+        return new RetrieveDeviceLocalAdminAccountDetailRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the retrieveMacOSManagedDeviceLocalAdminAccountDetail method.
     */
     public function retrieveMacOSManagedDeviceLocalAdminAccountDetail(): RetrieveMacOSManagedDeviceLocalAdminAccountDetailRequestBuilder {
         return new RetrieveMacOSManagedDeviceLocalAdminAccountDetailRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retrieveRecoveryLockPasscode method.
+    */
+    public function retrieveRecoveryLockPasscode(): RetrieveRecoveryLockPasscodeRequestBuilder {
+        return new RetrieveRecoveryLockPasscodeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -365,6 +391,13 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the rotateRecoveryLockPasscode method.
+    */
+    public function rotateRecoveryLockPasscode(): RotateRecoveryLockPasscodeRequestBuilder {
+        return new RotateRecoveryLockPasscodeRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the securityBaselineStates property of the microsoft.graph.managedDevice entity.
     */
     public function securityBaselineStates(): SecurityBaselineStatesRequestBuilder {
@@ -390,6 +423,13 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     */
     public function shutDown(): ShutDownRequestBuilder {
         return new ShutDownRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the suspendManagedHomeScreen method.
+    */
+    public function suspendManagedHomeScreen(): SuspendManagedHomeScreenRequestBuilder {
+        return new SuspendManagedHomeScreenRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

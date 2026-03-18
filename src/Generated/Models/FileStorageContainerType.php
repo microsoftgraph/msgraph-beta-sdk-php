@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class FileStorageContainerType extends Entity implements Parsable 
 {
@@ -99,6 +100,7 @@ class FileStorageContainerType extends Entity implements Parsable
             'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'owningAppId' => fn(ParseNode $n) => $o->setOwningAppId($n->getStringValue()),
+            'permissions' => fn(ParseNode $n) => $o->setPermissions($n->getCollectionOfObjectValues([Permission::class, 'createFromDiscriminatorValue'])),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([FileStorageContainerTypeSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -128,6 +130,20 @@ class FileStorageContainerType extends Entity implements Parsable
     }
 
     /**
+     * Gets the permissions property value. The permissions property
+     * @return array<Permission>|null
+    */
+    public function getPermissions(): ?array {
+        $val = $this->getBackingStore()->get('permissions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Permission::class);
+            /** @var array<Permission>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'permissions'");
+    }
+
+    /**
      * Gets the settings property value. The settings property
      * @return FileStorageContainerTypeSettings|null
     */
@@ -152,6 +168,7 @@ class FileStorageContainerType extends Entity implements Parsable
         $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
         $writer->writeStringValue('name', $this->getName());
         $writer->writeStringValue('owningAppId', $this->getOwningAppId());
+        $writer->writeCollectionOfObjectValues('permissions', $this->getPermissions());
         $writer->writeObjectValue('settings', $this->getSettings());
     }
 
@@ -209,6 +226,14 @@ class FileStorageContainerType extends Entity implements Parsable
     */
     public function setOwningAppId(?string $value): void {
         $this->getBackingStore()->set('owningAppId', $value);
+    }
+
+    /**
+     * Sets the permissions property value. The permissions property
+     * @param array<Permission>|null $value Value to set for the permissions property.
+    */
+    public function setPermissions(?array $value): void {
+        $this->getBackingStore()->set('permissions', $value);
     }
 
     /**

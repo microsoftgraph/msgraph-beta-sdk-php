@@ -661,7 +661,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the employeeExperience property value. The employeeExperience property
+     * Gets the employeeExperience property value. The employee experience resources for the user. Read-only. Nullable.
      * @return EmployeeExperienceUser|null
     */
     public function getEmployeeExperience(): ?EmployeeExperienceUser {
@@ -2913,7 +2913,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the employeeExperience property value. The employeeExperience property
+     * Sets the employeeExperience property value. The employee experience resources for the user. Read-only. Nullable.
      * @param EmployeeExperienceUser|null $value Value to set for the employeeExperience property.
     */
     public function setEmployeeExperience(?EmployeeExperienceUser $value): void {

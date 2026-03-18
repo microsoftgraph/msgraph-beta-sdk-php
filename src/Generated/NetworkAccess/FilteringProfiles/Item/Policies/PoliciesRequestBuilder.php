@@ -52,11 +52,11 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the threatIntelligencePolicyLink objects and their properties.
+     * Get a list of the filteringPolicyLink objects and their properties. The response can include one or more of the following objects:- cloudFirewallPolicyLink- threatIntelligencePolicyLink- tlsInspectionPolicyLink objects
      * @param PoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PolicyLinkCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-threatintelligencepolicylink-list?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/networkaccess-filteringpolicylink-list?view=graph-rest-beta Find more info here
     */
     public function get(?PoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,12 +67,12 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new tlsInspectionPolicyLink to connect a filtering profile with a tlsInspectionPolicy. One 1 tlsInspectionPolicy is allowed for every filtering profile.
+     * Add a Global Secure Access network policy to a filteringProfile. The policy can be one of the following types:
      * @param PolicyLink $body The request body
      * @param PoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PolicyLink|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/networkaccess-tlsinspectionpolicylink-post?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/networkaccess-filteringpolicylink-post?view=graph-rest-beta Find more info here
     */
     public function post(PolicyLink $body, ?PoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -83,7 +83,7 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the threatIntelligencePolicyLink objects and their properties.
+     * Get a list of the filteringPolicyLink objects and their properties. The response can include one or more of the following objects:- cloudFirewallPolicyLink- threatIntelligencePolicyLink- tlsInspectionPolicyLink objects
      * @param PoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +104,7 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new tlsInspectionPolicyLink to connect a filtering profile with a tlsInspectionPolicy. One 1 tlsInspectionPolicy is allowed for every filtering profile.
+     * Add a Global Secure Access network policy to a filteringProfile. The policy can be one of the following types:
      * @param PolicyLink $body The request body
      * @param PoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -253,7 +253,6 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
                 /** @var array<string>|null $val */
                 $this->setRoleScopeTagIds($val);
             },
-            'sendDeviceOwnershipChangePushNotification' => fn(ParseNode $n) => $o->setSendDeviceOwnershipChangePushNotification($n->getBooleanValue()),
             'showAzureADEnterpriseApps' => fn(ParseNode $n) => $o->setShowAzureADEnterpriseApps($n->getBooleanValue()),
             'showConfigurationManagerApps' => fn(ParseNode $n) => $o->setShowConfigurationManagerApps($n->getBooleanValue()),
             'showDisplayNameNextToLogo' => fn(ParseNode $n) => $o->setShowDisplayNameNextToLogo($n->getBooleanValue()),
@@ -375,18 +374,6 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the sendDeviceOwnershipChangePushNotification property value. Boolean that indicates if a push notification is sent to users when their device ownership type changes from personal to corporate
-     * @return bool|null
-    */
-    public function getSendDeviceOwnershipChangePushNotification(): ?bool {
-        $val = $this->getBackingStore()->get('sendDeviceOwnershipChangePushNotification');
-        if (is_null($val) || is_bool($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'sendDeviceOwnershipChangePushNotification'");
-    }
-
-    /**
      * Gets the showAzureADEnterpriseApps property value. Boolean that indicates if AzureAD Enterprise Apps will be shown in Company Portal
      * @return bool|null
     */
@@ -497,7 +484,6 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('onlineSupportSiteUrl', $this->getOnlineSupportSiteUrl());
         $writer->writeStringValue('privacyUrl', $this->getPrivacyUrl());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
-        $writer->writeBooleanValue('sendDeviceOwnershipChangePushNotification', $this->getSendDeviceOwnershipChangePushNotification());
         $writer->writeBooleanValue('showAzureADEnterpriseApps', $this->getShowAzureADEnterpriseApps());
         $writer->writeBooleanValue('showConfigurationManagerApps', $this->getShowConfigurationManagerApps());
         $writer->writeBooleanValue('showDisplayNameNextToLogo', $this->getShowDisplayNameNextToLogo());
@@ -698,14 +684,6 @@ class IntuneBrand implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setRoleScopeTagIds(?array $value): void {
         $this->getBackingStore()->set('roleScopeTagIds', $value);
-    }
-
-    /**
-     * Sets the sendDeviceOwnershipChangePushNotification property value. Boolean that indicates if a push notification is sent to users when their device ownership type changes from personal to corporate
-     * @param bool|null $value Value to set for the sendDeviceOwnershipChangePushNotification property.
-    */
-    public function setSendDeviceOwnershipChangePushNotification(?bool $value): void {
-        $this->getBackingStore()->set('sendDeviceOwnershipChangePushNotification', $value);
     }
 
     /**

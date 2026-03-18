@@ -50,18 +50,6 @@ class ExternalTokenBasedSapIagConnectionInfo extends ConnectionInfo implements P
     }
 
     /**
-     * Gets the domain property value. The domain property
-     * @return string|null
-    */
-    public function getDomain(): ?string {
-        $val = $this->getBackingStore()->get('domain');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'domain'");
-    }
-
-    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -70,7 +58,6 @@ class ExternalTokenBasedSapIagConnectionInfo extends ConnectionInfo implements P
         return array_merge(parent::getFieldDeserializers(), [
             'accessTokenUrl' => fn(ParseNode $n) => $o->setAccessTokenUrl($n->getStringValue()),
             'clientId' => fn(ParseNode $n) => $o->setClientId($n->getStringValue()),
-            'domain' => fn(ParseNode $n) => $o->setDomain($n->getStringValue()),
             'keyVaultName' => fn(ParseNode $n) => $o->setKeyVaultName($n->getStringValue()),
             'resourceGroup' => fn(ParseNode $n) => $o->setResourceGroup($n->getStringValue()),
             'secretName' => fn(ParseNode $n) => $o->setSecretName($n->getStringValue()),
@@ -134,7 +121,6 @@ class ExternalTokenBasedSapIagConnectionInfo extends ConnectionInfo implements P
         parent::serialize($writer);
         $writer->writeStringValue('accessTokenUrl', $this->getAccessTokenUrl());
         $writer->writeStringValue('clientId', $this->getClientId());
-        $writer->writeStringValue('domain', $this->getDomain());
         $writer->writeStringValue('keyVaultName', $this->getKeyVaultName());
         $writer->writeStringValue('resourceGroup', $this->getResourceGroup());
         $writer->writeStringValue('secretName', $this->getSecretName());
@@ -155,14 +141,6 @@ class ExternalTokenBasedSapIagConnectionInfo extends ConnectionInfo implements P
     */
     public function setClientId(?string $value): void {
         $this->getBackingStore()->set('clientId', $value);
-    }
-
-    /**
-     * Sets the domain property value. The domain property
-     * @param string|null $value Value to set for the domain property.
-    */
-    public function setDomain(?string $value): void {
-        $this->getBackingStore()->set('domain', $value);
     }
 
     /**

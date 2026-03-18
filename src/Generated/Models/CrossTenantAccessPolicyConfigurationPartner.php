@@ -86,6 +86,18 @@ class CrossTenantAccessPolicyConfigurationPartner extends PolicyDeletableItem im
     }
 
     /**
+     * Gets the blockServiceProviderOutboundAccess property value. The blockServiceProviderOutboundAccess property
+     * @return bool|null
+    */
+    public function getBlockServiceProviderOutboundAccess(): ?bool {
+        $val = $this->getBackingStore()->get('blockServiceProviderOutboundAccess');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockServiceProviderOutboundAccess'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -97,6 +109,7 @@ class CrossTenantAccessPolicyConfigurationPartner extends PolicyDeletableItem im
             'b2bCollaborationOutbound' => fn(ParseNode $n) => $o->setB2bCollaborationOutbound($n->getObjectValue([CrossTenantAccessPolicyB2BSetting::class, 'createFromDiscriminatorValue'])),
             'b2bDirectConnectInbound' => fn(ParseNode $n) => $o->setB2bDirectConnectInbound($n->getObjectValue([CrossTenantAccessPolicyB2BSetting::class, 'createFromDiscriminatorValue'])),
             'b2bDirectConnectOutbound' => fn(ParseNode $n) => $o->setB2bDirectConnectOutbound($n->getObjectValue([CrossTenantAccessPolicyB2BSetting::class, 'createFromDiscriminatorValue'])),
+            'blockServiceProviderOutboundAccess' => fn(ParseNode $n) => $o->setBlockServiceProviderOutboundAccess($n->getBooleanValue()),
             'identitySynchronization' => fn(ParseNode $n) => $o->setIdentitySynchronization($n->getObjectValue([CrossTenantIdentitySyncPolicyPartner::class, 'createFromDiscriminatorValue'])),
             'inboundTrust' => fn(ParseNode $n) => $o->setInboundTrust($n->getObjectValue([CrossTenantAccessPolicyInboundTrust::class, 'createFromDiscriminatorValue'])),
             'isInMultiTenantOrganization' => fn(ParseNode $n) => $o->setIsInMultiTenantOrganization($n->getBooleanValue()),
@@ -189,6 +202,7 @@ class CrossTenantAccessPolicyConfigurationPartner extends PolicyDeletableItem im
         $writer->writeObjectValue('b2bCollaborationOutbound', $this->getB2bCollaborationOutbound());
         $writer->writeObjectValue('b2bDirectConnectInbound', $this->getB2bDirectConnectInbound());
         $writer->writeObjectValue('b2bDirectConnectOutbound', $this->getB2bDirectConnectOutbound());
+        $writer->writeBooleanValue('blockServiceProviderOutboundAccess', $this->getBlockServiceProviderOutboundAccess());
         $writer->writeObjectValue('identitySynchronization', $this->getIdentitySynchronization());
         $writer->writeObjectValue('inboundTrust', $this->getInboundTrust());
         $writer->writeBooleanValue('isInMultiTenantOrganization', $this->getIsInMultiTenantOrganization());
@@ -235,6 +249,14 @@ class CrossTenantAccessPolicyConfigurationPartner extends PolicyDeletableItem im
     */
     public function setB2bDirectConnectOutbound(?CrossTenantAccessPolicyB2BSetting $value): void {
         $this->getBackingStore()->set('b2bDirectConnectOutbound', $value);
+    }
+
+    /**
+     * Sets the blockServiceProviderOutboundAccess property value. The blockServiceProviderOutboundAccess property
+     * @param bool|null $value Value to set for the blockServiceProviderOutboundAccess property.
+    */
+    public function setBlockServiceProviderOutboundAccess(?bool $value): void {
+        $this->getBackingStore()->set('blockServiceProviderOutboundAccess', $value);
     }
 
     /**
