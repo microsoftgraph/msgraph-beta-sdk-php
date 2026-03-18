@@ -4,6 +4,10 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Extern
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ExternalPartners\Item\ConfigureAgent\ConfigureAgentRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ExternalPartners\Item\DeployAgent\DeployAgentRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ExternalPartners\Item\RetrieveActionReports\RetrieveActionReportsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ExternalPartners\Item\RetrieveDeployAgentActionResultsactivityIdActivityIdCloudPcIdCloudPcId\RetrieveDeployAgentActionResultsactivityIdActivityIdCloudPcIdCloudPcIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcExternalPartner;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -16,6 +20,34 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class CloudPcExternalPartnerItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to call the configureAgent method.
+    */
+    public function configureAgent(): ConfigureAgentRequestBuilder {
+        return new ConfigureAgentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the deployAgent method.
+    */
+    public function deployAgent(): DeployAgentRequestBuilder {
+        return new DeployAgentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retrieveActionReports method.
+    */
+    public function retrieveActionReports(): RetrieveActionReportsRequestBuilder {
+        return new RetrieveActionReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retrieveDeployAgentActionResults method.
+    */
+    public function retrieveDeployAgentActionResultsactivityIdActivityIdCloudPcIdCloudPcId(): RetrieveDeployAgentActionResultsactivityIdActivityIdCloudPcIdCloudPcIdRequestBuilder {
+        return new RetrieveDeployAgentActionResultsactivityIdActivityIdCloudPcIdCloudPcIdRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new CloudPcExternalPartnerItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

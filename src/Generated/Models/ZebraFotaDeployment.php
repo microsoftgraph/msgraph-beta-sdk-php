@@ -29,20 +29,6 @@ class ZebraFotaDeployment extends Entity implements Parsable
     }
 
     /**
-     * Gets the deploymentAssignments property value. Collection of Android FOTA Assignment
-     * @return array<AndroidFotaDeploymentAssignment>|null
-    */
-    public function getDeploymentAssignments(): ?array {
-        $val = $this->getBackingStore()->get('deploymentAssignments');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, AndroidFotaDeploymentAssignment::class);
-            /** @var array<AndroidFotaDeploymentAssignment>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'deploymentAssignments'");
-    }
-
-    /**
      * Gets the deploymentSettings property value. The Zebra FOTA deployment complex type that describes the settings required to create a FOTA deployment.
      * @return ZebraFotaDeploymentSettings|null
     */
@@ -97,7 +83,6 @@ class ZebraFotaDeployment extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deploymentAssignments' => fn(ParseNode $n) => $o->setDeploymentAssignments($n->getCollectionOfObjectValues([AndroidFotaDeploymentAssignment::class, 'createFromDiscriminatorValue'])),
             'deploymentSettings' => fn(ParseNode $n) => $o->setDeploymentSettings($n->getObjectValue([ZebraFotaDeploymentSettings::class, 'createFromDiscriminatorValue'])),
             'deploymentStatus' => fn(ParseNode $n) => $o->setDeploymentStatus($n->getObjectValue([ZebraFotaDeploymentStatus::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
@@ -133,20 +118,11 @@ class ZebraFotaDeployment extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('deploymentAssignments', $this->getDeploymentAssignments());
         $writer->writeObjectValue('deploymentSettings', $this->getDeploymentSettings());
         $writer->writeObjectValue('deploymentStatus', $this->getDeploymentStatus());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
-    }
-
-    /**
-     * Sets the deploymentAssignments property value. Collection of Android FOTA Assignment
-     * @param array<AndroidFotaDeploymentAssignment>|null $value Value to set for the deploymentAssignments property.
-    */
-    public function setDeploymentAssignments(?array $value): void {
-        $this->getBackingStore()->set('deploymentAssignments', $value);
     }
 
     /**

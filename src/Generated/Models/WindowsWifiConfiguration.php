@@ -203,7 +203,7 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the wifiSecurityType property value. Specify the Wifi Security Type. Possible values are: open, wpaPersonal, wpaEnterprise, wep, wpa2Personal, wpa2Enterprise.
+     * Gets the wifiSecurityType property value. Specify the Wifi Security Type. Possible values are: open, wpaPersonal, wpaEnterprise, wep, wpa2Personal, wpa2Enterprise, unknownFutureValue, wpa3Personal.
      * @return WiFiSecurityType|null
     */
     public function getWifiSecurityType(): ?WiFiSecurityType {
@@ -332,7 +332,7 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the wifiSecurityType property value. Specify the Wifi Security Type. Possible values are: open, wpaPersonal, wpaEnterprise, wep, wpa2Personal, wpa2Enterprise.
+     * Sets the wifiSecurityType property value. Specify the Wifi Security Type. Possible values are: open, wpaPersonal, wpaEnterprise, wep, wpa2Personal, wpa2Enterprise, unknownFutureValue, wpa3Personal.
      * @param WiFiSecurityType|null $value Value to set for the wifiSecurityType property.
     */
     public function setWifiSecurityType(?WiFiSecurityType $value): void {

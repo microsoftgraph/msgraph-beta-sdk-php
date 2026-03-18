@@ -52,7 +52,7 @@ class SubjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties of an existing accessPackageSubject object.
+     * Get the properties of an external directory user represented by an existing accessPackageSubject object.
      * @param SubjectsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageSubjectCollectionResponse|null>
      * @throws Exception
@@ -82,7 +82,7 @@ class SubjectsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the properties of an existing accessPackageSubject object.
+     * Get the properties of an external directory user represented by an existing accessPackageSubject object.
      * @param SubjectsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

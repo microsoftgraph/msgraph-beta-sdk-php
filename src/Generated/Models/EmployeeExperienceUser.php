@@ -51,6 +51,7 @@ class EmployeeExperienceUser extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'assignedRoles' => fn(ParseNode $n) => $o->setAssignedRoles($n->getCollectionOfObjectValues([EngagementRole::class, 'createFromDiscriminatorValue'])),
             'learningCourseActivities' => fn(ParseNode $n) => $o->setLearningCourseActivities($n->getCollectionOfObjectValues([LearningCourseActivity::class, 'createFromDiscriminatorValue'])),
+            'storyline' => fn(ParseNode $n) => $o->setStoryline($n->getObjectValue([Storyline::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -69,6 +70,18 @@ class EmployeeExperienceUser extends Entity implements Parsable
     }
 
     /**
+     * Gets the storyline property value. The storyline property
+     * @return Storyline|null
+    */
+    public function getStoryline(): ?Storyline {
+        $val = $this->getBackingStore()->get('storyline');
+        if (is_null($val) || $val instanceof Storyline) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'storyline'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -76,6 +89,7 @@ class EmployeeExperienceUser extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('assignedRoles', $this->getAssignedRoles());
         $writer->writeCollectionOfObjectValues('learningCourseActivities', $this->getLearningCourseActivities());
+        $writer->writeObjectValue('storyline', $this->getStoryline());
     }
 
     /**
@@ -92,6 +106,14 @@ class EmployeeExperienceUser extends Entity implements Parsable
     */
     public function setLearningCourseActivities(?array $value): void {
         $this->getBackingStore()->set('learningCourseActivities', $value);
+    }
+
+    /**
+     * Sets the storyline property value. The storyline property
+     * @param Storyline|null $value Value to set for the storyline property.
+    */
+    public function setStoryline(?Storyline $value): void {
+        $this->getBackingStore()->set('storyline', $value);
     }
 
 }

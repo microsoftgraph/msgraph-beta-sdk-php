@@ -44,4 +44,6 @@ class RemoteAction extends Enum {
     public const INITIATE_DEVICE_ATTESTATION = "initiateDeviceAttestation";
     public const CHANGE_ASSIGNMENTS = "changeAssignments";
     public const DELETE = "delete";
+    public const SUSPEND_MANAGED_HOME_SCREEN = "suspendManagedHomeScreen";
+    public const RESTORE_MANAGED_HOME_SCREEN = "restoreManagedHomeScreen";
 }

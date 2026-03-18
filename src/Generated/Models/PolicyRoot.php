@@ -313,6 +313,7 @@ class PolicyRoot extends Entity implements Parsable
             'mobileAppManagementPolicies' => fn(ParseNode $n) => $o->setMobileAppManagementPolicies($n->getCollectionOfObjectValues([MobileAppManagementPolicy::class, 'createFromDiscriminatorValue'])),
             'mobileDeviceManagementPolicies' => fn(ParseNode $n) => $o->setMobileDeviceManagementPolicies($n->getCollectionOfObjectValues([MobileDeviceManagementPolicy::class, 'createFromDiscriminatorValue'])),
             'onPremAuthenticationPolicies' => fn(ParseNode $n) => $o->setOnPremAuthenticationPolicies($n->getCollectionOfObjectValues([OnPremAuthenticationPolicy::class, 'createFromDiscriminatorValue'])),
+            'ownerlessGroupPolicy' => fn(ParseNode $n) => $o->setOwnerlessGroupPolicy($n->getObjectValue([OwnerlessGroupPolicy::class, 'createFromDiscriminatorValue'])),
             'permissionGrantPolicies' => fn(ParseNode $n) => $o->setPermissionGrantPolicies($n->getCollectionOfObjectValues([PermissionGrantPolicy::class, 'createFromDiscriminatorValue'])),
             'permissionGrantPreApprovalPolicies' => fn(ParseNode $n) => $o->setPermissionGrantPreApprovalPolicies($n->getCollectionOfObjectValues([PermissionGrantPreApprovalPolicy::class, 'createFromDiscriminatorValue'])),
             'roleManagementPolicies' => fn(ParseNode $n) => $o->setRoleManagementPolicies($n->getCollectionOfObjectValues([UnifiedRoleManagementPolicy::class, 'createFromDiscriminatorValue'])),
@@ -389,6 +390,18 @@ class PolicyRoot extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremAuthenticationPolicies'");
+    }
+
+    /**
+     * Gets the ownerlessGroupPolicy property value. The ownerlessGroupPolicy property
+     * @return OwnerlessGroupPolicy|null
+    */
+    public function getOwnerlessGroupPolicy(): ?OwnerlessGroupPolicy {
+        $val = $this->getBackingStore()->get('ownerlessGroupPolicy');
+        if (is_null($val) || $val instanceof OwnerlessGroupPolicy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ownerlessGroupPolicy'");
     }
 
     /**
@@ -520,6 +533,7 @@ class PolicyRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('mobileAppManagementPolicies', $this->getMobileAppManagementPolicies());
         $writer->writeCollectionOfObjectValues('mobileDeviceManagementPolicies', $this->getMobileDeviceManagementPolicies());
         $writer->writeCollectionOfObjectValues('onPremAuthenticationPolicies', $this->getOnPremAuthenticationPolicies());
+        $writer->writeObjectValue('ownerlessGroupPolicy', $this->getOwnerlessGroupPolicy());
         $writer->writeCollectionOfObjectValues('permissionGrantPolicies', $this->getPermissionGrantPolicies());
         $writer->writeCollectionOfObjectValues('permissionGrantPreApprovalPolicies', $this->getPermissionGrantPreApprovalPolicies());
         $writer->writeCollectionOfObjectValues('roleManagementPolicies', $this->getRoleManagementPolicies());
@@ -727,6 +741,14 @@ class PolicyRoot extends Entity implements Parsable
     */
     public function setOnPremAuthenticationPolicies(?array $value): void {
         $this->getBackingStore()->set('onPremAuthenticationPolicies', $value);
+    }
+
+    /**
+     * Sets the ownerlessGroupPolicy property value. The ownerlessGroupPolicy property
+     * @param OwnerlessGroupPolicy|null $value Value to set for the ownerlessGroupPolicy property.
+    */
+    public function setOwnerlessGroupPolicy(?OwnerlessGroupPolicy $value): void {
+        $this->getBackingStore()->set('ownerlessGroupPolicy', $value);
     }
 
     /**

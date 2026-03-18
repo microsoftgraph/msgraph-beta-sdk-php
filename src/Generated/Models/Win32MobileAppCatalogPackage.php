@@ -54,6 +54,18 @@ class Win32MobileAppCatalogPackage extends MobileAppCatalogPackage implements Pa
     }
 
     /**
+     * Gets the branchId property value. The identifier of a specific branch irrespective of version, or other attributes. This id is associated with the branchDisplayName. Read-only. This property is read-only.
+     * @return string|null
+    */
+    public function getBranchId(): ?string {
+        $val = $this->getBackingStore()->get('branchId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'branchId'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -62,6 +74,7 @@ class Win32MobileAppCatalogPackage extends MobileAppCatalogPackage implements Pa
         return array_merge(parent::getFieldDeserializers(), [
             'applicableArchitectures' => fn(ParseNode $n) => $o->setApplicableArchitectures($n->getEnumValue(WindowsArchitecture::class)),
             'branchDisplayName' => fn(ParseNode $n) => $o->setBranchDisplayName($n->getStringValue()),
+            'branchId' => fn(ParseNode $n) => $o->setBranchId($n->getStringValue()),
             'locales' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -123,6 +136,14 @@ class Win32MobileAppCatalogPackage extends MobileAppCatalogPackage implements Pa
     */
     public function setBranchDisplayName(?string $value): void {
         $this->getBackingStore()->set('branchDisplayName', $value);
+    }
+
+    /**
+     * Sets the branchId property value. The identifier of a specific branch irrespective of version, or other attributes. This id is associated with the branchDisplayName. Read-only. This property is read-only.
+     * @param string|null $value Value to set for the branchId property.
+    */
+    public function setBranchId(?string $value): void {
+        $this->getBackingStore()->set('branchId', $value);
     }
 
     /**

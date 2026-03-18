@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\FilteringProfiles\Item\Po
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the threatIntelligencePolicyLink objects and their properties.
+ * Get a list of the filteringPolicyLink objects and their properties. The associated policy can be of the following types:
 */
 class PoliciesRequestBuilderGetQueryParameters 
 {
