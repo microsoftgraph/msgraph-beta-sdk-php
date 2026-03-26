@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\EmployeeExperience;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get employeeExperience from users
+ * The employee experience resources for the user. Read-only. Nullable.
 */
 class EmployeeExperienceRequestBuilderGetQueryParameters 
 {

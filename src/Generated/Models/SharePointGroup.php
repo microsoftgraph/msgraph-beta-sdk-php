@@ -46,6 +46,7 @@ class SharePointGroup extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'members' => fn(ParseNode $n) => $o->setMembers($n->getCollectionOfObjectValues([SharePointGroupMember::class, 'createFromDiscriminatorValue'])),
+            'principalId' => fn(ParseNode $n) => $o->setPrincipalId($n->getStringValue()),
             'title' => fn(ParseNode $n) => $o->setTitle($n->getStringValue()),
         ]);
     }
@@ -62,6 +63,18 @@ class SharePointGroup extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'members'");
+    }
+
+    /**
+     * Gets the principalId property value. The principalId property
+     * @return string|null
+    */
+    public function getPrincipalId(): ?string {
+        $val = $this->getBackingStore()->get('principalId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'principalId'");
     }
 
     /**
@@ -84,6 +97,7 @@ class SharePointGroup extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeCollectionOfObjectValues('members', $this->getMembers());
+        $writer->writeStringValue('principalId', $this->getPrincipalId());
         $writer->writeStringValue('title', $this->getTitle());
     }
 
@@ -101,6 +115,14 @@ class SharePointGroup extends Entity implements Parsable
     */
     public function setMembers(?array $value): void {
         $this->getBackingStore()->set('members', $value);
+    }
+
+    /**
+     * Sets the principalId property value. The principalId property
+     * @param string|null $value Value to set for the principalId property.
+    */
+    public function setPrincipalId(?string $value): void {
+        $this->getBackingStore()->set('principalId', $value);
     }
 
     /**

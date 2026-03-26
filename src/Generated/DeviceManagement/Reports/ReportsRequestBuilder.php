@@ -74,7 +74,6 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsQualityUpd
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsQualityUpdateAlertSummaryReport\GetWindowsQualityUpdateAlertSummaryReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsUpdateAlertsPerPolicyPerDeviceReport\GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsUpdateAlertSummaryReport\GetWindowsUpdateAlertSummaryReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetZebraFotaDeploymentReport\GetZebraFotaDeploymentReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveAndroidWorkProfileDeviceMigrationStatuses\RetrieveAndroidWorkProfileDeviceMigrationStatusesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveAppleDeviceOSUpdateStatus\RetrieveAppleDeviceOSUpdateStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\RetrieveAppleOSUpdateFailures\RetrieveAppleOSUpdateFailuresRequestBuilder;
@@ -584,13 +583,6 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function getWindowsUpdateAlertSummaryReport(): GetWindowsUpdateAlertSummaryReportRequestBuilder {
         return new GetWindowsUpdateAlertSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the getZebraFotaDeploymentReport method.
-    */
-    public function getZebraFotaDeploymentReport(): GetZebraFotaDeploymentReportRequestBuilder {
-        return new GetZebraFotaDeploymentReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

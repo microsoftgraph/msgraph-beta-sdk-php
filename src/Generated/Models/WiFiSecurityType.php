@@ -11,4 +11,6 @@ class WiFiSecurityType extends Enum {
     public const WEP = "wep";
     public const WPA2_PERSONAL = "wpa2Personal";
     public const WPA2_ENTERPRISE = "wpa2Enterprise";
+    public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const WPA3_PERSONAL = "wpa3Personal";
 }

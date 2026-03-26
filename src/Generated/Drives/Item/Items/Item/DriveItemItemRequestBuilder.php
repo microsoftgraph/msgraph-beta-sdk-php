@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Activities\ActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Analytics\AnalyticsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Archive\ArchiveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\AssignSensitivityLabel\AssignSensitivityLabelRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Checkin\CheckinRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Checkout\CheckoutRequestBuilder;
@@ -34,6 +35,7 @@ use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\RetentionLabel\Retenti
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\SearchWithQ\SearchWithQRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Subscriptions\SubscriptionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Thumbnails\ThumbnailsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Unarchive\UnarchiveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Unfollow\UnfollowRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\ValidatePermission\ValidatePermissionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Versions\VersionsRequestBuilder;
@@ -62,6 +64,13 @@ class DriveItemItemRequestBuilder extends BaseRequestBuilder
     */
     public function analytics(): AnalyticsRequestBuilder {
         return new AnalyticsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the archive method.
+    */
+    public function archive(): ArchiveRequestBuilder {
+        return new ArchiveRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -237,6 +246,13 @@ class DriveItemItemRequestBuilder extends BaseRequestBuilder
     */
     public function thumbnails(): ThumbnailsRequestBuilder {
         return new ThumbnailsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the unarchive method.
+    */
+    public function unarchive(): UnarchiveRequestBuilder {
+        return new UnarchiveRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

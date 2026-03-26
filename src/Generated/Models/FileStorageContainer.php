@@ -27,7 +27,7 @@ class FileStorageContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the archivalDetails property value. The archivalDetails property
+     * Gets the archivalDetails property value. Archival details of the fileStorageContainer. Read-write.
      * @return SiteArchivalDetails|null
     */
     public function getArchivalDetails(): ?SiteArchivalDetails {
@@ -363,7 +363,7 @@ class FileStorageContainer extends Entity implements Parsable
     }
 
     /**
-     * Sets the archivalDetails property value. The archivalDetails property
+     * Sets the archivalDetails property value. Archival details of the fileStorageContainer. Read-write.
      * @param SiteArchivalDetails|null $value Value to set for the archivalDetails property.
     */
     public function setArchivalDetails(?SiteArchivalDetails $value): void {

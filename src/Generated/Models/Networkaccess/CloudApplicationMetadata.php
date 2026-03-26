@@ -36,6 +36,18 @@ class CloudApplicationMetadata implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
+     * Gets the activity property value. The activity property
+     * @return ApplicationActivity|null
+    */
+    public function getActivity(): ?ApplicationActivity {
+        $val = $this->getBackingStore()->get('activity');
+        if (is_null($val) || $val instanceof ApplicationActivity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activity'");
+    }
+
+    /**
      * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>|null
     */
@@ -101,6 +113,7 @@ class CloudApplicationMetadata implements AdditionalDataHolder, BackedModel, Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'activity' => fn(ParseNode $n) => $o->setActivity($n->getEnumValue(ApplicationActivity::class)),
             'categories' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -223,6 +236,7 @@ class CloudApplicationMetadata implements AdditionalDataHolder, BackedModel, Par
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeEnumValue('activity', $this->getActivity());
         $writer->writeCollectionOfPrimitiveValues('categories', $this->getCategories());
         $writer->writeStringValue('cloudApplicationCatalogId', $this->getCloudApplicationCatalogId());
         $writer->writeIntegerValue('complianceScore', $this->getComplianceScore());
@@ -235,6 +249,14 @@ class CloudApplicationMetadata implements AdditionalDataHolder, BackedModel, Par
         $writer->writeIntegerValue('securityScore', $this->getSecurityScore());
         $writer->writeStringValue('subactivity', $this->getSubactivity());
         $writer->writeAdditionalData($this->getAdditionalData());
+    }
+
+    /**
+     * Sets the activity property value. The activity property
+     * @param ApplicationActivity|null $value Value to set for the activity property.
+    */
+    public function setActivity(?ApplicationActivity $value): void {
+        $this->getBackingStore()->set('activity', $value);
     }
 
     /**

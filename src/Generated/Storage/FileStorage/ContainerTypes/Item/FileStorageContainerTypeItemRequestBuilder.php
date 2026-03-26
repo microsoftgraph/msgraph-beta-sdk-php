@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\FileStorageContainerType;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Storage\FileStorage\ContainerTypes\Item\Permissions\PermissionsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -16,6 +17,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class FileStorageContainerTypeItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the permissions property of the microsoft.graph.fileStorageContainerType entity.
+    */
+    public function permissions(): PermissionsRequestBuilder {
+        return new PermissionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new FileStorageContainerTypeItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

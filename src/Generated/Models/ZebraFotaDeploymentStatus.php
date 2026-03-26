@@ -122,7 +122,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the lastUpdatedDateTime property value. Date and time when the deployment status was updated from Zebra
+     * Gets the lastUpdatedDateTime property value.  Date and time when the deployment status was updated from Zebra
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
@@ -182,7 +182,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the totalCreated property value. An integer that indicates the total number of devices that have a job in the CREATED state. Typically indicates jobs that did not reach the devices.
+     * Gets the totalCreated property value. An integer that indicates the total number of devices that have a job in the CREATED state. Typically indicates jobs that did not reach the devices. 
      * @return int|null
     */
     public function getTotalCreated(): ?int {
@@ -242,7 +242,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the totalScheduled property value. An integer that indicates the total number of devices that received the json and are scheduled.
+     * Gets the totalScheduled property value. An integer that indicates the total number of devices that received the json and are scheduled. 
      * @return int|null
     */
     public function getTotalScheduled(): ?int {
@@ -342,7 +342,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the lastUpdatedDateTime property value. Date and time when the deployment status was updated from Zebra
+     * Sets the lastUpdatedDateTime property value.  Date and time when the deployment status was updated from Zebra
      * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {
@@ -382,7 +382,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the totalCreated property value. An integer that indicates the total number of devices that have a job in the CREATED state. Typically indicates jobs that did not reach the devices.
+     * Sets the totalCreated property value. An integer that indicates the total number of devices that have a job in the CREATED state. Typically indicates jobs that did not reach the devices. 
      * @param int|null $value Value to set for the totalCreated property.
     */
     public function setTotalCreated(?int $value): void {
@@ -422,7 +422,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the totalScheduled property value. An integer that indicates the total number of devices that received the json and are scheduled.
+     * Sets the totalScheduled property value. An integer that indicates the total number of devices that received the json and are scheduled. 
      * @param int|null $value Value to set for the totalScheduled property.
     */
     public function setTotalScheduled(?int $value): void {

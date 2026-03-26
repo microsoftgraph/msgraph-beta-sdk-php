@@ -7,7 +7,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 /**
- * The AAD Group we are deploying firmware updates to
+ * Represents an assignment to a group.
 */
 class GroupAssignmentTarget extends DeviceAndAppManagementAssignmentTarget implements Parsable 
 {

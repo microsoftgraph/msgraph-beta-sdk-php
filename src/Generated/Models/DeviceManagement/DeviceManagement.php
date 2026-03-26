@@ -115,6 +115,7 @@ use Microsoft\Graph\Beta\Generated\Models\ResourceOperation;
 use Microsoft\Graph\Beta\Generated\Models\RestrictedAppsViolation;
 use Microsoft\Graph\Beta\Generated\Models\RoleDefinition;
 use Microsoft\Graph\Beta\Generated\Models\RoleScopeTag;
+use Microsoft\Graph\Beta\Generated\Models\SamsungEFotaFirmwareVersion;
 use Microsoft\Graph\Beta\Generated\Models\ServiceNowConnection;
 use Microsoft\Graph\Beta\Generated\Models\SoftwareUpdateStatusSummary;
 use Microsoft\Graph\Beta\Generated\Models\TenantAttachRBAC;
@@ -1204,6 +1205,7 @@ class DeviceManagement extends Entity implements Parsable
             'roleAssignments' => fn(ParseNode $n) => $o->setRoleAssignments($n->getCollectionOfObjectValues([DeviceAndAppManagementRoleAssignment::class, 'createFromDiscriminatorValue'])),
             'roleDefinitions' => fn(ParseNode $n) => $o->setRoleDefinitions($n->getCollectionOfObjectValues([RoleDefinition::class, 'createFromDiscriminatorValue'])),
             'roleScopeTags' => fn(ParseNode $n) => $o->setRoleScopeTags($n->getCollectionOfObjectValues([RoleScopeTag::class, 'createFromDiscriminatorValue'])),
+            'samsungEFotaFirmwareVersions' => fn(ParseNode $n) => $o->setSamsungEFotaFirmwareVersions($n->getCollectionOfObjectValues([SamsungEFotaFirmwareVersion::class, 'createFromDiscriminatorValue'])),
             'serviceNowConnections' => fn(ParseNode $n) => $o->setServiceNowConnections($n->getCollectionOfObjectValues([ServiceNowConnection::class, 'createFromDiscriminatorValue'])),
             'settingDefinitions' => fn(ParseNode $n) => $o->setSettingDefinitions($n->getCollectionOfObjectValues([DeviceManagementSettingDefinition::class, 'createFromDiscriminatorValue'])),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([DeviceManagementSettings::class, 'createFromDiscriminatorValue'])),
@@ -1961,6 +1963,20 @@ class DeviceManagement extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'roleScopeTags'");
+    }
+
+    /**
+     * Gets the samsungEFotaFirmwareVersions property value. The collection of Samsung EFOTA firmware versions.
+     * @return array<SamsungEFotaFirmwareVersion>|null
+    */
+    public function getSamsungEFotaFirmwareVersions(): ?array {
+        $val = $this->getBackingStore()->get('samsungEFotaFirmwareVersions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SamsungEFotaFirmwareVersion::class);
+            /** @var array<SamsungEFotaFirmwareVersion>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'samsungEFotaFirmwareVersions'");
     }
 
     /**
@@ -3109,6 +3125,7 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('roleAssignments', $this->getRoleAssignments());
         $writer->writeCollectionOfObjectValues('roleDefinitions', $this->getRoleDefinitions());
         $writer->writeCollectionOfObjectValues('roleScopeTags', $this->getRoleScopeTags());
+        $writer->writeCollectionOfObjectValues('samsungEFotaFirmwareVersions', $this->getSamsungEFotaFirmwareVersions());
         $writer->writeCollectionOfObjectValues('serviceNowConnections', $this->getServiceNowConnections());
         $writer->writeCollectionOfObjectValues('settingDefinitions', $this->getSettingDefinitions());
         $writer->writeObjectValue('settings', $this->getSettings());
@@ -4104,6 +4121,14 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function setRoleScopeTags(?array $value): void {
         $this->getBackingStore()->set('roleScopeTags', $value);
+    }
+
+    /**
+     * Sets the samsungEFotaFirmwareVersions property value. The collection of Samsung EFOTA firmware versions.
+     * @param array<SamsungEFotaFirmwareVersion>|null $value Value to set for the samsungEFotaFirmwareVersions property.
+    */
+    public function setSamsungEFotaFirmwareVersions(?array $value): void {
+        $this->getBackingStore()->set('samsungEFotaFirmwareVersions', $value);
     }
 
     /**

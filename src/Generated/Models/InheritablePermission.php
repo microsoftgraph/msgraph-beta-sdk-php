@@ -69,7 +69,7 @@ class InheritablePermission implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the inheritableScopes property value. The inheritableScopes property
+     * Gets the inheritableScopes property value. Inheritance configuration for delegated permission scopes published by the resource application. Supports three patterns: allAllowedScopes (inherit all available scopes), enumeratedScopes (inherit only the listed scopes), and noScopes (inherit none). Each pattern exposes a kind discriminator for filtering.
      * @return InheritableScopes|null
     */
     public function getInheritableScopes(): ?InheritableScopes {
@@ -132,7 +132,7 @@ class InheritablePermission implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the inheritableScopes property value. The inheritableScopes property
+     * Sets the inheritableScopes property value. Inheritance configuration for delegated permission scopes published by the resource application. Supports three patterns: allAllowedScopes (inherit all available scopes), enumeratedScopes (inherit only the listed scopes), and noScopes (inherit none). Each pattern exposes a kind discriminator for filtering.
      * @param InheritableScopes|null $value Value to set for the inheritableScopes property.
     */
     public function setInheritableScopes(?InheritableScopes $value): void {

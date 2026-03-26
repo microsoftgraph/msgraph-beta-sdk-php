@@ -26,15 +26,15 @@ class ProfilePropertySetting extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowedAudiences property value. A privacy setting that reflects the allowed audience for the configured property. The possible values are: me, organization, federatedOrganizations, everyone, unknownFutureValue.
-     * @return OrganizationAllowedAudiences|null
+     * Gets the displayName property value. Name of the property-level setting.
+     * @return string|null
     */
-    public function getAllowedAudiences(): ?OrganizationAllowedAudiences {
-        $val = $this->getBackingStore()->get('allowedAudiences');
-        if (is_null($val) || $val instanceof OrganizationAllowedAudiences) {
+    public function getDisplayName(): ?string {
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedAudiences'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
     }
 
     /**
@@ -44,8 +44,7 @@ class ProfilePropertySetting extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowedAudiences' => fn(ParseNode $n) => $o->setAllowedAudiences($n->getEnumValue(OrganizationAllowedAudiences::class)),
-            'isUserOverrideForAudienceEnabled' => fn(ParseNode $n) => $o->setIsUserOverrideForAudienceEnabled($n->getBooleanValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'prioritizedSourceUrls' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -59,19 +58,7 @@ class ProfilePropertySetting extends Entity implements Parsable
     }
 
     /**
-     * Gets the isUserOverrideForAudienceEnabled property value. Defines whether a user is allowed to override the tenant admin privacy setting.
-     * @return bool|null
-    */
-    public function getIsUserOverrideForAudienceEnabled(): ?bool {
-        $val = $this->getBackingStore()->get('isUserOverrideForAudienceEnabled');
-        if (is_null($val) || is_bool($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'isUserOverrideForAudienceEnabled'");
-    }
-
-    /**
-     * Gets the name property value. Name of the property-level setting.
+     * Gets the name property value. Other name of the property-level setting. For backward compatibility.
      * @return string|null
     */
     public function getName(): ?string {
@@ -102,30 +89,21 @@ class ProfilePropertySetting extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('allowedAudiences', $this->getAllowedAudiences());
-        $writer->writeBooleanValue('isUserOverrideForAudienceEnabled', $this->getIsUserOverrideForAudienceEnabled());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('name', $this->getName());
         $writer->writeCollectionOfPrimitiveValues('prioritizedSourceUrls', $this->getPrioritizedSourceUrls());
     }
 
     /**
-     * Sets the allowedAudiences property value. A privacy setting that reflects the allowed audience for the configured property. The possible values are: me, organization, federatedOrganizations, everyone, unknownFutureValue.
-     * @param OrganizationAllowedAudiences|null $value Value to set for the allowedAudiences property.
+     * Sets the displayName property value. Name of the property-level setting.
+     * @param string|null $value Value to set for the displayName property.
     */
-    public function setAllowedAudiences(?OrganizationAllowedAudiences $value): void {
-        $this->getBackingStore()->set('allowedAudiences', $value);
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
-     * Sets the isUserOverrideForAudienceEnabled property value. Defines whether a user is allowed to override the tenant admin privacy setting.
-     * @param bool|null $value Value to set for the isUserOverrideForAudienceEnabled property.
-    */
-    public function setIsUserOverrideForAudienceEnabled(?bool $value): void {
-        $this->getBackingStore()->set('isUserOverrideForAudienceEnabled', $value);
-    }
-
-    /**
-     * Sets the name property value. Name of the property-level setting.
+     * Sets the name property value. Other name of the property-level setting. For backward compatibility.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {

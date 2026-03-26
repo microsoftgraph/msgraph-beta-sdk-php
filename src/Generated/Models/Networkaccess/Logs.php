@@ -48,9 +48,24 @@ class Logs extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'connections' => fn(ParseNode $n) => $o->setConnections($n->getCollectionOfObjectValues([Connection::class, 'createFromDiscriminatorValue'])),
+            'generativeAIInsights' => fn(ParseNode $n) => $o->setGenerativeAIInsights($n->getCollectionOfObjectValues([GenerativeAIInsight::class, 'createFromDiscriminatorValue'])),
             'remoteNetworks' => fn(ParseNode $n) => $o->setRemoteNetworks($n->getCollectionOfObjectValues([RemoteNetworkHealthEvent::class, 'createFromDiscriminatorValue'])),
             'traffic' => fn(ParseNode $n) => $o->setTraffic($n->getCollectionOfObjectValues([NetworkAccessTraffic::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the generativeAIInsights property value. The generativeAIInsights property
+     * @return array<GenerativeAIInsight>|null
+    */
+    public function getGenerativeAIInsights(): ?array {
+        $val = $this->getBackingStore()->get('generativeAIInsights');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, GenerativeAIInsight::class);
+            /** @var array<GenerativeAIInsight>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'generativeAIInsights'");
     }
 
     /**
@@ -88,6 +103,7 @@ class Logs extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('connections', $this->getConnections());
+        $writer->writeCollectionOfObjectValues('generativeAIInsights', $this->getGenerativeAIInsights());
         $writer->writeCollectionOfObjectValues('remoteNetworks', $this->getRemoteNetworks());
         $writer->writeCollectionOfObjectValues('traffic', $this->getTraffic());
     }
@@ -98,6 +114,14 @@ class Logs extends Entity implements Parsable
     */
     public function setConnections(?array $value): void {
         $this->getBackingStore()->set('connections', $value);
+    }
+
+    /**
+     * Sets the generativeAIInsights property value. The generativeAIInsights property
+     * @param array<GenerativeAIInsight>|null $value Value to set for the generativeAIInsights property.
+    */
+    public function setGenerativeAIInsights(?array $value): void {
+        $this->getBackingStore()->set('generativeAIInsights', $value);
     }
 
     /**

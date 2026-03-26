@@ -91,7 +91,7 @@ class ProfileSource extends Entity implements Parsable
     }
 
     /**
-     * Gets the webUrl property value. Web URL of the profile source that directs users to the page view of profile data.
+     * Gets the webUrl property value. Web URL of the profile source that directs users to the page view of the profile data.
      * @return string|null
     */
     public function getWebUrl(): ?string {
@@ -148,7 +148,7 @@ class ProfileSource extends Entity implements Parsable
     }
 
     /**
-     * Sets the webUrl property value. Web URL of the profile source that directs users to the page view of profile data.
+     * Sets the webUrl property value. Web URL of the profile source that directs users to the page view of the profile data.
      * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {

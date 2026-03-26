@@ -35,6 +35,30 @@ class CopilotPackage extends Entity implements Parsable
     }
 
     /**
+     * Gets the appId property value. The appId property
+     * @return string|null
+    */
+    public function getAppId(): ?string {
+        $val = $this->getBackingStore()->get('appId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appId'");
+    }
+
+    /**
+     * Gets the assetId property value. The assetId property
+     * @return string|null
+    */
+    public function getAssetId(): ?string {
+        $val = $this->getBackingStore()->get('assetId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'assetId'");
+    }
+
+    /**
      * Gets the availableTo property value. The availableTo property
      * @return PackageStatus|null
     */
@@ -91,6 +115,8 @@ class CopilotPackage extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
+            'assetId' => fn(ParseNode $n) => $o->setAssetId($n->getStringValue()),
             'availableTo' => fn(ParseNode $n) => $o->setAvailableTo($n->getEnumValue(PackageStatus::class)),
             'deployedTo' => fn(ParseNode $n) => $o->setDeployedTo($n->getEnumValue(PackageStatus::class)),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
@@ -104,6 +130,9 @@ class CopilotPackage extends Entity implements Parsable
             },
             'isBlocked' => fn(ParseNode $n) => $o->setIsBlocked($n->getBooleanValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'manifestId' => fn(ParseNode $n) => $o->setManifestId($n->getStringValue()),
+            'manifestVersion' => fn(ParseNode $n) => $o->setManifestVersion($n->getStringValue()),
+            'platform' => fn(ParseNode $n) => $o->setPlatform($n->getStringValue()),
             'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
             'shortDescription' => fn(ParseNode $n) => $o->setShortDescription($n->getStringValue()),
             'supportedHosts' => function (ParseNode $n) {
@@ -115,6 +144,7 @@ class CopilotPackage extends Entity implements Parsable
                 $this->setSupportedHosts($val);
             },
             'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(PackageType::class)),
+            'version' => fn(ParseNode $n) => $o->setVersion($n->getStringValue()),
             'zipFile' => fn(ParseNode $n) => $o->setZipFile($n->getBinaryContent()),
         ]);
     }
@@ -141,6 +171,42 @@ class CopilotPackage extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
+    }
+
+    /**
+     * Gets the manifestId property value. The manifestId property
+     * @return string|null
+    */
+    public function getManifestId(): ?string {
+        $val = $this->getBackingStore()->get('manifestId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'manifestId'");
+    }
+
+    /**
+     * Gets the manifestVersion property value. The manifestVersion property
+     * @return string|null
+    */
+    public function getManifestVersion(): ?string {
+        $val = $this->getBackingStore()->get('manifestVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'manifestVersion'");
+    }
+
+    /**
+     * Gets the platform property value. The platform property
+     * @return string|null
+    */
+    public function getPlatform(): ?string {
+        $val = $this->getBackingStore()->get('platform');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'platform'");
     }
 
     /**
@@ -194,6 +260,18 @@ class CopilotPackage extends Entity implements Parsable
     }
 
     /**
+     * Gets the version property value. The version property
+     * @return string|null
+    */
+    public function getVersion(): ?string {
+        $val = $this->getBackingStore()->get('version');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'version'");
+    }
+
+    /**
      * Gets the zipFile property value. The zipFile property
      * @return StreamInterface|null
     */
@@ -211,17 +289,39 @@ class CopilotPackage extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('appId', $this->getAppId());
+        $writer->writeStringValue('assetId', $this->getAssetId());
         $writer->writeEnumValue('availableTo', $this->getAvailableTo());
         $writer->writeEnumValue('deployedTo', $this->getDeployedTo());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeCollectionOfPrimitiveValues('elementTypes', $this->getElementTypes());
         $writer->writeBooleanValue('isBlocked', $this->getIsBlocked());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('manifestId', $this->getManifestId());
+        $writer->writeStringValue('manifestVersion', $this->getManifestVersion());
+        $writer->writeStringValue('platform', $this->getPlatform());
         $writer->writeStringValue('publisher', $this->getPublisher());
         $writer->writeStringValue('shortDescription', $this->getShortDescription());
         $writer->writeCollectionOfPrimitiveValues('supportedHosts', $this->getSupportedHosts());
         $writer->writeEnumValue('type', $this->getType());
+        $writer->writeStringValue('version', $this->getVersion());
         $writer->writeBinaryContent('zipFile', $this->getZipFile());
+    }
+
+    /**
+     * Sets the appId property value. The appId property
+     * @param string|null $value Value to set for the appId property.
+    */
+    public function setAppId(?string $value): void {
+        $this->getBackingStore()->set('appId', $value);
+    }
+
+    /**
+     * Sets the assetId property value. The assetId property
+     * @param string|null $value Value to set for the assetId property.
+    */
+    public function setAssetId(?string $value): void {
+        $this->getBackingStore()->set('assetId', $value);
     }
 
     /**
@@ -273,6 +373,30 @@ class CopilotPackage extends Entity implements Parsable
     }
 
     /**
+     * Sets the manifestId property value. The manifestId property
+     * @param string|null $value Value to set for the manifestId property.
+    */
+    public function setManifestId(?string $value): void {
+        $this->getBackingStore()->set('manifestId', $value);
+    }
+
+    /**
+     * Sets the manifestVersion property value. The manifestVersion property
+     * @param string|null $value Value to set for the manifestVersion property.
+    */
+    public function setManifestVersion(?string $value): void {
+        $this->getBackingStore()->set('manifestVersion', $value);
+    }
+
+    /**
+     * Sets the platform property value. The platform property
+     * @param string|null $value Value to set for the platform property.
+    */
+    public function setPlatform(?string $value): void {
+        $this->getBackingStore()->set('platform', $value);
+    }
+
+    /**
      * Sets the publisher property value. The publisher property
      * @param string|null $value Value to set for the publisher property.
     */
@@ -302,6 +426,14 @@ class CopilotPackage extends Entity implements Parsable
     */
     public function setType(?PackageType $value): void {
         $this->getBackingStore()->set('type', $value);
+    }
+
+    /**
+     * Sets the version property value. The version property
+     * @param string|null $value Value to set for the version property.
+    */
+    public function setVersion(?string $value): void {
+        $this->getBackingStore()->set('version', $value);
     }
 
     /**
