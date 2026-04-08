@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\Catalogs\Item\Access
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get externalOriginResourceConnector from identityGovernance
+ * The connector that integrates with external origin systems to provision access to resources from those systems. Read-only. Nullable.
 */
 class ExternalOriginResourceConnectorRequestBuilderGetQueryParameters 
 {

@@ -31,10 +31,11 @@ class ExternalOriginResourceConnectorItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Delete navigation property externalOriginResourceConnectors for identityGovernance
+     * Delete an externalOriginResourceConnector object.
      * @param ExternalOriginResourceConnectorItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/externaloriginresourceconnector-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?ExternalOriginResourceConnectorItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -45,7 +46,7 @@ class ExternalOriginResourceConnectorItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Get externalOriginResourceConnectors from identityGovernance
+     * Represents the connectors used to communicate with external resource systems.
      * @param ExternalOriginResourceConnectorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExternalOriginResourceConnector|null>
      * @throws Exception
@@ -59,11 +60,12 @@ class ExternalOriginResourceConnectorItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Update the navigation property externalOriginResourceConnectors in identityGovernance
+     * Update the properties of an externalOriginResourceConnector object.
      * @param ExternalOriginResourceConnector $body The request body
      * @param ExternalOriginResourceConnectorItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExternalOriginResourceConnector|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/externaloriginresourceconnector-update?view=graph-rest-beta Find more info here
     */
     public function patch(ExternalOriginResourceConnector $body, ?ExternalOriginResourceConnectorItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -74,7 +76,7 @@ class ExternalOriginResourceConnectorItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Delete navigation property externalOriginResourceConnectors for identityGovernance
+     * Delete an externalOriginResourceConnector object.
      * @param ExternalOriginResourceConnectorItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -92,7 +94,7 @@ class ExternalOriginResourceConnectorItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Get externalOriginResourceConnectors from identityGovernance
+     * Represents the connectors used to communicate with external resource systems.
      * @param ExternalOriginResourceConnectorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +115,7 @@ class ExternalOriginResourceConnectorItemRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Update the navigation property externalOriginResourceConnectors in identityGovernance
+     * Update the properties of an externalOriginResourceConnector object.
      * @param ExternalOriginResourceConnector $body The request body
      * @param ExternalOriginResourceConnectorItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

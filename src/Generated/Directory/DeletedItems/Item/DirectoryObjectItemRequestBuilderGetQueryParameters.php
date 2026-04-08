@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\DeletedItems\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Recently deleted items. Read-only. Nullable.
+ * Retrieve the properties of a recently deleted directory object from deleted items. The following types are supported:- administrativeUnit- application- agentIdentityBlueprint- agentIdentity- agentIdentityBlueprintPrincipal- agentUser- certificateBasedAuthPki- certificateAuthorityDetail- externalUserProfile- group- pendingExternalUserProfile- servicePrincipal- user
 */
 class DirectoryObjectItemRequestBuilderGetQueryParameters 
 {

@@ -74,6 +74,18 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
+     * Gets the blueprintId property value. The identifier of the blueprint associated with the agent. Nullable.
+     * @return string|null
+    */
+    public function getBlueprintId(): ?string {
+        $val = $this->getBackingStore()->get('blueprintId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blueprintId'");
+    }
+
+    /**
      * Gets the detectedDateTime property value. Date and time that the risk was detected. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Supports $filter (eq, le, and ge).
      * @return DateTime|null
     */
@@ -108,6 +120,7 @@ class AgentRiskDetection extends Entity implements Parsable
             'additionalInfo' => fn(ParseNode $n) => $o->setAdditionalInfo($n->getStringValue()),
             'agentDisplayName' => fn(ParseNode $n) => $o->setAgentDisplayName($n->getStringValue()),
             'agentId' => fn(ParseNode $n) => $o->setAgentId($n->getStringValue()),
+            'blueprintId' => fn(ParseNode $n) => $o->setBlueprintId($n->getStringValue()),
             'detectedDateTime' => fn(ParseNode $n) => $o->setDetectedDateTime($n->getDateTimeValue()),
             'detectionTimingType' => fn(ParseNode $n) => $o->setDetectionTimingType($n->getEnumValue(RiskDetectionTimingType::class)),
             'identityType' => fn(ParseNode $n) => $o->setIdentityType($n->getEnumValue(AgentIdentityType::class)),
@@ -117,6 +130,7 @@ class AgentRiskDetection extends Entity implements Parsable
             'riskEvidence' => fn(ParseNode $n) => $o->setRiskEvidence($n->getStringValue()),
             'riskLevel' => fn(ParseNode $n) => $o->setRiskLevel($n->getEnumValue(RiskLevel::class)),
             'riskState' => fn(ParseNode $n) => $o->setRiskState($n->getEnumValue(RiskState::class)),
+            'source' => fn(ParseNode $n) => $o->setSource($n->getStringValue()),
         ]);
     }
 
@@ -205,6 +219,18 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
+     * Gets the source property value. The source system that generated the risk detection. Nullable.
+     * @return string|null
+    */
+    public function getSource(): ?string {
+        $val = $this->getBackingStore()->get('source');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'source'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -214,6 +240,7 @@ class AgentRiskDetection extends Entity implements Parsable
         $writer->writeStringValue('additionalInfo', $this->getAdditionalInfo());
         $writer->writeStringValue('agentDisplayName', $this->getAgentDisplayName());
         $writer->writeStringValue('agentId', $this->getAgentId());
+        $writer->writeStringValue('blueprintId', $this->getBlueprintId());
         $writer->writeDateTimeValue('detectedDateTime', $this->getDetectedDateTime());
         $writer->writeEnumValue('detectionTimingType', $this->getDetectionTimingType());
         $writer->writeEnumValue('identityType', $this->getIdentityType());
@@ -223,6 +250,7 @@ class AgentRiskDetection extends Entity implements Parsable
         $writer->writeStringValue('riskEvidence', $this->getRiskEvidence());
         $writer->writeEnumValue('riskLevel', $this->getRiskLevel());
         $writer->writeEnumValue('riskState', $this->getRiskState());
+        $writer->writeStringValue('source', $this->getSource());
     }
 
     /**
@@ -255,6 +283,14 @@ class AgentRiskDetection extends Entity implements Parsable
     */
     public function setAgentId(?string $value): void {
         $this->getBackingStore()->set('agentId', $value);
+    }
+
+    /**
+     * Sets the blueprintId property value. The identifier of the blueprint associated with the agent. Nullable.
+     * @param string|null $value Value to set for the blueprintId property.
+    */
+    public function setBlueprintId(?string $value): void {
+        $this->getBackingStore()->set('blueprintId', $value);
     }
 
     /**
@@ -327,6 +363,14 @@ class AgentRiskDetection extends Entity implements Parsable
     */
     public function setRiskState(?RiskState $value): void {
         $this->getBackingStore()->set('riskState', $value);
+    }
+
+    /**
+     * Sets the source property value. The source system that generated the risk detection. Nullable.
+     * @param string|null $value Value to set for the source property.
+    */
+    public function setSource(?string $value): void {
+        $this->getBackingStore()->set('source', $value);
     }
 
 }

@@ -8,4 +8,5 @@ class RestorePointTags extends Enum {
     public const NONE = "none";
     public const FAST_RESTORE = "fastRestore";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const INCLUDE_NEWER_ITEMS = "includeNewerItems";
 }

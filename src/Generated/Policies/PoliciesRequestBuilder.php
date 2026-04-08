@@ -31,6 +31,7 @@ use Microsoft\Graph\Beta\Generated\Policies\IdentitySecurityDefaultsEnforcementP
 use Microsoft\Graph\Beta\Generated\Policies\MobileAppManagementPolicies\MobileAppManagementPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\MobileDeviceManagementPolicies\MobileDeviceManagementPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\OnPremAuthenticationPolicies\OnPremAuthenticationPoliciesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Policies\OwnerlessGroupPolicy\OwnerlessGroupPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\PermissionGrantPolicies\PermissionGrantPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\PermissionGrantPreApprovalPolicies\PermissionGrantPreApprovalPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\RoleManagementPolicies\RoleManagementPoliciesRequestBuilder;
@@ -221,6 +222,13 @@ class PoliciesRequestBuilder extends BaseRequestBuilder
     */
     public function onPremAuthenticationPolicies(): OnPremAuthenticationPoliciesRequestBuilder {
         return new OnPremAuthenticationPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the ownerlessGroupPolicy property of the microsoft.graph.policyRoot entity.
+    */
+    public function ownerlessGroupPolicy(): OwnerlessGroupPolicyRequestBuilder {
+        return new OwnerlessGroupPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -136,7 +136,7 @@ class AccessPackageResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the externalOriginResourceConnector property value. The externalOriginResourceConnector property
+     * Gets the externalOriginResourceConnector property value. The connector that integrates with external origin systems to provision access to resources from those systems. Read-only. Nullable.
      * @return ExternalOriginResourceConnector|null
     */
     public function getExternalOriginResourceConnector(): ?ExternalOriginResourceConnector {
@@ -197,7 +197,7 @@ class AccessPackageResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the originSystem property value. The type of the resource in the origin system, such as SharePointOnline, AadApplication, AadGroup or CustomDataProvidedResource. Supports $filter (eq).
+     * Gets the originSystem property value. The type of the resource in the origin system, such as SharePointOnline, AadApplication, AadGroup or CustomDataProvidedResource. Supports $filter and $expand (eq).
      * @return string|null
     */
     public function getOriginSystem(): ?string {
@@ -334,7 +334,7 @@ class AccessPackageResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the externalOriginResourceConnector property value. The externalOriginResourceConnector property
+     * Sets the externalOriginResourceConnector property value. The connector that integrates with external origin systems to provision access to resources from those systems. Read-only. Nullable.
      * @param ExternalOriginResourceConnector|null $value Value to set for the externalOriginResourceConnector property.
     */
     public function setExternalOriginResourceConnector(?ExternalOriginResourceConnector $value): void {
@@ -358,7 +358,7 @@ class AccessPackageResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the originSystem property value. The type of the resource in the origin system, such as SharePointOnline, AadApplication, AadGroup or CustomDataProvidedResource. Supports $filter (eq).
+     * Sets the originSystem property value. The type of the resource in the origin system, such as SharePointOnline, AadApplication, AadGroup or CustomDataProvidedResource. Supports $filter and $expand (eq).
      * @param string|null $value Value to set for the originSystem property.
     */
     public function setOriginSystem(?string $value): void {

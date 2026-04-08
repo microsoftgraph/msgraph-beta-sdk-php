@@ -115,7 +115,7 @@ class DeletedItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Recently deleted items. Read-only. Nullable.
+     * Retrieve the properties of a recently deleted directory object from deleted items. The following types are supported:- administrativeUnit- application- agentIdentityBlueprint- agentIdentity- agentIdentityBlueprintPrincipal- agentUser- certificateBasedAuthPki- certificateAuthorityDetail- externalUserProfile- group- pendingExternalUserProfile- servicePrincipal- user
      * @param DeletedItemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectoryObjectCollectionResponse|null>
      * @throws Exception
@@ -129,7 +129,7 @@ class DeletedItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Recently deleted items. Read-only. Nullable.
+     * Retrieve the properties of a recently deleted directory object from deleted items. The following types are supported:- administrativeUnit- application- agentIdentityBlueprint- agentIdentity- agentIdentityBlueprintPrincipal- agentUser- certificateBasedAuthPki- certificateAuthorityDetail- externalUserProfile- group- pendingExternalUserProfile- servicePrincipal- user
      * @param DeletedItemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

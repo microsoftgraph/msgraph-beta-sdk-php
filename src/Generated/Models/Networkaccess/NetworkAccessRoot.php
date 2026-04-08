@@ -41,6 +41,20 @@ class NetworkAccessRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the cloudFirewallPolicies property value. A collection of cloud firewall policies that define rules for managing network traffic through the Global Secure Access services.
+     * @return array<CloudFirewallPolicy>|null
+    */
+    public function getCloudFirewallPolicies(): ?array {
+        $val = $this->getBackingStore()->get('cloudFirewallPolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudFirewallPolicy::class);
+            /** @var array<CloudFirewallPolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudFirewallPolicies'");
+    }
+
+    /**
      * Gets the connectivity property value. Connectivity represents all the connectivity components in Global Secure Access.
      * @return Connectivity|null
     */
@@ -60,6 +74,7 @@ class NetworkAccessRoot extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'alerts' => fn(ParseNode $n) => $o->setAlerts($n->getCollectionOfObjectValues([Alert::class, 'createFromDiscriminatorValue'])),
+            'cloudFirewallPolicies' => fn(ParseNode $n) => $o->setCloudFirewallPolicies($n->getCollectionOfObjectValues([CloudFirewallPolicy::class, 'createFromDiscriminatorValue'])),
             'connectivity' => fn(ParseNode $n) => $o->setConnectivity($n->getObjectValue([Connectivity::class, 'createFromDiscriminatorValue'])),
             'filteringPolicies' => fn(ParseNode $n) => $o->setFilteringPolicies($n->getCollectionOfObjectValues([FilteringPolicy::class, 'createFromDiscriminatorValue'])),
             'filteringProfiles' => fn(ParseNode $n) => $o->setFilteringProfiles($n->getCollectionOfObjectValues([FilteringProfile::class, 'createFromDiscriminatorValue'])),
@@ -226,6 +241,7 @@ class NetworkAccessRoot extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('alerts', $this->getAlerts());
+        $writer->writeCollectionOfObjectValues('cloudFirewallPolicies', $this->getCloudFirewallPolicies());
         $writer->writeObjectValue('connectivity', $this->getConnectivity());
         $writer->writeCollectionOfObjectValues('filteringPolicies', $this->getFilteringPolicies());
         $writer->writeCollectionOfObjectValues('filteringProfiles', $this->getFilteringProfiles());
@@ -246,6 +262,14 @@ class NetworkAccessRoot extends Entity implements Parsable
     */
     public function setAlerts(?array $value): void {
         $this->getBackingStore()->set('alerts', $value);
+    }
+
+    /**
+     * Sets the cloudFirewallPolicies property value. A collection of cloud firewall policies that define rules for managing network traffic through the Global Secure Access services.
+     * @param array<CloudFirewallPolicy>|null $value Value to set for the cloudFirewallPolicies property.
+    */
+    public function setCloudFirewallPolicies(?array $value): void {
+        $this->getBackingStore()->set('cloudFirewallPolicies', $value);
     }
 
     /**

@@ -144,6 +144,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
             'onPremisesApplicationSegments' => fn(ParseNode $n) => $o->setOnPremisesApplicationSegments($n->getCollectionOfObjectValues([OnPremisesApplicationSegment::class, 'createFromDiscriminatorValue'])),
             'segmentsConfiguration' => fn(ParseNode $n) => $o->setSegmentsConfiguration($n->getObjectValue([SegmentConfiguration::class, 'createFromDiscriminatorValue'])),
             'singleSignOnSettings' => fn(ParseNode $n) => $o->setSingleSignOnSettings($n->getObjectValue([OnPremisesPublishingSingleSignOn::class, 'createFromDiscriminatorValue'])),
+            'trafficRoutingMethod' => fn(ParseNode $n) => $o->setTrafficRoutingMethod($n->getEnumValue(TrafficRoutingMethod::class)),
             'useAlternateUrlForTranslationAndRedirect' => fn(ParseNode $n) => $o->setUseAlternateUrlForTranslationAndRedirect($n->getBooleanValue()),
             'verifiedCustomDomainCertificatesMetadata' => fn(ParseNode $n) => $o->setVerifiedCustomDomainCertificatesMetadata($n->getObjectValue([VerifiedCustomDomainCertificatesMetadata::class, 'createFromDiscriminatorValue'])),
             'verifiedCustomDomainKeyCredential' => fn(ParseNode $n) => $o->setVerifiedCustomDomainKeyCredential($n->getObjectValue([KeyCredential::class, 'createFromDiscriminatorValue'])),
@@ -349,6 +350,18 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
+     * Gets the trafficRoutingMethod property value. The trafficRoutingMethod property
+     * @return TrafficRoutingMethod|null
+    */
+    public function getTrafficRoutingMethod(): ?TrafficRoutingMethod {
+        $val = $this->getBackingStore()->get('trafficRoutingMethod');
+        if (is_null($val) || $val instanceof TrafficRoutingMethod) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'trafficRoutingMethod'");
+    }
+
+    /**
      * Gets the useAlternateUrlForTranslationAndRedirect property value. Indicates whether the application should use alternateUrl instead of externalUrl.
      * @return bool|null
     */
@@ -460,6 +473,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeCollectionOfObjectValues('onPremisesApplicationSegments', $this->getOnPremisesApplicationSegments());
         $writer->writeObjectValue('segmentsConfiguration', $this->getSegmentsConfiguration());
         $writer->writeObjectValue('singleSignOnSettings', $this->getSingleSignOnSettings());
+        $writer->writeEnumValue('trafficRoutingMethod', $this->getTrafficRoutingMethod());
         $writer->writeBooleanValue('useAlternateUrlForTranslationAndRedirect', $this->getUseAlternateUrlForTranslationAndRedirect());
         $writer->writeObjectValue('verifiedCustomDomainCertificatesMetadata', $this->getVerifiedCustomDomainCertificatesMetadata());
         $writer->writeObjectValue('verifiedCustomDomainKeyCredential', $this->getVerifiedCustomDomainKeyCredential());
@@ -652,6 +666,14 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setSingleSignOnSettings(?OnPremisesPublishingSingleSignOn $value): void {
         $this->getBackingStore()->set('singleSignOnSettings', $value);
+    }
+
+    /**
+     * Sets the trafficRoutingMethod property value. The trafficRoutingMethod property
+     * @param TrafficRoutingMethod|null $value Value to set for the trafficRoutingMethod property.
+    */
+    public function setTrafficRoutingMethod(?TrafficRoutingMethod $value): void {
+        $this->getBackingStore()->set('trafficRoutingMethod', $value);
     }
 
     /**

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\ConfigurationManagement\Configura
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * A container for configuration snapshot baselines.
+ * Get a list of configurationBaseline objects that represent configuration snapshots and their properties.
 */
 class ConfigurationSnapshotsRequestBuilderGetQueryParameters 
 {

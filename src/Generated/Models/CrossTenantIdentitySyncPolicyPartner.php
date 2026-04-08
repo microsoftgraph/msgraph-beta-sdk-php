@@ -26,7 +26,7 @@ class CrossTenantIdentitySyncPolicyPartner extends PolicyDeletableItem implement
     }
 
     /**
-     * Gets the displayName property value. Display name for the cross-tenant user synchronization policy. Use the name of the partner Microsoft Entra tenant to easily identify the policy. Optional.
+     * Gets the displayName property value. Display name for the cross-tenant user and group synchronization policy. Use the name of the partner Microsoft Entra tenant to easily identify the policy. Optional.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -65,7 +65,7 @@ class CrossTenantIdentitySyncPolicyPartner extends PolicyDeletableItem implement
     }
 
     /**
-     * Gets the groupSyncInbound property value. Defines whether groups can be synchronized from a partner tenant. Key.
+     * Gets the groupSyncInbound property value. Defines whether groups can be synchronized from a partner tenant.
      * @return CrossTenantGroupSyncInbound|null
     */
     public function getGroupSyncInbound(): ?CrossTenantGroupSyncInbound {
@@ -77,7 +77,7 @@ class CrossTenantIdentitySyncPolicyPartner extends PolicyDeletableItem implement
     }
 
     /**
-     * Gets the tenantId property value. Tenant identifier for the partner Microsoft Entra organization. Read-only.
+     * Gets the tenantId property value. Tenant identifier for the partner Microsoft Entra organization. Key. Read-only.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -89,7 +89,7 @@ class CrossTenantIdentitySyncPolicyPartner extends PolicyDeletableItem implement
     }
 
     /**
-     * Gets the userSyncInbound property value. Defines whether users can be synchronized from the partner tenant. Key.
+     * Gets the userSyncInbound property value. Defines whether users can be synchronized from the partner tenant.
      * @return CrossTenantUserSyncInbound|null
     */
     public function getUserSyncInbound(): ?CrossTenantUserSyncInbound {
@@ -114,7 +114,7 @@ class CrossTenantIdentitySyncPolicyPartner extends PolicyDeletableItem implement
     }
 
     /**
-     * Sets the displayName property value. Display name for the cross-tenant user synchronization policy. Use the name of the partner Microsoft Entra tenant to easily identify the policy. Optional.
+     * Sets the displayName property value. Display name for the cross-tenant user and group synchronization policy. Use the name of the partner Microsoft Entra tenant to easily identify the policy. Optional.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -130,7 +130,7 @@ class CrossTenantIdentitySyncPolicyPartner extends PolicyDeletableItem implement
     }
 
     /**
-     * Sets the groupSyncInbound property value. Defines whether groups can be synchronized from a partner tenant. Key.
+     * Sets the groupSyncInbound property value. Defines whether groups can be synchronized from a partner tenant.
      * @param CrossTenantGroupSyncInbound|null $value Value to set for the groupSyncInbound property.
     */
     public function setGroupSyncInbound(?CrossTenantGroupSyncInbound $value): void {
@@ -138,7 +138,7 @@ class CrossTenantIdentitySyncPolicyPartner extends PolicyDeletableItem implement
     }
 
     /**
-     * Sets the tenantId property value. Tenant identifier for the partner Microsoft Entra organization. Read-only.
+     * Sets the tenantId property value. Tenant identifier for the partner Microsoft Entra organization. Key. Read-only.
      * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {
@@ -146,7 +146,7 @@ class CrossTenantIdentitySyncPolicyPartner extends PolicyDeletableItem implement
     }
 
     /**
-     * Sets the userSyncInbound property value. Defines whether users can be synchronized from the partner tenant. Key.
+     * Sets the userSyncInbound property value. Defines whether users can be synchronized from the partner tenant.
      * @param CrossTenantUserSyncInbound|null $value Value to set for the userSyncInbound property.
     */
     public function setUserSyncInbound(?CrossTenantUserSyncInbound $value): void {

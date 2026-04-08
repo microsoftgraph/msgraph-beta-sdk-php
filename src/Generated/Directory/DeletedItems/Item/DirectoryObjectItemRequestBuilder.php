@@ -119,10 +119,11 @@ class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property deletedItems for directory
+     * Permanently delete a recently deleted directory object from deleted items. The following types are supported:- application- agentIdentityBlueprint- agentIdentity- agentIdentityBlueprintPrincipal- agentUser- certificateBasedAuthPki- certificateAuthorityDetail- externalUserProfile- group- pendingExternalUserProfile- servicePrincipal- user After an item is permanently deleted, it cannot be restored. Administrative units cannot be permanently deleted by using the deletedItems API. Soft-deleted administrative units will be permanently deleted 30 days after initial deletion unless they are restored.
      * @param DirectoryObjectItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/directory-deleteditems-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?DirectoryObjectItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -133,10 +134,11 @@ class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Recently deleted items. Read-only. Nullable.
+     * Retrieve the properties of a recently deleted directory object from deleted items. The following types are supported:- administrativeUnit- application- agentIdentityBlueprint- agentIdentity- agentIdentityBlueprintPrincipal- agentUser- certificateBasedAuthPki- certificateAuthorityDetail- externalUserProfile- group- pendingExternalUserProfile- servicePrincipal- user
      * @param DirectoryObjectItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectoryObject|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/directory-deleteditems-get?view=graph-rest-beta Find more info here
     */
     public function get(?DirectoryObjectItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -147,7 +149,7 @@ class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property deletedItems for directory
+     * Permanently delete a recently deleted directory object from deleted items. The following types are supported:- application- agentIdentityBlueprint- agentIdentity- agentIdentityBlueprintPrincipal- agentUser- certificateBasedAuthPki- certificateAuthorityDetail- externalUserProfile- group- pendingExternalUserProfile- servicePrincipal- user After an item is permanently deleted, it cannot be restored. Administrative units cannot be permanently deleted by using the deletedItems API. Soft-deleted administrative units will be permanently deleted 30 days after initial deletion unless they are restored.
      * @param DirectoryObjectItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -165,7 +167,7 @@ class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Recently deleted items. Read-only. Nullable.
+     * Retrieve the properties of a recently deleted directory object from deleted items. The following types are supported:- administrativeUnit- application- agentIdentityBlueprint- agentIdentity- agentIdentityBlueprintPrincipal- agentUser- certificateBasedAuthPki- certificateAuthorityDetail- externalUserProfile- group- pendingExternalUserProfile- servicePrincipal- user
      * @param DirectoryObjectItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -124,7 +124,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the createdByAppId property value. The globally unique appId (called Application (client) ID on the Microsoft Entra admin center) of the application that created this application. Set internally by Microsoft Entra ID. Read-only.
+     * Gets the createdByAppId property value. The appId of the application that created this application. Set internally by Microsoft Entra ID. Read-only.
      * @return string|null
     */
     public function getCreatedByAppId(): ?string {
@@ -274,6 +274,14 @@ class Application extends DirectoryObject implements Parsable
             'isFallbackPublicClient' => fn(ParseNode $n) => $o->setIsFallbackPublicClient($n->getBooleanValue()),
             'keyCredentials' => fn(ParseNode $n) => $o->setKeyCredentials($n->getCollectionOfObjectValues([KeyCredential::class, 'createFromDiscriminatorValue'])),
             'logo' => fn(ParseNode $n) => $o->setLogo($n->getBinaryContent()),
+            'managerApplications' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setManagerApplications($val);
+            },
             'nativeAuthenticationApisEnabled' => fn(ParseNode $n) => $o->setNativeAuthenticationApisEnabled($n->getEnumValue(NativeAuthenticationApisEnabled::class)),
             'notes' => fn(ParseNode $n) => $o->setNotes($n->getStringValue()),
             'onPremisesPublishing' => fn(ParseNode $n) => $o->setOnPremisesPublishing($n->getObjectValue([OnPremisesPublishing::class, 'createFromDiscriminatorValue'])),
@@ -422,6 +430,20 @@ class Application extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'logo'");
+    }
+
+    /**
+     * Gets the managerApplications property value. A collection of application IDs for applications designated as managers of this application. Manager applications can create service principals for the applications they manage. Currently, only Microsoft first-party application IDs can be set as values. Maximum of 10 values. Not nullable. Read-only for third-party (3P) callers; writes by 3P callers are rejected with a 400 Bad Request error. Returned only on $select.
+     * @return array<string>|null
+    */
+    public function getManagerApplications(): ?array {
+        $val = $this->getBackingStore()->get('managerApplications');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'managerApplications'");
     }
 
     /**
@@ -779,6 +801,7 @@ class Application extends DirectoryObject implements Parsable
         $writer->writeBooleanValue('isFallbackPublicClient', $this->getIsFallbackPublicClient());
         $writer->writeCollectionOfObjectValues('keyCredentials', $this->getKeyCredentials());
         $writer->writeBinaryContent('logo', $this->getLogo());
+        $writer->writeCollectionOfPrimitiveValues('managerApplications', $this->getManagerApplications());
         $writer->writeEnumValue('nativeAuthenticationApisEnabled', $this->getNativeAuthenticationApisEnabled());
         $writer->writeStringValue('notes', $this->getNotes());
         $writer->writeObjectValue('onPremisesPublishing', $this->getOnPremisesPublishing());
@@ -864,7 +887,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the createdByAppId property value. The globally unique appId (called Application (client) ID on the Microsoft Entra admin center) of the application that created this application. Set internally by Microsoft Entra ID. Read-only.
+     * Sets the createdByAppId property value. The appId of the application that created this application. Set internally by Microsoft Entra ID. Read-only.
      * @param string|null $value Value to set for the createdByAppId property.
     */
     public function setCreatedByAppId(?string $value): void {
@@ -1005,6 +1028,14 @@ class Application extends DirectoryObject implements Parsable
     */
     public function setLogo(?StreamInterface $value): void {
         $this->getBackingStore()->set('logo', $value);
+    }
+
+    /**
+     * Sets the managerApplications property value. A collection of application IDs for applications designated as managers of this application. Manager applications can create service principals for the applications they manage. Currently, only Microsoft first-party application IDs can be set as values. Maximum of 10 values. Not nullable. Read-only for third-party (3P) callers; writes by 3P callers are rejected with a 400 Bad Request error. Returned only on $select.
+     * @param array<string>|null $value Value to set for the managerApplications property.
+    */
+    public function setManagerApplications(?array $value): void {
+        $this->getBackingStore()->set('managerApplications', $value);
     }
 
     /**

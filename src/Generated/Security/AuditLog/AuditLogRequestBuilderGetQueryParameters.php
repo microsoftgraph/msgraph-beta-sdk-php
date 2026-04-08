@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\AuditLog;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get auditLog from security
+ * The entry point for Microsoft Purview audit log queries and operations.
 */
 class AuditLogRequestBuilderGetQueryParameters 
 {

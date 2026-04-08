@@ -49,7 +49,7 @@ class SiteArchivalDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the archivedBy property value. The archivedBy property
+     * Gets the archivedBy property value. The user or application that archived the container.
      * @return IdentitySet|null
     */
     public function getArchivedBy(): ?IdentitySet {
@@ -61,7 +61,7 @@ class SiteArchivalDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the archivedDateTime property value. The archivedDateTime property
+     * Gets the archivedDateTime property value. Time when the container was archived. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getArchivedDateTime(): ?DateTime {
@@ -139,7 +139,7 @@ class SiteArchivalDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the archivedBy property value. The archivedBy property
+     * Sets the archivedBy property value. The user or application that archived the container.
      * @param IdentitySet|null $value Value to set for the archivedBy property.
     */
     public function setArchivedBy(?IdentitySet $value): void {
@@ -147,7 +147,7 @@ class SiteArchivalDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the archivedDateTime property value. The archivedDateTime property
+     * Sets the archivedDateTime property value. Time when the container was archived. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the archivedDateTime property.
     */
     public function setArchivedDateTime(?DateTime $value): void {

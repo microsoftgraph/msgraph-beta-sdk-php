@@ -101,9 +101,7 @@ class CopilotPackageDetail extends CopilotPackage implements Parsable
             },
             'elementDetails' => fn(ParseNode $n) => $o->setElementDetails($n->getCollectionOfObjectValues([PackageElementDetail::class, 'createFromDiscriminatorValue'])),
             'longDescription' => fn(ParseNode $n) => $o->setLongDescription($n->getStringValue()),
-            'manifestVersion' => fn(ParseNode $n) => $o->setManifestVersion($n->getStringValue()),
             'sensitivity' => fn(ParseNode $n) => $o->setSensitivity($n->getStringValue()),
-            'version' => fn(ParseNode $n) => $o->setVersion($n->getStringValue()),
         ]);
     }
 
@@ -120,18 +118,6 @@ class CopilotPackageDetail extends CopilotPackage implements Parsable
     }
 
     /**
-     * Gets the manifestVersion property value. The manifestVersion property
-     * @return string|null
-    */
-    public function getManifestVersion(): ?string {
-        $val = $this->getBackingStore()->get('manifestVersion');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'manifestVersion'");
-    }
-
-    /**
      * Gets the sensitivity property value. The sensitivity property
      * @return string|null
     */
@@ -141,18 +127,6 @@ class CopilotPackageDetail extends CopilotPackage implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'sensitivity'");
-    }
-
-    /**
-     * Gets the version property value. The version property
-     * @return string|null
-    */
-    public function getVersion(): ?string {
-        $val = $this->getBackingStore()->get('version');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'version'");
     }
 
     /**
@@ -166,9 +140,7 @@ class CopilotPackageDetail extends CopilotPackage implements Parsable
         $writer->writeCollectionOfPrimitiveValues('categories', $this->getCategories());
         $writer->writeCollectionOfObjectValues('elementDetails', $this->getElementDetails());
         $writer->writeStringValue('longDescription', $this->getLongDescription());
-        $writer->writeStringValue('manifestVersion', $this->getManifestVersion());
         $writer->writeStringValue('sensitivity', $this->getSensitivity());
-        $writer->writeStringValue('version', $this->getVersion());
     }
 
     /**
@@ -212,27 +184,11 @@ class CopilotPackageDetail extends CopilotPackage implements Parsable
     }
 
     /**
-     * Sets the manifestVersion property value. The manifestVersion property
-     * @param string|null $value Value to set for the manifestVersion property.
-    */
-    public function setManifestVersion(?string $value): void {
-        $this->getBackingStore()->set('manifestVersion', $value);
-    }
-
-    /**
      * Sets the sensitivity property value. The sensitivity property
      * @param string|null $value Value to set for the sensitivity property.
     */
     public function setSensitivity(?string $value): void {
         $this->getBackingStore()->set('sensitivity', $value);
-    }
-
-    /**
-     * Sets the version property value. The version property
-     * @param string|null $value Value to set for the version property.
-    */
-    public function setVersion(?string $value): void {
-        $this->getBackingStore()->set('version', $value);
     }
 
 }

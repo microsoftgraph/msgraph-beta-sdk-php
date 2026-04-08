@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\FileStorageContainer;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\Activate\ActivateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\Archive\ArchiveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\Columns\ColumnsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\Drive\DriveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\Lock\LockRequestBuilder;
@@ -17,6 +18,7 @@ use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\Pr
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\RecycleBin\RecycleBinRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\Restore\RestoreRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\SharePointGroups\SharePointGroupsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\Unarchive\UnarchiveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\Unlock\UnlockRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -33,6 +35,13 @@ class FileStorageContainerItemRequestBuilder extends BaseRequestBuilder
     */
     public function activate(): ActivateRequestBuilder {
         return new ActivateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the archive method.
+    */
+    public function archive(): ArchiveRequestBuilder {
+        return new ArchiveRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -103,6 +112,13 @@ class FileStorageContainerItemRequestBuilder extends BaseRequestBuilder
     */
     public function sharePointGroups(): SharePointGroupsRequestBuilder {
         return new SharePointGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the unarchive method.
+    */
+    public function unarchive(): UnarchiveRequestBuilder {
+        return new UnarchiveRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

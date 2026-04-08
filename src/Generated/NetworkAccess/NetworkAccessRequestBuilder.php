@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\Networkaccess\NetworkAccessRoot;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Alerts\AlertsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\CloudFirewallPolicies\CloudFirewallPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\ConnectivityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\FilteringPolicies\FilteringPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\FilteringProfiles\FilteringProfilesRequestBuilder;
@@ -35,6 +36,13 @@ class NetworkAccessRequestBuilder extends BaseRequestBuilder
     */
     public function alerts(): AlertsRequestBuilder {
         return new AlertsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the cloudFirewallPolicies property of the microsoft.graph.networkaccess.networkAccessRoot entity.
+    */
+    public function cloudFirewallPolicies(): CloudFirewallPoliciesRequestBuilder {
+        return new CloudFirewallPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
