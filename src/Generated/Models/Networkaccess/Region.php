@@ -41,4 +41,9 @@ class Region extends Enum {
     public const FRANCE_SOUTH = "franceSouth";
     public const ISRAEL_CENTRAL = "israelCentral";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const TAIWAN_NORTH = "taiwanNorth";
+    public const MEXICO_CENTRAL = "mexicoCentral";
+    public const SPAIN_CENTRAL = "spainCentral";
+    public const JIO_INDIA_CENTRAL = "jioIndiaCentral";
+    public const BRAZIL_SOUTH_EAST = "brazilSouthEast";
 }

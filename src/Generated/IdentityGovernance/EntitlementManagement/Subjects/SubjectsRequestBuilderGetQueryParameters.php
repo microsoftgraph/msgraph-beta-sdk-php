@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the properties of an existing accessPackageSubject object.
+ * Get the properties of an external directory user represented by an existing accessPackageSubject object.
 */
 class SubjectsRequestBuilderGetQueryParameters 
 {

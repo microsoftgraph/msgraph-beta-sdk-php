@@ -26,6 +26,7 @@ class PolicyLink extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.networkaccess.cloudFirewallPolicyLink': return new CloudFirewallPolicyLink();
                 case '#microsoft.graph.networkaccess.filteringPolicyLink': return new FilteringPolicyLink();
                 case '#microsoft.graph.networkaccess.forwardingPolicyLink': return new ForwardingPolicyLink();
                 case '#microsoft.graph.networkaccess.threatIntelligencePolicyLink': return new ThreatIntelligencePolicyLink();

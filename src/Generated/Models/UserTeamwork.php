@@ -50,6 +50,7 @@ class UserTeamwork extends Entity implements Parsable
             'installedApps' => fn(ParseNode $n) => $o->setInstalledApps($n->getCollectionOfObjectValues([UserScopeTeamsAppInstallation::class, 'createFromDiscriminatorValue'])),
             'locale' => fn(ParseNode $n) => $o->setLocale($n->getStringValue()),
             'region' => fn(ParseNode $n) => $o->setRegion($n->getStringValue()),
+            'sections' => fn(ParseNode $n) => $o->setSections($n->getCollectionOfObjectValues([TeamworkSection::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -92,6 +93,20 @@ class UserTeamwork extends Entity implements Parsable
     }
 
     /**
+     * Gets the sections property value. User's teamwork sections for organizing chats and channels. The collection response may include @microsoft.graph.sectionsOrder and @microsoft.graph.sectionsVersion instance annotations for ordering and optimistic concurrency control.
+     * @return array<TeamworkSection>|null
+    */
+    public function getSections(): ?array {
+        $val = $this->getBackingStore()->get('sections');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, TeamworkSection::class);
+            /** @var array<TeamworkSection>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sections'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -101,6 +116,7 @@ class UserTeamwork extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('installedApps', $this->getInstalledApps());
         $writer->writeStringValue('locale', $this->getLocale());
         $writer->writeStringValue('region', $this->getRegion());
+        $writer->writeCollectionOfObjectValues('sections', $this->getSections());
     }
 
     /**
@@ -133,6 +149,14 @@ class UserTeamwork extends Entity implements Parsable
     */
     public function setRegion(?string $value): void {
         $this->getBackingStore()->set('region', $value);
+    }
+
+    /**
+     * Sets the sections property value. User's teamwork sections for organizing chats and channels. The collection response may include @microsoft.graph.sectionsOrder and @microsoft.graph.sectionsVersion instance annotations for ordering and optimistic concurrency control.
+     * @param array<TeamworkSection>|null $value Value to set for the sections property.
+    */
+    public function setSections(?array $value): void {
+        $this->getBackingStore()->set('sections', $value);
     }
 
 }

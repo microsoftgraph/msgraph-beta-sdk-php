@@ -661,7 +661,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the employeeExperience property value. The employeeExperience property
+     * Gets the employeeExperience property value. The employee experience resources for the user. Read-only. Nullable.
      * @return EmployeeExperienceUser|null
     */
     public function getEmployeeExperience(): ?EmployeeExperienceUser {
@@ -886,6 +886,7 @@ class User extends DirectoryObject implements Parsable
             'givenName' => fn(ParseNode $n) => $o->setGivenName($n->getStringValue()),
             'hireDate' => fn(ParseNode $n) => $o->setHireDate($n->getDateTimeValue()),
             'identities' => fn(ParseNode $n) => $o->setIdentities($n->getCollectionOfObjectValues([ObjectIdentity::class, 'createFromDiscriminatorValue'])),
+            'identityGovernance' => fn(ParseNode $n) => $o->setIdentityGovernance($n->getObjectValue([IdentityGovernanceUserSettings::class, 'createFromDiscriminatorValue'])),
             'identityParentId' => fn(ParseNode $n) => $o->setIdentityParentId($n->getStringValue()),
             'imAddresses' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -1100,6 +1101,18 @@ class User extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'identities'");
+    }
+
+    /**
+     * Gets the identityGovernance property value. The identityGovernance property
+     * @return IdentityGovernanceUserSettings|null
+    */
+    public function getIdentityGovernance(): ?IdentityGovernanceUserSettings {
+        $val = $this->getBackingStore()->get('identityGovernance');
+        if (is_null($val) || $val instanceof IdentityGovernanceUserSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityGovernance'");
     }
 
     /**
@@ -2428,6 +2441,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeStringValue('givenName', $this->getGivenName());
         $writer->writeDateTimeValue('hireDate', $this->getHireDate());
         $writer->writeCollectionOfObjectValues('identities', $this->getIdentities());
+        $writer->writeObjectValue('identityGovernance', $this->getIdentityGovernance());
         $writer->writeStringValue('identityParentId', $this->getIdentityParentId());
         $writer->writeCollectionOfPrimitiveValues('imAddresses', $this->getImAddresses());
         $writer->writeObjectValue('inferenceClassification', $this->getInferenceClassification());
@@ -2913,7 +2927,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the employeeExperience property value. The employeeExperience property
+     * Sets the employeeExperience property value. The employee experience resources for the user. Read-only. Nullable.
      * @param EmployeeExperienceUser|null $value Value to set for the employeeExperience property.
     */
     public function setEmployeeExperience(?EmployeeExperienceUser $value): void {
@@ -3038,6 +3052,14 @@ class User extends DirectoryObject implements Parsable
     */
     public function setIdentities(?array $value): void {
         $this->getBackingStore()->set('identities', $value);
+    }
+
+    /**
+     * Sets the identityGovernance property value. The identityGovernance property
+     * @param IdentityGovernanceUserSettings|null $value Value to set for the identityGovernance property.
+    */
+    public function setIdentityGovernance(?IdentityGovernanceUserSettings $value): void {
+        $this->getBackingStore()->set('identityGovernance', $value);
     }
 
     /**

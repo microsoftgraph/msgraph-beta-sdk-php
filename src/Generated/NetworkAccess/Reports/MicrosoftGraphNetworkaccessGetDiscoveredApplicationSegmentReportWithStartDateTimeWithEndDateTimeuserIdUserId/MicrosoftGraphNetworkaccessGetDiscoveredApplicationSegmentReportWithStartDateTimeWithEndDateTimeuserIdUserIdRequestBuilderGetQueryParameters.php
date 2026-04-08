@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNet
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Returns a collection of discoveredApplicationSegmentReport based on aggregated traffic logs for a given period.
+ * Returns a collection of discovered application segments based on aggregated traffic logs for a given period.
 */
 class MicrosoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartDateTimeWithEndDateTimeuserIdUserIdRequestBuilderGetQueryParameters 
 {

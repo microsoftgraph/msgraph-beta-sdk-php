@@ -48,7 +48,7 @@ class ProtectionPolicyBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdBy property value. The identity of person who created the policy.
+     * Gets the createdBy property value. The identity of the person who created the policy.
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
@@ -72,7 +72,7 @@ class ProtectionPolicyBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The name of the policy to be created.
+     * Gets the displayName property value. The name of the policy.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -142,7 +142,7 @@ class ProtectionPolicyBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the offboardRequestedDateTime property value. The offboardRequestedDateTime property
+     * Gets the offboardRequestedDateTime property value. The date and time when offboarding was requested for the protection policy. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getOffboardRequestedDateTime(): ?DateTime {
@@ -192,7 +192,7 @@ class ProtectionPolicyBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The aggregated status of the protection units associated with the policy. The possible values are: inactive, activeWithErrors, updating, active, unknownFutureValue.
+     * Gets the status property value. The aggregated status of the protection units associated with the policy. The possible values are: inactive, activeWithErrors, updating, active, unknownFutureValue, offboardRequested, offboarded. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: offboardRequested, offboarded.
      * @return ProtectionPolicyStatus|null
     */
     public function getStatus(): ?ProtectionPolicyStatus {
@@ -232,7 +232,7 @@ class ProtectionPolicyBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdBy property value. The identity of person who created the policy.
+     * Sets the createdBy property value. The identity of the person who created the policy.
      * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
@@ -248,7 +248,7 @@ class ProtectionPolicyBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The name of the policy to be created.
+     * Sets the displayName property value. The name of the policy.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -280,7 +280,7 @@ class ProtectionPolicyBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the offboardRequestedDateTime property value. The offboardRequestedDateTime property
+     * Sets the offboardRequestedDateTime property value. The date and time when offboarding was requested for the protection policy. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the offboardRequestedDateTime property.
     */
     public function setOffboardRequestedDateTime(?DateTime $value): void {
@@ -312,7 +312,7 @@ class ProtectionPolicyBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The aggregated status of the protection units associated with the policy. The possible values are: inactive, activeWithErrors, updating, active, unknownFutureValue.
+     * Sets the status property value. The aggregated status of the protection units associated with the policy. The possible values are: inactive, activeWithErrors, updating, active, unknownFutureValue, offboardRequested, offboarded. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: offboardRequested, offboarded.
      * @param ProtectionPolicyStatus|null $value Value to set for the status property.
     */
     public function setStatus(?ProtectionPolicyStatus $value): void {

@@ -11,7 +11,10 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflo
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\MicrosoftGraphIdentityGovernanceActivate\MicrosoftGraphIdentityGovernanceActivateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\MicrosoftGraphIdentityGovernanceActivateWithScope\MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\MicrosoftGraphIdentityGovernanceCreateNewVersion\MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\MicrosoftGraphIdentityGovernancePreviewTaskFailures\MicrosoftGraphIdentityGovernancePreviewTaskFailuresRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\MicrosoftGraphIdentityGovernancePreviewWorkflow\MicrosoftGraphIdentityGovernancePreviewWorkflowRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\MicrosoftGraphIdentityGovernanceRestore\MicrosoftGraphIdentityGovernanceRestoreRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\PreviewScope\PreviewScopeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\Runs\RunsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\TaskReports\TaskReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\Tasks\TasksRequestBuilder;
@@ -79,10 +82,31 @@ class WorkflowItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the previewTaskFailures method.
+    */
+    public function microsoftGraphIdentityGovernancePreviewTaskFailures(): MicrosoftGraphIdentityGovernancePreviewTaskFailuresRequestBuilder {
+        return new MicrosoftGraphIdentityGovernancePreviewTaskFailuresRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the previewWorkflow method.
+    */
+    public function microsoftGraphIdentityGovernancePreviewWorkflow(): MicrosoftGraphIdentityGovernancePreviewWorkflowRequestBuilder {
+        return new MicrosoftGraphIdentityGovernancePreviewWorkflowRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the restore method.
     */
     public function microsoftGraphIdentityGovernanceRestore(): MicrosoftGraphIdentityGovernanceRestoreRequestBuilder {
         return new MicrosoftGraphIdentityGovernanceRestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the previewScope property of the microsoft.graph.identityGovernance.workflow entity.
+    */
+    public function previewScope(): PreviewScopeRequestBuilder {
+        return new PreviewScopeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

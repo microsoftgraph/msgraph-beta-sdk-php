@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Planner\Plans\Item\Buckets\Item\Tasks\Item\AssignedToTaskBoardFormat\AssignedToTaskBoardFormatRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Planner\Plans\Item\Buckets\Item\Tasks\Item\BucketTaskBoardFormat\BucketTaskBoardFormatRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Planner\Plans\Item\Buckets\Item\Tasks\Item\Details\DetailsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Planner\Plans\Item\Buckets\Item\Tasks\Item\Messages\MessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Planner\Plans\Item\Buckets\Item\Tasks\Item\ProgressTaskBoardFormat\ProgressTaskBoardFormatRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PlannerTask;
@@ -39,6 +40,13 @@ class PlannerTaskItemRequestBuilder extends BaseRequestBuilder
     */
     public function details(): DetailsRequestBuilder {
         return new DetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the messages property of the microsoft.graph.plannerTask entity.
+    */
+    public function messages(): MessagesRequestBuilder {
+        return new MessagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

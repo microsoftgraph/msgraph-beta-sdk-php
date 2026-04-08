@@ -39,7 +39,7 @@ class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete the user synchronization policy for a partner-specific configuration.
+     * Delete the user and group synchronization policy for a partner-specific configuration.
      * @param IdentitySynchronizationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -54,7 +54,7 @@ class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the user synchronization policy of a partner-specific configuration.
+     * Get the user and group synchronization policy of a partner-specific configuration.
      * @param IdentitySynchronizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CrossTenantIdentitySyncPolicyPartner|null>
      * @throws Exception
@@ -69,7 +69,7 @@ class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a cross-tenant user synchronization policy for a partner-specific configuration.
+     * Create a cross-tenant user and optionally group synchronization policy for a partner-specific configuration.
      * @param CrossTenantIdentitySyncPolicyPartner $body The request body
      * @param IdentitySynchronizationRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CrossTenantIdentitySyncPolicyPartner|null>
@@ -85,7 +85,7 @@ class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete the user synchronization policy for a partner-specific configuration.
+     * Delete the user and group synchronization policy for a partner-specific configuration.
      * @param IdentitySynchronizationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -103,7 +103,7 @@ class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the user synchronization policy of a partner-specific configuration.
+     * Get the user and group synchronization policy of a partner-specific configuration.
      * @param IdentitySynchronizationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -124,7 +124,7 @@ class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a cross-tenant user synchronization policy for a partner-specific configuration.
+     * Create a cross-tenant user and optionally group synchronization policy for a partner-specific configuration.
      * @param CrossTenantIdentitySyncPolicyPartner $body The request body
      * @param IdentitySynchronizationRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

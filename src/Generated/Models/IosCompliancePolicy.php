@@ -167,7 +167,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     }
 
     /**
-     * Gets the passcodeExpirationDays property value. Number of days before the passcode expires. Valid values 1 to 65535
+     * Gets the passcodeExpirationDays property value. Number of days before the passcode expires. Starting January 2026 (Intune release version: 2601), the maximum expiration days will be limited to 730 days. Any setting above 730 days will be default to 730 days. Valid values 1 to 65535
      * @return int|null
     */
     public function getPasscodeExpirationDays(): ?int {
@@ -388,7 +388,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     }
 
     /**
-     * Sets the passcodeExpirationDays property value. Number of days before the passcode expires. Valid values 1 to 65535
+     * Sets the passcodeExpirationDays property value. Number of days before the passcode expires. Starting January 2026 (Intune release version: 2601), the maximum expiration days will be limited to 730 days. Any setting above 730 days will be default to 730 days. Valid values 1 to 65535
      * @param int|null $value Value to set for the passcodeExpirationDays property.
     */
     public function setPasscodeExpirationDays(?int $value): void {

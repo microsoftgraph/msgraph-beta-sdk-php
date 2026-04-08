@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\Networkaccess\Logs;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\Connections\ConnectionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\GenerativeAIInsights\GenerativeAIInsightsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\RemoteNetworks\RemoteNetworksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Logs\Traffic\TrafficRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -24,6 +25,13 @@ class LogsRequestBuilder extends BaseRequestBuilder
     */
     public function connections(): ConnectionsRequestBuilder {
         return new ConnectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the generativeAIInsights property of the microsoft.graph.networkaccess.logs entity.
+    */
+    public function generativeAIInsights(): GenerativeAIInsightsRequestBuilder {
+        return new GenerativeAIInsightsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

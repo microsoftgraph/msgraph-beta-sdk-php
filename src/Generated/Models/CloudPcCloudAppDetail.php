@@ -31,6 +31,14 @@ class CloudPcCloudAppDetail implements AdditionalDataHolder, BackedModel, Parsab
      * @return CloudPcCloudAppDetail
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcCloudAppDetail {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.cloudPcAutomaticDiscoveredAppDetail': return new CloudPcAutomaticDiscoveredAppDetail();
+                case '#microsoft.graph.cloudPcFilePathAppDetail': return new CloudPcFilePathAppDetail();
+            }
+        }
         return new CloudPcCloudAppDetail();
     }
 

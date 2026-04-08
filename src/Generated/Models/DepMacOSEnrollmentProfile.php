@@ -176,6 +176,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
             'requestRequiresNetworkTether' => fn(ParseNode $n) => $o->setRequestRequiresNetworkTether($n->getBooleanValue()),
             'setPrimarySetupAccountAsRegularUser' => fn(ParseNode $n) => $o->setSetPrimarySetupAccountAsRegularUser($n->getBooleanValue()),
             'skipPrimarySetupAccountCreation' => fn(ParseNode $n) => $o->setSkipPrimarySetupAccountCreation($n->getBooleanValue()),
+            'usePlatformSSODuringSetupAssistant' => fn(ParseNode $n) => $o->setUsePlatformSSODuringSetupAssistant($n->getBooleanValue()),
             'zoomDisabled' => fn(ParseNode $n) => $o->setZoomDisabled($n->getBooleanValue()),
         ]);
     }
@@ -313,6 +314,18 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
     }
 
     /**
+     * Gets the usePlatformSSODuringSetupAssistant property value. Indicates whether Platform SSO is used as part of device enrollment during Setup Assistant. When TRUE, Platform SSO is used in device enrollment during Setup Assistant. When FALSE Platform SSO is not used in enrollment during Setup Assistant. Note: This value cannot be TRUE when configurationWebUrl is TRUE.
+     * @return bool|null
+    */
+    public function getUsePlatformSSODuringSetupAssistant(): ?bool {
+        $val = $this->getBackingStore()->get('usePlatformSSODuringSetupAssistant');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'usePlatformSSODuringSetupAssistant'");
+    }
+
+    /**
      * Gets the zoomDisabled property value. Indicates if zoom setup pane is disabled
      * @return bool|null
     */
@@ -351,6 +364,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
         $writer->writeBooleanValue('requestRequiresNetworkTether', $this->getRequestRequiresNetworkTether());
         $writer->writeBooleanValue('setPrimarySetupAccountAsRegularUser', $this->getSetPrimarySetupAccountAsRegularUser());
         $writer->writeBooleanValue('skipPrimarySetupAccountCreation', $this->getSkipPrimarySetupAccountCreation());
+        $writer->writeBooleanValue('usePlatformSSODuringSetupAssistant', $this->getUsePlatformSSODuringSetupAssistant());
         $writer->writeBooleanValue('zoomDisabled', $this->getZoomDisabled());
     }
 
@@ -520,6 +534,14 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
     */
     public function setSkipPrimarySetupAccountCreation(?bool $value): void {
         $this->getBackingStore()->set('skipPrimarySetupAccountCreation', $value);
+    }
+
+    /**
+     * Sets the usePlatformSSODuringSetupAssistant property value. Indicates whether Platform SSO is used as part of device enrollment during Setup Assistant. When TRUE, Platform SSO is used in device enrollment during Setup Assistant. When FALSE Platform SSO is not used in enrollment during Setup Assistant. Note: This value cannot be TRUE when configurationWebUrl is TRUE.
+     * @param bool|null $value Value to set for the usePlatformSSODuringSetupAssistant property.
+    */
+    public function setUsePlatformSSODuringSetupAssistant(?bool $value): void {
+        $this->getBackingStore()->set('usePlatformSSODuringSetupAssistant', $value);
     }
 
     /**

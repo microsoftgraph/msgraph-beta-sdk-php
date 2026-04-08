@@ -22,4 +22,10 @@ class DeviceVendor extends Enum {
     public const OTHER = "other";
     public const CISCO_CATALYST = "ciscoCatalyst";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const AVIATRIX = "aviatrix";
+    public const NETSKOPE = "netskope";
+    public const TERIDION = "teridion";
+    public const ARISTA_NETWORKS = "aristaNetworks";
+    public const ARISTA_VELO_CLOUD = "aristaVeloCloud";
+    public const JUNIPER_NETWORKS = "juniperNetworks";
 }

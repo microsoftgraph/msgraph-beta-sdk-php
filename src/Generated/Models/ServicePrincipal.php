@@ -230,7 +230,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the createdByAppId property value. The appId (called Application (client) ID on the Microsoft Entra admin center) of the application used to create the service principal. Set internally by Microsoft Entra ID. Read-only.
+     * Gets the createdByAppId property value. The appId of the application that created this service principal. Set internally by Microsoft Entra ID. Read-only.
      * @return string|null
     */
     public function getCreatedByAppId(): ?string {
@@ -1119,7 +1119,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the createdByAppId property value. The appId (called Application (client) ID on the Microsoft Entra admin center) of the application used to create the service principal. Set internally by Microsoft Entra ID. Read-only.
+     * Sets the createdByAppId property value. The appId of the application that created this service principal. Set internally by Microsoft Entra ID. Read-only.
      * @param string|null $value Value to set for the createdByAppId property.
     */
     public function setCreatedByAppId(?string $value): void {

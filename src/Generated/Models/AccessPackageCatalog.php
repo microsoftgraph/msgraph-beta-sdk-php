@@ -204,6 +204,7 @@ class AccessPackageCatalog extends Entity implements Parsable
             'isExternallyVisible' => fn(ParseNode $n) => $o->setIsExternallyVisible($n->getBooleanValue()),
             'modifiedBy' => fn(ParseNode $n) => $o->setModifiedBy($n->getStringValue()),
             'modifiedDateTime' => fn(ParseNode $n) => $o->setModifiedDateTime($n->getDateTimeValue()),
+            'privilegeLevel' => fn(ParseNode $n) => $o->setPrivilegeLevel($n->getEnumValue(PrivilegeLevel::class)),
             'uniqueName' => fn(ParseNode $n) => $o->setUniqueName($n->getStringValue()),
         ]);
     }
@@ -245,6 +246,18 @@ class AccessPackageCatalog extends Entity implements Parsable
     }
 
     /**
+     * Gets the privilegeLevel property value. The privilegeLevel property
+     * @return PrivilegeLevel|null
+    */
+    public function getPrivilegeLevel(): ?PrivilegeLevel {
+        $val = $this->getBackingStore()->get('privilegeLevel');
+        if (is_null($val) || $val instanceof PrivilegeLevel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'privilegeLevel'");
+    }
+
+    /**
      * Gets the uniqueName property value. The uniqueName property
      * @return string|null
     */
@@ -277,6 +290,7 @@ class AccessPackageCatalog extends Entity implements Parsable
         $writer->writeBooleanValue('isExternallyVisible', $this->getIsExternallyVisible());
         $writer->writeStringValue('modifiedBy', $this->getModifiedBy());
         $writer->writeDateTimeValue('modifiedDateTime', $this->getModifiedDateTime());
+        $writer->writeEnumValue('privilegeLevel', $this->getPrivilegeLevel());
         $writer->writeStringValue('uniqueName', $this->getUniqueName());
     }
 
@@ -398,6 +412,14 @@ class AccessPackageCatalog extends Entity implements Parsable
     */
     public function setModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('modifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the privilegeLevel property value. The privilegeLevel property
+     * @param PrivilegeLevel|null $value Value to set for the privilegeLevel property.
+    */
+    public function setPrivilegeLevel(?PrivilegeLevel $value): void {
+        $this->getBackingStore()->set('privilegeLevel', $value);
     }
 
     /**

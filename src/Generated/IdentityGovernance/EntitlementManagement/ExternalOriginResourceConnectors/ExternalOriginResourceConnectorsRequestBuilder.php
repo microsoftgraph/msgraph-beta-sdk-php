@@ -52,10 +52,11 @@ class ExternalOriginResourceConnectorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get externalOriginResourceConnectors from identityGovernance
+     * Get a list of externalOriginResourceConnector objects and their properties.
      * @param ExternalOriginResourceConnectorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExternalOriginResourceConnectorCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/entitlementmanagement-list-externaloriginresourceconnectors?view=graph-rest-beta Find more info here
     */
     public function get(?ExternalOriginResourceConnectorsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class ExternalOriginResourceConnectorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to externalOriginResourceConnectors for identityGovernance
+     * Creates a new externalOriginResourceConnector object.
      * @param ExternalOriginResourceConnector $body The request body
      * @param ExternalOriginResourceConnectorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExternalOriginResourceConnector|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/entitlementmanagement-post-externaloriginresourceconnectors?view=graph-rest-beta Find more info here
     */
     public function post(ExternalOriginResourceConnector $body, ?ExternalOriginResourceConnectorsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class ExternalOriginResourceConnectorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get externalOriginResourceConnectors from identityGovernance
+     * Get a list of externalOriginResourceConnector objects and their properties.
      * @param ExternalOriginResourceConnectorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class ExternalOriginResourceConnectorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to externalOriginResourceConnectors for identityGovernance
+     * Creates a new externalOriginResourceConnector object.
      * @param ExternalOriginResourceConnector $body The request body
      * @param ExternalOriginResourceConnectorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -93,6 +93,7 @@ class BrowseSessionBase extends Entity implements Parsable
             'error' => fn(ParseNode $n) => $o->setError($n->getObjectValue([PublicError::class, 'createFromDiscriminatorValue'])),
             'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
             'restorePointDateTime' => fn(ParseNode $n) => $o->setRestorePointDateTime($n->getDateTimeValue()),
+            'restorePointId' => fn(ParseNode $n) => $o->setRestorePointId($n->getStringValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(BrowseSessionStatus::class)),
         ]);
     }
@@ -107,6 +108,18 @@ class BrowseSessionBase extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'restorePointDateTime'");
+    }
+
+    /**
+     * Gets the restorePointId property value. The restorePointId property
+     * @return string|null
+    */
+    public function getRestorePointId(): ?string {
+        $val = $this->getBackingStore()->get('restorePointId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'restorePointId'");
     }
 
     /**
@@ -132,6 +145,7 @@ class BrowseSessionBase extends Entity implements Parsable
         $writer->writeObjectValue('error', $this->getError());
         $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
         $writer->writeDateTimeValue('restorePointDateTime', $this->getRestorePointDateTime());
+        $writer->writeStringValue('restorePointId', $this->getRestorePointId());
         $writer->writeEnumValue('status', $this->getStatus());
     }
 
@@ -173,6 +187,14 @@ class BrowseSessionBase extends Entity implements Parsable
     */
     public function setRestorePointDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('restorePointDateTime', $value);
+    }
+
+    /**
+     * Sets the restorePointId property value. The restorePointId property
+     * @param string|null $value Value to set for the restorePointId property.
+    */
+    public function setRestorePointId(?string $value): void {
+        $this->getBackingStore()->set('restorePointId', $value);
     }
 
     /**

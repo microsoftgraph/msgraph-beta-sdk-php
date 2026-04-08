@@ -50,7 +50,7 @@ class ConfigurationMonitor extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The date and time when the monitor was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Gets the createdDateTime property value. The date and time when the monitor was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, ge, le) and $orderby.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -62,7 +62,7 @@ class ConfigurationMonitor extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. User-friendly description of the monitor given by the user.
+     * Gets the description property value. User-friendly description of the monitor given by the user. Supports $filter (eq, ne, startsWith) and $orderby.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -74,7 +74,7 @@ class ConfigurationMonitor extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. User-friendly name given by the user to the monitor.
+     * Gets the displayName property value. User-friendly name given by the user to the monitor. Supports $filter (eq, ne, startsWith) and $orderby.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -109,7 +109,7 @@ class ConfigurationMonitor extends Entity implements Parsable
     }
 
     /**
-     * Gets the inactivationReason property value. The reason for the monitor's inactivation.
+     * Gets the inactivationReason property value. The reason for the monitor's inactivation. Returned only on $select.
      * @return string|null
     */
     public function getInactivationReason(): ?string {
@@ -133,7 +133,7 @@ class ConfigurationMonitor extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The date and time when the monitor was last modified. If no modifications are made to the monitor, it's the same as createdDateTime. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Gets the lastModifiedDateTime property value. The date and time when the monitor was last modified. If no modifications are made to the monitor, it's the same as createdDateTime. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, ge, le) and $orderby.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -169,7 +169,7 @@ class ConfigurationMonitor extends Entity implements Parsable
     }
 
     /**
-     * Gets the parameters property value. Key-value pairs that contain parameter values which might be used in the baseline.
+     * Gets the parameters property value. Key-value pairs that contain parameter values which might be used in the baseline. Returned only on $select.
      * @return OpenComplexDictionaryType|null
     */
     public function getParameters(): ?OpenComplexDictionaryType {
@@ -193,7 +193,7 @@ class ConfigurationMonitor extends Entity implements Parsable
     }
 
     /**
-     * Gets the tenantId property value. Globally unique identifier (GUID) of the tenant for which the monitor runs. Fetched automatically by the system.
+     * Gets the tenantId property value. Globally unique identifier (GUID) of the tenant for which the monitor runs. Fetched automatically by the system. Supports $filter (eq, ne).
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -237,7 +237,7 @@ class ConfigurationMonitor extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The date and time when the monitor was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Sets the createdDateTime property value. The date and time when the monitor was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, ge, le) and $orderby.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -245,7 +245,7 @@ class ConfigurationMonitor extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. User-friendly description of the monitor given by the user.
+     * Sets the description property value. User-friendly description of the monitor given by the user. Supports $filter (eq, ne, startsWith) and $orderby.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -253,7 +253,7 @@ class ConfigurationMonitor extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. User-friendly name given by the user to the monitor.
+     * Sets the displayName property value. User-friendly name given by the user to the monitor. Supports $filter (eq, ne, startsWith) and $orderby.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -261,7 +261,7 @@ class ConfigurationMonitor extends Entity implements Parsable
     }
 
     /**
-     * Sets the inactivationReason property value. The reason for the monitor's inactivation.
+     * Sets the inactivationReason property value. The reason for the monitor's inactivation. Returned only on $select.
      * @param string|null $value Value to set for the inactivationReason property.
     */
     public function setInactivationReason(?string $value): void {
@@ -277,7 +277,7 @@ class ConfigurationMonitor extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The date and time when the monitor was last modified. If no modifications are made to the monitor, it's the same as createdDateTime. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Sets the lastModifiedDateTime property value. The date and time when the monitor was last modified. If no modifications are made to the monitor, it's the same as createdDateTime. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, ge, le) and $orderby.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
@@ -301,7 +301,7 @@ class ConfigurationMonitor extends Entity implements Parsable
     }
 
     /**
-     * Sets the parameters property value. Key-value pairs that contain parameter values which might be used in the baseline.
+     * Sets the parameters property value. Key-value pairs that contain parameter values which might be used in the baseline. Returned only on $select.
      * @param OpenComplexDictionaryType|null $value Value to set for the parameters property.
     */
     public function setParameters(?OpenComplexDictionaryType $value): void {
@@ -317,7 +317,7 @@ class ConfigurationMonitor extends Entity implements Parsable
     }
 
     /**
-     * Sets the tenantId property value. Globally unique identifier (GUID) of the tenant for which the monitor runs. Fetched automatically by the system.
+     * Sets the tenantId property value. Globally unique identifier (GUID) of the tenant for which the monitor runs. Fetched automatically by the system. Supports $filter (eq, ne).
      * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {

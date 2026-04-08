@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Device
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\DeviceImages\Item\RetryUpload\RetryUploadRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\DeviceImages\Item\Reupload\ReuploadRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcDeviceImage;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -17,6 +18,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class CloudPcDeviceImageItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to call the retryUpload method.
+    */
+    public function retryUpload(): RetryUploadRequestBuilder {
+        return new RetryUploadRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to call the reupload method.
     */

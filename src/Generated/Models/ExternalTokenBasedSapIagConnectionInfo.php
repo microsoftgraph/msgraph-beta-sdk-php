@@ -26,7 +26,7 @@ class ExternalTokenBasedSapIagConnectionInfo extends ConnectionInfo implements P
     }
 
     /**
-     * Gets the accessTokenUrl property value. The accessTokenUrl property
+     * Gets the accessTokenUrl property value. The URL endpoint used to obtain access tokens for authentication with the SAP IAG system.
      * @return string|null
     */
     public function getAccessTokenUrl(): ?string {
@@ -38,7 +38,7 @@ class ExternalTokenBasedSapIagConnectionInfo extends ConnectionInfo implements P
     }
 
     /**
-     * Gets the clientId property value. The clientId property
+     * Gets the clientId property value. The client identifier used for authentication with the SAP IAG system.
      * @return string|null
     */
     public function getClientId(): ?string {
@@ -50,18 +50,6 @@ class ExternalTokenBasedSapIagConnectionInfo extends ConnectionInfo implements P
     }
 
     /**
-     * Gets the domain property value. The domain property
-     * @return string|null
-    */
-    public function getDomain(): ?string {
-        $val = $this->getBackingStore()->get('domain');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'domain'");
-    }
-
-    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -70,7 +58,6 @@ class ExternalTokenBasedSapIagConnectionInfo extends ConnectionInfo implements P
         return array_merge(parent::getFieldDeserializers(), [
             'accessTokenUrl' => fn(ParseNode $n) => $o->setAccessTokenUrl($n->getStringValue()),
             'clientId' => fn(ParseNode $n) => $o->setClientId($n->getStringValue()),
-            'domain' => fn(ParseNode $n) => $o->setDomain($n->getStringValue()),
             'keyVaultName' => fn(ParseNode $n) => $o->setKeyVaultName($n->getStringValue()),
             'resourceGroup' => fn(ParseNode $n) => $o->setResourceGroup($n->getStringValue()),
             'secretName' => fn(ParseNode $n) => $o->setSecretName($n->getStringValue()),
@@ -79,7 +66,7 @@ class ExternalTokenBasedSapIagConnectionInfo extends ConnectionInfo implements P
     }
 
     /**
-     * Gets the keyVaultName property value. The keyVaultName property
+     * Gets the keyVaultName property value. The name of the Azure Key Vault that stores the client secret for authentication.
      * @return string|null
     */
     public function getKeyVaultName(): ?string {
@@ -91,7 +78,7 @@ class ExternalTokenBasedSapIagConnectionInfo extends ConnectionInfo implements P
     }
 
     /**
-     * Gets the resourceGroup property value. The resourceGroup property
+     * Gets the resourceGroup property value. The Azure resource group that contains the Key Vault.
      * @return string|null
     */
     public function getResourceGroup(): ?string {
@@ -103,7 +90,7 @@ class ExternalTokenBasedSapIagConnectionInfo extends ConnectionInfo implements P
     }
 
     /**
-     * Gets the secretName property value. The secretName property
+     * Gets the secretName property value. The name of the secret in Azure Key Vault that contains the client secret.
      * @return string|null
     */
     public function getSecretName(): ?string {
@@ -115,7 +102,7 @@ class ExternalTokenBasedSapIagConnectionInfo extends ConnectionInfo implements P
     }
 
     /**
-     * Gets the subscriptionId property value. The subscriptionId property
+     * Gets the subscriptionId property value. The Azure subscription ID that contains the Key Vault.
      * @return string|null
     */
     public function getSubscriptionId(): ?string {
@@ -134,7 +121,6 @@ class ExternalTokenBasedSapIagConnectionInfo extends ConnectionInfo implements P
         parent::serialize($writer);
         $writer->writeStringValue('accessTokenUrl', $this->getAccessTokenUrl());
         $writer->writeStringValue('clientId', $this->getClientId());
-        $writer->writeStringValue('domain', $this->getDomain());
         $writer->writeStringValue('keyVaultName', $this->getKeyVaultName());
         $writer->writeStringValue('resourceGroup', $this->getResourceGroup());
         $writer->writeStringValue('secretName', $this->getSecretName());
@@ -142,7 +128,7 @@ class ExternalTokenBasedSapIagConnectionInfo extends ConnectionInfo implements P
     }
 
     /**
-     * Sets the accessTokenUrl property value. The accessTokenUrl property
+     * Sets the accessTokenUrl property value. The URL endpoint used to obtain access tokens for authentication with the SAP IAG system.
      * @param string|null $value Value to set for the accessTokenUrl property.
     */
     public function setAccessTokenUrl(?string $value): void {
@@ -150,7 +136,7 @@ class ExternalTokenBasedSapIagConnectionInfo extends ConnectionInfo implements P
     }
 
     /**
-     * Sets the clientId property value. The clientId property
+     * Sets the clientId property value. The client identifier used for authentication with the SAP IAG system.
      * @param string|null $value Value to set for the clientId property.
     */
     public function setClientId(?string $value): void {
@@ -158,15 +144,7 @@ class ExternalTokenBasedSapIagConnectionInfo extends ConnectionInfo implements P
     }
 
     /**
-     * Sets the domain property value. The domain property
-     * @param string|null $value Value to set for the domain property.
-    */
-    public function setDomain(?string $value): void {
-        $this->getBackingStore()->set('domain', $value);
-    }
-
-    /**
-     * Sets the keyVaultName property value. The keyVaultName property
+     * Sets the keyVaultName property value. The name of the Azure Key Vault that stores the client secret for authentication.
      * @param string|null $value Value to set for the keyVaultName property.
     */
     public function setKeyVaultName(?string $value): void {
@@ -174,7 +152,7 @@ class ExternalTokenBasedSapIagConnectionInfo extends ConnectionInfo implements P
     }
 
     /**
-     * Sets the resourceGroup property value. The resourceGroup property
+     * Sets the resourceGroup property value. The Azure resource group that contains the Key Vault.
      * @param string|null $value Value to set for the resourceGroup property.
     */
     public function setResourceGroup(?string $value): void {
@@ -182,7 +160,7 @@ class ExternalTokenBasedSapIagConnectionInfo extends ConnectionInfo implements P
     }
 
     /**
-     * Sets the secretName property value. The secretName property
+     * Sets the secretName property value. The name of the secret in Azure Key Vault that contains the client secret.
      * @param string|null $value Value to set for the secretName property.
     */
     public function setSecretName(?string $value): void {
@@ -190,7 +168,7 @@ class ExternalTokenBasedSapIagConnectionInfo extends ConnectionInfo implements P
     }
 
     /**
-     * Sets the subscriptionId property value. The subscriptionId property
+     * Sets the subscriptionId property value. The Azure subscription ID that contains the Key Vault.
      * @param string|null $value Value to set for the subscriptionId property.
     */
     public function setSubscriptionId(?string $value): void {

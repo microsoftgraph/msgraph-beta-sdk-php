@@ -350,6 +350,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
             },
             'globalProxy' => fn(ParseNode $n) => $o->setGlobalProxy($n->getObjectValue([AndroidDeviceOwnerGlobalProxy::class, 'createFromDiscriminatorValue'])),
             'googleAccountsBlocked' => fn(ParseNode $n) => $o->setGoogleAccountsBlocked($n->getBooleanValue()),
+            'isKioskModeExitCodeSet' => fn(ParseNode $n) => $o->setIsKioskModeExitCodeSet($n->getBooleanValue()),
             'kioskCustomizationDeviceSettingsBlocked' => fn(ParseNode $n) => $o->setKioskCustomizationDeviceSettingsBlocked($n->getBooleanValue()),
             'kioskCustomizationPowerButtonActionsBlocked' => fn(ParseNode $n) => $o->setKioskCustomizationPowerButtonActionsBlocked($n->getBooleanValue()),
             'kioskCustomizationStatusBar' => fn(ParseNode $n) => $o->setKioskCustomizationStatusBar($n->getEnumValue(AndroidDeviceOwnerKioskCustomizationStatusBar::class)),
@@ -497,6 +498,18 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'googleAccountsBlocked'");
+    }
+
+    /**
+     * Gets the isKioskModeExitCodeSet property value. Exit code to allow a user to escape from Kiosk Mode when the device is in Kiosk Mode.
+     * @return bool|null
+    */
+    public function getIsKioskModeExitCodeSet(): ?bool {
+        $val = $this->getBackingStore()->get('isKioskModeExitCodeSet');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isKioskModeExitCodeSet'");
     }
 
     /**
@@ -1928,6 +1941,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
         $writer->writeCollectionOfPrimitiveValues('factoryResetDeviceAdministratorEmails', $this->getFactoryResetDeviceAdministratorEmails());
         $writer->writeObjectValue('globalProxy', $this->getGlobalProxy());
         $writer->writeBooleanValue('googleAccountsBlocked', $this->getGoogleAccountsBlocked());
+        $writer->writeBooleanValue('isKioskModeExitCodeSet', $this->getIsKioskModeExitCodeSet());
         $writer->writeBooleanValue('kioskCustomizationDeviceSettingsBlocked', $this->getKioskCustomizationDeviceSettingsBlocked());
         $writer->writeBooleanValue('kioskCustomizationPowerButtonActionsBlocked', $this->getKioskCustomizationPowerButtonActionsBlocked());
         $writer->writeEnumValue('kioskCustomizationStatusBar', $this->getKioskCustomizationStatusBar());
@@ -2243,6 +2257,14 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     */
     public function setGoogleAccountsBlocked(?bool $value): void {
         $this->getBackingStore()->set('googleAccountsBlocked', $value);
+    }
+
+    /**
+     * Sets the isKioskModeExitCodeSet property value. Exit code to allow a user to escape from Kiosk Mode when the device is in Kiosk Mode.
+     * @param bool|null $value Value to set for the isKioskModeExitCodeSet property.
+    */
+    public function setIsKioskModeExitCodeSet(?bool $value): void {
+        $this->getBackingStore()->set('isKioskModeExitCodeSet', $value);
     }
 
     /**

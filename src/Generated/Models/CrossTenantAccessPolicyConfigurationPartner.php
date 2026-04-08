@@ -26,6 +26,18 @@ class CrossTenantAccessPolicyConfigurationPartner extends PolicyDeletableItem im
     }
 
     /**
+     * Gets the appServiceConnectInbound property value. Defines your partner-specific configuration for inbound app service connect settings that control which applications can connect across tenant boundaries with the partner organization.
+     * @return CrossTenantAccessPolicyAppServiceConnectSetting|null
+    */
+    public function getAppServiceConnectInbound(): ?CrossTenantAccessPolicyAppServiceConnectSetting {
+        $val = $this->getBackingStore()->get('appServiceConnectInbound');
+        if (is_null($val) || $val instanceof CrossTenantAccessPolicyAppServiceConnectSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appServiceConnectInbound'");
+    }
+
+    /**
      * Gets the automaticUserConsentSettings property value. Determines the partner-specific configuration for automatic user consent settings. Unless configured, the inboundAllowed and outboundAllowed properties are null and inherit from the default settings, which is always false.
      * @return InboundOutboundPolicyConfiguration|null
     */
@@ -86,21 +98,37 @@ class CrossTenantAccessPolicyConfigurationPartner extends PolicyDeletableItem im
     }
 
     /**
+     * Gets the blockServiceProviderOutboundAccess property value. The blockServiceProviderOutboundAccess property
+     * @return bool|null
+    */
+    public function getBlockServiceProviderOutboundAccess(): ?bool {
+        $val = $this->getBackingStore()->get('blockServiceProviderOutboundAccess');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blockServiceProviderOutboundAccess'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'appServiceConnectInbound' => fn(ParseNode $n) => $o->setAppServiceConnectInbound($n->getObjectValue([CrossTenantAccessPolicyAppServiceConnectSetting::class, 'createFromDiscriminatorValue'])),
             'automaticUserConsentSettings' => fn(ParseNode $n) => $o->setAutomaticUserConsentSettings($n->getObjectValue([InboundOutboundPolicyConfiguration::class, 'createFromDiscriminatorValue'])),
             'b2bCollaborationInbound' => fn(ParseNode $n) => $o->setB2bCollaborationInbound($n->getObjectValue([CrossTenantAccessPolicyB2BSetting::class, 'createFromDiscriminatorValue'])),
             'b2bCollaborationOutbound' => fn(ParseNode $n) => $o->setB2bCollaborationOutbound($n->getObjectValue([CrossTenantAccessPolicyB2BSetting::class, 'createFromDiscriminatorValue'])),
             'b2bDirectConnectInbound' => fn(ParseNode $n) => $o->setB2bDirectConnectInbound($n->getObjectValue([CrossTenantAccessPolicyB2BSetting::class, 'createFromDiscriminatorValue'])),
             'b2bDirectConnectOutbound' => fn(ParseNode $n) => $o->setB2bDirectConnectOutbound($n->getObjectValue([CrossTenantAccessPolicyB2BSetting::class, 'createFromDiscriminatorValue'])),
+            'blockServiceProviderOutboundAccess' => fn(ParseNode $n) => $o->setBlockServiceProviderOutboundAccess($n->getBooleanValue()),
             'identitySynchronization' => fn(ParseNode $n) => $o->setIdentitySynchronization($n->getObjectValue([CrossTenantIdentitySyncPolicyPartner::class, 'createFromDiscriminatorValue'])),
             'inboundTrust' => fn(ParseNode $n) => $o->setInboundTrust($n->getObjectValue([CrossTenantAccessPolicyInboundTrust::class, 'createFromDiscriminatorValue'])),
             'isInMultiTenantOrganization' => fn(ParseNode $n) => $o->setIsInMultiTenantOrganization($n->getBooleanValue()),
             'isServiceProvider' => fn(ParseNode $n) => $o->setIsServiceProvider($n->getBooleanValue()),
+            'm365CollaborationInbound' => fn(ParseNode $n) => $o->setM365CollaborationInbound($n->getObjectValue([CrossTenantAccessPolicyM365CollaborationInboundSetting::class, 'createFromDiscriminatorValue'])),
+            'm365CollaborationOutbound' => fn(ParseNode $n) => $o->setM365CollaborationOutbound($n->getObjectValue([CrossTenantAccessPolicyM365CollaborationOutboundSetting::class, 'createFromDiscriminatorValue'])),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
             'tenantRestrictions' => fn(ParseNode $n) => $o->setTenantRestrictions($n->getObjectValue([CrossTenantAccessPolicyTenantRestrictions::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -155,6 +183,30 @@ class CrossTenantAccessPolicyConfigurationPartner extends PolicyDeletableItem im
     }
 
     /**
+     * Gets the m365CollaborationInbound property value. Defines your partner-specific configuration for inbound Microsoft 365 collaboration settings that determine which users from the partner organization can collaborate with your organization using Microsoft 365 apps.
+     * @return CrossTenantAccessPolicyM365CollaborationInboundSetting|null
+    */
+    public function getM365CollaborationInbound(): ?CrossTenantAccessPolicyM365CollaborationInboundSetting {
+        $val = $this->getBackingStore()->get('m365CollaborationInbound');
+        if (is_null($val) || $val instanceof CrossTenantAccessPolicyM365CollaborationInboundSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'm365CollaborationInbound'");
+    }
+
+    /**
+     * Gets the m365CollaborationOutbound property value. Defines your partner-specific configuration for outbound Microsoft 365 collaboration settings that determine which users in your organization can collaborate with the partner organization using Microsoft 365 apps.
+     * @return CrossTenantAccessPolicyM365CollaborationOutboundSetting|null
+    */
+    public function getM365CollaborationOutbound(): ?CrossTenantAccessPolicyM365CollaborationOutboundSetting {
+        $val = $this->getBackingStore()->get('m365CollaborationOutbound');
+        if (is_null($val) || $val instanceof CrossTenantAccessPolicyM365CollaborationOutboundSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'm365CollaborationOutbound'");
+    }
+
+    /**
      * Gets the tenantId property value. The tenant identifier for the partner Microsoft Entra organization. Read-only. Key.
      * @return string|null
     */
@@ -184,17 +236,29 @@ class CrossTenantAccessPolicyConfigurationPartner extends PolicyDeletableItem im
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('appServiceConnectInbound', $this->getAppServiceConnectInbound());
         $writer->writeObjectValue('automaticUserConsentSettings', $this->getAutomaticUserConsentSettings());
         $writer->writeObjectValue('b2bCollaborationInbound', $this->getB2bCollaborationInbound());
         $writer->writeObjectValue('b2bCollaborationOutbound', $this->getB2bCollaborationOutbound());
         $writer->writeObjectValue('b2bDirectConnectInbound', $this->getB2bDirectConnectInbound());
         $writer->writeObjectValue('b2bDirectConnectOutbound', $this->getB2bDirectConnectOutbound());
+        $writer->writeBooleanValue('blockServiceProviderOutboundAccess', $this->getBlockServiceProviderOutboundAccess());
         $writer->writeObjectValue('identitySynchronization', $this->getIdentitySynchronization());
         $writer->writeObjectValue('inboundTrust', $this->getInboundTrust());
         $writer->writeBooleanValue('isInMultiTenantOrganization', $this->getIsInMultiTenantOrganization());
         $writer->writeBooleanValue('isServiceProvider', $this->getIsServiceProvider());
+        $writer->writeObjectValue('m365CollaborationInbound', $this->getM365CollaborationInbound());
+        $writer->writeObjectValue('m365CollaborationOutbound', $this->getM365CollaborationOutbound());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeObjectValue('tenantRestrictions', $this->getTenantRestrictions());
+    }
+
+    /**
+     * Sets the appServiceConnectInbound property value. Defines your partner-specific configuration for inbound app service connect settings that control which applications can connect across tenant boundaries with the partner organization.
+     * @param CrossTenantAccessPolicyAppServiceConnectSetting|null $value Value to set for the appServiceConnectInbound property.
+    */
+    public function setAppServiceConnectInbound(?CrossTenantAccessPolicyAppServiceConnectSetting $value): void {
+        $this->getBackingStore()->set('appServiceConnectInbound', $value);
     }
 
     /**
@@ -238,6 +302,14 @@ class CrossTenantAccessPolicyConfigurationPartner extends PolicyDeletableItem im
     }
 
     /**
+     * Sets the blockServiceProviderOutboundAccess property value. The blockServiceProviderOutboundAccess property
+     * @param bool|null $value Value to set for the blockServiceProviderOutboundAccess property.
+    */
+    public function setBlockServiceProviderOutboundAccess(?bool $value): void {
+        $this->getBackingStore()->set('blockServiceProviderOutboundAccess', $value);
+    }
+
+    /**
      * Sets the identitySynchronization property value. Defines the cross-tenant policy for the synchronization of users from a partner tenant. Use this user synchronization policy to streamline collaboration between users in a multitenant organization by automating the creation, update, and deletion of users from one tenant to another.
      * @param CrossTenantIdentitySyncPolicyPartner|null $value Value to set for the identitySynchronization property.
     */
@@ -267,6 +339,22 @@ class CrossTenantAccessPolicyConfigurationPartner extends PolicyDeletableItem im
     */
     public function setIsServiceProvider(?bool $value): void {
         $this->getBackingStore()->set('isServiceProvider', $value);
+    }
+
+    /**
+     * Sets the m365CollaborationInbound property value. Defines your partner-specific configuration for inbound Microsoft 365 collaboration settings that determine which users from the partner organization can collaborate with your organization using Microsoft 365 apps.
+     * @param CrossTenantAccessPolicyM365CollaborationInboundSetting|null $value Value to set for the m365CollaborationInbound property.
+    */
+    public function setM365CollaborationInbound(?CrossTenantAccessPolicyM365CollaborationInboundSetting $value): void {
+        $this->getBackingStore()->set('m365CollaborationInbound', $value);
+    }
+
+    /**
+     * Sets the m365CollaborationOutbound property value. Defines your partner-specific configuration for outbound Microsoft 365 collaboration settings that determine which users in your organization can collaborate with the partner organization using Microsoft 365 apps.
+     * @param CrossTenantAccessPolicyM365CollaborationOutboundSetting|null $value Value to set for the m365CollaborationOutbound property.
+    */
+    public function setM365CollaborationOutbound(?CrossTenantAccessPolicyM365CollaborationOutboundSetting $value): void {
+        $this->getBackingStore()->set('m365CollaborationOutbound', $value);
     }
 
     /**

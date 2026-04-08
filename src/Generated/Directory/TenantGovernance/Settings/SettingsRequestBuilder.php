@@ -1,0 +1,154 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\Settings;
+
+use Exception;
+use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\Settings\MicrosoftGraphTenantGovernanceServicesEnableRelatedTenants\MicrosoftGraphTenantGovernanceServicesEnableRelatedTenantsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\TenantGovernanceSetting;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
+use Microsoft\Kiota\Abstractions\HttpMethod;
+use Microsoft\Kiota\Abstractions\RequestAdapter;
+use Microsoft\Kiota\Abstractions\RequestInformation;
+
+/**
+ * Provides operations to manage the settings property of the microsoft.graph.tenantGovernanceServices.tenantGovernance entity.
+*/
+class SettingsRequestBuilder extends BaseRequestBuilder 
+{
+    /**
+     * Provides operations to call the enableRelatedTenants method.
+    */
+    public function microsoftGraphTenantGovernanceServicesEnableRelatedTenants(): MicrosoftGraphTenantGovernanceServicesEnableRelatedTenantsRequestBuilder {
+        return new MicrosoftGraphTenantGovernanceServicesEnableRelatedTenantsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Instantiates a new SettingsRequestBuilder and sets the default values.
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
+     * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+    */
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
+        parent::__construct($requestAdapter, [], '{+baseurl}/directory/tenantGovernance/settings{?%24expand,%24select}');
+        if (is_array($pathParametersOrRawUrl)) {
+            $this->pathParameters = $pathParametersOrRawUrl;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
+    }
+
+    /**
+     * Delete navigation property settings for directory
+     * @param SettingsRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise<void|null>
+     * @throws Exception
+    */
+    public function delete(?SettingsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
+        $errorMappings = [
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
+    }
+
+    /**
+     * Read the properties of the tenantGovernanceSetting singleton, which controls related tenant discovery and invitation capabilities.
+     * @param SettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise<TenantGovernanceSetting|null>
+     * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/tenantgovernanceservices-tenantgovernancesetting-get?view=graph-rest-beta Find more info here
+    */
+    public function get(?SettingsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toGetRequestInformation($requestConfiguration);
+        $errorMappings = [
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [TenantGovernanceSetting::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Update the canReceiveInvitations property of the tenantGovernanceSetting singleton. This property controls whether the tenant can receive governance invitations.
+     * @param TenantGovernanceSetting $body The request body
+     * @param SettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise<TenantGovernanceSetting|null>
+     * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/tenantgovernanceservices-tenantgovernancesetting-update?view=graph-rest-beta Find more info here
+    */
+    public function patch(TenantGovernanceSetting $body, ?SettingsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
+        $errorMappings = [
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [TenantGovernanceSetting::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Delete navigation property settings for directory
+     * @param SettingsRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return RequestInformation
+    */
+    public function toDeleteRequestInformation(?SettingsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+        $requestInfo = new RequestInformation();
+        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->pathParameters = $this->pathParameters;
+        $requestInfo->httpMethod = HttpMethod::DELETE;
+        if ($requestConfiguration !== null) {
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
+        }
+        $requestInfo->tryAddHeader('Accept', "application/json");
+        return $requestInfo;
+    }
+
+    /**
+     * Read the properties of the tenantGovernanceSetting singleton, which controls related tenant discovery and invitation capabilities.
+     * @param SettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return RequestInformation
+    */
+    public function toGetRequestInformation(?SettingsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+        $requestInfo = new RequestInformation();
+        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->pathParameters = $this->pathParameters;
+        $requestInfo->httpMethod = HttpMethod::GET;
+        if ($requestConfiguration !== null) {
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            if ($requestConfiguration->queryParameters !== null) {
+                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
+            }
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
+        }
+        $requestInfo->tryAddHeader('Accept', "application/json");
+        return $requestInfo;
+    }
+
+    /**
+     * Update the canReceiveInvitations property of the tenantGovernanceSetting singleton. This property controls whether the tenant can receive governance invitations.
+     * @param TenantGovernanceSetting $body The request body
+     * @param SettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return RequestInformation
+    */
+    public function toPatchRequestInformation(TenantGovernanceSetting $body, ?SettingsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+        $requestInfo = new RequestInformation();
+        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->pathParameters = $this->pathParameters;
+        $requestInfo->httpMethod = HttpMethod::PATCH;
+        if ($requestConfiguration !== null) {
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
+        }
+        $requestInfo->tryAddHeader('Accept', "application/json");
+        $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        return $requestInfo;
+    }
+
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return SettingsRequestBuilder
+    */
+    public function withUrl(string $rawUrl): SettingsRequestBuilder {
+        return new SettingsRequestBuilder($rawUrl, $this->requestAdapter);
+    }
+
+}

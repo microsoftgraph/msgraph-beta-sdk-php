@@ -250,7 +250,7 @@ class EntitlementManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the externalOriginResourceConnectors property value. The externalOriginResourceConnectors property
+     * Gets the externalOriginResourceConnectors property value. Represents the connectors used to communicate with external resource systems.
      * @return array<ExternalOriginResourceConnector>|null
     */
     public function getExternalOriginResourceConnectors(): ?array {
@@ -474,7 +474,7 @@ class EntitlementManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the externalOriginResourceConnectors property value. The externalOriginResourceConnectors property
+     * Sets the externalOriginResourceConnectors property value. Represents the connectors used to communicate with external resource systems.
      * @param array<ExternalOriginResourceConnector>|null $value Value to set for the externalOriginResourceConnectors property.
     */
     public function setExternalOriginResourceConnectors(?array $value): void {

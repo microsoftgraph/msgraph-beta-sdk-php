@@ -36,7 +36,7 @@ class MicrosoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartD
     }
 
     /**
-     * Returns a collection of discoveredApplicationSegmentReport based on aggregated traffic logs for a given period.
+     * Returns a collection of discovered application segments based on aggregated traffic logs for a given period.
      * @param MicrosoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartDateTimeWithEndDateTimeuserIdUserIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetDiscoveredApplicationSegmentReportWithStartDateTimeWithEndDateTimeuserIdUserIdGetResponse|null>
      * @throws Exception
@@ -51,7 +51,7 @@ class MicrosoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartD
     }
 
     /**
-     * Returns a collection of discoveredApplicationSegmentReport based on aggregated traffic logs for a given period.
+     * Returns a collection of discovered application segments based on aggregated traffic logs for a given period.
      * @param MicrosoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartDateTimeWithEndDateTimeuserIdUserIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

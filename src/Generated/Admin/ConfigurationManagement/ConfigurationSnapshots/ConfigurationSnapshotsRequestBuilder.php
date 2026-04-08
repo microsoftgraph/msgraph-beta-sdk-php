@@ -52,10 +52,11 @@ class ConfigurationSnapshotsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A container for configuration snapshot baselines.
+     * Get a list of configurationBaseline objects that represent configuration snapshots and their properties.
      * @param ConfigurationSnapshotsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConfigurationBaselineCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/configurationmanagement-list-configurationsnapshots?view=graph-rest-beta Find more info here
     */
     public function get(?ConfigurationSnapshotsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class ConfigurationSnapshotsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * A container for configuration snapshot baselines.
+     * Get a list of configurationBaseline objects that represent configuration snapshots and their properties.
      * @param ConfigurationSnapshotsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

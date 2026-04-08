@@ -109,7 +109,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the downloadRuleStartDateTime property value. Date and time in the device time zone when the download will start (e.g., 2018-07-25T10:20:32). The default value is UTC now and the maximum is 10 days from deployment creation.
+     * Gets the downloadRuleStartDateTime property value. Date and time in the device time zone when the download will start (e.g., `2018-07-25T10:20:32`). The default value is UTC now and the maximum is 10 days from deployment creation.
      * @return DateTime|null
     */
     public function getDownloadRuleStartDateTime(): ?DateTime {
@@ -148,7 +148,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the firmwareTargetArtifactDescription property value. A description provided by Zebra for the the firmware artifact to update the device to (e.g.: LifeGuard Update 120 (released 29-June-2022).
+     * Gets the firmwareTargetArtifactDescription property value. A description provided by Zebra for the the firmware artifact to update the device to (e.g.: `LifeGuard Update 120 (released 29-June-2022)`.
      * @return string|null
     */
     public function getFirmwareTargetArtifactDescription(): ?string {
@@ -268,7 +268,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the timeZoneOffsetInMinutes property value. This attribute indicates the deployment time offset (e.g.180 represents an offset of +03:00, and -270 represents an offset of -04:30). The time offset is the time timezone where the devices are located. The deployment start and end data uses this timezone
+     * Gets the timeZoneOffsetInMinutes property value. This attribute indicates the deployment time offset (e.g.`180` represents an offset of `+03:00`, and `-270` represents an offset of `-04:30`). The time offset is the time timezone where the devices are located. The deployment start and end data uses this timezone
      * @return int|null
     */
     public function getTimeZoneOffsetInMinutes(): ?int {
@@ -365,7 +365,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the downloadRuleStartDateTime property value. Date and time in the device time zone when the download will start (e.g., 2018-07-25T10:20:32). The default value is UTC now and the maximum is 10 days from deployment creation.
+     * Sets the downloadRuleStartDateTime property value. Date and time in the device time zone when the download will start (e.g., `2018-07-25T10:20:32`). The default value is UTC now and the maximum is 10 days from deployment creation.
      * @param DateTime|null $value Value to set for the downloadRuleStartDateTime property.
     */
     public function setDownloadRuleStartDateTime(?DateTime $value): void {
@@ -373,7 +373,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the firmwareTargetArtifactDescription property value. A description provided by Zebra for the the firmware artifact to update the device to (e.g.: LifeGuard Update 120 (released 29-June-2022).
+     * Sets the firmwareTargetArtifactDescription property value. A description provided by Zebra for the the firmware artifact to update the device to (e.g.: `LifeGuard Update 120 (released 29-June-2022)`.
      * @param string|null $value Value to set for the firmwareTargetArtifactDescription property.
     */
     public function setFirmwareTargetArtifactDescription(?string $value): void {
@@ -453,7 +453,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the timeZoneOffsetInMinutes property value. This attribute indicates the deployment time offset (e.g.180 represents an offset of +03:00, and -270 represents an offset of -04:30). The time offset is the time timezone where the devices are located. The deployment start and end data uses this timezone
+     * Sets the timeZoneOffsetInMinutes property value. This attribute indicates the deployment time offset (e.g.`180` represents an offset of `+03:00`, and `-270` represents an offset of `-04:30`). The time offset is the time timezone where the devices are located. The deployment start and end data uses this timezone
      * @param int|null $value Value to set for the timeZoneOffsetInMinutes property.
     */
     public function setTimeZoneOffsetInMinutes(?int $value): void {
