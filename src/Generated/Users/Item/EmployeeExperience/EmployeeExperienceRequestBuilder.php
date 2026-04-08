@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\EmployeeExperience\AssignedRoles\AssignedRolesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\EmployeeExperience\LearningCourseActivities\LearningCourseActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\EmployeeExperience\LearningCourseActivitiesWithExternalcourseActivityId\LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\EmployeeExperience\Storyline\StorylineRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -31,6 +32,13 @@ class EmployeeExperienceRequestBuilder extends BaseRequestBuilder
     */
     public function learningCourseActivities(): LearningCourseActivitiesRequestBuilder {
         return new LearningCourseActivitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the storyline property of the microsoft.graph.employeeExperienceUser entity.
+    */
+    public function storyline(): StorylineRequestBuilder {
+        return new StorylineRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -62,7 +70,7 @@ class EmployeeExperienceRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get employeeExperience from users
+     * The employee experience resources for the user. Read-only. Nullable.
      * @param EmployeeExperienceRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EmployeeExperienceUser|null>
      * @throws Exception
@@ -118,7 +126,7 @@ class EmployeeExperienceRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get employeeExperience from users
+     * The employee experience resources for the user. Read-only. Nullable.
      * @param EmployeeExperienceRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

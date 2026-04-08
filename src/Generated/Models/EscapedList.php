@@ -117,6 +117,7 @@ class EscapedList extends BaseItem implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'drive' => fn(ParseNode $n) => $o->setDrive($n->getObjectValue([Drive::class, 'createFromDiscriminatorValue'])),
             'list' => fn(ParseNode $n) => $o->setEscapedList($n->getObjectValue([ListInfo::class, 'createFromDiscriminatorValue'])),
+            'itemCount' => fn(ParseNode $n) => $o->setItemCount($n->getIntegerValue()),
             'items' => fn(ParseNode $n) => $o->setItems($n->getCollectionOfObjectValues([ListItem::class, 'createFromDiscriminatorValue'])),
             'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([RichLongRunningOperation::class, 'createFromDiscriminatorValue'])),
             'permissions' => fn(ParseNode $n) => $o->setPermissions($n->getCollectionOfObjectValues([Permission::class, 'createFromDiscriminatorValue'])),
@@ -124,6 +125,18 @@ class EscapedList extends BaseItem implements Parsable
             'subscriptions' => fn(ParseNode $n) => $o->setSubscriptions($n->getCollectionOfObjectValues([Subscription::class, 'createFromDiscriminatorValue'])),
             'system' => fn(ParseNode $n) => $o->setSystem($n->getObjectValue([SystemFacet::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the itemCount property value. The number of items in the list. Read-only.
+     * @return int|null
+    */
+    public function getItemCount(): ?int {
+        $val = $this->getBackingStore()->get('itemCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'itemCount'");
     }
 
     /**
@@ -218,6 +231,7 @@ class EscapedList extends BaseItem implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeObjectValue('drive', $this->getDrive());
         $writer->writeObjectValue('list', $this->getEscapedList());
+        $writer->writeIntegerValue('itemCount', $this->getItemCount());
         $writer->writeCollectionOfObjectValues('items', $this->getItems());
         $writer->writeCollectionOfObjectValues('operations', $this->getOperations());
         $writer->writeCollectionOfObjectValues('permissions', $this->getPermissions());
@@ -272,6 +286,14 @@ class EscapedList extends BaseItem implements Parsable
     */
     public function setEscapedList(?ListInfo $value): void {
         $this->getBackingStore()->set('escapedList', $value);
+    }
+
+    /**
+     * Sets the itemCount property value. The number of items in the list. Read-only.
+     * @param int|null $value Value to set for the itemCount property.
+    */
+    public function setItemCount(?int $value): void {
+        $this->getBackingStore()->set('itemCount', $value);
     }
 
     /**

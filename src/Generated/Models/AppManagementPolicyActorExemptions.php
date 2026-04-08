@@ -57,7 +57,7 @@ class AppManagementPolicyActorExemptions implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the customSecurityAttributes property value. The customSecurityAttributes property
+     * Gets the customSecurityAttributes property value. The collection of customSecurityAttributeExemption to exempt from the policy enforcement. Limit of 5.
      * @return array<CustomSecurityAttributeExemption>|null
     */
     public function getCustomSecurityAttributes(): ?array {
@@ -121,7 +121,7 @@ class AppManagementPolicyActorExemptions implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the customSecurityAttributes property value. The customSecurityAttributes property
+     * Sets the customSecurityAttributes property value. The collection of customSecurityAttributeExemption to exempt from the policy enforcement. Limit of 5.
      * @param array<CustomSecurityAttributeExemption>|null $value Value to set for the customSecurityAttributes property.
     */
     public function setCustomSecurityAttributes(?array $value): void {

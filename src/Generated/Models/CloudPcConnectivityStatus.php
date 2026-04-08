@@ -10,4 +10,6 @@ class CloudPcConnectivityStatus extends Enum {
     public const AVAILABLE_WITH_WARNING = "availableWithWarning";
     public const UNAVAILABLE = "unavailable";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const UNDER_SERVICE_MAINTENANCE = "underServiceMaintenance";
+    public const IN_USE = "inUse";
 }

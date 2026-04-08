@@ -2,6 +2,8 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Graph\Beta\Generated\Models\EntraRecoveryServices\Recovery;
+use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\TenantGovernance;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -186,9 +188,11 @@ class Directory extends Entity implements Parsable
             'publicKeyInfrastructure' => fn(ParseNode $n) => $o->setPublicKeyInfrastructure($n->getObjectValue([PublicKeyInfrastructureRoot::class, 'createFromDiscriminatorValue'])),
             'recommendationConfiguration' => fn(ParseNode $n) => $o->setRecommendationConfiguration($n->getObjectValue([RecommendationConfiguration::class, 'createFromDiscriminatorValue'])),
             'recommendations' => fn(ParseNode $n) => $o->setRecommendations($n->getCollectionOfObjectValues([Recommendation::class, 'createFromDiscriminatorValue'])),
+            'recovery' => fn(ParseNode $n) => $o->setRecovery($n->getObjectValue([Recovery::class, 'createFromDiscriminatorValue'])),
             'sharedEmailDomains' => fn(ParseNode $n) => $o->setSharedEmailDomains($n->getCollectionOfObjectValues([SharedEmailDomain::class, 'createFromDiscriminatorValue'])),
             'subscriptions' => fn(ParseNode $n) => $o->setSubscriptions($n->getCollectionOfObjectValues([CompanySubscription::class, 'createFromDiscriminatorValue'])),
             'templates' => fn(ParseNode $n) => $o->setTemplates($n->getObjectValue([Template::class, 'createFromDiscriminatorValue'])),
+            'tenantGovernance' => fn(ParseNode $n) => $o->setTenantGovernance($n->getObjectValue([TenantGovernance::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -301,6 +305,18 @@ class Directory extends Entity implements Parsable
     }
 
     /**
+     * Gets the recovery property value. Represents the Entra backup and recovery service for the tenant.
+     * @return Recovery|null
+    */
+    public function getRecovery(): ?Recovery {
+        $val = $this->getBackingStore()->get('recovery');
+        if (is_null($val) || $val instanceof Recovery) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recovery'");
+    }
+
+    /**
      * Gets the sharedEmailDomains property value. The sharedEmailDomains property
      * @return array<SharedEmailDomain>|null
     */
@@ -341,6 +357,18 @@ class Directory extends Entity implements Parsable
     }
 
     /**
+     * Gets the tenantGovernance property value. Container for Microsoft Entra Tenant Governance capabilities.
+     * @return TenantGovernance|null
+    */
+    public function getTenantGovernance(): ?TenantGovernance {
+        $val = $this->getBackingStore()->get('tenantGovernance');
+        if (is_null($val) || $val instanceof TenantGovernance) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantGovernance'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -364,9 +392,11 @@ class Directory extends Entity implements Parsable
         $writer->writeObjectValue('publicKeyInfrastructure', $this->getPublicKeyInfrastructure());
         $writer->writeObjectValue('recommendationConfiguration', $this->getRecommendationConfiguration());
         $writer->writeCollectionOfObjectValues('recommendations', $this->getRecommendations());
+        $writer->writeObjectValue('recovery', $this->getRecovery());
         $writer->writeCollectionOfObjectValues('sharedEmailDomains', $this->getSharedEmailDomains());
         $writer->writeCollectionOfObjectValues('subscriptions', $this->getSubscriptions());
         $writer->writeObjectValue('templates', $this->getTemplates());
+        $writer->writeObjectValue('tenantGovernance', $this->getTenantGovernance());
     }
 
     /**
@@ -514,6 +544,14 @@ class Directory extends Entity implements Parsable
     }
 
     /**
+     * Sets the recovery property value. Represents the Entra backup and recovery service for the tenant.
+     * @param Recovery|null $value Value to set for the recovery property.
+    */
+    public function setRecovery(?Recovery $value): void {
+        $this->getBackingStore()->set('recovery', $value);
+    }
+
+    /**
      * Sets the sharedEmailDomains property value. The sharedEmailDomains property
      * @param array<SharedEmailDomain>|null $value Value to set for the sharedEmailDomains property.
     */
@@ -535,6 +573,14 @@ class Directory extends Entity implements Parsable
     */
     public function setTemplates(?Template $value): void {
         $this->getBackingStore()->set('templates', $value);
+    }
+
+    /**
+     * Sets the tenantGovernance property value. Container for Microsoft Entra Tenant Governance capabilities.
+     * @param TenantGovernance|null $value Value to set for the tenantGovernance property.
+    */
+    public function setTenantGovernance(?TenantGovernance $value): void {
+        $this->getBackingStore()->set('tenantGovernance', $value);
     }
 
 }

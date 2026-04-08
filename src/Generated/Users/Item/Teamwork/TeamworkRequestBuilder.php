@@ -7,7 +7,11 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserTeamwork;
 use Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\AssociatedTeams\AssociatedTeamsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\DeleteTargetedMessage\DeleteTargetedMessageRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\GetAllRetainedTargetedMessages\GetAllRetainedTargetedMessagesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\GetAllTargetedMessages\GetAllTargetedMessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\InstalledApps\InstalledAppsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\Sections\SectionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\SendActivityNotification\SendActivityNotificationRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -27,10 +31,38 @@ class TeamworkRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the deleteTargetedMessage method.
+    */
+    public function deleteTargetedMessage(): DeleteTargetedMessageRequestBuilder {
+        return new DeleteTargetedMessageRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getAllRetainedTargetedMessages method.
+    */
+    public function getAllRetainedTargetedMessages(): GetAllRetainedTargetedMessagesRequestBuilder {
+        return new GetAllRetainedTargetedMessagesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getAllTargetedMessages method.
+    */
+    public function getAllTargetedMessages(): GetAllTargetedMessagesRequestBuilder {
+        return new GetAllTargetedMessagesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the installedApps property of the microsoft.graph.userTeamwork entity.
     */
     public function installedApps(): InstalledAppsRequestBuilder {
         return new InstalledAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the sections property of the microsoft.graph.userTeamwork entity.
+    */
+    public function sections(): SectionsRequestBuilder {
+        return new SectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

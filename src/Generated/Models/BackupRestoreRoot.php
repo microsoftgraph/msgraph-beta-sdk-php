@@ -26,6 +26,20 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the activityLogs property value. The activityLogs property
+     * @return array<ActivityLogBase>|null
+    */
+    public function getActivityLogs(): ?array {
+        $val = $this->getBackingStore()->get('activityLogs');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ActivityLogBase::class);
+            /** @var array<ActivityLogBase>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activityLogs'");
+    }
+
+    /**
      * Gets the allDrivesBackup property value. The allDrivesBackup property
      * @return AllDrivesBackup|null
     */
@@ -164,6 +178,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'activityLogs' => fn(ParseNode $n) => $o->setActivityLogs($n->getCollectionOfObjectValues([ActivityLogBase::class, 'createFromDiscriminatorValue'])),
             'allDrivesBackup' => fn(ParseNode $n) => $o->setAllDrivesBackup($n->getObjectValue([AllDrivesBackup::class, 'createFromDiscriminatorValue'])),
             'allMailboxesBackup' => fn(ParseNode $n) => $o->setAllMailboxesBackup($n->getObjectValue([AllMailboxesBackup::class, 'createFromDiscriminatorValue'])),
             'allSitesBackup' => fn(ParseNode $n) => $o->setAllSitesBackup($n->getObjectValue([AllSitesBackup::class, 'createFromDiscriminatorValue'])),
@@ -182,6 +197,7 @@ class BackupRestoreRoot extends Entity implements Parsable
             'oneDriveForBusinessRestoreSessions' => fn(ParseNode $n) => $o->setOneDriveForBusinessRestoreSessions($n->getCollectionOfObjectValues([OneDriveForBusinessRestoreSession::class, 'createFromDiscriminatorValue'])),
             'protectionPolicies' => fn(ParseNode $n) => $o->setProtectionPolicies($n->getCollectionOfObjectValues([ProtectionPolicyBase::class, 'createFromDiscriminatorValue'])),
             'protectionUnits' => fn(ParseNode $n) => $o->setProtectionUnits($n->getCollectionOfObjectValues([ProtectionUnitBase::class, 'createFromDiscriminatorValue'])),
+            'reports' => fn(ParseNode $n) => $o->setReports($n->getObjectValue([BackupReport::class, 'createFromDiscriminatorValue'])),
             'restorePoints' => fn(ParseNode $n) => $o->setRestorePoints($n->getCollectionOfObjectValues([RestorePoint::class, 'createFromDiscriminatorValue'])),
             'restoreSessions' => fn(ParseNode $n) => $o->setRestoreSessions($n->getCollectionOfObjectValues([RestoreSessionBase::class, 'createFromDiscriminatorValue'])),
             'serviceApps' => fn(ParseNode $n) => $o->setServiceApps($n->getCollectionOfObjectValues([ServiceApp::class, 'createFromDiscriminatorValue'])),
@@ -305,6 +321,18 @@ class BackupRestoreRoot extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'protectionUnits'");
+    }
+
+    /**
+     * Gets the reports property value. The reports property
+     * @return BackupReport|null
+    */
+    public function getReports(): ?BackupReport {
+        $val = $this->getBackingStore()->get('reports');
+        if (is_null($val) || $val instanceof BackupReport) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reports'");
     }
 
     /**
@@ -451,6 +479,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('activityLogs', $this->getActivityLogs());
         $writer->writeObjectValue('allDrivesBackup', $this->getAllDrivesBackup());
         $writer->writeObjectValue('allMailboxesBackup', $this->getAllMailboxesBackup());
         $writer->writeObjectValue('allSitesBackup', $this->getAllSitesBackup());
@@ -469,6 +498,7 @@ class BackupRestoreRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('oneDriveForBusinessRestoreSessions', $this->getOneDriveForBusinessRestoreSessions());
         $writer->writeCollectionOfObjectValues('protectionPolicies', $this->getProtectionPolicies());
         $writer->writeCollectionOfObjectValues('protectionUnits', $this->getProtectionUnits());
+        $writer->writeObjectValue('reports', $this->getReports());
         $writer->writeCollectionOfObjectValues('restorePoints', $this->getRestorePoints());
         $writer->writeCollectionOfObjectValues('restoreSessions', $this->getRestoreSessions());
         $writer->writeCollectionOfObjectValues('serviceApps', $this->getServiceApps());
@@ -479,6 +509,14 @@ class BackupRestoreRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('siteInclusionRules', $this->getSiteInclusionRules());
         $writer->writeCollectionOfObjectValues('siteProtectionUnits', $this->getSiteProtectionUnits());
         $writer->writeCollectionOfObjectValues('siteProtectionUnitsBulkAdditionJobs', $this->getSiteProtectionUnitsBulkAdditionJobs());
+    }
+
+    /**
+     * Sets the activityLogs property value. The activityLogs property
+     * @param array<ActivityLogBase>|null $value Value to set for the activityLogs property.
+    */
+    public function setActivityLogs(?array $value): void {
+        $this->getBackingStore()->set('activityLogs', $value);
     }
 
     /**
@@ -623,6 +661,14 @@ class BackupRestoreRoot extends Entity implements Parsable
     */
     public function setProtectionUnits(?array $value): void {
         $this->getBackingStore()->set('protectionUnits', $value);
+    }
+
+    /**
+     * Sets the reports property value. The reports property
+     * @param BackupReport|null $value Value to set for the reports property.
+    */
+    public function setReports(?BackupReport $value): void {
+        $this->getBackingStore()->set('reports', $value);
     }
 
     /**

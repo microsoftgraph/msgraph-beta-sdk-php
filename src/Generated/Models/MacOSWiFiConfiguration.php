@@ -36,7 +36,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the connectAutomatically property value. Connect automatically when this network is in range. Setting this to true will skip the user prompt and automatically connect the device to Wi-Fi network.
+     * Gets the connectAutomatically property value. Indicates whether to automatically connect to this network when it is in range of the device. When TRUE will skip the user prompt and automatically connect the device to Wi-Fi network. Default is false.
      * @return bool|null
     */
     public function getConnectAutomatically(): ?bool {
@@ -48,7 +48,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the connectWhenNetworkNameIsHidden property value. Connect when the network is not broadcasting its name (SSID). When set to true, this profile forces the device to connect to a network that doesn't broadcast its SSID to all devices.
+     * Gets the connectWhenNetworkNameIsHidden property value. Indicates whether the device should connect to the network when it is not broadcasting its name (SSID). When TRUE, this profile forces the device to connect to a network that doesn't broadcast its SSID to all devices. Default is false.
      * @return bool|null
     */
     public function getConnectWhenNetworkNameIsHidden(): ?bool {
@@ -60,7 +60,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. Possible values are: deviceChannel, userChannel, unknownFutureValue.
+     * Gets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Once set, cannot be changed. Possible values are deviceChannel, and userChannel. Possible values are: deviceChannel, userChannel, unknownFutureValue.
      * @return AppleDeploymentChannel|null
     */
     public function getDeploymentChannel(): ?AppleDeploymentChannel {
@@ -93,7 +93,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the networkName property value. Network Name
+     * Gets the networkName property value. Indicates the Wi-Fi configuration profile name. Used to identify the configuration profile.
      * @return string|null
     */
     public function getNetworkName(): ?string {
@@ -117,7 +117,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the proxyAutomaticConfigurationUrl property value. URL of the proxy server automatic configuration script when automatic configuration is selected. This URL is typically the location of PAC (Proxy Auto Configuration) file.
+     * Gets the proxyAutomaticConfigurationUrl property value. Indicates URL of the proxy server automatic configuration (PAC) script when proxySettings is automatic. Used to find the location of PAC (Proxy Auto Configuration) file. Example: itproxy.contoso.com
      * @return string|null
     */
     public function getProxyAutomaticConfigurationUrl(): ?string {
@@ -129,7 +129,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the proxyManualAddress property value. IP Address or DNS hostname of the proxy server when manual configuration is selected.
+     * Gets the proxyManualAddress property value. Indicates IP Address or DNS hostname of the proxy server when manual configuration is selected. Used for proxy settings. Example: 10.0.0.2
      * @return string|null
     */
     public function getProxyManualAddress(): ?string {
@@ -141,7 +141,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the proxyManualPort property value. Port of the proxy server when manual configuration is selected.
+     * Gets the proxyManualPort property value. Indicates the proxy server TCP port to use when proxySettings is manual. Used for proxy settings. Example: 8080
      * @return int|null
     */
     public function getProxyManualPort(): ?int {
@@ -208,7 +208,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the connectAutomatically property value. Connect automatically when this network is in range. Setting this to true will skip the user prompt and automatically connect the device to Wi-Fi network.
+     * Sets the connectAutomatically property value. Indicates whether to automatically connect to this network when it is in range of the device. When TRUE will skip the user prompt and automatically connect the device to Wi-Fi network. Default is false.
      * @param bool|null $value Value to set for the connectAutomatically property.
     */
     public function setConnectAutomatically(?bool $value): void {
@@ -216,7 +216,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the connectWhenNetworkNameIsHidden property value. Connect when the network is not broadcasting its name (SSID). When set to true, this profile forces the device to connect to a network that doesn't broadcast its SSID to all devices.
+     * Sets the connectWhenNetworkNameIsHidden property value. Indicates whether the device should connect to the network when it is not broadcasting its name (SSID). When TRUE, this profile forces the device to connect to a network that doesn't broadcast its SSID to all devices. Default is false.
      * @param bool|null $value Value to set for the connectWhenNetworkNameIsHidden property.
     */
     public function setConnectWhenNetworkNameIsHidden(?bool $value): void {
@@ -224,7 +224,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. Possible values are: deviceChannel, userChannel, unknownFutureValue.
+     * Sets the deploymentChannel property value. Indicates the deployment channel type used to deploy the configuration profile. Once set, cannot be changed. Possible values are deviceChannel, and userChannel. Possible values are: deviceChannel, userChannel, unknownFutureValue.
      * @param AppleDeploymentChannel|null $value Value to set for the deploymentChannel property.
     */
     public function setDeploymentChannel(?AppleDeploymentChannel $value): void {
@@ -232,7 +232,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the networkName property value. Network Name
+     * Sets the networkName property value. Indicates the Wi-Fi configuration profile name. Used to identify the configuration profile.
      * @param string|null $value Value to set for the networkName property.
     */
     public function setNetworkName(?string $value): void {
@@ -248,7 +248,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the proxyAutomaticConfigurationUrl property value. URL of the proxy server automatic configuration script when automatic configuration is selected. This URL is typically the location of PAC (Proxy Auto Configuration) file.
+     * Sets the proxyAutomaticConfigurationUrl property value. Indicates URL of the proxy server automatic configuration (PAC) script when proxySettings is automatic. Used to find the location of PAC (Proxy Auto Configuration) file. Example: itproxy.contoso.com
      * @param string|null $value Value to set for the proxyAutomaticConfigurationUrl property.
     */
     public function setProxyAutomaticConfigurationUrl(?string $value): void {
@@ -256,7 +256,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the proxyManualAddress property value. IP Address or DNS hostname of the proxy server when manual configuration is selected.
+     * Sets the proxyManualAddress property value. Indicates IP Address or DNS hostname of the proxy server when manual configuration is selected. Used for proxy settings. Example: 10.0.0.2
      * @param string|null $value Value to set for the proxyManualAddress property.
     */
     public function setProxyManualAddress(?string $value): void {
@@ -264,7 +264,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the proxyManualPort property value. Port of the proxy server when manual configuration is selected.
+     * Sets the proxyManualPort property value. Indicates the proxy server TCP port to use when proxySettings is manual. Used for proxy settings. Example: 8080
      * @param int|null $value Value to set for the proxyManualPort property.
     */
     public function setProxyManualPort(?int $value): void {

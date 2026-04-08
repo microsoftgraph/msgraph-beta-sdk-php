@@ -54,6 +54,18 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
     }
 
     /**
+     * Gets the credentialProviderRoleState property value. The Android credential provider role state for apps.
+     * @return AndroidAppCredentialProviderRoleState|null
+    */
+    public function getCredentialProviderRoleState(): ?AndroidAppCredentialProviderRoleState {
+        $val = $this->getBackingStore()->get('credentialProviderRoleState');
+        if (is_null($val) || $val instanceof AndroidAppCredentialProviderRoleState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'credentialProviderRoleState'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -62,6 +74,7 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
         return array_merge(parent::getFieldDeserializers(), [
             'appSupportsOemConfig' => fn(ParseNode $n) => $o->setAppSupportsOemConfig($n->getBooleanValue()),
             'connectedAppsEnabled' => fn(ParseNode $n) => $o->setConnectedAppsEnabled($n->getBooleanValue()),
+            'credentialProviderRoleState' => fn(ParseNode $n) => $o->setCredentialProviderRoleState($n->getEnumValue(AndroidAppCredentialProviderRoleState::class)),
             'packageId' => fn(ParseNode $n) => $o->setPackageId($n->getStringValue()),
             'payloadJson' => fn(ParseNode $n) => $o->setPayloadJson($n->getStringValue()),
             'permissionActions' => fn(ParseNode $n) => $o->setPermissionActions($n->getCollectionOfObjectValues([AndroidPermissionAction::class, 'createFromDiscriminatorValue'])),
@@ -126,6 +139,7 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('connectedAppsEnabled', $this->getConnectedAppsEnabled());
+        $writer->writeEnumValue('credentialProviderRoleState', $this->getCredentialProviderRoleState());
         $writer->writeStringValue('packageId', $this->getPackageId());
         $writer->writeStringValue('payloadJson', $this->getPayloadJson());
         $writer->writeCollectionOfObjectValues('permissionActions', $this->getPermissionActions());
@@ -146,6 +160,14 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
     */
     public function setConnectedAppsEnabled(?bool $value): void {
         $this->getBackingStore()->set('connectedAppsEnabled', $value);
+    }
+
+    /**
+     * Sets the credentialProviderRoleState property value. The Android credential provider role state for apps.
+     * @param AndroidAppCredentialProviderRoleState|null $value Value to set for the credentialProviderRoleState property.
+    */
+    public function setCredentialProviderRoleState(?AndroidAppCredentialProviderRoleState $value): void {
+        $this->getBackingStore()->set('credentialProviderRoleState', $value);
     }
 
     /**

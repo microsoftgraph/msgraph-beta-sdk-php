@@ -47,6 +47,18 @@ class RiskyAgent extends Entity implements Parsable
     }
 
     /**
+     * Gets the blueprintId property value. The identifier of the blueprint associated with the agent. Nullable.
+     * @return string|null
+    */
+    public function getBlueprintId(): ?string {
+        $val = $this->getBackingStore()->get('blueprintId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'blueprintId'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -54,6 +66,7 @@ class RiskyAgent extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'agentDisplayName' => fn(ParseNode $n) => $o->setAgentDisplayName($n->getStringValue()),
+            'blueprintId' => fn(ParseNode $n) => $o->setBlueprintId($n->getStringValue()),
             'identityType' => fn(ParseNode $n) => $o->setIdentityType($n->getEnumValue(AgentIdentityType::class)),
             'isDeleted' => fn(ParseNode $n) => $o->setIsDeleted($n->getBooleanValue()),
             'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
@@ -168,6 +181,7 @@ class RiskyAgent extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('agentDisplayName', $this->getAgentDisplayName());
+        $writer->writeStringValue('blueprintId', $this->getBlueprintId());
         $writer->writeEnumValue('identityType', $this->getIdentityType());
         $writer->writeBooleanValue('isDeleted', $this->getIsDeleted());
         $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
@@ -184,6 +198,14 @@ class RiskyAgent extends Entity implements Parsable
     */
     public function setAgentDisplayName(?string $value): void {
         $this->getBackingStore()->set('agentDisplayName', $value);
+    }
+
+    /**
+     * Sets the blueprintId property value. The identifier of the blueprint associated with the agent. Nullable.
+     * @param string|null $value Value to set for the blueprintId property.
+    */
+    public function setBlueprintId(?string $value): void {
+        $this->getBackingStore()->set('blueprintId', $value);
     }
 
     /**

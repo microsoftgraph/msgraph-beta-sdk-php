@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get externalOriginResourceConnectors from identityGovernance
+ * Get a list of externalOriginResourceConnector objects and their properties.
 */
 class ExternalOriginResourceConnectorsRequestBuilderGetQueryParameters 
 {

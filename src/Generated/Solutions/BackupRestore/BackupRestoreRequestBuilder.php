@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\BackupRestoreRoot;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ActivityLogs\ActivityLogsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\AllDrivesBackup\AllDrivesBackupRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\AllMailboxesBackup\AllMailboxesBackupRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\AllSitesBackup\AllSitesBackupRequestBuilder;
@@ -25,6 +26,7 @@ use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\OneDriveForBusinessPr
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\OneDriveForBusinessRestoreSessions\OneDriveForBusinessRestoreSessionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ProtectionPolicies\ProtectionPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ProtectionUnits\ProtectionUnitsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\Reports\ReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\RestorePoints\RestorePointsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\RestoreSessions\RestoreSessionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ServiceApps\ServiceAppsRequestBuilder;
@@ -44,6 +46,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class BackupRestoreRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the activityLogs property of the microsoft.graph.backupRestoreRoot entity.
+    */
+    public function activityLogs(): ActivityLogsRequestBuilder {
+        return new ActivityLogsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the allDrivesBackup property of the microsoft.graph.backupRestoreRoot entity.
     */
@@ -175,6 +184,13 @@ class BackupRestoreRequestBuilder extends BaseRequestBuilder
     */
     public function protectionUnits(): ProtectionUnitsRequestBuilder {
         return new ProtectionUnitsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the reports property of the microsoft.graph.backupRestoreRoot entity.
+    */
+    public function reports(): ReportsRequestBuilder {
+        return new ReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

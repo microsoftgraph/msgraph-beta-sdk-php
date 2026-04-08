@@ -50,7 +50,7 @@ class ExternalOriginResourceConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdBy property value. The createdBy property
+     * Gets the createdBy property value. The identifier of the user or application that created the connector.
      * @return string|null
     */
     public function getCreatedBy(): ?string {
@@ -62,7 +62,7 @@ class ExternalOriginResourceConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date and time when the connector was created.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -74,7 +74,7 @@ class ExternalOriginResourceConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. A description of the connector.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -86,7 +86,7 @@ class ExternalOriginResourceConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name of the connector.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -116,7 +116,7 @@ class ExternalOriginResourceConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the modifiedBy property value. The modifiedBy property
+     * Gets the modifiedBy property value. The identifier of the user or application that last modified the connector.
      * @return string|null
     */
     public function getModifiedBy(): ?string {
@@ -128,7 +128,7 @@ class ExternalOriginResourceConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the modifiedDateTime property value. The modifiedDateTime property
+     * Gets the modifiedDateTime property value. The date and time when the connector was last modified.
      * @return DateTime|null
     */
     public function getModifiedDateTime(): ?DateTime {
@@ -172,7 +172,7 @@ class ExternalOriginResourceConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdBy property value. The createdBy property
+     * Sets the createdBy property value. The identifier of the user or application that created the connector.
      * @param string|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?string $value): void {
@@ -180,7 +180,7 @@ class ExternalOriginResourceConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date and time when the connector was created.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -188,7 +188,7 @@ class ExternalOriginResourceConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. A description of the connector.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -196,7 +196,7 @@ class ExternalOriginResourceConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name of the connector.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -204,7 +204,7 @@ class ExternalOriginResourceConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the modifiedBy property value. The modifiedBy property
+     * Sets the modifiedBy property value. The identifier of the user or application that last modified the connector.
      * @param string|null $value Value to set for the modifiedBy property.
     */
     public function setModifiedBy(?string $value): void {
@@ -212,7 +212,7 @@ class ExternalOriginResourceConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the modifiedDateTime property value. The modifiedDateTime property
+     * Sets the modifiedDateTime property value. The date and time when the connector was last modified.
      * @param DateTime|null $value Value to set for the modifiedDateTime property.
     */
     public function setModifiedDateTime(?DateTime $value): void {

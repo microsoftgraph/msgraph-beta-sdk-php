@@ -35,6 +35,30 @@ class ProtectionUnitBase extends Entity implements Parsable
     }
 
     /**
+     * Gets the backupRetentionPeriodInDays property value. The retention period of the backup, in days.
+     * @return int|null
+    */
+    public function getBackupRetentionPeriodInDays(): ?int {
+        $val = $this->getBackingStore()->get('backupRetentionPeriodInDays');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'backupRetentionPeriodInDays'");
+    }
+
+    /**
+     * Gets the billingPolicyId property value. The unique identifier of the billing policy assigned to the protection unit for cost allocation.
+     * @return string|null
+    */
+    public function getBillingPolicyId(): ?string {
+        $val = $this->getBackingStore()->get('billingPolicyId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'billingPolicyId'");
+    }
+
+    /**
      * Gets the createdBy property value. The identity of person who created the protection unit.
      * @return IdentitySet|null
     */
@@ -77,6 +101,8 @@ class ProtectionUnitBase extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'backupRetentionPeriodInDays' => fn(ParseNode $n) => $o->setBackupRetentionPeriodInDays($n->getIntegerValue()),
+            'billingPolicyId' => fn(ParseNode $n) => $o->setBillingPolicyId($n->getStringValue()),
             'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'error' => fn(ParseNode $n) => $o->setError($n->getObjectValue([PublicError::class, 'createFromDiscriminatorValue'])),
@@ -167,6 +193,8 @@ class ProtectionUnitBase extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeIntegerValue('backupRetentionPeriodInDays', $this->getBackupRetentionPeriodInDays());
+        $writer->writeStringValue('billingPolicyId', $this->getBillingPolicyId());
         $writer->writeObjectValue('createdBy', $this->getCreatedBy());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeObjectValue('error', $this->getError());
@@ -176,6 +204,22 @@ class ProtectionUnitBase extends Entity implements Parsable
         $writer->writeStringValue('policyId', $this->getPolicyId());
         $writer->writeEnumValue('protectionSources', $this->getProtectionSources());
         $writer->writeEnumValue('status', $this->getStatus());
+    }
+
+    /**
+     * Sets the backupRetentionPeriodInDays property value. The retention period of the backup, in days.
+     * @param int|null $value Value to set for the backupRetentionPeriodInDays property.
+    */
+    public function setBackupRetentionPeriodInDays(?int $value): void {
+        $this->getBackingStore()->set('backupRetentionPeriodInDays', $value);
+    }
+
+    /**
+     * Sets the billingPolicyId property value. The unique identifier of the billing policy assigned to the protection unit for cost allocation.
+     * @param string|null $value Value to set for the billingPolicyId property.
+    */
+    public function setBillingPolicyId(?string $value): void {
+        $this->getBackingStore()->set('billingPolicyId', $value);
     }
 
     /**

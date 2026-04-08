@@ -31,7 +31,7 @@ class ExternalOriginResourceConnectorRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get externalOriginResourceConnector from identityGovernance
+     * The connector that integrates with external origin systems to provision access to resources from those systems. Read-only. Nullable.
      * @param ExternalOriginResourceConnectorRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExternalOriginResourceConnector|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class ExternalOriginResourceConnectorRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get externalOriginResourceConnector from identityGovernance
+     * The connector that integrates with external origin systems to provision access to resources from those systems. Read-only. Nullable.
      * @param ExternalOriginResourceConnectorRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

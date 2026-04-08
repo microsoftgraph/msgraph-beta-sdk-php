@@ -7,6 +7,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class PlannerTask extends PlannerDelta implements Parsable 
 {
@@ -268,6 +269,7 @@ class PlannerTask extends PlannerDelta implements Parsable
             'isOnMyDayLastModifiedDate' => fn(ParseNode $n) => $o->setIsOnMyDayLastModifiedDate($n->getDateValue()),
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'messages' => fn(ParseNode $n) => $o->setMessages($n->getCollectionOfObjectValues([PlannerTaskChatMessage::class, 'createFromDiscriminatorValue'])),
             'orderHint' => fn(ParseNode $n) => $o->setOrderHint($n->getStringValue()),
             'percentComplete' => fn(ParseNode $n) => $o->setPercentComplete($n->getIntegerValue()),
             'planId' => fn(ParseNode $n) => $o->setPlanId($n->getStringValue()),
@@ -283,7 +285,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the hasChat property value. The hasChat property
+     * Gets the hasChat property value. Read-only. This value is true if the task has chat messages associated with it. Otherwise, false.
      * @return bool|null
     */
     public function getHasChat(): ?bool {
@@ -295,7 +297,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the hasDescription property value. Read-only. This value is true if the details object of the task has a nonempty description. Otherwise,false.
+     * Gets the hasDescription property value. Read-only. This value is true if the details object of the task has a nonempty description. Otherwise, false.
      * @return bool|null
     */
     public function getHasDescription(): ?bool {
@@ -367,7 +369,21 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the orderHint property value. The hint used to order items of this type in a list view. For more information, see Using order hints in plannern.
+     * Gets the messages property value. Read-only. Nullable. Chat messages associated with the task.
+     * @return array<PlannerTaskChatMessage>|null
+    */
+    public function getMessages(): ?array {
+        $val = $this->getBackingStore()->get('messages');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PlannerTaskChatMessage::class);
+            /** @var array<PlannerTaskChatMessage>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'messages'");
+    }
+
+    /**
+     * Gets the orderHint property value. The hint used to order items of this type in a list view. For more information, see Using order hints in planner.
      * @return string|null
     */
     public function getOrderHint(): ?string {
@@ -528,6 +544,7 @@ class PlannerTask extends PlannerDelta implements Parsable
         $writer->writeDateValue('isOnMyDayLastModifiedDate', $this->getIsOnMyDayLastModifiedDate());
         $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeCollectionOfObjectValues('messages', $this->getMessages());
         $writer->writeStringValue('orderHint', $this->getOrderHint());
         $writer->writeIntegerValue('percentComplete', $this->getPercentComplete());
         $writer->writeStringValue('planId', $this->getPlanId());
@@ -678,7 +695,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the hasChat property value. The hasChat property
+     * Sets the hasChat property value. Read-only. This value is true if the task has chat messages associated with it. Otherwise, false.
      * @param bool|null $value Value to set for the hasChat property.
     */
     public function setHasChat(?bool $value): void {
@@ -686,7 +703,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the hasDescription property value. Read-only. This value is true if the details object of the task has a nonempty description. Otherwise,false.
+     * Sets the hasDescription property value. Read-only. This value is true if the details object of the task has a nonempty description. Otherwise, false.
      * @param bool|null $value Value to set for the hasDescription property.
     */
     public function setHasDescription(?bool $value): void {
@@ -734,7 +751,15 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the orderHint property value. The hint used to order items of this type in a list view. For more information, see Using order hints in plannern.
+     * Sets the messages property value. Read-only. Nullable. Chat messages associated with the task.
+     * @param array<PlannerTaskChatMessage>|null $value Value to set for the messages property.
+    */
+    public function setMessages(?array $value): void {
+        $this->getBackingStore()->set('messages', $value);
+    }
+
+    /**
+     * Sets the orderHint property value. The hint used to order items of this type in a list view. For more information, see Using order hints in planner.
      * @param string|null $value Value to set for the orderHint property.
     */
     public function setOrderHint(?string $value): void {

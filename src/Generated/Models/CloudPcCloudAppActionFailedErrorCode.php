@@ -10,4 +10,6 @@ class CloudPcCloudAppActionFailedErrorCode extends Enum {
     public const INTERNAL_SERVER_ERROR = "internalServerError";
     public const APP_DISCOVERY_FAILED = "appDiscoveryFailed";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const ICON_PATH_INVALID = "iconPathInvalid";
+    public const FILE_PATH_INVALID = "filePathInvalid";
 }

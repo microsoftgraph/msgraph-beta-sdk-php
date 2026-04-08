@@ -88,7 +88,7 @@ class ImpactedResource extends Entity implements Parsable
             'apiUrl' => fn(ParseNode $n) => $o->setApiUrl($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getStringValue()),
-            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'owner' => fn(ParseNode $n) => $o->setOwner($n->getStringValue()),
             'portalUrl' => fn(ParseNode $n) => $o->setPortalUrl($n->getStringValue()),
             'postponeUntilDateTime' => fn(ParseNode $n) => $o->setPostponeUntilDateTime($n->getDateTimeValue()),
@@ -114,11 +114,11 @@ class ImpactedResource extends Entity implements Parsable
 
     /**
      * Gets the lastModifiedDateTime property value. The date and time when the status was last updated.
-     * @return string|null
+     * @return DateTime|null
     */
-    public function getLastModifiedDateTime(): ?string {
+    public function getLastModifiedDateTime(): ?DateTime {
         $val = $this->getBackingStore()->get('lastModifiedDateTime');
-        if (is_null($val) || is_string($val)) {
+        if (is_null($val) || $val instanceof DateTime) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
@@ -231,7 +231,7 @@ class ImpactedResource extends Entity implements Parsable
         $writer->writeStringValue('apiUrl', $this->getApiUrl());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('lastModifiedBy', $this->getLastModifiedBy());
-        $writer->writeStringValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('owner', $this->getOwner());
         $writer->writeStringValue('portalUrl', $this->getPortalUrl());
         $writer->writeDateTimeValue('postponeUntilDateTime', $this->getPostponeUntilDateTime());
@@ -284,9 +284,9 @@ class ImpactedResource extends Entity implements Parsable
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time when the status was last updated.
-     * @param string|null $value Value to set for the lastModifiedDateTime property.
+     * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?string $value): void {
+    public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 

@@ -36,7 +36,7 @@ class MicrosoftGraphNetworkaccessGetConnectionSummariesWithStartDateTimeWithEndD
     }
 
     /**
-     * An API part of Global Secure Access (GSA) product, reports of connections count per traffic type: Private/Internet/Microsoft.
+     * Returns connections count per traffic type: Private/Internet/Microsoft.
      * @param MicrosoftGraphNetworkaccessGetConnectionSummariesWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetConnectionSummariesWithStartDateTimeWithEndDateTimeGetResponse|null>
      * @throws Exception
@@ -51,7 +51,7 @@ class MicrosoftGraphNetworkaccessGetConnectionSummariesWithStartDateTimeWithEndD
     }
 
     /**
-     * An API part of Global Secure Access (GSA) product, reports of connections count per traffic type: Private/Internet/Microsoft.
+     * Returns connections count per traffic type: Private/Internet/Microsoft.
      * @param MicrosoftGraphNetworkaccessGetConnectionSummariesWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

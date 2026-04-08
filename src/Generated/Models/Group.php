@@ -394,6 +394,7 @@ class Group extends DirectoryObject implements Parsable
             'membersWithLicenseErrors' => fn(ParseNode $n) => $o->setMembersWithLicenseErrors($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'onenote' => fn(ParseNode $n) => $o->setOnenote($n->getObjectValue([Onenote::class, 'createFromDiscriminatorValue'])),
             'onPremisesDomainName' => fn(ParseNode $n) => $o->setOnPremisesDomainName($n->getStringValue()),
+            'onPremisesExtensionAttributes' => fn(ParseNode $n) => $o->setOnPremisesExtensionAttributes($n->getObjectValue([OnPremisesExtensionAttributes::class, 'createFromDiscriminatorValue'])),
             'onPremisesLastSyncDateTime' => fn(ParseNode $n) => $o->setOnPremisesLastSyncDateTime($n->getDateTimeValue()),
             'onPremisesNetBiosName' => fn(ParseNode $n) => $o->setOnPremisesNetBiosName($n->getStringValue()),
             'onPremisesProvisioningErrors' => fn(ParseNode $n) => $o->setOnPremisesProvisioningErrors($n->getCollectionOfObjectValues([OnPremisesProvisioningError::class, 'createFromDiscriminatorValue'])),
@@ -741,6 +742,18 @@ class Group extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremisesDomainName'");
+    }
+
+    /**
+     * Gets the onPremisesExtensionAttributes property value. The onPremisesExtensionAttributes property
+     * @return OnPremisesExtensionAttributes|null
+    */
+    public function getOnPremisesExtensionAttributes(): ?OnPremisesExtensionAttributes {
+        $val = $this->getBackingStore()->get('onPremisesExtensionAttributes');
+        if (is_null($val) || $val instanceof OnPremisesExtensionAttributes) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'onPremisesExtensionAttributes'");
     }
 
     /**
@@ -1267,6 +1280,7 @@ class Group extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('membersWithLicenseErrors', $this->getMembersWithLicenseErrors());
         $writer->writeObjectValue('onenote', $this->getOnenote());
         $writer->writeStringValue('onPremisesDomainName', $this->getOnPremisesDomainName());
+        $writer->writeObjectValue('onPremisesExtensionAttributes', $this->getOnPremisesExtensionAttributes());
         $writer->writeDateTimeValue('onPremisesLastSyncDateTime', $this->getOnPremisesLastSyncDateTime());
         $writer->writeStringValue('onPremisesNetBiosName', $this->getOnPremisesNetBiosName());
         $writer->writeCollectionOfObjectValues('onPremisesProvisioningErrors', $this->getOnPremisesProvisioningErrors());
@@ -1672,6 +1686,14 @@ class Group extends DirectoryObject implements Parsable
     */
     public function setOnPremisesDomainName(?string $value): void {
         $this->getBackingStore()->set('onPremisesDomainName', $value);
+    }
+
+    /**
+     * Sets the onPremisesExtensionAttributes property value. The onPremisesExtensionAttributes property
+     * @param OnPremisesExtensionAttributes|null $value Value to set for the onPremisesExtensionAttributes property.
+    */
+    public function setOnPremisesExtensionAttributes(?OnPremisesExtensionAttributes $value): void {
+        $this->getBackingStore()->set('onPremisesExtensionAttributes', $value);
     }
 
     /**

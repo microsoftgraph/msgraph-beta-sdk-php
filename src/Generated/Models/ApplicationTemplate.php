@@ -120,6 +120,7 @@ class ApplicationTemplate extends Entity implements Parsable
             },
             'homePageUrl' => fn(ParseNode $n) => $o->setHomePageUrl($n->getStringValue()),
             'informationalUrls' => fn(ParseNode $n) => $o->setInformationalUrls($n->getObjectValue([InformationalUrls::class, 'createFromDiscriminatorValue'])),
+            'isEntraIntegrated' => fn(ParseNode $n) => $o->setIsEntraIntegrated($n->getBooleanValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'logoUrl' => fn(ParseNode $n) => $o->setLogoUrl($n->getStringValue()),
             'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
@@ -167,6 +168,18 @@ class ApplicationTemplate extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'informationalUrls'");
+    }
+
+    /**
+     * Gets the isEntraIntegrated property value. Indicates whether the application is integrated with Entra ID (for example, through single sign-on or user provisioning).
+     * @return bool|null
+    */
+    public function getIsEntraIntegrated(): ?bool {
+        $val = $this->getBackingStore()->get('isEntraIntegrated');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isEntraIntegrated'");
     }
 
     /**
@@ -282,6 +295,7 @@ class ApplicationTemplate extends Entity implements Parsable
         $writer->writeCollectionOfPrimitiveValues('endpoints', $this->getEndpoints());
         $writer->writeStringValue('homePageUrl', $this->getHomePageUrl());
         $writer->writeObjectValue('informationalUrls', $this->getInformationalUrls());
+        $writer->writeBooleanValue('isEntraIntegrated', $this->getIsEntraIntegrated());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('logoUrl', $this->getLogoUrl());
         $writer->writeStringValue('publisher', $this->getPublisher());
@@ -346,6 +360,14 @@ class ApplicationTemplate extends Entity implements Parsable
     */
     public function setInformationalUrls(?InformationalUrls $value): void {
         $this->getBackingStore()->set('informationalUrls', $value);
+    }
+
+    /**
+     * Sets the isEntraIntegrated property value. Indicates whether the application is integrated with Entra ID (for example, through single sign-on or user provisioning).
+     * @param bool|null $value Value to set for the isEntraIntegrated property.
+    */
+    public function setIsEntraIntegrated(?bool $value): void {
+        $this->getBackingStore()->set('isEntraIntegrated', $value);
     }
 
     /**

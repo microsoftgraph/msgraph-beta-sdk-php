@@ -63,6 +63,18 @@ class Connection extends Entity implements Parsable
     }
 
     /**
+     * Gets the crossTenantAccessType property value. Cross tenant access details, for B2B scenarios. The possible values are: none, b2bCollaboration, unknownFutureValue.
+     * @return CrossTenantAccessType|null
+    */
+    public function getCrossTenantAccessType(): ?CrossTenantAccessType {
+        $val = $this->getBackingStore()->get('crossTenantAccessType');
+        if (is_null($val) || $val instanceof CrossTenantAccessType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'crossTenantAccessType'");
+    }
+
+    /**
      * Gets the destinationFqdn property value. The destination FQDN of the connection.
      * @return string|null
     */
@@ -123,6 +135,18 @@ class Connection extends Entity implements Parsable
     }
 
     /**
+     * Gets the deviceJoinType property value. Device registration type, for BYOD scenarios. The possible values are: none, microsoftEntraJoined, microsoftEntraRegistered, unknownFutureValue.
+     * @return DeviceJoinType|null
+    */
+    public function getDeviceJoinType(): ?DeviceJoinType {
+        $val = $this->getBackingStore()->get('deviceJoinType');
+        if (is_null($val) || $val instanceof DeviceJoinType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceJoinType'");
+    }
+
+    /**
      * Gets the deviceOperatingSystem property value. The device operating system type.
      * @return string|null
     */
@@ -168,14 +192,17 @@ class Connection extends Entity implements Parsable
             'agentVersion' => fn(ParseNode $n) => $o->setAgentVersion($n->getStringValue()),
             'applicationSnapshot' => fn(ParseNode $n) => $o->setApplicationSnapshot($n->getObjectValue([ApplicationSnapshot::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'crossTenantAccessType' => fn(ParseNode $n) => $o->setCrossTenantAccessType($n->getEnumValue(CrossTenantAccessType::class)),
             'destinationFqdn' => fn(ParseNode $n) => $o->setDestinationFqdn($n->getStringValue()),
             'destinationIp' => fn(ParseNode $n) => $o->setDestinationIp($n->getStringValue()),
             'destinationPort' => fn(ParseNode $n) => $o->setDestinationPort($n->getIntegerValue()),
             'deviceCategory' => fn(ParseNode $n) => $o->setDeviceCategory($n->getEnumValue(DeviceCategory::class)),
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'deviceJoinType' => fn(ParseNode $n) => $o->setDeviceJoinType($n->getEnumValue(DeviceJoinType::class)),
             'deviceOperatingSystem' => fn(ParseNode $n) => $o->setDeviceOperatingSystem($n->getStringValue()),
             'deviceOperatingSystemVersion' => fn(ParseNode $n) => $o->setDeviceOperatingSystemVersion($n->getStringValue()),
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
+            'homeTenantId' => fn(ParseNode $n) => $o->setHomeTenantId($n->getStringValue()),
             'initiatingProcessName' => fn(ParseNode $n) => $o->setInitiatingProcessName($n->getStringValue()),
             'lastUpdateDateTime' => fn(ParseNode $n) => $o->setLastUpdateDateTime($n->getDateTimeValue()),
             'networkProtocol' => fn(ParseNode $n) => $o->setNetworkProtocol($n->getEnumValue(NetworkingProtocol::class)),
@@ -194,6 +221,18 @@ class Connection extends Entity implements Parsable
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the homeTenantId property value. The identifier of the home tenant, for Entra B2B scenarios.
+     * @return string|null
+    */
+    public function getHomeTenantId(): ?string {
+        $val = $this->getBackingStore()->get('homeTenantId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'homeTenantId'");
     }
 
     /**
@@ -409,14 +448,17 @@ class Connection extends Entity implements Parsable
         $writer->writeStringValue('agentVersion', $this->getAgentVersion());
         $writer->writeObjectValue('applicationSnapshot', $this->getApplicationSnapshot());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeEnumValue('crossTenantAccessType', $this->getCrossTenantAccessType());
         $writer->writeStringValue('destinationFqdn', $this->getDestinationFqdn());
         $writer->writeStringValue('destinationIp', $this->getDestinationIp());
         $writer->writeIntegerValue('destinationPort', $this->getDestinationPort());
         $writer->writeEnumValue('deviceCategory', $this->getDeviceCategory());
         $writer->writeStringValue('deviceId', $this->getDeviceId());
+        $writer->writeEnumValue('deviceJoinType', $this->getDeviceJoinType());
         $writer->writeStringValue('deviceOperatingSystem', $this->getDeviceOperatingSystem());
         $writer->writeStringValue('deviceOperatingSystemVersion', $this->getDeviceOperatingSystemVersion());
         $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
+        $writer->writeStringValue('homeTenantId', $this->getHomeTenantId());
         $writer->writeStringValue('initiatingProcessName', $this->getInitiatingProcessName());
         $writer->writeDateTimeValue('lastUpdateDateTime', $this->getLastUpdateDateTime());
         $writer->writeEnumValue('networkProtocol', $this->getNetworkProtocol());
@@ -461,6 +503,14 @@ class Connection extends Entity implements Parsable
     }
 
     /**
+     * Sets the crossTenantAccessType property value. Cross tenant access details, for B2B scenarios. The possible values are: none, b2bCollaboration, unknownFutureValue.
+     * @param CrossTenantAccessType|null $value Value to set for the crossTenantAccessType property.
+    */
+    public function setCrossTenantAccessType(?CrossTenantAccessType $value): void {
+        $this->getBackingStore()->set('crossTenantAccessType', $value);
+    }
+
+    /**
      * Sets the destinationFqdn property value. The destination FQDN of the connection.
      * @param string|null $value Value to set for the destinationFqdn property.
     */
@@ -501,6 +551,14 @@ class Connection extends Entity implements Parsable
     }
 
     /**
+     * Sets the deviceJoinType property value. Device registration type, for BYOD scenarios. The possible values are: none, microsoftEntraJoined, microsoftEntraRegistered, unknownFutureValue.
+     * @param DeviceJoinType|null $value Value to set for the deviceJoinType property.
+    */
+    public function setDeviceJoinType(?DeviceJoinType $value): void {
+        $this->getBackingStore()->set('deviceJoinType', $value);
+    }
+
+    /**
      * Sets the deviceOperatingSystem property value. The device operating system type.
      * @param string|null $value Value to set for the deviceOperatingSystem property.
     */
@@ -522,6 +580,14 @@ class Connection extends Entity implements Parsable
     */
     public function setEndDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('endDateTime', $value);
+    }
+
+    /**
+     * Sets the homeTenantId property value. The identifier of the home tenant, for Entra B2B scenarios.
+     * @param string|null $value Value to set for the homeTenantId property.
+    */
+    public function setHomeTenantId(?string $value): void {
+        $this->getBackingStore()->set('homeTenantId', $value);
     }
 
     /**

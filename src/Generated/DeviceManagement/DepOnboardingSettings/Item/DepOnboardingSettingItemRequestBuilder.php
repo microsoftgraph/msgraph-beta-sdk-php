@@ -12,6 +12,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\E
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\GenerateEncryptionPublicKey\GenerateEncryptionPublicKeyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\GetEncryptionPublicKey\GetEncryptionPublicKeyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\ImportedAppleDeviceIdentities\ImportedAppleDeviceIdentitiesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\ReleaseAppleDevices\ReleaseAppleDevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\ShareForSchoolDataSyncService\ShareForSchoolDataSyncServiceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\SyncWithAppleDeviceEnrollmentProgram\SyncWithAppleDeviceEnrollmentProgramRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DepOnboardingSettings\Item\UnshareForSchoolDataSyncService\UnshareForSchoolDataSyncServiceRequestBuilder;
@@ -82,6 +83,13 @@ class DepOnboardingSettingItemRequestBuilder extends BaseRequestBuilder
     */
     public function importedAppleDeviceIdentities(): ImportedAppleDeviceIdentitiesRequestBuilder {
         return new ImportedAppleDeviceIdentitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the releaseAppleDevices method.
+    */
+    public function releaseAppleDevices(): ReleaseAppleDevicesRequestBuilder {
+        return new ReleaseAppleDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
