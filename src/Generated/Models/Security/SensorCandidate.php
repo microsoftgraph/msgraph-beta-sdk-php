@@ -7,6 +7,7 @@ use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class SensorCandidate extends Entity implements Parsable 
 {
@@ -61,6 +62,7 @@ class SensorCandidate extends Entity implements Parsable
             'domainName' => fn(ParseNode $n) => $o->setDomainName($n->getStringValue()),
             'lastSeenDateTime' => fn(ParseNode $n) => $o->setLastSeenDateTime($n->getDateTimeValue()),
             'senseClientVersion' => fn(ParseNode $n) => $o->setSenseClientVersion($n->getStringValue()),
+            'sensorTypes' => fn(ParseNode $n) => $o->setSensorTypes($n->getCollectionOfEnumValues(DeviceType::class)),
         ]);
     }
 
@@ -89,6 +91,20 @@ class SensorCandidate extends Entity implements Parsable
     }
 
     /**
+     * Gets the sensorTypes property value. The list of device type of the sensor. The possible values are: domainController, adfs,, adcs, entraConnect unknownFutureValue. This flagged enumeration allows multiple members to be returned simultaneously.
+     * @return array<DeviceType>|null
+    */
+    public function getSensorTypes(): ?array {
+        $val = $this->getBackingStore()->get('sensorTypes');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DeviceType::class);
+            /** @var array<DeviceType>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sensorTypes'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -98,6 +114,7 @@ class SensorCandidate extends Entity implements Parsable
         $writer->writeStringValue('domainName', $this->getDomainName());
         $writer->writeDateTimeValue('lastSeenDateTime', $this->getLastSeenDateTime());
         $writer->writeStringValue('senseClientVersion', $this->getSenseClientVersion());
+        $writer->writeCollectionOfEnumValues('sensorTypes', $this->getSensorTypes());
     }
 
     /**
@@ -130,6 +147,14 @@ class SensorCandidate extends Entity implements Parsable
     */
     public function setSenseClientVersion(?string $value): void {
         $this->getBackingStore()->set('senseClientVersion', $value);
+    }
+
+    /**
+     * Sets the sensorTypes property value. The list of device type of the sensor. The possible values are: domainController, adfs,, adcs, entraConnect unknownFutureValue. This flagged enumeration allows multiple members to be returned simultaneously.
+     * @param array<DeviceType>|null $value Value to set for the sensorTypes property.
+    */
+    public function setSensorTypes(?array $value): void {
+        $this->getBackingStore()->set('sensorTypes', $value);
     }
 
 }

@@ -88,6 +88,7 @@ class Sensor extends Entity implements Parsable
             'domainName' => fn(ParseNode $n) => $o->setDomainName($n->getStringValue()),
             'healthIssues' => fn(ParseNode $n) => $o->setHealthIssues($n->getCollectionOfObjectValues([HealthIssue::class, 'createFromDiscriminatorValue'])),
             'healthStatus' => fn(ParseNode $n) => $o->setHealthStatus($n->getEnumValue(SensorHealthStatus::class)),
+            'migrationState' => fn(ParseNode $n) => $o->setMigrationState($n->getEnumValue(MigrationState::class)),
             'openHealthIssuesCount' => fn(ParseNode $n) => $o->setOpenHealthIssuesCount($n->getIntegerValue()),
             'sensorType' => fn(ParseNode $n) => $o->setSensorType($n->getEnumValue(SensorType::class)),
             'serviceStatus' => fn(ParseNode $n) => $o->setServiceStatus($n->getEnumValue(ServiceStatus::class)),
@@ -120,6 +121,18 @@ class Sensor extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'healthStatus'");
+    }
+
+    /**
+     * Gets the migrationState property value. The migrationState property
+     * @return MigrationState|null
+    */
+    public function getMigrationState(): ?MigrationState {
+        $val = $this->getBackingStore()->get('migrationState');
+        if (is_null($val) || $val instanceof MigrationState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'migrationState'");
     }
 
     /**
@@ -194,6 +207,7 @@ class Sensor extends Entity implements Parsable
         $writer->writeStringValue('domainName', $this->getDomainName());
         $writer->writeCollectionOfObjectValues('healthIssues', $this->getHealthIssues());
         $writer->writeEnumValue('healthStatus', $this->getHealthStatus());
+        $writer->writeEnumValue('migrationState', $this->getMigrationState());
         $writer->writeIntegerValue('openHealthIssuesCount', $this->getOpenHealthIssuesCount());
         $writer->writeEnumValue('sensorType', $this->getSensorType());
         $writer->writeEnumValue('serviceStatus', $this->getServiceStatus());
@@ -247,6 +261,14 @@ class Sensor extends Entity implements Parsable
     */
     public function setHealthStatus(?SensorHealthStatus $value): void {
         $this->getBackingStore()->set('healthStatus', $value);
+    }
+
+    /**
+     * Sets the migrationState property value. The migrationState property
+     * @param MigrationState|null $value Value to set for the migrationState property.
+    */
+    public function setMigrationState(?MigrationState $value): void {
+        $this->getBackingStore()->set('migrationState', $value);
     }
 
     /**

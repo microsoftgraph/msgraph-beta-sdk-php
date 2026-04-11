@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Security\Identities\HealthIssues\HealthIssues
 use Microsoft\Graph\Beta\Generated\Security\Identities\IdentityAccounts\IdentityAccountsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Identities\SensorCandidateActivationConfiguration\SensorCandidateActivationConfigurationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Identities\SensorCandidates\SensorCandidatesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Identities\SensorMigration\SensorMigrationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Identities\Sensors\SensorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Identities\Settings\SettingsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -48,6 +49,13 @@ class IdentitiesRequestBuilder extends BaseRequestBuilder
     */
     public function sensorCandidates(): SensorCandidatesRequestBuilder {
         return new SensorCandidatesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the sensorMigration property of the microsoft.graph.security.identityContainer entity.
+    */
+    public function sensorMigration(): SensorMigrationRequestBuilder {
+        return new SensorMigrationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

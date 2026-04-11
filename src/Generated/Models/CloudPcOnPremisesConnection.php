@@ -128,6 +128,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
                 $this->setScopeIds($val);
             },
             'subnetId' => fn(ParseNode $n) => $o->setSubnetId($n->getStringValue()),
+            'subnetPrivateIpDetail' => fn(ParseNode $n) => $o->setSubnetPrivateIpDetail($n->getObjectValue([CloudPcOnPremisesConnectionSubnetIpDetail::class, 'createFromDiscriminatorValue'])),
             'subscriptionId' => fn(ParseNode $n) => $o->setSubscriptionId($n->getStringValue()),
             'subscriptionName' => fn(ParseNode $n) => $o->setSubscriptionName($n->getStringValue()),
             'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(CloudPcOnPremisesConnectionType::class)),
@@ -271,6 +272,18 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
+     * Gets the subnetPrivateIpDetail property value. The subnetPrivateIpDetail property
+     * @return CloudPcOnPremisesConnectionSubnetIpDetail|null
+    */
+    public function getSubnetPrivateIpDetail(): ?CloudPcOnPremisesConnectionSubnetIpDetail {
+        $val = $this->getBackingStore()->get('subnetPrivateIpDetail');
+        if (is_null($val) || $val instanceof CloudPcOnPremisesConnectionSubnetIpDetail) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subnetPrivateIpDetail'");
+    }
+
+    /**
      * Gets the subscriptionId property value. The ID of the target Azure subscription associated with your tenant.
      * @return string|null
     */
@@ -353,6 +366,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
         $writer->writeStringValue('resourceGroupId', $this->getResourceGroupId());
         $writer->writeCollectionOfPrimitiveValues('scopeIds', $this->getScopeIds());
         $writer->writeStringValue('subnetId', $this->getSubnetId());
+        $writer->writeObjectValue('subnetPrivateIpDetail', $this->getSubnetPrivateIpDetail());
         $writer->writeStringValue('subscriptionId', $this->getSubscriptionId());
         $writer->writeStringValue('subscriptionName', $this->getSubscriptionName());
         $writer->writeEnumValue('type', $this->getType());
@@ -494,6 +508,14 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     */
     public function setSubnetId(?string $value): void {
         $this->getBackingStore()->set('subnetId', $value);
+    }
+
+    /**
+     * Sets the subnetPrivateIpDetail property value. The subnetPrivateIpDetail property
+     * @param CloudPcOnPremisesConnectionSubnetIpDetail|null $value Value to set for the subnetPrivateIpDetail property.
+    */
+    public function setSubnetPrivateIpDetail(?CloudPcOnPremisesConnectionSubnetIpDetail $value): void {
+        $this->getBackingStore()->set('subnetPrivateIpDetail', $value);
     }
 
     /**

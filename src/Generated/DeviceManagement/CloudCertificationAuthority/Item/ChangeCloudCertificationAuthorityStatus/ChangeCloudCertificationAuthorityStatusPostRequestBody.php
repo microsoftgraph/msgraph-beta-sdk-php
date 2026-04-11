@@ -57,7 +57,7 @@ class ChangeCloudCertificationAuthorityStatusPostRequestBody implements Addition
     }
 
     /**
-     * Gets the certificationAuthorityStatus property value. Enum type of possible certification authority statuses. These statuses indicate whether a certification authority is currently able to issue certificates or temporarily paused or permanently revoked.
+     * Gets the certificationAuthorityStatus property value. Enum type of possible certification authority statuses. These statuses indicate whether a certification authority is currently able to issue certificates, temporarily paused, pending signing, revoked, or expired.
      * @return CloudCertificationAuthorityStatus|null
     */
     public function getCertificationAuthorityStatus(): ?CloudCertificationAuthorityStatus {
@@ -119,7 +119,7 @@ class ChangeCloudCertificationAuthorityStatusPostRequestBody implements Addition
     }
 
     /**
-     * Sets the certificationAuthorityStatus property value. Enum type of possible certification authority statuses. These statuses indicate whether a certification authority is currently able to issue certificates or temporarily paused or permanently revoked.
+     * Sets the certificationAuthorityStatus property value. Enum type of possible certification authority statuses. These statuses indicate whether a certification authority is currently able to issue certificates, temporarily paused, pending signing, revoked, or expired.
      * @param CloudCertificationAuthorityStatus|null $value Value to set for the certificationAuthorityStatus property.
     */
     public function setCertificationAuthorityStatus(?CloudCertificationAuthorityStatus $value): void {

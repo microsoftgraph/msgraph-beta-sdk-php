@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement;
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AdvancedThreatProtectionOnboardingStateSummary\AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidAppConfigurationSchema\AndroidAppConfigurationSchemaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidDeviceOwnerEnrollmentProfiles\AndroidDeviceOwnerEnrollmentProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkAppConfigurationSchemas\AndroidForWorkAppConfigurationSchemasRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidForWorkEnrollmentProfiles\AndroidForWorkEnrollmentProfilesRequestBuilder;
@@ -213,6 +214,13 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     */
     public function advancedThreatProtectionOnboardingStateSummary(): AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder {
         return new AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the androidAppConfigurationSchema property of the microsoft.graph.deviceManagement entity.
+    */
+    public function androidAppConfigurationSchema(): AndroidAppConfigurationSchemaRequestBuilder {
+        return new AndroidAppConfigurationSchemaRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

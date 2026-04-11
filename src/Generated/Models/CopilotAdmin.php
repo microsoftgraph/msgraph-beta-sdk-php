@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class CopilotAdmin extends Entity implements Parsable 
 {
@@ -44,8 +45,23 @@ class CopilotAdmin extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'catalog' => fn(ParseNode $n) => $o->setCatalog($n->getObjectValue([CopilotAdminCatalog::class, 'createFromDiscriminatorValue'])),
+            'policySettings' => fn(ParseNode $n) => $o->setPolicySettings($n->getCollectionOfObjectValues([CopilotPolicySetting::class, 'createFromDiscriminatorValue'])),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([CopilotAdminSetting::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the policySettings property value. The policySettings property
+     * @return array<CopilotPolicySetting>|null
+    */
+    public function getPolicySettings(): ?array {
+        $val = $this->getBackingStore()->get('policySettings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CopilotPolicySetting::class);
+            /** @var array<CopilotPolicySetting>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policySettings'");
     }
 
     /**
@@ -67,6 +83,7 @@ class CopilotAdmin extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('catalog', $this->getCatalog());
+        $writer->writeCollectionOfObjectValues('policySettings', $this->getPolicySettings());
         $writer->writeObjectValue('settings', $this->getSettings());
     }
 
@@ -76,6 +93,14 @@ class CopilotAdmin extends Entity implements Parsable
     */
     public function setCatalog(?CopilotAdminCatalog $value): void {
         $this->getBackingStore()->set('catalog', $value);
+    }
+
+    /**
+     * Sets the policySettings property value. The policySettings property
+     * @param array<CopilotPolicySetting>|null $value Value to set for the policySettings property.
+    */
+    public function setPolicySettings(?array $value): void {
+        $this->getBackingStore()->set('policySettings', $value);
     }
 
     /**

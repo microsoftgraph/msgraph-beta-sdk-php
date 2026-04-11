@@ -6,6 +6,7 @@ use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\Date;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ApplicationTemplate extends Entity implements Parsable 
@@ -52,6 +53,18 @@ class ApplicationTemplate extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'configurationUris'");
+    }
+
+    /**
+     * Gets the deprecationDate property value. Deprecation date for this application. If specified, the application will be removed from the Microsoft Entra application gallery on this date.
+     * @return Date|null
+    */
+    public function getDeprecationDate(): ?Date {
+        $val = $this->getBackingStore()->get('deprecationDate');
+        if (is_null($val) || $val instanceof Date) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deprecationDate'");
     }
 
     /**
@@ -108,6 +121,7 @@ class ApplicationTemplate extends Entity implements Parsable
                 $this->setCategories($val);
             },
             'configurationUris' => fn(ParseNode $n) => $o->setConfigurationUris($n->getCollectionOfObjectValues([ConfigurationUri::class, 'createFromDiscriminatorValue'])),
+            'deprecationDate' => fn(ParseNode $n) => $o->setDeprecationDate($n->getDateValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'endpoints' => function (ParseNode $n) {
@@ -290,6 +304,7 @@ class ApplicationTemplate extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfPrimitiveValues('categories', $this->getCategories());
         $writer->writeCollectionOfObjectValues('configurationUris', $this->getConfigurationUris());
+        $writer->writeDateValue('deprecationDate', $this->getDeprecationDate());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeCollectionOfPrimitiveValues('endpoints', $this->getEndpoints());
@@ -320,6 +335,14 @@ class ApplicationTemplate extends Entity implements Parsable
     */
     public function setConfigurationUris(?array $value): void {
         $this->getBackingStore()->set('configurationUris', $value);
+    }
+
+    /**
+     * Sets the deprecationDate property value. Deprecation date for this application. If specified, the application will be removed from the Microsoft Entra application gallery on this date.
+     * @param Date|null $value Value to set for the deprecationDate property.
+    */
+    public function setDeprecationDate(?Date $value): void {
+        $this->getBackingStore()->set('deprecationDate', $value);
     }
 
     /**

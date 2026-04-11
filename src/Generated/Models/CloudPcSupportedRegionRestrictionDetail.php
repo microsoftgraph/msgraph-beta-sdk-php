@@ -48,6 +48,18 @@ class CloudPcSupportedRegionRestrictionDetail implements AdditionalDataHolder, B
     }
 
     /**
+     * Gets the availabilityZoneRestricted property value. The availabilityZoneRestricted property
+     * @return bool|null
+    */
+    public function getAvailabilityZoneRestricted(): ?bool {
+        $val = $this->getBackingStore()->get('availabilityZoneRestricted');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'availabilityZoneRestricted'");
+    }
+
+    /**
      * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -74,6 +86,7 @@ class CloudPcSupportedRegionRestrictionDetail implements AdditionalDataHolder, B
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'availabilityZoneRestricted' => fn(ParseNode $n) => $o->setAvailabilityZoneRestricted($n->getBooleanValue()),
             'cPURestricted' => fn(ParseNode $n) => $o->setCPURestricted($n->getBooleanValue()),
             'gPURestricted' => fn(ParseNode $n) => $o->setGPURestricted($n->getBooleanValue()),
             'nestedVirtualizationRestricted' => fn(ParseNode $n) => $o->setNestedVirtualizationRestricted($n->getBooleanValue()),
@@ -122,6 +135,7 @@ class CloudPcSupportedRegionRestrictionDetail implements AdditionalDataHolder, B
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeBooleanValue('availabilityZoneRestricted', $this->getAvailabilityZoneRestricted());
         $writer->writeBooleanValue('cPURestricted', $this->getCPURestricted());
         $writer->writeBooleanValue('gPURestricted', $this->getGPURestricted());
         $writer->writeBooleanValue('nestedVirtualizationRestricted', $this->getNestedVirtualizationRestricted());
@@ -135,6 +149,14 @@ class CloudPcSupportedRegionRestrictionDetail implements AdditionalDataHolder, B
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the availabilityZoneRestricted property value. The availabilityZoneRestricted property
+     * @param bool|null $value Value to set for the availabilityZoneRestricted property.
+    */
+    public function setAvailabilityZoneRestricted(?bool $value): void {
+        $this->getBackingStore()->set('availabilityZoneRestricted', $value);
     }
 
     /**
