@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Models\DeviceManagement;
 use DateTime;
 use Microsoft\Graph\Beta\Generated\Models\AdminConsent;
 use Microsoft\Graph\Beta\Generated\Models\AdvancedThreatProtectionOnboardingStateSummary;
+use Microsoft\Graph\Beta\Generated\Models\AndroidAppConfigurationSchema;
 use Microsoft\Graph\Beta\Generated\Models\AndroidDeviceOwnerEnrollmentProfile;
 use Microsoft\Graph\Beta\Generated\Models\AndroidForWorkAppConfigurationSchema;
 use Microsoft\Graph\Beta\Generated\Models\AndroidForWorkEnrollmentProfile;
@@ -237,6 +238,18 @@ class DeviceManagement extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'advancedThreatProtectionOnboardingStateSummary'");
+    }
+
+    /**
+     * Gets the androidAppConfigurationSchema property value. Android App Configurations Schema entity.
+     * @return AndroidAppConfigurationSchema|null
+    */
+    public function getAndroidAppConfigurationSchema(): ?AndroidAppConfigurationSchema {
+        $val = $this->getBackingStore()->get('androidAppConfigurationSchema');
+        if (is_null($val) || $val instanceof AndroidAppConfigurationSchema) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'androidAppConfigurationSchema'");
     }
 
     /**
@@ -1093,6 +1106,7 @@ class DeviceManagement extends Entity implements Parsable
             'accountMoveCompletionDateTime' => fn(ParseNode $n) => $o->setAccountMoveCompletionDateTime($n->getDateTimeValue()),
             'adminConsent' => fn(ParseNode $n) => $o->setAdminConsent($n->getObjectValue([AdminConsent::class, 'createFromDiscriminatorValue'])),
             'advancedThreatProtectionOnboardingStateSummary' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionOnboardingStateSummary($n->getObjectValue([AdvancedThreatProtectionOnboardingStateSummary::class, 'createFromDiscriminatorValue'])),
+            'androidAppConfigurationSchema' => fn(ParseNode $n) => $o->setAndroidAppConfigurationSchema($n->getObjectValue([AndroidAppConfigurationSchema::class, 'createFromDiscriminatorValue'])),
             'androidDeviceOwnerEnrollmentProfiles' => fn(ParseNode $n) => $o->setAndroidDeviceOwnerEnrollmentProfiles($n->getCollectionOfObjectValues([AndroidDeviceOwnerEnrollmentProfile::class, 'createFromDiscriminatorValue'])),
             'androidForWorkAppConfigurationSchemas' => fn(ParseNode $n) => $o->setAndroidForWorkAppConfigurationSchemas($n->getCollectionOfObjectValues([AndroidForWorkAppConfigurationSchema::class, 'createFromDiscriminatorValue'])),
             'androidForWorkEnrollmentProfiles' => fn(ParseNode $n) => $o->setAndroidForWorkEnrollmentProfiles($n->getCollectionOfObjectValues([AndroidForWorkEnrollmentProfile::class, 'createFromDiscriminatorValue'])),
@@ -3016,6 +3030,7 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeDateTimeValue('accountMoveCompletionDateTime', $this->getAccountMoveCompletionDateTime());
         $writer->writeObjectValue('adminConsent', $this->getAdminConsent());
         $writer->writeObjectValue('advancedThreatProtectionOnboardingStateSummary', $this->getAdvancedThreatProtectionOnboardingStateSummary());
+        $writer->writeObjectValue('androidAppConfigurationSchema', $this->getAndroidAppConfigurationSchema());
         $writer->writeCollectionOfObjectValues('androidDeviceOwnerEnrollmentProfiles', $this->getAndroidDeviceOwnerEnrollmentProfiles());
         $writer->writeCollectionOfObjectValues('androidForWorkAppConfigurationSchemas', $this->getAndroidForWorkAppConfigurationSchemas());
         $writer->writeCollectionOfObjectValues('androidForWorkEnrollmentProfiles', $this->getAndroidForWorkEnrollmentProfiles());
@@ -3225,6 +3240,14 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function setAdvancedThreatProtectionOnboardingStateSummary(?AdvancedThreatProtectionOnboardingStateSummary $value): void {
         $this->getBackingStore()->set('advancedThreatProtectionOnboardingStateSummary', $value);
+    }
+
+    /**
+     * Sets the androidAppConfigurationSchema property value. Android App Configurations Schema entity.
+     * @param AndroidAppConfigurationSchema|null $value Value to set for the androidAppConfigurationSchema property.
+    */
+    public function setAndroidAppConfigurationSchema(?AndroidAppConfigurationSchema $value): void {
+        $this->getBackingStore()->set('androidAppConfigurationSchema', $value);
     }
 
     /**

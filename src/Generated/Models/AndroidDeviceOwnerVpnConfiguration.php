@@ -119,6 +119,14 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
             'customKeyValueData' => fn(ParseNode $n) => $o->setCustomKeyValueData($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
             'derivedCredentialSettings' => fn(ParseNode $n) => $o->setDerivedCredentialSettings($n->getObjectValue([DeviceManagementDerivedCredentialSettings::class, 'createFromDiscriminatorValue'])),
             'identityCertificate' => fn(ParseNode $n) => $o->setIdentityCertificate($n->getObjectValue([AndroidDeviceOwnerCertificateProfileBase::class, 'createFromDiscriminatorValue'])),
+            'lockdownExclusionList' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setLockdownExclusionList($val);
+            },
             'microsoftTunnelSiteId' => fn(ParseNode $n) => $o->setMicrosoftTunnelSiteId($n->getStringValue()),
             'proxyExclusionList' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -151,6 +159,20 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'identityCertificate'");
+    }
+
+    /**
+     * Gets the lockdownExclusionList property value. List of app package names that will be able to access the network directly when VPN is in lockdown mode but not connected.
+     * @return array<string>|null
+    */
+    public function getLockdownExclusionList(): ?array {
+        $val = $this->getBackingStore()->get('lockdownExclusionList');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lockdownExclusionList'");
     }
 
     /**
@@ -232,6 +254,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
         $writer->writeCollectionOfObjectValues('customKeyValueData', $this->getCustomKeyValueData());
         $writer->writeObjectValue('derivedCredentialSettings', $this->getDerivedCredentialSettings());
         $writer->writeObjectValue('identityCertificate', $this->getIdentityCertificate());
+        $writer->writeCollectionOfPrimitiveValues('lockdownExclusionList', $this->getLockdownExclusionList());
         $writer->writeStringValue('microsoftTunnelSiteId', $this->getMicrosoftTunnelSiteId());
         $writer->writeCollectionOfPrimitiveValues('proxyExclusionList', $this->getProxyExclusionList());
         $writer->writeObjectValue('proxyServer', $this->getProxyServer());
@@ -293,6 +316,14 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
     */
     public function setIdentityCertificate(?AndroidDeviceOwnerCertificateProfileBase $value): void {
         $this->getBackingStore()->set('identityCertificate', $value);
+    }
+
+    /**
+     * Sets the lockdownExclusionList property value. List of app package names that will be able to access the network directly when VPN is in lockdown mode but not connected.
+     * @param array<string>|null $value Value to set for the lockdownExclusionList property.
+    */
+    public function setLockdownExclusionList(?array $value): void {
+        $this->getBackingStore()->set('lockdownExclusionList', $value);
     }
 
     /**

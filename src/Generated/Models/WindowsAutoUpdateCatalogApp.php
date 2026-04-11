@@ -29,14 +29,40 @@ class WindowsAutoUpdateCatalogApp extends MobileApp implements Parsable
     }
 
     /**
+     * Gets the allowedArchitectures property value. Indicates the set of CPU architectures on which this application is allowed to be installed. When null, the app is eligible for installation on all the supported architectures. Possible values are: x86, x64, arm64, or a combination of them.
+     * @return WindowsArchitecture|null
+    */
+    public function getAllowedArchitectures(): ?WindowsArchitecture {
+        $val = $this->getBackingStore()->get('allowedArchitectures');
+        if (is_null($val) || $val instanceof WindowsArchitecture) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedArchitectures'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'allowedArchitectures' => fn(ParseNode $n) => $o->setAllowedArchitectures($n->getEnumValue(WindowsArchitecture::class)),
+            'installExperience' => fn(ParseNode $n) => $o->setInstallExperience($n->getObjectValue([WindowsAutoUpdateCatalogAppInstallExperience::class, 'createFromDiscriminatorValue'])),
             'mobileAppCatalogPackageBranchId' => fn(ParseNode $n) => $o->setMobileAppCatalogPackageBranchId($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the installExperience property value. Describes how the app installer executes on the target device, including the account context (system or user) under which the installer runs and how the device handles restarts after installation completes. When omitted, the service applies default values (runAsAccount = system, deviceRestartBehavior = basedOnReturnCode).
+     * @return WindowsAutoUpdateCatalogAppInstallExperience|null
+    */
+    public function getInstallExperience(): ?WindowsAutoUpdateCatalogAppInstallExperience {
+        $val = $this->getBackingStore()->get('installExperience');
+        if (is_null($val) || $val instanceof WindowsAutoUpdateCatalogAppInstallExperience) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'installExperience'");
     }
 
     /**
@@ -57,7 +83,25 @@ class WindowsAutoUpdateCatalogApp extends MobileApp implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeEnumValue('allowedArchitectures', $this->getAllowedArchitectures());
+        $writer->writeObjectValue('installExperience', $this->getInstallExperience());
         $writer->writeStringValue('mobileAppCatalogPackageBranchId', $this->getMobileAppCatalogPackageBranchId());
+    }
+
+    /**
+     * Sets the allowedArchitectures property value. Indicates the set of CPU architectures on which this application is allowed to be installed. When null, the app is eligible for installation on all the supported architectures. Possible values are: x86, x64, arm64, or a combination of them.
+     * @param WindowsArchitecture|null $value Value to set for the allowedArchitectures property.
+    */
+    public function setAllowedArchitectures(?WindowsArchitecture $value): void {
+        $this->getBackingStore()->set('allowedArchitectures', $value);
+    }
+
+    /**
+     * Sets the installExperience property value. Describes how the app installer executes on the target device, including the account context (system or user) under which the installer runs and how the device handles restarts after installation completes. When omitted, the service applies default values (runAsAccount = system, deviceRestartBehavior = basedOnReturnCode).
+     * @param WindowsAutoUpdateCatalogAppInstallExperience|null $value Value to set for the installExperience property.
+    */
+    public function setInstallExperience(?WindowsAutoUpdateCatalogAppInstallExperience $value): void {
+        $this->getBackingStore()->set('installExperience', $value);
     }
 
     /**

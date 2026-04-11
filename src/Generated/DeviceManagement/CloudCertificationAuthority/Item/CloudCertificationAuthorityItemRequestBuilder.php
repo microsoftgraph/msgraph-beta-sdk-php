@@ -4,18 +4,24 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuth
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\Activate\ActivateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\ActiveVersion\ActiveVersionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\ChangeCloudCertificationAuthorityStatus\ChangeCloudCertificationAuthorityStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\CloudCertificationAuthorityLeafCertificate\CloudCertificationAuthorityLeafCertificateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\GetAllCloudCertificationAuthority\GetAllCloudCertificationAuthorityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\GetAllCloudCertificationAuthorityLeafCertificates\GetAllCloudCertificationAuthorityLeafCertificatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\GetCloudCertificationAuthority\GetCloudCertificationAuthorityRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\GetCloudCertificationAuthorityVersion\GetCloudCertificationAuthorityVersionRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\GetCloudCertificationAuthorityVersions\GetCloudCertificationAuthorityVersionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\PatchCloudCertificationAuthority\PatchCloudCertificationAuthorityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\PostCloudCertificationAuthority\PostCloudCertificationAuthorityRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\Renew\RenewRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\RevokeCloudCertificationAuthorityCertificate\RevokeCloudCertificationAuthorityCertificateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\RevokeLeafCertificate\RevokeLeafCertificateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\RevokeLeafCertificateBySerialNumber\RevokeLeafCertificateBySerialNumberRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\SearchCloudCertificationAuthorityLeafCertificateBySerialNumber\SearchCloudCertificationAuthorityLeafCertificateBySerialNumberRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\UploadExternallySignedCertificationAuthorityCertificate\UploadExternallySignedCertificationAuthorityCertificateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\Versions\VersionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudCertificationAuthority;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -28,6 +34,20 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class CloudCertificationAuthorityItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to call the activate method.
+    */
+    public function activate(): ActivateRequestBuilder {
+        return new ActivateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the activeVersion property of the microsoft.graph.cloudCertificationAuthority entity.
+    */
+    public function activeVersion(): ActiveVersionRequestBuilder {
+        return new ActiveVersionRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to call the changeCloudCertificationAuthorityStatus method.
     */
@@ -64,6 +84,20 @@ class CloudCertificationAuthorityItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the getCloudCertificationAuthorityVersion method.
+    */
+    public function getCloudCertificationAuthorityVersion(): GetCloudCertificationAuthorityVersionRequestBuilder {
+        return new GetCloudCertificationAuthorityVersionRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getCloudCertificationAuthorityVersions method.
+    */
+    public function getCloudCertificationAuthorityVersions(): GetCloudCertificationAuthorityVersionsRequestBuilder {
+        return new GetCloudCertificationAuthorityVersionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the patchCloudCertificationAuthority method.
     */
     public function patchCloudCertificationAuthority(): PatchCloudCertificationAuthorityRequestBuilder {
@@ -75,6 +109,13 @@ class CloudCertificationAuthorityItemRequestBuilder extends BaseRequestBuilder
     */
     public function postCloudCertificationAuthority(): PostCloudCertificationAuthorityRequestBuilder {
         return new PostCloudCertificationAuthorityRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the renew method.
+    */
+    public function renew(): RenewRequestBuilder {
+        return new RenewRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -110,6 +151,13 @@ class CloudCertificationAuthorityItemRequestBuilder extends BaseRequestBuilder
     */
     public function uploadExternallySignedCertificationAuthorityCertificate(): UploadExternallySignedCertificationAuthorityCertificateRequestBuilder {
         return new UploadExternallySignedCertificationAuthorityCertificateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the versions property of the microsoft.graph.cloudCertificationAuthority entity.
+    */
+    public function versions(): VersionsRequestBuilder {
+        return new VersionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

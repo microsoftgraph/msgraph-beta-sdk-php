@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuth
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthorityLeafCertificate\Item\CloudCertificationAuthorityVersion\CloudCertificationAuthorityVersionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudCertificationAuthorityLeafCertificate;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -16,6 +17,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class CloudCertificationAuthorityLeafCertificateItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the cloudCertificationAuthorityVersion property of the microsoft.graph.cloudCertificationAuthorityLeafCertificate entity.
+    */
+    public function cloudCertificationAuthorityVersion(): CloudCertificationAuthorityVersionRequestBuilder {
+        return new CloudCertificationAuthorityVersionRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new CloudCertificationAuthorityLeafCertificateItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

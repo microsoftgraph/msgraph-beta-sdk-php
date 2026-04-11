@@ -49,6 +49,7 @@ class MobileAppAssignmentSettings implements AdditionalDataHolder, BackedModel, 
                 case '#microsoft.graph.win32CatalogAppAssignmentSettings': return new Win32CatalogAppAssignmentSettings();
                 case '#microsoft.graph.win32LobAppAssignmentSettings': return new Win32LobAppAssignmentSettings();
                 case '#microsoft.graph.windowsAppXAppAssignmentSettings': return new WindowsAppXAppAssignmentSettings();
+                case '#microsoft.graph.windowsAutoUpdateCatalogAppAssignmentSettings': return new WindowsAutoUpdateCatalogAppAssignmentSettings();
                 case '#microsoft.graph.windowsUniversalAppXAppAssignmentSettings': return new WindowsUniversalAppXAppAssignmentSettings();
                 case '#microsoft.graph.winGetAppAssignmentSettings': return new WinGetAppAssignmentSettings();
             }

@@ -11,4 +11,5 @@ class CloudCertificationAuthorityStatus extends Enum {
     public const REVOKED = "revoked";
     public const SIGNING_PENDING = "signingPending";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const EXPIRED = "expired";
 }

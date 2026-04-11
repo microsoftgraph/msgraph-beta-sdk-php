@@ -37,6 +37,7 @@ class IdentityContainer extends Entity implements Parsable
             'identityAccounts' => fn(ParseNode $n) => $o->setIdentityAccounts($n->getCollectionOfObjectValues([IdentityAccounts::class, 'createFromDiscriminatorValue'])),
             'sensorCandidateActivationConfiguration' => fn(ParseNode $n) => $o->setSensorCandidateActivationConfiguration($n->getObjectValue([SensorCandidateActivationConfiguration::class, 'createFromDiscriminatorValue'])),
             'sensorCandidates' => fn(ParseNode $n) => $o->setSensorCandidates($n->getCollectionOfObjectValues([SensorCandidate::class, 'createFromDiscriminatorValue'])),
+            'sensorMigration' => fn(ParseNode $n) => $o->setSensorMigration($n->getCollectionOfObjectValues([SensorMigration::class, 'createFromDiscriminatorValue'])),
             'sensors' => fn(ParseNode $n) => $o->setSensors($n->getCollectionOfObjectValues([Sensor::class, 'createFromDiscriminatorValue'])),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([SettingsContainer::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -97,6 +98,20 @@ class IdentityContainer extends Entity implements Parsable
     }
 
     /**
+     * Gets the sensorMigration property value. The sensorMigration property
+     * @return array<SensorMigration>|null
+    */
+    public function getSensorMigration(): ?array {
+        $val = $this->getBackingStore()->get('sensorMigration');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SensorMigration::class);
+            /** @var array<SensorMigration>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sensorMigration'");
+    }
+
+    /**
      * Gets the sensors property value. Represents a customer's Microsoft Defender for Identity sensors.
      * @return array<Sensor>|null
     */
@@ -132,6 +147,7 @@ class IdentityContainer extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('identityAccounts', $this->getIdentityAccounts());
         $writer->writeObjectValue('sensorCandidateActivationConfiguration', $this->getSensorCandidateActivationConfiguration());
         $writer->writeCollectionOfObjectValues('sensorCandidates', $this->getSensorCandidates());
+        $writer->writeCollectionOfObjectValues('sensorMigration', $this->getSensorMigration());
         $writer->writeCollectionOfObjectValues('sensors', $this->getSensors());
         $writer->writeObjectValue('settings', $this->getSettings());
     }
@@ -166,6 +182,14 @@ class IdentityContainer extends Entity implements Parsable
     */
     public function setSensorCandidates(?array $value): void {
         $this->getBackingStore()->set('sensorCandidates', $value);
+    }
+
+    /**
+     * Sets the sensorMigration property value. The sensorMigration property
+     * @param array<SensorMigration>|null $value Value to set for the sensorMigration property.
+    */
+    public function setSensorMigration(?array $value): void {
+        $this->getBackingStore()->set('sensorMigration', $value);
     }
 
     /**

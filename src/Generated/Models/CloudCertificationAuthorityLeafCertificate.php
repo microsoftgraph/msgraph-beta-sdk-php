@@ -54,6 +54,30 @@ class CloudCertificationAuthorityLeafCertificate extends Entity implements Parsa
     }
 
     /**
+     * Gets the certificationAuthorityVersionNumber property value. The version number of the certification authority that issued this leaf certificate. Read-only.
+     * @return int|null
+    */
+    public function getCertificationAuthorityVersionNumber(): ?int {
+        $val = $this->getBackingStore()->get('certificationAuthorityVersionNumber');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'certificationAuthorityVersionNumber'");
+    }
+
+    /**
+     * Gets the cloudCertificationAuthorityVersion property value. The certification authority version that issued this leaf certificate. Read-only.
+     * @return CloudCertificationAuthorityVersion|null
+    */
+    public function getCloudCertificationAuthorityVersion(): ?CloudCertificationAuthorityVersion {
+        $val = $this->getBackingStore()->get('cloudCertificationAuthorityVersion');
+        if (is_null($val) || $val instanceof CloudCertificationAuthorityVersion) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudCertificationAuthorityVersion'");
+    }
+
+    /**
      * Gets the crlDistributionPointUrl property value. URL to find the relevant Certificate Revocation List for this certificate. Read-only.
      * @return string|null
     */
@@ -124,6 +148,8 @@ class CloudCertificationAuthorityLeafCertificate extends Entity implements Parsa
         return array_merge(parent::getFieldDeserializers(), [
             'certificateStatus' => fn(ParseNode $n) => $o->setCertificateStatus($n->getEnumValue(CloudCertificationAuthorityLeafCertificateStatus::class)),
             'certificationAuthorityIssuerUri' => fn(ParseNode $n) => $o->setCertificationAuthorityIssuerUri($n->getStringValue()),
+            'certificationAuthorityVersionNumber' => fn(ParseNode $n) => $o->setCertificationAuthorityVersionNumber($n->getIntegerValue()),
+            'cloudCertificationAuthorityVersion' => fn(ParseNode $n) => $o->setCloudCertificationAuthorityVersion($n->getObjectValue([CloudCertificationAuthorityVersion::class, 'createFromDiscriminatorValue'])),
             'crlDistributionPointUrl' => fn(ParseNode $n) => $o->setCrlDistributionPointUrl($n->getStringValue()),
             'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
             'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
@@ -312,6 +338,8 @@ class CloudCertificationAuthorityLeafCertificate extends Entity implements Parsa
         parent::serialize($writer);
         $writer->writeEnumValue('certificateStatus', $this->getCertificateStatus());
         $writer->writeStringValue('certificationAuthorityIssuerUri', $this->getCertificationAuthorityIssuerUri());
+        $writer->writeIntegerValue('certificationAuthorityVersionNumber', $this->getCertificationAuthorityVersionNumber());
+        $writer->writeObjectValue('cloudCertificationAuthorityVersion', $this->getCloudCertificationAuthorityVersion());
         $writer->writeStringValue('crlDistributionPointUrl', $this->getCrlDistributionPointUrl());
         $writer->writeStringValue('deviceId', $this->getDeviceId());
         $writer->writeStringValue('deviceName', $this->getDeviceName());
@@ -345,6 +373,22 @@ class CloudCertificationAuthorityLeafCertificate extends Entity implements Parsa
     */
     public function setCertificationAuthorityIssuerUri(?string $value): void {
         $this->getBackingStore()->set('certificationAuthorityIssuerUri', $value);
+    }
+
+    /**
+     * Sets the certificationAuthorityVersionNumber property value. The version number of the certification authority that issued this leaf certificate. Read-only.
+     * @param int|null $value Value to set for the certificationAuthorityVersionNumber property.
+    */
+    public function setCertificationAuthorityVersionNumber(?int $value): void {
+        $this->getBackingStore()->set('certificationAuthorityVersionNumber', $value);
+    }
+
+    /**
+     * Sets the cloudCertificationAuthorityVersion property value. The certification authority version that issued this leaf certificate. Read-only.
+     * @param CloudCertificationAuthorityVersion|null $value Value to set for the cloudCertificationAuthorityVersion property.
+    */
+    public function setCloudCertificationAuthorityVersion(?CloudCertificationAuthorityVersion $value): void {
+        $this->getBackingStore()->set('cloudCertificationAuthorityVersion', $value);
     }
 
     /**
