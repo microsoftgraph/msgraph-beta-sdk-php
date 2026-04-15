@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Models\ReportRoot;
 use Microsoft\Graph\Beta\Generated\Reports\AppCredentialSignInActivities\AppCredentialSignInActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\ApplicationSignInDetailedSummary\ApplicationSignInDetailedSummaryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\AuthenticationMethodsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\AzureADPremiumLicenseInsight\AzureADPremiumLicenseInsightRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\CredentialUserRegistrationDetails\CredentialUserRegistrationDetailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsage\DailyPrintUsageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageByPrinter\DailyPrintUsageByPrinterRequestBuilder;
@@ -187,6 +188,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function authenticationMethods(): AuthenticationMethodsRequestBuilder {
         return new AuthenticationMethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the azureADPremiumLicenseInsight property of the microsoft.graph.reportRoot entity.
+    */
+    public function azureADPremiumLicenseInsight(): AzureADPremiumLicenseInsightRequestBuilder {
+        return new AzureADPremiumLicenseInsightRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

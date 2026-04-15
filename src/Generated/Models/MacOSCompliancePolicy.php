@@ -41,6 +41,18 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     }
 
     /**
+     * Gets the deviceCompliancePolicyScript property value. Custom compliance configuration for the policy (script identifier and rules content). When set, custom compliance rules are evaluated and the device is marked noncompliant when any rule evaluates to noncompliant. When not set, no custom compliance rules are evaluated. Default is null, when set to default it is not evaluated.
+     * @return DeviceCompliancePolicyScript|null
+    */
+    public function getDeviceCompliancePolicyScript(): ?DeviceCompliancePolicyScript {
+        $val = $this->getBackingStore()->get('deviceCompliancePolicyScript');
+        if (is_null($val) || $val instanceof DeviceCompliancePolicyScript) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceCompliancePolicyScript'");
+    }
+
+    /**
      * Gets the deviceThreatProtectionEnabled property value. Require that devices have enabled device threat protection.
      * @return bool|null
     */
@@ -72,6 +84,7 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'advancedThreatProtectionRequiredSecurityLevel' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionRequiredSecurityLevel($n->getEnumValue(DeviceThreatProtectionLevel::class)),
+            'deviceCompliancePolicyScript' => fn(ParseNode $n) => $o->setDeviceCompliancePolicyScript($n->getObjectValue([DeviceCompliancePolicyScript::class, 'createFromDiscriminatorValue'])),
             'deviceThreatProtectionEnabled' => fn(ParseNode $n) => $o->setDeviceThreatProtectionEnabled($n->getBooleanValue()),
             'deviceThreatProtectionRequiredSecurityLevel' => fn(ParseNode $n) => $o->setDeviceThreatProtectionRequiredSecurityLevel($n->getEnumValue(DeviceThreatProtectionLevel::class)),
             'firewallBlockAllIncoming' => fn(ParseNode $n) => $o->setFirewallBlockAllIncoming($n->getBooleanValue()),
@@ -318,6 +331,7 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('advancedThreatProtectionRequiredSecurityLevel', $this->getAdvancedThreatProtectionRequiredSecurityLevel());
+        $writer->writeObjectValue('deviceCompliancePolicyScript', $this->getDeviceCompliancePolicyScript());
         $writer->writeBooleanValue('deviceThreatProtectionEnabled', $this->getDeviceThreatProtectionEnabled());
         $writer->writeEnumValue('deviceThreatProtectionRequiredSecurityLevel', $this->getDeviceThreatProtectionRequiredSecurityLevel());
         $writer->writeBooleanValue('firewallBlockAllIncoming', $this->getFirewallBlockAllIncoming());
@@ -346,6 +360,14 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     */
     public function setAdvancedThreatProtectionRequiredSecurityLevel(?DeviceThreatProtectionLevel $value): void {
         $this->getBackingStore()->set('advancedThreatProtectionRequiredSecurityLevel', $value);
+    }
+
+    /**
+     * Sets the deviceCompliancePolicyScript property value. Custom compliance configuration for the policy (script identifier and rules content). When set, custom compliance rules are evaluated and the device is marked noncompliant when any rule evaluates to noncompliant. When not set, no custom compliance rules are evaluated. Default is null, when set to default it is not evaluated.
+     * @param DeviceCompliancePolicyScript|null $value Value to set for the deviceCompliancePolicyScript property.
+    */
+    public function setDeviceCompliancePolicyScript(?DeviceCompliancePolicyScript $value): void {
+        $this->getBackingStore()->set('deviceCompliancePolicyScript', $value);
     }
 
     /**

@@ -30,6 +30,18 @@ class CloudCertificationAuthority extends Entity implements Parsable
     }
 
     /**
+     * Gets the activeVersion property value. The currently active certification authority version. This navigation property provides direct access to the active version's details including certificate information, URLs, and validity periods. The active version is automatically included in the default response when retrieving a certification authority entity without requiring $expand. Read-only.
+     * @return CloudCertificationAuthorityVersion|null
+    */
+    public function getActiveVersion(): ?CloudCertificationAuthorityVersion {
+        $val = $this->getBackingStore()->get('activeVersion');
+        if (is_null($val) || $val instanceof CloudCertificationAuthorityVersion) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activeVersion'");
+    }
+
+    /**
      * Gets the certificateDownloadUrl property value. The URL to download the certification authority certificate. Read-only.
      * @return string|null
     */
@@ -102,7 +114,7 @@ class CloudCertificationAuthority extends Entity implements Parsable
     }
 
     /**
-     * Gets the certificationAuthorityStatus property value. Enum type of possible certification authority statuses. These statuses indicate whether a certification authority is currently able to issue certificates or temporarily paused or permanently revoked.
+     * Gets the certificationAuthorityStatus property value. Enum type of possible certification authority statuses. These statuses indicate whether a certification authority is currently able to issue certificates, temporarily paused, pending signing, revoked, or expired.
      * @return CloudCertificationAuthorityStatus|null
     */
     public function getCertificationAuthorityStatus(): ?CloudCertificationAuthorityStatus {
@@ -244,6 +256,7 @@ class CloudCertificationAuthority extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'activeVersion' => fn(ParseNode $n) => $o->setActiveVersion($n->getObjectValue([CloudCertificationAuthorityVersion::class, 'createFromDiscriminatorValue'])),
             'certificateDownloadUrl' => fn(ParseNode $n) => $o->setCertificateDownloadUrl($n->getStringValue()),
             'certificateKeySize' => fn(ParseNode $n) => $o->setCertificateKeySize($n->getEnumValue(CloudCertificationAuthorityCertificateKeySize::class)),
             'certificateRevocationListUrl' => fn(ParseNode $n) => $o->setCertificateRevocationListUrl($n->getStringValue()),
@@ -286,6 +299,7 @@ class CloudCertificationAuthority extends Entity implements Parsable
             'validityPeriodInYears' => fn(ParseNode $n) => $o->setValidityPeriodInYears($n->getIntegerValue()),
             'validityStartDateTime' => fn(ParseNode $n) => $o->setValidityStartDateTime($n->getDateTimeValue()),
             'versionNumber' => fn(ParseNode $n) => $o->setVersionNumber($n->getIntegerValue()),
+            'versions' => fn(ParseNode $n) => $o->setVersions($n->getCollectionOfObjectValues([CloudCertificationAuthorityVersion::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -508,11 +522,26 @@ class CloudCertificationAuthority extends Entity implements Parsable
     }
 
     /**
+     * Gets the versions property value. The collection of all certification authority versions, including active, staged, retired, and expired versions. This navigation property provides access to the full version history of the certification authority. Use $expand=versions to include this collection in the response. Read-only.
+     * @return array<CloudCertificationAuthorityVersion>|null
+    */
+    public function getVersions(): ?array {
+        $val = $this->getBackingStore()->get('versions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudCertificationAuthorityVersion::class);
+            /** @var array<CloudCertificationAuthorityVersion>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'versions'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('activeVersion', $this->getActiveVersion());
         $writer->writeStringValue('certificateDownloadUrl', $this->getCertificateDownloadUrl());
         $writer->writeEnumValue('certificateKeySize', $this->getCertificateKeySize());
         $writer->writeStringValue('certificateRevocationListUrl', $this->getCertificateRevocationListUrl());
@@ -548,6 +577,15 @@ class CloudCertificationAuthority extends Entity implements Parsable
         $writer->writeIntegerValue('validityPeriodInYears', $this->getValidityPeriodInYears());
         $writer->writeDateTimeValue('validityStartDateTime', $this->getValidityStartDateTime());
         $writer->writeIntegerValue('versionNumber', $this->getVersionNumber());
+        $writer->writeCollectionOfObjectValues('versions', $this->getVersions());
+    }
+
+    /**
+     * Sets the activeVersion property value. The currently active certification authority version. This navigation property provides direct access to the active version's details including certificate information, URLs, and validity periods. The active version is automatically included in the default response when retrieving a certification authority entity without requiring $expand. Read-only.
+     * @param CloudCertificationAuthorityVersion|null $value Value to set for the activeVersion property.
+    */
+    public function setActiveVersion(?CloudCertificationAuthorityVersion $value): void {
+        $this->getBackingStore()->set('activeVersion', $value);
     }
 
     /**
@@ -599,7 +637,7 @@ class CloudCertificationAuthority extends Entity implements Parsable
     }
 
     /**
-     * Sets the certificationAuthorityStatus property value. Enum type of possible certification authority statuses. These statuses indicate whether a certification authority is currently able to issue certificates or temporarily paused or permanently revoked.
+     * Sets the certificationAuthorityStatus property value. Enum type of possible certification authority statuses. These statuses indicate whether a certification authority is currently able to issue certificates, temporarily paused, pending signing, revoked, or expired.
      * @param CloudCertificationAuthorityStatus|null $value Value to set for the certificationAuthorityStatus property.
     */
     public function setCertificationAuthorityStatus(?CloudCertificationAuthorityStatus $value): void {
@@ -828,6 +866,14 @@ class CloudCertificationAuthority extends Entity implements Parsable
     */
     public function setVersionNumber(?int $value): void {
         $this->getBackingStore()->set('versionNumber', $value);
+    }
+
+    /**
+     * Sets the versions property value. The collection of all certification authority versions, including active, staged, retired, and expired versions. This navigation property provides access to the full version history of the certification authority. Use $expand=versions to include this collection in the response. Read-only.
+     * @param array<CloudCertificationAuthorityVersion>|null $value Value to set for the versions property.
+    */
+    public function setVersions(?array $value): void {
+        $this->getBackingStore()->set('versions', $value);
     }
 
 }

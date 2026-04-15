@@ -17,10 +17,12 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\GalleryImage
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\GetEffectivePermissions\GetEffectivePermissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ManagedLicenses\ManagedLicensesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\OnPremisesConnections\OnPremisesConnectionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\OrganizationAction\OrganizationActionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\OrganizationSettings\OrganizationSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\ProvisioningPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Report\ReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\ReportsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\RetrieveOrganizationActionDetailWithActionType\RetrieveOrganizationActionDetailWithActionTypeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\RetrieveScopedPermissions\RetrieveScopedPermissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\RetrieveTenantEncryptionSetting\RetrieveTenantEncryptionSettingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ServicePlans\ServicePlansRequestBuilder;
@@ -128,6 +130,13 @@ class VirtualEndpointRequestBuilder extends BaseRequestBuilder
     */
     public function onPremisesConnections(): OnPremisesConnectionsRequestBuilder {
         return new OnPremisesConnectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the organizationAction method.
+    */
+    public function organizationAction(): OrganizationActionRequestBuilder {
+        return new OrganizationActionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -255,6 +264,15 @@ class VirtualEndpointRequestBuilder extends BaseRequestBuilder
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [VirtualEndpoint::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to call the retrieveOrganizationActionDetail method.
+     * @param string $actionType Usage: actionType='{actionType}'
+     * @return RetrieveOrganizationActionDetailWithActionTypeRequestBuilder
+    */
+    public function retrieveOrganizationActionDetailWithActionType(string $actionType): RetrieveOrganizationActionDetailWithActionTypeRequestBuilder {
+        return new RetrieveOrganizationActionDetailWithActionTypeRequestBuilder($this->pathParameters, $this->requestAdapter, $actionType);
     }
 
     /**
