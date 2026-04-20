@@ -295,6 +295,7 @@ use Microsoft\Graph\Beta\Generated\Models\Security\SensitivityLabel;
 use Microsoft\Graph\Beta\Generated\Models\Security\Sensor;
 use Microsoft\Graph\Beta\Generated\Models\Security\SensorCandidate;
 use Microsoft\Graph\Beta\Generated\Models\Security\SensorCandidateActivationConfiguration;
+use Microsoft\Graph\Beta\Generated\Models\Security\SensorMigration;
 use Microsoft\Graph\Beta\Generated\Models\Security\SettingsContainer;
 use Microsoft\Graph\Beta\Generated\Models\Security\SslCertificate;
 use Microsoft\Graph\Beta\Generated\Models\Security\SubcategoryTemplate;
@@ -411,6 +412,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
                 case '#microsoft.graph.aadUserConversationMember': return new AadUserConversationMember();
+                case '#microsoft.graph.accessDriftReport': return new AccessDriftReport();
                 case '#microsoft.graph.accessPackage': return new AccessPackage();
                 case '#microsoft.graph.accessPackageAssignment': return new AccessPackageAssignment();
                 case '#microsoft.graph.accessPackageAssignmentPolicy': return new AccessPackageAssignmentPolicy();
@@ -485,6 +487,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.allowedDataLocation': return new AllowedDataLocation();
                 case '#microsoft.graph.allowedValue': return new AllowedValue();
                 case '#microsoft.graph.allSitesBackup': return new AllSitesBackup();
+                case '#microsoft.graph.androidAppConfigurationSchema': return new AndroidAppConfigurationSchema();
                 case '#microsoft.graph.androidCertificateProfileBase': return new AndroidCertificateProfileBase();
                 case '#microsoft.graph.androidCompliancePolicy': return new AndroidCompliancePolicy();
                 case '#microsoft.graph.androidCustomConfiguration': return new AndroidCustomConfiguration();
@@ -655,6 +658,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.awsSecurityToolAdministrationFinding': return new AwsSecurityToolAdministrationFinding();
                 case '#microsoft.graph.awsUser': return new AwsUser();
                 case '#microsoft.graph.azureADAuthentication': return new AzureADAuthentication();
+                case '#microsoft.graph.azureADPremiumLicenseInsight': return new AzureADPremiumLicenseInsight();
                 case '#microsoft.graph.azureADWindowsAutopilotDeploymentProfile': return new AzureADWindowsAutopilotDeploymentProfile();
                 case '#microsoft.graph.azureAuthorizationSystem': return new AzureAuthorizationSystem();
                 case '#microsoft.graph.azureAuthorizationSystemResource': return new AzureAuthorizationSystemResource();
@@ -745,6 +749,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.cloudAppSecurityProfile': return new CloudAppSecurityProfile();
                 case '#microsoft.graph.cloudCertificationAuthority': return new CloudCertificationAuthority();
                 case '#microsoft.graph.cloudCertificationAuthorityLeafCertificate': return new CloudCertificationAuthorityLeafCertificate();
+                case '#microsoft.graph.cloudCertificationAuthorityVersion': return new CloudCertificationAuthorityVersion();
                 case '#microsoft.graph.cloudClipboardItem': return new CloudClipboardItem();
                 case '#microsoft.graph.cloudClipboardRoot': return new CloudClipboardRoot();
                 case '#microsoft.graph.cloudFlareWebApplicationFirewallProvider': return new CloudFlareWebApplicationFirewallProvider();
@@ -840,6 +845,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.copilotPackage': return new CopilotPackage();
                 case '#microsoft.graph.copilotPackageDetail': return new CopilotPackageDetail();
                 case '#microsoft.graph.copilotPeopleAdminSetting': return new CopilotPeopleAdminSetting();
+                case '#microsoft.graph.copilotPolicySetting': return new CopilotPolicySetting();
                 case '#microsoft.graph.copilotReportRoot': return new CopilotReportRoot();
                 case '#microsoft.graph.copilotSetting': return new CopilotSetting();
                 case '#microsoft.graph.corsConfiguration_v2': return new CorsConfiguration_v2();
@@ -2108,6 +2114,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.security.sensor': return new Sensor();
                 case '#microsoft.graph.security.sensorCandidate': return new SensorCandidate();
                 case '#microsoft.graph.security.sensorCandidateActivationConfiguration': return new SensorCandidateActivationConfiguration();
+                case '#microsoft.graph.security.sensorMigration': return new SensorMigration();
                 case '#microsoft.graph.security.settingsContainer': return new SettingsContainer();
                 case '#microsoft.graph.security.siteSource': return new \Microsoft\Graph\Beta\Generated\Models\Security\SiteSource();
                 case '#microsoft.graph.security.sslCertificate': return new SslCertificate();

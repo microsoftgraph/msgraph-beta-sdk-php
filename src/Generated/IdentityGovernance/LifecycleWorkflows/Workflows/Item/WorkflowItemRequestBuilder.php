@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflo
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\LastModifiedBy\LastModifiedByRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\MicrosoftGraphIdentityGovernanceActivate\MicrosoftGraphIdentityGovernanceActivateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\MicrosoftGraphIdentityGovernanceActivateWithScope\MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\MicrosoftGraphIdentityGovernanceCancelProcessing\MicrosoftGraphIdentityGovernanceCancelProcessingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\MicrosoftGraphIdentityGovernanceCreateNewVersion\MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\MicrosoftGraphIdentityGovernancePreviewTaskFailures\MicrosoftGraphIdentityGovernancePreviewTaskFailuresRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Workflows\Item\MicrosoftGraphIdentityGovernancePreviewWorkflow\MicrosoftGraphIdentityGovernancePreviewWorkflowRequestBuilder;
@@ -72,6 +73,13 @@ class WorkflowItemRequestBuilder extends BaseRequestBuilder
     */
     public function microsoftGraphIdentityGovernanceActivateWithScope(): MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilder {
         return new MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the cancelProcessing method.
+    */
+    public function microsoftGraphIdentityGovernanceCancelProcessing(): MicrosoftGraphIdentityGovernanceCancelProcessingRequestBuilder {
+        return new MicrosoftGraphIdentityGovernanceCancelProcessingRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

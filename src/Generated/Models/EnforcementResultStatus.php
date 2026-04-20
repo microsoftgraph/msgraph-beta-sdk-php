@@ -13,5 +13,4 @@ class EnforcementResultStatus extends Enum {
     public const O_S_OVERRIDE = "oSOverride";
     public const PROCESS_NON_EXISTENT = "processNonExistent";
     public const OTHER = "other";
-    public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

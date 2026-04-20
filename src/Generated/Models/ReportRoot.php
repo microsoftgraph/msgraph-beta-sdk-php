@@ -68,6 +68,18 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the azureADPremiumLicenseInsight property value. The azureADPremiumLicenseInsight property
+     * @return AzureADPremiumLicenseInsight|null
+    */
+    public function getAzureADPremiumLicenseInsight(): ?AzureADPremiumLicenseInsight {
+        $val = $this->getBackingStore()->get('azureADPremiumLicenseInsight');
+        if (is_null($val) || $val instanceof AzureADPremiumLicenseInsight) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'azureADPremiumLicenseInsight'");
+    }
+
+    /**
      * Gets the credentialUserRegistrationDetails property value. Details of the usage of self-service password reset and multifactor authentication (MFA) for all registered users.
      * @return array<CredentialUserRegistrationDetails>|null
     */
@@ -161,6 +173,7 @@ class ReportRoot extends Entity implements Parsable
             'appCredentialSignInActivities' => fn(ParseNode $n) => $o->setAppCredentialSignInActivities($n->getCollectionOfObjectValues([AppCredentialSignInActivity::class, 'createFromDiscriminatorValue'])),
             'applicationSignInDetailedSummary' => fn(ParseNode $n) => $o->setApplicationSignInDetailedSummary($n->getCollectionOfObjectValues([ApplicationSignInDetailedSummary::class, 'createFromDiscriminatorValue'])),
             'authenticationMethods' => fn(ParseNode $n) => $o->setAuthenticationMethods($n->getObjectValue([AuthenticationMethodsRoot::class, 'createFromDiscriminatorValue'])),
+            'azureADPremiumLicenseInsight' => fn(ParseNode $n) => $o->setAzureADPremiumLicenseInsight($n->getObjectValue([AzureADPremiumLicenseInsight::class, 'createFromDiscriminatorValue'])),
             'credentialUserRegistrationDetails' => fn(ParseNode $n) => $o->setCredentialUserRegistrationDetails($n->getCollectionOfObjectValues([CredentialUserRegistrationDetails::class, 'createFromDiscriminatorValue'])),
             'dailyPrintUsage' => fn(ParseNode $n) => $o->setDailyPrintUsage($n->getCollectionOfObjectValues([PrintUsage::class, 'createFromDiscriminatorValue'])),
             'dailyPrintUsageByPrinter' => fn(ParseNode $n) => $o->setDailyPrintUsageByPrinter($n->getCollectionOfObjectValues([PrintUsageByPrinter::class, 'createFromDiscriminatorValue'])),
@@ -347,6 +360,7 @@ class ReportRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('appCredentialSignInActivities', $this->getAppCredentialSignInActivities());
         $writer->writeCollectionOfObjectValues('applicationSignInDetailedSummary', $this->getApplicationSignInDetailedSummary());
         $writer->writeObjectValue('authenticationMethods', $this->getAuthenticationMethods());
+        $writer->writeObjectValue('azureADPremiumLicenseInsight', $this->getAzureADPremiumLicenseInsight());
         $writer->writeCollectionOfObjectValues('credentialUserRegistrationDetails', $this->getCredentialUserRegistrationDetails());
         $writer->writeCollectionOfObjectValues('dailyPrintUsage', $this->getDailyPrintUsage());
         $writer->writeCollectionOfObjectValues('dailyPrintUsageByPrinter', $this->getDailyPrintUsageByPrinter());
@@ -389,6 +403,14 @@ class ReportRoot extends Entity implements Parsable
     */
     public function setAuthenticationMethods(?AuthenticationMethodsRoot $value): void {
         $this->getBackingStore()->set('authenticationMethods', $value);
+    }
+
+    /**
+     * Sets the azureADPremiumLicenseInsight property value. The azureADPremiumLicenseInsight property
+     * @param AzureADPremiumLicenseInsight|null $value Value to set for the azureADPremiumLicenseInsight property.
+    */
+    public function setAzureADPremiumLicenseInsight(?AzureADPremiumLicenseInsight $value): void {
+        $this->getBackingStore()->set('azureADPremiumLicenseInsight', $value);
     }
 
     /**
