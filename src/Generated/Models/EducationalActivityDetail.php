@@ -36,7 +36,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the abbreviation property value. Shortened name of the degree or program (example: PhD, MBA)
+     * Gets the abbreviation property value. Shortened name of the degree or program, for example, PhD and MBA.
      * @return string|null
     */
     public function getAbbreviation(): ?string {
@@ -162,7 +162,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the fieldsOfStudy property value. Majors and minors associated with the program. (if applicable)
+     * Gets the fieldsOfStudy property value. Majors and minors associated with the program, if applicable.
      * @return array<string>|null
     */
     public function getFieldsOfStudy(): ?array {
@@ -176,7 +176,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the grade property value. The final grade, class, GPA, or score.
+     * Gets the grade property value. The final grade, class, grade point average (GPA), or score.
      * @return string|null
     */
     public function getGrade(): ?string {
@@ -188,7 +188,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the notes property value. More notes the user provided.
+     * Gets the notes property value. More notes provided by the user.
      * @return string|null
     */
     public function getNotes(): ?string {
@@ -242,7 +242,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the abbreviation property value. Shortened name of the degree or program (example: PhD, MBA)
+     * Sets the abbreviation property value. Shortened name of the degree or program, for example, PhD and MBA.
      * @param string|null $value Value to set for the abbreviation property.
     */
     public function setAbbreviation(?string $value): void {
@@ -298,7 +298,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the fieldsOfStudy property value. Majors and minors associated with the program. (if applicable)
+     * Sets the fieldsOfStudy property value. Majors and minors associated with the program, if applicable.
      * @param array<string>|null $value Value to set for the fieldsOfStudy property.
     */
     public function setFieldsOfStudy(?array $value): void {
@@ -306,7 +306,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the grade property value. The final grade, class, GPA, or score.
+     * Sets the grade property value. The final grade, class, grade point average (GPA), or score.
      * @param string|null $value Value to set for the grade property.
     */
     public function setGrade(?string $value): void {
@@ -314,7 +314,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the notes property value. More notes the user provided.
+     * Sets the notes property value. More notes provided by the user.
      * @param string|null $value Value to set for the notes property.
     */
     public function setNotes(?string $value): void {

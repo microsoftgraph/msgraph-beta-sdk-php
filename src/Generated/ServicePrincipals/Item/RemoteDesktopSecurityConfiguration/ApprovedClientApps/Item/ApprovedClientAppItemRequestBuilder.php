@@ -31,10 +31,11 @@ class ApprovedClientAppItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property approvedClientApps for servicePrincipals
+     * Delete a approvedClientApp object for the remoteDesktopSecurityConfiguration object on a service principal.
      * @param ApprovedClientAppItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/remotedesktopsecurityconfiguration-delete-approvedclientapps?view=graph-rest-beta Find more info here
     */
     public function delete(?ApprovedClientAppItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -45,10 +46,11 @@ class ApprovedClientAppItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get approvedClientApps from servicePrincipals
+     * Read the properties and relationships of a approvedClientApp object for the remoteDesktopSecurityConfiguration object on a servicePrincipal.
      * @param ApprovedClientAppItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApprovedClientApp|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/approvedclientapp-get?view=graph-rest-beta Find more info here
     */
     public function get(?ApprovedClientAppItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,11 +61,12 @@ class ApprovedClientAppItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property approvedClientApps in servicePrincipals
+     * Update the properties of an approvedClientApp object for a remotedesktopsecurityconfiguration.
      * @param ApprovedClientApp $body The request body
      * @param ApprovedClientAppItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApprovedClientApp|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/approvedclientapp-update?view=graph-rest-beta Find more info here
     */
     public function patch(ApprovedClientApp $body, ?ApprovedClientAppItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -74,7 +77,7 @@ class ApprovedClientAppItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property approvedClientApps for servicePrincipals
+     * Delete a approvedClientApp object for the remoteDesktopSecurityConfiguration object on a service principal.
      * @param ApprovedClientAppItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -92,7 +95,7 @@ class ApprovedClientAppItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get approvedClientApps from servicePrincipals
+     * Read the properties and relationships of a approvedClientApp object for the remoteDesktopSecurityConfiguration object on a servicePrincipal.
      * @param ApprovedClientAppItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +116,7 @@ class ApprovedClientAppItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property approvedClientApps in servicePrincipals
+     * Update the properties of an approvedClientApp object for a remotedesktopsecurityconfiguration.
      * @param ApprovedClientApp $body The request body
      * @param ApprovedClientAppItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

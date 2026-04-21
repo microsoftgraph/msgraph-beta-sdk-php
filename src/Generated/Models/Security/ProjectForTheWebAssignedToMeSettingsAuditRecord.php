@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Audit data for Project for the Web Assigned To Me Settings events.
+*/
 class ProjectForTheWebAssignedToMeSettingsAuditRecord extends AuditData implements Parsable 
 {
     /**

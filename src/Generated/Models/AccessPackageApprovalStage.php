@@ -94,7 +94,7 @@ class AccessPackageApprovalStage implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the escalationApprovers property value. If escalation is enabled and the primary approvers do not respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests.
+     * Gets the escalationApprovers property value. If escalation is enabled and the primary approvers don't respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests.
      * @return array<SubjectSet>|null
     */
     public function getEscalationApprovers(): ?array {
@@ -264,7 +264,7 @@ class AccessPackageApprovalStage implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the escalationApprovers property value. If escalation is enabled and the primary approvers do not respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests.
+     * Sets the escalationApprovers property value. If escalation is enabled and the primary approvers don't respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests.
      * @param array<SubjectSet>|null $value Value to set for the escalationApprovers property.
     */
     public function setEscalationApprovers(?array $value): void {

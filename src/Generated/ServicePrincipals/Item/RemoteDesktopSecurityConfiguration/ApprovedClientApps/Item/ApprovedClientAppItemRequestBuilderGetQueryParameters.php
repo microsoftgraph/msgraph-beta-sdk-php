@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\RemoteDesktopSec
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get approvedClientApps from servicePrincipals
+ * Read the properties and relationships of a approvedClientApp object for the remoteDesktopSecurityConfiguration object on a servicePrincipal.
 */
 class ApprovedClientAppItemRequestBuilderGetQueryParameters 
 {

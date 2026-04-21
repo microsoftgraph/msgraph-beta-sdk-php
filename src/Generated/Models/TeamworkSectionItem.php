@@ -26,7 +26,7 @@ class TeamworkSectionItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. Date and time when the item was added to the section. Read-only. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -51,7 +51,7 @@ class TeamworkSectionItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the itemType property value. The itemType property
+     * Gets the itemType property value. The type of the item. The possible values are: chat, channel, meeting, community, unknownFutureValue. Read-only.
      * @return SectionItemType|null
     */
     public function getItemType(): ?SectionItemType {
@@ -63,7 +63,7 @@ class TeamworkSectionItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. Date and time when the item was last modified. Read-only. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -86,7 +86,7 @@ class TeamworkSectionItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. Date and time when the item was added to the section. Read-only. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -94,7 +94,7 @@ class TeamworkSectionItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the itemType property value. The itemType property
+     * Sets the itemType property value. The type of the item. The possible values are: chat, channel, meeting, community, unknownFutureValue. Read-only.
      * @param SectionItemType|null $value Value to set for the itemType property.
     */
     public function setItemType(?SectionItemType $value): void {
@@ -102,7 +102,7 @@ class TeamworkSectionItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. Date and time when the item was last modified. Read-only. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {

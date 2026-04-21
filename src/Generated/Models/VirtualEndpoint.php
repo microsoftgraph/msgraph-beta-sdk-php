@@ -260,7 +260,7 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
-     * Gets the reports property value. Cloud PC-related reports.
+     * Gets the reports property value. Cloud PC-related reports. Read-only.
      * @return CloudPcReports|null
     */
     public function getReports(): ?CloudPcReports {
@@ -476,7 +476,7 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
-     * Sets the reports property value. Cloud PC-related reports.
+     * Sets the reports property value. Cloud PC-related reports. Read-only.
      * @param CloudPcReports|null $value Value to set for the reports property.
     */
     public function setReports(?CloudPcReports $value): void {

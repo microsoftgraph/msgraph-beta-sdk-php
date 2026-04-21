@@ -39,10 +39,11 @@ class TeamworkSectionItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property items for users
+     * Remove an item from a user-defined section in a user's teamwork. This API doesn't delete the underlying chat, channel, meeting, or community; it only removes the item from the user-defined section. The item is automatically moved back to its default system-defined section.
      * @param TeamworkSectionItemItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/teamworksectionitem-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?TeamworkSectionItemItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -53,7 +54,7 @@ class TeamworkSectionItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get items from users
+     * The items (chats, channels, meetings, or communities) organized within the section.
      * @param TeamworkSectionItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkSectionItem|null>
      * @throws Exception
@@ -82,7 +83,7 @@ class TeamworkSectionItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property items for users
+     * Remove an item from a user-defined section in a user's teamwork. This API doesn't delete the underlying chat, channel, meeting, or community; it only removes the item from the user-defined section. The item is automatically moved back to its default system-defined section.
      * @param TeamworkSectionItemItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -100,7 +101,7 @@ class TeamworkSectionItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get items from users
+     * The items (chats, channels, meetings, or communities) organized within the section.
      * @param TeamworkSectionItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

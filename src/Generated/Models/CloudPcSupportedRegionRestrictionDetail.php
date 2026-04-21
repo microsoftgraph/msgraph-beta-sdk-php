@@ -48,7 +48,7 @@ class CloudPcSupportedRegionRestrictionDetail implements AdditionalDataHolder, B
     }
 
     /**
-     * Gets the availabilityZoneRestricted property value. The availabilityZoneRestricted property
+     * Gets the availabilityZoneRestricted property value. Indicates that the region is restricted due to lack of availability zone support. When True, the region does not have availability zone infrastructure and is intended for disaster recovery scenarios only. When false, the region has full availability zone support. The default is false. Read-Only.
      * @return bool|null
     */
     public function getAvailabilityZoneRestricted(): ?bool {
@@ -152,7 +152,7 @@ class CloudPcSupportedRegionRestrictionDetail implements AdditionalDataHolder, B
     }
 
     /**
-     * Sets the availabilityZoneRestricted property value. The availabilityZoneRestricted property
+     * Sets the availabilityZoneRestricted property value. Indicates that the region is restricted due to lack of availability zone support. When True, the region does not have availability zone infrastructure and is intended for disaster recovery scenarios only. When false, the region has full availability zone support. The default is false. Read-Only.
      * @param bool|null $value Value to set for the availabilityZoneRestricted property.
     */
     public function setAvailabilityZoneRestricted(?bool $value): void {

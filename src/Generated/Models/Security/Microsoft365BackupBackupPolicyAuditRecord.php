@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Audit data for Microsoft365 Backup Backup Policy events.
+*/
 class Microsoft365BackupBackupPolicyAuditRecord extends AuditData implements Parsable 
 {
     /**

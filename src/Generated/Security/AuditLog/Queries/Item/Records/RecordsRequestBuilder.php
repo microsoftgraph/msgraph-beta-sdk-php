@@ -5,7 +5,6 @@ namespace Microsoft\Graph\Beta\Generated\Security\AuditLog\Queries\Item\Records;
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\Security\AuditLogRecord;
 use Microsoft\Graph\Beta\Generated\Models\Security\AuditLogRecordCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\AuditLog\Queries\Item\Records\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\AuditLog\Queries\Item\Records\Item\AuditLogRecordItemRequestBuilder;
@@ -67,21 +66,6 @@ class RecordsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to records for security
-     * @param AuditLogRecord $body The request body
-     * @param RecordsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<AuditLogRecord|null>
-     * @throws Exception
-    */
-    public function post(AuditLogRecord $body, ?RecordsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
-        $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
-        $errorMappings = [
-                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
-        ];
-        return $this->requestAdapter->sendAsync($requestInfo, [AuditLogRecord::class, 'createFromDiscriminatorValue'], $errorMappings);
-    }
-
-    /**
      * Get a list of the auditLogRecord objects and their properties.
      * @param RecordsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -99,26 +83,6 @@ class RecordsRequestBuilder extends BaseRequestBuilder
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->tryAddHeader('Accept', "application/json");
-        return $requestInfo;
-    }
-
-    /**
-     * Create new navigation property to records for security
-     * @param AuditLogRecord $body The request body
-     * @param RecordsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return RequestInformation
-    */
-    public function toPostRequestInformation(AuditLogRecord $body, ?RecordsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
-        $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
-        $requestInfo->pathParameters = $this->pathParameters;
-        $requestInfo->httpMethod = HttpMethod::POST;
-        if ($requestConfiguration !== null) {
-            $requestInfo->addHeaders($requestConfiguration->headers);
-            $requestInfo->addRequestOptions(...$requestConfiguration->options);
-        }
-        $requestInfo->tryAddHeader('Accept', "application/json");
-        $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

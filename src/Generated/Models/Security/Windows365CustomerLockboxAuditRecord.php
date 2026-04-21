@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Audit data for Windows365 Customer Lockbox events.
+*/
 class Windows365CustomerLockboxAuditRecord extends AuditData implements Parsable 
 {
     /**

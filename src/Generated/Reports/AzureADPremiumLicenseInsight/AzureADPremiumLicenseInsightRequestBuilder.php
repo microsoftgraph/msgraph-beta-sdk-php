@@ -45,10 +45,11 @@ class AzureADPremiumLicenseInsightRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get azureADPremiumLicenseInsight from reports
+     * Get the premium license utilization insight for the tenant. This API returns data about how many premium licenses are entitled and how the associated P1 and P2 features are being used. The calling tenant must have at least one Microsoft Entra ID P1 or P2 license. Tenants without a premium license receive a 403 Forbidden response with the missingLicense error code.
      * @param AzureADPremiumLicenseInsightRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AzureADPremiumLicenseInsight|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/azureadpremiumlicenseinsight-get?view=graph-rest-beta Find more info here
     */
     public function get(?AzureADPremiumLicenseInsightRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -92,7 +93,7 @@ class AzureADPremiumLicenseInsightRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get azureADPremiumLicenseInsight from reports
+     * Get the premium license utilization insight for the tenant. This API returns data about how many premium licenses are entitled and how the associated P1 and P2 features are being used. The calling tenant must have at least one Microsoft Entra ID P1 or P2 license. Tenants without a premium license receive a 403 Forbidden response with the missingLicense error code.
      * @param AzureADPremiumLicenseInsightRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

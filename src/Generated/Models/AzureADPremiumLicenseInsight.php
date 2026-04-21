@@ -25,7 +25,7 @@ class AzureADPremiumLicenseInsight extends Entity implements Parsable
     }
 
     /**
-     * Gets the entitledP1LicenseCount property value. The entitledP1LicenseCount property
+     * Gets the entitledP1LicenseCount property value. The number of Microsoft Entra ID P1 licenses entitled to the tenant.
      * @return int|null
     */
     public function getEntitledP1LicenseCount(): ?int {
@@ -37,7 +37,7 @@ class AzureADPremiumLicenseInsight extends Entity implements Parsable
     }
 
     /**
-     * Gets the entitledP2LicenseCount property value. The entitledP2LicenseCount property
+     * Gets the entitledP2LicenseCount property value. The number of Microsoft Entra ID P2 licenses entitled to the tenant.
      * @return int|null
     */
     public function getEntitledP2LicenseCount(): ?int {
@@ -49,7 +49,7 @@ class AzureADPremiumLicenseInsight extends Entity implements Parsable
     }
 
     /**
-     * Gets the entitledTotalLicenseCount property value. The entitledTotalLicenseCount property
+     * Gets the entitledTotalLicenseCount property value. The total number of Microsoft Entra ID premium licenses (P1 + P2) entitled to the tenant.
      * @return int|null
     */
     public function getEntitledTotalLicenseCount(): ?int {
@@ -78,7 +78,7 @@ class AzureADPremiumLicenseInsight extends Entity implements Parsable
     }
 
     /**
-     * Gets the internetAccessFeatureUtilizations property value. The internetAccessFeatureUtilizations property
+     * Gets the internetAccessFeatureUtilizations property value. The utilization data for Microsoft Entra Internet Access features.
      * @return InternetAccessFeatureUtilizations|null
     */
     public function getInternetAccessFeatureUtilizations(): ?InternetAccessFeatureUtilizations {
@@ -114,7 +114,7 @@ class AzureADPremiumLicenseInsight extends Entity implements Parsable
     }
 
     /**
-     * Gets the privateAccessFeatureUtilizations property value. The privateAccessFeatureUtilizations property
+     * Gets the privateAccessFeatureUtilizations property value. The utilization data for Microsoft Entra Private Access features.
      * @return PrivateAccessFeatureUtilizations|null
     */
     public function getPrivateAccessFeatureUtilizations(): ?PrivateAccessFeatureUtilizations {
@@ -141,7 +141,7 @@ class AzureADPremiumLicenseInsight extends Entity implements Parsable
     }
 
     /**
-     * Sets the entitledP1LicenseCount property value. The entitledP1LicenseCount property
+     * Sets the entitledP1LicenseCount property value. The number of Microsoft Entra ID P1 licenses entitled to the tenant.
      * @param int|null $value Value to set for the entitledP1LicenseCount property.
     */
     public function setEntitledP1LicenseCount(?int $value): void {
@@ -149,7 +149,7 @@ class AzureADPremiumLicenseInsight extends Entity implements Parsable
     }
 
     /**
-     * Sets the entitledP2LicenseCount property value. The entitledP2LicenseCount property
+     * Sets the entitledP2LicenseCount property value. The number of Microsoft Entra ID P2 licenses entitled to the tenant.
      * @param int|null $value Value to set for the entitledP2LicenseCount property.
     */
     public function setEntitledP2LicenseCount(?int $value): void {
@@ -157,7 +157,7 @@ class AzureADPremiumLicenseInsight extends Entity implements Parsable
     }
 
     /**
-     * Sets the entitledTotalLicenseCount property value. The entitledTotalLicenseCount property
+     * Sets the entitledTotalLicenseCount property value. The total number of Microsoft Entra ID premium licenses (P1 + P2) entitled to the tenant.
      * @param int|null $value Value to set for the entitledTotalLicenseCount property.
     */
     public function setEntitledTotalLicenseCount(?int $value): void {
@@ -165,7 +165,7 @@ class AzureADPremiumLicenseInsight extends Entity implements Parsable
     }
 
     /**
-     * Sets the internetAccessFeatureUtilizations property value. The internetAccessFeatureUtilizations property
+     * Sets the internetAccessFeatureUtilizations property value. The utilization data for Microsoft Entra Internet Access features.
      * @param InternetAccessFeatureUtilizations|null $value Value to set for the internetAccessFeatureUtilizations property.
     */
     public function setInternetAccessFeatureUtilizations(?InternetAccessFeatureUtilizations $value): void {
@@ -189,7 +189,7 @@ class AzureADPremiumLicenseInsight extends Entity implements Parsable
     }
 
     /**
-     * Sets the privateAccessFeatureUtilizations property value. The privateAccessFeatureUtilizations property
+     * Sets the privateAccessFeatureUtilizations property value. The utilization data for Microsoft Entra Private Access features.
      * @param PrivateAccessFeatureUtilizations|null $value Value to set for the privateAccessFeatureUtilizations property.
     */
     public function setPrivateAccessFeatureUtilizations(?PrivateAccessFeatureUtilizations $value): void {

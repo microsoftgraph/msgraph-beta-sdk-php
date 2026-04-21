@@ -8,6 +8,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Root entity for the audit log API.
+*/
 class AuditCoreRoot extends Entity implements Parsable 
 {
     /**

@@ -31,11 +31,12 @@ class MoveRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action move
+     * Move an item from one user-defined section to another user-defined section in a user's teamwork. Each item can belong to only one section at a time. This action removes the item from its current section and adds it to the target section. Use this action instead of add when the item is already in a user-defined section.
      * @param MovePostRequestBody $body The request body
      * @param MoveRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkSectionItem|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/teamworksectionitem-move?view=graph-rest-beta Find more info here
     */
     public function post(MovePostRequestBody $body, ?MoveRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -46,7 +47,7 @@ class MoveRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action move
+     * Move an item from one user-defined section to another user-defined section in a user's teamwork. Each item can belong to only one section at a time. This action removes the item from its current section and adds it to the target section. Use this action instead of add when the item is already in a user-defined section.
      * @param MovePostRequestBody $body The request body
      * @param MoveRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

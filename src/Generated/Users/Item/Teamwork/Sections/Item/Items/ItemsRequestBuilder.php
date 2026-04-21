@@ -52,10 +52,11 @@ class ItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get items from users
+     * Get the list of items in a section of a user's teamwork.
      * @param ItemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkSectionItemCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/teamworksection-list-items?view=graph-rest-beta Find more info here
     */
     public function get(?ItemsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class ItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to items for users
+     * Add an item, such as a chat, channel, meeting, or community, to a user-defined section in a user's teamwork. Each item can belong to only one section at a time. You can only add items that are currently in a system-defined section. If the item is already in another user-defined section, use the move action to relocate it.
      * @param TeamworkSectionItem $body The request body
      * @param ItemsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkSectionItem|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/teamworksection-post-items?view=graph-rest-beta Find more info here
     */
     public function post(TeamworkSectionItem $body, ?ItemsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class ItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get items from users
+     * Get the list of items in a section of a user's teamwork.
      * @param ItemsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class ItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to items for users
+     * Add an item, such as a chat, channel, meeting, or community, to a user-defined section in a user's teamwork. Each item can belong to only one section at a time. You can only add items that are currently in a system-defined section. If the item is already in another user-defined section, use the move action to relocate it.
      * @param TeamworkSectionItem $body The request body
      * @param ItemsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

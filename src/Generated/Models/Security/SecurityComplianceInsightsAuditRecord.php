@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Audit data for Security Compliance Insights events.
+*/
 class SecurityComplianceInsightsAuditRecord extends AuditData implements Parsable 
 {
     /**

@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Default open-type audit data when no specific subtype applies.
+*/
 class DefaultAuditData extends AuditData implements Parsable 
 {
     /**

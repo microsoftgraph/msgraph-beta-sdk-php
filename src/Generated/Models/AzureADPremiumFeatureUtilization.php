@@ -80,7 +80,7 @@ class AzureADPremiumFeatureUtilization implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the userCount property value. The userCount property
+     * Gets the userCount property value. The number of users who have used this premium feature.
      * @return int|null
     */
     public function getUserCount(): ?int {
@@ -126,7 +126,7 @@ class AzureADPremiumFeatureUtilization implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the userCount property value. The userCount property
+     * Sets the userCount property value. The number of users who have used this premium feature.
      * @param int|null $value Value to set for the userCount property.
     */
     public function setUserCount(?int $value): void {

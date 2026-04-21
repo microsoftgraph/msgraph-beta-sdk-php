@@ -6,23 +6,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class OnPremisesSharePointScannerDlpAuditRecord extends AuditData implements Parsable 
+/**
+ * Audit data for On Premises SharePoint Scanner DLP events.
+*/
+class OnPremisesSharePointScannerDLPAuditRecord extends AuditData implements Parsable 
 {
     /**
-     * Instantiates a new OnPremisesSharePointScannerDlpAuditRecord and sets the default values.
+     * Instantiates a new OnPremisesSharePointScannerDLPAuditRecord and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.security.onPremisesSharePointScannerDlpAuditRecord');
+        $this->setOdataType('#microsoft.graph.security.onPremisesSharePointScannerDLPAuditRecord');
     }
 
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return OnPremisesSharePointScannerDlpAuditRecord
+     * @return OnPremisesSharePointScannerDLPAuditRecord
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): OnPremisesSharePointScannerDlpAuditRecord {
-        return new OnPremisesSharePointScannerDlpAuditRecord();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): OnPremisesSharePointScannerDLPAuditRecord {
+        return new OnPremisesSharePointScannerDLPAuditRecord();
     }
 
     /**

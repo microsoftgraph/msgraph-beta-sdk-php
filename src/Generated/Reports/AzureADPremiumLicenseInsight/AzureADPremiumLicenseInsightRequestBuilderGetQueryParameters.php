@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Reports\AzureADPremiumLicenseInsight;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get azureADPremiumLicenseInsight from reports
+ * Get the premium license utilization insight for the tenant. This API returns data about how many premium licenses are entitled and how the associated P1 and P2 features are being used. The calling tenant must have at least one Microsoft Entra ID P1 or P2 license. Tenants without a premium license receive a 403 Forbidden response with the missingLicense error code.
 */
 class AzureADPremiumLicenseInsightRequestBuilderGetQueryParameters 
 {

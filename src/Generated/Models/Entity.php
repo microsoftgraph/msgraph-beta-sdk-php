@@ -468,6 +468,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.agentIdentityBlueprint': return new AgentIdentityBlueprint();
                 case '#microsoft.graph.agentIdentityBlueprintPrincipal': return new AgentIdentityBlueprintPrincipal();
                 case '#microsoft.graph.agentInstance': return new AgentInstance();
+                case '#microsoft.graph.agentRegistration': return new AgentRegistration();
                 case '#microsoft.graph.agentRiskDetection': return new AgentRiskDetection();
                 case '#microsoft.graph.agentUser': return new AgentUser();
                 case '#microsoft.graph.agreement': return new Agreement();
@@ -482,11 +483,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.aiUser': return new AiUser();
                 case '#microsoft.graph.akamaiWebApplicationFirewallProvider': return new AkamaiWebApplicationFirewallProvider();
                 case '#microsoft.graph.alert': return new \Microsoft\Graph\Beta\Generated\Models\Alert();
-                case '#microsoft.graph.allDrivesBackup': return new AllDrivesBackup();
-                case '#microsoft.graph.allMailboxesBackup': return new AllMailboxesBackup();
                 case '#microsoft.graph.allowedDataLocation': return new AllowedDataLocation();
                 case '#microsoft.graph.allowedValue': return new AllowedValue();
-                case '#microsoft.graph.allSitesBackup': return new AllSitesBackup();
                 case '#microsoft.graph.androidAppConfigurationSchema': return new AndroidAppConfigurationSchema();
                 case '#microsoft.graph.androidCertificateProfileBase': return new AndroidCertificateProfileBase();
                 case '#microsoft.graph.androidCompliancePolicy': return new AndroidCompliancePolicy();
@@ -1048,6 +1046,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.domainDnsUnavailableRecord': return new DomainDnsUnavailableRecord();
                 case '#microsoft.graph.domainSecurityProfile': return new DomainSecurityProfile();
                 case '#microsoft.graph.drive': return new Drive();
+                case '#microsoft.graph.driveExclusionUnit': return new DriveExclusionUnit();
+                case '#microsoft.graph.driveExclusionUnitsBulkAdditionJob': return new DriveExclusionUnitsBulkAdditionJob();
                 case '#microsoft.graph.driveItem': return new DriveItem();
                 case '#microsoft.graph.driveItemVersion': return new DriveItemVersion();
                 case '#microsoft.graph.driveProtectionRule': return new DriveProtectionRule();
@@ -1166,6 +1166,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.exchangeProtectionPolicy': return new ExchangeProtectionPolicy();
                 case '#microsoft.graph.exchangeRestoreSession': return new ExchangeRestoreSession();
                 case '#microsoft.graph.exchangeSettings': return new ExchangeSettings();
+                case '#microsoft.graph.exclusionUnitBase': return new ExclusionUnitBase();
+                case '#microsoft.graph.exclusionUnitBulkAdditionJob': return new ExclusionUnitBulkAdditionJob();
                 case '#microsoft.graph.extension': return new Extension();
                 case '#microsoft.graph.extensionProperty': return new ExtensionProperty();
                 case '#microsoft.graph.external': return new External();
@@ -1216,7 +1218,6 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.focusActivityStatistics': return new FocusActivityStatistics();
                 case '#microsoft.graph.footprintMap': return new FootprintMap();
                 case '#microsoft.graph.fraudProtectionProvider': return new FraudProtectionProvider();
-                case '#microsoft.graph.fullServiceBackupBase': return new FullServiceBackupBase();
                 case '#microsoft.graph.gcpAuthorizationSystem': return new GcpAuthorizationSystem();
                 case '#microsoft.graph.gcpAuthorizationSystemResource': return new GcpAuthorizationSystemResource();
                 case '#microsoft.graph.gcpAuthorizationSystemTypeAction': return new GcpAuthorizationSystemTypeAction();
@@ -1475,6 +1476,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.macOSWiredNetworkConfiguration': return new MacOSWiredNetworkConfiguration();
                 case '#microsoft.graph.mailAssessmentRequest': return new MailAssessmentRequest();
                 case '#microsoft.graph.mailbox': return new Mailbox();
+                case '#microsoft.graph.mailboxExclusionUnit': return new MailboxExclusionUnit();
+                case '#microsoft.graph.mailboxExclusionUnitsBulkAdditionJob': return new MailboxExclusionUnitsBulkAdditionJob();
                 case '#microsoft.graph.mailboxFolder': return new MailboxFolder();
                 case '#microsoft.graph.mailboxItem': return new MailboxItem();
                 case '#microsoft.graph.mailboxProtectionRule': return new MailboxProtectionRule();
@@ -2215,6 +2218,8 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.singleValueExtendedProperty': return new SingleValueExtendedProperty();
                 case '#microsoft.graph.singleValueLegacyExtendedProperty': return new SingleValueLegacyExtendedProperty();
                 case '#microsoft.graph.site': return new Site();
+                case '#microsoft.graph.siteExclusionUnit': return new SiteExclusionUnit();
+                case '#microsoft.graph.siteExclusionUnitsBulkAdditionJob': return new SiteExclusionUnitsBulkAdditionJob();
                 case '#microsoft.graph.sitePage': return new SitePage();
                 case '#microsoft.graph.siteProtectionRule': return new SiteProtectionRule();
                 case '#microsoft.graph.siteProtectionUnit': return new SiteProtectionUnit();

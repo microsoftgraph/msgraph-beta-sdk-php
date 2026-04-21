@@ -56,7 +56,7 @@ class SectionDisplayIcon implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the contentUrl property value. The contentUrl property
+     * Gets the contentUrl property value. The URL to a custom icon image. Applicable when iconType is custom.
      * @return string|null
     */
     public function getContentUrl(): ?string {
@@ -68,7 +68,7 @@ class SectionDisplayIcon implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The human-readable name of the icon.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -95,7 +95,7 @@ class SectionDisplayIcon implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the iconType property value. The iconType property
+     * Gets the iconType property value. The type of icon. Use an emoji character such as 👍 for an emoji icon, or custom for a custom image icon.
      * @return string|null
     */
     public function getIconType(): ?string {
@@ -119,7 +119,7 @@ class SectionDisplayIcon implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the skinTone property value. The skinTone property
+     * Gets the skinTone property value. The skin tone variant applied to the icon. Read-only. The possible values are: light, mediumLight, medium, mediumDark, dark, unknownFutureValue.
      * @return SectionIconSkinTone|null
     */
     public function getSkinTone(): ?SectionIconSkinTone {
@@ -160,7 +160,7 @@ class SectionDisplayIcon implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the contentUrl property value. The contentUrl property
+     * Sets the contentUrl property value. The URL to a custom icon image. Applicable when iconType is custom.
      * @param string|null $value Value to set for the contentUrl property.
     */
     public function setContentUrl(?string $value): void {
@@ -168,7 +168,7 @@ class SectionDisplayIcon implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The human-readable name of the icon.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -176,7 +176,7 @@ class SectionDisplayIcon implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the iconType property value. The iconType property
+     * Sets the iconType property value. The type of icon. Use an emoji character such as 👍 for an emoji icon, or custom for a custom image icon.
      * @param string|null $value Value to set for the iconType property.
     */
     public function setIconType(?string $value): void {
@@ -192,7 +192,7 @@ class SectionDisplayIcon implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the skinTone property value. The skinTone property
+     * Sets the skinTone property value. The skin tone variant applied to the icon. Read-only. The possible values are: light, mediumLight, medium, mediumDark, dark, unknownFutureValue.
      * @param SectionIconSkinTone|null $value Value to set for the skinTone property.
     */
     public function setSkinTone(?SectionIconSkinTone $value): void {

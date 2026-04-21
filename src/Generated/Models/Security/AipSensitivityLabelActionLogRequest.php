@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Audit data for AIP Sensitivity Label Action log request events.
+*/
 class AipSensitivityLabelActionLogRequest extends AuditData implements Parsable 
 {
     /**

@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Audit data for Azure Active Directory STS Logon events.
+*/
 class AzureActiveDirectoryStsLogonAuditRecord extends AuditData implements Parsable 
 {
     /**

@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Audit data for Microsoft Teams Sensitivity Label Action events.
+*/
 class MicrosoftTeamsSensitivityLabelActionAuditRecord extends AuditData implements Parsable 
 {
     /**

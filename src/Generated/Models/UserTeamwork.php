@@ -93,7 +93,7 @@ class UserTeamwork extends Entity implements Parsable
     }
 
     /**
-     * Gets the sections property value. User's teamwork sections for organizing chats and channels. The collection response may include @microsoft.graph.sectionsOrder and @microsoft.graph.sectionsVersion instance annotations for ordering and optimistic concurrency control.
+     * Gets the sections property value. The sections in the user's chat list.
      * @return array<TeamworkSection>|null
     */
     public function getSections(): ?array {
@@ -152,7 +152,7 @@ class UserTeamwork extends Entity implements Parsable
     }
 
     /**
-     * Sets the sections property value. User's teamwork sections for organizing chats and channels. The collection response may include @microsoft.graph.sectionsOrder and @microsoft.graph.sectionsVersion instance annotations for ordering and optimistic concurrency control.
+     * Sets the sections property value. The sections in the user's chat list.
      * @param array<TeamworkSection>|null $value Value to set for the sections property.
     */
     public function setSections(?array $value): void {

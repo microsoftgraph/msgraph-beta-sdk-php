@@ -39,10 +39,11 @@ class TeamworkSectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property sections for users
+     * Delete a user-defined section from a user's teamwork. System-defined sections can't be deleted.
      * @param TeamworkSectionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/teamworksection-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?TeamworkSectionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -53,10 +54,11 @@ class TeamworkSectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * User's teamwork sections for organizing chats and channels. The collection response may include @microsoft.graph.sectionsOrder and @microsoft.graph.sectionsVersion instance annotations for ordering and optimistic concurrency control.
+     * Read the properties of a section in a user's teamwork.
      * @param TeamworkSectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkSection|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/teamworksection-get?view=graph-rest-beta Find more info here
     */
     public function get(?TeamworkSectionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,11 +69,12 @@ class TeamworkSectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property sections in users
+     * Update the properties of a section in a user's teamwork. For system-defined sections, only the sortType property can be updated.
      * @param TeamworkSection $body The request body
      * @param TeamworkSectionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkSection|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/teamworksection-update?view=graph-rest-beta Find more info here
     */
     public function patch(TeamworkSection $body, ?TeamworkSectionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -82,7 +85,7 @@ class TeamworkSectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property sections for users
+     * Delete a user-defined section from a user's teamwork. System-defined sections can't be deleted.
      * @param TeamworkSectionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -100,7 +103,7 @@ class TeamworkSectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * User's teamwork sections for organizing chats and channels. The collection response may include @microsoft.graph.sectionsOrder and @microsoft.graph.sectionsVersion instance annotations for ordering and optimistic concurrency control.
+     * Read the properties of a section in a user's teamwork.
      * @param TeamworkSectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +124,7 @@ class TeamworkSectionItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property sections in users
+     * Update the properties of a section in a user's teamwork. For system-defined sections, only the sortType property can be updated.
      * @param TeamworkSection $body The request body
      * @param TeamworkSectionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

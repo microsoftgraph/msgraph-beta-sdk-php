@@ -37,7 +37,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the aboutMe property value. A freeform text entry field for users to describe themselves. Returned only on $select.
+     * Gets the aboutMe property value. A freeform text entry field for users to describe themselves. Requires $select to retrieve.
      * @return string|null
     */
     public function getAboutMe(): ?string {
@@ -235,7 +235,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the birthday property value. The birthday of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Returned only on $select.
+     * Gets the birthday property value. The birthday of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Requires $select to retrieve.
      * @return DateTime|null
     */
     public function getBirthday(): ?DateTime {
@@ -505,7 +505,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the customSecurityAttributes property value. An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Returned only on $select. Supports $filter (eq, ne, not, startsWith). The filter value is case-sensitive. To read this property, the calling app must be assigned the CustomSecAttributeAssignment.Read.All permission. To write this property, the calling app must be assigned the CustomSecAttributeAssignment.ReadWrite.All permissions. To read or write this property in delegated scenarios, the admin must be assigned the Attribute Assignment Administrator role. Supports $filter (eq, ne, not , ge, le, in).
+     * Gets the customSecurityAttributes property value. An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Requires $select to retrieve. Supports $filter (eq, ne, not, startsWith). The filter value is case-sensitive. To read this property, the calling app must be assigned the CustomSecAttributeAssignment.Read.All permission. To write this property, the calling app must be assigned the CustomSecAttributeAssignment.ReadWrite.All permissions. To read or write this property in delegated scenarios, the admin must be assigned the Attribute Assignment Administrator role. Supports $filter (eq, ne, not , ge, le, in).
      * @return CustomSecurityAttributeValue|null
     */
     public function getCustomSecurityAttributes(): ?CustomSecurityAttributeValue {
@@ -1078,7 +1078,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the hireDate property value. The hire date of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Returned only on $select.  Note: This property is specific to SharePoint Online. We recommend using the native employeeHireDate property to set and update hire date values using Microsoft Graph APIs.
+     * Gets the hireDate property value. The hire date of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Requires $select to retrieve.  Note: This property is specific to SharePoint Online. We recommend using the native employeeHireDate property to set and update hire date values using Microsoft Graph APIs.
      * @return DateTime|null
     */
     public function getHireDate(): ?DateTime {
@@ -1192,7 +1192,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the interests property value. A list for users to describe their interests. Returned only on $select.
+     * Gets the interests property value. A list for users to describe their interests. Requires $select to retrieve.
      * @return array<string>|null
     */
     public function getInterests(): ?array {
@@ -1294,7 +1294,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the lastPasswordChangeDateTime property value. When this Microsoft Entra user last changed their password or when their password was created, whichever date the latest action was performed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Returned only on $select.
+     * Gets the lastPasswordChangeDateTime property value. When this Microsoft Entra user last changed their password or when their password was created, whichever date the latest action was performed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Requires $select to retrieve.
      * @return DateTime|null
     */
     public function getLastPasswordChangeDateTime(): ?DateTime {
@@ -1306,7 +1306,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the legalAgeGroupClassification property value. Used by enterprise applications to determine the legal age group of the user. This property is read-only and calculated based on ageGroup and consentProvidedForMinor properties. Allowed values: null, Undefined, MinorWithOutParentalConsent, MinorWithParentalConsent, MinorNoParentalConsentRequired, NotAdult, and Adult. For more information, see legal age group property definitions. Returned only on $select.
+     * Gets the legalAgeGroupClassification property value. Used by enterprise applications to determine the legal age group of the user. This property is read-only and calculated based on ageGroup and consentProvidedForMinor properties. Allowed values: null, Undefined, MinorWithOutParentalConsent, MinorWithParentalConsent, MinorNoParentalConsentRequired, NotAdult, and Adult. For more information, see legal age group property definitions. Requires $select to retrieve.
      * @return string|null
     */
     public function getLegalAgeGroupClassification(): ?string {
@@ -1318,7 +1318,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the licenseAssignmentStates property value. State of license assignments for this user. It also indicates licenses that are directly assigned and the ones the user inherited through group memberships. Read-only. Returned only on $select.
+     * Gets the licenseAssignmentStates property value. State of license assignments for this user. It also indicates licenses that are directly assigned and the ones the user inherited through group memberships. Read-only. Requires $select to retrieve.
      * @return array<LicenseAssignmentState>|null
     */
     public function getLicenseAssignmentStates(): ?array {
@@ -1358,7 +1358,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the mailboxSettings property value. Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale, and time zone. For more information, see User preferences for languages and regional formats. Returned only on $select.
+     * Gets the mailboxSettings property value. Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale, and time zone. For more information, see User preferences for languages and regional formats. Requires $select to retrieve.
      * @return MailboxSettings|null
     */
     public function getMailboxSettings(): ?MailboxSettings {
@@ -1518,7 +1518,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the mySite property value. The URL for the user's site. Returned only on $select.
+     * Gets the mySite property value. The URL for the user's site. Requires $select to retrieve.
      * @return string|null
     */
     public function getMySite(): ?string {
@@ -1820,7 +1820,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the pastProjects property value. A list for users to enumerate their past projects. Returned only on $select.
+     * Gets the pastProjects property value. A list for users to enumerate their past projects. Requires $select to retrieve.
      * @return array<string>|null
     */
     public function getPastProjects(): ?array {
@@ -1950,7 +1950,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the preferredName property value. The preferred name for the user. Not Supported. This attribute returns an empty string.Returned only on $select.
+     * Gets the preferredName property value. The preferred name for the user. Not Supported. This attribute returns an empty string.Requires $select to retrieve.
      * @return string|null
     */
     public function getPreferredName(): ?string {
@@ -2040,7 +2040,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the responsibilities property value. A list for the user to enumerate their responsibilities. Returned only on $select.
+     * Gets the responsibilities property value. A list for the user to enumerate their responsibilities. Requires $select to retrieve.
      * @return array<string>|null
     */
     public function getResponsibilities(): ?array {
@@ -2054,7 +2054,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the schools property value. A list for the user to enumerate the schools they have attended. Returned only on $select.
+     * Gets the schools property value. A list for the user to enumerate the schools they have attended. Requires $select to retrieve.
      * @return array<string>|null
     */
     public function getSchools(): ?array {
@@ -2144,7 +2144,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the signInActivity property value. Get the last signed-in date and request ID of the sign-in for a given user. Read-only.Returned only on $select. Supports $filter (eq, ne, not, ge, le) but not with any other filterable properties. Note:  Details for this property require a Microsoft Entra ID P1 or P2 license and the AuditLog.Read.All permission.This property is not returned for a user who has never signed in or last signed in before April 2020.
+     * Gets the signInActivity property value. Get the last signed-in date and request ID of the sign-in for a given user. Read-only.Requires $select to retrieve. Supports $filter (eq, ne, not, ge, le) but not with any other filterable properties. Note:  Details for this property require a Microsoft Entra ID P1 or P2 license and the AuditLog.Read.All permission.This property is not returned for a user who has never signed in or last signed in before April 2020.
      * @return SignInActivity|null
     */
     public function getSignInActivity(): ?SignInActivity {
@@ -2168,7 +2168,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the skills property value. A list for the user to enumerate their skills. Returned only on $select.
+     * Gets the skills property value. A list for the user to enumerate their skills. Requires $select to retrieve.
      * @return array<string>|null
     */
     public function getSkills(): ?array {
@@ -2543,7 +2543,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the aboutMe property value. A freeform text entry field for users to describe themselves. Returned only on $select.
+     * Sets the aboutMe property value. A freeform text entry field for users to describe themselves. Requires $select to retrieve.
      * @param string|null $value Value to set for the aboutMe property.
     */
     public function setAboutMe(?string $value): void {
@@ -2663,7 +2663,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the birthday property value. The birthday of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Returned only on $select.
+     * Sets the birthday property value. The birthday of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Requires $select to retrieve.
      * @param DateTime|null $value Value to set for the birthday property.
     */
     public function setBirthday(?DateTime $value): void {
@@ -2831,7 +2831,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the customSecurityAttributes property value. An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Returned only on $select. Supports $filter (eq, ne, not, startsWith). The filter value is case-sensitive. To read this property, the calling app must be assigned the CustomSecAttributeAssignment.Read.All permission. To write this property, the calling app must be assigned the CustomSecAttributeAssignment.ReadWrite.All permissions. To read or write this property in delegated scenarios, the admin must be assigned the Attribute Assignment Administrator role. Supports $filter (eq, ne, not , ge, le, in).
+     * Sets the customSecurityAttributes property value. An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Requires $select to retrieve. Supports $filter (eq, ne, not, startsWith). The filter value is case-sensitive. To read this property, the calling app must be assigned the CustomSecAttributeAssignment.Read.All permission. To write this property, the calling app must be assigned the CustomSecAttributeAssignment.ReadWrite.All permissions. To read or write this property in delegated scenarios, the admin must be assigned the Attribute Assignment Administrator role. Supports $filter (eq, ne, not , ge, le, in).
      * @param CustomSecurityAttributeValue|null $value Value to set for the customSecurityAttributes property.
     */
     public function setCustomSecurityAttributes(?CustomSecurityAttributeValue $value): void {
@@ -3039,7 +3039,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the hireDate property value. The hire date of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Returned only on $select.  Note: This property is specific to SharePoint Online. We recommend using the native employeeHireDate property to set and update hire date values using Microsoft Graph APIs.
+     * Sets the hireDate property value. The hire date of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Requires $select to retrieve.  Note: This property is specific to SharePoint Online. We recommend using the native employeeHireDate property to set and update hire date values using Microsoft Graph APIs.
      * @param DateTime|null $value Value to set for the hireDate property.
     */
     public function setHireDate(?DateTime $value): void {
@@ -3111,7 +3111,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the interests property value. A list for users to describe their interests. Returned only on $select.
+     * Sets the interests property value. A list for users to describe their interests. Requires $select to retrieve.
      * @param array<string>|null $value Value to set for the interests property.
     */
     public function setInterests(?array $value): void {
@@ -3175,7 +3175,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the lastPasswordChangeDateTime property value. When this Microsoft Entra user last changed their password or when their password was created, whichever date the latest action was performed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Returned only on $select.
+     * Sets the lastPasswordChangeDateTime property value. When this Microsoft Entra user last changed their password or when their password was created, whichever date the latest action was performed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Requires $select to retrieve.
      * @param DateTime|null $value Value to set for the lastPasswordChangeDateTime property.
     */
     public function setLastPasswordChangeDateTime(?DateTime $value): void {
@@ -3183,7 +3183,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the legalAgeGroupClassification property value. Used by enterprise applications to determine the legal age group of the user. This property is read-only and calculated based on ageGroup and consentProvidedForMinor properties. Allowed values: null, Undefined, MinorWithOutParentalConsent, MinorWithParentalConsent, MinorNoParentalConsentRequired, NotAdult, and Adult. For more information, see legal age group property definitions. Returned only on $select.
+     * Sets the legalAgeGroupClassification property value. Used by enterprise applications to determine the legal age group of the user. This property is read-only and calculated based on ageGroup and consentProvidedForMinor properties. Allowed values: null, Undefined, MinorWithOutParentalConsent, MinorWithParentalConsent, MinorNoParentalConsentRequired, NotAdult, and Adult. For more information, see legal age group property definitions. Requires $select to retrieve.
      * @param string|null $value Value to set for the legalAgeGroupClassification property.
     */
     public function setLegalAgeGroupClassification(?string $value): void {
@@ -3191,7 +3191,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the licenseAssignmentStates property value. State of license assignments for this user. It also indicates licenses that are directly assigned and the ones the user inherited through group memberships. Read-only. Returned only on $select.
+     * Sets the licenseAssignmentStates property value. State of license assignments for this user. It also indicates licenses that are directly assigned and the ones the user inherited through group memberships. Read-only. Requires $select to retrieve.
      * @param array<LicenseAssignmentState>|null $value Value to set for the licenseAssignmentStates property.
     */
     public function setLicenseAssignmentStates(?array $value): void {
@@ -3215,7 +3215,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the mailboxSettings property value. Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale, and time zone. For more information, see User preferences for languages and regional formats. Returned only on $select.
+     * Sets the mailboxSettings property value. Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale, and time zone. For more information, see User preferences for languages and regional formats. Requires $select to retrieve.
      * @param MailboxSettings|null $value Value to set for the mailboxSettings property.
     */
     public function setMailboxSettings(?MailboxSettings $value): void {
@@ -3311,7 +3311,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the mySite property value. The URL for the user's site. Returned only on $select.
+     * Sets the mySite property value. The URL for the user's site. Requires $select to retrieve.
      * @param string|null $value Value to set for the mySite property.
     */
     public function setMySite(?string $value): void {
@@ -3503,7 +3503,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the pastProjects property value. A list for users to enumerate their past projects. Returned only on $select.
+     * Sets the pastProjects property value. A list for users to enumerate their past projects. Requires $select to retrieve.
      * @param array<string>|null $value Value to set for the pastProjects property.
     */
     public function setPastProjects(?array $value): void {
@@ -3583,7 +3583,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the preferredName property value. The preferred name for the user. Not Supported. This attribute returns an empty string.Returned only on $select.
+     * Sets the preferredName property value. The preferred name for the user. Not Supported. This attribute returns an empty string.Requires $select to retrieve.
      * @param string|null $value Value to set for the preferredName property.
     */
     public function setPreferredName(?string $value): void {
@@ -3639,7 +3639,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the responsibilities property value. A list for the user to enumerate their responsibilities. Returned only on $select.
+     * Sets the responsibilities property value. A list for the user to enumerate their responsibilities. Requires $select to retrieve.
      * @param array<string>|null $value Value to set for the responsibilities property.
     */
     public function setResponsibilities(?array $value): void {
@@ -3647,7 +3647,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the schools property value. A list for the user to enumerate the schools they have attended. Returned only on $select.
+     * Sets the schools property value. A list for the user to enumerate the schools they have attended. Requires $select to retrieve.
      * @param array<string>|null $value Value to set for the schools property.
     */
     public function setSchools(?array $value): void {
@@ -3703,7 +3703,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the signInActivity property value. Get the last signed-in date and request ID of the sign-in for a given user. Read-only.Returned only on $select. Supports $filter (eq, ne, not, ge, le) but not with any other filterable properties. Note:  Details for this property require a Microsoft Entra ID P1 or P2 license and the AuditLog.Read.All permission.This property is not returned for a user who has never signed in or last signed in before April 2020.
+     * Sets the signInActivity property value. Get the last signed-in date and request ID of the sign-in for a given user. Read-only.Requires $select to retrieve. Supports $filter (eq, ne, not, ge, le) but not with any other filterable properties. Note:  Details for this property require a Microsoft Entra ID P1 or P2 license and the AuditLog.Read.All permission.This property is not returned for a user who has never signed in or last signed in before April 2020.
      * @param SignInActivity|null $value Value to set for the signInActivity property.
     */
     public function setSignInActivity(?SignInActivity $value): void {
@@ -3719,7 +3719,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the skills property value. A list for the user to enumerate their skills. Returned only on $select.
+     * Sets the skills property value. A list for the user to enumerate their skills. Requires $select to retrieve.
      * @param array<string>|null $value Value to set for the skills property.
     */
     public function setSkills(?array $value): void {

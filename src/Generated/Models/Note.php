@@ -53,6 +53,18 @@ class Note extends OutlookItem implements Parsable
     }
 
     /**
+     * Gets the bodyPreview property value. Auto-generated preview of the note body content (first ~255 characters). Read-only.
+     * @return string|null
+    */
+    public function getBodyPreview(): ?string {
+        $val = $this->getBackingStore()->get('bodyPreview');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'bodyPreview'");
+    }
+
+    /**
      * Gets the extensions property value. The extensions property
      * @return array<Extension>|null
     */
@@ -75,6 +87,7 @@ class Note extends OutlookItem implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'attachments' => fn(ParseNode $n) => $o->setAttachments($n->getCollectionOfObjectValues([Attachment::class, 'createFromDiscriminatorValue'])),
             'body' => fn(ParseNode $n) => $o->setBody($n->getObjectValue([ItemBody::class, 'createFromDiscriminatorValue'])),
+            'bodyPreview' => fn(ParseNode $n) => $o->setBodyPreview($n->getStringValue()),
             'extensions' => fn(ParseNode $n) => $o->setExtensions($n->getCollectionOfObjectValues([Extension::class, 'createFromDiscriminatorValue'])),
             'hasAttachments' => fn(ParseNode $n) => $o->setHasAttachments($n->getBooleanValue()),
             'isDeleted' => fn(ParseNode $n) => $o->setIsDeleted($n->getBooleanValue()),
@@ -157,8 +170,6 @@ class Note extends OutlookItem implements Parsable
         $writer->writeCollectionOfObjectValues('attachments', $this->getAttachments());
         $writer->writeObjectValue('body', $this->getBody());
         $writer->writeCollectionOfObjectValues('extensions', $this->getExtensions());
-        $writer->writeBooleanValue('hasAttachments', $this->getHasAttachments());
-        $writer->writeBooleanValue('isDeleted', $this->getIsDeleted());
         $writer->writeCollectionOfObjectValues('multiValueExtendedProperties', $this->getMultiValueExtendedProperties());
         $writer->writeCollectionOfObjectValues('singleValueExtendedProperties', $this->getSingleValueExtendedProperties());
         $writer->writeStringValue('subject', $this->getSubject());
@@ -178,6 +189,14 @@ class Note extends OutlookItem implements Parsable
     */
     public function setBody(?ItemBody $value): void {
         $this->getBackingStore()->set('body', $value);
+    }
+
+    /**
+     * Sets the bodyPreview property value. Auto-generated preview of the note body content (first ~255 characters). Read-only.
+     * @param string|null $value Value to set for the bodyPreview property.
+    */
+    public function setBodyPreview(?string $value): void {
+        $this->getBackingStore()->set('bodyPreview', $value);
     }
 
     /**

@@ -7,10 +7,9 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\BackupRestoreRoot;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ActivityLogs\ActivityLogsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\AllDrivesBackup\AllDrivesBackupRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\AllMailboxesBackup\AllMailboxesBackupRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\AllSitesBackup\AllSitesBackupRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\BrowseSessions\BrowseSessionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\DriveExclusionUnits\DriveExclusionUnitsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\DriveExclusionUnitsBulkAdditionJobs\DriveExclusionUnitsBulkAdditionJobsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\DriveInclusionRules\DriveInclusionRulesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\DriveProtectionUnits\DriveProtectionUnitsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\DriveProtectionUnitsBulkAdditionJobs\DriveProtectionUnitsBulkAdditionJobsRequestBuilder;
@@ -18,6 +17,9 @@ use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\EmailNotificationsSet
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\Enable\EnableRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ExchangeProtectionPolicies\ExchangeProtectionPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ExchangeRestoreSessions\ExchangeRestoreSessionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ExclusionUnits\ExclusionUnitsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\MailboxExclusionUnits\MailboxExclusionUnitsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\MailboxExclusionUnitsBulkAdditionJobs\MailboxExclusionUnitsBulkAdditionJobsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\MailboxInclusionRules\MailboxInclusionRulesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\MailboxProtectionUnits\MailboxProtectionUnitsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\MailboxProtectionUnitsBulkAdditionJobs\MailboxProtectionUnitsBulkAdditionJobsRequestBuilder;
@@ -33,6 +35,8 @@ use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ServiceApps\ServiceAp
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointBrowseSessions\SharePointBrowseSessionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointProtectionPolicies\SharePointProtectionPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointRestoreSessions\SharePointRestoreSessionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SiteExclusionUnits\SiteExclusionUnitsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SiteExclusionUnitsBulkAdditionJobs\SiteExclusionUnitsBulkAdditionJobsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SiteInclusionRules\SiteInclusionRulesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SiteProtectionUnits\SiteProtectionUnitsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SiteProtectionUnitsBulkAdditionJobs\SiteProtectionUnitsBulkAdditionJobsRequestBuilder;
@@ -54,31 +58,24 @@ class BackupRestoreRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to manage the allDrivesBackup property of the microsoft.graph.backupRestoreRoot entity.
-    */
-    public function allDrivesBackup(): AllDrivesBackupRequestBuilder {
-        return new AllDrivesBackupRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the allMailboxesBackup property of the microsoft.graph.backupRestoreRoot entity.
-    */
-    public function allMailboxesBackup(): AllMailboxesBackupRequestBuilder {
-        return new AllMailboxesBackupRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the allSitesBackup property of the microsoft.graph.backupRestoreRoot entity.
-    */
-    public function allSitesBackup(): AllSitesBackupRequestBuilder {
-        return new AllSitesBackupRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * Provides operations to manage the browseSessions property of the microsoft.graph.backupRestoreRoot entity.
     */
     public function browseSessions(): BrowseSessionsRequestBuilder {
         return new BrowseSessionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the driveExclusionUnits property of the microsoft.graph.backupRestoreRoot entity.
+    */
+    public function driveExclusionUnits(): DriveExclusionUnitsRequestBuilder {
+        return new DriveExclusionUnitsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the driveExclusionUnitsBulkAdditionJobs property of the microsoft.graph.backupRestoreRoot entity.
+    */
+    public function driveExclusionUnitsBulkAdditionJobs(): DriveExclusionUnitsBulkAdditionJobsRequestBuilder {
+        return new DriveExclusionUnitsBulkAdditionJobsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -128,6 +125,27 @@ class BackupRestoreRequestBuilder extends BaseRequestBuilder
     */
     public function exchangeRestoreSessions(): ExchangeRestoreSessionsRequestBuilder {
         return new ExchangeRestoreSessionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the exclusionUnits property of the microsoft.graph.backupRestoreRoot entity.
+    */
+    public function exclusionUnits(): ExclusionUnitsRequestBuilder {
+        return new ExclusionUnitsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the mailboxExclusionUnits property of the microsoft.graph.backupRestoreRoot entity.
+    */
+    public function mailboxExclusionUnits(): MailboxExclusionUnitsRequestBuilder {
+        return new MailboxExclusionUnitsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the mailboxExclusionUnitsBulkAdditionJobs property of the microsoft.graph.backupRestoreRoot entity.
+    */
+    public function mailboxExclusionUnitsBulkAdditionJobs(): MailboxExclusionUnitsBulkAdditionJobsRequestBuilder {
+        return new MailboxExclusionUnitsBulkAdditionJobsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -233,6 +251,20 @@ class BackupRestoreRequestBuilder extends BaseRequestBuilder
     */
     public function sharePointRestoreSessions(): SharePointRestoreSessionsRequestBuilder {
         return new SharePointRestoreSessionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the siteExclusionUnits property of the microsoft.graph.backupRestoreRoot entity.
+    */
+    public function siteExclusionUnits(): SiteExclusionUnitsRequestBuilder {
+        return new SiteExclusionUnitsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the siteExclusionUnitsBulkAdditionJobs property of the microsoft.graph.backupRestoreRoot entity.
+    */
+    public function siteExclusionUnitsBulkAdditionJobs(): SiteExclusionUnitsBulkAdditionJobsRequestBuilder {
+        return new SiteExclusionUnitsBulkAdditionJobsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

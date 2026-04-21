@@ -6,6 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SharePointProtectionPolicy;
+use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointProtectionPolicies\Item\SiteExclusionUnits\SiteExclusionUnitsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointProtectionPolicies\Item\SiteExclusionUnitsBulkAdditionJobs\SiteExclusionUnitsBulkAdditionJobsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointProtectionPolicies\Item\SiteInclusionRules\SiteInclusionRulesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointProtectionPolicies\Item\SiteProtectionUnits\SiteProtectionUnitsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointProtectionPolicies\Item\SiteProtectionUnitsBulkAdditionJobs\SiteProtectionUnitsBulkAdditionJobsRequestBuilder;
@@ -19,6 +21,20 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class SharePointProtectionPolicyItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the siteExclusionUnits property of the microsoft.graph.sharePointProtectionPolicy entity.
+    */
+    public function siteExclusionUnits(): SiteExclusionUnitsRequestBuilder {
+        return new SiteExclusionUnitsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the siteExclusionUnitsBulkAdditionJobs property of the microsoft.graph.sharePointProtectionPolicy entity.
+    */
+    public function siteExclusionUnitsBulkAdditionJobs(): SiteExclusionUnitsBulkAdditionJobsRequestBuilder {
+        return new SiteExclusionUnitsBulkAdditionJobsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the siteInclusionRules property of the microsoft.graph.sharePointProtectionPolicy entity.
     */

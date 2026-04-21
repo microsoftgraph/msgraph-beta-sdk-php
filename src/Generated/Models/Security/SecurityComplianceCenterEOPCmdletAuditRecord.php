@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Audit data for Security Compliance Center EOP cmdlet events.
+*/
 class SecurityComplianceCenterEOPCmdletAuditRecord extends AuditData implements Parsable 
 {
     /**

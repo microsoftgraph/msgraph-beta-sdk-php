@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Audit data for M365 Compliance Connector events.
+*/
 class M365ComplianceConnectorAuditRecord extends AuditData implements Parsable 
 {
     /**
