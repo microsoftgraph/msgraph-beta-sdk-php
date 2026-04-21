@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Audit data for SharePoint Field Operation events.
+*/
 class SharePointFieldOperationAuditRecord extends AuditData implements Parsable 
 {
     /**

@@ -33,10 +33,40 @@ class ExchangeProtectionPolicy extends ProtectionPolicyBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'mailboxExclusionUnits' => fn(ParseNode $n) => $o->setMailboxExclusionUnits($n->getCollectionOfObjectValues([MailboxExclusionUnit::class, 'createFromDiscriminatorValue'])),
+            'mailboxExclusionUnitsBulkAdditionJobs' => fn(ParseNode $n) => $o->setMailboxExclusionUnitsBulkAdditionJobs($n->getCollectionOfObjectValues([MailboxExclusionUnitsBulkAdditionJob::class, 'createFromDiscriminatorValue'])),
             'mailboxInclusionRules' => fn(ParseNode $n) => $o->setMailboxInclusionRules($n->getCollectionOfObjectValues([MailboxProtectionRule::class, 'createFromDiscriminatorValue'])),
             'mailboxProtectionUnits' => fn(ParseNode $n) => $o->setMailboxProtectionUnits($n->getCollectionOfObjectValues([MailboxProtectionUnit::class, 'createFromDiscriminatorValue'])),
             'mailboxProtectionUnitsBulkAdditionJobs' => fn(ParseNode $n) => $o->setMailboxProtectionUnitsBulkAdditionJobs($n->getCollectionOfObjectValues([MailboxProtectionUnitsBulkAdditionJob::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the mailboxExclusionUnits property value. The mailboxExclusionUnits property
+     * @return array<MailboxExclusionUnit>|null
+    */
+    public function getMailboxExclusionUnits(): ?array {
+        $val = $this->getBackingStore()->get('mailboxExclusionUnits');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MailboxExclusionUnit::class);
+            /** @var array<MailboxExclusionUnit>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mailboxExclusionUnits'");
+    }
+
+    /**
+     * Gets the mailboxExclusionUnitsBulkAdditionJobs property value. The mailboxExclusionUnitsBulkAdditionJobs property
+     * @return array<MailboxExclusionUnitsBulkAdditionJob>|null
+    */
+    public function getMailboxExclusionUnitsBulkAdditionJobs(): ?array {
+        $val = $this->getBackingStore()->get('mailboxExclusionUnitsBulkAdditionJobs');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MailboxExclusionUnitsBulkAdditionJob::class);
+            /** @var array<MailboxExclusionUnitsBulkAdditionJob>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mailboxExclusionUnitsBulkAdditionJobs'");
     }
 
     /**
@@ -87,9 +117,27 @@ class ExchangeProtectionPolicy extends ProtectionPolicyBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('mailboxExclusionUnits', $this->getMailboxExclusionUnits());
+        $writer->writeCollectionOfObjectValues('mailboxExclusionUnitsBulkAdditionJobs', $this->getMailboxExclusionUnitsBulkAdditionJobs());
         $writer->writeCollectionOfObjectValues('mailboxInclusionRules', $this->getMailboxInclusionRules());
         $writer->writeCollectionOfObjectValues('mailboxProtectionUnits', $this->getMailboxProtectionUnits());
         $writer->writeCollectionOfObjectValues('mailboxProtectionUnitsBulkAdditionJobs', $this->getMailboxProtectionUnitsBulkAdditionJobs());
+    }
+
+    /**
+     * Sets the mailboxExclusionUnits property value. The mailboxExclusionUnits property
+     * @param array<MailboxExclusionUnit>|null $value Value to set for the mailboxExclusionUnits property.
+    */
+    public function setMailboxExclusionUnits(?array $value): void {
+        $this->getBackingStore()->set('mailboxExclusionUnits', $value);
+    }
+
+    /**
+     * Sets the mailboxExclusionUnitsBulkAdditionJobs property value. The mailboxExclusionUnitsBulkAdditionJobs property
+     * @param array<MailboxExclusionUnitsBulkAdditionJob>|null $value Value to set for the mailboxExclusionUnitsBulkAdditionJobs property.
+    */
+    public function setMailboxExclusionUnitsBulkAdditionJobs(?array $value): void {
+        $this->getBackingStore()->set('mailboxExclusionUnitsBulkAdditionJobs', $value);
     }
 
     /**

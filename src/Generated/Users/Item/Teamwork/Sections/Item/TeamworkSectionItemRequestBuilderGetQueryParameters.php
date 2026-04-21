@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\Sections\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * User's teamwork sections for organizing chats and channels. The collection response may include @microsoft.graph.sectionsOrder and @microsoft.graph.sectionsVersion instance annotations for ordering and optimistic concurrency control.
+ * Read the properties of a section in a user's teamwork.
 */
 class TeamworkSectionItemRequestBuilderGetQueryParameters 
 {

@@ -26,7 +26,7 @@ class RemoteDesktopSecurityConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the approvedClientApps property value. The approvedClientApps property
+     * Gets the approvedClientApps property value. The collection of approved client apps that are associated with the RDS configuration. Supports $expand.
      * @return array<ApprovedClientApp>|null
     */
     public function getApprovedClientApps(): ?array {
@@ -65,7 +65,7 @@ class RemoteDesktopSecurityConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the targetDeviceGroups property value. The collection of target device groups that are associated with the RDS security configuration that will be enabled for SSO when a client connects to the target device over RDP using the new Microsoft Entra ID RDS authentication protocol. <br/<Supports $expand.
+     * Gets the targetDeviceGroups property value. The collection of target device groups that are associated with the RDS security configuration that will be enabled for SSO when a client connects to the target device over RDP using the new Microsoft Entra ID RDS authentication protocol.
      * @return array<TargetDeviceGroup>|null
     */
     public function getTargetDeviceGroups(): ?array {
@@ -90,7 +90,7 @@ class RemoteDesktopSecurityConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the approvedClientApps property value. The approvedClientApps property
+     * Sets the approvedClientApps property value. The collection of approved client apps that are associated with the RDS configuration. Supports $expand.
      * @param array<ApprovedClientApp>|null $value Value to set for the approvedClientApps property.
     */
     public function setApprovedClientApps(?array $value): void {
@@ -106,7 +106,7 @@ class RemoteDesktopSecurityConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the targetDeviceGroups property value. The collection of target device groups that are associated with the RDS security configuration that will be enabled for SSO when a client connects to the target device over RDP using the new Microsoft Entra ID RDS authentication protocol. <br/<Supports $expand.
+     * Sets the targetDeviceGroups property value. The collection of target device groups that are associated with the RDS security configuration that will be enabled for SSO when a client connects to the target device over RDP using the new Microsoft Entra ID RDS authentication protocol.
      * @param array<TargetDeviceGroup>|null $value Value to set for the targetDeviceGroups property.
     */
     public function setTargetDeviceGroups(?array $value): void {

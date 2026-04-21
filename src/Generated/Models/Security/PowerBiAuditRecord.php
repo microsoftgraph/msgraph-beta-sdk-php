@@ -6,23 +6,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PowerBiAuditRecord extends AuditData implements Parsable 
+/**
+ * Audit data for Power BI events.
+*/
+class PowerBIAuditRecord extends AuditData implements Parsable 
 {
     /**
-     * Instantiates a new PowerBiAuditRecord and sets the default values.
+     * Instantiates a new PowerBIAuditRecord and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.security.powerBiAuditRecord');
+        $this->setOdataType('#microsoft.graph.security.powerBIAuditRecord');
     }
 
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return PowerBiAuditRecord
+     * @return PowerBIAuditRecord
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PowerBiAuditRecord {
-        return new PowerBiAuditRecord();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PowerBIAuditRecord {
+        return new PowerBIAuditRecord();
     }
 
     /**

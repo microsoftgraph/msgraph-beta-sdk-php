@@ -27,6 +27,34 @@ class OneDriveForBusinessProtectionPolicy extends ProtectionPolicyBase implement
     }
 
     /**
+     * Gets the driveExclusionUnits property value. The driveExclusionUnits property
+     * @return array<DriveExclusionUnit>|null
+    */
+    public function getDriveExclusionUnits(): ?array {
+        $val = $this->getBackingStore()->get('driveExclusionUnits');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DriveExclusionUnit::class);
+            /** @var array<DriveExclusionUnit>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'driveExclusionUnits'");
+    }
+
+    /**
+     * Gets the driveExclusionUnitsBulkAdditionJobs property value. The driveExclusionUnitsBulkAdditionJobs property
+     * @return array<DriveExclusionUnitsBulkAdditionJob>|null
+    */
+    public function getDriveExclusionUnitsBulkAdditionJobs(): ?array {
+        $val = $this->getBackingStore()->get('driveExclusionUnitsBulkAdditionJobs');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DriveExclusionUnitsBulkAdditionJob::class);
+            /** @var array<DriveExclusionUnitsBulkAdditionJob>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'driveExclusionUnitsBulkAdditionJobs'");
+    }
+
+    /**
      * Gets the driveInclusionRules property value. Contains the details of the OneDrive for Work or School protection rule.
      * @return array<DriveProtectionRule>|null
     */
@@ -75,6 +103,8 @@ class OneDriveForBusinessProtectionPolicy extends ProtectionPolicyBase implement
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'driveExclusionUnits' => fn(ParseNode $n) => $o->setDriveExclusionUnits($n->getCollectionOfObjectValues([DriveExclusionUnit::class, 'createFromDiscriminatorValue'])),
+            'driveExclusionUnitsBulkAdditionJobs' => fn(ParseNode $n) => $o->setDriveExclusionUnitsBulkAdditionJobs($n->getCollectionOfObjectValues([DriveExclusionUnitsBulkAdditionJob::class, 'createFromDiscriminatorValue'])),
             'driveInclusionRules' => fn(ParseNode $n) => $o->setDriveInclusionRules($n->getCollectionOfObjectValues([DriveProtectionRule::class, 'createFromDiscriminatorValue'])),
             'driveProtectionUnits' => fn(ParseNode $n) => $o->setDriveProtectionUnits($n->getCollectionOfObjectValues([DriveProtectionUnit::class, 'createFromDiscriminatorValue'])),
             'driveProtectionUnitsBulkAdditionJobs' => fn(ParseNode $n) => $o->setDriveProtectionUnitsBulkAdditionJobs($n->getCollectionOfObjectValues([DriveProtectionUnitsBulkAdditionJob::class, 'createFromDiscriminatorValue'])),
@@ -87,9 +117,27 @@ class OneDriveForBusinessProtectionPolicy extends ProtectionPolicyBase implement
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('driveExclusionUnits', $this->getDriveExclusionUnits());
+        $writer->writeCollectionOfObjectValues('driveExclusionUnitsBulkAdditionJobs', $this->getDriveExclusionUnitsBulkAdditionJobs());
         $writer->writeCollectionOfObjectValues('driveInclusionRules', $this->getDriveInclusionRules());
         $writer->writeCollectionOfObjectValues('driveProtectionUnits', $this->getDriveProtectionUnits());
         $writer->writeCollectionOfObjectValues('driveProtectionUnitsBulkAdditionJobs', $this->getDriveProtectionUnitsBulkAdditionJobs());
+    }
+
+    /**
+     * Sets the driveExclusionUnits property value. The driveExclusionUnits property
+     * @param array<DriveExclusionUnit>|null $value Value to set for the driveExclusionUnits property.
+    */
+    public function setDriveExclusionUnits(?array $value): void {
+        $this->getBackingStore()->set('driveExclusionUnits', $value);
+    }
+
+    /**
+     * Sets the driveExclusionUnitsBulkAdditionJobs property value. The driveExclusionUnitsBulkAdditionJobs property
+     * @param array<DriveExclusionUnitsBulkAdditionJob>|null $value Value to set for the driveExclusionUnitsBulkAdditionJobs property.
+    */
+    public function setDriveExclusionUnitsBulkAdditionJobs(?array $value): void {
+        $this->getBackingStore()->set('driveExclusionUnitsBulkAdditionJobs', $value);
     }
 
     /**

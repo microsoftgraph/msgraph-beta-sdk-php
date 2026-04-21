@@ -25,7 +25,7 @@ class ApprovedClientApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Display name for the client application.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -57,7 +57,7 @@ class ApprovedClientApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. Display name for the client application.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {

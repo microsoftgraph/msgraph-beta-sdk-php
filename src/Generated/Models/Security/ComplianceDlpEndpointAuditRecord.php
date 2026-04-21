@@ -6,23 +6,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ComplianceDlpEndpointAuditRecord extends AuditData implements Parsable 
+/**
+ * Audit data for Compliance DLP Endpoint events.
+*/
+class ComplianceDLPEndpointAuditRecord extends AuditData implements Parsable 
 {
     /**
-     * Instantiates a new ComplianceDlpEndpointAuditRecord and sets the default values.
+     * Instantiates a new ComplianceDLPEndpointAuditRecord and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.security.complianceDlpEndpointAuditRecord');
+        $this->setOdataType('#microsoft.graph.security.complianceDLPEndpointAuditRecord');
     }
 
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return ComplianceDlpEndpointAuditRecord
+     * @return ComplianceDLPEndpointAuditRecord
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ComplianceDlpEndpointAuditRecord {
-        return new ComplianceDlpEndpointAuditRecord();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ComplianceDLPEndpointAuditRecord {
+        return new ComplianceDLPEndpointAuditRecord();
     }
 
     /**

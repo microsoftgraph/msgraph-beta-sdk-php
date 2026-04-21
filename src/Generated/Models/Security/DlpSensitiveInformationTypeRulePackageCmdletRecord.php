@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Audit data for DLP Sensitive Information Type Rule Package cmdlet events.
+*/
 class DlpSensitiveInformationTypeRulePackageCmdletRecord extends AuditData implements Parsable 
 {
     /**

@@ -6,23 +6,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ComplianceDlpExchangeClassificationCdpRecord extends AuditData implements Parsable 
+/**
+ * Audit data for Compliance DLP Exchange Classification CDP events.
+*/
+class ComplianceDLPExchangeClassificationCdpRecord extends AuditData implements Parsable 
 {
     /**
-     * Instantiates a new ComplianceDlpExchangeClassificationCdpRecord and sets the default values.
+     * Instantiates a new ComplianceDLPExchangeClassificationCdpRecord and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.security.complianceDlpExchangeClassificationCdpRecord');
+        $this->setOdataType('#microsoft.graph.security.complianceDLPExchangeClassificationCdpRecord');
     }
 
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return ComplianceDlpExchangeClassificationCdpRecord
+     * @return ComplianceDLPExchangeClassificationCdpRecord
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ComplianceDlpExchangeClassificationCdpRecord {
-        return new ComplianceDlpExchangeClassificationCdpRecord();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ComplianceDLPExchangeClassificationCdpRecord {
+        return new ComplianceDLPExchangeClassificationCdpRecord();
     }
 
     /**

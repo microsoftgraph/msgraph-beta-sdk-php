@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\Sections\Item\Items
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get items from users
+ * Get the list of items in a section of a user's teamwork.
 */
 class ItemsRequestBuilderGetQueryParameters 
 {

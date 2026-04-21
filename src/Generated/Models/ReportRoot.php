@@ -68,7 +68,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the azureADPremiumLicenseInsight property value. The azureADPremiumLicenseInsight property
+     * Gets the azureADPremiumLicenseInsight property value. Provides insight into the Microsoft Entra ID P1 and P2 premium license utilization for the tenant.
      * @return AzureADPremiumLicenseInsight|null
     */
     public function getAzureADPremiumLicenseInsight(): ?AzureADPremiumLicenseInsight {
@@ -406,7 +406,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the azureADPremiumLicenseInsight property value. The azureADPremiumLicenseInsight property
+     * Sets the azureADPremiumLicenseInsight property value. Provides insight into the Microsoft Entra ID P1 and P2 premium license utilization for the tenant.
      * @param AzureADPremiumLicenseInsight|null $value Value to set for the azureADPremiumLicenseInsight property.
     */
     public function setAzureADPremiumLicenseInsight(?AzureADPremiumLicenseInsight $value): void {

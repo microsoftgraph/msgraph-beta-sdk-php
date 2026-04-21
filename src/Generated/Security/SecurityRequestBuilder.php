@@ -318,7 +318,7 @@ class SecurityRequestBuilder extends BaseRequestBuilder
 
     /**
      * Update security
-     * @param Security $body The request body
+     * @param Security $body Security singleton providing access to audit log resources.
      * @param SecurityRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Security|null>
      * @throws Exception
@@ -354,7 +354,7 @@ class SecurityRequestBuilder extends BaseRequestBuilder
 
     /**
      * Update security
-     * @param Security $body The request body
+     * @param Security $body Security singleton providing access to audit log resources.
      * @param SecurityRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

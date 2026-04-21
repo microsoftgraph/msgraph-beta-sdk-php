@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Audit data for AIP Scanner Discover Event events.
+*/
 class AipScannerDiscoverEvent extends AuditData implements Parsable 
 {
     /**

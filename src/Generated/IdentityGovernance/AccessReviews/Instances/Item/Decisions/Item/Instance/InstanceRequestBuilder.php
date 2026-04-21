@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Instances\Item\Decisions\Item\Instance\AcceptRecommendations\AcceptRecommendationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Instances\Item\Decisions\Item\Instance\ApplyDecisions\ApplyDecisionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Instances\Item\Decisions\Item\Instance\BatchApplyCustomDataProvidedResourceDecisions\BatchApplyCustomDataProvidedResourceDecisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Instances\Item\Decisions\Item\Instance\BatchRecordDecisions\BatchRecordDecisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Instances\Item\Decisions\Item\Instance\ContactedReviewers\ContactedReviewersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Instances\Item\Decisions\Item\Instance\Definition\DefinitionRequestBuilder;
@@ -38,6 +39,13 @@ class InstanceRequestBuilder extends BaseRequestBuilder
     */
     public function applyDecisions(): ApplyDecisionsRequestBuilder {
         return new ApplyDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the batchApplyCustomDataProvidedResourceDecisions method.
+    */
+    public function batchApplyCustomDataProvidedResourceDecisions(): BatchApplyCustomDataProvidedResourceDecisionsRequestBuilder {
+        return new BatchApplyCustomDataProvidedResourceDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

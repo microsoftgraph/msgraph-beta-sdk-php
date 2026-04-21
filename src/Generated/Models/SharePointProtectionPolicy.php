@@ -33,10 +33,40 @@ class SharePointProtectionPolicy extends ProtectionPolicyBase implements Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'siteExclusionUnits' => fn(ParseNode $n) => $o->setSiteExclusionUnits($n->getCollectionOfObjectValues([SiteExclusionUnit::class, 'createFromDiscriminatorValue'])),
+            'siteExclusionUnitsBulkAdditionJobs' => fn(ParseNode $n) => $o->setSiteExclusionUnitsBulkAdditionJobs($n->getCollectionOfObjectValues([SiteExclusionUnitsBulkAdditionJob::class, 'createFromDiscriminatorValue'])),
             'siteInclusionRules' => fn(ParseNode $n) => $o->setSiteInclusionRules($n->getCollectionOfObjectValues([SiteProtectionRule::class, 'createFromDiscriminatorValue'])),
             'siteProtectionUnits' => fn(ParseNode $n) => $o->setSiteProtectionUnits($n->getCollectionOfObjectValues([SiteProtectionUnit::class, 'createFromDiscriminatorValue'])),
             'siteProtectionUnitsBulkAdditionJobs' => fn(ParseNode $n) => $o->setSiteProtectionUnitsBulkAdditionJobs($n->getCollectionOfObjectValues([SiteProtectionUnitsBulkAdditionJob::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the siteExclusionUnits property value. The siteExclusionUnits property
+     * @return array<SiteExclusionUnit>|null
+    */
+    public function getSiteExclusionUnits(): ?array {
+        $val = $this->getBackingStore()->get('siteExclusionUnits');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SiteExclusionUnit::class);
+            /** @var array<SiteExclusionUnit>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'siteExclusionUnits'");
+    }
+
+    /**
+     * Gets the siteExclusionUnitsBulkAdditionJobs property value. The siteExclusionUnitsBulkAdditionJobs property
+     * @return array<SiteExclusionUnitsBulkAdditionJob>|null
+    */
+    public function getSiteExclusionUnitsBulkAdditionJobs(): ?array {
+        $val = $this->getBackingStore()->get('siteExclusionUnitsBulkAdditionJobs');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SiteExclusionUnitsBulkAdditionJob::class);
+            /** @var array<SiteExclusionUnitsBulkAdditionJob>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'siteExclusionUnitsBulkAdditionJobs'");
     }
 
     /**
@@ -87,9 +117,27 @@ class SharePointProtectionPolicy extends ProtectionPolicyBase implements Parsabl
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('siteExclusionUnits', $this->getSiteExclusionUnits());
+        $writer->writeCollectionOfObjectValues('siteExclusionUnitsBulkAdditionJobs', $this->getSiteExclusionUnitsBulkAdditionJobs());
         $writer->writeCollectionOfObjectValues('siteInclusionRules', $this->getSiteInclusionRules());
         $writer->writeCollectionOfObjectValues('siteProtectionUnits', $this->getSiteProtectionUnits());
         $writer->writeCollectionOfObjectValues('siteProtectionUnitsBulkAdditionJobs', $this->getSiteProtectionUnitsBulkAdditionJobs());
+    }
+
+    /**
+     * Sets the siteExclusionUnits property value. The siteExclusionUnits property
+     * @param array<SiteExclusionUnit>|null $value Value to set for the siteExclusionUnits property.
+    */
+    public function setSiteExclusionUnits(?array $value): void {
+        $this->getBackingStore()->set('siteExclusionUnits', $value);
+    }
+
+    /**
+     * Sets the siteExclusionUnitsBulkAdditionJobs property value. The siteExclusionUnitsBulkAdditionJobs property
+     * @param array<SiteExclusionUnitsBulkAdditionJob>|null $value Value to set for the siteExclusionUnitsBulkAdditionJobs property.
+    */
+    public function setSiteExclusionUnitsBulkAdditionJobs(?array $value): void {
+        $this->getBackingStore()->set('siteExclusionUnitsBulkAdditionJobs', $value);
     }
 
     /**

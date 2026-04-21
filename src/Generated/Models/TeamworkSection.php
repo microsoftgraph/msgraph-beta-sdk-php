@@ -27,7 +27,7 @@ class TeamworkSection extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. Date and time when the section was created. Read-only. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -39,7 +39,7 @@ class TeamworkSection extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayIcon property value. The displayIcon property
+     * Gets the displayIcon property value. The icon displayed for the section.
      * @return SectionDisplayIcon|null
     */
     public function getDisplayIcon(): ?SectionDisplayIcon {
@@ -51,7 +51,7 @@ class TeamworkSection extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name of the section. Required. Maximum length is 50 characters. Display names are case-sensitive and must be unique within a user's sections. The following names are reserved for system-defined sections and can't be used when creating a user-defined section: RecentChats, QuickViews, TeamsAndChannels, MutedChats, MeetingChats, EngageCommunities.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -82,7 +82,7 @@ class TeamworkSection extends Entity implements Parsable
     }
 
     /**
-     * Gets the isExpanded property value. The isExpanded property
+     * Gets the isExpanded property value. Indicates whether the section is expanded in the user interface. The default value is true.
      * @return bool|null
     */
     public function getIsExpanded(): ?bool {
@@ -94,7 +94,7 @@ class TeamworkSection extends Entity implements Parsable
     }
 
     /**
-     * Gets the isHierarchicalViewEnabled property value. The isHierarchicalViewEnabled property
+     * Gets the isHierarchicalViewEnabled property value. Indicates whether the hierarchical view is enabled for the section. Read-only.
      * @return bool|null
     */
     public function getIsHierarchicalViewEnabled(): ?bool {
@@ -106,7 +106,7 @@ class TeamworkSection extends Entity implements Parsable
     }
 
     /**
-     * Gets the items property value. The items property
+     * Gets the items property value. The items (chats, channels, meetings, or communities) organized within the section.
      * @return array<TeamworkSectionItem>|null
     */
     public function getItems(): ?array {
@@ -120,7 +120,7 @@ class TeamworkSection extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. Date and time when the section was last modified. Read-only. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -132,7 +132,7 @@ class TeamworkSection extends Entity implements Parsable
     }
 
     /**
-     * Gets the sectionType property value. The sectionType property
+     * Gets the sectionType property value. The type of the section. The possible values are: userDefined, systemDefined, unknownFutureValue. Read-only.
      * @return SectionType|null
     */
     public function getSectionType(): ?SectionType {
@@ -144,7 +144,7 @@ class TeamworkSection extends Entity implements Parsable
     }
 
     /**
-     * Gets the sortType property value. The sortType property
+     * Gets the sortType property value. The sort order of items in the section. The valid values depend on the sectionType. The possible values are: mostRecent, unreadThenMostRecent, nameAlphabetical, userDefinedCustomOrder, unknownFutureValue.
      * @return SectionSortType|null
     */
     public function getSortType(): ?SectionSortType {
@@ -173,7 +173,7 @@ class TeamworkSection extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. Date and time when the section was created. Read-only. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -181,7 +181,7 @@ class TeamworkSection extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayIcon property value. The displayIcon property
+     * Sets the displayIcon property value. The icon displayed for the section.
      * @param SectionDisplayIcon|null $value Value to set for the displayIcon property.
     */
     public function setDisplayIcon(?SectionDisplayIcon $value): void {
@@ -189,7 +189,7 @@ class TeamworkSection extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name of the section. Required. Maximum length is 50 characters. Display names are case-sensitive and must be unique within a user's sections. The following names are reserved for system-defined sections and can't be used when creating a user-defined section: RecentChats, QuickViews, TeamsAndChannels, MutedChats, MeetingChats, EngageCommunities.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -197,7 +197,7 @@ class TeamworkSection extends Entity implements Parsable
     }
 
     /**
-     * Sets the isExpanded property value. The isExpanded property
+     * Sets the isExpanded property value. Indicates whether the section is expanded in the user interface. The default value is true.
      * @param bool|null $value Value to set for the isExpanded property.
     */
     public function setIsExpanded(?bool $value): void {
@@ -205,7 +205,7 @@ class TeamworkSection extends Entity implements Parsable
     }
 
     /**
-     * Sets the isHierarchicalViewEnabled property value. The isHierarchicalViewEnabled property
+     * Sets the isHierarchicalViewEnabled property value. Indicates whether the hierarchical view is enabled for the section. Read-only.
      * @param bool|null $value Value to set for the isHierarchicalViewEnabled property.
     */
     public function setIsHierarchicalViewEnabled(?bool $value): void {
@@ -213,7 +213,7 @@ class TeamworkSection extends Entity implements Parsable
     }
 
     /**
-     * Sets the items property value. The items property
+     * Sets the items property value. The items (chats, channels, meetings, or communities) organized within the section.
      * @param array<TeamworkSectionItem>|null $value Value to set for the items property.
     */
     public function setItems(?array $value): void {
@@ -221,7 +221,7 @@ class TeamworkSection extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. Date and time when the section was last modified. Read-only. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
@@ -229,7 +229,7 @@ class TeamworkSection extends Entity implements Parsable
     }
 
     /**
-     * Sets the sectionType property value. The sectionType property
+     * Sets the sectionType property value. The type of the section. The possible values are: userDefined, systemDefined, unknownFutureValue. Read-only.
      * @param SectionType|null $value Value to set for the sectionType property.
     */
     public function setSectionType(?SectionType $value): void {
@@ -237,7 +237,7 @@ class TeamworkSection extends Entity implements Parsable
     }
 
     /**
-     * Sets the sortType property value. The sortType property
+     * Sets the sortType property value. The sort order of items in the section. The valid values depend on the sectionType. The possible values are: mostRecent, unreadThenMostRecent, nameAlphabetical, userDefinedCustomOrder, unknownFutureValue.
      * @param SectionSortType|null $value Value to set for the sortType property.
     */
     public function setSortType(?SectionSortType $value): void {

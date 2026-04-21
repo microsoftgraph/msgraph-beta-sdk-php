@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Audit data for MIP Exact Data Match events.
+*/
 class MipExactDataMatchAuditRecord extends AuditData implements Parsable 
 {
     /**

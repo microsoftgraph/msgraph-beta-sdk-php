@@ -52,10 +52,11 @@ class SectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * User's teamwork sections for organizing chats and channels. The collection response may include @microsoft.graph.sectionsOrder and @microsoft.graph.sectionsVersion instance annotations for ordering and optimistic concurrency control.
+     * Get the list of sections in a user's teamwork.
      * @param SectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkSectionCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/userteamwork-list-sections?view=graph-rest-beta Find more info here
     */
     public function get(?SectionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class SectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to sections for users
+     * Create a new section in a user's teamwork.
      * @param TeamworkSection $body The request body
      * @param SectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkSection|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/userteamwork-post-sections?view=graph-rest-beta Find more info here
     */
     public function post(TeamworkSection $body, ?SectionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class SectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * User's teamwork sections for organizing chats and channels. The collection response may include @microsoft.graph.sectionsOrder and @microsoft.graph.sectionsVersion instance annotations for ordering and optimistic concurrency control.
+     * Get the list of sections in a user's teamwork.
      * @param SectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class SectionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to sections for users
+     * Create a new section in a user's teamwork.
      * @param TeamworkSection $body The request body
      * @param SectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

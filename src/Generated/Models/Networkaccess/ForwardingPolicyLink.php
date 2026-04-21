@@ -32,7 +32,20 @@ class ForwardingPolicyLink extends PolicyLink implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
         ]);
+    }
+
+    /**
+     * Gets the priority property value. The priority property
+     * @return int|null
+    */
+    public function getPriority(): ?int {
+        $val = $this->getBackingStore()->get('priority');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'priority'");
     }
 
     /**
@@ -41,6 +54,15 @@ class ForwardingPolicyLink extends PolicyLink implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeIntegerValue('priority', $this->getPriority());
+    }
+
+    /**
+     * Sets the priority property value. The priority property
+     * @param int|null $value Value to set for the priority property.
+    */
+    public function setPriority(?int $value): void {
+        $this->getBackingStore()->set('priority', $value);
     }
 
 }

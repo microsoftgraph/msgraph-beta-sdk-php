@@ -166,7 +166,7 @@ class ProtectionPolicyBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the protectionPolicyArtifactCount property value. The count of artifacts in the protection policy by status. Returned only on $select.
+     * Gets the protectionPolicyArtifactCount property value. The count of artifacts in the protection policy by status. Requires $select to retrieve.
      * @return ProtectionPolicyArtifactCount|null
     */
     public function getProtectionPolicyArtifactCount(): ?ProtectionPolicyArtifactCount {
@@ -296,7 +296,7 @@ class ProtectionPolicyBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the protectionPolicyArtifactCount property value. The count of artifacts in the protection policy by status. Returned only on $select.
+     * Sets the protectionPolicyArtifactCount property value. The count of artifacts in the protection policy by status. Requires $select to retrieve.
      * @param ProtectionPolicyArtifactCount|null $value Value to set for the protectionPolicyArtifactCount property.
     */
     public function setProtectionPolicyArtifactCount(?ProtectionPolicyArtifactCount $value): void {

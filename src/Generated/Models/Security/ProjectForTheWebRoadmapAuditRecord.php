@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Audit data for Project for the Web Roadmap events.
+*/
 class ProjectForTheWebRoadmapAuditRecord extends AuditData implements Parsable 
 {
     /**

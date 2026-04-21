@@ -6,23 +6,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MS365DIncidentAuditRecord extends AuditData implements Parsable 
+/**
+ * Audit data for MS365D Incident events.
+*/
+class Ms365dIncidentAuditRecord extends AuditData implements Parsable 
 {
     /**
-     * Instantiates a new MS365DIncidentAuditRecord and sets the default values.
+     * Instantiates a new Ms365dIncidentAuditRecord and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.security.mS365DIncidentAuditRecord');
+        $this->setOdataType('#microsoft.graph.security.ms365dIncidentAuditRecord');
     }
 
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return MS365DIncidentAuditRecord
+     * @return Ms365dIncidentAuditRecord
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MS365DIncidentAuditRecord {
-        return new MS365DIncidentAuditRecord();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): Ms365dIncidentAuditRecord {
+        return new Ms365dIncidentAuditRecord();
     }
 
     /**

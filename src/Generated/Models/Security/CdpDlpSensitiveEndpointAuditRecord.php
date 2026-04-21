@@ -6,6 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Audit data for CDP DLP Sensitive Endpoint events.
+*/
 class CdpDlpSensitiveEndpointAuditRecord extends AuditData implements Parsable 
 {
     /**
