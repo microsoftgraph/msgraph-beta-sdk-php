@@ -30,11 +30,12 @@ class BatchApplyCustomDataProvidedResourceDecisionsRequestBuilder extends BaseRe
     }
 
     /**
-     * Invoke action batchApplyCustomDataProvidedResourceDecisions
+     * Enables reviewers to set the applyResult and applyDescription on all accessReviewInstanceDecisionItem objects in batches by using customDataProvidedResourceId. NOTE: The access review instance must be in an Applying state.
      * @param BatchApplyCustomDataProvidedResourceDecisionsPostRequestBody $body The request body
      * @param BatchApplyCustomDataProvidedResourceDecisionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/accessreviewinstance-batchapplycustomdataprovidedresourcedecisions?view=graph-rest-beta Find more info here
     */
     public function post(BatchApplyCustomDataProvidedResourceDecisionsPostRequestBody $body, ?BatchApplyCustomDataProvidedResourceDecisionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -45,7 +46,7 @@ class BatchApplyCustomDataProvidedResourceDecisionsRequestBuilder extends BaseRe
     }
 
     /**
-     * Invoke action batchApplyCustomDataProvidedResourceDecisions
+     * Enables reviewers to set the applyResult and applyDescription on all accessReviewInstanceDecisionItem objects in batches by using customDataProvidedResourceId. NOTE: The access review instance must be in an Applying state.
      * @param BatchApplyCustomDataProvidedResourceDecisionsPostRequestBody $body The request body
      * @param BatchApplyCustomDataProvidedResourceDecisionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

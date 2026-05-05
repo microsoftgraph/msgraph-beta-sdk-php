@@ -52,7 +52,7 @@ class UploadSessionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a customDataProvidedResourceUploadSession object.
+     * Get uploadSessions from identityGovernance
      * @param UploadSessionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomDataProvidedResourceUploadSessionCollectionResponse|null>
      * @throws Exception
@@ -66,12 +66,11 @@ class UploadSessionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new customDataProvidedResourceUploadSession object.
+     * Create new navigation property to uploadSessions for identityGovernance
      * @param CustomDataProvidedResourceUploadSession $body The request body
      * @param UploadSessionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomDataProvidedResourceUploadSession|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/customdataprovidedresource-post-uploadsessions?view=graph-rest-beta Find more info here
     */
     public function post(CustomDataProvidedResourceUploadSession $body, ?UploadSessionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -82,7 +81,7 @@ class UploadSessionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a customDataProvidedResourceUploadSession object.
+     * Get uploadSessions from identityGovernance
      * @param UploadSessionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -103,7 +102,7 @@ class UploadSessionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new customDataProvidedResourceUploadSession object.
+     * Create new navigation property to uploadSessions for identityGovernance
      * @param CustomDataProvidedResourceUploadSession $body The request body
      * @param UploadSessionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -53,7 +53,7 @@ class VerifiedIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get verifiedId from identity
+     * Entry point for verified ID operations.
      * @param VerifiedIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IdentityVerifiedIdRoot|null>
      * @throws Exception
@@ -100,7 +100,7 @@ class VerifiedIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get verifiedId from identity
+     * Entry point for verified ID operations.
      * @param VerifiedIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

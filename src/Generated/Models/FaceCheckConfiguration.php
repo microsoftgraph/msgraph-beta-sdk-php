@@ -93,7 +93,7 @@ class FaceCheckConfiguration implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the sourcePhotoClaimName property value. The sourcePhotoClaimName property
+     * Gets the sourcePhotoClaimName property value. Source of photo to validate Face Check against. Currently must always be portrait
      * @return string|null
     */
     public function getSourcePhotoClaimName(): ?string {
@@ -148,7 +148,7 @@ class FaceCheckConfiguration implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the sourcePhotoClaimName property value. The sourcePhotoClaimName property
+     * Sets the sourcePhotoClaimName property value. Source of photo to validate Face Check against. Currently must always be portrait
      * @param string|null $value Value to set for the sourcePhotoClaimName property.
     */
     public function setSourcePhotoClaimName(?string $value): void {

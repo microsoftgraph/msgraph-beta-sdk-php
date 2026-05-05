@@ -49,7 +49,7 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description of the device registration policy. It's always set to Tenant-wide policy that manages intial provisioning controls using quota restrictions, additional authentication and authorization checks. Read-only.
+     * Gets the description property value. The description of the device registration policy. Always set to Tenant-wide policy that manages intial provisioning controls using quota restrictions, additional authentication and authorization checks. Read-only.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -61,7 +61,7 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The name of the device registration policy. It's always set to Device Registration Policy. Read-only.
+     * Gets the displayName property value. The name of the device registration policy. Always set to Device Registration Policy. Read-only.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -157,7 +157,7 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description of the device registration policy. It's always set to Tenant-wide policy that manages intial provisioning controls using quota restrictions, additional authentication and authorization checks. Read-only.
+     * Sets the description property value. The description of the device registration policy. Always set to Tenant-wide policy that manages intial provisioning controls using quota restrictions, additional authentication and authorization checks. Read-only.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -165,7 +165,7 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The name of the device registration policy. It's always set to Device Registration Policy. Read-only.
+     * Sets the displayName property value. The name of the device registration policy. Always set to Device Registration Policy. Read-only.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {

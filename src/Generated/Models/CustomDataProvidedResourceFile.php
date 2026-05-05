@@ -39,7 +39,7 @@ class CustomDataProvidedResourceFile extends Entity implements Parsable
     }
 
     /**
-     * Gets the name property value. Name of the file that was uploaded.
+     * Gets the name property value. Name of the uploaded file, including the file extension. Required.  Supports $filter (eq, ne)  and $orderby.
      * @return string|null
     */
     public function getName(): ?string {
@@ -51,7 +51,7 @@ class CustomDataProvidedResourceFile extends Entity implements Parsable
     }
 
     /**
-     * Gets the size property value. Size of the uploaded file in bytes.
+     * Gets the size property value. Size of the file in bytes. Read-only.  Supports $filter (eq, ne, gt, ge, lt, le) and $orderby.
      * @return int|null
     */
     public function getSize(): ?int {
@@ -63,7 +63,7 @@ class CustomDataProvidedResourceFile extends Entity implements Parsable
     }
 
     /**
-     * Gets the uploadedDateTime property value. Time at which the file was uploaded.
+     * Gets the uploadedDateTime property value. Timestamp when the file was uploaded. Read-only.  Supports $filter (eq, ne, gt, ge, lt, le) and $orderby.
      * @return DateTime|null
     */
     public function getUploadedDateTime(): ?DateTime {
@@ -86,7 +86,7 @@ class CustomDataProvidedResourceFile extends Entity implements Parsable
     }
 
     /**
-     * Sets the name property value. Name of the file that was uploaded.
+     * Sets the name property value. Name of the uploaded file, including the file extension. Required.  Supports $filter (eq, ne)  and $orderby.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
@@ -94,7 +94,7 @@ class CustomDataProvidedResourceFile extends Entity implements Parsable
     }
 
     /**
-     * Sets the size property value. Size of the uploaded file in bytes.
+     * Sets the size property value. Size of the file in bytes. Read-only.  Supports $filter (eq, ne, gt, ge, lt, le) and $orderby.
      * @param int|null $value Value to set for the size property.
     */
     public function setSize(?int $value): void {
@@ -102,7 +102,7 @@ class CustomDataProvidedResourceFile extends Entity implements Parsable
     }
 
     /**
-     * Sets the uploadedDateTime property value. Time at which the file was uploaded.
+     * Sets the uploadedDateTime property value. Timestamp when the file was uploaded. Read-only.  Supports $filter (eq, ne, gt, ge, lt, le) and $orderby.
      * @param DateTime|null $value Value to set for the uploadedDateTime property.
     */
     public function setUploadedDateTime(?DateTime $value): void {

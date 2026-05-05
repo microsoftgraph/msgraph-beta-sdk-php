@@ -267,6 +267,18 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
+     * Gets the cloudVideoInteropInfo property value. The cloudVideoInteropInfo property
+     * @return CloudVideoInteropInfo|null
+    */
+    public function getCloudVideoInteropInfo(): ?CloudVideoInteropInfo {
+        $val = $this->getBackingStore()->get('cloudVideoInteropInfo');
+        if (is_null($val) || $val instanceof CloudVideoInteropInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudVideoInteropInfo'");
+    }
+
+    /**
      * Gets the expiryDateTime property value. Indicates the date and time when the meeting resource expires. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
@@ -304,6 +316,7 @@ class OnlineMeetingBase extends Entity implements Parsable
             'audioConferencing' => fn(ParseNode $n) => $o->setAudioConferencing($n->getObjectValue([AudioConferencing::class, 'createFromDiscriminatorValue'])),
             'chatInfo' => fn(ParseNode $n) => $o->setChatInfo($n->getObjectValue([ChatInfo::class, 'createFromDiscriminatorValue'])),
             'chatRestrictions' => fn(ParseNode $n) => $o->setChatRestrictions($n->getObjectValue([ChatRestrictions::class, 'createFromDiscriminatorValue'])),
+            'cloudVideoInteropInfo' => fn(ParseNode $n) => $o->setCloudVideoInteropInfo($n->getObjectValue([CloudVideoInteropInfo::class, 'createFromDiscriminatorValue'])),
             'expiryDateTime' => fn(ParseNode $n) => $o->setExpiryDateTime($n->getDateTimeValue()),
             'isEndToEndEncryptionEnabled' => fn(ParseNode $n) => $o->setIsEndToEndEncryptionEnabled($n->getBooleanValue()),
             'isEntryExitAnnounced' => fn(ParseNode $n) => $o->setIsEntryExitAnnounced($n->getBooleanValue()),
@@ -515,6 +528,7 @@ class OnlineMeetingBase extends Entity implements Parsable
         $writer->writeObjectValue('audioConferencing', $this->getAudioConferencing());
         $writer->writeObjectValue('chatInfo', $this->getChatInfo());
         $writer->writeObjectValue('chatRestrictions', $this->getChatRestrictions());
+        $writer->writeObjectValue('cloudVideoInteropInfo', $this->getCloudVideoInteropInfo());
         $writer->writeDateTimeValue('expiryDateTime', $this->getExpiryDateTime());
         $writer->writeBooleanValue('isEndToEndEncryptionEnabled', $this->getIsEndToEndEncryptionEnabled());
         $writer->writeBooleanValue('isEntryExitAnnounced', $this->getIsEntryExitAnnounced());
@@ -682,6 +696,14 @@ class OnlineMeetingBase extends Entity implements Parsable
     */
     public function setChatRestrictions(?ChatRestrictions $value): void {
         $this->getBackingStore()->set('chatRestrictions', $value);
+    }
+
+    /**
+     * Sets the cloudVideoInteropInfo property value. The cloudVideoInteropInfo property
+     * @param CloudVideoInteropInfo|null $value Value to set for the cloudVideoInteropInfo property.
+    */
+    public function setCloudVideoInteropInfo(?CloudVideoInteropInfo $value): void {
+        $this->getBackingStore()->set('cloudVideoInteropInfo', $value);
     }
 
     /**

@@ -132,6 +132,7 @@ class CopilotPackage extends Entity implements Parsable
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'manifestId' => fn(ParseNode $n) => $o->setManifestId($n->getStringValue()),
             'manifestVersion' => fn(ParseNode $n) => $o->setManifestVersion($n->getStringValue()),
+            'ownerId' => fn(ParseNode $n) => $o->setOwnerId($n->getStringValue()),
             'platform' => fn(ParseNode $n) => $o->setPlatform($n->getStringValue()),
             'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
             'shortDescription' => fn(ParseNode $n) => $o->setShortDescription($n->getStringValue()),
@@ -195,6 +196,18 @@ class CopilotPackage extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'manifestVersion'");
+    }
+
+    /**
+     * Gets the ownerId property value. The ownerId property
+     * @return string|null
+    */
+    public function getOwnerId(): ?string {
+        $val = $this->getBackingStore()->get('ownerId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ownerId'");
     }
 
     /**
@@ -299,6 +312,7 @@ class CopilotPackage extends Entity implements Parsable
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeStringValue('manifestId', $this->getManifestId());
         $writer->writeStringValue('manifestVersion', $this->getManifestVersion());
+        $writer->writeStringValue('ownerId', $this->getOwnerId());
         $writer->writeStringValue('platform', $this->getPlatform());
         $writer->writeStringValue('publisher', $this->getPublisher());
         $writer->writeStringValue('shortDescription', $this->getShortDescription());
@@ -386,6 +400,14 @@ class CopilotPackage extends Entity implements Parsable
     */
     public function setManifestVersion(?string $value): void {
         $this->getBackingStore()->set('manifestVersion', $value);
+    }
+
+    /**
+     * Sets the ownerId property value. The ownerId property
+     * @param string|null $value Value to set for the ownerId property.
+    */
+    public function setOwnerId(?string $value): void {
+        $this->getBackingStore()->set('ownerId', $value);
     }
 
     /**
