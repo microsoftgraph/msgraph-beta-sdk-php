@@ -26,6 +26,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Chats\ChatsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CheckMemberGroups\CheckMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CheckMemberObjects\CheckMemberObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudClipboard\CloudClipboardRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\CloudPcPools\CloudPcPoolsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\CloudPCsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Communications\CommunicationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ContactFolders\ContactFoldersRequestBuilder;
@@ -268,6 +269,13 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     */
     public function cloudClipboard(): CloudClipboardRequestBuilder {
         return new CloudClipboardRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the cloudPcPools property of the microsoft.graph.user entity.
+    */
+    public function cloudPcPools(): CloudPcPoolsRequestBuilder {
+        return new CloudPcPoolsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\Catalogs\Item\Access
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\Catalogs\Item\AccessPackageResources\Item\UploadSessions\Item\Files\FilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\Catalogs\Item\AccessPackageResources\Item\UploadSessions\Item\UploadFile\UploadFileRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CustomDataProvidedResourceUploadSession;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -17,6 +18,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class CustomDataProvidedResourceUploadSessionItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the files property of the microsoft.graph.customDataProvidedResourceUploadSession entity.
+    */
+    public function files(): FilesRequestBuilder {
+        return new FilesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to call the uploadFile method.
     */
@@ -39,10 +47,11 @@ class CustomDataProvidedResourceUploadSessionItemRequestBuilder extends BaseRequ
     }
 
     /**
-     * Delete navigation property uploadSessions for identityGovernance
+     * Delete a customDataProvidedResourceUploadSession object.
      * @param CustomDataProvidedResourceUploadSessionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/accesspackageresource-delete-uploadsessions?view=graph-rest-beta Find more info here
     */
     public function delete(?CustomDataProvidedResourceUploadSessionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -53,10 +62,11 @@ class CustomDataProvidedResourceUploadSessionItemRequestBuilder extends BaseRequ
     }
 
     /**
-     * Get uploadSessions from identityGovernance
+     * Read the properties and relationships of a customDataProvidedResourceUploadSession object.
      * @param CustomDataProvidedResourceUploadSessionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomDataProvidedResourceUploadSession|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/customdataprovidedresourceuploadsession-get?view=graph-rest-beta Find more info here
     */
     public function get(?CustomDataProvidedResourceUploadSessionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,11 +77,12 @@ class CustomDataProvidedResourceUploadSessionItemRequestBuilder extends BaseRequ
     }
 
     /**
-     * Update the navigation property uploadSessions in identityGovernance
+     * Update the properties of a customDataProvidedResourceUploadSession created for a customDataProvidedResource object.
      * @param CustomDataProvidedResourceUploadSession $body The request body
      * @param CustomDataProvidedResourceUploadSessionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomDataProvidedResourceUploadSession|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/customdataprovidedresourceuploadsession-update?view=graph-rest-beta Find more info here
     */
     public function patch(CustomDataProvidedResourceUploadSession $body, ?CustomDataProvidedResourceUploadSessionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -82,7 +93,7 @@ class CustomDataProvidedResourceUploadSessionItemRequestBuilder extends BaseRequ
     }
 
     /**
-     * Delete navigation property uploadSessions for identityGovernance
+     * Delete a customDataProvidedResourceUploadSession object.
      * @param CustomDataProvidedResourceUploadSessionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -100,7 +111,7 @@ class CustomDataProvidedResourceUploadSessionItemRequestBuilder extends BaseRequ
     }
 
     /**
-     * Get uploadSessions from identityGovernance
+     * Read the properties and relationships of a customDataProvidedResourceUploadSession object.
      * @param CustomDataProvidedResourceUploadSessionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +132,7 @@ class CustomDataProvidedResourceUploadSessionItemRequestBuilder extends BaseRequ
     }
 
     /**
-     * Update the navigation property uploadSessions in identityGovernance
+     * Update the properties of a customDataProvidedResourceUploadSession created for a customDataProvidedResource object.
      * @param CustomDataProvidedResourceUploadSession $body The request body
      * @param CustomDataProvidedResourceUploadSessionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

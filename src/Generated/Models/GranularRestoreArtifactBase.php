@@ -58,6 +58,18 @@ class GranularRestoreArtifactBase extends Entity implements Parsable
     }
 
     /**
+     * Gets the destinationType property value. The destinationType property
+     * @return DestinationType|null
+    */
+    public function getDestinationType(): ?DestinationType {
+        $val = $this->getBackingStore()->get('destinationType');
+        if (is_null($val) || $val instanceof DestinationType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'destinationType'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -66,6 +78,7 @@ class GranularRestoreArtifactBase extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'browseSessionId' => fn(ParseNode $n) => $o->setBrowseSessionId($n->getStringValue()),
             'completionDateTime' => fn(ParseNode $n) => $o->setCompletionDateTime($n->getDateTimeValue()),
+            'destinationType' => fn(ParseNode $n) => $o->setDestinationType($n->getEnumValue(DestinationType::class)),
             'restoredItemKey' => fn(ParseNode $n) => $o->setRestoredItemKey($n->getStringValue()),
             'restoredItemPath' => fn(ParseNode $n) => $o->setRestoredItemPath($n->getStringValue()),
             'restoredItemWebUrl' => fn(ParseNode $n) => $o->setRestoredItemWebUrl($n->getStringValue()),
@@ -168,6 +181,7 @@ class GranularRestoreArtifactBase extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('browseSessionId', $this->getBrowseSessionId());
         $writer->writeDateTimeValue('completionDateTime', $this->getCompletionDateTime());
+        $writer->writeEnumValue('destinationType', $this->getDestinationType());
         $writer->writeStringValue('restoredItemKey', $this->getRestoredItemKey());
         $writer->writeStringValue('restoredItemPath', $this->getRestoredItemPath());
         $writer->writeStringValue('restoredItemWebUrl', $this->getRestoredItemWebUrl());
@@ -191,6 +205,14 @@ class GranularRestoreArtifactBase extends Entity implements Parsable
     */
     public function setCompletionDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('completionDateTime', $value);
+    }
+
+    /**
+     * Sets the destinationType property value. The destinationType property
+     * @param DestinationType|null $value Value to set for the destinationType property.
+    */
+    public function setDestinationType(?DestinationType $value): void {
+        $this->getBackingStore()->set('destinationType', $value);
     }
 
     /**

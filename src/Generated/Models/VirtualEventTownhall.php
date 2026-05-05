@@ -39,6 +39,18 @@ class VirtualEventTownhall extends VirtualEvent implements Parsable
     }
 
     /**
+     * Gets the capacity property value. The capacity property
+     * @return int|null
+    */
+    public function getCapacity(): ?int {
+        $val = $this->getBackingStore()->get('capacity');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'capacity'");
+    }
+
+    /**
      * Gets the coOrganizers property value. Identity information of the coorganizers of the town hall.
      * @return array<CommunicationsUserIdentity>|null
     */
@@ -60,6 +72,7 @@ class VirtualEventTownhall extends VirtualEvent implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'audience' => fn(ParseNode $n) => $o->setAudience($n->getEnumValue(MeetingAudience::class)),
+            'capacity' => fn(ParseNode $n) => $o->setCapacity($n->getIntegerValue()),
             'coOrganizers' => fn(ParseNode $n) => $o->setCoOrganizers($n->getCollectionOfObjectValues([CommunicationsUserIdentity::class, 'createFromDiscriminatorValue'])),
             'invitedAttendees' => fn(ParseNode $n) => $o->setInvitedAttendees($n->getCollectionOfObjectValues([Identity::class, 'createFromDiscriminatorValue'])),
             'isInviteOnly' => fn(ParseNode $n) => $o->setIsInviteOnly($n->getBooleanValue()),
@@ -99,6 +112,7 @@ class VirtualEventTownhall extends VirtualEvent implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('audience', $this->getAudience());
+        $writer->writeIntegerValue('capacity', $this->getCapacity());
         $writer->writeCollectionOfObjectValues('coOrganizers', $this->getCoOrganizers());
         $writer->writeCollectionOfObjectValues('invitedAttendees', $this->getInvitedAttendees());
         $writer->writeBooleanValue('isInviteOnly', $this->getIsInviteOnly());
@@ -110,6 +124,14 @@ class VirtualEventTownhall extends VirtualEvent implements Parsable
     */
     public function setAudience(?MeetingAudience $value): void {
         $this->getBackingStore()->set('audience', $value);
+    }
+
+    /**
+     * Sets the capacity property value. The capacity property
+     * @param int|null $value Value to set for the capacity property.
+    */
+    public function setCapacity(?int $value): void {
+        $this->getBackingStore()->set('capacity', $value);
     }
 
     /**

@@ -62,10 +62,23 @@ class ClaimBinding implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'matchConfidenceLevel' => fn(ParseNode $n) => $o->setMatchConfidenceLevel($n->getEnumValue(MatchConfidenceLevel::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'sourceAttribute' => fn(ParseNode $n) => $o->setSourceAttribute($n->getStringValue()),
             'verifiedIdClaim' => fn(ParseNode $n) => $o->setVerifiedIdClaim($n->getStringValue()),
         ];
+    }
+
+    /**
+     * Gets the matchConfidenceLevel property value. The matchConfidenceLevel property
+     * @return MatchConfidenceLevel|null
+    */
+    public function getMatchConfidenceLevel(): ?MatchConfidenceLevel {
+        $val = $this->getBackingStore()->get('matchConfidenceLevel');
+        if (is_null($val) || $val instanceof MatchConfidenceLevel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'matchConfidenceLevel'");
     }
 
     /**
@@ -109,6 +122,7 @@ class ClaimBinding implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeEnumValue('matchConfidenceLevel', $this->getMatchConfidenceLevel());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('sourceAttribute', $this->getSourceAttribute());
         $writer->writeStringValue('verifiedIdClaim', $this->getVerifiedIdClaim());
@@ -129,6 +143,14 @@ class ClaimBinding implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the matchConfidenceLevel property value. The matchConfidenceLevel property
+     * @param MatchConfidenceLevel|null $value Value to set for the matchConfidenceLevel property.
+    */
+    public function setMatchConfidenceLevel(?MatchConfidenceLevel $value): void {
+        $this->getBackingStore()->set('matchConfidenceLevel', $value);
     }
 
     /**

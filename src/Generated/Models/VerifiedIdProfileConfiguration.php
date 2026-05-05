@@ -95,6 +95,18 @@ class VerifiedIdProfileConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
+     * Gets the claimValidation property value. The claimValidation property
+     * @return ClaimValidation|null
+    */
+    public function getClaimValidation(): ?ClaimValidation {
+        $val = $this->getBackingStore()->get('claimValidation');
+        if (is_null($val) || $val instanceof ClaimValidation) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'claimValidation'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -104,6 +116,7 @@ class VerifiedIdProfileConfiguration implements AdditionalDataHolder, BackedMode
             'acceptedIssuer' => fn(ParseNode $n) => $o->setAcceptedIssuer($n->getStringValue()),
             'claimBindings' => fn(ParseNode $n) => $o->setClaimBindings($n->getCollectionOfObjectValues([ClaimBinding::class, 'createFromDiscriminatorValue'])),
             'claimBindingSource' => fn(ParseNode $n) => $o->setClaimBindingSource($n->getEnumValue(ClaimBindingSource::class)),
+            'claimValidation' => fn(ParseNode $n) => $o->setClaimValidation($n->getObjectValue([ClaimValidation::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
         ];
@@ -141,6 +154,7 @@ class VerifiedIdProfileConfiguration implements AdditionalDataHolder, BackedMode
         $writer->writeStringValue('acceptedIssuer', $this->getAcceptedIssuer());
         $writer->writeCollectionOfObjectValues('claimBindings', $this->getClaimBindings());
         $writer->writeEnumValue('claimBindingSource', $this->getClaimBindingSource());
+        $writer->writeObjectValue('claimValidation', $this->getClaimValidation());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('type', $this->getType());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -184,6 +198,14 @@ class VerifiedIdProfileConfiguration implements AdditionalDataHolder, BackedMode
     */
     public function setClaimBindingSource(?ClaimBindingSource $value): void {
         $this->getBackingStore()->set('claimBindingSource', $value);
+    }
+
+    /**
+     * Sets the claimValidation property value. The claimValidation property
+     * @param ClaimValidation|null $value Value to set for the claimValidation property.
+    */
+    public function setClaimValidation(?ClaimValidation $value): void {
+        $this->getBackingStore()->set('claimValidation', $value);
     }
 
     /**

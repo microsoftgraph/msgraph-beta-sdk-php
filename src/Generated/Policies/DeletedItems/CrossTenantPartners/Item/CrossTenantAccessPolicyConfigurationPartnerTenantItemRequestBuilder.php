@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\CrossTenantAccessPolicyConfigurationPartner;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Policies\DeletedItems\CrossTenantPartners\Item\IdentitySynchronization\IdentitySynchronizationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Policies\DeletedItems\CrossTenantPartners\Item\M365Capabilities\M365CapabilitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\DeletedItems\CrossTenantPartners\Item\Restore\RestoreRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -23,6 +24,13 @@ class CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder extend
     */
     public function identitySynchronization(): IdentitySynchronizationRequestBuilder {
         return new IdentitySynchronizationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the m365Capabilities property of the microsoft.graph.crossTenantAccessPolicyConfigurationPartner entity.
+    */
+    public function m365Capabilities(): M365CapabilitiesRequestBuilder {
+        return new M365CapabilitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

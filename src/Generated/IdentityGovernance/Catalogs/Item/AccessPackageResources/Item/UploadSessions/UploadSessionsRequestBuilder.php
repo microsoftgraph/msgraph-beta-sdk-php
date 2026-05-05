@@ -52,10 +52,11 @@ class UploadSessionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get uploadSessions from identityGovernance
+     * Get a list of the customDataProvidedResourceUploadSession objects and their properties.
      * @param UploadSessionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomDataProvidedResourceUploadSessionCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/accesspackageresource-list-uploadsessions?view=graph-rest-beta Find more info here
     */
     public function get(?UploadSessionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class UploadSessionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to uploadSessions for identityGovernance
+     * Create a customDataProvidedResourceUploadSession object. Only one upload session is allowed per reference instance (for example, access review instance) and customDataProvidedResource pair. Once you create an upload session, upload files, and complete the session, the data is processed and you cannot create another upload session for that same pair. If you encounter errors with files uploaded or need to start fresh, you can delete the active upload session to create a new one.
      * @param CustomDataProvidedResourceUploadSession $body The request body
      * @param UploadSessionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomDataProvidedResourceUploadSession|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/customdataprovidedresource-post-uploadsessions?view=graph-rest-beta Find more info here
     */
     public function post(CustomDataProvidedResourceUploadSession $body, ?UploadSessionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class UploadSessionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get uploadSessions from identityGovernance
+     * Get a list of the customDataProvidedResourceUploadSession objects and their properties.
      * @param UploadSessionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class UploadSessionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to uploadSessions for identityGovernance
+     * Create a customDataProvidedResourceUploadSession object. Only one upload session is allowed per reference instance (for example, access review instance) and customDataProvidedResource pair. Once you create an upload session, upload files, and complete the session, the data is processed and you cannot create another upload session for that same pair. If you encounter errors with files uploaded or need to start fresh, you can delete the active upload session to create a new one.
      * @param CustomDataProvidedResourceUploadSession $body The request body
      * @param UploadSessionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

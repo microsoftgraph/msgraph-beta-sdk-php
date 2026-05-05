@@ -31,7 +31,7 @@ class MicrosoftGraphSecurityMoveAlertsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Move one or more alert resources to an existing incident.
+     * Move one or more alert resources to a new or existing incident.
      * @param MoveAlertsPostRequestBody $body The request body
      * @param MicrosoftGraphSecurityMoveAlertsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MergeResponse|null>
@@ -47,7 +47,7 @@ class MicrosoftGraphSecurityMoveAlertsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Move one or more alert resources to an existing incident.
+     * Move one or more alert resources to a new or existing incident.
      * @param MoveAlertsPostRequestBody $body The request body
      * @param MicrosoftGraphSecurityMoveAlertsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
