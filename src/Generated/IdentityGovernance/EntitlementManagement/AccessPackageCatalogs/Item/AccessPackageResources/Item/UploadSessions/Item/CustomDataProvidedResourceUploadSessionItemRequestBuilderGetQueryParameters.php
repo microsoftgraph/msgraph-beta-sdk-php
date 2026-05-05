@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a customDataProvidedResourceUploadSession object.
+ * Get uploadSessions from identityGovernance
 */
 class CustomDataProvidedResourceUploadSessionItemRequestBuilderGetQueryParameters 
 {

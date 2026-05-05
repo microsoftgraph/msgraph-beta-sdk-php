@@ -128,7 +128,7 @@ class EscapedList extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the itemCount property value. The number of items in the list. Read-only.
+     * Gets the itemCount property value. The total count of items in the list. Read-only.
      * @return int|null
     */
     public function getItemCount(): ?int {
@@ -289,7 +289,7 @@ class EscapedList extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the itemCount property value. The number of items in the list. Read-only.
+     * Sets the itemCount property value. The total count of items in the list. Read-only.
      * @param int|null $value Value to set for the itemCount property.
     */
     public function setItemCount(?int $value): void {

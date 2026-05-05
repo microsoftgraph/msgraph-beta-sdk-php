@@ -37,7 +37,7 @@ class ExchangeSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the inPlaceArchiveMailboxId property value. The inPlaceArchiveMailboxId property
+     * Gets the inPlaceArchiveMailboxId property value. The unique identifier for the user's In-Place Archive mailbox.
      * @return string|null
     */
     public function getInPlaceArchiveMailboxId(): ?string {
@@ -71,7 +71,7 @@ class ExchangeSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the inPlaceArchiveMailboxId property value. The inPlaceArchiveMailboxId property
+     * Sets the inPlaceArchiveMailboxId property value. The unique identifier for the user's In-Place Archive mailbox.
      * @param string|null $value Value to set for the inPlaceArchiveMailboxId property.
     */
     public function setInPlaceArchiveMailboxId(?string $value): void {

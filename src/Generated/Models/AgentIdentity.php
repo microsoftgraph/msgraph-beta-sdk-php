@@ -60,8 +60,38 @@ class AgentIdentity extends ServicePrincipal implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'agentIdentityBlueprintId' => fn(ParseNode $n) => $o->setAgentIdentityBlueprintId($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'inheritedAppRoleAssignments' => fn(ParseNode $n) => $o->setInheritedAppRoleAssignments($n->getCollectionOfObjectValues([AppRoleAssignment::class, 'createFromDiscriminatorValue'])),
+            'inheritedOauth2PermissionGrants' => fn(ParseNode $n) => $o->setInheritedOauth2PermissionGrants($n->getCollectionOfObjectValues([OAuth2PermissionGrant::class, 'createFromDiscriminatorValue'])),
             'sponsors' => fn(ParseNode $n) => $o->setSponsors($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the inheritedAppRoleAssignments property value. Application role assignments that this agent identity inherits from its parent Agent Identity Blueprint service principal. Read-only. Nullable.
+     * @return array<AppRoleAssignment>|null
+    */
+    public function getInheritedAppRoleAssignments(): ?array {
+        $val = $this->getBackingStore()->get('inheritedAppRoleAssignments');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, AppRoleAssignment::class);
+            /** @var array<AppRoleAssignment>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inheritedAppRoleAssignments'");
+    }
+
+    /**
+     * Gets the inheritedOauth2PermissionGrants property value. Delegated permission grants that this agent identity inherits from its parent Agent Identity Blueprint service principal. Read-only. Nullable.
+     * @return array<OAuth2PermissionGrant>|null
+    */
+    public function getInheritedOauth2PermissionGrants(): ?array {
+        $val = $this->getBackingStore()->get('inheritedOauth2PermissionGrants');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, OAuth2PermissionGrant::class);
+            /** @var array<OAuth2PermissionGrant>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inheritedOauth2PermissionGrants'");
     }
 
     /**
@@ -86,6 +116,8 @@ class AgentIdentity extends ServicePrincipal implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('agentIdentityBlueprintId', $this->getAgentIdentityBlueprintId());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeCollectionOfObjectValues('inheritedAppRoleAssignments', $this->getInheritedAppRoleAssignments());
+        $writer->writeCollectionOfObjectValues('inheritedOauth2PermissionGrants', $this->getInheritedOauth2PermissionGrants());
         $writer->writeCollectionOfObjectValues('sponsors', $this->getSponsors());
     }
 
@@ -103,6 +135,22 @@ class AgentIdentity extends ServicePrincipal implements Parsable
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
+    }
+
+    /**
+     * Sets the inheritedAppRoleAssignments property value. Application role assignments that this agent identity inherits from its parent Agent Identity Blueprint service principal. Read-only. Nullable.
+     * @param array<AppRoleAssignment>|null $value Value to set for the inheritedAppRoleAssignments property.
+    */
+    public function setInheritedAppRoleAssignments(?array $value): void {
+        $this->getBackingStore()->set('inheritedAppRoleAssignments', $value);
+    }
+
+    /**
+     * Sets the inheritedOauth2PermissionGrants property value. Delegated permission grants that this agent identity inherits from its parent Agent Identity Blueprint service principal. Read-only. Nullable.
+     * @param array<OAuth2PermissionGrant>|null $value Value to set for the inheritedOauth2PermissionGrants property.
+    */
+    public function setInheritedOauth2PermissionGrants(?array $value): void {
+        $this->getBackingStore()->set('inheritedOauth2PermissionGrants', $value);
     }
 
     /**

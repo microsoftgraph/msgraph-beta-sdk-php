@@ -27,6 +27,18 @@ class VirtualEventSession extends OnlineMeetingBase implements Parsable
     }
 
     /**
+     * Gets the capacity property value. The capacity property
+     * @return int|null
+    */
+    public function getCapacity(): ?int {
+        $val = $this->getBackingStore()->get('capacity');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'capacity'");
+    }
+
+    /**
      * Gets the endDateTime property value. The virtual event session end time.
      * @return DateTimeTimeZone|null
     */
@@ -45,6 +57,7 @@ class VirtualEventSession extends OnlineMeetingBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'capacity' => fn(ParseNode $n) => $o->setCapacity($n->getIntegerValue()),
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getObjectValue([DateTimeTimeZone::class, 'createFromDiscriminatorValue'])),
             'presenters' => fn(ParseNode $n) => $o->setPresenters($n->getCollectionOfObjectValues([VirtualEventPresenter::class, 'createFromDiscriminatorValue'])),
             'registrations' => fn(ParseNode $n) => $o->setRegistrations($n->getCollectionOfObjectValues([VirtualEventRegistration::class, 'createFromDiscriminatorValue'])),
@@ -111,11 +124,20 @@ class VirtualEventSession extends OnlineMeetingBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeIntegerValue('capacity', $this->getCapacity());
         $writer->writeObjectValue('endDateTime', $this->getEndDateTime());
         $writer->writeCollectionOfObjectValues('presenters', $this->getPresenters());
         $writer->writeCollectionOfObjectValues('registrations', $this->getRegistrations());
         $writer->writeObjectValue('startDateTime', $this->getStartDateTime());
         $writer->writeStringValue('videoOnDemandWebUrl', $this->getVideoOnDemandWebUrl());
+    }
+
+    /**
+     * Sets the capacity property value. The capacity property
+     * @param int|null $value Value to set for the capacity property.
+    */
+    public function setCapacity(?int $value): void {
+        $this->getBackingStore()->set('capacity', $value);
     }
 
     /**

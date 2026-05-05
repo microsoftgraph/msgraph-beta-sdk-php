@@ -27,7 +27,7 @@ class Note extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the attachments property value. The attachments property
+     * Gets the attachments property value. The file attachments for the note. Only inline image attachments (image/png, image/jpeg, image/gif, or image/bmp) are supported, with a maximum size of 3 MB per attachment. Use $expand to retrieve attachments.
      * @return array<Attachment>|null
     */
     public function getAttachments(): ?array {
@@ -41,7 +41,7 @@ class Note extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the body property value. The body property
+     * Gets the body property value. The content of the note. Supports text or html content types.
      * @return ItemBody|null
     */
     public function getBody(): ?ItemBody {
@@ -53,7 +53,7 @@ class Note extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the bodyPreview property value. Auto-generated preview of the note body content (first ~255 characters). Read-only.
+     * Gets the bodyPreview property value. Auto-generated preview of the note body content (first ~255 characters, plain text). Read-only.
      * @return string|null
     */
     public function getBodyPreview(): ?string {
@@ -65,7 +65,7 @@ class Note extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the extensions property value. The extensions property
+     * Gets the extensions property value. The collection of open extensions defined for the note.
      * @return array<Extension>|null
     */
     public function getExtensions(): ?array {
@@ -98,7 +98,7 @@ class Note extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the hasAttachments property value. The hasAttachments property
+     * Gets the hasAttachments property value. Indicates whether the note has file attachments. Supports $filter (eq). Read-only.
      * @return bool|null
     */
     public function getHasAttachments(): ?bool {
@@ -110,7 +110,7 @@ class Note extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the isDeleted property value. The isDeleted property
+     * Gets the isDeleted property value. Indicates whether the note is soft-deleted. Read-only.
      * @return bool|null
     */
     public function getIsDeleted(): ?bool {
@@ -122,7 +122,7 @@ class Note extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the multiValueExtendedProperties property value. The multiValueExtendedProperties property
+     * Gets the multiValueExtendedProperties property value. The collection of multi-value extended properties defined for the note.
      * @return array<MultiValueLegacyExtendedProperty>|null
     */
     public function getMultiValueExtendedProperties(): ?array {
@@ -136,7 +136,7 @@ class Note extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the singleValueExtendedProperties property value. The singleValueExtendedProperties property
+     * Gets the singleValueExtendedProperties property value. The collection of single-value extended properties defined for the note.
      * @return array<SingleValueLegacyExtendedProperty>|null
     */
     public function getSingleValueExtendedProperties(): ?array {
@@ -150,7 +150,7 @@ class Note extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the subject property value. The subject property
+     * Gets the subject property value. The title of the note. Supports $filter (eq, ne, startsWith) and $orderby.
      * @return string|null
     */
     public function getSubject(): ?string {
@@ -176,7 +176,7 @@ class Note extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the attachments property value. The attachments property
+     * Sets the attachments property value. The file attachments for the note. Only inline image attachments (image/png, image/jpeg, image/gif, or image/bmp) are supported, with a maximum size of 3 MB per attachment. Use $expand to retrieve attachments.
      * @param array<Attachment>|null $value Value to set for the attachments property.
     */
     public function setAttachments(?array $value): void {
@@ -184,7 +184,7 @@ class Note extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the body property value. The body property
+     * Sets the body property value. The content of the note. Supports text or html content types.
      * @param ItemBody|null $value Value to set for the body property.
     */
     public function setBody(?ItemBody $value): void {
@@ -192,7 +192,7 @@ class Note extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the bodyPreview property value. Auto-generated preview of the note body content (first ~255 characters). Read-only.
+     * Sets the bodyPreview property value. Auto-generated preview of the note body content (first ~255 characters, plain text). Read-only.
      * @param string|null $value Value to set for the bodyPreview property.
     */
     public function setBodyPreview(?string $value): void {
@@ -200,7 +200,7 @@ class Note extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the extensions property value. The extensions property
+     * Sets the extensions property value. The collection of open extensions defined for the note.
      * @param array<Extension>|null $value Value to set for the extensions property.
     */
     public function setExtensions(?array $value): void {
@@ -208,7 +208,7 @@ class Note extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the hasAttachments property value. The hasAttachments property
+     * Sets the hasAttachments property value. Indicates whether the note has file attachments. Supports $filter (eq). Read-only.
      * @param bool|null $value Value to set for the hasAttachments property.
     */
     public function setHasAttachments(?bool $value): void {
@@ -216,7 +216,7 @@ class Note extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the isDeleted property value. The isDeleted property
+     * Sets the isDeleted property value. Indicates whether the note is soft-deleted. Read-only.
      * @param bool|null $value Value to set for the isDeleted property.
     */
     public function setIsDeleted(?bool $value): void {
@@ -224,7 +224,7 @@ class Note extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the multiValueExtendedProperties property value. The multiValueExtendedProperties property
+     * Sets the multiValueExtendedProperties property value. The collection of multi-value extended properties defined for the note.
      * @param array<MultiValueLegacyExtendedProperty>|null $value Value to set for the multiValueExtendedProperties property.
     */
     public function setMultiValueExtendedProperties(?array $value): void {
@@ -232,7 +232,7 @@ class Note extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the singleValueExtendedProperties property value. The singleValueExtendedProperties property
+     * Sets the singleValueExtendedProperties property value. The collection of single-value extended properties defined for the note.
      * @param array<SingleValueLegacyExtendedProperty>|null $value Value to set for the singleValueExtendedProperties property.
     */
     public function setSingleValueExtendedProperties(?array $value): void {
@@ -240,7 +240,7 @@ class Note extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the subject property value. The subject property
+     * Sets the subject property value. The title of the note. Supports $filter (eq, ne, startsWith) and $orderby.
      * @param string|null $value Value to set for the subject property.
     */
     public function setSubject(?string $value): void {

@@ -57,11 +57,11 @@ class ApproverDelegate implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Gets the delegate property value. The delegate property
-     * @return SubjectSet|null
+     * @return UserSet|null
     */
-    public function getDelegate(): ?SubjectSet {
+    public function getDelegate(): ?UserSet {
         $val = $this->getBackingStore()->get('delegate');
-        if (is_null($val) || $val instanceof SubjectSet) {
+        if (is_null($val) || $val instanceof UserSet) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'delegate'");
@@ -74,7 +74,7 @@ class ApproverDelegate implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'delegate' => fn(ParseNode $n) => $o->setDelegate($n->getObjectValue([SubjectSet::class, 'createFromDiscriminatorValue'])),
+            'delegate' => fn(ParseNode $n) => $o->setDelegate($n->getObjectValue([UserSet::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'schedule' => fn(ParseNode $n) => $o->setSchedule($n->getObjectValue([RequestSchedule::class, 'createFromDiscriminatorValue'])),
         ];
@@ -133,9 +133,9 @@ class ApproverDelegate implements AdditionalDataHolder, BackedModel, Parsable
 
     /**
      * Sets the delegate property value. The delegate property
-     * @param SubjectSet|null $value Value to set for the delegate property.
+     * @param UserSet|null $value Value to set for the delegate property.
     */
-    public function setDelegate(?SubjectSet $value): void {
+    public function setDelegate(?UserSet $value): void {
         $this->getBackingStore()->set('delegate', $value);
     }
 

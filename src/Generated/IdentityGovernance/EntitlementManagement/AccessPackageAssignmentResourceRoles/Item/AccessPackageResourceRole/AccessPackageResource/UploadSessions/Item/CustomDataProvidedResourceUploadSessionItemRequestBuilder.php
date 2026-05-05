@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagemen
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignmentResourceRoles\Item\AccessPackageResourceRole\AccessPackageResource\UploadSessions\Item\Files\FilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageAssignmentResourceRoles\Item\AccessPackageResourceRole\AccessPackageResource\UploadSessions\Item\UploadFile\UploadFileRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CustomDataProvidedResourceUploadSession;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -17,6 +18,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class CustomDataProvidedResourceUploadSessionItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the files property of the microsoft.graph.customDataProvidedResourceUploadSession entity.
+    */
+    public function files(): FilesRequestBuilder {
+        return new FilesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to call the uploadFile method.
     */

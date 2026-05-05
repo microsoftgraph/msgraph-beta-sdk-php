@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
 
 /**
- * Provides operations to manage the servicePrincipal property of the microsoft.graph.networkaccess.forwardingProfile entity.
+ * Provides operations to manage the servicePrincipal property of the microsoft.graph.networkaccess.forwardingProfileBase entity.
 */
 class ServicePrincipalRequestBuilder extends BaseRequestBuilder 
 {

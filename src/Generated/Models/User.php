@@ -365,6 +365,20 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the cloudPcPools property value. The cloudPcPools property
+     * @return array<CloudPcPool>|null
+    */
+    public function getCloudPcPools(): ?array {
+        $val = $this->getBackingStore()->get('cloudPcPools');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CloudPcPool::class);
+            /** @var array<CloudPcPool>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudPcPools'");
+    }
+
+    /**
      * Gets the cloudPCs property value. The user's Cloud PCs. Read-only. Nullable.
      * @return array<CloudPC>|null
     */
@@ -847,6 +861,7 @@ class User extends DirectoryObject implements Parsable
             'city' => fn(ParseNode $n) => $o->setCity($n->getStringValue()),
             'cloudClipboard' => fn(ParseNode $n) => $o->setCloudClipboard($n->getObjectValue([CloudClipboardRoot::class, 'createFromDiscriminatorValue'])),
             'cloudLicensing' => fn(ParseNode $n) => $o->setCloudLicensing($n->getObjectValue([UserCloudLicensing::class, 'createFromDiscriminatorValue'])),
+            'cloudPcPools' => fn(ParseNode $n) => $o->setCloudPcPools($n->getCollectionOfObjectValues([CloudPcPool::class, 'createFromDiscriminatorValue'])),
             'cloudPCs' => fn(ParseNode $n) => $o->setCloudPCs($n->getCollectionOfObjectValues([CloudPC::class, 'createFromDiscriminatorValue'])),
             'cloudRealtimeCommunicationInfo' => fn(ParseNode $n) => $o->setCloudRealtimeCommunicationInfo($n->getObjectValue([CloudRealtimeCommunicationInfo::class, 'createFromDiscriminatorValue'])),
             'communications' => fn(ParseNode $n) => $o->setCommunications($n->getObjectValue([UserCloudCommunication::class, 'createFromDiscriminatorValue'])),
@@ -2402,6 +2417,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeStringValue('city', $this->getCity());
         $writer->writeObjectValue('cloudClipboard', $this->getCloudClipboard());
         $writer->writeObjectValue('cloudLicensing', $this->getCloudLicensing());
+        $writer->writeCollectionOfObjectValues('cloudPcPools', $this->getCloudPcPools());
         $writer->writeCollectionOfObjectValues('cloudPCs', $this->getCloudPCs());
         $writer->writeObjectValue('cloudRealtimeCommunicationInfo', $this->getCloudRealtimeCommunicationInfo());
         $writer->writeObjectValue('communications', $this->getCommunications());
@@ -2740,6 +2756,14 @@ class User extends DirectoryObject implements Parsable
     */
     public function setCloudLicensing(?UserCloudLicensing $value): void {
         $this->getBackingStore()->set('cloudLicensing', $value);
+    }
+
+    /**
+     * Sets the cloudPcPools property value. The cloudPcPools property
+     * @param array<CloudPcPool>|null $value Value to set for the cloudPcPools property.
+    */
+    public function setCloudPcPools(?array $value): void {
+        $this->getBackingStore()->set('cloudPcPools', $value);
     }
 
     /**

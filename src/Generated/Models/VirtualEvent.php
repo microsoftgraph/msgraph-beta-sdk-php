@@ -107,12 +107,25 @@ class VirtualEvent extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getObjectValue([DateTimeTimeZone::class, 'createFromDiscriminatorValue'])),
             'externalEventInformation' => fn(ParseNode $n) => $o->setExternalEventInformation($n->getCollectionOfObjectValues([VirtualEventExternalInformation::class, 'createFromDiscriminatorValue'])),
+            'isRegistrationEnabled' => fn(ParseNode $n) => $o->setIsRegistrationEnabled($n->getBooleanValue()),
             'presenters' => fn(ParseNode $n) => $o->setPresenters($n->getCollectionOfObjectValues([VirtualEventPresenter::class, 'createFromDiscriminatorValue'])),
             'sessions' => fn(ParseNode $n) => $o->setSessions($n->getCollectionOfObjectValues([VirtualEventSession::class, 'createFromDiscriminatorValue'])),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([VirtualEventSettings::class, 'createFromDiscriminatorValue'])),
             'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getObjectValue([DateTimeTimeZone::class, 'createFromDiscriminatorValue'])),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(VirtualEventStatus::class)),
         ]);
+    }
+
+    /**
+     * Gets the isRegistrationEnabled property value. The isRegistrationEnabled property
+     * @return bool|null
+    */
+    public function getIsRegistrationEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isRegistrationEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isRegistrationEnabled'");
     }
 
     /**
@@ -190,6 +203,7 @@ class VirtualEvent extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeObjectValue('endDateTime', $this->getEndDateTime());
         $writer->writeCollectionOfObjectValues('externalEventInformation', $this->getExternalEventInformation());
+        $writer->writeBooleanValue('isRegistrationEnabled', $this->getIsRegistrationEnabled());
         $writer->writeCollectionOfObjectValues('presenters', $this->getPresenters());
         $writer->writeCollectionOfObjectValues('sessions', $this->getSessions());
         $writer->writeObjectValue('settings', $this->getSettings());
@@ -235,6 +249,14 @@ class VirtualEvent extends Entity implements Parsable
     */
     public function setExternalEventInformation(?array $value): void {
         $this->getBackingStore()->set('externalEventInformation', $value);
+    }
+
+    /**
+     * Sets the isRegistrationEnabled property value. The isRegistrationEnabled property
+     * @param bool|null $value Value to set for the isRegistrationEnabled property.
+    */
+    public function setIsRegistrationEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isRegistrationEnabled', $value);
     }
 
     /**

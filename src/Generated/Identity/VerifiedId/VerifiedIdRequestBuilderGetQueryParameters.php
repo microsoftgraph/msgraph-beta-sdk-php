@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Identity\VerifiedId;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get verifiedId from identity
+ * Entry point for verified ID operations.
 */
 class VerifiedIdRequestBuilderGetQueryParameters 
 {
