@@ -31,12 +31,12 @@ class MicrosoftGraphSecurityExecuteResponseActionRequestBuilder extends BaseRequ
 
     /**
      * Execute a remediation action on a Microsoft Defender XDR incident task. Only the following actionType values are supported for automated execution: collectInvestigationPackage, isolateDevice, unRestrictAppExecution, unIsolateDevice, restrictAppExecution, runAntiVirusScan, stopAndQuarantineFile, submitIocRule.
-     * @param MicrosoftGraphSecurityExecuteResponseActionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphSecurityExecuteResponseActionRequestBuild_1c98309d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/security-incidenttask-executeresponseaction?view=graph-rest-beta Find more info here
     */
-    public function post(?MicrosoftGraphSecurityExecuteResponseActionRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?MicrosoftGraphSecurityExecuteResponseActionRequestBuild_1c98309d $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class MicrosoftGraphSecurityExecuteResponseActionRequestBuilder extends BaseRequ
 
     /**
      * Execute a remediation action on a Microsoft Defender XDR incident task. Only the following actionType values are supported for automated execution: collectInvestigationPackage, isolateDevice, unRestrictAppExecution, unIsolateDevice, restrictAppExecution, runAntiVirusScan, stopAndQuarantineFile, submitIocRule.
-     * @param MicrosoftGraphSecurityExecuteResponseActionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphSecurityExecuteResponseActionRequestBuild_1c98309d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?MicrosoftGraphSecurityExecuteResponseActionRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?MicrosoftGraphSecurityExecuteResponseActionRequestBuild_1c98309d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

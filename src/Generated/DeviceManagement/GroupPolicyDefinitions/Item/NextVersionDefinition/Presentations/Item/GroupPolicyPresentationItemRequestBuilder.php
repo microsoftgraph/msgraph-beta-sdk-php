@@ -30,7 +30,7 @@ class GroupPolicyPresentationItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/groupPolicyDefinitions/{groupPolicyDefinition%2Did}/nextVersionDefinition/presentations/{groupPolicyPresentation%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/groupPolicyDefinitions/{groupPolicyDefinition%2Did}/nextVersionDefinition/presentations/{groupPolicyPresentation%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,11 +40,11 @@ class GroupPolicyPresentationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property presentations for deviceManagement
-     * @param GroupPolicyPresentationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyPresentationItemRequestBuilderDeleteRequestC_2999d5bf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?GroupPolicyPresentationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?GroupPolicyPresentationItemRequestBuilderDeleteRequestC_2999d5bf $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class GroupPolicyPresentationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property presentations in deviceManagement
      * @param GroupPolicyPresentation $body The request body
-     * @param GroupPolicyPresentationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyPresentationItemRequestBuilderPatchRequestCo_bc0e3287|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GroupPolicyPresentation|null>
      * @throws Exception
     */
-    public function patch(GroupPolicyPresentation $body, ?GroupPolicyPresentationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(GroupPolicyPresentation $body, ?GroupPolicyPresentationItemRequestBuilderPatchRequestCo_bc0e3287 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class GroupPolicyPresentationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property presentations for deviceManagement
-     * @param GroupPolicyPresentationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyPresentationItemRequestBuilderDeleteRequestC_2999d5bf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?GroupPolicyPresentationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?GroupPolicyPresentationItemRequestBuilderDeleteRequestC_2999d5bf $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -123,10 +123,10 @@ class GroupPolicyPresentationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property presentations in deviceManagement
      * @param GroupPolicyPresentation $body The request body
-     * @param GroupPolicyPresentationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyPresentationItemRequestBuilderPatchRequestCo_bc0e3287|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(GroupPolicyPresentation $body, ?GroupPolicyPresentationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(GroupPolicyPresentation $body, ?GroupPolicyPresentationItemRequestBuilderPatchRequestCo_bc0e3287 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -22,7 +22,7 @@ class B2cAuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/policies/b2cAuthenticationMethodsPolicy{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/policies/b2cAuthenticationMethodsPolicy');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class B2cAuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property b2cAuthenticationMethodsPolicy for policies
-     * @param B2cAuthenticationMethodsPolicyRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param B2cAuthenticationMethodsPolicyRequestBuilderDeleteReque_78dbacc5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?B2cAuthenticationMethodsPolicyRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?B2cAuthenticationMethodsPolicyRequestBuilderDeleteReque_78dbacc5 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,12 +46,12 @@ class B2cAuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties of a b2cAuthenticationMethodsPolicy object.
-     * @param B2cAuthenticationMethodsPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param B2cAuthenticationMethodsPolicyRequestBuilderGetRequestC_bf43f2d2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<B2cAuthenticationMethodsPolicy|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get?view=graph-rest-beta Find more info here
     */
-    public function get(?B2cAuthenticationMethodsPolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?B2cAuthenticationMethodsPolicyRequestBuilderGetRequestC_bf43f2d2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,12 +62,12 @@ class B2cAuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a b2cAuthenticationMethodsPolicy object.
      * @param B2cAuthenticationMethodsPolicy $body The request body
-     * @param B2cAuthenticationMethodsPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param B2cAuthenticationMethodsPolicyRequestBuilderPatchReques_f48176c5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<B2cAuthenticationMethodsPolicy|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update?view=graph-rest-beta Find more info here
     */
-    public function patch(B2cAuthenticationMethodsPolicy $body, ?B2cAuthenticationMethodsPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(B2cAuthenticationMethodsPolicy $body, ?B2cAuthenticationMethodsPolicyRequestBuilderPatchReques_f48176c5 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,10 +77,10 @@ class B2cAuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property b2cAuthenticationMethodsPolicy for policies
-     * @param B2cAuthenticationMethodsPolicyRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param B2cAuthenticationMethodsPolicyRequestBuilderDeleteReque_78dbacc5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?B2cAuthenticationMethodsPolicyRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?B2cAuthenticationMethodsPolicyRequestBuilderDeleteReque_78dbacc5 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -95,10 +95,10 @@ class B2cAuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties of a b2cAuthenticationMethodsPolicy object.
-     * @param B2cAuthenticationMethodsPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param B2cAuthenticationMethodsPolicyRequestBuilderGetRequestC_bf43f2d2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?B2cAuthenticationMethodsPolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?B2cAuthenticationMethodsPolicyRequestBuilderGetRequestC_bf43f2d2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -117,10 +117,10 @@ class B2cAuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a b2cAuthenticationMethodsPolicy object.
      * @param B2cAuthenticationMethodsPolicy $body The request body
-     * @param B2cAuthenticationMethodsPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param B2cAuthenticationMethodsPolicyRequestBuilderPatchReques_f48176c5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(B2cAuthenticationMethodsPolicy $body, ?B2cAuthenticationMethodsPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(B2cAuthenticationMethodsPolicy $body, ?B2cAuthenticationMethodsPolicyRequestBuilderPatchReques_f48176c5 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

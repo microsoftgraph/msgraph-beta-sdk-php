@@ -43,7 +43,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/virtualEndpoint/cloudPcPools/{cloudPcPool%2Did}/assignments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -52,10 +52,11 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get assignments from deviceManagement
+     * List the assignments of a cloudPcPool.
      * @param AssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcPoolAssignmentCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcpool-list-assignments?view=graph-rest-beta Find more info here
     */
     public function get(?AssignmentsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to assignments for deviceManagement
+     * Create a new cloudPcPoolAssignment for a cloudPcPool.
      * @param CloudPcPoolAssignment $body The request body
      * @param AssignmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcPoolAssignment|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcpool-post-assignments?view=graph-rest-beta Find more info here
     */
     public function post(CloudPcPoolAssignment $body, ?AssignmentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get assignments from deviceManagement
+     * List the assignments of a cloudPcPool.
      * @param AssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to assignments for deviceManagement
+     * Create a new cloudPcPoolAssignment for a cloudPcPool.
      * @param CloudPcPoolAssignment $body The request body
      * @param AssignmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

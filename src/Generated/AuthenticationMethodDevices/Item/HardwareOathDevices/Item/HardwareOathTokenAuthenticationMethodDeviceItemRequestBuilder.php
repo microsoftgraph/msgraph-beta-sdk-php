@@ -30,7 +30,7 @@ class HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilder extends Base
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/authenticationMethodDevices/{authenticationMethodDevice%2Did}/hardwareOathDevices/{hardwareOathTokenAuthenticationMethodDevice%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/authenticationMethodDevices/{authenticationMethodDevice%2Did}/hardwareOathDevices/{hardwareOathTokenAuthenticationMethodDevice%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,11 +40,11 @@ class HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilder extends Base
 
     /**
      * Delete navigation property hardwareOathDevices for authenticationMethodDevices
-     * @param HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwareOathTokenAuthenticationMethodDeviceItemRequestB_aa1dc50f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?HardwareOathTokenAuthenticationMethodDeviceItemRequestB_aa1dc50f $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,11 +54,11 @@ class HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilder extends Base
 
     /**
      * Exposes the hardware OATH method in the directory.
-     * @param HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwareOathTokenAuthenticationMethodDeviceItemRequestB_b4384836|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HardwareOathTokenAuthenticationMethodDevice|null>
      * @throws Exception
     */
-    public function get(?HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?HardwareOathTokenAuthenticationMethodDeviceItemRequestB_b4384836 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilder extends Base
     /**
      * Update the navigation property hardwareOathDevices in authenticationMethodDevices
      * @param HardwareOathTokenAuthenticationMethodDevice $body The request body
-     * @param HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwareOathTokenAuthenticationMethodDeviceItemRequestB_30216958|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HardwareOathTokenAuthenticationMethodDevice|null>
      * @throws Exception
     */
-    public function patch(HardwareOathTokenAuthenticationMethodDevice $body, ?HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(HardwareOathTokenAuthenticationMethodDevice $body, ?HardwareOathTokenAuthenticationMethodDeviceItemRequestB_30216958 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilder extends Base
 
     /**
      * Delete navigation property hardwareOathDevices for authenticationMethodDevices
-     * @param HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwareOathTokenAuthenticationMethodDeviceItemRequestB_aa1dc50f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?HardwareOathTokenAuthenticationMethodDeviceItemRequestB_aa1dc50f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -101,10 +101,10 @@ class HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilder extends Base
 
     /**
      * Exposes the hardware OATH method in the directory.
-     * @param HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwareOathTokenAuthenticationMethodDeviceItemRequestB_b4384836|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?HardwareOathTokenAuthenticationMethodDeviceItemRequestB_b4384836 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -123,10 +123,10 @@ class HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilder extends Base
     /**
      * Update the navigation property hardwareOathDevices in authenticationMethodDevices
      * @param HardwareOathTokenAuthenticationMethodDevice $body The request body
-     * @param HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwareOathTokenAuthenticationMethodDeviceItemRequestB_30216958|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(HardwareOathTokenAuthenticationMethodDevice $body, ?HardwareOathTokenAuthenticationMethodDeviceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(HardwareOathTokenAuthenticationMethodDevice $body, ?HardwareOathTokenAuthenticationMethodDeviceItemRequestB_30216958 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

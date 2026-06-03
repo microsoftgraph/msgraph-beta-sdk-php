@@ -22,7 +22,7 @@ class AzureADPremiumLicenseInsightRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/reports/azureADPremiumLicenseInsight{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/reports/azureADPremiumLicenseInsight');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class AzureADPremiumLicenseInsightRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property azureADPremiumLicenseInsight for reports
-     * @param AzureADPremiumLicenseInsightRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AzureADPremiumLicenseInsightRequestBuilderDeleteRequest_98ff6b6d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?AzureADPremiumLicenseInsightRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?AzureADPremiumLicenseInsightRequestBuilderDeleteRequest_98ff6b6d $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,12 +46,12 @@ class AzureADPremiumLicenseInsightRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get the premium license utilization insight for the tenant. This API returns data about how many premium licenses are entitled and how the associated P1 and P2 features are being used. The calling tenant must have at least one Microsoft Entra ID P1 or P2 license. Tenants without a premium license receive a 403 Forbidden response with the missingLicense error code.
-     * @param AzureADPremiumLicenseInsightRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AzureADPremiumLicenseInsightRequestBuilderGetRequestCon_6d6544bb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AzureADPremiumLicenseInsight|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/azureadpremiumlicenseinsight-get?view=graph-rest-beta Find more info here
     */
-    public function get(?AzureADPremiumLicenseInsightRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AzureADPremiumLicenseInsightRequestBuilderGetRequestCon_6d6544bb $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class AzureADPremiumLicenseInsightRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property azureADPremiumLicenseInsight in reports
      * @param AzureADPremiumLicenseInsight $body The request body
-     * @param AzureADPremiumLicenseInsightRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AzureADPremiumLicenseInsightRequestBuilderPatchRequestC_5ac36ce2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AzureADPremiumLicenseInsight|null>
      * @throws Exception
     */
-    public function patch(AzureADPremiumLicenseInsight $body, ?AzureADPremiumLicenseInsightRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(AzureADPremiumLicenseInsight $body, ?AzureADPremiumLicenseInsightRequestBuilderPatchRequestC_5ac36ce2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -76,10 +76,10 @@ class AzureADPremiumLicenseInsightRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property azureADPremiumLicenseInsight for reports
-     * @param AzureADPremiumLicenseInsightRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AzureADPremiumLicenseInsightRequestBuilderDeleteRequest_98ff6b6d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?AzureADPremiumLicenseInsightRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?AzureADPremiumLicenseInsightRequestBuilderDeleteRequest_98ff6b6d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -94,10 +94,10 @@ class AzureADPremiumLicenseInsightRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get the premium license utilization insight for the tenant. This API returns data about how many premium licenses are entitled and how the associated P1 and P2 features are being used. The calling tenant must have at least one Microsoft Entra ID P1 or P2 license. Tenants without a premium license receive a 403 Forbidden response with the missingLicense error code.
-     * @param AzureADPremiumLicenseInsightRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AzureADPremiumLicenseInsightRequestBuilderGetRequestCon_6d6544bb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AzureADPremiumLicenseInsightRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AzureADPremiumLicenseInsightRequestBuilderGetRequestCon_6d6544bb $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -116,10 +116,10 @@ class AzureADPremiumLicenseInsightRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property azureADPremiumLicenseInsight in reports
      * @param AzureADPremiumLicenseInsight $body The request body
-     * @param AzureADPremiumLicenseInsightRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AzureADPremiumLicenseInsightRequestBuilderPatchRequestC_5ac36ce2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(AzureADPremiumLicenseInsight $body, ?AzureADPremiumLicenseInsightRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(AzureADPremiumLicenseInsight $body, ?AzureADPremiumLicenseInsightRequestBuilderPatchRequestC_5ac36ce2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

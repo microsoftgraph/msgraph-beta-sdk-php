@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\DeviceSet
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\DeviceSettingStateSummaries\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\DeviceSettingStateSummaries\Item\DeviceManagementIntentDeviceSettingStateSummaryItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Intents\Item\DeviceSettingStateSummaries\Item\DeviceManagementIntentDeviceSettingStateSummaryItemRequ_03bbc11a;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementIntentDeviceSettingStateSummary;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagementIntentDeviceSettingStateSummaryCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagementIntentDeviceSettingStateSummaryCollecti_f2773f29;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -29,12 +29,12 @@ class DeviceSettingStateSummariesRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceManagementIntent entity.
      * @param string $deviceManagementIntentDeviceSettingStateSummaryId The unique identifier of deviceManagementIntentDeviceSettingStateSummary
-     * @return DeviceManagementIntentDeviceSettingStateSummaryItemRequestBuilder
+     * @return DeviceManagementIntentDeviceSettingStateSummaryItemRequ_03bbc11a
     */
-    public function byDeviceManagementIntentDeviceSettingStateSummaryId(string $deviceManagementIntentDeviceSettingStateSummaryId): DeviceManagementIntentDeviceSettingStateSummaryItemRequestBuilder {
+    public function byDeviceManagementIntentDeviceSettingStateSummaryId(string $deviceManagementIntentDeviceSettingStateSummaryId): DeviceManagementIntentDeviceSettingStateSummaryItemRequ_03bbc11a {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementIntentDeviceSettingStateSummary%2Did'] = $deviceManagementIntentDeviceSettingStateSummaryId;
-        return new DeviceManagementIntentDeviceSettingStateSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceManagementIntentDeviceSettingStateSummaryItemRequ_03bbc11a($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -43,7 +43,7 @@ class DeviceSettingStateSummariesRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/intents/{deviceManagementIntent%2Did}/deviceSettingStateSummaries{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -54,7 +54,7 @@ class DeviceSettingStateSummariesRequestBuilder extends BaseRequestBuilder
     /**
      * Collection of settings and their states and counts of devices that belong to corresponding state for all settings within the intent
      * @param DeviceSettingStateSummariesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<DeviceManagementIntentDeviceSettingStateSummaryCollectionResponse|null>
+     * @return Promise<DeviceManagementIntentDeviceSettingStateSummaryCollecti_f2773f29|null>
      * @throws Exception
     */
     public function get(?DeviceSettingStateSummariesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
@@ -62,17 +62,17 @@ class DeviceSettingStateSummariesRequestBuilder extends BaseRequestBuilder
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagementIntentDeviceSettingStateSummaryCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+        return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagementIntentDeviceSettingStateSummaryCollecti_f2773f29::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
      * Create new navigation property to deviceSettingStateSummaries for deviceManagement
      * @param DeviceManagementIntentDeviceSettingStateSummary $body The request body
-     * @param DeviceSettingStateSummariesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceSettingStateSummariesRequestBuilderPostRequestCon_21d47a29|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementIntentDeviceSettingStateSummary|null>
      * @throws Exception
     */
-    public function post(DeviceManagementIntentDeviceSettingStateSummary $body, ?DeviceSettingStateSummariesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(DeviceManagementIntentDeviceSettingStateSummary $body, ?DeviceSettingStateSummariesRequestBuilderPostRequestCon_21d47a29 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -104,10 +104,10 @@ class DeviceSettingStateSummariesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to deviceSettingStateSummaries for deviceManagement
      * @param DeviceManagementIntentDeviceSettingStateSummary $body The request body
-     * @param DeviceSettingStateSummariesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceSettingStateSummariesRequestBuilderPostRequestCon_21d47a29|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(DeviceManagementIntentDeviceSettingStateSummary $body, ?DeviceSettingStateSummariesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(DeviceManagementIntentDeviceSettingStateSummary $body, ?DeviceSettingStateSummariesRequestBuilderPostRequestCon_21d47a29 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

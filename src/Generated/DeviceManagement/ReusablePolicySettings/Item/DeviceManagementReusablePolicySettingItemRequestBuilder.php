@@ -38,7 +38,7 @@ class DeviceManagementReusablePolicySettingItemRequestBuilder extends BaseReques
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/reusablePolicySettings/{deviceManagementReusablePolicySetting%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/reusablePolicySettings/{deviceManagementReusablePolicySetting%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -48,11 +48,11 @@ class DeviceManagementReusablePolicySettingItemRequestBuilder extends BaseReques
 
     /**
      * Delete navigation property reusablePolicySettings for deviceManagement
-     * @param DeviceManagementReusablePolicySettingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementReusablePolicySettingItemRequestBuilder_85b09d18|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DeviceManagementReusablePolicySettingItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DeviceManagementReusablePolicySettingItemRequestBuilder_85b09d18 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class DeviceManagementReusablePolicySettingItemRequestBuilder extends BaseReques
 
     /**
      * List of all reusable settings that can be referred in a policy
-     * @param DeviceManagementReusablePolicySettingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementReusablePolicySettingItemRequestBuilder_515c3baa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementReusablePolicySetting|null>
      * @throws Exception
     */
-    public function get(?DeviceManagementReusablePolicySettingItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DeviceManagementReusablePolicySettingItemRequestBuilder_515c3baa $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,11 +77,11 @@ class DeviceManagementReusablePolicySettingItemRequestBuilder extends BaseReques
     /**
      * Update the navigation property reusablePolicySettings in deviceManagement
      * @param DeviceManagementReusablePolicySetting $body The request body
-     * @param DeviceManagementReusablePolicySettingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementReusablePolicySettingItemRequestBuilder_6ef185b5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementReusablePolicySetting|null>
      * @throws Exception
     */
-    public function patch(DeviceManagementReusablePolicySetting $body, ?DeviceManagementReusablePolicySettingItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DeviceManagementReusablePolicySetting $body, ?DeviceManagementReusablePolicySettingItemRequestBuilder_6ef185b5 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -91,10 +91,10 @@ class DeviceManagementReusablePolicySettingItemRequestBuilder extends BaseReques
 
     /**
      * Delete navigation property reusablePolicySettings for deviceManagement
-     * @param DeviceManagementReusablePolicySettingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementReusablePolicySettingItemRequestBuilder_85b09d18|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DeviceManagementReusablePolicySettingItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DeviceManagementReusablePolicySettingItemRequestBuilder_85b09d18 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -109,10 +109,10 @@ class DeviceManagementReusablePolicySettingItemRequestBuilder extends BaseReques
 
     /**
      * List of all reusable settings that can be referred in a policy
-     * @param DeviceManagementReusablePolicySettingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementReusablePolicySettingItemRequestBuilder_515c3baa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DeviceManagementReusablePolicySettingItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DeviceManagementReusablePolicySettingItemRequestBuilder_515c3baa $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -131,10 +131,10 @@ class DeviceManagementReusablePolicySettingItemRequestBuilder extends BaseReques
     /**
      * Update the navigation property reusablePolicySettings in deviceManagement
      * @param DeviceManagementReusablePolicySetting $body The request body
-     * @param DeviceManagementReusablePolicySettingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementReusablePolicySettingItemRequestBuilder_6ef185b5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DeviceManagementReusablePolicySetting $body, ?DeviceManagementReusablePolicySettingItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DeviceManagementReusablePolicySetting $body, ?DeviceManagementReusablePolicySettingItemRequestBuilder_6ef185b5 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

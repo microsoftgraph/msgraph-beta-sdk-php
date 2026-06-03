@@ -38,7 +38,7 @@ class PlannerTaskChatMessageItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/planner/tasks/{plannerTask%2Did}/messages/{plannerTaskChatMessage%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/planner/tasks/{plannerTask%2Did}/messages/{plannerTaskChatMessage%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -48,12 +48,12 @@ class PlannerTaskChatMessageItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete a plannerTaskChatMessage object.
-     * @param PlannerTaskChatMessageItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PlannerTaskChatMessageItemRequestBuilderDeleteRequestCo_5244486e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/plannertaskchatmessage-delete?view=graph-rest-beta Find more info here
     */
-    public function delete(?PlannerTaskChatMessageItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?PlannerTaskChatMessageItemRequestBuilderDeleteRequestCo_5244486e $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -78,12 +78,12 @@ class PlannerTaskChatMessageItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a plannerTaskChatMessage object.
      * @param PlannerTaskChatMessage $body The request body
-     * @param PlannerTaskChatMessageItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PlannerTaskChatMessageItemRequestBuilderPatchRequestCon_d618d997|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerTaskChatMessage|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/plannertaskchatmessage-update?view=graph-rest-beta Find more info here
     */
-    public function patch(PlannerTaskChatMessage $body, ?PlannerTaskChatMessageItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(PlannerTaskChatMessage $body, ?PlannerTaskChatMessageItemRequestBuilderPatchRequestCon_d618d997 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -93,10 +93,10 @@ class PlannerTaskChatMessageItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete a plannerTaskChatMessage object.
-     * @param PlannerTaskChatMessageItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PlannerTaskChatMessageItemRequestBuilderDeleteRequestCo_5244486e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?PlannerTaskChatMessageItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?PlannerTaskChatMessageItemRequestBuilderDeleteRequestCo_5244486e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -133,10 +133,10 @@ class PlannerTaskChatMessageItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a plannerTaskChatMessage object.
      * @param PlannerTaskChatMessage $body The request body
-     * @param PlannerTaskChatMessageItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PlannerTaskChatMessageItemRequestBuilderPatchRequestCon_d618d997|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(PlannerTaskChatMessage $body, ?PlannerTaskChatMessageItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(PlannerTaskChatMessage $body, ?PlannerTaskChatMessageItemRequestBuilderPatchRequestCon_d618d997 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

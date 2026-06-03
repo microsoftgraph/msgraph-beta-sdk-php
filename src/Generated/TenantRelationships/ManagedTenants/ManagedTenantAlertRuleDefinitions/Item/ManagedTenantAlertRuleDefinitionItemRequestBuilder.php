@@ -30,7 +30,7 @@ class ManagedTenantAlertRuleDefinitionItemRequestBuilder extends BaseRequestBuil
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/managedTenantAlertRuleDefinitions/{managedTenantAlertRuleDefinition%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/managedTenantAlertRuleDefinitions/{managedTenantAlertRuleDefinition%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,11 +40,11 @@ class ManagedTenantAlertRuleDefinitionItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Delete navigation property managedTenantAlertRuleDefinitions for tenantRelationships
-     * @param ManagedTenantAlertRuleDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantAlertRuleDefinitionItemRequestBuilderDelet_78f025e6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ManagedTenantAlertRuleDefinitionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ManagedTenantAlertRuleDefinitionItemRequestBuilderDelet_78f025e6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,11 +54,11 @@ class ManagedTenantAlertRuleDefinitionItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Get managedTenantAlertRuleDefinitions from tenantRelationships
-     * @param ManagedTenantAlertRuleDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantAlertRuleDefinitionItemRequestBuilderGetRe_5e10abe6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedTenantAlertRuleDefinition|null>
      * @throws Exception
     */
-    public function get(?ManagedTenantAlertRuleDefinitionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagedTenantAlertRuleDefinitionItemRequestBuilderGetRe_5e10abe6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class ManagedTenantAlertRuleDefinitionItemRequestBuilder extends BaseRequestBuil
     /**
      * Update the navigation property managedTenantAlertRuleDefinitions in tenantRelationships
      * @param ManagedTenantAlertRuleDefinition $body The request body
-     * @param ManagedTenantAlertRuleDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantAlertRuleDefinitionItemRequestBuilderPatch_92c08b46|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedTenantAlertRuleDefinition|null>
      * @throws Exception
     */
-    public function patch(ManagedTenantAlertRuleDefinition $body, ?ManagedTenantAlertRuleDefinitionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ManagedTenantAlertRuleDefinition $body, ?ManagedTenantAlertRuleDefinitionItemRequestBuilderPatch_92c08b46 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class ManagedTenantAlertRuleDefinitionItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Delete navigation property managedTenantAlertRuleDefinitions for tenantRelationships
-     * @param ManagedTenantAlertRuleDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantAlertRuleDefinitionItemRequestBuilderDelet_78f025e6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ManagedTenantAlertRuleDefinitionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ManagedTenantAlertRuleDefinitionItemRequestBuilderDelet_78f025e6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -101,10 +101,10 @@ class ManagedTenantAlertRuleDefinitionItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Get managedTenantAlertRuleDefinitions from tenantRelationships
-     * @param ManagedTenantAlertRuleDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantAlertRuleDefinitionItemRequestBuilderGetRe_5e10abe6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagedTenantAlertRuleDefinitionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagedTenantAlertRuleDefinitionItemRequestBuilderGetRe_5e10abe6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -123,10 +123,10 @@ class ManagedTenantAlertRuleDefinitionItemRequestBuilder extends BaseRequestBuil
     /**
      * Update the navigation property managedTenantAlertRuleDefinitions in tenantRelationships
      * @param ManagedTenantAlertRuleDefinition $body The request body
-     * @param ManagedTenantAlertRuleDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantAlertRuleDefinitionItemRequestBuilderPatch_92c08b46|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ManagedTenantAlertRuleDefinition $body, ?ManagedTenantAlertRuleDefinitionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ManagedTenantAlertRuleDefinition $body, ?ManagedTenantAlertRuleDefinitionItemRequestBuilderPatch_92c08b46 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

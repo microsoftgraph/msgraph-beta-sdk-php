@@ -43,7 +43,7 @@ class ManagedDeviceComplianceTrendsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/managedDeviceComplianceTrends{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,12 +53,12 @@ class ManagedDeviceComplianceTrendsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a list of the managedDeviceComplianceTrend objects and their properties.
-     * @param ManagedDeviceComplianceTrendsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceComplianceTrendsRequestBuilderGetRequestCo_94f34781|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedDeviceComplianceTrendCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-manageddevicecompliancetrends?view=graph-rest-beta Find more info here
     */
-    public function get(?ManagedDeviceComplianceTrendsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagedDeviceComplianceTrendsRequestBuilderGetRequestCo_94f34781 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class ManagedDeviceComplianceTrendsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to managedDeviceComplianceTrends for tenantRelationships
      * @param ManagedDeviceComplianceTrend $body The request body
-     * @param ManagedDeviceComplianceTrendsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceComplianceTrendsRequestBuilderPostRequestC_b1ec42c9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedDeviceComplianceTrend|null>
      * @throws Exception
     */
-    public function post(ManagedDeviceComplianceTrend $body, ?ManagedDeviceComplianceTrendsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ManagedDeviceComplianceTrend $body, ?ManagedDeviceComplianceTrendsRequestBuilderPostRequestC_b1ec42c9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class ManagedDeviceComplianceTrendsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a list of the managedDeviceComplianceTrend objects and their properties.
-     * @param ManagedDeviceComplianceTrendsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceComplianceTrendsRequestBuilderGetRequestCo_94f34781|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagedDeviceComplianceTrendsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagedDeviceComplianceTrendsRequestBuilderGetRequestCo_94f34781 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -105,10 +105,10 @@ class ManagedDeviceComplianceTrendsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to managedDeviceComplianceTrends for tenantRelationships
      * @param ManagedDeviceComplianceTrend $body The request body
-     * @param ManagedDeviceComplianceTrendsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceComplianceTrendsRequestBuilderPostRequestC_b1ec42c9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ManagedDeviceComplianceTrend $body, ?ManagedDeviceComplianceTrendsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ManagedDeviceComplianceTrend $body, ?ManagedDeviceComplianceTrendsRequestBuilderPostRequestC_b1ec42c9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

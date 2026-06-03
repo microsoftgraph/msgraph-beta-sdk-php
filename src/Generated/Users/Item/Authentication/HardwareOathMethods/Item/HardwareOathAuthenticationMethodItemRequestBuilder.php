@@ -46,7 +46,7 @@ class HardwareOathAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}/authentication/hardwareOathMethods/{hardwareOathAuthenticationMethod%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -56,11 +56,11 @@ class HardwareOathAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Delete navigation property hardwareOathMethods for users
-     * @param HardwareOathAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwareOathAuthenticationMethodItemRequestBuilderDelet_56dc3796|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?HardwareOathAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?HardwareOathAuthenticationMethodItemRequestBuilderDelet_56dc3796 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -70,11 +70,11 @@ class HardwareOathAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
 
     /**
      * The hardware OATH time-based one-time password (TOTP) devices assigned to a user for authentication.
-     * @param HardwareOathAuthenticationMethodItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwareOathAuthenticationMethodItemRequestBuilderGetRe_15937e73|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HardwareOathAuthenticationMethod|null>
      * @throws Exception
     */
-    public function get(?HardwareOathAuthenticationMethodItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?HardwareOathAuthenticationMethodItemRequestBuilderGetRe_15937e73 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -84,10 +84,10 @@ class HardwareOathAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Delete navigation property hardwareOathMethods for users
-     * @param HardwareOathAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwareOathAuthenticationMethodItemRequestBuilderDelet_56dc3796|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?HardwareOathAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?HardwareOathAuthenticationMethodItemRequestBuilderDelet_56dc3796 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -102,10 +102,10 @@ class HardwareOathAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
 
     /**
      * The hardware OATH time-based one-time password (TOTP) devices assigned to a user for authentication.
-     * @param HardwareOathAuthenticationMethodItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwareOathAuthenticationMethodItemRequestBuilderGetRe_15937e73|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?HardwareOathAuthenticationMethodItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?HardwareOathAuthenticationMethodItemRequestBuilderGetRe_15937e73 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -32,11 +32,11 @@ class RetrieveTenantEncryptionSettingRequestBuilder extends BaseRequestBuilder
 
     /**
      * Invoke function retrieveTenantEncryptionSetting
-     * @param RetrieveTenantEncryptionSettingRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveTenantEncryptionSettingRequestBuilderGetRequest_b04e0503|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcTenantEncryptionSetting|null>
      * @throws Exception
     */
-    public function get(?RetrieveTenantEncryptionSettingRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?RetrieveTenantEncryptionSettingRequestBuilderGetRequest_b04e0503 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class RetrieveTenantEncryptionSettingRequestBuilder extends BaseRequestBuilder
 
     /**
      * Invoke function retrieveTenantEncryptionSetting
-     * @param RetrieveTenantEncryptionSettingRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveTenantEncryptionSettingRequestBuilderGetRequest_b04e0503|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?RetrieveTenantEncryptionSettingRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?RetrieveTenantEncryptionSettingRequestBuilderGetRequest_b04e0503 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

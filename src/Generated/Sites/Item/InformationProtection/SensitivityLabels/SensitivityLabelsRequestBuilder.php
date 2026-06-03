@@ -7,7 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SensitivityLabel;
 use Microsoft\Graph\Beta\Generated\Models\SensitivityLabelCollectionResponse;
-use Microsoft\Graph\Beta\Generated\Sites\Item\InformationProtection\SensitivityLabels\ComputeInheritanceWithLabelIdsWithLocaleWithContentFormats\ComputeInheritanceWithLabelIdsWithLocaleWithContentFormatsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Sites\Item\InformationProtection\SensitivityLabels\ComputeInheritanceWithLabelIdsWithLocaleWithContentFormats\ComputeInheritanceWithLabelIdsWithLocaleWithContentForm_2b72dc93;
 use Microsoft\Graph\Beta\Generated\Sites\Item\InformationProtection\SensitivityLabels\ComputeRightsAndInheritance\ComputeRightsAndInheritanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\InformationProtection\SensitivityLabels\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\InformationProtection\SensitivityLabels\Evaluate\EvaluateRequestBuilder;
@@ -59,10 +59,10 @@ class SensitivityLabelsRequestBuilder extends BaseRequestBuilder
      * @param string $contentFormats Usage: contentFormats={contentFormats}
      * @param string $labelIds Usage: labelIds={labelIds}
      * @param string $locale Usage: locale='{locale}'
-     * @return ComputeInheritanceWithLabelIdsWithLocaleWithContentFormatsRequestBuilder
+     * @return ComputeInheritanceWithLabelIdsWithLocaleWithContentForm_2b72dc93
     */
-    public function computeInheritanceWithLabelIdsWithLocaleWithContentFormats(string $contentFormats, string $labelIds, string $locale): ComputeInheritanceWithLabelIdsWithLocaleWithContentFormatsRequestBuilder {
-        return new ComputeInheritanceWithLabelIdsWithLocaleWithContentFormatsRequestBuilder($this->pathParameters, $this->requestAdapter, $contentFormats, $labelIds, $locale);
+    public function computeInheritanceWithLabelIdsWithLocaleWithContentFormats(string $contentFormats, string $labelIds, string $locale): ComputeInheritanceWithLabelIdsWithLocaleWithContentForm_2b72dc93 {
+        return new ComputeInheritanceWithLabelIdsWithLocaleWithContentForm_2b72dc93($this->pathParameters, $this->requestAdapter, $contentFormats, $labelIds, $locale);
     }
 
     /**
@@ -71,7 +71,7 @@ class SensitivityLabelsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/sites/{site%2Did}/informationProtection/sensitivityLabels{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

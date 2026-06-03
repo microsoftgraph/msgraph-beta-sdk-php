@@ -24,6 +24,7 @@ use Microsoft\Graph\Beta\Generated\Security\IncidentTasks\IncidentTasksRequestBu
 use Microsoft\Graph\Beta\Generated\Security\InformationProtection\InformationProtectionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\IpSecurityProfiles\IpSecurityProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Labels\LabelsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\MicrosoftGraphSecurityGetHuntingSchema\MicrosoftGraphSecurityGetHuntingSchemaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\MicrosoftGraphSecurityRunHuntingQuery\MicrosoftGraphSecurityRunHuntingQueryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Partner\PartnerRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ProviderTenantSettings\ProviderTenantSettingsRequestBuilder;
@@ -177,6 +178,13 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the getHuntingSchema method.
+    */
+    public function microsoftGraphSecurityGetHuntingSchema(): MicrosoftGraphSecurityGetHuntingSchemaRequestBuilder {
+        return new MicrosoftGraphSecurityGetHuntingSchemaRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the runHuntingQuery method.
     */
     public function microsoftGraphSecurityRunHuntingQuery(): MicrosoftGraphSecurityRunHuntingQueryRequestBuilder {
@@ -294,7 +302,7 @@ class SecurityRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/security{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

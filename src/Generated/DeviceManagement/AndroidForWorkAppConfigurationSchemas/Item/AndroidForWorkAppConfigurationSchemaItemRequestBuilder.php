@@ -22,7 +22,7 @@ class AndroidForWorkAppConfigurationSchemaItemRequestBuilder extends BaseRequest
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/androidForWorkAppConfigurationSchemas/{androidForWorkAppConfigurationSchema%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/androidForWorkAppConfigurationSchemas/{androidForWorkAppConfigurationSchema%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class AndroidForWorkAppConfigurationSchemaItemRequestBuilder extends BaseRequest
 
     /**
      * Delete navigation property androidForWorkAppConfigurationSchemas for deviceManagement
-     * @param AndroidForWorkAppConfigurationSchemaItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidForWorkAppConfigurationSchemaItemRequestBuilderD_6e53ddf4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?AndroidForWorkAppConfigurationSchemaItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?AndroidForWorkAppConfigurationSchemaItemRequestBuilderD_6e53ddf4 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class AndroidForWorkAppConfigurationSchemaItemRequestBuilder extends BaseRequest
 
     /**
      * Android for Work app configuration schema entities.
-     * @param AndroidForWorkAppConfigurationSchemaItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidForWorkAppConfigurationSchemaItemRequestBuilderG_1ee62b07|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AndroidForWorkAppConfigurationSchema|null>
      * @throws Exception
     */
-    public function get(?AndroidForWorkAppConfigurationSchemaItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AndroidForWorkAppConfigurationSchemaItemRequestBuilderG_1ee62b07 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class AndroidForWorkAppConfigurationSchemaItemRequestBuilder extends BaseRequest
     /**
      * Update the navigation property androidForWorkAppConfigurationSchemas in deviceManagement
      * @param AndroidForWorkAppConfigurationSchema $body The request body
-     * @param AndroidForWorkAppConfigurationSchemaItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidForWorkAppConfigurationSchemaItemRequestBuilderP_d388994f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AndroidForWorkAppConfigurationSchema|null>
      * @throws Exception
     */
-    public function patch(AndroidForWorkAppConfigurationSchema $body, ?AndroidForWorkAppConfigurationSchemaItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(AndroidForWorkAppConfigurationSchema $body, ?AndroidForWorkAppConfigurationSchemaItemRequestBuilderP_d388994f $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class AndroidForWorkAppConfigurationSchemaItemRequestBuilder extends BaseRequest
 
     /**
      * Delete navigation property androidForWorkAppConfigurationSchemas for deviceManagement
-     * @param AndroidForWorkAppConfigurationSchemaItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidForWorkAppConfigurationSchemaItemRequestBuilderD_6e53ddf4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?AndroidForWorkAppConfigurationSchemaItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?AndroidForWorkAppConfigurationSchemaItemRequestBuilderD_6e53ddf4 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class AndroidForWorkAppConfigurationSchemaItemRequestBuilder extends BaseRequest
 
     /**
      * Android for Work app configuration schema entities.
-     * @param AndroidForWorkAppConfigurationSchemaItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidForWorkAppConfigurationSchemaItemRequestBuilderG_1ee62b07|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AndroidForWorkAppConfigurationSchemaItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AndroidForWorkAppConfigurationSchemaItemRequestBuilderG_1ee62b07 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class AndroidForWorkAppConfigurationSchemaItemRequestBuilder extends BaseRequest
     /**
      * Update the navigation property androidForWorkAppConfigurationSchemas in deviceManagement
      * @param AndroidForWorkAppConfigurationSchema $body The request body
-     * @param AndroidForWorkAppConfigurationSchemaItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidForWorkAppConfigurationSchemaItemRequestBuilderP_d388994f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(AndroidForWorkAppConfigurationSchema $body, ?AndroidForWorkAppConfigurationSchemaItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(AndroidForWorkAppConfigurationSchema $body, ?AndroidForWorkAppConfigurationSchemaItemRequestBuilderP_d388994f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

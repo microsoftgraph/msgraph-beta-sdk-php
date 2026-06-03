@@ -35,11 +35,11 @@ class AccessPackagesWithUniqueNameRequestBuilder extends BaseRequestBuilder
 
     /**
      * The access packages in this catalog. Read-only. Nullable. Supports $expand.
-     * @param AccessPackagesWithUniqueNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackagesWithUniqueNameRequestBuilderGetRequestCon_3a8520d0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackage|null>
      * @throws Exception
     */
-    public function get(?AccessPackagesWithUniqueNameRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AccessPackagesWithUniqueNameRequestBuilderGetRequestCon_3a8520d0 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,10 +49,10 @@ class AccessPackagesWithUniqueNameRequestBuilder extends BaseRequestBuilder
 
     /**
      * The access packages in this catalog. Read-only. Nullable. Supports $expand.
-     * @param AccessPackagesWithUniqueNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackagesWithUniqueNameRequestBuilderGetRequestCon_3a8520d0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AccessPackagesWithUniqueNameRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AccessPackagesWithUniqueNameRequestBuilderGetRequestCon_3a8520d0 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

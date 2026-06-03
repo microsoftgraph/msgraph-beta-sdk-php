@@ -43,7 +43,7 @@ class PermissionGrantPreApprovalPoliciesRequestBuilder extends BaseRequestBuilde
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/policies/permissionGrantPreApprovalPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,12 +53,12 @@ class PermissionGrantPreApprovalPoliciesRequestBuilder extends BaseRequestBuilde
 
     /**
      * Retrieve the list of permissionGrantPreApprovalPolicy objects in the tenant.
-     * @param PermissionGrantPreApprovalPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionGrantPreApprovalPoliciesRequestBuilderGetRequ_4cfdb3a7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PermissionGrantPreApprovalPolicyCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/policyroot-list-permissiongrantpreapprovalpolicies?view=graph-rest-beta Find more info here
     */
-    public function get(?PermissionGrantPreApprovalPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?PermissionGrantPreApprovalPoliciesRequestBuilderGetRequ_4cfdb3a7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,12 +69,12 @@ class PermissionGrantPreApprovalPoliciesRequestBuilder extends BaseRequestBuilde
     /**
      * Create a new permissionGrantPreApprovalPolicy object.
      * @param PermissionGrantPreApprovalPolicy $body The request body
-     * @param PermissionGrantPreApprovalPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionGrantPreApprovalPoliciesRequestBuilderPostReq_fe6aba78|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PermissionGrantPreApprovalPolicy|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/policyroot-post-permissiongrantpreapprovalpolicies?view=graph-rest-beta Find more info here
     */
-    public function post(PermissionGrantPreApprovalPolicy $body, ?PermissionGrantPreApprovalPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(PermissionGrantPreApprovalPolicy $body, ?PermissionGrantPreApprovalPoliciesRequestBuilderPostReq_fe6aba78 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -84,10 +84,10 @@ class PermissionGrantPreApprovalPoliciesRequestBuilder extends BaseRequestBuilde
 
     /**
      * Retrieve the list of permissionGrantPreApprovalPolicy objects in the tenant.
-     * @param PermissionGrantPreApprovalPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionGrantPreApprovalPoliciesRequestBuilderGetRequ_4cfdb3a7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?PermissionGrantPreApprovalPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?PermissionGrantPreApprovalPoliciesRequestBuilderGetRequ_4cfdb3a7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -106,10 +106,10 @@ class PermissionGrantPreApprovalPoliciesRequestBuilder extends BaseRequestBuilde
     /**
      * Create a new permissionGrantPreApprovalPolicy object.
      * @param PermissionGrantPreApprovalPolicy $body The request body
-     * @param PermissionGrantPreApprovalPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionGrantPreApprovalPoliciesRequestBuilderPostReq_fe6aba78|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(PermissionGrantPreApprovalPolicy $body, ?PermissionGrantPreApprovalPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(PermissionGrantPreApprovalPolicy $body, ?PermissionGrantPreApprovalPoliciesRequestBuilderPostReq_fe6aba78 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

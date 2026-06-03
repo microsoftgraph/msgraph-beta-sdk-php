@@ -38,7 +38,7 @@ class GovernanceRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/privilegedAccess/{privilegedAccess%2Did}/roleDefinitions/{governanceRoleDefinition%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/privilegedAccess/{privilegedAccess%2Did}/roleDefinitions/{governanceRoleDefinition%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -48,11 +48,11 @@ class GovernanceRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property roleDefinitions for privilegedAccess
-     * @param GovernanceRoleDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernanceRoleDefinitionItemRequestBuilderDeleteRequest_a8be1aea|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?GovernanceRoleDefinitionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?GovernanceRoleDefinitionItemRequestBuilderDeleteRequest_a8be1aea $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class GovernanceRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * A collection of role definitions for the provider.
-     * @param GovernanceRoleDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernanceRoleDefinitionItemRequestBuilderGetRequestCon_ea7199cb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GovernanceRoleDefinition|null>
      * @throws Exception
     */
-    public function get(?GovernanceRoleDefinitionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GovernanceRoleDefinitionItemRequestBuilderGetRequestCon_ea7199cb $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,11 +77,11 @@ class GovernanceRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property roleDefinitions in privilegedAccess
      * @param GovernanceRoleDefinition $body The request body
-     * @param GovernanceRoleDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernanceRoleDefinitionItemRequestBuilderPatchRequestC_5167e195|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GovernanceRoleDefinition|null>
      * @throws Exception
     */
-    public function patch(GovernanceRoleDefinition $body, ?GovernanceRoleDefinitionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(GovernanceRoleDefinition $body, ?GovernanceRoleDefinitionItemRequestBuilderPatchRequestC_5167e195 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -91,10 +91,10 @@ class GovernanceRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property roleDefinitions for privilegedAccess
-     * @param GovernanceRoleDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernanceRoleDefinitionItemRequestBuilderDeleteRequest_a8be1aea|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?GovernanceRoleDefinitionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?GovernanceRoleDefinitionItemRequestBuilderDeleteRequest_a8be1aea $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -109,10 +109,10 @@ class GovernanceRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * A collection of role definitions for the provider.
-     * @param GovernanceRoleDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernanceRoleDefinitionItemRequestBuilderGetRequestCon_ea7199cb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GovernanceRoleDefinitionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GovernanceRoleDefinitionItemRequestBuilderGetRequestCon_ea7199cb $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -131,10 +131,10 @@ class GovernanceRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property roleDefinitions in privilegedAccess
      * @param GovernanceRoleDefinition $body The request body
-     * @param GovernanceRoleDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernanceRoleDefinitionItemRequestBuilderPatchRequestC_5167e195|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(GovernanceRoleDefinition $body, ?GovernanceRoleDefinitionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(GovernanceRoleDefinition $body, ?GovernanceRoleDefinitionItemRequestBuilderPatchRequestC_5167e195 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

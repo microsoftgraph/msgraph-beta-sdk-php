@@ -22,7 +22,7 @@ class ExactMatchUploadAgentItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/dataClassification/exactMatchUploadAgents/{exactMatchUploadAgent%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/dataClassification/exactMatchUploadAgents/{exactMatchUploadAgent%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class ExactMatchUploadAgentItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property exactMatchUploadAgents for dataClassification
-     * @param ExactMatchUploadAgentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ExactMatchUploadAgentItemRequestBuilderDeleteRequestCon_0567ec01|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ExactMatchUploadAgentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ExactMatchUploadAgentItemRequestBuilderDeleteRequestCon_0567ec01 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class ExactMatchUploadAgentItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property exactMatchUploadAgents for dataClassification
-     * @param ExactMatchUploadAgentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ExactMatchUploadAgentItemRequestBuilderDeleteRequestCon_0567ec01|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ExactMatchUploadAgentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ExactMatchUploadAgentItemRequestBuilderDeleteRequestCon_0567ec01 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

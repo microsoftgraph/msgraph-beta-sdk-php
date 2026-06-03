@@ -30,7 +30,7 @@ class AccessPackageSuggestionItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/entitlementManagement/accessPackageSuggestions/{accessPackageSuggestion%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/entitlementManagement/accessPackageSuggestions/{accessPackageSuggestion%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,11 +40,11 @@ class AccessPackageSuggestionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property accessPackageSuggestions for identityGovernance
-     * @param AccessPackageSuggestionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageSuggestionItemRequestBuilderDeleteRequestC_524af83d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?AccessPackageSuggestionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?AccessPackageSuggestionItemRequestBuilderDeleteRequestC_524af83d $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class AccessPackageSuggestionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property accessPackageSuggestions in identityGovernance
      * @param AccessPackageSuggestion $body The request body
-     * @param AccessPackageSuggestionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageSuggestionItemRequestBuilderPatchRequestCo_435a7377|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageSuggestion|null>
      * @throws Exception
     */
-    public function patch(AccessPackageSuggestion $body, ?AccessPackageSuggestionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(AccessPackageSuggestion $body, ?AccessPackageSuggestionItemRequestBuilderPatchRequestCo_435a7377 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class AccessPackageSuggestionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property accessPackageSuggestions for identityGovernance
-     * @param AccessPackageSuggestionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageSuggestionItemRequestBuilderDeleteRequestC_524af83d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?AccessPackageSuggestionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?AccessPackageSuggestionItemRequestBuilderDeleteRequestC_524af83d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -123,10 +123,10 @@ class AccessPackageSuggestionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property accessPackageSuggestions in identityGovernance
      * @param AccessPackageSuggestion $body The request body
-     * @param AccessPackageSuggestionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageSuggestionItemRequestBuilderPatchRequestCo_435a7377|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(AccessPackageSuggestion $body, ?AccessPackageSuggestionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(AccessPackageSuggestion $body, ?AccessPackageSuggestionItemRequestBuilderPatchRequestCo_435a7377 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

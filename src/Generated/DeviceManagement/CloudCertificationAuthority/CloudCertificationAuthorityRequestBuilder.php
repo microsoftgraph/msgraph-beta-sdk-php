@@ -43,7 +43,7 @@ class CloudCertificationAuthorityRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/cloudCertificationAuthority{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -68,11 +68,11 @@ class CloudCertificationAuthorityRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to cloudCertificationAuthority for deviceManagement
      * @param CloudCertificationAuthority $body The request body
-     * @param CloudCertificationAuthorityRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudCertificationAuthorityRequestBuilderPostRequestCon_1e438eaa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudCertificationAuthority|null>
      * @throws Exception
     */
-    public function post(CloudCertificationAuthority $body, ?CloudCertificationAuthorityRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(CloudCertificationAuthority $body, ?CloudCertificationAuthorityRequestBuilderPostRequestCon_1e438eaa $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -104,10 +104,10 @@ class CloudCertificationAuthorityRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to cloudCertificationAuthority for deviceManagement
      * @param CloudCertificationAuthority $body The request body
-     * @param CloudCertificationAuthorityRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudCertificationAuthorityRequestBuilderPostRequestCon_1e438eaa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(CloudCertificationAuthority $body, ?CloudCertificationAuthorityRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(CloudCertificationAuthority $body, ?CloudCertificationAuthorityRequestBuilderPostRequestCon_1e438eaa $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

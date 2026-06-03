@@ -22,7 +22,7 @@ class SensitivityPolicySettingsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/informationProtection/sensitivityPolicySettings{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/informationProtection/sensitivityPolicySettings');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class SensitivityPolicySettingsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property sensitivityPolicySettings for informationProtection
-     * @param SensitivityPolicySettingsRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SensitivityPolicySettingsRequestBuilderDeleteRequestCon_829d3085|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?SensitivityPolicySettingsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?SensitivityPolicySettingsRequestBuilderDeleteRequestCon_829d3085 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class SensitivityPolicySettingsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property sensitivityPolicySettings for informationProtection
-     * @param SensitivityPolicySettingsRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SensitivityPolicySettingsRequestBuilderDeleteRequestCon_829d3085|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?SensitivityPolicySettingsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?SensitivityPolicySettingsRequestBuilderDeleteRequestCon_829d3085 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

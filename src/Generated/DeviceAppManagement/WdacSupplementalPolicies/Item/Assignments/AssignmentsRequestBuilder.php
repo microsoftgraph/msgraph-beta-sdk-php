@@ -5,10 +5,10 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\WdacSupplementalPol
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WdacSupplementalPolicies\Item\Assignments\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WdacSupplementalPolicies\Item\Assignments\Item\WindowsDefenderApplicationControlSupplementalPolicyAssignmentItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WdacSupplementalPolicies\Item\Assignments\Item\WindowsDefenderApplicationControlSupplementalPolicyAssi_f0ba402d;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\WindowsDefenderApplicationControlSupplementalPolicyAssi_e47e4ecf;
 use Microsoft\Graph\Beta\Generated\Models\WindowsDefenderApplicationControlSupplementalPolicyAssignment;
-use Microsoft\Graph\Beta\Generated\Models\WindowsDefenderApplicationControlSupplementalPolicyAssignmentCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -29,12 +29,12 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.windowsDefenderApplicationControlSupplementalPolicy entity.
      * @param string $windowsDefenderApplicationControlSupplementalPolicyAssignmentId The unique identifier of windowsDefenderApplicationControlSupplementalPolicyAssignment
-     * @return WindowsDefenderApplicationControlSupplementalPolicyAssignmentItemRequestBuilder
+     * @return WindowsDefenderApplicationControlSupplementalPolicyAssi_f0ba402d
     */
-    public function byWindowsDefenderApplicationControlSupplementalPolicyAssignmentId(string $windowsDefenderApplicationControlSupplementalPolicyAssignmentId): WindowsDefenderApplicationControlSupplementalPolicyAssignmentItemRequestBuilder {
+    public function byWindowsDefenderApplicationControlSupplementalPolicyAssignmentId(string $windowsDefenderApplicationControlSupplementalPolicyAssignmentId): WindowsDefenderApplicationControlSupplementalPolicyAssi_f0ba402d {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['windowsDefenderApplicationControlSupplementalPolicyAssignment%2Did'] = $windowsDefenderApplicationControlSupplementalPolicyAssignmentId;
-        return new WindowsDefenderApplicationControlSupplementalPolicyAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new WindowsDefenderApplicationControlSupplementalPolicyAssi_f0ba402d($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -43,7 +43,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceAppManagement/wdacSupplementalPolicies/{windowsDefenderApplicationControlSupplementalPolicy%2Did}/assignments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -54,7 +54,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     /**
      * The associated group assignments for the Windows Defender Application Control Supplemental Policy.
      * @param AssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<WindowsDefenderApplicationControlSupplementalPolicyAssignmentCollectionResponse|null>
+     * @return Promise<WindowsDefenderApplicationControlSupplementalPolicyAssi_e47e4ecf|null>
      * @throws Exception
     */
     public function get(?AssignmentsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
@@ -62,7 +62,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        return $this->requestAdapter->sendAsync($requestInfo, [WindowsDefenderApplicationControlSupplementalPolicyAssignmentCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+        return $this->requestAdapter->sendAsync($requestInfo, [WindowsDefenderApplicationControlSupplementalPolicyAssi_e47e4ecf::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**

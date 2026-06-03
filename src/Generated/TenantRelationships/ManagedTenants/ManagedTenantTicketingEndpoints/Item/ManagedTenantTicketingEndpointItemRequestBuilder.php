@@ -22,7 +22,7 @@ class ManagedTenantTicketingEndpointItemRequestBuilder extends BaseRequestBuilde
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/managedTenantTicketingEndpoints/{managedTenantTicketingEndpoint%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/managedTenantTicketingEndpoints/{managedTenantTicketingEndpoint%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class ManagedTenantTicketingEndpointItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property managedTenantTicketingEndpoints for tenantRelationships
-     * @param ManagedTenantTicketingEndpointItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantTicketingEndpointItemRequestBuilderDeleteR_986e2090|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ManagedTenantTicketingEndpointItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ManagedTenantTicketingEndpointItemRequestBuilderDeleteR_986e2090 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class ManagedTenantTicketingEndpointItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Get managedTenantTicketingEndpoints from tenantRelationships
-     * @param ManagedTenantTicketingEndpointItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantTicketingEndpointItemRequestBuilderGetRequ_a8f757e9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedTenantTicketingEndpoint|null>
      * @throws Exception
     */
-    public function get(?ManagedTenantTicketingEndpointItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagedTenantTicketingEndpointItemRequestBuilderGetRequ_a8f757e9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class ManagedTenantTicketingEndpointItemRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property managedTenantTicketingEndpoints in tenantRelationships
      * @param ManagedTenantTicketingEndpoint $body The request body
-     * @param ManagedTenantTicketingEndpointItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantTicketingEndpointItemRequestBuilderPatchRe_8c27c28a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedTenantTicketingEndpoint|null>
      * @throws Exception
     */
-    public function patch(ManagedTenantTicketingEndpoint $body, ?ManagedTenantTicketingEndpointItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ManagedTenantTicketingEndpoint $body, ?ManagedTenantTicketingEndpointItemRequestBuilderPatchRe_8c27c28a $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class ManagedTenantTicketingEndpointItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property managedTenantTicketingEndpoints for tenantRelationships
-     * @param ManagedTenantTicketingEndpointItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantTicketingEndpointItemRequestBuilderDeleteR_986e2090|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ManagedTenantTicketingEndpointItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ManagedTenantTicketingEndpointItemRequestBuilderDeleteR_986e2090 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class ManagedTenantTicketingEndpointItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Get managedTenantTicketingEndpoints from tenantRelationships
-     * @param ManagedTenantTicketingEndpointItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantTicketingEndpointItemRequestBuilderGetRequ_a8f757e9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagedTenantTicketingEndpointItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagedTenantTicketingEndpointItemRequestBuilderGetRequ_a8f757e9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class ManagedTenantTicketingEndpointItemRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property managedTenantTicketingEndpoints in tenantRelationships
      * @param ManagedTenantTicketingEndpoint $body The request body
-     * @param ManagedTenantTicketingEndpointItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantTicketingEndpointItemRequestBuilderPatchRe_8c27c28a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ManagedTenantTicketingEndpoint $body, ?ManagedTenantTicketingEndpointItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ManagedTenantTicketingEndpoint $body, ?ManagedTenantTicketingEndpointItemRequestBuilderPatchRe_8c27c28a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -22,7 +22,7 @@ class RestrictedAppsViolationItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/deviceConfigurationRestrictedAppsViolations/{restrictedAppsViolation%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/deviceConfigurationRestrictedAppsViolations/{restrictedAppsViolation%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class RestrictedAppsViolationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property deviceConfigurationRestrictedAppsViolations for deviceManagement
-     * @param RestrictedAppsViolationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RestrictedAppsViolationItemRequestBuilderDeleteRequestC_84395a15|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?RestrictedAppsViolationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?RestrictedAppsViolationItemRequestBuilderDeleteRequestC_84395a15 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class RestrictedAppsViolationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property deviceConfigurationRestrictedAppsViolations in deviceManagement
      * @param RestrictedAppsViolation $body The request body
-     * @param RestrictedAppsViolationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RestrictedAppsViolationItemRequestBuilderPatchRequestCo_33fadf83|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RestrictedAppsViolation|null>
      * @throws Exception
     */
-    public function patch(RestrictedAppsViolation $body, ?RestrictedAppsViolationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(RestrictedAppsViolation $body, ?RestrictedAppsViolationItemRequestBuilderPatchRequestCo_33fadf83 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class RestrictedAppsViolationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property deviceConfigurationRestrictedAppsViolations for deviceManagement
-     * @param RestrictedAppsViolationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RestrictedAppsViolationItemRequestBuilderDeleteRequestC_84395a15|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?RestrictedAppsViolationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?RestrictedAppsViolationItemRequestBuilderDeleteRequestC_84395a15 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class RestrictedAppsViolationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property deviceConfigurationRestrictedAppsViolations in deviceManagement
      * @param RestrictedAppsViolation $body The request body
-     * @param RestrictedAppsViolationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RestrictedAppsViolationItemRequestBuilderPatchRequestCo_33fadf83|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(RestrictedAppsViolation $body, ?RestrictedAppsViolationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(RestrictedAppsViolation $body, ?RestrictedAppsViolationItemRequestBuilderPatchRequestCo_33fadf83 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -81,7 +81,7 @@ class TokenProtectionStatusDetails implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the signInSessionStatus property value. The signInSessionStatus property
+     * Gets the signInSessionStatus property value. The token protection status of the sign-in session. The possible values are: none, bound, unbound, unknownFutureValue.
      * @return TokenProtectionStatus|null
     */
     public function getSignInSessionStatus(): ?TokenProtectionStatus {
@@ -93,7 +93,7 @@ class TokenProtectionStatusDetails implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the signInSessionStatusCode property value. The signInSessionStatusCode property
+     * Gets the signInSessionStatusCode property value. Additional information about the status.
      * @return int|null
     */
     public function getSignInSessionStatusCode(): ?int {
@@ -140,7 +140,7 @@ class TokenProtectionStatusDetails implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Sets the signInSessionStatus property value. The signInSessionStatus property
+     * Sets the signInSessionStatus property value. The token protection status of the sign-in session. The possible values are: none, bound, unbound, unknownFutureValue.
      * @param TokenProtectionStatus|null $value Value to set for the signInSessionStatus property.
     */
     public function setSignInSessionStatus(?TokenProtectionStatus $value): void {
@@ -148,7 +148,7 @@ class TokenProtectionStatusDetails implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Sets the signInSessionStatusCode property value. The signInSessionStatusCode property
+     * Sets the signInSessionStatusCode property value. Additional information about the status.
      * @param int|null $value Value to set for the signInSessionStatusCode property.
     */
     public function setSignInSessionStatusCode(?int $value): void {

@@ -31,11 +31,11 @@ class MicrosoftGraphCloudLicensingReprocessAssignmentsRequestBuilder extends Bas
 
     /**
      * Invoke action reprocessAssignments
-     * @param MicrosoftGraphCloudLicensingReprocessAssignmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphCloudLicensingReprocessAssignmentsRequest_8abbec30|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(?MicrosoftGraphCloudLicensingReprocessAssignmentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?MicrosoftGraphCloudLicensingReprocessAssignmentsRequest_8abbec30 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,10 +45,10 @@ class MicrosoftGraphCloudLicensingReprocessAssignmentsRequestBuilder extends Bas
 
     /**
      * Invoke action reprocessAssignments
-     * @param MicrosoftGraphCloudLicensingReprocessAssignmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphCloudLicensingReprocessAssignmentsRequest_8abbec30|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?MicrosoftGraphCloudLicensingReprocessAssignmentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?MicrosoftGraphCloudLicensingReprocessAssignmentsRequest_8abbec30 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

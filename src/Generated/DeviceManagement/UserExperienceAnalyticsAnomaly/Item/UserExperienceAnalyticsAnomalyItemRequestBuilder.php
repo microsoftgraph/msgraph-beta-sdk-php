@@ -22,7 +22,7 @@ class UserExperienceAnalyticsAnomalyItemRequestBuilder extends BaseRequestBuilde
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/userExperienceAnalyticsAnomaly/{userExperienceAnalyticsAnomaly%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/userExperienceAnalyticsAnomaly/{userExperienceAnalyticsAnomaly%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class UserExperienceAnalyticsAnomalyItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property userExperienceAnalyticsAnomaly for deviceManagement
-     * @param UserExperienceAnalyticsAnomalyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsAnomalyItemRequestBuilderDeleteR_7a2c271e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?UserExperienceAnalyticsAnomalyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?UserExperienceAnalyticsAnomalyItemRequestBuilderDeleteR_7a2c271e $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class UserExperienceAnalyticsAnomalyItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * The user experience analytics anomaly entity contains anomaly details.
-     * @param UserExperienceAnalyticsAnomalyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsAnomalyItemRequestBuilderGetRequ_f58fda2c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsAnomaly|null>
      * @throws Exception
     */
-    public function get(?UserExperienceAnalyticsAnomalyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserExperienceAnalyticsAnomalyItemRequestBuilderGetRequ_f58fda2c $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class UserExperienceAnalyticsAnomalyItemRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property userExperienceAnalyticsAnomaly in deviceManagement
      * @param UserExperienceAnalyticsAnomaly $body The request body
-     * @param UserExperienceAnalyticsAnomalyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsAnomalyItemRequestBuilderPatchRe_fcef4a7c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsAnomaly|null>
      * @throws Exception
     */
-    public function patch(UserExperienceAnalyticsAnomaly $body, ?UserExperienceAnalyticsAnomalyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(UserExperienceAnalyticsAnomaly $body, ?UserExperienceAnalyticsAnomalyItemRequestBuilderPatchRe_fcef4a7c $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class UserExperienceAnalyticsAnomalyItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property userExperienceAnalyticsAnomaly for deviceManagement
-     * @param UserExperienceAnalyticsAnomalyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsAnomalyItemRequestBuilderDeleteR_7a2c271e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?UserExperienceAnalyticsAnomalyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?UserExperienceAnalyticsAnomalyItemRequestBuilderDeleteR_7a2c271e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class UserExperienceAnalyticsAnomalyItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * The user experience analytics anomaly entity contains anomaly details.
-     * @param UserExperienceAnalyticsAnomalyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsAnomalyItemRequestBuilderGetRequ_f58fda2c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UserExperienceAnalyticsAnomalyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UserExperienceAnalyticsAnomalyItemRequestBuilderGetRequ_f58fda2c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class UserExperienceAnalyticsAnomalyItemRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property userExperienceAnalyticsAnomaly in deviceManagement
      * @param UserExperienceAnalyticsAnomaly $body The request body
-     * @param UserExperienceAnalyticsAnomalyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsAnomalyItemRequestBuilderPatchRe_fcef4a7c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(UserExperienceAnalyticsAnomaly $body, ?UserExperienceAnalyticsAnomalyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(UserExperienceAnalyticsAnomaly $body, ?UserExperienceAnalyticsAnomalyItemRequestBuilderPatchRe_fcef4a7c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

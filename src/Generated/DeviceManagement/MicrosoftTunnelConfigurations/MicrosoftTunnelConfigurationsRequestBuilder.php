@@ -43,7 +43,7 @@ class MicrosoftTunnelConfigurationsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/microsoftTunnelConfigurations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class MicrosoftTunnelConfigurationsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Collection of MicrosoftTunnelConfiguration settings associated with account.
-     * @param MicrosoftTunnelConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelConfigurationsRequestBuilderGetRequestCo_03e2dc72|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MicrosoftTunnelConfigurationCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?MicrosoftTunnelConfigurationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MicrosoftTunnelConfigurationsRequestBuilderGetRequestCo_03e2dc72 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class MicrosoftTunnelConfigurationsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to microsoftTunnelConfigurations for deviceManagement
      * @param MicrosoftTunnelConfiguration $body The request body
-     * @param MicrosoftTunnelConfigurationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelConfigurationsRequestBuilderPostRequestC_e18d5e15|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MicrosoftTunnelConfiguration|null>
      * @throws Exception
     */
-    public function post(MicrosoftTunnelConfiguration $body, ?MicrosoftTunnelConfigurationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(MicrosoftTunnelConfiguration $body, ?MicrosoftTunnelConfigurationsRequestBuilderPostRequestC_e18d5e15 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class MicrosoftTunnelConfigurationsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Collection of MicrosoftTunnelConfiguration settings associated with account.
-     * @param MicrosoftTunnelConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelConfigurationsRequestBuilderGetRequestCo_03e2dc72|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MicrosoftTunnelConfigurationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MicrosoftTunnelConfigurationsRequestBuilderGetRequestCo_03e2dc72 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class MicrosoftTunnelConfigurationsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to microsoftTunnelConfigurations for deviceManagement
      * @param MicrosoftTunnelConfiguration $body The request body
-     * @param MicrosoftTunnelConfigurationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelConfigurationsRequestBuilderPostRequestC_e18d5e15|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(MicrosoftTunnelConfiguration $body, ?MicrosoftTunnelConfigurationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(MicrosoftTunnelConfiguration $body, ?MicrosoftTunnelConfigurationsRequestBuilderPostRequestC_e18d5e15 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

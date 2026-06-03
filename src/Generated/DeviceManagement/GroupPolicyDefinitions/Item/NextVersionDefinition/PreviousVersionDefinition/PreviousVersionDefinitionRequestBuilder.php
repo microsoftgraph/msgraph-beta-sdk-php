@@ -46,7 +46,7 @@ class PreviousVersionDefinitionRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/groupPolicyDefinitions/{groupPolicyDefinition%2Did}/nextVersionDefinition/previousVersionDefinition{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/groupPolicyDefinitions/{groupPolicyDefinition%2Did}/nextVersionDefinition/previousVersionDefinition');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -56,11 +56,11 @@ class PreviousVersionDefinitionRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property previousVersionDefinition for deviceManagement
-     * @param PreviousVersionDefinitionRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PreviousVersionDefinitionRequestBuilderDeleteRequestCon_2291af73|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?PreviousVersionDefinitionRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?PreviousVersionDefinitionRequestBuilderDeleteRequestCon_2291af73 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -99,10 +99,10 @@ class PreviousVersionDefinitionRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property previousVersionDefinition for deviceManagement
-     * @param PreviousVersionDefinitionRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PreviousVersionDefinitionRequestBuilderDeleteRequestCon_2291af73|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?PreviousVersionDefinitionRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?PreviousVersionDefinitionRequestBuilderDeleteRequestCon_2291af73 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

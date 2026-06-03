@@ -62,7 +62,7 @@ class WindowsManagedAppProtectionItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceAppManagement/windowsManagedAppProtections/{windowsManagedAppProtection%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceAppManagement/windowsManagedAppProtections/{windowsManagedAppProtection%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -72,11 +72,11 @@ class WindowsManagedAppProtectionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property windowsManagedAppProtections for deviceAppManagement
-     * @param WindowsManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsManagedAppProtectionItemRequestBuilderDeleteRequ_3f588c60|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?WindowsManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?WindowsManagedAppProtectionItemRequestBuilderDeleteRequ_3f588c60 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -86,11 +86,11 @@ class WindowsManagedAppProtectionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Windows managed app policies.
-     * @param WindowsManagedAppProtectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsManagedAppProtectionItemRequestBuilderGetRequest_3cfb39e7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsManagedAppProtection|null>
      * @throws Exception
     */
-    public function get(?WindowsManagedAppProtectionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?WindowsManagedAppProtectionItemRequestBuilderGetRequest_3cfb39e7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -101,11 +101,11 @@ class WindowsManagedAppProtectionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property windowsManagedAppProtections in deviceAppManagement
      * @param WindowsManagedAppProtection $body The request body
-     * @param WindowsManagedAppProtectionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsManagedAppProtectionItemRequestBuilderPatchReque_1ccced01|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsManagedAppProtection|null>
      * @throws Exception
     */
-    public function patch(WindowsManagedAppProtection $body, ?WindowsManagedAppProtectionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(WindowsManagedAppProtection $body, ?WindowsManagedAppProtectionItemRequestBuilderPatchReque_1ccced01 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -115,10 +115,10 @@ class WindowsManagedAppProtectionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property windowsManagedAppProtections for deviceAppManagement
-     * @param WindowsManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsManagedAppProtectionItemRequestBuilderDeleteRequ_3f588c60|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?WindowsManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?WindowsManagedAppProtectionItemRequestBuilderDeleteRequ_3f588c60 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -133,10 +133,10 @@ class WindowsManagedAppProtectionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Windows managed app policies.
-     * @param WindowsManagedAppProtectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsManagedAppProtectionItemRequestBuilderGetRequest_3cfb39e7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?WindowsManagedAppProtectionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?WindowsManagedAppProtectionItemRequestBuilderGetRequest_3cfb39e7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -155,10 +155,10 @@ class WindowsManagedAppProtectionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property windowsManagedAppProtections in deviceAppManagement
      * @param WindowsManagedAppProtection $body The request body
-     * @param WindowsManagedAppProtectionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsManagedAppProtectionItemRequestBuilderPatchReque_1ccced01|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(WindowsManagedAppProtection $body, ?WindowsManagedAppProtectionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(WindowsManagedAppProtection $body, ?WindowsManagedAppProtectionItemRequestBuilderPatchReque_1ccced01 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

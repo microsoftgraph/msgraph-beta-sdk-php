@@ -43,7 +43,7 @@ class CloudCertificationAuthorityLeafCertificateRequestBuilder extends BaseReque
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/cloudCertificationAuthorityLeafCertificate{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class CloudCertificationAuthorityLeafCertificateRequestBuilder extends BaseReque
 
     /**
      * Collection of CloudCertificationAuthorityLeafCertificate records associated with account.
-     * @param CloudCertificationAuthorityLeafCertificateRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudCertificationAuthorityLeafCertificateRequestBuilde_716045c9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudCertificationAuthorityLeafCertificateCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?CloudCertificationAuthorityLeafCertificateRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CloudCertificationAuthorityLeafCertificateRequestBuilde_716045c9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class CloudCertificationAuthorityLeafCertificateRequestBuilder extends BaseReque
     /**
      * Create new navigation property to cloudCertificationAuthorityLeafCertificate for deviceManagement
      * @param CloudCertificationAuthorityLeafCertificate $body The request body
-     * @param CloudCertificationAuthorityLeafCertificateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudCertificationAuthorityLeafCertificateRequestBuilde_15c7066d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudCertificationAuthorityLeafCertificate|null>
      * @throws Exception
     */
-    public function post(CloudCertificationAuthorityLeafCertificate $body, ?CloudCertificationAuthorityLeafCertificateRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(CloudCertificationAuthorityLeafCertificate $body, ?CloudCertificationAuthorityLeafCertificateRequestBuilde_15c7066d $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class CloudCertificationAuthorityLeafCertificateRequestBuilder extends BaseReque
 
     /**
      * Collection of CloudCertificationAuthorityLeafCertificate records associated with account.
-     * @param CloudCertificationAuthorityLeafCertificateRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudCertificationAuthorityLeafCertificateRequestBuilde_716045c9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CloudCertificationAuthorityLeafCertificateRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CloudCertificationAuthorityLeafCertificateRequestBuilde_716045c9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class CloudCertificationAuthorityLeafCertificateRequestBuilder extends BaseReque
     /**
      * Create new navigation property to cloudCertificationAuthorityLeafCertificate for deviceManagement
      * @param CloudCertificationAuthorityLeafCertificate $body The request body
-     * @param CloudCertificationAuthorityLeafCertificateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudCertificationAuthorityLeafCertificateRequestBuilde_15c7066d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(CloudCertificationAuthorityLeafCertificate $body, ?CloudCertificationAuthorityLeafCertificateRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(CloudCertificationAuthorityLeafCertificate $body, ?CloudCertificationAuthorityLeafCertificateRequestBuilde_15c7066d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

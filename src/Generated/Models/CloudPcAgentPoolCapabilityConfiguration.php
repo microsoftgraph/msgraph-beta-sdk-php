@@ -26,7 +26,7 @@ class CloudPcAgentPoolCapabilityConfiguration extends CloudPcPoolCapabilityConfi
     }
 
     /**
-     * Gets the enableSingleSignOn property value. The enableSingleSignOn property
+     * Gets the enableSingleSignOn property value. When true, provisioned Cloud PCs support single sign-on, allowing users to authenticate with password-less options (such as FIDO2 keys) via Microsoft Entra ID. Default value is false.
      * @return bool|null
     */
     public function getEnableSingleSignOn(): ?bool {
@@ -58,7 +58,7 @@ class CloudPcAgentPoolCapabilityConfiguration extends CloudPcPoolCapabilityConfi
     }
 
     /**
-     * Sets the enableSingleSignOn property value. The enableSingleSignOn property
+     * Sets the enableSingleSignOn property value. When true, provisioned Cloud PCs support single sign-on, allowing users to authenticate with password-less options (such as FIDO2 keys) via Microsoft Entra ID. Default value is false.
      * @param bool|null $value Value to set for the enableSingleSignOn property.
     */
     public function setEnableSingleSignOn(?bool $value): void {

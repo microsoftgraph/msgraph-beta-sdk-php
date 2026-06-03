@@ -22,7 +22,7 @@ class MicrosoftApplicationDataAccessRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/organization/{organization%2Did}/settings/microsoftApplicationDataAccess{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/organization/{organization%2Did}/settings/microsoftApplicationDataAccess');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class MicrosoftApplicationDataAccessRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property microsoftApplicationDataAccess for organization
-     * @param MicrosoftApplicationDataAccessRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftApplicationDataAccessRequestBuilderDeleteReque_3447dfcb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?MicrosoftApplicationDataAccessRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?MicrosoftApplicationDataAccessRequestBuilderDeleteReque_3447dfcb $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,12 +46,12 @@ class MicrosoftApplicationDataAccessRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization.
-     * @param MicrosoftApplicationDataAccessRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftApplicationDataAccessRequestBuilderGetRequestC_fff6824e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MicrosoftApplicationDataAccessSettings|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/organizationsettings-list-microsoftapplicationdataaccess?view=graph-rest-beta Find more info here
     */
-    public function get(?MicrosoftApplicationDataAccessRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MicrosoftApplicationDataAccessRequestBuilderGetRequestC_fff6824e $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,12 +62,12 @@ class MicrosoftApplicationDataAccessRequestBuilder extends BaseRequestBuilder
     /**
      * Update the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization.
      * @param MicrosoftApplicationDataAccessSettings $body The request body
-     * @param MicrosoftApplicationDataAccessRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftApplicationDataAccessRequestBuilderPatchReques_3d2da6c6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MicrosoftApplicationDataAccessSettings|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/microsoftapplicationdataaccesssettings-update?view=graph-rest-beta Find more info here
     */
-    public function patch(MicrosoftApplicationDataAccessSettings $body, ?MicrosoftApplicationDataAccessRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(MicrosoftApplicationDataAccessSettings $body, ?MicrosoftApplicationDataAccessRequestBuilderPatchReques_3d2da6c6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,10 +77,10 @@ class MicrosoftApplicationDataAccessRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property microsoftApplicationDataAccess for organization
-     * @param MicrosoftApplicationDataAccessRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftApplicationDataAccessRequestBuilderDeleteReque_3447dfcb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?MicrosoftApplicationDataAccessRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?MicrosoftApplicationDataAccessRequestBuilderDeleteReque_3447dfcb $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -95,10 +95,10 @@ class MicrosoftApplicationDataAccessRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization.
-     * @param MicrosoftApplicationDataAccessRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftApplicationDataAccessRequestBuilderGetRequestC_fff6824e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MicrosoftApplicationDataAccessRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MicrosoftApplicationDataAccessRequestBuilderGetRequestC_fff6824e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -117,10 +117,10 @@ class MicrosoftApplicationDataAccessRequestBuilder extends BaseRequestBuilder
     /**
      * Update the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization.
      * @param MicrosoftApplicationDataAccessSettings $body The request body
-     * @param MicrosoftApplicationDataAccessRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftApplicationDataAccessRequestBuilderPatchReques_3d2da6c6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(MicrosoftApplicationDataAccessSettings $body, ?MicrosoftApplicationDataAccessRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(MicrosoftApplicationDataAccessSettings $body, ?MicrosoftApplicationDataAccessRequestBuilderPatchReques_3d2da6c6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

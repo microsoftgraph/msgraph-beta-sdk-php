@@ -22,7 +22,7 @@ class UnsupportedGroupPolicyExtensionItemRequestBuilder extends BaseRequestBuild
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/groupPolicyMigrationReports/{groupPolicyMigrationReport%2Did}/unsupportedGroupPolicyExtensions/{unsupportedGroupPolicyExtension%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/groupPolicyMigrationReports/{groupPolicyMigrationReport%2Did}/unsupportedGroupPolicyExtensions/{unsupportedGroupPolicyExtension%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class UnsupportedGroupPolicyExtensionItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Delete navigation property unsupportedGroupPolicyExtensions for deviceManagement
-     * @param UnsupportedGroupPolicyExtensionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnsupportedGroupPolicyExtensionItemRequestBuilderDelete_110312d5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?UnsupportedGroupPolicyExtensionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?UnsupportedGroupPolicyExtensionItemRequestBuilderDelete_110312d5 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class UnsupportedGroupPolicyExtensionItemRequestBuilder extends BaseRequestBuild
 
     /**
      * A list of unsupported group policy extensions inside the Group Policy Object.
-     * @param UnsupportedGroupPolicyExtensionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnsupportedGroupPolicyExtensionItemRequestBuilderGetReq_0a8220a3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnsupportedGroupPolicyExtension|null>
      * @throws Exception
     */
-    public function get(?UnsupportedGroupPolicyExtensionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UnsupportedGroupPolicyExtensionItemRequestBuilderGetReq_0a8220a3 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class UnsupportedGroupPolicyExtensionItemRequestBuilder extends BaseRequestBuild
     /**
      * Update the navigation property unsupportedGroupPolicyExtensions in deviceManagement
      * @param UnsupportedGroupPolicyExtension $body The request body
-     * @param UnsupportedGroupPolicyExtensionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnsupportedGroupPolicyExtensionItemRequestBuilderPatchR_757964c9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnsupportedGroupPolicyExtension|null>
      * @throws Exception
     */
-    public function patch(UnsupportedGroupPolicyExtension $body, ?UnsupportedGroupPolicyExtensionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(UnsupportedGroupPolicyExtension $body, ?UnsupportedGroupPolicyExtensionItemRequestBuilderPatchR_757964c9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class UnsupportedGroupPolicyExtensionItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Delete navigation property unsupportedGroupPolicyExtensions for deviceManagement
-     * @param UnsupportedGroupPolicyExtensionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnsupportedGroupPolicyExtensionItemRequestBuilderDelete_110312d5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?UnsupportedGroupPolicyExtensionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?UnsupportedGroupPolicyExtensionItemRequestBuilderDelete_110312d5 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class UnsupportedGroupPolicyExtensionItemRequestBuilder extends BaseRequestBuild
 
     /**
      * A list of unsupported group policy extensions inside the Group Policy Object.
-     * @param UnsupportedGroupPolicyExtensionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnsupportedGroupPolicyExtensionItemRequestBuilderGetReq_0a8220a3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UnsupportedGroupPolicyExtensionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UnsupportedGroupPolicyExtensionItemRequestBuilderGetReq_0a8220a3 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class UnsupportedGroupPolicyExtensionItemRequestBuilder extends BaseRequestBuild
     /**
      * Update the navigation property unsupportedGroupPolicyExtensions in deviceManagement
      * @param UnsupportedGroupPolicyExtension $body The request body
-     * @param UnsupportedGroupPolicyExtensionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnsupportedGroupPolicyExtensionItemRequestBuilderPatchR_757964c9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(UnsupportedGroupPolicyExtension $body, ?UnsupportedGroupPolicyExtensionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(UnsupportedGroupPolicyExtension $body, ?UnsupportedGroupPolicyExtensionItemRequestBuilderPatchR_757964c9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

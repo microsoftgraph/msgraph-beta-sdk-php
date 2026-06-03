@@ -22,7 +22,7 @@ class HardwarePasswordDetailItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/hardwarePasswordDetails/{hardwarePasswordDetail%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/hardwarePasswordDetails/{hardwarePasswordDetail%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class HardwarePasswordDetailItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property hardwarePasswordDetails for deviceManagement
-     * @param HardwarePasswordDetailItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwarePasswordDetailItemRequestBuilderDeleteRequestCo_04791f03|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?HardwarePasswordDetailItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?HardwarePasswordDetailItemRequestBuilderDeleteRequestCo_04791f03 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class HardwarePasswordDetailItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property hardwarePasswordDetails in deviceManagement
      * @param HardwarePasswordDetail $body The request body
-     * @param HardwarePasswordDetailItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwarePasswordDetailItemRequestBuilderPatchRequestCon_741e186d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HardwarePasswordDetail|null>
      * @throws Exception
     */
-    public function patch(HardwarePasswordDetail $body, ?HardwarePasswordDetailItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(HardwarePasswordDetail $body, ?HardwarePasswordDetailItemRequestBuilderPatchRequestCon_741e186d $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class HardwarePasswordDetailItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property hardwarePasswordDetails for deviceManagement
-     * @param HardwarePasswordDetailItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwarePasswordDetailItemRequestBuilderDeleteRequestCo_04791f03|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?HardwarePasswordDetailItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?HardwarePasswordDetailItemRequestBuilderDeleteRequestCo_04791f03 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class HardwarePasswordDetailItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property hardwarePasswordDetails in deviceManagement
      * @param HardwarePasswordDetail $body The request body
-     * @param HardwarePasswordDetailItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwarePasswordDetailItemRequestBuilderPatchRequestCon_741e186d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(HardwarePasswordDetail $body, ?HardwarePasswordDetailItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(HardwarePasswordDetail $body, ?HardwarePasswordDetailItemRequestBuilderPatchRequestCon_741e186d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

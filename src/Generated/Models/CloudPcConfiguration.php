@@ -71,7 +71,7 @@ class CloudPcConfiguration implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the imageDisplayName property value. The imageDisplayName property
+     * Gets the imageDisplayName property value. The display name of the image. Read-only.
      * @return string|null
     */
     public function getImageDisplayName(): ?string {
@@ -83,7 +83,7 @@ class CloudPcConfiguration implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the imageId property value. The imageId property
+     * Gets the imageId property value. The unique identifier of the operating system image used for provisioning new Cloud PCs. The format for a gallery type image is: {publisherNameofferNameskuName}.
      * @return string|null
     */
     public function getImageId(): ?string {
@@ -119,7 +119,7 @@ class CloudPcConfiguration implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the osLocale property value. The osLocale property
+     * Gets the osLocale property value. The operating system locale for the Cloud PC.
      * @return string|null
     */
     public function getOsLocale(): ?string {
@@ -160,7 +160,7 @@ class CloudPcConfiguration implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the imageDisplayName property value. The imageDisplayName property
+     * Sets the imageDisplayName property value. The display name of the image. Read-only.
      * @param string|null $value Value to set for the imageDisplayName property.
     */
     public function setImageDisplayName(?string $value): void {
@@ -168,7 +168,7 @@ class CloudPcConfiguration implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the imageId property value. The imageId property
+     * Sets the imageId property value. The unique identifier of the operating system image used for provisioning new Cloud PCs. The format for a gallery type image is: {publisherNameofferNameskuName}.
      * @param string|null $value Value to set for the imageId property.
     */
     public function setImageId(?string $value): void {
@@ -192,7 +192,7 @@ class CloudPcConfiguration implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the osLocale property value. The osLocale property
+     * Sets the osLocale property value. The operating system locale for the Cloud PC.
      * @param string|null $value Value to set for the osLocale property.
     */
     public function setOsLocale(?string $value): void {

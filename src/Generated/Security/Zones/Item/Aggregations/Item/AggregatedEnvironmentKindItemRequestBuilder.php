@@ -32,11 +32,11 @@ class AggregatedEnvironmentKindItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Environment count summaries by type. Read-only. Supports $filter (eq) on the kind property. For example, $filter=aggregations/any(a: a/kind eq 'azureSubscription').
-     * @param AggregatedEnvironmentKindItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AggregatedEnvironmentKindItemRequestBuilderGetRequestCo_0a0e33ea|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AggregatedEnvironment|null>
      * @throws Exception
     */
-    public function get(?AggregatedEnvironmentKindItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AggregatedEnvironmentKindItemRequestBuilderGetRequestCo_0a0e33ea $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class AggregatedEnvironmentKindItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Environment count summaries by type. Read-only. Supports $filter (eq) on the kind property. For example, $filter=aggregations/any(a: a/kind eq 'azureSubscription').
-     * @param AggregatedEnvironmentKindItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AggregatedEnvironmentKindItemRequestBuilderGetRequestCo_0a0e33ea|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AggregatedEnvironmentKindItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AggregatedEnvironmentKindItemRequestBuilderGetRequestCo_0a0e33ea $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

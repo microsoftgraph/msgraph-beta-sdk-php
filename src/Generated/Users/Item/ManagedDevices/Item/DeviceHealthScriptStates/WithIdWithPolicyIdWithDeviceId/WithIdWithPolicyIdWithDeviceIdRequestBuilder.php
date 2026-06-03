@@ -25,7 +25,7 @@ class WithIdWithPolicyIdWithDeviceIdRequestBuilder extends BaseRequestBuilder
      * @param string|null $policyId Property in multi-part unique identifier of deviceHealthScriptPolicyState
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $deviceId = null, ?string $id = null, ?string $policyId = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/deviceHealthScriptStates/id=\'{id}\',policyId=\'{policyId}\',deviceId=\'{deviceId}\'{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/deviceHealthScriptStates/id=\'{id}\',policyId=\'{policyId}\',deviceId=\'{deviceId}\'');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['deviceId'] = $deviceId;
@@ -39,11 +39,11 @@ class WithIdWithPolicyIdWithDeviceIdRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property deviceHealthScriptStates for users
-     * @param WithIdWithPolicyIdWithDeviceIdRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WithIdWithPolicyIdWithDeviceIdRequestBuilderDeleteReque_1b5615e5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?WithIdWithPolicyIdWithDeviceIdRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?WithIdWithPolicyIdWithDeviceIdRequestBuilderDeleteReque_1b5615e5 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -53,11 +53,11 @@ class WithIdWithPolicyIdWithDeviceIdRequestBuilder extends BaseRequestBuilder
 
     /**
      * Results of device health scripts that ran for this device. Default is empty list. This property is read-only.
-     * @param WithIdWithPolicyIdWithDeviceIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WithIdWithPolicyIdWithDeviceIdRequestBuilderGetRequestC_619f816b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceHealthScriptPolicyState|null>
      * @throws Exception
     */
-    public function get(?WithIdWithPolicyIdWithDeviceIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?WithIdWithPolicyIdWithDeviceIdRequestBuilderGetRequestC_619f816b $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class WithIdWithPolicyIdWithDeviceIdRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property deviceHealthScriptStates in users
      * @param DeviceHealthScriptPolicyState $body Contains properties for policy run state of the device health script.
-     * @param WithIdWithPolicyIdWithDeviceIdRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WithIdWithPolicyIdWithDeviceIdRequestBuilderPatchReques_0c47a5f5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceHealthScriptPolicyState|null>
      * @throws Exception
     */
-    public function patch(DeviceHealthScriptPolicyState $body, ?WithIdWithPolicyIdWithDeviceIdRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DeviceHealthScriptPolicyState $body, ?WithIdWithPolicyIdWithDeviceIdRequestBuilderPatchReques_0c47a5f5 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class WithIdWithPolicyIdWithDeviceIdRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property deviceHealthScriptStates for users
-     * @param WithIdWithPolicyIdWithDeviceIdRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WithIdWithPolicyIdWithDeviceIdRequestBuilderDeleteReque_1b5615e5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?WithIdWithPolicyIdWithDeviceIdRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?WithIdWithPolicyIdWithDeviceIdRequestBuilderDeleteReque_1b5615e5 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -100,10 +100,10 @@ class WithIdWithPolicyIdWithDeviceIdRequestBuilder extends BaseRequestBuilder
 
     /**
      * Results of device health scripts that ran for this device. Default is empty list. This property is read-only.
-     * @param WithIdWithPolicyIdWithDeviceIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WithIdWithPolicyIdWithDeviceIdRequestBuilderGetRequestC_619f816b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?WithIdWithPolicyIdWithDeviceIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?WithIdWithPolicyIdWithDeviceIdRequestBuilderGetRequestC_619f816b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -122,10 +122,10 @@ class WithIdWithPolicyIdWithDeviceIdRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property deviceHealthScriptStates in users
      * @param DeviceHealthScriptPolicyState $body Contains properties for policy run state of the device health script.
-     * @param WithIdWithPolicyIdWithDeviceIdRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WithIdWithPolicyIdWithDeviceIdRequestBuilderPatchReques_0c47a5f5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DeviceHealthScriptPolicyState $body, ?WithIdWithPolicyIdWithDeviceIdRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DeviceHealthScriptPolicyState $body, ?WithIdWithPolicyIdWithDeviceIdRequestBuilderPatchReques_0c47a5f5 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

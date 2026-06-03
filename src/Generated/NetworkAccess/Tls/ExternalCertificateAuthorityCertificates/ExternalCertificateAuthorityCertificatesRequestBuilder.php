@@ -43,7 +43,7 @@ class ExternalCertificateAuthorityCertificatesRequestBuilder extends BaseRequest
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/networkAccess/tls/externalCertificateAuthorityCertificates{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,12 +53,12 @@ class ExternalCertificateAuthorityCertificatesRequestBuilder extends BaseRequest
 
     /**
      * Get a list of the externalCertificateAuthorityCertificate objects and their properties.
-     * @param ExternalCertificateAuthorityCertificatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ExternalCertificateAuthorityCertificatesRequestBuilderG_49b02890|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExternalCertificateAuthorityCertificateCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/networkaccess-tlstermination-list-externalcertificateauthoritycertificates?view=graph-rest-beta Find more info here
     */
-    public function get(?ExternalCertificateAuthorityCertificatesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ExternalCertificateAuthorityCertificatesRequestBuilderG_49b02890 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,12 +69,12 @@ class ExternalCertificateAuthorityCertificatesRequestBuilder extends BaseRequest
     /**
      * Create a new externalCertificateAuthorityCertificate object. This request generates the Certificate Signing Request (CSR) that you download to sign and generate a certificate that you upload to the service using the Update externalCertificateAuthorityCertificate operation.
      * @param ExternalCertificateAuthorityCertificate $body The request body
-     * @param ExternalCertificateAuthorityCertificatesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ExternalCertificateAuthorityCertificatesRequestBuilderP_934458df|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExternalCertificateAuthorityCertificate|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/networkaccess-tlstermination-post-externalcertificateauthoritycertificates?view=graph-rest-beta Find more info here
     */
-    public function post(ExternalCertificateAuthorityCertificate $body, ?ExternalCertificateAuthorityCertificatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ExternalCertificateAuthorityCertificate $body, ?ExternalCertificateAuthorityCertificatesRequestBuilderP_934458df $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -84,10 +84,10 @@ class ExternalCertificateAuthorityCertificatesRequestBuilder extends BaseRequest
 
     /**
      * Get a list of the externalCertificateAuthorityCertificate objects and their properties.
-     * @param ExternalCertificateAuthorityCertificatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ExternalCertificateAuthorityCertificatesRequestBuilderG_49b02890|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ExternalCertificateAuthorityCertificatesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ExternalCertificateAuthorityCertificatesRequestBuilderG_49b02890 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -106,10 +106,10 @@ class ExternalCertificateAuthorityCertificatesRequestBuilder extends BaseRequest
     /**
      * Create a new externalCertificateAuthorityCertificate object. This request generates the Certificate Signing Request (CSR) that you download to sign and generate a certificate that you upload to the service using the Update externalCertificateAuthorityCertificate operation.
      * @param ExternalCertificateAuthorityCertificate $body The request body
-     * @param ExternalCertificateAuthorityCertificatesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ExternalCertificateAuthorityCertificatesRequestBuilderP_934458df|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ExternalCertificateAuthorityCertificate $body, ?ExternalCertificateAuthorityCertificatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ExternalCertificateAuthorityCertificate $body, ?ExternalCertificateAuthorityCertificatesRequestBuilderP_934458df $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

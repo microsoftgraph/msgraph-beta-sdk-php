@@ -33,11 +33,11 @@ class GetGroupPolicySettingsDeviceSettingsReportRequestBuilder extends BaseReque
     /**
      * Invoke action getGroupPolicySettingsDeviceSettingsReport
      * @param GetGroupPolicySettingsDeviceSettingsReportPostRequestBody $body The request body
-     * @param GetGroupPolicySettingsDeviceSettingsReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetGroupPolicySettingsDeviceSettingsReportRequestBuilde_aa288b6e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(GetGroupPolicySettingsDeviceSettingsReportPostRequestBody $body, ?GetGroupPolicySettingsDeviceSettingsReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetGroupPolicySettingsDeviceSettingsReportPostRequestBody $body, ?GetGroupPolicySettingsDeviceSettingsReportRequestBuilde_aa288b6e $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class GetGroupPolicySettingsDeviceSettingsReportRequestBuilder extends BaseReque
     /**
      * Invoke action getGroupPolicySettingsDeviceSettingsReport
      * @param GetGroupPolicySettingsDeviceSettingsReportPostRequestBody $body The request body
-     * @param GetGroupPolicySettingsDeviceSettingsReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetGroupPolicySettingsDeviceSettingsReportRequestBuilde_aa288b6e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetGroupPolicySettingsDeviceSettingsReportPostRequestBody $body, ?GetGroupPolicySettingsDeviceSettingsReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetGroupPolicySettingsDeviceSettingsReportPostRequestBody $body, ?GetGroupPolicySettingsDeviceSettingsReportRequestBuilde_aa288b6e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

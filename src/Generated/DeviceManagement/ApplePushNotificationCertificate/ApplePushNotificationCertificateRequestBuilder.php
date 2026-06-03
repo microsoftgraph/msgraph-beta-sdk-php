@@ -4,8 +4,8 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ApplePushNotificationC
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ApplePushNotificationCertificate\DownloadApplePushNotificationCertificateSigningRequest\DownloadApplePushNotificationCertificateSigningRequestRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ApplePushNotificationCertificate\GenerateApplePushNotificationCertificateSigningRequest\GenerateApplePushNotificationCertificateSigningRequestRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ApplePushNotificationCertificate\DownloadApplePushNotificationCertificateSigningRequest\DownloadApplePushNotificationCertificateSigningRequestR_030b19cc;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ApplePushNotificationCertificate\GenerateApplePushNotificationCertificateSigningRequest\GenerateApplePushNotificationCertificateSigningRequestR_6d3c8f87;
 use Microsoft\Graph\Beta\Generated\Models\ApplePushNotificationCertificate;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -21,15 +21,15 @@ class ApplePushNotificationCertificateRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the downloadApplePushNotificationCertificateSigningRequest method.
     */
-    public function downloadApplePushNotificationCertificateSigningRequest(): DownloadApplePushNotificationCertificateSigningRequestRequestBuilder {
-        return new DownloadApplePushNotificationCertificateSigningRequestRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function downloadApplePushNotificationCertificateSigningRequest(): DownloadApplePushNotificationCertificateSigningRequestR_030b19cc {
+        return new DownloadApplePushNotificationCertificateSigningRequestR_030b19cc($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the generateApplePushNotificationCertificateSigningRequest method.
     */
-    public function generateApplePushNotificationCertificateSigningRequest(): GenerateApplePushNotificationCertificateSigningRequestRequestBuilder {
-        return new GenerateApplePushNotificationCertificateSigningRequestRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function generateApplePushNotificationCertificateSigningRequest(): GenerateApplePushNotificationCertificateSigningRequestR_6d3c8f87 {
+        return new GenerateApplePushNotificationCertificateSigningRequestR_6d3c8f87($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -38,7 +38,7 @@ class ApplePushNotificationCertificateRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/applePushNotificationCertificate{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/applePushNotificationCertificate');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -48,11 +48,11 @@ class ApplePushNotificationCertificateRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property applePushNotificationCertificate for deviceManagement
-     * @param ApplePushNotificationCertificateRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplePushNotificationCertificateRequestBuilderDeleteReq_ef6701c7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ApplePushNotificationCertificateRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ApplePushNotificationCertificateRequestBuilderDeleteReq_ef6701c7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class ApplePushNotificationCertificateRequestBuilder extends BaseRequestBuilder
 
     /**
      * Apple push notification certificate.
-     * @param ApplePushNotificationCertificateRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplePushNotificationCertificateRequestBuilderGetReques_dadc455a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApplePushNotificationCertificate|null>
      * @throws Exception
     */
-    public function get(?ApplePushNotificationCertificateRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ApplePushNotificationCertificateRequestBuilderGetReques_dadc455a $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,11 +77,11 @@ class ApplePushNotificationCertificateRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property applePushNotificationCertificate in deviceManagement
      * @param ApplePushNotificationCertificate $body The request body
-     * @param ApplePushNotificationCertificateRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplePushNotificationCertificateRequestBuilderPatchRequ_65730116|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApplePushNotificationCertificate|null>
      * @throws Exception
     */
-    public function patch(ApplePushNotificationCertificate $body, ?ApplePushNotificationCertificateRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ApplePushNotificationCertificate $body, ?ApplePushNotificationCertificateRequestBuilderPatchRequ_65730116 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -91,10 +91,10 @@ class ApplePushNotificationCertificateRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property applePushNotificationCertificate for deviceManagement
-     * @param ApplePushNotificationCertificateRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplePushNotificationCertificateRequestBuilderDeleteReq_ef6701c7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ApplePushNotificationCertificateRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ApplePushNotificationCertificateRequestBuilderDeleteReq_ef6701c7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -109,10 +109,10 @@ class ApplePushNotificationCertificateRequestBuilder extends BaseRequestBuilder
 
     /**
      * Apple push notification certificate.
-     * @param ApplePushNotificationCertificateRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplePushNotificationCertificateRequestBuilderGetReques_dadc455a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ApplePushNotificationCertificateRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ApplePushNotificationCertificateRequestBuilderGetReques_dadc455a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -131,10 +131,10 @@ class ApplePushNotificationCertificateRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property applePushNotificationCertificate in deviceManagement
      * @param ApplePushNotificationCertificate $body The request body
-     * @param ApplePushNotificationCertificateRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplePushNotificationCertificateRequestBuilderPatchRequ_65730116|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ApplePushNotificationCertificate $body, ?ApplePushNotificationCertificateRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ApplePushNotificationCertificate $body, ?ApplePushNotificationCertificateRequestBuilderPatchRequ_65730116 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

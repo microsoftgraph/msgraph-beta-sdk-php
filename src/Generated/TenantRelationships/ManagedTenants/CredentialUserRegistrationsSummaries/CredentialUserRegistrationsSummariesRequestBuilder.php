@@ -43,7 +43,7 @@ class CredentialUserRegistrationsSummariesRequestBuilder extends BaseRequestBuil
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/credentialUserRegistrationsSummaries{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,12 +53,12 @@ class CredentialUserRegistrationsSummariesRequestBuilder extends BaseRequestBuil
 
     /**
      * Get a list of the credentialUserRegistrationsSummary objects and their properties.
-     * @param CredentialUserRegistrationsSummariesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CredentialUserRegistrationsSummariesRequestBuilderGetRe_efca406d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CredentialUserRegistrationsSummaryCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-credentialuserregistrationssummaries?view=graph-rest-beta Find more info here
     */
-    public function get(?CredentialUserRegistrationsSummariesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CredentialUserRegistrationsSummariesRequestBuilderGetRe_efca406d $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class CredentialUserRegistrationsSummariesRequestBuilder extends BaseRequestBuil
     /**
      * Create new navigation property to credentialUserRegistrationsSummaries for tenantRelationships
      * @param CredentialUserRegistrationsSummary $body The request body
-     * @param CredentialUserRegistrationsSummariesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CredentialUserRegistrationsSummariesRequestBuilderPostR_fe0ed1a0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CredentialUserRegistrationsSummary|null>
      * @throws Exception
     */
-    public function post(CredentialUserRegistrationsSummary $body, ?CredentialUserRegistrationsSummariesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(CredentialUserRegistrationsSummary $body, ?CredentialUserRegistrationsSummariesRequestBuilderPostR_fe0ed1a0 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class CredentialUserRegistrationsSummariesRequestBuilder extends BaseRequestBuil
 
     /**
      * Get a list of the credentialUserRegistrationsSummary objects and their properties.
-     * @param CredentialUserRegistrationsSummariesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CredentialUserRegistrationsSummariesRequestBuilderGetRe_efca406d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CredentialUserRegistrationsSummariesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CredentialUserRegistrationsSummariesRequestBuilderGetRe_efca406d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -105,10 +105,10 @@ class CredentialUserRegistrationsSummariesRequestBuilder extends BaseRequestBuil
     /**
      * Create new navigation property to credentialUserRegistrationsSummaries for tenantRelationships
      * @param CredentialUserRegistrationsSummary $body The request body
-     * @param CredentialUserRegistrationsSummariesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CredentialUserRegistrationsSummariesRequestBuilderPostR_fe0ed1a0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(CredentialUserRegistrationsSummary $body, ?CredentialUserRegistrationsSummariesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(CredentialUserRegistrationsSummary $body, ?CredentialUserRegistrationsSummariesRequestBuilderPostR_fe0ed1a0 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -51,12 +51,13 @@ class SiteExclusionUnitsBulkAdditionJobsRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Get siteExclusionUnitsBulkAdditionJobs from solutions
-     * @param SiteExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * Get a list of site exclusion units bulk addition jobs associated with a SharePoint protection policy.
+     * @param SiteExclusionUnitsBulkAdditionJobsRequestBuilderGetRequ_803f86bf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SiteExclusionUnitsBulkAdditionJobCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/sharepointprotectionpolicy-list-siteexclusionunitsbulkadditionjobs?view=graph-rest-beta Find more info here
     */
-    public function get(?SiteExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?SiteExclusionUnitsBulkAdditionJobsRequestBuilderGetRequ_803f86bf $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -65,11 +66,11 @@ class SiteExclusionUnitsBulkAdditionJobsRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Get siteExclusionUnitsBulkAdditionJobs from solutions
-     * @param SiteExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * Get a list of site exclusion units bulk addition jobs associated with a SharePoint protection policy.
+     * @param SiteExclusionUnitsBulkAdditionJobsRequestBuilderGetRequ_803f86bf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?SiteExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?SiteExclusionUnitsBulkAdditionJobsRequestBuilderGetRequ_803f86bf $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

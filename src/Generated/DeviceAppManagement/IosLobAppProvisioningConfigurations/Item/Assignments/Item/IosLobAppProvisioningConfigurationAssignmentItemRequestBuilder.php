@@ -22,7 +22,7 @@ class IosLobAppProvisioningConfigurationAssignmentItemRequestBuilder extends Bas
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceAppManagement/iosLobAppProvisioningConfigurations/{iosLobAppProvisioningConfiguration%2Did}/assignments/{iosLobAppProvisioningConfigurationAssignment%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceAppManagement/iosLobAppProvisioningConfigurations/{iosLobAppProvisioningConfiguration%2Did}/assignments/{iosLobAppProvisioningConfigurationAssignment%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class IosLobAppProvisioningConfigurationAssignmentItemRequestBuilder extends Bas
 
     /**
      * Delete navigation property assignments for deviceAppManagement
-     * @param IosLobAppProvisioningConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IosLobAppProvisioningConfigurationAssignmentItemRequest_8cea584d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?IosLobAppProvisioningConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?IosLobAppProvisioningConfigurationAssignmentItemRequest_8cea584d $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class IosLobAppProvisioningConfigurationAssignmentItemRequestBuilder extends Bas
 
     /**
      * The associated group assignments for IosLobAppProvisioningConfiguration, this determines which devices/users the IOS LOB app provisioning conifguration will be targeted to.
-     * @param IosLobAppProvisioningConfigurationAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IosLobAppProvisioningConfigurationAssignmentItemRequest_fd5550b8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IosLobAppProvisioningConfigurationAssignment|null>
      * @throws Exception
     */
-    public function get(?IosLobAppProvisioningConfigurationAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?IosLobAppProvisioningConfigurationAssignmentItemRequest_fd5550b8 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class IosLobAppProvisioningConfigurationAssignmentItemRequestBuilder extends Bas
     /**
      * Update the navigation property assignments in deviceAppManagement
      * @param IosLobAppProvisioningConfigurationAssignment $body The request body
-     * @param IosLobAppProvisioningConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IosLobAppProvisioningConfigurationAssignmentItemRequest_cf83c1b1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IosLobAppProvisioningConfigurationAssignment|null>
      * @throws Exception
     */
-    public function patch(IosLobAppProvisioningConfigurationAssignment $body, ?IosLobAppProvisioningConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(IosLobAppProvisioningConfigurationAssignment $body, ?IosLobAppProvisioningConfigurationAssignmentItemRequest_cf83c1b1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class IosLobAppProvisioningConfigurationAssignmentItemRequestBuilder extends Bas
 
     /**
      * Delete navigation property assignments for deviceAppManagement
-     * @param IosLobAppProvisioningConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IosLobAppProvisioningConfigurationAssignmentItemRequest_8cea584d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?IosLobAppProvisioningConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?IosLobAppProvisioningConfigurationAssignmentItemRequest_8cea584d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class IosLobAppProvisioningConfigurationAssignmentItemRequestBuilder extends Bas
 
     /**
      * The associated group assignments for IosLobAppProvisioningConfiguration, this determines which devices/users the IOS LOB app provisioning conifguration will be targeted to.
-     * @param IosLobAppProvisioningConfigurationAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IosLobAppProvisioningConfigurationAssignmentItemRequest_fd5550b8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?IosLobAppProvisioningConfigurationAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?IosLobAppProvisioningConfigurationAssignmentItemRequest_fd5550b8 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class IosLobAppProvisioningConfigurationAssignmentItemRequestBuilder extends Bas
     /**
      * Update the navigation property assignments in deviceAppManagement
      * @param IosLobAppProvisioningConfigurationAssignment $body The request body
-     * @param IosLobAppProvisioningConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IosLobAppProvisioningConfigurationAssignmentItemRequest_cf83c1b1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(IosLobAppProvisioningConfigurationAssignment $body, ?IosLobAppProvisioningConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(IosLobAppProvisioningConfigurationAssignment $body, ?IosLobAppProvisioningConfigurationAssignmentItemRequest_cf83c1b1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

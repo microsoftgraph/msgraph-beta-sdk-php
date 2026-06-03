@@ -31,11 +31,11 @@ class RequestEnterpriseUpgradeUrlRequestBuilder extends BaseRequestBuilder
 
     /**
      * Invoke action requestEnterpriseUpgradeUrl
-     * @param RequestEnterpriseUpgradeUrlRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RequestEnterpriseUpgradeUrlRequestBuilderPostRequestCon_4710889c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RequestEnterpriseUpgradeUrlPostResponse|null>
      * @throws Exception
     */
-    public function post(?RequestEnterpriseUpgradeUrlRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?RequestEnterpriseUpgradeUrlRequestBuilderPostRequestCon_4710889c $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,10 +45,10 @@ class RequestEnterpriseUpgradeUrlRequestBuilder extends BaseRequestBuilder
 
     /**
      * Invoke action requestEnterpriseUpgradeUrl
-     * @param RequestEnterpriseUpgradeUrlRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RequestEnterpriseUpgradeUrlRequestBuilderPostRequestCon_4710889c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?RequestEnterpriseUpgradeUrlRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?RequestEnterpriseUpgradeUrlRequestBuilderPostRequestCon_4710889c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

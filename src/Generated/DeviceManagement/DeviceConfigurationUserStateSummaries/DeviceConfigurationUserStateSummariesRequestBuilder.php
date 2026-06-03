@@ -22,7 +22,7 @@ class DeviceConfigurationUserStateSummariesRequestBuilder extends BaseRequestBui
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/deviceConfigurationUserStateSummaries{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/deviceConfigurationUserStateSummaries');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class DeviceConfigurationUserStateSummariesRequestBuilder extends BaseRequestBui
 
     /**
      * Delete navigation property deviceConfigurationUserStateSummaries for deviceManagement
-     * @param DeviceConfigurationUserStateSummariesRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceConfigurationUserStateSummariesRequestBuilderDele_31c8d51a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DeviceConfigurationUserStateSummariesRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DeviceConfigurationUserStateSummariesRequestBuilderDele_31c8d51a $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class DeviceConfigurationUserStateSummariesRequestBuilder extends BaseRequestBui
 
     /**
      * The device configuration user state summary for this account.
-     * @param DeviceConfigurationUserStateSummariesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceConfigurationUserStateSummariesRequestBuilderGetR_52fb7689|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceConfigurationUserStateSummary|null>
      * @throws Exception
     */
-    public function get(?DeviceConfigurationUserStateSummariesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DeviceConfigurationUserStateSummariesRequestBuilderGetR_52fb7689 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class DeviceConfigurationUserStateSummariesRequestBuilder extends BaseRequestBui
     /**
      * Update the navigation property deviceConfigurationUserStateSummaries in deviceManagement
      * @param DeviceConfigurationUserStateSummary $body The request body
-     * @param DeviceConfigurationUserStateSummariesRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceConfigurationUserStateSummariesRequestBuilderPatc_f1350d9a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceConfigurationUserStateSummary|null>
      * @throws Exception
     */
-    public function patch(DeviceConfigurationUserStateSummary $body, ?DeviceConfigurationUserStateSummariesRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DeviceConfigurationUserStateSummary $body, ?DeviceConfigurationUserStateSummariesRequestBuilderPatc_f1350d9a $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class DeviceConfigurationUserStateSummariesRequestBuilder extends BaseRequestBui
 
     /**
      * Delete navigation property deviceConfigurationUserStateSummaries for deviceManagement
-     * @param DeviceConfigurationUserStateSummariesRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceConfigurationUserStateSummariesRequestBuilderDele_31c8d51a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DeviceConfigurationUserStateSummariesRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DeviceConfigurationUserStateSummariesRequestBuilderDele_31c8d51a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class DeviceConfigurationUserStateSummariesRequestBuilder extends BaseRequestBui
 
     /**
      * The device configuration user state summary for this account.
-     * @param DeviceConfigurationUserStateSummariesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceConfigurationUserStateSummariesRequestBuilderGetR_52fb7689|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DeviceConfigurationUserStateSummariesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DeviceConfigurationUserStateSummariesRequestBuilderGetR_52fb7689 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class DeviceConfigurationUserStateSummariesRequestBuilder extends BaseRequestBui
     /**
      * Update the navigation property deviceConfigurationUserStateSummaries in deviceManagement
      * @param DeviceConfigurationUserStateSummary $body The request body
-     * @param DeviceConfigurationUserStateSummariesRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceConfigurationUserStateSummariesRequestBuilderPatc_f1350d9a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DeviceConfigurationUserStateSummary $body, ?DeviceConfigurationUserStateSummariesRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DeviceConfigurationUserStateSummary $body, ?DeviceConfigurationUserStateSummariesRequestBuilderPatc_f1350d9a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

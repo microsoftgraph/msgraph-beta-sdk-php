@@ -37,7 +37,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\Reboot
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\RecoverPasscode\RecoverPasscodeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\Reenable\ReenableRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\RemoteLock\RemoteLockRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\RemoveDeviceFirmwareConfigurationInterfaceManagement\RemoveDeviceFirmwareConfigurationInterfaceManagementRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\RemoveDeviceFirmwareConfigurationInterfaceManagement\RemoveDeviceFirmwareConfigurationInterfaceManagementReq_abf9bd5f;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\RequestRemoteAssistance\RequestRemoteAssistanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\ResetPasscode\ResetPasscodeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\RestoreManagedHomeScreen\RestoreManagedHomeScreenRequestBuilder;
@@ -309,8 +309,8 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the removeDeviceFirmwareConfigurationInterfaceManagement method.
     */
-    public function removeDeviceFirmwareConfigurationInterfaceManagement(): RemoveDeviceFirmwareConfigurationInterfaceManagementRequestBuilder {
-        return new RemoveDeviceFirmwareConfigurationInterfaceManagementRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function removeDeviceFirmwareConfigurationInterfaceManagement(): RemoveDeviceFirmwareConfigurationInterfaceManagementReq_abf9bd5f {
+        return new RemoveDeviceFirmwareConfigurationInterfaceManagementReq_abf9bd5f($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -494,7 +494,7 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/comanagedDevices/{managedDevice%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/comanagedDevices/{managedDevice%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

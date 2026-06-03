@@ -34,11 +34,11 @@ class GetOffice365GroupsActivityFileCountsWithPeriodRequestBuilder extends BaseR
 
     /**
      * Invoke function getOffice365GroupsActivityFileCounts
-     * @param GetOffice365GroupsActivityFileCountsWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetOffice365GroupsActivityFileCountsWithPeriodRequestBu_9af29684|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetOffice365GroupsActivityFileCountsWithPeriodGetResponse|null>
      * @throws Exception
     */
-    public function get(?GetOffice365GroupsActivityFileCountsWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetOffice365GroupsActivityFileCountsWithPeriodRequestBu_9af29684 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class GetOffice365GroupsActivityFileCountsWithPeriodRequestBuilder extends BaseR
 
     /**
      * Invoke function getOffice365GroupsActivityFileCounts
-     * @param GetOffice365GroupsActivityFileCountsWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetOffice365GroupsActivityFileCountsWithPeriodRequestBu_9af29684|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetOffice365GroupsActivityFileCountsWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetOffice365GroupsActivityFileCountsWithPeriodRequestBu_9af29684 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

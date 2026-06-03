@@ -22,7 +22,7 @@ class ApplicableContentDeviceMatchDeviceItemRequestBuilder extends BaseRequestBu
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/admin/windows/updates/policies/{policy%2Did}/applicableContent/{applicableContent%2DcatalogEntryId}/matchedDevices/{applicableContentDeviceMatch%2DdeviceId}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/admin/windows/updates/policies/{policy%2Did}/applicableContent/{applicableContent%2DcatalogEntryId}/matchedDevices/{applicableContentDeviceMatch%2DdeviceId}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class ApplicableContentDeviceMatchDeviceItemRequestBuilder extends BaseRequestBu
 
     /**
      * Delete navigation property matchedDevices for admin
-     * @param ApplicableContentDeviceMatchDeviceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplicableContentDeviceMatchDeviceItemRequestBuilderDel_f4370431|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ApplicableContentDeviceMatchDeviceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ApplicableContentDeviceMatchDeviceItemRequestBuilderDel_f4370431 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class ApplicableContentDeviceMatchDeviceItemRequestBuilder extends BaseRequestBu
 
     /**
      * Collection of devices and recommendations for applicable catalog content.
-     * @param ApplicableContentDeviceMatchDeviceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplicableContentDeviceMatchDeviceItemRequestBuilderGet_961d2b43|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApplicableContentDeviceMatch|null>
      * @throws Exception
     */
-    public function get(?ApplicableContentDeviceMatchDeviceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ApplicableContentDeviceMatchDeviceItemRequestBuilderGet_961d2b43 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class ApplicableContentDeviceMatchDeviceItemRequestBuilder extends BaseRequestBu
     /**
      * Update the navigation property matchedDevices in admin
      * @param ApplicableContentDeviceMatch $body The request body
-     * @param ApplicableContentDeviceMatchDeviceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplicableContentDeviceMatchDeviceItemRequestBuilderPat_3ce90599|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApplicableContentDeviceMatch|null>
      * @throws Exception
     */
-    public function patch(ApplicableContentDeviceMatch $body, ?ApplicableContentDeviceMatchDeviceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ApplicableContentDeviceMatch $body, ?ApplicableContentDeviceMatchDeviceItemRequestBuilderPat_3ce90599 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class ApplicableContentDeviceMatchDeviceItemRequestBuilder extends BaseRequestBu
 
     /**
      * Delete navigation property matchedDevices for admin
-     * @param ApplicableContentDeviceMatchDeviceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplicableContentDeviceMatchDeviceItemRequestBuilderDel_f4370431|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ApplicableContentDeviceMatchDeviceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ApplicableContentDeviceMatchDeviceItemRequestBuilderDel_f4370431 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class ApplicableContentDeviceMatchDeviceItemRequestBuilder extends BaseRequestBu
 
     /**
      * Collection of devices and recommendations for applicable catalog content.
-     * @param ApplicableContentDeviceMatchDeviceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplicableContentDeviceMatchDeviceItemRequestBuilderGet_961d2b43|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ApplicableContentDeviceMatchDeviceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ApplicableContentDeviceMatchDeviceItemRequestBuilderGet_961d2b43 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class ApplicableContentDeviceMatchDeviceItemRequestBuilder extends BaseRequestBu
     /**
      * Update the navigation property matchedDevices in admin
      * @param ApplicableContentDeviceMatch $body The request body
-     * @param ApplicableContentDeviceMatchDeviceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplicableContentDeviceMatchDeviceItemRequestBuilderPat_3ce90599|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ApplicableContentDeviceMatch $body, ?ApplicableContentDeviceMatchDeviceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ApplicableContentDeviceMatch $body, ?ApplicableContentDeviceMatchDeviceItemRequestBuilderPat_3ce90599 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

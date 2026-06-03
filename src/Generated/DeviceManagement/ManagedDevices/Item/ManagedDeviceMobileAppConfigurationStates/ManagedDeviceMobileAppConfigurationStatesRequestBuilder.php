@@ -43,7 +43,7 @@ class ManagedDeviceMobileAppConfigurationStatesRequestBuilder extends BaseReques
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/managedDeviceMobileAppConfigurationStates{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class ManagedDeviceMobileAppConfigurationStatesRequestBuilder extends BaseReques
 
     /**
      * Managed device mobile app configuration states for this device.
-     * @param ManagedDeviceMobileAppConfigurationStatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceMobileAppConfigurationStatesRequestBuilder_39558576|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedDeviceMobileAppConfigurationStateCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?ManagedDeviceMobileAppConfigurationStatesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagedDeviceMobileAppConfigurationStatesRequestBuilder_39558576 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class ManagedDeviceMobileAppConfigurationStatesRequestBuilder extends BaseReques
     /**
      * Create new navigation property to managedDeviceMobileAppConfigurationStates for deviceManagement
      * @param ManagedDeviceMobileAppConfigurationState $body The request body
-     * @param ManagedDeviceMobileAppConfigurationStatesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceMobileAppConfigurationStatesRequestBuilder_01e4e748|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedDeviceMobileAppConfigurationState|null>
      * @throws Exception
     */
-    public function post(ManagedDeviceMobileAppConfigurationState $body, ?ManagedDeviceMobileAppConfigurationStatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ManagedDeviceMobileAppConfigurationState $body, ?ManagedDeviceMobileAppConfigurationStatesRequestBuilder_01e4e748 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class ManagedDeviceMobileAppConfigurationStatesRequestBuilder extends BaseReques
 
     /**
      * Managed device mobile app configuration states for this device.
-     * @param ManagedDeviceMobileAppConfigurationStatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceMobileAppConfigurationStatesRequestBuilder_39558576|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagedDeviceMobileAppConfigurationStatesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagedDeviceMobileAppConfigurationStatesRequestBuilder_39558576 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class ManagedDeviceMobileAppConfigurationStatesRequestBuilder extends BaseReques
     /**
      * Create new navigation property to managedDeviceMobileAppConfigurationStates for deviceManagement
      * @param ManagedDeviceMobileAppConfigurationState $body The request body
-     * @param ManagedDeviceMobileAppConfigurationStatesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceMobileAppConfigurationStatesRequestBuilder_01e4e748|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ManagedDeviceMobileAppConfigurationState $body, ?ManagedDeviceMobileAppConfigurationStatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ManagedDeviceMobileAppConfigurationState $body, ?ManagedDeviceMobileAppConfigurationStatesRequestBuilder_01e4e748 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

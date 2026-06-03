@@ -43,7 +43,7 @@ class DailyPrintUsageSummariesByPrinterRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/reports/dailyPrintUsageSummariesByPrinter{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class DailyPrintUsageSummariesByPrinterRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get dailyPrintUsageSummariesByPrinter from reports
-     * @param DailyPrintUsageSummariesByPrinterRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DailyPrintUsageSummariesByPrinterRequestBuilderGetReque_69d918a1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrintUsageByPrinterCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?DailyPrintUsageSummariesByPrinterRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DailyPrintUsageSummariesByPrinterRequestBuilderGetReque_69d918a1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class DailyPrintUsageSummariesByPrinterRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to dailyPrintUsageSummariesByPrinter for reports
      * @param PrintUsageByPrinter $body The request body
-     * @param DailyPrintUsageSummariesByPrinterRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DailyPrintUsageSummariesByPrinterRequestBuilderPostRequ_ec233dbb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrintUsageByPrinter|null>
      * @throws Exception
     */
-    public function post(PrintUsageByPrinter $body, ?DailyPrintUsageSummariesByPrinterRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(PrintUsageByPrinter $body, ?DailyPrintUsageSummariesByPrinterRequestBuilderPostRequ_ec233dbb $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class DailyPrintUsageSummariesByPrinterRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get dailyPrintUsageSummariesByPrinter from reports
-     * @param DailyPrintUsageSummariesByPrinterRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DailyPrintUsageSummariesByPrinterRequestBuilderGetReque_69d918a1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DailyPrintUsageSummariesByPrinterRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DailyPrintUsageSummariesByPrinterRequestBuilderGetReque_69d918a1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class DailyPrintUsageSummariesByPrinterRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to dailyPrintUsageSummariesByPrinter for reports
      * @param PrintUsageByPrinter $body The request body
-     * @param DailyPrintUsageSummariesByPrinterRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DailyPrintUsageSummariesByPrinterRequestBuilderPostRequ_ec233dbb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(PrintUsageByPrinter $body, ?DailyPrintUsageSummariesByPrinterRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(PrintUsageByPrinter $body, ?DailyPrintUsageSummariesByPrinterRequestBuilderPostRequ_ec233dbb $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

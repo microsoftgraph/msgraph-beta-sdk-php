@@ -43,7 +43,7 @@ class OneDriveForBusinessRestoreSessionsRequestBuilder extends BaseRequestBuilde
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/backupRestore/oneDriveForBusinessRestoreSessions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class OneDriveForBusinessRestoreSessionsRequestBuilder extends BaseRequestBuilde
 
     /**
      * The list of OneDrive for Business restore sessions available in the tenant.
-     * @param OneDriveForBusinessRestoreSessionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OneDriveForBusinessRestoreSessionsRequestBuilderGetRequ_34ff2b20|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OneDriveForBusinessRestoreSessionCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?OneDriveForBusinessRestoreSessionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?OneDriveForBusinessRestoreSessionsRequestBuilderGetRequ_34ff2b20 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class OneDriveForBusinessRestoreSessionsRequestBuilder extends BaseRequestBuilde
     /**
      * Create new navigation property to oneDriveForBusinessRestoreSessions for solutions
      * @param OneDriveForBusinessRestoreSession $body The request body
-     * @param OneDriveForBusinessRestoreSessionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OneDriveForBusinessRestoreSessionsRequestBuilderPostReq_ef313636|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OneDriveForBusinessRestoreSession|null>
      * @throws Exception
     */
-    public function post(OneDriveForBusinessRestoreSession $body, ?OneDriveForBusinessRestoreSessionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(OneDriveForBusinessRestoreSession $body, ?OneDriveForBusinessRestoreSessionsRequestBuilderPostReq_ef313636 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class OneDriveForBusinessRestoreSessionsRequestBuilder extends BaseRequestBuilde
 
     /**
      * The list of OneDrive for Business restore sessions available in the tenant.
-     * @param OneDriveForBusinessRestoreSessionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OneDriveForBusinessRestoreSessionsRequestBuilderGetRequ_34ff2b20|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?OneDriveForBusinessRestoreSessionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?OneDriveForBusinessRestoreSessionsRequestBuilderGetRequ_34ff2b20 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class OneDriveForBusinessRestoreSessionsRequestBuilder extends BaseRequestBuilde
     /**
      * Create new navigation property to oneDriveForBusinessRestoreSessions for solutions
      * @param OneDriveForBusinessRestoreSession $body The request body
-     * @param OneDriveForBusinessRestoreSessionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OneDriveForBusinessRestoreSessionsRequestBuilderPostReq_ef313636|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(OneDriveForBusinessRestoreSession $body, ?OneDriveForBusinessRestoreSessionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(OneDriveForBusinessRestoreSession $body, ?OneDriveForBusinessRestoreSessionsRequestBuilderPostReq_ef313636 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

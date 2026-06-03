@@ -1782,7 +1782,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
             'localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts' => fn(ParseNode $n) => $o->setLocalSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts($n->getBooleanValue()),
             'localSecurityOptionsDoNotRequireCtrlAltDel' => fn(ParseNode $n) => $o->setLocalSecurityOptionsDoNotRequireCtrlAltDel($n->getBooleanValue()),
             'localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange' => fn(ParseNode $n) => $o->setLocalSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange($n->getBooleanValue()),
-            'localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser' => fn(ParseNode $n) => $o->setLocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser($n->getEnumValue(LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType::class)),
+            'localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser' => fn(ParseNode $n) => $o->setLocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser($n->getEnumValue(LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllow_45dac791::class)),
             'localSecurityOptionsGuestAccountName' => fn(ParseNode $n) => $o->setLocalSecurityOptionsGuestAccountName($n->getStringValue()),
             'localSecurityOptionsHideLastSignedInUser' => fn(ParseNode $n) => $o->setLocalSecurityOptionsHideLastSignedInUser($n->getBooleanValue()),
             'localSecurityOptionsHideUsernameAtSignIn' => fn(ParseNode $n) => $o->setLocalSecurityOptionsHideUsernameAtSignIn($n->getBooleanValue()),
@@ -2362,11 +2362,11 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Gets the localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser property value. Possible values for LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser
-     * @return LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType|null
+     * @return LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllow_45dac791|null
     */
-    public function getLocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser(): ?LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType {
+    public function getLocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser(): ?LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllow_45dac791 {
         $val = $this->getBackingStore()->get('localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser');
-        if (is_null($val) || $val instanceof LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType) {
+        if (is_null($val) || $val instanceof LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllow_45dac791) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser'");
@@ -4632,9 +4632,9 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
 
     /**
      * Sets the localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser property value. Possible values for LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser
-     * @param LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType|null $value Value to set for the localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser property.
+     * @param LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllow_45dac791|null $value Value to set for the localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser property.
     */
-    public function setLocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser(?LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType $value): void {
+    public function setLocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser(?LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllow_45dac791 $value): void {
         $this->getBackingStore()->set('localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser', $value);
     }
 

@@ -22,7 +22,7 @@ class CredentialUserRegistrationsSummaryItemRequestBuilder extends BaseRequestBu
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/credentialUserRegistrationsSummaries/{credentialUserRegistrationsSummary%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/credentialUserRegistrationsSummaries/{credentialUserRegistrationsSummary%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class CredentialUserRegistrationsSummaryItemRequestBuilder extends BaseRequestBu
 
     /**
      * Delete navigation property credentialUserRegistrationsSummaries for tenantRelationships
-     * @param CredentialUserRegistrationsSummaryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CredentialUserRegistrationsSummaryItemRequestBuilderDel_312421bb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CredentialUserRegistrationsSummaryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CredentialUserRegistrationsSummaryItemRequestBuilderDel_312421bb $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,12 +46,12 @@ class CredentialUserRegistrationsSummaryItemRequestBuilder extends BaseRequestBu
 
     /**
      * Read the properties and relationships of a credentialUserRegistrationsSummary object.
-     * @param CredentialUserRegistrationsSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CredentialUserRegistrationsSummaryItemRequestBuilderGet_b7b1e9ff|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CredentialUserRegistrationsSummary|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/managedtenants-credentialuserregistrationssummary-get?view=graph-rest-beta Find more info here
     */
-    public function get(?CredentialUserRegistrationsSummaryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CredentialUserRegistrationsSummaryItemRequestBuilderGet_b7b1e9ff $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class CredentialUserRegistrationsSummaryItemRequestBuilder extends BaseRequestBu
     /**
      * Update the navigation property credentialUserRegistrationsSummaries in tenantRelationships
      * @param CredentialUserRegistrationsSummary $body The request body
-     * @param CredentialUserRegistrationsSummaryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CredentialUserRegistrationsSummaryItemRequestBuilderPat_506d2a5c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CredentialUserRegistrationsSummary|null>
      * @throws Exception
     */
-    public function patch(CredentialUserRegistrationsSummary $body, ?CredentialUserRegistrationsSummaryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(CredentialUserRegistrationsSummary $body, ?CredentialUserRegistrationsSummaryItemRequestBuilderPat_506d2a5c $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -76,10 +76,10 @@ class CredentialUserRegistrationsSummaryItemRequestBuilder extends BaseRequestBu
 
     /**
      * Delete navigation property credentialUserRegistrationsSummaries for tenantRelationships
-     * @param CredentialUserRegistrationsSummaryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CredentialUserRegistrationsSummaryItemRequestBuilderDel_312421bb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CredentialUserRegistrationsSummaryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CredentialUserRegistrationsSummaryItemRequestBuilderDel_312421bb $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -94,10 +94,10 @@ class CredentialUserRegistrationsSummaryItemRequestBuilder extends BaseRequestBu
 
     /**
      * Read the properties and relationships of a credentialUserRegistrationsSummary object.
-     * @param CredentialUserRegistrationsSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CredentialUserRegistrationsSummaryItemRequestBuilderGet_b7b1e9ff|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CredentialUserRegistrationsSummaryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CredentialUserRegistrationsSummaryItemRequestBuilderGet_b7b1e9ff $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -116,10 +116,10 @@ class CredentialUserRegistrationsSummaryItemRequestBuilder extends BaseRequestBu
     /**
      * Update the navigation property credentialUserRegistrationsSummaries in tenantRelationships
      * @param CredentialUserRegistrationsSummary $body The request body
-     * @param CredentialUserRegistrationsSummaryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CredentialUserRegistrationsSummaryItemRequestBuilderPat_506d2a5c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CredentialUserRegistrationsSummary $body, ?CredentialUserRegistrationsSummaryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(CredentialUserRegistrationsSummary $body, ?CredentialUserRegistrationsSummaryItemRequestBuilderPat_506d2a5c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

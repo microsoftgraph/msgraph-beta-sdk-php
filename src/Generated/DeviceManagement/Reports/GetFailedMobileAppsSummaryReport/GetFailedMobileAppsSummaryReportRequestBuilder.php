@@ -33,11 +33,11 @@ class GetFailedMobileAppsSummaryReportRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action getFailedMobileAppsSummaryReport
      * @param GetFailedMobileAppsSummaryReportPostRequestBody $body The request body
-     * @param GetFailedMobileAppsSummaryReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetFailedMobileAppsSummaryReportRequestBuilderPostReque_f203e9df|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(GetFailedMobileAppsSummaryReportPostRequestBody $body, ?GetFailedMobileAppsSummaryReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetFailedMobileAppsSummaryReportPostRequestBody $body, ?GetFailedMobileAppsSummaryReportRequestBuilderPostReque_f203e9df $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class GetFailedMobileAppsSummaryReportRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action getFailedMobileAppsSummaryReport
      * @param GetFailedMobileAppsSummaryReportPostRequestBody $body The request body
-     * @param GetFailedMobileAppsSummaryReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetFailedMobileAppsSummaryReportRequestBuilderPostReque_f203e9df|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetFailedMobileAppsSummaryReportPostRequestBody $body, ?GetFailedMobileAppsSummaryReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetFailedMobileAppsSummaryReportPostRequestBody $body, ?GetFailedMobileAppsSummaryReportRequestBuilderPostReque_f203e9df $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

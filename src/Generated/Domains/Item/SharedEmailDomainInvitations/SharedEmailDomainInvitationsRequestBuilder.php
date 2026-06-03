@@ -43,7 +43,7 @@ class SharedEmailDomainInvitationsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/domains/{domain%2Did}/sharedEmailDomainInvitations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class SharedEmailDomainInvitationsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get sharedEmailDomainInvitations from domains
-     * @param SharedEmailDomainInvitationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharedEmailDomainInvitationsRequestBuilderGetRequestCon_5f9d1b44|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SharedEmailDomainInvitationCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?SharedEmailDomainInvitationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?SharedEmailDomainInvitationsRequestBuilderGetRequestCon_5f9d1b44 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class SharedEmailDomainInvitationsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to sharedEmailDomainInvitations for domains
      * @param SharedEmailDomainInvitation $body The request body
-     * @param SharedEmailDomainInvitationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharedEmailDomainInvitationsRequestBuilderPostRequestCo_d4ccd9aa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SharedEmailDomainInvitation|null>
      * @throws Exception
     */
-    public function post(SharedEmailDomainInvitation $body, ?SharedEmailDomainInvitationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(SharedEmailDomainInvitation $body, ?SharedEmailDomainInvitationsRequestBuilderPostRequestCo_d4ccd9aa $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class SharedEmailDomainInvitationsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get sharedEmailDomainInvitations from domains
-     * @param SharedEmailDomainInvitationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharedEmailDomainInvitationsRequestBuilderGetRequestCon_5f9d1b44|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?SharedEmailDomainInvitationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?SharedEmailDomainInvitationsRequestBuilderGetRequestCon_5f9d1b44 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class SharedEmailDomainInvitationsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to sharedEmailDomainInvitations for domains
      * @param SharedEmailDomainInvitation $body The request body
-     * @param SharedEmailDomainInvitationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharedEmailDomainInvitationsRequestBuilderPostRequestCo_d4ccd9aa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(SharedEmailDomainInvitation $body, ?SharedEmailDomainInvitationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(SharedEmailDomainInvitation $body, ?SharedEmailDomainInvitationsRequestBuilderPostRequestCo_d4ccd9aa $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

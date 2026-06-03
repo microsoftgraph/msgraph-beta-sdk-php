@@ -31,12 +31,12 @@ class MicrosoftGraphEdiscoveryReleaseRequestBuilder extends BaseRequestBuilder
 
     /**
      * Releases the non-custodial data source from the case.
-     * @param MicrosoftGraphEdiscoveryReleaseRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphEdiscoveryReleaseRequestBuilderPostReques_b0e3f14a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/ediscovery-noncustodialdatasource-release?view=graph-rest-beta Find more info here
     */
-    public function post(?MicrosoftGraphEdiscoveryReleaseRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?MicrosoftGraphEdiscoveryReleaseRequestBuilderPostReques_b0e3f14a $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class MicrosoftGraphEdiscoveryReleaseRequestBuilder extends BaseRequestBuilder
 
     /**
      * Releases the non-custodial data source from the case.
-     * @param MicrosoftGraphEdiscoveryReleaseRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphEdiscoveryReleaseRequestBuilderPostReques_b0e3f14a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?MicrosoftGraphEdiscoveryReleaseRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?MicrosoftGraphEdiscoveryReleaseRequestBuilderPostReques_b0e3f14a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

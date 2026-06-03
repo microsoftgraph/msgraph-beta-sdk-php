@@ -22,7 +22,7 @@ class ServicePrincipalSignInActivityItemRequestBuilder extends BaseRequestBuilde
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/reports/servicePrincipalSignInActivities/{servicePrincipalSignInActivity%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/reports/servicePrincipalSignInActivities/{servicePrincipalSignInActivity%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class ServicePrincipalSignInActivityItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property servicePrincipalSignInActivities for reports
-     * @param ServicePrincipalSignInActivityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalSignInActivityItemRequestBuilderDeleteR_896c7644|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ServicePrincipalSignInActivityItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ServicePrincipalSignInActivityItemRequestBuilderDeleteR_896c7644 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,12 +46,12 @@ class ServicePrincipalSignInActivityItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Get a servicePrincipalSignInActivity object that contains sign-in activity information for a service principal in a Microsoft Entra tenant. You can use a service principal as a client or resource. A service principal supports delegated or app-only authentication context.
-     * @param ServicePrincipalSignInActivityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalSignInActivityItemRequestBuilderGetRequ_774bd944|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServicePrincipalSignInActivity|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/serviceprincipalsigninactivity-get?view=graph-rest-beta Find more info here
     */
-    public function get(?ServicePrincipalSignInActivityItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ServicePrincipalSignInActivityItemRequestBuilderGetRequ_774bd944 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class ServicePrincipalSignInActivityItemRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property servicePrincipalSignInActivities in reports
      * @param ServicePrincipalSignInActivity $body The request body
-     * @param ServicePrincipalSignInActivityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalSignInActivityItemRequestBuilderPatchRe_4fe2cddc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServicePrincipalSignInActivity|null>
      * @throws Exception
     */
-    public function patch(ServicePrincipalSignInActivity $body, ?ServicePrincipalSignInActivityItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ServicePrincipalSignInActivity $body, ?ServicePrincipalSignInActivityItemRequestBuilderPatchRe_4fe2cddc $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -76,10 +76,10 @@ class ServicePrincipalSignInActivityItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property servicePrincipalSignInActivities for reports
-     * @param ServicePrincipalSignInActivityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalSignInActivityItemRequestBuilderDeleteR_896c7644|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ServicePrincipalSignInActivityItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ServicePrincipalSignInActivityItemRequestBuilderDeleteR_896c7644 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -94,10 +94,10 @@ class ServicePrincipalSignInActivityItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Get a servicePrincipalSignInActivity object that contains sign-in activity information for a service principal in a Microsoft Entra tenant. You can use a service principal as a client or resource. A service principal supports delegated or app-only authentication context.
-     * @param ServicePrincipalSignInActivityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalSignInActivityItemRequestBuilderGetRequ_774bd944|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ServicePrincipalSignInActivityItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ServicePrincipalSignInActivityItemRequestBuilderGetRequ_774bd944 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -116,10 +116,10 @@ class ServicePrincipalSignInActivityItemRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property servicePrincipalSignInActivities in reports
      * @param ServicePrincipalSignInActivity $body The request body
-     * @param ServicePrincipalSignInActivityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalSignInActivityItemRequestBuilderPatchRe_4fe2cddc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ServicePrincipalSignInActivity $body, ?ServicePrincipalSignInActivityItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ServicePrincipalSignInActivity $body, ?ServicePrincipalSignInActivityItemRequestBuilderPatchRe_4fe2cddc $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

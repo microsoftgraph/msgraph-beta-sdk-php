@@ -30,7 +30,7 @@ class CrossTenantMigrationTaskItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/migrations/crossTenantMigrationJobs/{crossTenantMigrationJob%2Did}/users/{crossTenantMigrationTask%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/migrations/crossTenantMigrationJobs/{crossTenantMigrationJob%2Did}/users/{crossTenantMigrationTask%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,11 +40,11 @@ class CrossTenantMigrationTaskItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property users for solutions
-     * @param CrossTenantMigrationTaskItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossTenantMigrationTaskItemRequestBuilderDeleteRequest_d922f71c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CrossTenantMigrationTaskItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CrossTenantMigrationTaskItemRequestBuilderDeleteRequest_d922f71c $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,12 +54,12 @@ class CrossTenantMigrationTaskItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of crossTenantMigrationTask, which shows the details of the migration task for a single user of a crossTenantMigrationJob. The crossTenantMigrationTask contains the status details of migrations for the workloads specified in the crossTenantMigrationJob. 
-     * @param CrossTenantMigrationTaskItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossTenantMigrationTaskItemRequestBuilderGetRequestCon_3532cfb0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CrossTenantMigrationTask|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/crosstenantmigrationtask-get?view=graph-rest-beta Find more info here
     */
-    public function get(?CrossTenantMigrationTaskItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CrossTenantMigrationTaskItemRequestBuilderGetRequestCon_3532cfb0 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -70,11 +70,11 @@ class CrossTenantMigrationTaskItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property users in solutions
      * @param CrossTenantMigrationTask $body The request body
-     * @param CrossTenantMigrationTaskItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossTenantMigrationTaskItemRequestBuilderPatchRequestC_8c3182a8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CrossTenantMigrationTask|null>
      * @throws Exception
     */
-    public function patch(CrossTenantMigrationTask $body, ?CrossTenantMigrationTaskItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(CrossTenantMigrationTask $body, ?CrossTenantMigrationTaskItemRequestBuilderPatchRequestC_8c3182a8 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -84,10 +84,10 @@ class CrossTenantMigrationTaskItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property users for solutions
-     * @param CrossTenantMigrationTaskItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossTenantMigrationTaskItemRequestBuilderDeleteRequest_d922f71c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CrossTenantMigrationTaskItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CrossTenantMigrationTaskItemRequestBuilderDeleteRequest_d922f71c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -102,10 +102,10 @@ class CrossTenantMigrationTaskItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of crossTenantMigrationTask, which shows the details of the migration task for a single user of a crossTenantMigrationJob. The crossTenantMigrationTask contains the status details of migrations for the workloads specified in the crossTenantMigrationJob. 
-     * @param CrossTenantMigrationTaskItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossTenantMigrationTaskItemRequestBuilderGetRequestCon_3532cfb0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CrossTenantMigrationTaskItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CrossTenantMigrationTaskItemRequestBuilderGetRequestCon_3532cfb0 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -124,10 +124,10 @@ class CrossTenantMigrationTaskItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property users in solutions
      * @param CrossTenantMigrationTask $body The request body
-     * @param CrossTenantMigrationTaskItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossTenantMigrationTaskItemRequestBuilderPatchRequestC_8c3182a8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CrossTenantMigrationTask $body, ?CrossTenantMigrationTaskItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(CrossTenantMigrationTask $body, ?CrossTenantMigrationTaskItemRequestBuilderPatchRequestC_8c3182a8 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

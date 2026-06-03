@@ -22,7 +22,7 @@ class UserPasswordResetsAndChangesSummaryItemRequestBuilder extends BaseRequestB
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/reports/authenticationMethods/userPasswordResetsAndChangesSummary/{userPasswordResetsAndChangesSummary%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/reports/authenticationMethods/userPasswordResetsAndChangesSummary/{userPasswordResetsAndChangesSummary%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class UserPasswordResetsAndChangesSummaryItemRequestBuilder extends BaseRequestB
 
     /**
      * Delete navigation property userPasswordResetsAndChangesSummary for reports
-     * @param UserPasswordResetsAndChangesSummaryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserPasswordResetsAndChangesSummaryItemRequestBuilderDe_f6049f87|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?UserPasswordResetsAndChangesSummaryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?UserPasswordResetsAndChangesSummaryItemRequestBuilderDe_f6049f87 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class UserPasswordResetsAndChangesSummaryItemRequestBuilder extends BaseRequestB
 
     /**
      * Represents the summary of password resets and changes for a specific day. This includes the number of password resets that were self-service and those triggered by an administrator.
-     * @param UserPasswordResetsAndChangesSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserPasswordResetsAndChangesSummaryItemRequestBuilderGe_86baa845|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserPasswordResetsAndChangesSummary|null>
      * @throws Exception
     */
-    public function get(?UserPasswordResetsAndChangesSummaryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserPasswordResetsAndChangesSummaryItemRequestBuilderGe_86baa845 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class UserPasswordResetsAndChangesSummaryItemRequestBuilder extends BaseRequestB
     /**
      * Update the navigation property userPasswordResetsAndChangesSummary in reports
      * @param UserPasswordResetsAndChangesSummary $body The request body
-     * @param UserPasswordResetsAndChangesSummaryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserPasswordResetsAndChangesSummaryItemRequestBuilderPa_ba1f57ac|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserPasswordResetsAndChangesSummary|null>
      * @throws Exception
     */
-    public function patch(UserPasswordResetsAndChangesSummary $body, ?UserPasswordResetsAndChangesSummaryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(UserPasswordResetsAndChangesSummary $body, ?UserPasswordResetsAndChangesSummaryItemRequestBuilderPa_ba1f57ac $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class UserPasswordResetsAndChangesSummaryItemRequestBuilder extends BaseRequestB
 
     /**
      * Delete navigation property userPasswordResetsAndChangesSummary for reports
-     * @param UserPasswordResetsAndChangesSummaryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserPasswordResetsAndChangesSummaryItemRequestBuilderDe_f6049f87|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?UserPasswordResetsAndChangesSummaryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?UserPasswordResetsAndChangesSummaryItemRequestBuilderDe_f6049f87 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class UserPasswordResetsAndChangesSummaryItemRequestBuilder extends BaseRequestB
 
     /**
      * Represents the summary of password resets and changes for a specific day. This includes the number of password resets that were self-service and those triggered by an administrator.
-     * @param UserPasswordResetsAndChangesSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserPasswordResetsAndChangesSummaryItemRequestBuilderGe_86baa845|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UserPasswordResetsAndChangesSummaryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UserPasswordResetsAndChangesSummaryItemRequestBuilderGe_86baa845 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class UserPasswordResetsAndChangesSummaryItemRequestBuilder extends BaseRequestB
     /**
      * Update the navigation property userPasswordResetsAndChangesSummary in reports
      * @param UserPasswordResetsAndChangesSummary $body The request body
-     * @param UserPasswordResetsAndChangesSummaryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserPasswordResetsAndChangesSummaryItemRequestBuilderPa_ba1f57ac|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(UserPasswordResetsAndChangesSummary $body, ?UserPasswordResetsAndChangesSummaryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(UserPasswordResetsAndChangesSummary $body, ?UserPasswordResetsAndChangesSummaryItemRequestBuilderPa_ba1f57ac $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

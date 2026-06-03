@@ -22,7 +22,7 @@ class ChromeOSOnboardingSettingsItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/chromeOSOnboardingSettings/{chromeOSOnboardingSettings%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/chromeOSOnboardingSettings/{chromeOSOnboardingSettings%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class ChromeOSOnboardingSettingsItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property chromeOSOnboardingSettings for deviceManagement
-     * @param ChromeOSOnboardingSettingsItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ChromeOSOnboardingSettingsItemRequestBuilderDeleteReque_a5289bd6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ChromeOSOnboardingSettingsItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ChromeOSOnboardingSettingsItemRequestBuilderDeleteReque_a5289bd6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class ChromeOSOnboardingSettingsItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Collection of ChromeOSOnboardingSettings settings associated with account.
-     * @param ChromeOSOnboardingSettingsItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ChromeOSOnboardingSettingsItemRequestBuilderGetRequestC_5e2dbf7a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ChromeOSOnboardingSettings|null>
      * @throws Exception
     */
-    public function get(?ChromeOSOnboardingSettingsItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ChromeOSOnboardingSettingsItemRequestBuilderGetRequestC_5e2dbf7a $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class ChromeOSOnboardingSettingsItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property chromeOSOnboardingSettings in deviceManagement
      * @param ChromeOSOnboardingSettings $body The request body
-     * @param ChromeOSOnboardingSettingsItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ChromeOSOnboardingSettingsItemRequestBuilderPatchReques_4dac7806|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ChromeOSOnboardingSettings|null>
      * @throws Exception
     */
-    public function patch(ChromeOSOnboardingSettings $body, ?ChromeOSOnboardingSettingsItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ChromeOSOnboardingSettings $body, ?ChromeOSOnboardingSettingsItemRequestBuilderPatchReques_4dac7806 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class ChromeOSOnboardingSettingsItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property chromeOSOnboardingSettings for deviceManagement
-     * @param ChromeOSOnboardingSettingsItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ChromeOSOnboardingSettingsItemRequestBuilderDeleteReque_a5289bd6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ChromeOSOnboardingSettingsItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ChromeOSOnboardingSettingsItemRequestBuilderDeleteReque_a5289bd6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class ChromeOSOnboardingSettingsItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Collection of ChromeOSOnboardingSettings settings associated with account.
-     * @param ChromeOSOnboardingSettingsItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ChromeOSOnboardingSettingsItemRequestBuilderGetRequestC_5e2dbf7a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ChromeOSOnboardingSettingsItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ChromeOSOnboardingSettingsItemRequestBuilderGetRequestC_5e2dbf7a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class ChromeOSOnboardingSettingsItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property chromeOSOnboardingSettings in deviceManagement
      * @param ChromeOSOnboardingSettings $body The request body
-     * @param ChromeOSOnboardingSettingsItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ChromeOSOnboardingSettingsItemRequestBuilderPatchReques_4dac7806|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ChromeOSOnboardingSettings $body, ?ChromeOSOnboardingSettingsItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ChromeOSOnboardingSettings $body, ?ChromeOSOnboardingSettingsItemRequestBuilderPatchReques_4dac7806 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -76,6 +76,7 @@ class File implements AdditionalDataHolder, BackedModel, Parsable
         return  [
             'archiveStatus' => fn(ParseNode $n) => $o->setArchiveStatus($n->getEnumValue(FileArchiveStatus::class)),
             'hashes' => fn(ParseNode $n) => $o->setHashes($n->getObjectValue([Hashes::class, 'createFromDiscriminatorValue'])),
+            'lockInfo' => fn(ParseNode $n) => $o->setLockInfo($n->getObjectValue([LockInfo::class, 'createFromDiscriminatorValue'])),
             'mimeType' => fn(ParseNode $n) => $o->setMimeType($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'processingMetadata' => fn(ParseNode $n) => $o->setProcessingMetadata($n->getBooleanValue()),
@@ -92,6 +93,18 @@ class File implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'hashes'");
+    }
+
+    /**
+     * Gets the lockInfo property value. The lockInfo property
+     * @return LockInfo|null
+    */
+    public function getLockInfo(): ?LockInfo {
+        $val = $this->getBackingStore()->get('lockInfo');
+        if (is_null($val) || $val instanceof LockInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lockInfo'");
     }
 
     /**
@@ -137,6 +150,7 @@ class File implements AdditionalDataHolder, BackedModel, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('archiveStatus', $this->getArchiveStatus());
         $writer->writeObjectValue('hashes', $this->getHashes());
+        $writer->writeObjectValue('lockInfo', $this->getLockInfo());
         $writer->writeStringValue('mimeType', $this->getMimeType());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('processingMetadata', $this->getProcessingMetadata());
@@ -173,6 +187,14 @@ class File implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setHashes(?Hashes $value): void {
         $this->getBackingStore()->set('hashes', $value);
+    }
+
+    /**
+     * Sets the lockInfo property value. The lockInfo property
+     * @param LockInfo|null $value Value to set for the lockInfo property.
+    */
+    public function setLockInfo(?LockInfo $value): void {
+        $this->getBackingStore()->set('lockInfo', $value);
     }
 
     /**

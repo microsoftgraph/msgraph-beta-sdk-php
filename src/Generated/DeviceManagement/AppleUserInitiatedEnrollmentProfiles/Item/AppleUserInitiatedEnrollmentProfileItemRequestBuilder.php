@@ -38,7 +38,7 @@ class AppleUserInitiatedEnrollmentProfileItemRequestBuilder extends BaseRequestB
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/appleUserInitiatedEnrollmentProfiles/{appleUserInitiatedEnrollmentProfile%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/appleUserInitiatedEnrollmentProfiles/{appleUserInitiatedEnrollmentProfile%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -48,11 +48,11 @@ class AppleUserInitiatedEnrollmentProfileItemRequestBuilder extends BaseRequestB
 
     /**
      * Delete navigation property appleUserInitiatedEnrollmentProfiles for deviceManagement
-     * @param AppleUserInitiatedEnrollmentProfileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppleUserInitiatedEnrollmentProfileItemRequestBuilderDe_64eafe0a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?AppleUserInitiatedEnrollmentProfileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?AppleUserInitiatedEnrollmentProfileItemRequestBuilderDe_64eafe0a $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class AppleUserInitiatedEnrollmentProfileItemRequestBuilder extends BaseRequestB
 
     /**
      * Apple user initiated enrollment profiles
-     * @param AppleUserInitiatedEnrollmentProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppleUserInitiatedEnrollmentProfileItemRequestBuilderGe_69f87f9d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AppleUserInitiatedEnrollmentProfile|null>
      * @throws Exception
     */
-    public function get(?AppleUserInitiatedEnrollmentProfileItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AppleUserInitiatedEnrollmentProfileItemRequestBuilderGe_69f87f9d $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,11 +77,11 @@ class AppleUserInitiatedEnrollmentProfileItemRequestBuilder extends BaseRequestB
     /**
      * Update the navigation property appleUserInitiatedEnrollmentProfiles in deviceManagement
      * @param AppleUserInitiatedEnrollmentProfile $body The request body
-     * @param AppleUserInitiatedEnrollmentProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppleUserInitiatedEnrollmentProfileItemRequestBuilderPa_f4a9370b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AppleUserInitiatedEnrollmentProfile|null>
      * @throws Exception
     */
-    public function patch(AppleUserInitiatedEnrollmentProfile $body, ?AppleUserInitiatedEnrollmentProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(AppleUserInitiatedEnrollmentProfile $body, ?AppleUserInitiatedEnrollmentProfileItemRequestBuilderPa_f4a9370b $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -91,10 +91,10 @@ class AppleUserInitiatedEnrollmentProfileItemRequestBuilder extends BaseRequestB
 
     /**
      * Delete navigation property appleUserInitiatedEnrollmentProfiles for deviceManagement
-     * @param AppleUserInitiatedEnrollmentProfileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppleUserInitiatedEnrollmentProfileItemRequestBuilderDe_64eafe0a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?AppleUserInitiatedEnrollmentProfileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?AppleUserInitiatedEnrollmentProfileItemRequestBuilderDe_64eafe0a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -109,10 +109,10 @@ class AppleUserInitiatedEnrollmentProfileItemRequestBuilder extends BaseRequestB
 
     /**
      * Apple user initiated enrollment profiles
-     * @param AppleUserInitiatedEnrollmentProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppleUserInitiatedEnrollmentProfileItemRequestBuilderGe_69f87f9d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AppleUserInitiatedEnrollmentProfileItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AppleUserInitiatedEnrollmentProfileItemRequestBuilderGe_69f87f9d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -131,10 +131,10 @@ class AppleUserInitiatedEnrollmentProfileItemRequestBuilder extends BaseRequestB
     /**
      * Update the navigation property appleUserInitiatedEnrollmentProfiles in deviceManagement
      * @param AppleUserInitiatedEnrollmentProfile $body The request body
-     * @param AppleUserInitiatedEnrollmentProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppleUserInitiatedEnrollmentProfileItemRequestBuilderPa_f4a9370b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(AppleUserInitiatedEnrollmentProfile $body, ?AppleUserInitiatedEnrollmentProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(AppleUserInitiatedEnrollmentProfile $body, ?AppleUserInitiatedEnrollmentProfileItemRequestBuilderPa_f4a9370b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

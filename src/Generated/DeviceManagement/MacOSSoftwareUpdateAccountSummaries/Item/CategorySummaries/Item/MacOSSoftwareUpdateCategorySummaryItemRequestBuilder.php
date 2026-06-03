@@ -30,7 +30,7 @@ class MacOSSoftwareUpdateCategorySummaryItemRequestBuilder extends BaseRequestBu
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/macOSSoftwareUpdateAccountSummaries/{macOSSoftwareUpdateAccountSummary%2Did}/categorySummaries/{macOSSoftwareUpdateCategorySummary%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/macOSSoftwareUpdateAccountSummaries/{macOSSoftwareUpdateAccountSummary%2Did}/categorySummaries/{macOSSoftwareUpdateCategorySummary%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,11 +40,11 @@ class MacOSSoftwareUpdateCategorySummaryItemRequestBuilder extends BaseRequestBu
 
     /**
      * Delete navigation property categorySummaries for deviceManagement
-     * @param MacOSSoftwareUpdateCategorySummaryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MacOSSoftwareUpdateCategorySummaryItemRequestBuilderDel_c3e8e8ab|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?MacOSSoftwareUpdateCategorySummaryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?MacOSSoftwareUpdateCategorySummaryItemRequestBuilderDel_c3e8e8ab $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,11 +54,11 @@ class MacOSSoftwareUpdateCategorySummaryItemRequestBuilder extends BaseRequestBu
 
     /**
      * Summary of the updates by category.
-     * @param MacOSSoftwareUpdateCategorySummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MacOSSoftwareUpdateCategorySummaryItemRequestBuilderGet_6ea827fd|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MacOSSoftwareUpdateCategorySummary|null>
      * @throws Exception
     */
-    public function get(?MacOSSoftwareUpdateCategorySummaryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MacOSSoftwareUpdateCategorySummaryItemRequestBuilderGet_6ea827fd $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class MacOSSoftwareUpdateCategorySummaryItemRequestBuilder extends BaseRequestBu
     /**
      * Update the navigation property categorySummaries in deviceManagement
      * @param MacOSSoftwareUpdateCategorySummary $body The request body
-     * @param MacOSSoftwareUpdateCategorySummaryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MacOSSoftwareUpdateCategorySummaryItemRequestBuilderPat_484b1050|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MacOSSoftwareUpdateCategorySummary|null>
      * @throws Exception
     */
-    public function patch(MacOSSoftwareUpdateCategorySummary $body, ?MacOSSoftwareUpdateCategorySummaryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(MacOSSoftwareUpdateCategorySummary $body, ?MacOSSoftwareUpdateCategorySummaryItemRequestBuilderPat_484b1050 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class MacOSSoftwareUpdateCategorySummaryItemRequestBuilder extends BaseRequestBu
 
     /**
      * Delete navigation property categorySummaries for deviceManagement
-     * @param MacOSSoftwareUpdateCategorySummaryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MacOSSoftwareUpdateCategorySummaryItemRequestBuilderDel_c3e8e8ab|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?MacOSSoftwareUpdateCategorySummaryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?MacOSSoftwareUpdateCategorySummaryItemRequestBuilderDel_c3e8e8ab $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -101,10 +101,10 @@ class MacOSSoftwareUpdateCategorySummaryItemRequestBuilder extends BaseRequestBu
 
     /**
      * Summary of the updates by category.
-     * @param MacOSSoftwareUpdateCategorySummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MacOSSoftwareUpdateCategorySummaryItemRequestBuilderGet_6ea827fd|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MacOSSoftwareUpdateCategorySummaryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MacOSSoftwareUpdateCategorySummaryItemRequestBuilderGet_6ea827fd $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -123,10 +123,10 @@ class MacOSSoftwareUpdateCategorySummaryItemRequestBuilder extends BaseRequestBu
     /**
      * Update the navigation property categorySummaries in deviceManagement
      * @param MacOSSoftwareUpdateCategorySummary $body The request body
-     * @param MacOSSoftwareUpdateCategorySummaryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MacOSSoftwareUpdateCategorySummaryItemRequestBuilderPat_484b1050|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(MacOSSoftwareUpdateCategorySummary $body, ?MacOSSoftwareUpdateCategorySummaryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(MacOSSoftwareUpdateCategorySummary $body, ?MacOSSoftwareUpdateCategorySummaryItemRequestBuilderPat_484b1050 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

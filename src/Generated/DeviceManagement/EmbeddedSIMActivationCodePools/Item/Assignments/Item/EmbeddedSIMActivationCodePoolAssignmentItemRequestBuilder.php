@@ -22,7 +22,7 @@ class EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilder extends BaseRequ
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/embeddedSIMActivationCodePools/{embeddedSIMActivationCodePool%2Did}/assignments/{embeddedSIMActivationCodePoolAssignment%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/embeddedSIMActivationCodePools/{embeddedSIMActivationCodePool%2Did}/assignments/{embeddedSIMActivationCodePoolAssignment%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilder extends BaseRequ
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmbeddedSIMActivationCodePoolAssignmentItemRequestBuild_4c4df397|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?EmbeddedSIMActivationCodePoolAssignmentItemRequestBuild_4c4df397 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilder extends BaseRequ
 
     /**
      * Navigational property to a list of targets to which this pool is assigned.
-     * @param EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmbeddedSIMActivationCodePoolAssignmentItemRequestBuild_d627a0cb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EmbeddedSIMActivationCodePoolAssignment|null>
      * @throws Exception
     */
-    public function get(?EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?EmbeddedSIMActivationCodePoolAssignmentItemRequestBuild_d627a0cb $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilder extends BaseRequ
     /**
      * Update the navigation property assignments in deviceManagement
      * @param EmbeddedSIMActivationCodePoolAssignment $body The request body
-     * @param EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmbeddedSIMActivationCodePoolAssignmentItemRequestBuild_2adb385c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EmbeddedSIMActivationCodePoolAssignment|null>
      * @throws Exception
     */
-    public function patch(EmbeddedSIMActivationCodePoolAssignment $body, ?EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(EmbeddedSIMActivationCodePoolAssignment $body, ?EmbeddedSIMActivationCodePoolAssignmentItemRequestBuild_2adb385c $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilder extends BaseRequ
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmbeddedSIMActivationCodePoolAssignmentItemRequestBuild_4c4df397|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?EmbeddedSIMActivationCodePoolAssignmentItemRequestBuild_4c4df397 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilder extends BaseRequ
 
     /**
      * Navigational property to a list of targets to which this pool is assigned.
-     * @param EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmbeddedSIMActivationCodePoolAssignmentItemRequestBuild_d627a0cb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?EmbeddedSIMActivationCodePoolAssignmentItemRequestBuild_d627a0cb $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilder extends BaseRequ
     /**
      * Update the navigation property assignments in deviceManagement
      * @param EmbeddedSIMActivationCodePoolAssignment $body The request body
-     * @param EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmbeddedSIMActivationCodePoolAssignmentItemRequestBuild_2adb385c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(EmbeddedSIMActivationCodePoolAssignment $body, ?EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(EmbeddedSIMActivationCodePoolAssignment $body, ?EmbeddedSIMActivationCodePoolAssignmentItemRequestBuild_2adb385c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

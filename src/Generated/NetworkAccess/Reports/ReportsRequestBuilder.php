@@ -7,22 +7,22 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\Networkaccess\Reports;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessCrossTenantAccessReportWithStartDateTimeWithEndDateTime\MicrosoftGraphNetworkaccessCrossTenantAccessReportWithStartDateTimeWithEndDateTimeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessDestinationReportWithStartDateTimeWithEndDateTime\MicrosoftGraphNetworkaccessDestinationReportWithStartDateTimeWithEndDateTimeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessDeviceReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationId\MicrosoftGraphNetworkaccessDeviceReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessEntitiesSummariesWithStartDateTimeWithEndDateTime\MicrosoftGraphNetworkaccessEntitiesSummariesWithStartDateTimeWithEndDateTimeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessGetApplicationUsageAnalyticsWithStartDateTimeWithEndDateTimeWithAggregatedBy\MicrosoftGraphNetworkaccessGetApplicationUsageAnalyticsWithStartDateTimeWithEndDateTimeWithAggregatedByRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessGetCloudApplicationReportWithStartDateTimeWithEndDateTimeuserIdUserId\MicrosoftGraphNetworkaccessGetCloudApplicationReportWithStartDateTimeWithEndDateTimeuserIdUserIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessGetConnectionSummariesWithStartDateTimeWithEndDateTime\MicrosoftGraphNetworkaccessGetConnectionSummariesWithStartDateTimeWithEndDateTimeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessGetCrossTenantSummaryWithStartDateTimeWithEndDateTimeWithDiscoveryPivotDateTime\MicrosoftGraphNetworkaccessGetCrossTenantSummaryWithStartDateTimeWithEndDateTimeWithDiscoveryPivotDateTimeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedBy\MicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedByRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessGetDeviceUsageSummaryWithStartDateTimeWithEndDateTimeWithActivityPivotDateTime\MicrosoftGraphNetworkaccessGetDeviceUsageSummaryWithStartDateTimeWithEndDateTimeWithActivityPivotDateTimeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartDateTimeWithEndDateTimeuserIdUserId\MicrosoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartDateTimeWithEndDateTimeuserIdUserIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessGetEnterpriseApplicationReportWithStartDateTimeWithEndDateTimeuserIdUserId\MicrosoftGraphNetworkaccessGetEnterpriseApplicationReportWithStartDateTimeWithEndDateTimeuserIdUserIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTime\MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTimeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationId\MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationId\MicrosoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessWebCategoryReportWithStartDateTimeWithEndDateTime\MicrosoftGraphNetworkaccessWebCategoryReportWithStartDateTimeWithEndDateTimeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessCrossTenantAccessReportWithS_2c36c1b1\MicrosoftGraphNetworkaccessCrossTenantAccessReportWithS_a1d75760;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessDestinationReportWithStartDa_cc1b1768\MicrosoftGraphNetworkaccessDestinationReportWithStartDa_2e862eee;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessDeviceReportWithStartDateTim_88652905\MicrosoftGraphNetworkaccessDeviceReportWithStartDateTim_047ad6f0;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessEntitiesSummariesWithStartDa_9a0306bb\MicrosoftGraphNetworkaccessEntitiesSummariesWithStartDa_c41097f1;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessGetApplicationUsageAnalytics_498a5660\MicrosoftGraphNetworkaccessGetApplicationUsageAnalytics_deb6fdbd;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessGetCloudApplicationReportWit_b76c2738\MicrosoftGraphNetworkaccessGetCloudApplicationReportWit_318af159;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessGetConnectionSummariesWithSt_286f0b81\MicrosoftGraphNetworkaccessGetConnectionSummariesWithSt_25f69f8c;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessGetCrossTenantSummaryWithSta_04bba7b0\MicrosoftGraphNetworkaccessGetCrossTenantSummaryWithSta_ed4715ce;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessGetDestinationSummariesWithS_790ff302\MicrosoftGraphNetworkaccessGetDestinationSummariesWithS_55bfc071;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessGetDeviceUsageSummaryWithSta_d5c8c2a7\MicrosoftGraphNetworkaccessGetDeviceUsageSummaryWithSta_96bea7e5;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessGetDiscoveredApplicationSegm_bdf840c8\MicrosoftGraphNetworkaccessGetDiscoveredApplicationSegm_35868684;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessGetEnterpriseApplicationRepo_7ee1907f\MicrosoftGraphNetworkaccessGetEnterpriseApplicationRepo_080aebee;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessTransactionSummariesWithStar_d11d4593\MicrosoftGraphNetworkaccessTransactionSummariesWithStar_4783c7d5;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessUsageProfilingWithStartDateT_c845ee52\MicrosoftGraphNetworkaccessUsageProfilingWithStartDateT_f9b34007;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessUserReportWithStartDateTimeW_b974b70d\MicrosoftGraphNetworkaccessUserReportWithStartDateTimeW_1f4eb17e;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Reports\MicrosoftGraphNetworkaccessWebCategoryReportWithStartDa_2064c19e\MicrosoftGraphNetworkaccessWebCategoryReportWithStartDa_e0d9d5f9;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -39,7 +39,7 @@ class ReportsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/networkAccess/reports{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/networkAccess/reports');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -79,40 +79,40 @@ class ReportsRequestBuilder extends BaseRequestBuilder
      * Provides operations to call the crossTenantAccessReport method.
      * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
      * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
-     * @return MicrosoftGraphNetworkaccessCrossTenantAccessReportWithStartDateTimeWithEndDateTimeRequestBuilder
+     * @return MicrosoftGraphNetworkaccessCrossTenantAccessReportWithS_a1d75760
     */
-    public function microsoftGraphNetworkaccessCrossTenantAccessReportWithStartDateTimeWithEndDateTime(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessCrossTenantAccessReportWithStartDateTimeWithEndDateTimeRequestBuilder {
-        return new MicrosoftGraphNetworkaccessCrossTenantAccessReportWithStartDateTimeWithEndDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
+    public function microsoftGraphNetworkaccessCrossTenantAccessReportWithStartDateTimeWithEndDateTime(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessCrossTenantAccessReportWithS_a1d75760 {
+        return new MicrosoftGraphNetworkaccessCrossTenantAccessReportWithS_a1d75760($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
     }
 
     /**
      * Provides operations to call the destinationReport method.
      * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
      * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
-     * @return MicrosoftGraphNetworkaccessDestinationReportWithStartDateTimeWithEndDateTimeRequestBuilder
+     * @return MicrosoftGraphNetworkaccessDestinationReportWithStartDa_2e862eee
     */
-    public function microsoftGraphNetworkaccessDestinationReportWithStartDateTimeWithEndDateTime(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessDestinationReportWithStartDateTimeWithEndDateTimeRequestBuilder {
-        return new MicrosoftGraphNetworkaccessDestinationReportWithStartDateTimeWithEndDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
+    public function microsoftGraphNetworkaccessDestinationReportWithStartDateTimeWithEndDateTimeaiAgentIdAiAgentIdAiAgentNameAiAgentName(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessDestinationReportWithStartDa_2e862eee {
+        return new MicrosoftGraphNetworkaccessDestinationReportWithStartDa_2e862eee($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
     }
 
     /**
      * Provides operations to call the deviceReport method.
      * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
      * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
-     * @return MicrosoftGraphNetworkaccessDeviceReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdRequestBuilder
+     * @return MicrosoftGraphNetworkaccessDeviceReportWithStartDateTim_047ad6f0
     */
-    public function microsoftGraphNetworkaccessDeviceReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationId(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessDeviceReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdRequestBuilder {
-        return new MicrosoftGraphNetworkaccessDeviceReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdRequestBuilder($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
+    public function microsoftGraphNetworkaccessDeviceReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdAiAgentIdAiAgentIdAiAgentNameAiAgentNameCloudApplicationNameCloudApplicationNameDestinationUrlDestinationUrl(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessDeviceReportWithStartDateTim_047ad6f0 {
+        return new MicrosoftGraphNetworkaccessDeviceReportWithStartDateTim_047ad6f0($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
     }
 
     /**
      * Provides operations to call the entitiesSummaries method.
      * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
      * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
-     * @return MicrosoftGraphNetworkaccessEntitiesSummariesWithStartDateTimeWithEndDateTimeRequestBuilder
+     * @return MicrosoftGraphNetworkaccessEntitiesSummariesWithStartDa_c41097f1
     */
-    public function microsoftGraphNetworkaccessEntitiesSummariesWithStartDateTimeWithEndDateTime(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessEntitiesSummariesWithStartDateTimeWithEndDateTimeRequestBuilder {
-        return new MicrosoftGraphNetworkaccessEntitiesSummariesWithStartDateTimeWithEndDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
+    public function microsoftGraphNetworkaccessEntitiesSummariesWithStartDateTimeWithEndDateTime(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessEntitiesSummariesWithStartDa_c41097f1 {
+        return new MicrosoftGraphNetworkaccessEntitiesSummariesWithStartDa_c41097f1($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
     }
 
     /**
@@ -120,30 +120,30 @@ class ReportsRequestBuilder extends BaseRequestBuilder
      * @param string $aggregatedBy Usage: aggregatedBy='{aggregatedBy}'
      * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
      * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
-     * @return MicrosoftGraphNetworkaccessGetApplicationUsageAnalyticsWithStartDateTimeWithEndDateTimeWithAggregatedByRequestBuilder
+     * @return MicrosoftGraphNetworkaccessGetApplicationUsageAnalytics_deb6fdbd
     */
-    public function microsoftGraphNetworkaccessGetApplicationUsageAnalyticsWithStartDateTimeWithEndDateTimeWithAggregatedBy(string $aggregatedBy, DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessGetApplicationUsageAnalyticsWithStartDateTimeWithEndDateTimeWithAggregatedByRequestBuilder {
-        return new MicrosoftGraphNetworkaccessGetApplicationUsageAnalyticsWithStartDateTimeWithEndDateTimeWithAggregatedByRequestBuilder($this->pathParameters, $this->requestAdapter, $aggregatedBy, $endDateTime, $startDateTime);
+    public function microsoftGraphNetworkaccessGetApplicationUsageAnalyticsWithStartDateTimeWithEndDateTimeWithAggregatedBy(string $aggregatedBy, DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessGetApplicationUsageAnalytics_deb6fdbd {
+        return new MicrosoftGraphNetworkaccessGetApplicationUsageAnalytics_deb6fdbd($this->pathParameters, $this->requestAdapter, $aggregatedBy, $endDateTime, $startDateTime);
     }
 
     /**
      * Provides operations to call the getCloudApplicationReport method.
      * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
      * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
-     * @return MicrosoftGraphNetworkaccessGetCloudApplicationReportWithStartDateTimeWithEndDateTimeuserIdUserIdRequestBuilder
+     * @return MicrosoftGraphNetworkaccessGetCloudApplicationReportWit_318af159
     */
-    public function microsoftGraphNetworkaccessGetCloudApplicationReportWithStartDateTimeWithEndDateTimeuserIdUserId(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessGetCloudApplicationReportWithStartDateTimeWithEndDateTimeuserIdUserIdRequestBuilder {
-        return new MicrosoftGraphNetworkaccessGetCloudApplicationReportWithStartDateTimeWithEndDateTimeuserIdUserIdRequestBuilder($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
+    public function microsoftGraphNetworkaccessGetCloudApplicationReportWithStartDateTimeWithEndDateTimeuserIdUserId(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessGetCloudApplicationReportWit_318af159 {
+        return new MicrosoftGraphNetworkaccessGetCloudApplicationReportWit_318af159($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
     }
 
     /**
      * Provides operations to call the getConnectionSummaries method.
      * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
      * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
-     * @return MicrosoftGraphNetworkaccessGetConnectionSummariesWithStartDateTimeWithEndDateTimeRequestBuilder
+     * @return MicrosoftGraphNetworkaccessGetConnectionSummariesWithSt_25f69f8c
     */
-    public function microsoftGraphNetworkaccessGetConnectionSummariesWithStartDateTimeWithEndDateTime(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessGetConnectionSummariesWithStartDateTimeWithEndDateTimeRequestBuilder {
-        return new MicrosoftGraphNetworkaccessGetConnectionSummariesWithStartDateTimeWithEndDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
+    public function microsoftGraphNetworkaccessGetConnectionSummariesWithStartDateTimeWithEndDateTime(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessGetConnectionSummariesWithSt_25f69f8c {
+        return new MicrosoftGraphNetworkaccessGetConnectionSummariesWithSt_25f69f8c($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
     }
 
     /**
@@ -151,10 +151,10 @@ class ReportsRequestBuilder extends BaseRequestBuilder
      * @param DateTime $discoveryPivotDateTime Usage: discoveryPivotDateTime={discoveryPivotDateTime}
      * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
      * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
-     * @return MicrosoftGraphNetworkaccessGetCrossTenantSummaryWithStartDateTimeWithEndDateTimeWithDiscoveryPivotDateTimeRequestBuilder
+     * @return MicrosoftGraphNetworkaccessGetCrossTenantSummaryWithSta_ed4715ce
     */
-    public function microsoftGraphNetworkaccessGetCrossTenantSummaryWithStartDateTimeWithEndDateTimeWithDiscoveryPivotDateTime(DateTime $discoveryPivotDateTime, DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessGetCrossTenantSummaryWithStartDateTimeWithEndDateTimeWithDiscoveryPivotDateTimeRequestBuilder {
-        return new MicrosoftGraphNetworkaccessGetCrossTenantSummaryWithStartDateTimeWithEndDateTimeWithDiscoveryPivotDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $discoveryPivotDateTime, $endDateTime, $startDateTime);
+    public function microsoftGraphNetworkaccessGetCrossTenantSummaryWithStartDateTimeWithEndDateTimeWithDiscoveryPivotDateTime(DateTime $discoveryPivotDateTime, DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessGetCrossTenantSummaryWithSta_ed4715ce {
+        return new MicrosoftGraphNetworkaccessGetCrossTenantSummaryWithSta_ed4715ce($this->pathParameters, $this->requestAdapter, $discoveryPivotDateTime, $endDateTime, $startDateTime);
     }
 
     /**
@@ -162,10 +162,10 @@ class ReportsRequestBuilder extends BaseRequestBuilder
      * @param string $aggregatedBy Usage: aggregatedBy='{aggregatedBy}'
      * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
      * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
-     * @return MicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedByRequestBuilder
+     * @return MicrosoftGraphNetworkaccessGetDestinationSummariesWithS_55bfc071
     */
-    public function microsoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedBy(string $aggregatedBy, DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedByRequestBuilder {
-        return new MicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedByRequestBuilder($this->pathParameters, $this->requestAdapter, $aggregatedBy, $endDateTime, $startDateTime);
+    public function microsoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedBy(string $aggregatedBy, DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessGetDestinationSummariesWithS_55bfc071 {
+        return new MicrosoftGraphNetworkaccessGetDestinationSummariesWithS_55bfc071($this->pathParameters, $this->requestAdapter, $aggregatedBy, $endDateTime, $startDateTime);
     }
 
     /**
@@ -173,40 +173,40 @@ class ReportsRequestBuilder extends BaseRequestBuilder
      * @param DateTime $activityPivotDateTime Usage: activityPivotDateTime={activityPivotDateTime}
      * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
      * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
-     * @return MicrosoftGraphNetworkaccessGetDeviceUsageSummaryWithStartDateTimeWithEndDateTimeWithActivityPivotDateTimeRequestBuilder
+     * @return MicrosoftGraphNetworkaccessGetDeviceUsageSummaryWithSta_96bea7e5
     */
-    public function microsoftGraphNetworkaccessGetDeviceUsageSummaryWithStartDateTimeWithEndDateTimeWithActivityPivotDateTime(DateTime $activityPivotDateTime, DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessGetDeviceUsageSummaryWithStartDateTimeWithEndDateTimeWithActivityPivotDateTimeRequestBuilder {
-        return new MicrosoftGraphNetworkaccessGetDeviceUsageSummaryWithStartDateTimeWithEndDateTimeWithActivityPivotDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $activityPivotDateTime, $endDateTime, $startDateTime);
+    public function microsoftGraphNetworkaccessGetDeviceUsageSummaryWithStartDateTimeWithEndDateTimeWithActivityPivotDateTime(DateTime $activityPivotDateTime, DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessGetDeviceUsageSummaryWithSta_96bea7e5 {
+        return new MicrosoftGraphNetworkaccessGetDeviceUsageSummaryWithSta_96bea7e5($this->pathParameters, $this->requestAdapter, $activityPivotDateTime, $endDateTime, $startDateTime);
     }
 
     /**
      * Provides operations to call the getDiscoveredApplicationSegmentReport method.
      * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
      * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
-     * @return MicrosoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartDateTimeWithEndDateTimeuserIdUserIdRequestBuilder
+     * @return MicrosoftGraphNetworkaccessGetDiscoveredApplicationSegm_35868684
     */
-    public function microsoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartDateTimeWithEndDateTimeuserIdUserId(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartDateTimeWithEndDateTimeuserIdUserIdRequestBuilder {
-        return new MicrosoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartDateTimeWithEndDateTimeuserIdUserIdRequestBuilder($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
+    public function microsoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartDateTimeWithEndDateTimeuserIdUserId(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessGetDiscoveredApplicationSegm_35868684 {
+        return new MicrosoftGraphNetworkaccessGetDiscoveredApplicationSegm_35868684($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
     }
 
     /**
      * Provides operations to call the getEnterpriseApplicationReport method.
      * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
      * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
-     * @return MicrosoftGraphNetworkaccessGetEnterpriseApplicationReportWithStartDateTimeWithEndDateTimeuserIdUserIdRequestBuilder
+     * @return MicrosoftGraphNetworkaccessGetEnterpriseApplicationRepo_080aebee
     */
-    public function microsoftGraphNetworkaccessGetEnterpriseApplicationReportWithStartDateTimeWithEndDateTimeuserIdUserId(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessGetEnterpriseApplicationReportWithStartDateTimeWithEndDateTimeuserIdUserIdRequestBuilder {
-        return new MicrosoftGraphNetworkaccessGetEnterpriseApplicationReportWithStartDateTimeWithEndDateTimeuserIdUserIdRequestBuilder($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
+    public function microsoftGraphNetworkaccessGetEnterpriseApplicationReportWithStartDateTimeWithEndDateTimeuserIdUserId(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessGetEnterpriseApplicationRepo_080aebee {
+        return new MicrosoftGraphNetworkaccessGetEnterpriseApplicationRepo_080aebee($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
     }
 
     /**
      * Provides operations to call the transactionSummaries method.
      * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
      * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
-     * @return MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTimeRequestBuilder
+     * @return MicrosoftGraphNetworkaccessTransactionSummariesWithStar_4783c7d5
     */
-    public function microsoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTime(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTimeRequestBuilder {
-        return new MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
+    public function microsoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTime(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessTransactionSummariesWithStar_4783c7d5 {
+        return new MicrosoftGraphNetworkaccessTransactionSummariesWithStar_4783c7d5($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
     }
 
     /**
@@ -214,30 +214,30 @@ class ReportsRequestBuilder extends BaseRequestBuilder
      * @param string $aggregatedBy Usage: aggregatedBy='{aggregatedBy}'
      * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
      * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
-     * @return MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdRequestBuilder
+     * @return MicrosoftGraphNetworkaccessUsageProfilingWithStartDateT_f9b34007
     */
-    public function microsoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationId(string $aggregatedBy, DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdRequestBuilder {
-        return new MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdRequestBuilder($this->pathParameters, $this->requestAdapter, $aggregatedBy, $endDateTime, $startDateTime);
+    public function microsoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationId(string $aggregatedBy, DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessUsageProfilingWithStartDateT_f9b34007 {
+        return new MicrosoftGraphNetworkaccessUsageProfilingWithStartDateT_f9b34007($this->pathParameters, $this->requestAdapter, $aggregatedBy, $endDateTime, $startDateTime);
     }
 
     /**
      * Provides operations to call the userReport method.
      * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
      * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
-     * @return MicrosoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdRequestBuilder
+     * @return MicrosoftGraphNetworkaccessUserReportWithStartDateTimeW_1f4eb17e
     */
-    public function microsoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationId(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdRequestBuilder {
-        return new MicrosoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdRequestBuilder($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
+    public function microsoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdApplicationIdApplicationIdAiAgentIdAiAgentIdAiAgentNameAiAgentNameCloudApplicationNameCloudApplicationNameDestinationUrlDestinationUrl(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessUserReportWithStartDateTimeW_1f4eb17e {
+        return new MicrosoftGraphNetworkaccessUserReportWithStartDateTimeW_1f4eb17e($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
     }
 
     /**
      * Provides operations to call the webCategoryReport method.
      * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
      * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
-     * @return MicrosoftGraphNetworkaccessWebCategoryReportWithStartDateTimeWithEndDateTimeRequestBuilder
+     * @return MicrosoftGraphNetworkaccessWebCategoryReportWithStartDa_e0d9d5f9
     */
-    public function microsoftGraphNetworkaccessWebCategoryReportWithStartDateTimeWithEndDateTime(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessWebCategoryReportWithStartDateTimeWithEndDateTimeRequestBuilder {
-        return new MicrosoftGraphNetworkaccessWebCategoryReportWithStartDateTimeWithEndDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
+    public function microsoftGraphNetworkaccessWebCategoryReportWithStartDateTimeWithEndDateTime(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessWebCategoryReportWithStartDa_e0d9d5f9 {
+        return new MicrosoftGraphNetworkaccessWebCategoryReportWithStartDa_e0d9d5f9($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
     }
 
     /**

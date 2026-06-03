@@ -43,7 +43,7 @@ class TrustedCertificateAuthoritiesRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/directory/certificateAuthorities/certificateBasedApplicationConfigurations/{certificateBasedApplicationConfiguration%2Did}/trustedCertificateAuthorities{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,12 +53,12 @@ class TrustedCertificateAuthoritiesRequestBuilder extends BaseRequestBuilder
 
     /**
      * List the trusted certificate authorities in a certificateBasedApplicationConfiguration object.
-     * @param TrustedCertificateAuthoritiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TrustedCertificateAuthoritiesRequestBuilderGetRequestCo_9f238bf1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CertificateAuthorityAsEntityCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/certificatebasedapplicationconfiguration-list-trustedcertificateauthorities?view=graph-rest-beta Find more info here
     */
-    public function get(?TrustedCertificateAuthoritiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?TrustedCertificateAuthoritiesRequestBuilderGetRequestCo_9f238bf1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,12 +69,12 @@ class TrustedCertificateAuthoritiesRequestBuilder extends BaseRequestBuilder
     /**
      * Create a new trusted certificate authority in a certificateBasedApplicationConfiguration object.
      * @param CertificateAuthorityAsEntity $body The request body
-     * @param TrustedCertificateAuthoritiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TrustedCertificateAuthoritiesRequestBuilderPostRequestC_5d6143b1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CertificateAuthorityAsEntity|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/certificatebasedapplicationconfiguration-post-trustedcertificateauthorities?view=graph-rest-beta Find more info here
     */
-    public function post(CertificateAuthorityAsEntity $body, ?TrustedCertificateAuthoritiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(CertificateAuthorityAsEntity $body, ?TrustedCertificateAuthoritiesRequestBuilderPostRequestC_5d6143b1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -84,10 +84,10 @@ class TrustedCertificateAuthoritiesRequestBuilder extends BaseRequestBuilder
 
     /**
      * List the trusted certificate authorities in a certificateBasedApplicationConfiguration object.
-     * @param TrustedCertificateAuthoritiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TrustedCertificateAuthoritiesRequestBuilderGetRequestCo_9f238bf1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?TrustedCertificateAuthoritiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?TrustedCertificateAuthoritiesRequestBuilderGetRequestCo_9f238bf1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -106,10 +106,10 @@ class TrustedCertificateAuthoritiesRequestBuilder extends BaseRequestBuilder
     /**
      * Create a new trusted certificate authority in a certificateBasedApplicationConfiguration object.
      * @param CertificateAuthorityAsEntity $body The request body
-     * @param TrustedCertificateAuthoritiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TrustedCertificateAuthoritiesRequestBuilderPostRequestC_5d6143b1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(CertificateAuthorityAsEntity $body, ?TrustedCertificateAuthoritiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(CertificateAuthorityAsEntity $body, ?TrustedCertificateAuthoritiesRequestBuilderPostRequestC_5d6143b1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -43,7 +43,7 @@ class AccessPackageAssignmentPoliciesRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/accessPackageAssignmentPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class AccessPackageAssignmentPoliciesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read-only. Nullable. Supports $expand.
-     * @param AccessPackageAssignmentPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageAssignmentPoliciesRequestBuilderGetRequest_8967fa0e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageAssignmentPolicyCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?AccessPackageAssignmentPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AccessPackageAssignmentPoliciesRequestBuilderGetRequest_8967fa0e $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class AccessPackageAssignmentPoliciesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to accessPackageAssignmentPolicies for identityGovernance
      * @param AccessPackageAssignmentPolicy $body The request body
-     * @param AccessPackageAssignmentPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageAssignmentPoliciesRequestBuilderPostReques_b1f534a1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageAssignmentPolicy|null>
      * @throws Exception
     */
-    public function post(AccessPackageAssignmentPolicy $body, ?AccessPackageAssignmentPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AccessPackageAssignmentPolicy $body, ?AccessPackageAssignmentPoliciesRequestBuilderPostReques_b1f534a1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class AccessPackageAssignmentPoliciesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read-only. Nullable. Supports $expand.
-     * @param AccessPackageAssignmentPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageAssignmentPoliciesRequestBuilderGetRequest_8967fa0e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AccessPackageAssignmentPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AccessPackageAssignmentPoliciesRequestBuilderGetRequest_8967fa0e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class AccessPackageAssignmentPoliciesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to accessPackageAssignmentPolicies for identityGovernance
      * @param AccessPackageAssignmentPolicy $body The request body
-     * @param AccessPackageAssignmentPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageAssignmentPoliciesRequestBuilderPostReques_b1f534a1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AccessPackageAssignmentPolicy $body, ?AccessPackageAssignmentPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AccessPackageAssignmentPolicy $body, ?AccessPackageAssignmentPoliciesRequestBuilderPostReques_b1f534a1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

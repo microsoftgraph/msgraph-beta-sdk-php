@@ -22,7 +22,7 @@ class DeviceManagementCachedReportConfigurationItemRequestBuilder extends BaseRe
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/reports/cachedReportConfigurations/{deviceManagementCachedReportConfiguration%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/reports/cachedReportConfigurations/{deviceManagementCachedReportConfiguration%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class DeviceManagementCachedReportConfigurationItemRequestBuilder extends BaseRe
 
     /**
      * Delete navigation property cachedReportConfigurations for deviceManagement
-     * @param DeviceManagementCachedReportConfigurationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementCachedReportConfigurationItemRequestBui_82cc2871|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DeviceManagementCachedReportConfigurationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DeviceManagementCachedReportConfigurationItemRequestBui_82cc2871 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class DeviceManagementCachedReportConfigurationItemRequestBuilder extends BaseRe
 
     /**
      * Entity representing the configuration of a cached report.
-     * @param DeviceManagementCachedReportConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementCachedReportConfigurationItemRequestBui_b75e88f6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementCachedReportConfiguration|null>
      * @throws Exception
     */
-    public function get(?DeviceManagementCachedReportConfigurationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DeviceManagementCachedReportConfigurationItemRequestBui_b75e88f6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class DeviceManagementCachedReportConfigurationItemRequestBuilder extends BaseRe
     /**
      * Update the navigation property cachedReportConfigurations in deviceManagement
      * @param DeviceManagementCachedReportConfiguration $body The request body
-     * @param DeviceManagementCachedReportConfigurationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementCachedReportConfigurationItemRequestBui_964b6687|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementCachedReportConfiguration|null>
      * @throws Exception
     */
-    public function patch(DeviceManagementCachedReportConfiguration $body, ?DeviceManagementCachedReportConfigurationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DeviceManagementCachedReportConfiguration $body, ?DeviceManagementCachedReportConfigurationItemRequestBui_964b6687 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class DeviceManagementCachedReportConfigurationItemRequestBuilder extends BaseRe
 
     /**
      * Delete navigation property cachedReportConfigurations for deviceManagement
-     * @param DeviceManagementCachedReportConfigurationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementCachedReportConfigurationItemRequestBui_82cc2871|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DeviceManagementCachedReportConfigurationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DeviceManagementCachedReportConfigurationItemRequestBui_82cc2871 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class DeviceManagementCachedReportConfigurationItemRequestBuilder extends BaseRe
 
     /**
      * Entity representing the configuration of a cached report.
-     * @param DeviceManagementCachedReportConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementCachedReportConfigurationItemRequestBui_b75e88f6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DeviceManagementCachedReportConfigurationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DeviceManagementCachedReportConfigurationItemRequestBui_b75e88f6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class DeviceManagementCachedReportConfigurationItemRequestBuilder extends BaseRe
     /**
      * Update the navigation property cachedReportConfigurations in deviceManagement
      * @param DeviceManagementCachedReportConfiguration $body The request body
-     * @param DeviceManagementCachedReportConfigurationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementCachedReportConfigurationItemRequestBui_964b6687|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DeviceManagementCachedReportConfiguration $body, ?DeviceManagementCachedReportConfigurationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DeviceManagementCachedReportConfiguration $body, ?DeviceManagementCachedReportConfigurationItemRequestBui_964b6687 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

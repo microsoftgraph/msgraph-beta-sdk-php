@@ -43,7 +43,7 @@ class UnsupportedGroupPolicyExtensionsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/groupPolicyMigrationReports/{groupPolicyMigrationReport%2Did}/unsupportedGroupPolicyExtensions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class UnsupportedGroupPolicyExtensionsRequestBuilder extends BaseRequestBuilder
 
     /**
      * A list of unsupported group policy extensions inside the Group Policy Object.
-     * @param UnsupportedGroupPolicyExtensionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnsupportedGroupPolicyExtensionsRequestBuilderGetReques_907b3b3d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnsupportedGroupPolicyExtensionCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?UnsupportedGroupPolicyExtensionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UnsupportedGroupPolicyExtensionsRequestBuilderGetReques_907b3b3d $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class UnsupportedGroupPolicyExtensionsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to unsupportedGroupPolicyExtensions for deviceManagement
      * @param UnsupportedGroupPolicyExtension $body The request body
-     * @param UnsupportedGroupPolicyExtensionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnsupportedGroupPolicyExtensionsRequestBuilderPostReque_55b746e7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnsupportedGroupPolicyExtension|null>
      * @throws Exception
     */
-    public function post(UnsupportedGroupPolicyExtension $body, ?UnsupportedGroupPolicyExtensionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(UnsupportedGroupPolicyExtension $body, ?UnsupportedGroupPolicyExtensionsRequestBuilderPostReque_55b746e7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class UnsupportedGroupPolicyExtensionsRequestBuilder extends BaseRequestBuilder
 
     /**
      * A list of unsupported group policy extensions inside the Group Policy Object.
-     * @param UnsupportedGroupPolicyExtensionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnsupportedGroupPolicyExtensionsRequestBuilderGetReques_907b3b3d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UnsupportedGroupPolicyExtensionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UnsupportedGroupPolicyExtensionsRequestBuilderGetReques_907b3b3d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class UnsupportedGroupPolicyExtensionsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to unsupportedGroupPolicyExtensions for deviceManagement
      * @param UnsupportedGroupPolicyExtension $body The request body
-     * @param UnsupportedGroupPolicyExtensionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnsupportedGroupPolicyExtensionsRequestBuilderPostReque_55b746e7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(UnsupportedGroupPolicyExtension $body, ?UnsupportedGroupPolicyExtensionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(UnsupportedGroupPolicyExtension $body, ?UnsupportedGroupPolicyExtensionsRequestBuilderPostReque_55b746e7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -38,7 +38,7 @@ class ServicePrincipalCreationPolicyItemRequestBuilder extends BaseRequestBuilde
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/policies/servicePrincipalCreationPolicies/{servicePrincipalCreationPolicy%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/policies/servicePrincipalCreationPolicies/{servicePrincipalCreationPolicy%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -48,11 +48,11 @@ class ServicePrincipalCreationPolicyItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property servicePrincipalCreationPolicies for policies
-     * @param ServicePrincipalCreationPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalCreationPolicyItemRequestBuilderDeleteR_54f13933|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ServicePrincipalCreationPolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ServicePrincipalCreationPolicyItemRequestBuilderDeleteR_54f13933 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class ServicePrincipalCreationPolicyItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Get servicePrincipalCreationPolicies from policies
-     * @param ServicePrincipalCreationPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalCreationPolicyItemRequestBuilderGetRequ_1b0af8d6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServicePrincipalCreationPolicy|null>
      * @throws Exception
     */
-    public function get(?ServicePrincipalCreationPolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ServicePrincipalCreationPolicyItemRequestBuilderGetRequ_1b0af8d6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,11 +77,11 @@ class ServicePrincipalCreationPolicyItemRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property servicePrincipalCreationPolicies in policies
      * @param ServicePrincipalCreationPolicy $body The request body
-     * @param ServicePrincipalCreationPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalCreationPolicyItemRequestBuilderPatchRe_fedb1164|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServicePrincipalCreationPolicy|null>
      * @throws Exception
     */
-    public function patch(ServicePrincipalCreationPolicy $body, ?ServicePrincipalCreationPolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ServicePrincipalCreationPolicy $body, ?ServicePrincipalCreationPolicyItemRequestBuilderPatchRe_fedb1164 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -91,10 +91,10 @@ class ServicePrincipalCreationPolicyItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property servicePrincipalCreationPolicies for policies
-     * @param ServicePrincipalCreationPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalCreationPolicyItemRequestBuilderDeleteR_54f13933|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ServicePrincipalCreationPolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ServicePrincipalCreationPolicyItemRequestBuilderDeleteR_54f13933 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -109,10 +109,10 @@ class ServicePrincipalCreationPolicyItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Get servicePrincipalCreationPolicies from policies
-     * @param ServicePrincipalCreationPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalCreationPolicyItemRequestBuilderGetRequ_1b0af8d6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ServicePrincipalCreationPolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ServicePrincipalCreationPolicyItemRequestBuilderGetRequ_1b0af8d6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -131,10 +131,10 @@ class ServicePrincipalCreationPolicyItemRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property servicePrincipalCreationPolicies in policies
      * @param ServicePrincipalCreationPolicy $body The request body
-     * @param ServicePrincipalCreationPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalCreationPolicyItemRequestBuilderPatchRe_fedb1164|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ServicePrincipalCreationPolicy $body, ?ServicePrincipalCreationPolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ServicePrincipalCreationPolicy $body, ?ServicePrincipalCreationPolicyItemRequestBuilderPatchRe_fedb1164 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

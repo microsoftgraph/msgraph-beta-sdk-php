@@ -35,11 +35,11 @@ class TableRowOperationResultWithKeyRequestBuilder extends BaseRequestBuilder
 
     /**
      * Invoke function tableRowOperationResult
-     * @param TableRowOperationResultWithKeyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TableRowOperationResultWithKeyRequestBuilderGetRequestC_a7cd96f2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkbookTableRow|null>
      * @throws Exception
     */
-    public function get(?TableRowOperationResultWithKeyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?TableRowOperationResultWithKeyRequestBuilderGetRequestC_a7cd96f2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,10 +49,10 @@ class TableRowOperationResultWithKeyRequestBuilder extends BaseRequestBuilder
 
     /**
      * Invoke function tableRowOperationResult
-     * @param TableRowOperationResultWithKeyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TableRowOperationResultWithKeyRequestBuilderGetRequestC_a7cd96f2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?TableRowOperationResultWithKeyRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?TableRowOperationResultWithKeyRequestBuilderGetRequestC_a7cd96f2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

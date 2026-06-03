@@ -22,7 +22,7 @@ class EmbeddedSIMDeviceStateItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/embeddedSIMActivationCodePools/{embeddedSIMActivationCodePool%2Did}/deviceStates/{embeddedSIMDeviceState%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/embeddedSIMActivationCodePools/{embeddedSIMActivationCodePool%2Did}/deviceStates/{embeddedSIMDeviceState%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class EmbeddedSIMDeviceStateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property deviceStates for deviceManagement
-     * @param EmbeddedSIMDeviceStateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmbeddedSIMDeviceStateItemRequestBuilderDeleteRequestCo_61e5297b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?EmbeddedSIMDeviceStateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?EmbeddedSIMDeviceStateItemRequestBuilderDeleteRequestCo_61e5297b $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class EmbeddedSIMDeviceStateItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property deviceStates in deviceManagement
      * @param EmbeddedSIMDeviceState $body The request body
-     * @param EmbeddedSIMDeviceStateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmbeddedSIMDeviceStateItemRequestBuilderPatchRequestCon_de2499b8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EmbeddedSIMDeviceState|null>
      * @throws Exception
     */
-    public function patch(EmbeddedSIMDeviceState $body, ?EmbeddedSIMDeviceStateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(EmbeddedSIMDeviceState $body, ?EmbeddedSIMDeviceStateItemRequestBuilderPatchRequestCon_de2499b8 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class EmbeddedSIMDeviceStateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property deviceStates for deviceManagement
-     * @param EmbeddedSIMDeviceStateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmbeddedSIMDeviceStateItemRequestBuilderDeleteRequestCo_61e5297b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?EmbeddedSIMDeviceStateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?EmbeddedSIMDeviceStateItemRequestBuilderDeleteRequestCo_61e5297b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class EmbeddedSIMDeviceStateItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property deviceStates in deviceManagement
      * @param EmbeddedSIMDeviceState $body The request body
-     * @param EmbeddedSIMDeviceStateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmbeddedSIMDeviceStateItemRequestBuilderPatchRequestCon_de2499b8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(EmbeddedSIMDeviceState $body, ?EmbeddedSIMDeviceStateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(EmbeddedSIMDeviceState $body, ?EmbeddedSIMDeviceStateItemRequestBuilderPatchRequestCon_de2499b8 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

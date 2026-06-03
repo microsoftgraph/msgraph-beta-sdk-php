@@ -22,7 +22,7 @@ class CloudPcPoolAssignmentItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}/cloudPcPools/{cloudPcPool%2Did}/assignments/{cloudPcPoolAssignment%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}/cloudPcPools/{cloudPcPool%2Did}/assignments/{cloudPcPoolAssignment%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class CloudPcPoolAssignmentItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property assignments for users
-     * @param CloudPcPoolAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcPoolAssignmentItemRequestBuilderDeleteRequestCon_5bd95cef|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CloudPcPoolAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CloudPcPoolAssignmentItemRequestBuilderDeleteRequestCon_5bd95cef $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,7 +45,7 @@ class CloudPcPoolAssignmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get assignments from users
+     * The collection of assignments that grant user or service principal identities access to this pool.
      * @param CloudPcPoolAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcPoolAssignment|null>
      * @throws Exception
@@ -75,10 +75,10 @@ class CloudPcPoolAssignmentItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property assignments for users
-     * @param CloudPcPoolAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcPoolAssignmentItemRequestBuilderDeleteRequestCon_5bd95cef|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CloudPcPoolAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CloudPcPoolAssignmentItemRequestBuilderDeleteRequestCon_5bd95cef $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -92,7 +92,7 @@ class CloudPcPoolAssignmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get assignments from users
+     * The collection of assignments that grant user or service principal identities access to this pool.
      * @param CloudPcPoolAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -12,7 +12,7 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Deleted
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\MicrosoftGraphIdentityGovernanceActivateWithScope\MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\MicrosoftGraphIdentityGovernanceCancelProcessing\MicrosoftGraphIdentityGovernanceCancelProcessingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\MicrosoftGraphIdentityGovernanceCreateNewVersion\MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\MicrosoftGraphIdentityGovernancePreviewTaskFailures\MicrosoftGraphIdentityGovernancePreviewTaskFailuresRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\MicrosoftGraphIdentityGovernancePreviewTaskFailures\MicrosoftGraphIdentityGovernancePreviewTaskFailuresRequ_71c2adef;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\MicrosoftGraphIdentityGovernancePreviewWorkflow\MicrosoftGraphIdentityGovernancePreviewWorkflowRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\MicrosoftGraphIdentityGovernanceRestore\MicrosoftGraphIdentityGovernanceRestoreRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\PreviewScope\PreviewScopeRequestBuilder;
@@ -92,8 +92,8 @@ class WorkflowItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the previewTaskFailures method.
     */
-    public function microsoftGraphIdentityGovernancePreviewTaskFailures(): MicrosoftGraphIdentityGovernancePreviewTaskFailuresRequestBuilder {
-        return new MicrosoftGraphIdentityGovernancePreviewTaskFailuresRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphIdentityGovernancePreviewTaskFailures(): MicrosoftGraphIdentityGovernancePreviewTaskFailuresRequ_71c2adef {
+        return new MicrosoftGraphIdentityGovernancePreviewTaskFailuresRequ_71c2adef($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -158,7 +158,7 @@ class WorkflowItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems/workflows/{workflow%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

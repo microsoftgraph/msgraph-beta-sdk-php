@@ -38,7 +38,7 @@ class OwnerlessGroupPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the enabledGroupIds property value. The collection of IDs for groups to which the policy is enabled.
+     * Gets the enabledGroupIds property value. The collection of IDs for groups to which the policy is enabled. If empty, the policy is enabled for all groups in the tenant.
      * @return array<string>|null
     */
     public function getEnabledGroupIds(): ?array {
@@ -159,7 +159,7 @@ class OwnerlessGroupPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the enabledGroupIds property value. The collection of IDs for groups to which the policy is enabled.
+     * Sets the enabledGroupIds property value. The collection of IDs for groups to which the policy is enabled. If empty, the policy is enabled for all groups in the tenant.
      * @param array<string>|null $value Value to set for the enabledGroupIds property.
     */
     public function setEnabledGroupIds(?array $value): void {

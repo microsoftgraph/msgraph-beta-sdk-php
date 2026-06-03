@@ -31,11 +31,11 @@ class ShareForSchoolDataSyncServiceRequestBuilder extends BaseRequestBuilder
 
     /**
      * Invoke action shareForSchoolDataSyncService
-     * @param ShareForSchoolDataSyncServiceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ShareForSchoolDataSyncServiceRequestBuilderPostRequestC_c45c56cd|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(?ShareForSchoolDataSyncServiceRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?ShareForSchoolDataSyncServiceRequestBuilderPostRequestC_c45c56cd $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,10 +45,10 @@ class ShareForSchoolDataSyncServiceRequestBuilder extends BaseRequestBuilder
 
     /**
      * Invoke action shareForSchoolDataSyncService
-     * @param ShareForSchoolDataSyncServiceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ShareForSchoolDataSyncServiceRequestBuilderPostRequestC_c45c56cd|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?ShareForSchoolDataSyncServiceRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?ShareForSchoolDataSyncServiceRequestBuilderPostRequestC_c45c56cd $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -23,7 +23,7 @@ class SubscriptionsWithOcpSubscriptionIdRequestBuilder extends BaseRequestBuilde
      * @param string|null $ocpSubscriptionId Alternate key of companySubscription
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $ocpSubscriptionId = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/directory/subscriptions(ocpSubscriptionId=\'{ocpSubscriptionId}\'){?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/directory/subscriptions(ocpSubscriptionId=\'{ocpSubscriptionId}\')');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['ocpSubscriptionId'] = $ocpSubscriptionId;
@@ -35,11 +35,11 @@ class SubscriptionsWithOcpSubscriptionIdRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property subscriptions for directory
-     * @param SubscriptionsWithOcpSubscriptionIdRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SubscriptionsWithOcpSubscriptionIdRequestBuilderDeleteR_a4c37e2a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?SubscriptionsWithOcpSubscriptionIdRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?SubscriptionsWithOcpSubscriptionIdRequestBuilderDeleteR_a4c37e2a $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,12 +49,12 @@ class SubscriptionsWithOcpSubscriptionIdRequestBuilder extends BaseRequestBuilde
 
     /**
      * Get a specific commercial subscription that an organization has acquired.
-     * @param SubscriptionsWithOcpSubscriptionIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SubscriptionsWithOcpSubscriptionIdRequestBuilderGetRequ_54f51c87|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CompanySubscription|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/companysubscription-get?view=graph-rest-beta Find more info here
     */
-    public function get(?SubscriptionsWithOcpSubscriptionIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?SubscriptionsWithOcpSubscriptionIdRequestBuilderGetRequ_54f51c87 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -65,11 +65,11 @@ class SubscriptionsWithOcpSubscriptionIdRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property subscriptions in directory
      * @param CompanySubscription $body The request body
-     * @param SubscriptionsWithOcpSubscriptionIdRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SubscriptionsWithOcpSubscriptionIdRequestBuilderPatchRe_e980d7d3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CompanySubscription|null>
      * @throws Exception
     */
-    public function patch(CompanySubscription $body, ?SubscriptionsWithOcpSubscriptionIdRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(CompanySubscription $body, ?SubscriptionsWithOcpSubscriptionIdRequestBuilderPatchRe_e980d7d3 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -79,10 +79,10 @@ class SubscriptionsWithOcpSubscriptionIdRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property subscriptions for directory
-     * @param SubscriptionsWithOcpSubscriptionIdRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SubscriptionsWithOcpSubscriptionIdRequestBuilderDeleteR_a4c37e2a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?SubscriptionsWithOcpSubscriptionIdRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?SubscriptionsWithOcpSubscriptionIdRequestBuilderDeleteR_a4c37e2a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -97,10 +97,10 @@ class SubscriptionsWithOcpSubscriptionIdRequestBuilder extends BaseRequestBuilde
 
     /**
      * Get a specific commercial subscription that an organization has acquired.
-     * @param SubscriptionsWithOcpSubscriptionIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SubscriptionsWithOcpSubscriptionIdRequestBuilderGetRequ_54f51c87|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?SubscriptionsWithOcpSubscriptionIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?SubscriptionsWithOcpSubscriptionIdRequestBuilderGetRequ_54f51c87 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -119,10 +119,10 @@ class SubscriptionsWithOcpSubscriptionIdRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property subscriptions in directory
      * @param CompanySubscription $body The request body
-     * @param SubscriptionsWithOcpSubscriptionIdRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SubscriptionsWithOcpSubscriptionIdRequestBuilderPatchRe_e980d7d3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CompanySubscription $body, ?SubscriptionsWithOcpSubscriptionIdRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(CompanySubscription $body, ?SubscriptionsWithOcpSubscriptionIdRequestBuilderPatchRe_e980d7d3 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

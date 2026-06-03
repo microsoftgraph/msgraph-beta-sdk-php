@@ -43,7 +43,7 @@ class UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilder extends BaseR
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/userExperienceAnalyticsNotAutopilotReadyDevice{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilder extends BaseR
 
     /**
      * User experience analytics devices not Windows Autopilot ready.
-     * @param UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBu_708b167c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsNotAutopilotReadyDeviceCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBu_708b167c $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilder extends BaseR
     /**
      * Create new navigation property to userExperienceAnalyticsNotAutopilotReadyDevice for deviceManagement
      * @param UserExperienceAnalyticsNotAutopilotReadyDevice $body The request body
-     * @param UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBu_cefa1ba0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsNotAutopilotReadyDevice|null>
      * @throws Exception
     */
-    public function post(UserExperienceAnalyticsNotAutopilotReadyDevice $body, ?UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(UserExperienceAnalyticsNotAutopilotReadyDevice $body, ?UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBu_cefa1ba0 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilder extends BaseR
 
     /**
      * User experience analytics devices not Windows Autopilot ready.
-     * @param UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBu_708b167c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBu_708b167c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilder extends BaseR
     /**
      * Create new navigation property to userExperienceAnalyticsNotAutopilotReadyDevice for deviceManagement
      * @param UserExperienceAnalyticsNotAutopilotReadyDevice $body The request body
-     * @param UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBu_cefa1ba0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(UserExperienceAnalyticsNotAutopilotReadyDevice $body, ?UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(UserExperienceAnalyticsNotAutopilotReadyDevice $body, ?UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBu_cefa1ba0 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

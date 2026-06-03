@@ -30,7 +30,7 @@ class DeviceManagementScriptDeviceStateItemRequestBuilder extends BaseRequestBui
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/deviceShellScripts/{deviceShellScript%2Did}/userRunStates/{deviceManagementScriptUserState%2Did}/deviceRunStates/{deviceManagementScriptDeviceState%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/deviceShellScripts/{deviceShellScript%2Did}/userRunStates/{deviceManagementScriptUserState%2Did}/deviceRunStates/{deviceManagementScriptDeviceState%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,11 +40,11 @@ class DeviceManagementScriptDeviceStateItemRequestBuilder extends BaseRequestBui
 
     /**
      * Delete navigation property deviceRunStates for deviceManagement
-     * @param DeviceManagementScriptDeviceStateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementScriptDeviceStateItemRequestBuilderDele_c3f6d575|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DeviceManagementScriptDeviceStateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DeviceManagementScriptDeviceStateItemRequestBuilderDele_c3f6d575 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,11 +54,11 @@ class DeviceManagementScriptDeviceStateItemRequestBuilder extends BaseRequestBui
 
     /**
      * List of run states for this script across all devices of specific user.
-     * @param DeviceManagementScriptDeviceStateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementScriptDeviceStateItemRequestBuilderGetR_eeb54754|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementScriptDeviceState|null>
      * @throws Exception
     */
-    public function get(?DeviceManagementScriptDeviceStateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DeviceManagementScriptDeviceStateItemRequestBuilderGetR_eeb54754 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class DeviceManagementScriptDeviceStateItemRequestBuilder extends BaseRequestBui
     /**
      * Update the navigation property deviceRunStates in deviceManagement
      * @param DeviceManagementScriptDeviceState $body The request body
-     * @param DeviceManagementScriptDeviceStateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementScriptDeviceStateItemRequestBuilderPatc_9649768a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementScriptDeviceState|null>
      * @throws Exception
     */
-    public function patch(DeviceManagementScriptDeviceState $body, ?DeviceManagementScriptDeviceStateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DeviceManagementScriptDeviceState $body, ?DeviceManagementScriptDeviceStateItemRequestBuilderPatc_9649768a $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class DeviceManagementScriptDeviceStateItemRequestBuilder extends BaseRequestBui
 
     /**
      * Delete navigation property deviceRunStates for deviceManagement
-     * @param DeviceManagementScriptDeviceStateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementScriptDeviceStateItemRequestBuilderDele_c3f6d575|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DeviceManagementScriptDeviceStateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DeviceManagementScriptDeviceStateItemRequestBuilderDele_c3f6d575 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -101,10 +101,10 @@ class DeviceManagementScriptDeviceStateItemRequestBuilder extends BaseRequestBui
 
     /**
      * List of run states for this script across all devices of specific user.
-     * @param DeviceManagementScriptDeviceStateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementScriptDeviceStateItemRequestBuilderGetR_eeb54754|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DeviceManagementScriptDeviceStateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DeviceManagementScriptDeviceStateItemRequestBuilderGetR_eeb54754 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -123,10 +123,10 @@ class DeviceManagementScriptDeviceStateItemRequestBuilder extends BaseRequestBui
     /**
      * Update the navigation property deviceRunStates in deviceManagement
      * @param DeviceManagementScriptDeviceState $body The request body
-     * @param DeviceManagementScriptDeviceStateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementScriptDeviceStateItemRequestBuilderPatc_9649768a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DeviceManagementScriptDeviceState $body, ?DeviceManagementScriptDeviceStateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DeviceManagementScriptDeviceState $body, ?DeviceManagementScriptDeviceStateItemRequestBuilderPatc_9649768a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

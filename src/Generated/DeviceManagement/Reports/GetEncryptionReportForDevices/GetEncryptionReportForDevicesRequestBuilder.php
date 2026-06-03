@@ -33,11 +33,11 @@ class GetEncryptionReportForDevicesRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action getEncryptionReportForDevices
      * @param GetEncryptionReportForDevicesPostRequestBody $body The request body
-     * @param GetEncryptionReportForDevicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetEncryptionReportForDevicesRequestBuilderPostRequestC_d9c17a42|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(GetEncryptionReportForDevicesPostRequestBody $body, ?GetEncryptionReportForDevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetEncryptionReportForDevicesPostRequestBody $body, ?GetEncryptionReportForDevicesRequestBuilderPostRequestC_d9c17a42 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class GetEncryptionReportForDevicesRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action getEncryptionReportForDevices
      * @param GetEncryptionReportForDevicesPostRequestBody $body The request body
-     * @param GetEncryptionReportForDevicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetEncryptionReportForDevicesRequestBuilderPostRequestC_d9c17a42|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetEncryptionReportForDevicesPostRequestBody $body, ?GetEncryptionReportForDevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetEncryptionReportForDevicesPostRequestBody $body, ?GetEncryptionReportForDevicesRequestBuilderPostRequestC_d9c17a42 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

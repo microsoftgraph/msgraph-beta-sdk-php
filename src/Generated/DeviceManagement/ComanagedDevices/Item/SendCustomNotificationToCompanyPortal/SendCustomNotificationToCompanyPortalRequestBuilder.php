@@ -32,11 +32,11 @@ class SendCustomNotificationToCompanyPortalRequestBuilder extends BaseRequestBui
     /**
      * Invoke action sendCustomNotificationToCompanyPortal
      * @param SendCustomNotificationToCompanyPortalPostRequestBody $body The request body
-     * @param SendCustomNotificationToCompanyPortalRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SendCustomNotificationToCompanyPortalRequestBuilderPost_48de136f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(SendCustomNotificationToCompanyPortalPostRequestBody $body, ?SendCustomNotificationToCompanyPortalRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(SendCustomNotificationToCompanyPortalPostRequestBody $body, ?SendCustomNotificationToCompanyPortalRequestBuilderPost_48de136f $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,10 +47,10 @@ class SendCustomNotificationToCompanyPortalRequestBuilder extends BaseRequestBui
     /**
      * Invoke action sendCustomNotificationToCompanyPortal
      * @param SendCustomNotificationToCompanyPortalPostRequestBody $body The request body
-     * @param SendCustomNotificationToCompanyPortalRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SendCustomNotificationToCompanyPortalRequestBuilderPost_48de136f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(SendCustomNotificationToCompanyPortalPostRequestBody $body, ?SendCustomNotificationToCompanyPortalRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(SendCustomNotificationToCompanyPortalPostRequestBody $body, ?SendCustomNotificationToCompanyPortalRequestBuilderPost_48de136f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

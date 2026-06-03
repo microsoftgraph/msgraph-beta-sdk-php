@@ -32,11 +32,11 @@ class RetrieveDeviceLocalAdminAccountDetailRequestBuilder extends BaseRequestBui
 
     /**
      * Invoke function retrieveDeviceLocalAdminAccountDetail
-     * @param RetrieveDeviceLocalAdminAccountDetailRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveDeviceLocalAdminAccountDetailRequestBuilderGetR_35e99cde|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceLocalAdminAccountDetail|null>
      * @throws Exception
     */
-    public function get(?RetrieveDeviceLocalAdminAccountDetailRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?RetrieveDeviceLocalAdminAccountDetailRequestBuilderGetR_35e99cde $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class RetrieveDeviceLocalAdminAccountDetailRequestBuilder extends BaseRequestBui
 
     /**
      * Invoke function retrieveDeviceLocalAdminAccountDetail
-     * @param RetrieveDeviceLocalAdminAccountDetailRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveDeviceLocalAdminAccountDetailRequestBuilderGetR_35e99cde|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?RetrieveDeviceLocalAdminAccountDetailRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?RetrieveDeviceLocalAdminAccountDetailRequestBuilderGetR_35e99cde $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

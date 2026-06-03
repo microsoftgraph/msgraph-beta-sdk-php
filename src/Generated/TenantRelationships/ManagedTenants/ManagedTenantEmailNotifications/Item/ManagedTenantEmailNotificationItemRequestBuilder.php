@@ -30,7 +30,7 @@ class ManagedTenantEmailNotificationItemRequestBuilder extends BaseRequestBuilde
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/managedTenantEmailNotifications/{managedTenantEmailNotification%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/managedTenantEmailNotifications/{managedTenantEmailNotification%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,11 +40,11 @@ class ManagedTenantEmailNotificationItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property managedTenantEmailNotifications for tenantRelationships
-     * @param ManagedTenantEmailNotificationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantEmailNotificationItemRequestBuilderDeleteR_96687754|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ManagedTenantEmailNotificationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ManagedTenantEmailNotificationItemRequestBuilderDeleteR_96687754 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,11 +54,11 @@ class ManagedTenantEmailNotificationItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Get managedTenantEmailNotifications from tenantRelationships
-     * @param ManagedTenantEmailNotificationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantEmailNotificationItemRequestBuilderGetRequ_21e71658|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedTenantEmailNotification|null>
      * @throws Exception
     */
-    public function get(?ManagedTenantEmailNotificationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagedTenantEmailNotificationItemRequestBuilderGetRequ_21e71658 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class ManagedTenantEmailNotificationItemRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property managedTenantEmailNotifications in tenantRelationships
      * @param ManagedTenantEmailNotification $body The request body
-     * @param ManagedTenantEmailNotificationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantEmailNotificationItemRequestBuilderPatchRe_a7e4b9e3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedTenantEmailNotification|null>
      * @throws Exception
     */
-    public function patch(ManagedTenantEmailNotification $body, ?ManagedTenantEmailNotificationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ManagedTenantEmailNotification $body, ?ManagedTenantEmailNotificationItemRequestBuilderPatchRe_a7e4b9e3 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class ManagedTenantEmailNotificationItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property managedTenantEmailNotifications for tenantRelationships
-     * @param ManagedTenantEmailNotificationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantEmailNotificationItemRequestBuilderDeleteR_96687754|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ManagedTenantEmailNotificationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ManagedTenantEmailNotificationItemRequestBuilderDeleteR_96687754 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -101,10 +101,10 @@ class ManagedTenantEmailNotificationItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Get managedTenantEmailNotifications from tenantRelationships
-     * @param ManagedTenantEmailNotificationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantEmailNotificationItemRequestBuilderGetRequ_21e71658|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagedTenantEmailNotificationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagedTenantEmailNotificationItemRequestBuilderGetRequ_21e71658 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -123,10 +123,10 @@ class ManagedTenantEmailNotificationItemRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property managedTenantEmailNotifications in tenantRelationships
      * @param ManagedTenantEmailNotification $body The request body
-     * @param ManagedTenantEmailNotificationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantEmailNotificationItemRequestBuilderPatchRe_a7e4b9e3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ManagedTenantEmailNotification $body, ?ManagedTenantEmailNotificationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ManagedTenantEmailNotification $body, ?ManagedTenantEmailNotificationItemRequestBuilderPatchRe_a7e4b9e3 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

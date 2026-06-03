@@ -22,7 +22,7 @@ class PermissionGrantPreApprovalPolicyItemRequestBuilder extends BaseRequestBuil
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/policies/permissionGrantPreApprovalPolicies/{permissionGrantPreApprovalPolicy%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/policies/permissionGrantPreApprovalPolicies/{permissionGrantPreApprovalPolicy%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,12 +32,12 @@ class PermissionGrantPreApprovalPolicyItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Delete a permissionGrantPreApprovalPolicy object.
-     * @param PermissionGrantPreApprovalPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionGrantPreApprovalPolicyItemRequestBuilderDelet_da5263c6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/permissiongrantpreapprovalpolicy-delete?view=graph-rest-beta Find more info here
     */
-    public function delete(?PermissionGrantPreApprovalPolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?PermissionGrantPreApprovalPolicyItemRequestBuilderDelet_da5263c6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,12 +47,12 @@ class PermissionGrantPreApprovalPolicyItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Read the properties and relationships of a permissionGrantPreApprovalPolicy object.
-     * @param PermissionGrantPreApprovalPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionGrantPreApprovalPolicyItemRequestBuilderGetRe_aac52250|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PermissionGrantPreApprovalPolicy|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/permissiongrantpreapprovalpolicy-get?view=graph-rest-beta Find more info here
     */
-    public function get(?PermissionGrantPreApprovalPolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?PermissionGrantPreApprovalPolicyItemRequestBuilderGetRe_aac52250 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -63,12 +63,12 @@ class PermissionGrantPreApprovalPolicyItemRequestBuilder extends BaseRequestBuil
     /**
      * Update the properties of a permissionGrantPreApprovalPolicy object.
      * @param PermissionGrantPreApprovalPolicy $body The request body
-     * @param PermissionGrantPreApprovalPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionGrantPreApprovalPolicyItemRequestBuilderPatch_52e90dc8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PermissionGrantPreApprovalPolicy|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/permissiongrantpreapprovalpolicy-update?view=graph-rest-beta Find more info here
     */
-    public function patch(PermissionGrantPreApprovalPolicy $body, ?PermissionGrantPreApprovalPolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(PermissionGrantPreApprovalPolicy $body, ?PermissionGrantPreApprovalPolicyItemRequestBuilderPatch_52e90dc8 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -78,10 +78,10 @@ class PermissionGrantPreApprovalPolicyItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Delete a permissionGrantPreApprovalPolicy object.
-     * @param PermissionGrantPreApprovalPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionGrantPreApprovalPolicyItemRequestBuilderDelet_da5263c6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?PermissionGrantPreApprovalPolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?PermissionGrantPreApprovalPolicyItemRequestBuilderDelet_da5263c6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -96,10 +96,10 @@ class PermissionGrantPreApprovalPolicyItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Read the properties and relationships of a permissionGrantPreApprovalPolicy object.
-     * @param PermissionGrantPreApprovalPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionGrantPreApprovalPolicyItemRequestBuilderGetRe_aac52250|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?PermissionGrantPreApprovalPolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?PermissionGrantPreApprovalPolicyItemRequestBuilderGetRe_aac52250 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -118,10 +118,10 @@ class PermissionGrantPreApprovalPolicyItemRequestBuilder extends BaseRequestBuil
     /**
      * Update the properties of a permissionGrantPreApprovalPolicy object.
      * @param PermissionGrantPreApprovalPolicy $body The request body
-     * @param PermissionGrantPreApprovalPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionGrantPreApprovalPolicyItemRequestBuilderPatch_52e90dc8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(PermissionGrantPreApprovalPolicy $body, ?PermissionGrantPreApprovalPolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(PermissionGrantPreApprovalPolicy $body, ?PermissionGrantPreApprovalPolicyItemRequestBuilderPatch_52e90dc8 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

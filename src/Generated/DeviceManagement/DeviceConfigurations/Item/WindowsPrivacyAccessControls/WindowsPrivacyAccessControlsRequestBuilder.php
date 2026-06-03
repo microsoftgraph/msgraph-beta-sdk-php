@@ -32,11 +32,11 @@ class WindowsPrivacyAccessControlsRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action windowsPrivacyAccessControls
      * @param WindowsPrivacyAccessControlsPostRequestBody $body The request body
-     * @param WindowsPrivacyAccessControlsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsPrivacyAccessControlsRequestBuilderPostRequestCo_01e10f6b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(WindowsPrivacyAccessControlsPostRequestBody $body, ?WindowsPrivacyAccessControlsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(WindowsPrivacyAccessControlsPostRequestBody $body, ?WindowsPrivacyAccessControlsRequestBuilderPostRequestCo_01e10f6b $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,10 +47,10 @@ class WindowsPrivacyAccessControlsRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action windowsPrivacyAccessControls
      * @param WindowsPrivacyAccessControlsPostRequestBody $body The request body
-     * @param WindowsPrivacyAccessControlsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsPrivacyAccessControlsRequestBuilderPostRequestCo_01e10f6b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(WindowsPrivacyAccessControlsPostRequestBody $body, ?WindowsPrivacyAccessControlsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(WindowsPrivacyAccessControlsPostRequestBody $body, ?WindowsPrivacyAccessControlsRequestBuilderPostRequestCo_01e10f6b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

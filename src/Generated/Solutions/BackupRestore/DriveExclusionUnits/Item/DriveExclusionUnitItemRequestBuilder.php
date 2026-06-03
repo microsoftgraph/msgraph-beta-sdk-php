@@ -22,7 +22,7 @@ class DriveExclusionUnitItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/backupRestore/driveExclusionUnits/{driveExclusionUnit%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/backupRestore/driveExclusionUnits/{driveExclusionUnit%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -45,7 +45,7 @@ class DriveExclusionUnitItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get driveExclusionUnits from solutions
+     * The list of drive exclusion units in the tenant.
      * @param DriveExclusionUnitItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DriveExclusionUnit|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class DriveExclusionUnitItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get driveExclusionUnits from solutions
+     * The list of drive exclusion units in the tenant.
      * @param DriveExclusionUnitItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

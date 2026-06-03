@@ -22,7 +22,7 @@ class HardwareConfigurationAssignmentItemRequestBuilder extends BaseRequestBuild
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/hardwareConfigurations/{hardwareConfiguration%2Did}/assignments/{hardwareConfigurationAssignment%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/hardwareConfigurations/{hardwareConfiguration%2Did}/assignments/{hardwareConfigurationAssignment%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class HardwareConfigurationAssignmentItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param HardwareConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwareConfigurationAssignmentItemRequestBuilderDelete_bddde2ed|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?HardwareConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?HardwareConfigurationAssignmentItemRequestBuilderDelete_bddde2ed $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class HardwareConfigurationAssignmentItemRequestBuilder extends BaseRequestBuild
 
     /**
      * A list of the Entra user group ids that hardware configuration will be applied to. Only security groups and Office 365 Groups are supported. Optional.
-     * @param HardwareConfigurationAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwareConfigurationAssignmentItemRequestBuilderGetReq_9d93c2a3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HardwareConfigurationAssignment|null>
      * @throws Exception
     */
-    public function get(?HardwareConfigurationAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?HardwareConfigurationAssignmentItemRequestBuilderGetReq_9d93c2a3 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class HardwareConfigurationAssignmentItemRequestBuilder extends BaseRequestBuild
     /**
      * Update the navigation property assignments in deviceManagement
      * @param HardwareConfigurationAssignment $body The request body
-     * @param HardwareConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwareConfigurationAssignmentItemRequestBuilderPatchR_6aa29bf5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HardwareConfigurationAssignment|null>
      * @throws Exception
     */
-    public function patch(HardwareConfigurationAssignment $body, ?HardwareConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(HardwareConfigurationAssignment $body, ?HardwareConfigurationAssignmentItemRequestBuilderPatchR_6aa29bf5 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class HardwareConfigurationAssignmentItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param HardwareConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwareConfigurationAssignmentItemRequestBuilderDelete_bddde2ed|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?HardwareConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?HardwareConfigurationAssignmentItemRequestBuilderDelete_bddde2ed $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class HardwareConfigurationAssignmentItemRequestBuilder extends BaseRequestBuild
 
     /**
      * A list of the Entra user group ids that hardware configuration will be applied to. Only security groups and Office 365 Groups are supported. Optional.
-     * @param HardwareConfigurationAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwareConfigurationAssignmentItemRequestBuilderGetReq_9d93c2a3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?HardwareConfigurationAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?HardwareConfigurationAssignmentItemRequestBuilderGetReq_9d93c2a3 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class HardwareConfigurationAssignmentItemRequestBuilder extends BaseRequestBuild
     /**
      * Update the navigation property assignments in deviceManagement
      * @param HardwareConfigurationAssignment $body The request body
-     * @param HardwareConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwareConfigurationAssignmentItemRequestBuilderPatchR_6aa29bf5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(HardwareConfigurationAssignment $body, ?HardwareConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(HardwareConfigurationAssignment $body, ?HardwareConfigurationAssignmentItemRequestBuilderPatchR_6aa29bf5 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

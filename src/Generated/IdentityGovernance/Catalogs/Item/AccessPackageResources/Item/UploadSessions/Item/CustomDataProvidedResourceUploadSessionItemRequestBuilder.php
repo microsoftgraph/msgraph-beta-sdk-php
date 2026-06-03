@@ -38,7 +38,7 @@ class CustomDataProvidedResourceUploadSessionItemRequestBuilder extends BaseRequ
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/catalogs/{accessPackageCatalog%2Did}/accessPackageResources/{accessPackageResource%2Did}/uploadSessions/{customDataProvidedResourceUploadSession%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/catalogs/{accessPackageCatalog%2Did}/accessPackageResources/{accessPackageResource%2Did}/uploadSessions/{customDataProvidedResourceUploadSession%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -48,12 +48,12 @@ class CustomDataProvidedResourceUploadSessionItemRequestBuilder extends BaseRequ
 
     /**
      * Delete a customDataProvidedResourceUploadSession object.
-     * @param CustomDataProvidedResourceUploadSessionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomDataProvidedResourceUploadSessionItemRequestBuild_4ddaf737|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/accesspackageresource-delete-uploadsessions?view=graph-rest-beta Find more info here
     */
-    public function delete(?CustomDataProvidedResourceUploadSessionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CustomDataProvidedResourceUploadSessionItemRequestBuild_4ddaf737 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -63,12 +63,12 @@ class CustomDataProvidedResourceUploadSessionItemRequestBuilder extends BaseRequ
 
     /**
      * Read the properties and relationships of a customDataProvidedResourceUploadSession object.
-     * @param CustomDataProvidedResourceUploadSessionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomDataProvidedResourceUploadSessionItemRequestBuild_507ed692|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomDataProvidedResourceUploadSession|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/customdataprovidedresourceuploadsession-get?view=graph-rest-beta Find more info here
     */
-    public function get(?CustomDataProvidedResourceUploadSessionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CustomDataProvidedResourceUploadSessionItemRequestBuild_507ed692 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -79,12 +79,12 @@ class CustomDataProvidedResourceUploadSessionItemRequestBuilder extends BaseRequ
     /**
      * Update the properties of a customDataProvidedResourceUploadSession created for a customDataProvidedResource object.
      * @param CustomDataProvidedResourceUploadSession $body The request body
-     * @param CustomDataProvidedResourceUploadSessionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomDataProvidedResourceUploadSessionItemRequestBuild_74773cc8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomDataProvidedResourceUploadSession|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/customdataprovidedresourceuploadsession-update?view=graph-rest-beta Find more info here
     */
-    public function patch(CustomDataProvidedResourceUploadSession $body, ?CustomDataProvidedResourceUploadSessionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(CustomDataProvidedResourceUploadSession $body, ?CustomDataProvidedResourceUploadSessionItemRequestBuild_74773cc8 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -94,10 +94,10 @@ class CustomDataProvidedResourceUploadSessionItemRequestBuilder extends BaseRequ
 
     /**
      * Delete a customDataProvidedResourceUploadSession object.
-     * @param CustomDataProvidedResourceUploadSessionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomDataProvidedResourceUploadSessionItemRequestBuild_4ddaf737|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CustomDataProvidedResourceUploadSessionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CustomDataProvidedResourceUploadSessionItemRequestBuild_4ddaf737 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -112,10 +112,10 @@ class CustomDataProvidedResourceUploadSessionItemRequestBuilder extends BaseRequ
 
     /**
      * Read the properties and relationships of a customDataProvidedResourceUploadSession object.
-     * @param CustomDataProvidedResourceUploadSessionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomDataProvidedResourceUploadSessionItemRequestBuild_507ed692|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CustomDataProvidedResourceUploadSessionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CustomDataProvidedResourceUploadSessionItemRequestBuild_507ed692 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -134,10 +134,10 @@ class CustomDataProvidedResourceUploadSessionItemRequestBuilder extends BaseRequ
     /**
      * Update the properties of a customDataProvidedResourceUploadSession created for a customDataProvidedResource object.
      * @param CustomDataProvidedResourceUploadSession $body The request body
-     * @param CustomDataProvidedResourceUploadSessionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomDataProvidedResourceUploadSessionItemRequestBuild_74773cc8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CustomDataProvidedResourceUploadSession $body, ?CustomDataProvidedResourceUploadSessionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(CustomDataProvidedResourceUploadSession $body, ?CustomDataProvidedResourceUploadSessionItemRequestBuild_74773cc8 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

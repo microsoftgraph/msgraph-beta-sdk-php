@@ -22,7 +22,7 @@ class TeamsAppDashboardCardDefinitionItemRequestBuilder extends BaseRequestBuild
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/appCatalogs/teamsApps/{teamsApp%2Did}/appDefinitions/{teamsAppDefinition%2Did}/dashboardCards/{teamsAppDashboardCardDefinition%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/appCatalogs/teamsApps/{teamsApp%2Did}/appDefinitions/{teamsAppDefinition%2Did}/dashboardCards/{teamsAppDashboardCardDefinition%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class TeamsAppDashboardCardDefinitionItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Delete navigation property dashboardCards for appCatalogs
-     * @param TeamsAppDashboardCardDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TeamsAppDashboardCardDefinitionItemRequestBuilderDelete_8c7dd54f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?TeamsAppDashboardCardDefinitionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?TeamsAppDashboardCardDefinitionItemRequestBuilderDelete_8c7dd54f $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class TeamsAppDashboardCardDefinitionItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Dashboard cards specified in the Teams app manifest.
-     * @param TeamsAppDashboardCardDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TeamsAppDashboardCardDefinitionItemRequestBuilderGetReq_021dcbf3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamsAppDashboardCardDefinition|null>
      * @throws Exception
     */
-    public function get(?TeamsAppDashboardCardDefinitionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?TeamsAppDashboardCardDefinitionItemRequestBuilderGetReq_021dcbf3 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class TeamsAppDashboardCardDefinitionItemRequestBuilder extends BaseRequestBuild
     /**
      * Update the navigation property dashboardCards in appCatalogs
      * @param TeamsAppDashboardCardDefinition $body The request body
-     * @param TeamsAppDashboardCardDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TeamsAppDashboardCardDefinitionItemRequestBuilderPatchR_24a408b7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamsAppDashboardCardDefinition|null>
      * @throws Exception
     */
-    public function patch(TeamsAppDashboardCardDefinition $body, ?TeamsAppDashboardCardDefinitionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(TeamsAppDashboardCardDefinition $body, ?TeamsAppDashboardCardDefinitionItemRequestBuilderPatchR_24a408b7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class TeamsAppDashboardCardDefinitionItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Delete navigation property dashboardCards for appCatalogs
-     * @param TeamsAppDashboardCardDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TeamsAppDashboardCardDefinitionItemRequestBuilderDelete_8c7dd54f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?TeamsAppDashboardCardDefinitionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?TeamsAppDashboardCardDefinitionItemRequestBuilderDelete_8c7dd54f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class TeamsAppDashboardCardDefinitionItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Dashboard cards specified in the Teams app manifest.
-     * @param TeamsAppDashboardCardDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TeamsAppDashboardCardDefinitionItemRequestBuilderGetReq_021dcbf3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?TeamsAppDashboardCardDefinitionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?TeamsAppDashboardCardDefinitionItemRequestBuilderGetReq_021dcbf3 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class TeamsAppDashboardCardDefinitionItemRequestBuilder extends BaseRequestBuild
     /**
      * Update the navigation property dashboardCards in appCatalogs
      * @param TeamsAppDashboardCardDefinition $body The request body
-     * @param TeamsAppDashboardCardDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TeamsAppDashboardCardDefinitionItemRequestBuilderPatchR_24a408b7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(TeamsAppDashboardCardDefinition $body, ?TeamsAppDashboardCardDefinitionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(TeamsAppDashboardCardDefinition $body, ?TeamsAppDashboardCardDefinitionItemRequestBuilderPatchR_24a408b7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

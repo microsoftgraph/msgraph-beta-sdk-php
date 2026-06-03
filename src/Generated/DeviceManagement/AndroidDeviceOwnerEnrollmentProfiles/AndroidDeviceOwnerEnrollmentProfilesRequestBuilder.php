@@ -43,7 +43,7 @@ class AndroidDeviceOwnerEnrollmentProfilesRequestBuilder extends BaseRequestBuil
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/androidDeviceOwnerEnrollmentProfiles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class AndroidDeviceOwnerEnrollmentProfilesRequestBuilder extends BaseRequestBuil
 
     /**
      * Android device owner enrollment profile entities.
-     * @param AndroidDeviceOwnerEnrollmentProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidDeviceOwnerEnrollmentProfilesRequestBuilderGetRe_59267637|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AndroidDeviceOwnerEnrollmentProfileCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?AndroidDeviceOwnerEnrollmentProfilesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AndroidDeviceOwnerEnrollmentProfilesRequestBuilderGetRe_59267637 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class AndroidDeviceOwnerEnrollmentProfilesRequestBuilder extends BaseRequestBuil
     /**
      * Create new navigation property to androidDeviceOwnerEnrollmentProfiles for deviceManagement
      * @param AndroidDeviceOwnerEnrollmentProfile $body The request body
-     * @param AndroidDeviceOwnerEnrollmentProfilesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidDeviceOwnerEnrollmentProfilesRequestBuilderPostR_8c230434|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AndroidDeviceOwnerEnrollmentProfile|null>
      * @throws Exception
     */
-    public function post(AndroidDeviceOwnerEnrollmentProfile $body, ?AndroidDeviceOwnerEnrollmentProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AndroidDeviceOwnerEnrollmentProfile $body, ?AndroidDeviceOwnerEnrollmentProfilesRequestBuilderPostR_8c230434 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class AndroidDeviceOwnerEnrollmentProfilesRequestBuilder extends BaseRequestBuil
 
     /**
      * Android device owner enrollment profile entities.
-     * @param AndroidDeviceOwnerEnrollmentProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidDeviceOwnerEnrollmentProfilesRequestBuilderGetRe_59267637|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AndroidDeviceOwnerEnrollmentProfilesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AndroidDeviceOwnerEnrollmentProfilesRequestBuilderGetRe_59267637 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class AndroidDeviceOwnerEnrollmentProfilesRequestBuilder extends BaseRequestBuil
     /**
      * Create new navigation property to androidDeviceOwnerEnrollmentProfiles for deviceManagement
      * @param AndroidDeviceOwnerEnrollmentProfile $body The request body
-     * @param AndroidDeviceOwnerEnrollmentProfilesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidDeviceOwnerEnrollmentProfilesRequestBuilderPostR_8c230434|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AndroidDeviceOwnerEnrollmentProfile $body, ?AndroidDeviceOwnerEnrollmentProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AndroidDeviceOwnerEnrollmentProfile $body, ?AndroidDeviceOwnerEnrollmentProfilesRequestBuilderPostR_8c230434 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

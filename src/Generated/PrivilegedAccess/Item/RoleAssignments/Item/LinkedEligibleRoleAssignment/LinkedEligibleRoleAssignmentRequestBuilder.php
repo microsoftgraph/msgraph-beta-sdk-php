@@ -32,11 +32,11 @@ class LinkedEligibleRoleAssignmentRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read-only. If this is an active assignment and created due to activation on an eligible assignment, it represents the object of that eligible assignment; Otherwise, the value is null.
-     * @param LinkedEligibleRoleAssignmentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param LinkedEligibleRoleAssignmentRequestBuilderGetRequestCon_2deb12d9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GovernanceRoleAssignment|null>
      * @throws Exception
     */
-    public function get(?LinkedEligibleRoleAssignmentRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?LinkedEligibleRoleAssignmentRequestBuilderGetRequestCon_2deb12d9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class LinkedEligibleRoleAssignmentRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read-only. If this is an active assignment and created due to activation on an eligible assignment, it represents the object of that eligible assignment; Otherwise, the value is null.
-     * @param LinkedEligibleRoleAssignmentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param LinkedEligibleRoleAssignmentRequestBuilderGetRequestCon_2deb12d9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?LinkedEligibleRoleAssignmentRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?LinkedEligibleRoleAssignmentRequestBuilderGetRequestCon_2deb12d9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

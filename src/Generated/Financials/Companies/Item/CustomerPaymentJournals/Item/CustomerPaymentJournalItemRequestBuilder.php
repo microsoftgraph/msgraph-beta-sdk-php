@@ -38,7 +38,7 @@ class CustomerPaymentJournalItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/financials/companies/{company%2Did}/customerPaymentJournals/{customerPaymentJournal%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/financials/companies/{company%2Did}/customerPaymentJournals/{customerPaymentJournal%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -48,11 +48,11 @@ class CustomerPaymentJournalItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property customerPaymentJournals for financials
-     * @param CustomerPaymentJournalItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomerPaymentJournalItemRequestBuilderDeleteRequestCo_5f17bfd4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CustomerPaymentJournalItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CustomerPaymentJournalItemRequestBuilderDeleteRequestCo_5f17bfd4 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,11 +77,11 @@ class CustomerPaymentJournalItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property customerPaymentJournals in financials
      * @param CustomerPaymentJournal $body The request body
-     * @param CustomerPaymentJournalItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomerPaymentJournalItemRequestBuilderPatchRequestCon_4d1b6bec|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomerPaymentJournal|null>
      * @throws Exception
     */
-    public function patch(CustomerPaymentJournal $body, ?CustomerPaymentJournalItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(CustomerPaymentJournal $body, ?CustomerPaymentJournalItemRequestBuilderPatchRequestCon_4d1b6bec $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -91,10 +91,10 @@ class CustomerPaymentJournalItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property customerPaymentJournals for financials
-     * @param CustomerPaymentJournalItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomerPaymentJournalItemRequestBuilderDeleteRequestCo_5f17bfd4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CustomerPaymentJournalItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CustomerPaymentJournalItemRequestBuilderDeleteRequestCo_5f17bfd4 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -131,10 +131,10 @@ class CustomerPaymentJournalItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property customerPaymentJournals in financials
      * @param CustomerPaymentJournal $body The request body
-     * @param CustomerPaymentJournalItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomerPaymentJournalItemRequestBuilderPatchRequestCon_4d1b6bec|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CustomerPaymentJournal $body, ?CustomerPaymentJournalItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(CustomerPaymentJournal $body, ?CustomerPaymentJournalItemRequestBuilderPatchRequestCon_4d1b6bec $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

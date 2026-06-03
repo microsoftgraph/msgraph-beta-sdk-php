@@ -43,7 +43,7 @@ class MicrosoftTunnelHealthThresholdsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/microsoftTunnelHealthThresholds{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class MicrosoftTunnelHealthThresholdsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Collection of MicrosoftTunnelHealthThreshold settings associated with account.
-     * @param MicrosoftTunnelHealthThresholdsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelHealthThresholdsRequestBuilderGetRequest_b4dac68d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MicrosoftTunnelHealthThresholdCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?MicrosoftTunnelHealthThresholdsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MicrosoftTunnelHealthThresholdsRequestBuilderGetRequest_b4dac68d $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class MicrosoftTunnelHealthThresholdsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to microsoftTunnelHealthThresholds for deviceManagement
      * @param MicrosoftTunnelHealthThreshold $body The request body
-     * @param MicrosoftTunnelHealthThresholdsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelHealthThresholdsRequestBuilderPostReques_375fc19a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MicrosoftTunnelHealthThreshold|null>
      * @throws Exception
     */
-    public function post(MicrosoftTunnelHealthThreshold $body, ?MicrosoftTunnelHealthThresholdsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(MicrosoftTunnelHealthThreshold $body, ?MicrosoftTunnelHealthThresholdsRequestBuilderPostReques_375fc19a $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class MicrosoftTunnelHealthThresholdsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Collection of MicrosoftTunnelHealthThreshold settings associated with account.
-     * @param MicrosoftTunnelHealthThresholdsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelHealthThresholdsRequestBuilderGetRequest_b4dac68d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MicrosoftTunnelHealthThresholdsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MicrosoftTunnelHealthThresholdsRequestBuilderGetRequest_b4dac68d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class MicrosoftTunnelHealthThresholdsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to microsoftTunnelHealthThresholds for deviceManagement
      * @param MicrosoftTunnelHealthThreshold $body The request body
-     * @param MicrosoftTunnelHealthThresholdsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelHealthThresholdsRequestBuilderPostReques_375fc19a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(MicrosoftTunnelHealthThreshold $body, ?MicrosoftTunnelHealthThresholdsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(MicrosoftTunnelHealthThreshold $body, ?MicrosoftTunnelHealthThresholdsRequestBuilderPostReques_375fc19a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

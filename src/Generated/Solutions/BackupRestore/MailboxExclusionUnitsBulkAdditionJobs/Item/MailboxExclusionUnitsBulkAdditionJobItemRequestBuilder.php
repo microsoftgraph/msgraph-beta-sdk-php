@@ -22,7 +22,7 @@ class MailboxExclusionUnitsBulkAdditionJobItemRequestBuilder extends BaseRequest
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/backupRestore/mailboxExclusionUnitsBulkAdditionJobs/{mailboxExclusionUnitsBulkAdditionJob%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/backupRestore/mailboxExclusionUnitsBulkAdditionJobs/{mailboxExclusionUnitsBulkAdditionJob%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class MailboxExclusionUnitsBulkAdditionJobItemRequestBuilder extends BaseRequest
 
     /**
      * Delete navigation property mailboxExclusionUnitsBulkAdditionJobs for solutions
-     * @param MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderD_e49281ae|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderD_e49281ae $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,12 +45,12 @@ class MailboxExclusionUnitsBulkAdditionJobItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Get mailboxExclusionUnitsBulkAdditionJobs from solutions
-     * @param MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * The list of bulk addition jobs for mailbox exclusion units in the tenant.
+     * @param MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderG_0df77069|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MailboxExclusionUnitsBulkAdditionJob|null>
      * @throws Exception
     */
-    public function get(?MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderG_0df77069 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class MailboxExclusionUnitsBulkAdditionJobItemRequestBuilder extends BaseRequest
     /**
      * Update the navigation property mailboxExclusionUnitsBulkAdditionJobs in solutions
      * @param MailboxExclusionUnitsBulkAdditionJob $body The request body
-     * @param MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderP_ee4b2559|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MailboxExclusionUnitsBulkAdditionJob|null>
      * @throws Exception
     */
-    public function patch(MailboxExclusionUnitsBulkAdditionJob $body, ?MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(MailboxExclusionUnitsBulkAdditionJob $body, ?MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderP_ee4b2559 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class MailboxExclusionUnitsBulkAdditionJobItemRequestBuilder extends BaseRequest
 
     /**
      * Delete navigation property mailboxExclusionUnitsBulkAdditionJobs for solutions
-     * @param MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderD_e49281ae|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderD_e49281ae $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -92,11 +92,11 @@ class MailboxExclusionUnitsBulkAdditionJobItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Get mailboxExclusionUnitsBulkAdditionJobs from solutions
-     * @param MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * The list of bulk addition jobs for mailbox exclusion units in the tenant.
+     * @param MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderG_0df77069|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderG_0df77069 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class MailboxExclusionUnitsBulkAdditionJobItemRequestBuilder extends BaseRequest
     /**
      * Update the navigation property mailboxExclusionUnitsBulkAdditionJobs in solutions
      * @param MailboxExclusionUnitsBulkAdditionJob $body The request body
-     * @param MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderP_ee4b2559|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(MailboxExclusionUnitsBulkAdditionJob $body, ?MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(MailboxExclusionUnitsBulkAdditionJob $body, ?MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderP_ee4b2559 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

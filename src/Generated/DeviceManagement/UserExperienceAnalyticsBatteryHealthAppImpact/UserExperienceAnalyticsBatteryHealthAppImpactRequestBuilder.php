@@ -43,7 +43,7 @@ class UserExperienceAnalyticsBatteryHealthAppImpactRequestBuilder extends BaseRe
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/userExperienceAnalyticsBatteryHealthAppImpact{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class UserExperienceAnalyticsBatteryHealthAppImpactRequestBuilder extends BaseRe
 
     /**
      * User Experience Analytics Battery Health App Impact
-     * @param UserExperienceAnalyticsBatteryHealthAppImpactRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsBatteryHealthAppImpactRequestBui_ceb6743f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsBatteryHealthAppImpactCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?UserExperienceAnalyticsBatteryHealthAppImpactRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserExperienceAnalyticsBatteryHealthAppImpactRequestBui_ceb6743f $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class UserExperienceAnalyticsBatteryHealthAppImpactRequestBuilder extends BaseRe
     /**
      * Create new navigation property to userExperienceAnalyticsBatteryHealthAppImpact for deviceManagement
      * @param UserExperienceAnalyticsBatteryHealthAppImpact $body The request body
-     * @param UserExperienceAnalyticsBatteryHealthAppImpactRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsBatteryHealthAppImpactRequestBui_4db0d73c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsBatteryHealthAppImpact|null>
      * @throws Exception
     */
-    public function post(UserExperienceAnalyticsBatteryHealthAppImpact $body, ?UserExperienceAnalyticsBatteryHealthAppImpactRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(UserExperienceAnalyticsBatteryHealthAppImpact $body, ?UserExperienceAnalyticsBatteryHealthAppImpactRequestBui_4db0d73c $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class UserExperienceAnalyticsBatteryHealthAppImpactRequestBuilder extends BaseRe
 
     /**
      * User Experience Analytics Battery Health App Impact
-     * @param UserExperienceAnalyticsBatteryHealthAppImpactRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsBatteryHealthAppImpactRequestBui_ceb6743f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UserExperienceAnalyticsBatteryHealthAppImpactRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UserExperienceAnalyticsBatteryHealthAppImpactRequestBui_ceb6743f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class UserExperienceAnalyticsBatteryHealthAppImpactRequestBuilder extends BaseRe
     /**
      * Create new navigation property to userExperienceAnalyticsBatteryHealthAppImpact for deviceManagement
      * @param UserExperienceAnalyticsBatteryHealthAppImpact $body The request body
-     * @param UserExperienceAnalyticsBatteryHealthAppImpactRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsBatteryHealthAppImpactRequestBui_4db0d73c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(UserExperienceAnalyticsBatteryHealthAppImpact $body, ?UserExperienceAnalyticsBatteryHealthAppImpactRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(UserExperienceAnalyticsBatteryHealthAppImpact $body, ?UserExperienceAnalyticsBatteryHealthAppImpactRequestBui_4db0d73c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

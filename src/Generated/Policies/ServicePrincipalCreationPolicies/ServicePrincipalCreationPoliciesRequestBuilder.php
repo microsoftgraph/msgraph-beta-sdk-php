@@ -43,7 +43,7 @@ class ServicePrincipalCreationPoliciesRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/policies/servicePrincipalCreationPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class ServicePrincipalCreationPoliciesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get servicePrincipalCreationPolicies from policies
-     * @param ServicePrincipalCreationPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalCreationPoliciesRequestBuilderGetReques_bd13deb3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServicePrincipalCreationPolicyCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?ServicePrincipalCreationPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ServicePrincipalCreationPoliciesRequestBuilderGetReques_bd13deb3 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class ServicePrincipalCreationPoliciesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to servicePrincipalCreationPolicies for policies
      * @param ServicePrincipalCreationPolicy $body The request body
-     * @param ServicePrincipalCreationPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalCreationPoliciesRequestBuilderPostReque_be5320ba|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServicePrincipalCreationPolicy|null>
      * @throws Exception
     */
-    public function post(ServicePrincipalCreationPolicy $body, ?ServicePrincipalCreationPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ServicePrincipalCreationPolicy $body, ?ServicePrincipalCreationPoliciesRequestBuilderPostReque_be5320ba $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class ServicePrincipalCreationPoliciesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get servicePrincipalCreationPolicies from policies
-     * @param ServicePrincipalCreationPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalCreationPoliciesRequestBuilderGetReques_bd13deb3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ServicePrincipalCreationPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ServicePrincipalCreationPoliciesRequestBuilderGetReques_bd13deb3 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class ServicePrincipalCreationPoliciesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to servicePrincipalCreationPolicies for policies
      * @param ServicePrincipalCreationPolicy $body The request body
-     * @param ServicePrincipalCreationPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalCreationPoliciesRequestBuilderPostReque_be5320ba|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ServicePrincipalCreationPolicy $body, ?ServicePrincipalCreationPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ServicePrincipalCreationPolicy $body, ?ServicePrincipalCreationPoliciesRequestBuilderPostReque_be5320ba $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

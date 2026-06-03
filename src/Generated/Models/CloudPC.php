@@ -409,7 +409,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the scopeIds property value. The scopeIds property
+     * Gets the scopeIds property value. The scope IDs of the corresponding permission. Currently, it's the Intune scope tag ID. Read-only.
      * @return array<string>|null
     */
     public function getScopeIds(): ?array {
@@ -818,7 +818,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the scopeIds property value. The scopeIds property
+     * Sets the scopeIds property value. The scope IDs of the corresponding permission. Currently, it's the Intune scope tag ID. Read-only.
      * @param array<string>|null $value Value to set for the scopeIds property.
     */
     public function setScopeIds(?array $value): void {

@@ -43,7 +43,7 @@ class SiteExclusionUnitsBulkAdditionJobsRequestBuilder extends BaseRequestBuilde
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/backupRestore/siteExclusionUnitsBulkAdditionJobs{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -52,12 +52,12 @@ class SiteExclusionUnitsBulkAdditionJobsRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Get siteExclusionUnitsBulkAdditionJobs from solutions
-     * @param SiteExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * The list of bulk addition jobs for site exclusion units in the tenant.
+     * @param SiteExclusionUnitsBulkAdditionJobsRequestBuilderGetRequ_803f86bf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SiteExclusionUnitsBulkAdditionJobCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?SiteExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?SiteExclusionUnitsBulkAdditionJobsRequestBuilderGetRequ_803f86bf $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class SiteExclusionUnitsBulkAdditionJobsRequestBuilder extends BaseRequestBuilde
     /**
      * Create new navigation property to siteExclusionUnitsBulkAdditionJobs for solutions
      * @param SiteExclusionUnitsBulkAdditionJob $body The request body
-     * @param SiteExclusionUnitsBulkAdditionJobsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SiteExclusionUnitsBulkAdditionJobsRequestBuilderPostReq_ba19b558|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SiteExclusionUnitsBulkAdditionJob|null>
      * @throws Exception
     */
-    public function post(SiteExclusionUnitsBulkAdditionJob $body, ?SiteExclusionUnitsBulkAdditionJobsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(SiteExclusionUnitsBulkAdditionJob $body, ?SiteExclusionUnitsBulkAdditionJobsRequestBuilderPostReq_ba19b558 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -81,11 +81,11 @@ class SiteExclusionUnitsBulkAdditionJobsRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Get siteExclusionUnitsBulkAdditionJobs from solutions
-     * @param SiteExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * The list of bulk addition jobs for site exclusion units in the tenant.
+     * @param SiteExclusionUnitsBulkAdditionJobsRequestBuilderGetRequ_803f86bf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?SiteExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?SiteExclusionUnitsBulkAdditionJobsRequestBuilderGetRequ_803f86bf $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class SiteExclusionUnitsBulkAdditionJobsRequestBuilder extends BaseRequestBuilde
     /**
      * Create new navigation property to siteExclusionUnitsBulkAdditionJobs for solutions
      * @param SiteExclusionUnitsBulkAdditionJob $body The request body
-     * @param SiteExclusionUnitsBulkAdditionJobsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SiteExclusionUnitsBulkAdditionJobsRequestBuilderPostReq_ba19b558|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(SiteExclusionUnitsBulkAdditionJob $body, ?SiteExclusionUnitsBulkAdditionJobsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(SiteExclusionUnitsBulkAdditionJob $body, ?SiteExclusionUnitsBulkAdditionJobsRequestBuilderPostReq_ba19b558 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

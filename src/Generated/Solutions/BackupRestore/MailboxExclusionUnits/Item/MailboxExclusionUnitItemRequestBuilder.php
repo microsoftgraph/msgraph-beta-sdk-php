@@ -22,7 +22,7 @@ class MailboxExclusionUnitItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/backupRestore/mailboxExclusionUnits/{mailboxExclusionUnit%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/backupRestore/mailboxExclusionUnits/{mailboxExclusionUnit%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -45,7 +45,7 @@ class MailboxExclusionUnitItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get mailboxExclusionUnits from solutions
+     * The list of mailbox exclusion units in the tenant.
      * @param MailboxExclusionUnitItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MailboxExclusionUnit|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class MailboxExclusionUnitItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get mailboxExclusionUnits from solutions
+     * The list of mailbox exclusion units in the tenant.
      * @param MailboxExclusionUnitItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -22,7 +22,7 @@ class ImportedAppleDeviceIdentityItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/depOnboardingSettings/{depOnboardingSetting%2Did}/importedAppleDeviceIdentities/{importedAppleDeviceIdentity%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/depOnboardingSettings/{depOnboardingSetting%2Did}/importedAppleDeviceIdentities/{importedAppleDeviceIdentity%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class ImportedAppleDeviceIdentityItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property importedAppleDeviceIdentities for deviceManagement
-     * @param ImportedAppleDeviceIdentityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ImportedAppleDeviceIdentityItemRequestBuilderDeleteRequ_70b486dd|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ImportedAppleDeviceIdentityItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ImportedAppleDeviceIdentityItemRequestBuilderDeleteRequ_70b486dd $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class ImportedAppleDeviceIdentityItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * The imported Apple device identities.
-     * @param ImportedAppleDeviceIdentityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ImportedAppleDeviceIdentityItemRequestBuilderGetRequest_c05f4624|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ImportedAppleDeviceIdentity|null>
      * @throws Exception
     */
-    public function get(?ImportedAppleDeviceIdentityItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ImportedAppleDeviceIdentityItemRequestBuilderGetRequest_c05f4624 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class ImportedAppleDeviceIdentityItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property importedAppleDeviceIdentities in deviceManagement
      * @param ImportedAppleDeviceIdentity $body The request body
-     * @param ImportedAppleDeviceIdentityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ImportedAppleDeviceIdentityItemRequestBuilderPatchReque_13c0a510|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ImportedAppleDeviceIdentity|null>
      * @throws Exception
     */
-    public function patch(ImportedAppleDeviceIdentity $body, ?ImportedAppleDeviceIdentityItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ImportedAppleDeviceIdentity $body, ?ImportedAppleDeviceIdentityItemRequestBuilderPatchReque_13c0a510 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class ImportedAppleDeviceIdentityItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property importedAppleDeviceIdentities for deviceManagement
-     * @param ImportedAppleDeviceIdentityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ImportedAppleDeviceIdentityItemRequestBuilderDeleteRequ_70b486dd|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ImportedAppleDeviceIdentityItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ImportedAppleDeviceIdentityItemRequestBuilderDeleteRequ_70b486dd $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class ImportedAppleDeviceIdentityItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * The imported Apple device identities.
-     * @param ImportedAppleDeviceIdentityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ImportedAppleDeviceIdentityItemRequestBuilderGetRequest_c05f4624|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ImportedAppleDeviceIdentityItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ImportedAppleDeviceIdentityItemRequestBuilderGetRequest_c05f4624 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class ImportedAppleDeviceIdentityItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property importedAppleDeviceIdentities in deviceManagement
      * @param ImportedAppleDeviceIdentity $body The request body
-     * @param ImportedAppleDeviceIdentityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ImportedAppleDeviceIdentityItemRequestBuilderPatchReque_13c0a510|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ImportedAppleDeviceIdentity $body, ?ImportedAppleDeviceIdentityItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ImportedAppleDeviceIdentity $body, ?ImportedAppleDeviceIdentityItemRequestBuilderPatchReque_13c0a510 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

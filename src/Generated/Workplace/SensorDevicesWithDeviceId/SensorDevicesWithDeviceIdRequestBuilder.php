@@ -23,7 +23,7 @@ class SensorDevicesWithDeviceIdRequestBuilder extends BaseRequestBuilder
      * @param string|null $deviceId Alternate key of workplaceSensorDevice
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $deviceId = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/workplace/sensorDevices(deviceId=\'{deviceId}\'){?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/workplace/sensorDevices(deviceId=\'{deviceId}\')');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['deviceId'] = $deviceId;
@@ -35,12 +35,12 @@ class SensorDevicesWithDeviceIdRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete a workplace sensor device.
-     * @param SensorDevicesWithDeviceIdRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SensorDevicesWithDeviceIdRequestBuilderDeleteRequestCon_fbc26d87|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/workplacesensordevice-delete?view=graph-rest-beta Find more info here
     */
-    public function delete(?SensorDevicesWithDeviceIdRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?SensorDevicesWithDeviceIdRequestBuilderDeleteRequestCon_fbc26d87 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -81,10 +81,10 @@ class SensorDevicesWithDeviceIdRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete a workplace sensor device.
-     * @param SensorDevicesWithDeviceIdRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SensorDevicesWithDeviceIdRequestBuilderDeleteRequestCon_fbc26d87|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?SensorDevicesWithDeviceIdRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?SensorDevicesWithDeviceIdRequestBuilderDeleteRequestCon_fbc26d87 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

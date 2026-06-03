@@ -43,7 +43,7 @@ class BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuilder extends BaseRequ
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/approvalWorkflowProviders/{approvalWorkflowProvider%2Did}/businessFlowsWithRequestsAwaitingMyDecision{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuilder extends BaseRequ
 
     /**
      * Get businessFlowsWithRequestsAwaitingMyDecision from approvalWorkflowProviders
-     * @param BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuild_6350ef43|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BusinessFlowCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuild_6350ef43 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuilder extends BaseRequ
     /**
      * Create new navigation property to businessFlowsWithRequestsAwaitingMyDecision for approvalWorkflowProviders
      * @param BusinessFlow $body The request body
-     * @param BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuild_622d6380|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BusinessFlow|null>
      * @throws Exception
     */
-    public function post(BusinessFlow $body, ?BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(BusinessFlow $body, ?BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuild_622d6380 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuilder extends BaseRequ
 
     /**
      * Get businessFlowsWithRequestsAwaitingMyDecision from approvalWorkflowProviders
-     * @param BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuild_6350ef43|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuild_6350ef43 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuilder extends BaseRequ
     /**
      * Create new navigation property to businessFlowsWithRequestsAwaitingMyDecision for approvalWorkflowProviders
      * @param BusinessFlow $body The request body
-     * @param BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuild_622d6380|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(BusinessFlow $body, ?BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(BusinessFlow $body, ?BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuild_622d6380 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

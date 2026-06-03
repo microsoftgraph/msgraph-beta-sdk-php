@@ -33,12 +33,12 @@ class GetCloudPcPerformanceReportRequestBuilder extends BaseRequestBuilder
     /**
      * Get a report related to the performance of Cloud PCs.
      * @param GetCloudPcPerformanceReportPostRequestBody $body The request body
-     * @param GetCloudPcPerformanceReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetCloudPcPerformanceReportRequestBuilderPostRequestCon_f266ee36|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpcreports-getcloudpcperformancereport?view=graph-rest-beta Find more info here
     */
-    public function post(GetCloudPcPerformanceReportPostRequestBody $body, ?GetCloudPcPerformanceReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetCloudPcPerformanceReportPostRequestBody $body, ?GetCloudPcPerformanceReportRequestBuilderPostRequestCon_f266ee36 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -51,10 +51,10 @@ class GetCloudPcPerformanceReportRequestBuilder extends BaseRequestBuilder
     /**
      * Get a report related to the performance of Cloud PCs.
      * @param GetCloudPcPerformanceReportPostRequestBody $body The request body
-     * @param GetCloudPcPerformanceReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetCloudPcPerformanceReportRequestBuilderPostRequestCon_f266ee36|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetCloudPcPerformanceReportPostRequestBody $body, ?GetCloudPcPerformanceReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetCloudPcPerformanceReportPostRequestBody $body, ?GetCloudPcPerformanceReportRequestBuilderPostRequestCon_f266ee36 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

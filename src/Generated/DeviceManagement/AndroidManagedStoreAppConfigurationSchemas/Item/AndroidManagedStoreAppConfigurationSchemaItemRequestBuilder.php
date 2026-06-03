@@ -22,7 +22,7 @@ class AndroidManagedStoreAppConfigurationSchemaItemRequestBuilder extends BaseRe
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/androidManagedStoreAppConfigurationSchemas/{androidManagedStoreAppConfigurationSchema%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/androidManagedStoreAppConfigurationSchemas/{androidManagedStoreAppConfigurationSchema%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class AndroidManagedStoreAppConfigurationSchemaItemRequestBuilder extends BaseRe
 
     /**
      * Delete navigation property androidManagedStoreAppConfigurationSchemas for deviceManagement
-     * @param AndroidManagedStoreAppConfigurationSchemaItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidManagedStoreAppConfigurationSchemaItemRequestBui_2f7075c1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?AndroidManagedStoreAppConfigurationSchemaItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?AndroidManagedStoreAppConfigurationSchemaItemRequestBui_2f7075c1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class AndroidManagedStoreAppConfigurationSchemaItemRequestBuilder extends BaseRe
 
     /**
      * Android Enterprise app configuration schema entities.
-     * @param AndroidManagedStoreAppConfigurationSchemaItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidManagedStoreAppConfigurationSchemaItemRequestBui_a1596dd8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AndroidManagedStoreAppConfigurationSchema|null>
      * @throws Exception
     */
-    public function get(?AndroidManagedStoreAppConfigurationSchemaItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AndroidManagedStoreAppConfigurationSchemaItemRequestBui_a1596dd8 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class AndroidManagedStoreAppConfigurationSchemaItemRequestBuilder extends BaseRe
     /**
      * Update the navigation property androidManagedStoreAppConfigurationSchemas in deviceManagement
      * @param AndroidManagedStoreAppConfigurationSchema $body The request body
-     * @param AndroidManagedStoreAppConfigurationSchemaItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidManagedStoreAppConfigurationSchemaItemRequestBui_dad4a657|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AndroidManagedStoreAppConfigurationSchema|null>
      * @throws Exception
     */
-    public function patch(AndroidManagedStoreAppConfigurationSchema $body, ?AndroidManagedStoreAppConfigurationSchemaItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(AndroidManagedStoreAppConfigurationSchema $body, ?AndroidManagedStoreAppConfigurationSchemaItemRequestBui_dad4a657 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class AndroidManagedStoreAppConfigurationSchemaItemRequestBuilder extends BaseRe
 
     /**
      * Delete navigation property androidManagedStoreAppConfigurationSchemas for deviceManagement
-     * @param AndroidManagedStoreAppConfigurationSchemaItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidManagedStoreAppConfigurationSchemaItemRequestBui_2f7075c1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?AndroidManagedStoreAppConfigurationSchemaItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?AndroidManagedStoreAppConfigurationSchemaItemRequestBui_2f7075c1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class AndroidManagedStoreAppConfigurationSchemaItemRequestBuilder extends BaseRe
 
     /**
      * Android Enterprise app configuration schema entities.
-     * @param AndroidManagedStoreAppConfigurationSchemaItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidManagedStoreAppConfigurationSchemaItemRequestBui_a1596dd8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AndroidManagedStoreAppConfigurationSchemaItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AndroidManagedStoreAppConfigurationSchemaItemRequestBui_a1596dd8 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class AndroidManagedStoreAppConfigurationSchemaItemRequestBuilder extends BaseRe
     /**
      * Update the navigation property androidManagedStoreAppConfigurationSchemas in deviceManagement
      * @param AndroidManagedStoreAppConfigurationSchema $body The request body
-     * @param AndroidManagedStoreAppConfigurationSchemaItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidManagedStoreAppConfigurationSchemaItemRequestBui_dad4a657|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(AndroidManagedStoreAppConfigurationSchema $body, ?AndroidManagedStoreAppConfigurationSchemaItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(AndroidManagedStoreAppConfigurationSchema $body, ?AndroidManagedStoreAppConfigurationSchemaItemRequestBui_dad4a657 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

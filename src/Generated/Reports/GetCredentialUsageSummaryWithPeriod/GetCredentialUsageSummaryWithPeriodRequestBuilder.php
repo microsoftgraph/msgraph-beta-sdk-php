@@ -34,12 +34,12 @@ class GetCredentialUsageSummaryWithPeriodRequestBuilder extends BaseRequestBuild
 
     /**
      * Report the current state of how many users in your organization used the self-service password reset capabilities.
-     * @param GetCredentialUsageSummaryWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetCredentialUsageSummaryWithPeriodRequestBuilderGetReq_72fe8976|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetCredentialUsageSummaryWithPeriodGetResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/reportroot-getcredentialusagesummary?view=graph-rest-beta Find more info here
     */
-    public function get(?GetCredentialUsageSummaryWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetCredentialUsageSummaryWithPeriodRequestBuilderGetReq_72fe8976 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,10 +49,10 @@ class GetCredentialUsageSummaryWithPeriodRequestBuilder extends BaseRequestBuild
 
     /**
      * Report the current state of how many users in your organization used the self-service password reset capabilities.
-     * @param GetCredentialUsageSummaryWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetCredentialUsageSummaryWithPeriodRequestBuilderGetReq_72fe8976|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetCredentialUsageSummaryWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetCredentialUsageSummaryWithPeriodRequestBuilderGetReq_72fe8976 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

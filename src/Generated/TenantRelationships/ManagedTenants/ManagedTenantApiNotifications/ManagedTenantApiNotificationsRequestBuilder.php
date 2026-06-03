@@ -43,7 +43,7 @@ class ManagedTenantApiNotificationsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/managedTenantApiNotifications{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class ManagedTenantApiNotificationsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get managedTenantApiNotifications from tenantRelationships
-     * @param ManagedTenantApiNotificationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantApiNotificationsRequestBuilderGetRequestCo_3a557578|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedTenantApiNotificationCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?ManagedTenantApiNotificationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagedTenantApiNotificationsRequestBuilderGetRequestCo_3a557578 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class ManagedTenantApiNotificationsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to managedTenantApiNotifications for tenantRelationships
      * @param ManagedTenantApiNotification $body The request body
-     * @param ManagedTenantApiNotificationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantApiNotificationsRequestBuilderPostRequestC_6b5f53b7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedTenantApiNotification|null>
      * @throws Exception
     */
-    public function post(ManagedTenantApiNotification $body, ?ManagedTenantApiNotificationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ManagedTenantApiNotification $body, ?ManagedTenantApiNotificationsRequestBuilderPostRequestC_6b5f53b7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class ManagedTenantApiNotificationsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get managedTenantApiNotifications from tenantRelationships
-     * @param ManagedTenantApiNotificationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantApiNotificationsRequestBuilderGetRequestCo_3a557578|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagedTenantApiNotificationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagedTenantApiNotificationsRequestBuilderGetRequestCo_3a557578 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class ManagedTenantApiNotificationsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to managedTenantApiNotifications for tenantRelationships
      * @param ManagedTenantApiNotification $body The request body
-     * @param ManagedTenantApiNotificationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantApiNotificationsRequestBuilderPostRequestC_6b5f53b7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ManagedTenantApiNotification $body, ?ManagedTenantApiNotificationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ManagedTenantApiNotification $body, ?ManagedTenantApiNotificationsRequestBuilderPostRequestC_6b5f53b7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

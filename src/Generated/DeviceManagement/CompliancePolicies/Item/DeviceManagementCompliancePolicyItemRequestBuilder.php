@@ -62,7 +62,7 @@ class DeviceManagementCompliancePolicyItemRequestBuilder extends BaseRequestBuil
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/compliancePolicies/{deviceManagementCompliancePolicy%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/compliancePolicies/{deviceManagementCompliancePolicy%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -72,11 +72,11 @@ class DeviceManagementCompliancePolicyItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Delete navigation property compliancePolicies for deviceManagement
-     * @param DeviceManagementCompliancePolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementCompliancePolicyItemRequestBuilderDelet_121505de|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DeviceManagementCompliancePolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DeviceManagementCompliancePolicyItemRequestBuilderDelet_121505de $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -86,11 +86,11 @@ class DeviceManagementCompliancePolicyItemRequestBuilder extends BaseRequestBuil
 
     /**
      * List of all compliance policies
-     * @param DeviceManagementCompliancePolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementCompliancePolicyItemRequestBuilderGetRe_fba8768b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementCompliancePolicy|null>
      * @throws Exception
     */
-    public function get(?DeviceManagementCompliancePolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DeviceManagementCompliancePolicyItemRequestBuilderGetRe_fba8768b $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -101,11 +101,11 @@ class DeviceManagementCompliancePolicyItemRequestBuilder extends BaseRequestBuil
     /**
      * Update the navigation property compliancePolicies in deviceManagement
      * @param DeviceManagementCompliancePolicy $body The request body
-     * @param DeviceManagementCompliancePolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementCompliancePolicyItemRequestBuilderPatch_2132633e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementCompliancePolicy|null>
      * @throws Exception
     */
-    public function patch(DeviceManagementCompliancePolicy $body, ?DeviceManagementCompliancePolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DeviceManagementCompliancePolicy $body, ?DeviceManagementCompliancePolicyItemRequestBuilderPatch_2132633e $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -115,10 +115,10 @@ class DeviceManagementCompliancePolicyItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Delete navigation property compliancePolicies for deviceManagement
-     * @param DeviceManagementCompliancePolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementCompliancePolicyItemRequestBuilderDelet_121505de|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DeviceManagementCompliancePolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DeviceManagementCompliancePolicyItemRequestBuilderDelet_121505de $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -133,10 +133,10 @@ class DeviceManagementCompliancePolicyItemRequestBuilder extends BaseRequestBuil
 
     /**
      * List of all compliance policies
-     * @param DeviceManagementCompliancePolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementCompliancePolicyItemRequestBuilderGetRe_fba8768b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DeviceManagementCompliancePolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DeviceManagementCompliancePolicyItemRequestBuilderGetRe_fba8768b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -155,10 +155,10 @@ class DeviceManagementCompliancePolicyItemRequestBuilder extends BaseRequestBuil
     /**
      * Update the navigation property compliancePolicies in deviceManagement
      * @param DeviceManagementCompliancePolicy $body The request body
-     * @param DeviceManagementCompliancePolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementCompliancePolicyItemRequestBuilderPatch_2132633e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DeviceManagementCompliancePolicy $body, ?DeviceManagementCompliancePolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DeviceManagementCompliancePolicy $body, ?DeviceManagementCompliancePolicyItemRequestBuilderPatch_2132633e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

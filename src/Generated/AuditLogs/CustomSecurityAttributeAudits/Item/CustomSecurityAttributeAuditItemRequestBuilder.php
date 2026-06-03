@@ -22,7 +22,7 @@ class CustomSecurityAttributeAuditItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/auditLogs/customSecurityAttributeAudits/{customSecurityAttributeAudit%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/auditLogs/customSecurityAttributeAudits/{customSecurityAttributeAudit%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class CustomSecurityAttributeAuditItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property customSecurityAttributeAudits for auditLogs
-     * @param CustomSecurityAttributeAuditItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomSecurityAttributeAuditItemRequestBuilderDeleteReq_261360a4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CustomSecurityAttributeAuditItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CustomSecurityAttributeAuditItemRequestBuilderDeleteReq_261360a4 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class CustomSecurityAttributeAuditItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Represents a custom security attribute audit log.
-     * @param CustomSecurityAttributeAuditItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomSecurityAttributeAuditItemRequestBuilderGetReques_3dd48e34|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomSecurityAttributeAudit|null>
      * @throws Exception
     */
-    public function get(?CustomSecurityAttributeAuditItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CustomSecurityAttributeAuditItemRequestBuilderGetReques_3dd48e34 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class CustomSecurityAttributeAuditItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property customSecurityAttributeAudits in auditLogs
      * @param CustomSecurityAttributeAudit $body The request body
-     * @param CustomSecurityAttributeAuditItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomSecurityAttributeAuditItemRequestBuilderPatchRequ_ebfc0cc1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomSecurityAttributeAudit|null>
      * @throws Exception
     */
-    public function patch(CustomSecurityAttributeAudit $body, ?CustomSecurityAttributeAuditItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(CustomSecurityAttributeAudit $body, ?CustomSecurityAttributeAuditItemRequestBuilderPatchRequ_ebfc0cc1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class CustomSecurityAttributeAuditItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property customSecurityAttributeAudits for auditLogs
-     * @param CustomSecurityAttributeAuditItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomSecurityAttributeAuditItemRequestBuilderDeleteReq_261360a4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CustomSecurityAttributeAuditItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CustomSecurityAttributeAuditItemRequestBuilderDeleteReq_261360a4 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class CustomSecurityAttributeAuditItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Represents a custom security attribute audit log.
-     * @param CustomSecurityAttributeAuditItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomSecurityAttributeAuditItemRequestBuilderGetReques_3dd48e34|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CustomSecurityAttributeAuditItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CustomSecurityAttributeAuditItemRequestBuilderGetReques_3dd48e34 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class CustomSecurityAttributeAuditItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property customSecurityAttributeAudits in auditLogs
      * @param CustomSecurityAttributeAudit $body The request body
-     * @param CustomSecurityAttributeAuditItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomSecurityAttributeAuditItemRequestBuilderPatchRequ_ebfc0cc1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CustomSecurityAttributeAudit $body, ?CustomSecurityAttributeAuditItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(CustomSecurityAttributeAudit $body, ?CustomSecurityAttributeAuditItemRequestBuilderPatchRequ_ebfc0cc1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

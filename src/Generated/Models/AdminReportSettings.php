@@ -44,7 +44,20 @@ class AdminReportSettings extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'displayConcealedNames' => fn(ParseNode $n) => $o->setDisplayConcealedNames($n->getBooleanValue()),
+            'sharePoint' => fn(ParseNode $n) => $o->setSharePoint($n->getObjectValue([SharePointReportSettings::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the sharePoint property value. A container for SharePoint-specific report settings. Access the SharePoint API usage report metrics through the operations defined on the sharePointReportSettings resource type.
+     * @return SharePointReportSettings|null
+    */
+    public function getSharePoint(): ?SharePointReportSettings {
+        $val = $this->getBackingStore()->get('sharePoint');
+        if (is_null($val) || $val instanceof SharePointReportSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sharePoint'");
     }
 
     /**
@@ -54,6 +67,7 @@ class AdminReportSettings extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('displayConcealedNames', $this->getDisplayConcealedNames());
+        $writer->writeObjectValue('sharePoint', $this->getSharePoint());
     }
 
     /**
@@ -62,6 +76,14 @@ class AdminReportSettings extends Entity implements Parsable
     */
     public function setDisplayConcealedNames(?bool $value): void {
         $this->getBackingStore()->set('displayConcealedNames', $value);
+    }
+
+    /**
+     * Sets the sharePoint property value. A container for SharePoint-specific report settings. Access the SharePoint API usage report metrics through the operations defined on the sharePointReportSettings resource type.
+     * @param SharePointReportSettings|null $value Value to set for the sharePoint property.
+    */
+    public function setSharePoint(?SharePointReportSettings $value): void {
+        $this->getBackingStore()->set('sharePoint', $value);
     }
 
 }

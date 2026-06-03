@@ -30,7 +30,7 @@ class OrganizationalBrandingThemeItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/organization/{organization%2Did}/branding/themes/{organizationalBrandingTheme%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/organization/{organization%2Did}/branding/themes/{organizationalBrandingTheme%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,12 +40,12 @@ class OrganizationalBrandingThemeItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete an organizationalBrandingTheme object.
-     * @param OrganizationalBrandingThemeItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OrganizationalBrandingThemeItemRequestBuilderDeleteRequ_a2ec7057|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/organizationalbranding-delete-themes?view=graph-rest-beta Find more info here
     */
-    public function delete(?OrganizationalBrandingThemeItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?OrganizationalBrandingThemeItemRequestBuilderDeleteRequ_a2ec7057 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -55,12 +55,12 @@ class OrganizationalBrandingThemeItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of organizationalBrandingTheme object.
-     * @param OrganizationalBrandingThemeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OrganizationalBrandingThemeItemRequestBuilderGetRequest_e7f41ef8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OrganizationalBrandingTheme|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/organizationalbrandingtheme-get?view=graph-rest-beta Find more info here
     */
-    public function get(?OrganizationalBrandingThemeItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?OrganizationalBrandingThemeItemRequestBuilderGetRequest_e7f41ef8 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -71,12 +71,12 @@ class OrganizationalBrandingThemeItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of an organizationalBrandingTheme object.
      * @param OrganizationalBrandingTheme $body The request body
-     * @param OrganizationalBrandingThemeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OrganizationalBrandingThemeItemRequestBuilderPatchReque_6b5e414c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OrganizationalBrandingTheme|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/organizationalbrandingtheme-update?view=graph-rest-beta Find more info here
     */
-    public function patch(OrganizationalBrandingTheme $body, ?OrganizationalBrandingThemeItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(OrganizationalBrandingTheme $body, ?OrganizationalBrandingThemeItemRequestBuilderPatchReque_6b5e414c $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -86,10 +86,10 @@ class OrganizationalBrandingThemeItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete an organizationalBrandingTheme object.
-     * @param OrganizationalBrandingThemeItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OrganizationalBrandingThemeItemRequestBuilderDeleteRequ_a2ec7057|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?OrganizationalBrandingThemeItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?OrganizationalBrandingThemeItemRequestBuilderDeleteRequ_a2ec7057 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class OrganizationalBrandingThemeItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of organizationalBrandingTheme object.
-     * @param OrganizationalBrandingThemeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OrganizationalBrandingThemeItemRequestBuilderGetRequest_e7f41ef8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?OrganizationalBrandingThemeItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?OrganizationalBrandingThemeItemRequestBuilderGetRequest_e7f41ef8 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -126,10 +126,10 @@ class OrganizationalBrandingThemeItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of an organizationalBrandingTheme object.
      * @param OrganizationalBrandingTheme $body The request body
-     * @param OrganizationalBrandingThemeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OrganizationalBrandingThemeItemRequestBuilderPatchReque_6b5e414c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(OrganizationalBrandingTheme $body, ?OrganizationalBrandingThemeItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(OrganizationalBrandingTheme $body, ?OrganizationalBrandingThemeItemRequestBuilderPatchReque_6b5e414c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

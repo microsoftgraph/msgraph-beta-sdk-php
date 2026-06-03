@@ -23,7 +23,7 @@ class AccessPackageCatalogsWithUniqueNameRequestBuilder extends BaseRequestBuild
      * @param string|null $uniqueName Alternate key of accessPackageCatalog
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $uniqueName = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/entitlementManagement/accessPackageCatalogs(uniqueName=\'{uniqueName}\'){?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/entitlementManagement/accessPackageCatalogs(uniqueName=\'{uniqueName}\')');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['uniqueName'] = $uniqueName;
@@ -35,12 +35,12 @@ class AccessPackageCatalogsWithUniqueNameRequestBuilder extends BaseRequestBuild
 
     /**
      * Delete an accessPackageCatalog.
-     * @param AccessPackageCatalogsWithUniqueNameRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageCatalogsWithUniqueNameRequestBuilderDelete_7ee76839|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/accesspackagecatalog-delete?view=graph-rest-beta Find more info here
     */
-    public function delete(?AccessPackageCatalogsWithUniqueNameRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?AccessPackageCatalogsWithUniqueNameRequestBuilderDelete_7ee76839 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,12 +50,12 @@ class AccessPackageCatalogsWithUniqueNameRequestBuilder extends BaseRequestBuild
 
     /**
      * Retrieve the properties and relationships of an accessPackageCatalog object.
-     * @param AccessPackageCatalogsWithUniqueNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageCatalogsWithUniqueNameRequestBuilderGetReq_4e1d6d1e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageCatalog|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/accesspackagecatalog-get?view=graph-rest-beta Find more info here
     */
-    public function get(?AccessPackageCatalogsWithUniqueNameRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AccessPackageCatalogsWithUniqueNameRequestBuilderGetReq_4e1d6d1e $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -66,12 +66,12 @@ class AccessPackageCatalogsWithUniqueNameRequestBuilder extends BaseRequestBuild
     /**
      * Update an existing accessPackageCatalog object to change one or more of its properties, such as the display name or description.
      * @param AccessPackageCatalog $body The request body
-     * @param AccessPackageCatalogsWithUniqueNameRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageCatalogsWithUniqueNameRequestBuilderPatchR_a26a5106|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageCatalog|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/accesspackagecatalog-update?view=graph-rest-beta Find more info here
     */
-    public function patch(AccessPackageCatalog $body, ?AccessPackageCatalogsWithUniqueNameRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(AccessPackageCatalog $body, ?AccessPackageCatalogsWithUniqueNameRequestBuilderPatchR_a26a5106 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -81,10 +81,10 @@ class AccessPackageCatalogsWithUniqueNameRequestBuilder extends BaseRequestBuild
 
     /**
      * Delete an accessPackageCatalog.
-     * @param AccessPackageCatalogsWithUniqueNameRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageCatalogsWithUniqueNameRequestBuilderDelete_7ee76839|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?AccessPackageCatalogsWithUniqueNameRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?AccessPackageCatalogsWithUniqueNameRequestBuilderDelete_7ee76839 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -99,10 +99,10 @@ class AccessPackageCatalogsWithUniqueNameRequestBuilder extends BaseRequestBuild
 
     /**
      * Retrieve the properties and relationships of an accessPackageCatalog object.
-     * @param AccessPackageCatalogsWithUniqueNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageCatalogsWithUniqueNameRequestBuilderGetReq_4e1d6d1e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AccessPackageCatalogsWithUniqueNameRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AccessPackageCatalogsWithUniqueNameRequestBuilderGetReq_4e1d6d1e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -121,10 +121,10 @@ class AccessPackageCatalogsWithUniqueNameRequestBuilder extends BaseRequestBuild
     /**
      * Update an existing accessPackageCatalog object to change one or more of its properties, such as the display name or description.
      * @param AccessPackageCatalog $body The request body
-     * @param AccessPackageCatalogsWithUniqueNameRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageCatalogsWithUniqueNameRequestBuilderPatchR_a26a5106|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(AccessPackageCatalog $body, ?AccessPackageCatalogsWithUniqueNameRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(AccessPackageCatalog $body, ?AccessPackageCatalogsWithUniqueNameRequestBuilderPatchR_a26a5106 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

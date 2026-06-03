@@ -22,7 +22,7 @@ class WindowsInformationProtectionWipeActionItemRequestBuilder extends BaseReque
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceAppManagement/windowsInformationProtectionWipeActions/{windowsInformationProtectionWipeAction%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceAppManagement/windowsInformationProtectionWipeActions/{windowsInformationProtectionWipeAction%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class WindowsInformationProtectionWipeActionItemRequestBuilder extends BaseReque
 
     /**
      * Delete navigation property windowsInformationProtectionWipeActions for deviceAppManagement
-     * @param WindowsInformationProtectionWipeActionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsInformationProtectionWipeActionItemRequestBuilde_598e6ba8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?WindowsInformationProtectionWipeActionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?WindowsInformationProtectionWipeActionItemRequestBuilde_598e6ba8 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class WindowsInformationProtectionWipeActionItemRequestBuilder extends BaseReque
 
     /**
      * Windows information protection wipe actions.
-     * @param WindowsInformationProtectionWipeActionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsInformationProtectionWipeActionItemRequestBuilde_91b95c05|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsInformationProtectionWipeAction|null>
      * @throws Exception
     */
-    public function get(?WindowsInformationProtectionWipeActionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?WindowsInformationProtectionWipeActionItemRequestBuilde_91b95c05 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class WindowsInformationProtectionWipeActionItemRequestBuilder extends BaseReque
     /**
      * Update the navigation property windowsInformationProtectionWipeActions in deviceAppManagement
      * @param WindowsInformationProtectionWipeAction $body The request body
-     * @param WindowsInformationProtectionWipeActionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsInformationProtectionWipeActionItemRequestBuilde_28ce3aef|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsInformationProtectionWipeAction|null>
      * @throws Exception
     */
-    public function patch(WindowsInformationProtectionWipeAction $body, ?WindowsInformationProtectionWipeActionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(WindowsInformationProtectionWipeAction $body, ?WindowsInformationProtectionWipeActionItemRequestBuilde_28ce3aef $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class WindowsInformationProtectionWipeActionItemRequestBuilder extends BaseReque
 
     /**
      * Delete navigation property windowsInformationProtectionWipeActions for deviceAppManagement
-     * @param WindowsInformationProtectionWipeActionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsInformationProtectionWipeActionItemRequestBuilde_598e6ba8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?WindowsInformationProtectionWipeActionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?WindowsInformationProtectionWipeActionItemRequestBuilde_598e6ba8 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class WindowsInformationProtectionWipeActionItemRequestBuilder extends BaseReque
 
     /**
      * Windows information protection wipe actions.
-     * @param WindowsInformationProtectionWipeActionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsInformationProtectionWipeActionItemRequestBuilde_91b95c05|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?WindowsInformationProtectionWipeActionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?WindowsInformationProtectionWipeActionItemRequestBuilde_91b95c05 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class WindowsInformationProtectionWipeActionItemRequestBuilder extends BaseReque
     /**
      * Update the navigation property windowsInformationProtectionWipeActions in deviceAppManagement
      * @param WindowsInformationProtectionWipeAction $body The request body
-     * @param WindowsInformationProtectionWipeActionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsInformationProtectionWipeActionItemRequestBuilde_28ce3aef|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(WindowsInformationProtectionWipeAction $body, ?WindowsInformationProtectionWipeActionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(WindowsInformationProtectionWipeAction $body, ?WindowsInformationProtectionWipeActionItemRequestBuilde_28ce3aef $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

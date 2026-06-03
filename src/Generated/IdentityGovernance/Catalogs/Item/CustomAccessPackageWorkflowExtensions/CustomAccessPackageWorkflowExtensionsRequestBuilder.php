@@ -43,7 +43,7 @@ class CustomAccessPackageWorkflowExtensionsRequestBuilder extends BaseRequestBui
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/catalogs/{accessPackageCatalog%2Did}/customAccessPackageWorkflowExtensions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class CustomAccessPackageWorkflowExtensionsRequestBuilder extends BaseRequestBui
 
     /**
      * Get customAccessPackageWorkflowExtensions from identityGovernance
-     * @param CustomAccessPackageWorkflowExtensionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomAccessPackageWorkflowExtensionsRequestBuilderGetR_26b1571f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomAccessPackageWorkflowExtensionCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?CustomAccessPackageWorkflowExtensionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CustomAccessPackageWorkflowExtensionsRequestBuilderGetR_26b1571f $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class CustomAccessPackageWorkflowExtensionsRequestBuilder extends BaseRequestBui
     /**
      * Create new navigation property to customAccessPackageWorkflowExtensions for identityGovernance
      * @param CustomAccessPackageWorkflowExtension $body The request body
-     * @param CustomAccessPackageWorkflowExtensionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomAccessPackageWorkflowExtensionsRequestBuilderPost_86641293|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomAccessPackageWorkflowExtension|null>
      * @throws Exception
     */
-    public function post(CustomAccessPackageWorkflowExtension $body, ?CustomAccessPackageWorkflowExtensionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(CustomAccessPackageWorkflowExtension $body, ?CustomAccessPackageWorkflowExtensionsRequestBuilderPost_86641293 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class CustomAccessPackageWorkflowExtensionsRequestBuilder extends BaseRequestBui
 
     /**
      * Get customAccessPackageWorkflowExtensions from identityGovernance
-     * @param CustomAccessPackageWorkflowExtensionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomAccessPackageWorkflowExtensionsRequestBuilderGetR_26b1571f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CustomAccessPackageWorkflowExtensionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CustomAccessPackageWorkflowExtensionsRequestBuilderGetR_26b1571f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class CustomAccessPackageWorkflowExtensionsRequestBuilder extends BaseRequestBui
     /**
      * Create new navigation property to customAccessPackageWorkflowExtensions for identityGovernance
      * @param CustomAccessPackageWorkflowExtension $body The request body
-     * @param CustomAccessPackageWorkflowExtensionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomAccessPackageWorkflowExtensionsRequestBuilderPost_86641293|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(CustomAccessPackageWorkflowExtension $body, ?CustomAccessPackageWorkflowExtensionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(CustomAccessPackageWorkflowExtension $body, ?CustomAccessPackageWorkflowExtensionsRequestBuilderPost_86641293 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

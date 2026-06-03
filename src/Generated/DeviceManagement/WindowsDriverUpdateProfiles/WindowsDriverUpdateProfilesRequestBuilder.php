@@ -43,7 +43,7 @@ class WindowsDriverUpdateProfilesRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/windowsDriverUpdateProfiles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -68,11 +68,11 @@ class WindowsDriverUpdateProfilesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to windowsDriverUpdateProfiles for deviceManagement
      * @param WindowsDriverUpdateProfile $body The request body
-     * @param WindowsDriverUpdateProfilesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsDriverUpdateProfilesRequestBuilderPostRequestCon_998b4a37|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsDriverUpdateProfile|null>
      * @throws Exception
     */
-    public function post(WindowsDriverUpdateProfile $body, ?WindowsDriverUpdateProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(WindowsDriverUpdateProfile $body, ?WindowsDriverUpdateProfilesRequestBuilderPostRequestCon_998b4a37 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -104,10 +104,10 @@ class WindowsDriverUpdateProfilesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to windowsDriverUpdateProfiles for deviceManagement
      * @param WindowsDriverUpdateProfile $body The request body
-     * @param WindowsDriverUpdateProfilesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsDriverUpdateProfilesRequestBuilderPostRequestCon_998b4a37|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(WindowsDriverUpdateProfile $body, ?WindowsDriverUpdateProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(WindowsDriverUpdateProfile $body, ?WindowsDriverUpdateProfilesRequestBuilderPostRequestCon_998b4a37 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

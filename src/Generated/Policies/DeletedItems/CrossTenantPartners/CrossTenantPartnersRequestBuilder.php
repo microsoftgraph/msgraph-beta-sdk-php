@@ -8,7 +8,7 @@ use Microsoft\Graph\Beta\Generated\Models\CrossTenantAccessPolicyConfigurationPa
 use Microsoft\Graph\Beta\Generated\Models\CrossTenantAccessPolicyConfigurationPartnerCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Policies\DeletedItems\CrossTenantPartners\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Policies\DeletedItems\CrossTenantPartners\Item\CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Policies\DeletedItems\CrossTenantPartners\Item\CrossTenantAccessPolicyConfigurationPartnerTenantItemRe_81d401bf;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -29,12 +29,12 @@ class CrossTenantPartnersRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to manage the crossTenantPartners property of the microsoft.graph.policyDeletableRoot entity.
      * @param string $crossTenantAccessPolicyConfigurationPartnerTenantId The unique identifier of crossTenantAccessPolicyConfigurationPartner
-     * @return CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder
+     * @return CrossTenantAccessPolicyConfigurationPartnerTenantItemRe_81d401bf
     */
-    public function byCrossTenantAccessPolicyConfigurationPartnerTenantId(string $crossTenantAccessPolicyConfigurationPartnerTenantId): CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder {
+    public function byCrossTenantAccessPolicyConfigurationPartnerTenantId(string $crossTenantAccessPolicyConfigurationPartnerTenantId): CrossTenantAccessPolicyConfigurationPartnerTenantItemRe_81d401bf {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['crossTenantAccessPolicyConfigurationPartner%2DtenantId'] = $crossTenantAccessPolicyConfigurationPartnerTenantId;
-        return new CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new CrossTenantAccessPolicyConfigurationPartnerTenantItemRe_81d401bf($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -43,7 +43,7 @@ class CrossTenantPartnersRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/policies/deletedItems/crossTenantPartners{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {

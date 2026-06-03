@@ -22,7 +22,7 @@ class AssignmentFilterEvaluationStatusDetailsItemRequestBuilder extends BaseRequ
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/comanagedDevices/{managedDevice%2Did}/assignmentFilterEvaluationStatusDetails/{assignmentFilterEvaluationStatusDetails%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/comanagedDevices/{managedDevice%2Did}/assignmentFilterEvaluationStatusDetails/{assignmentFilterEvaluationStatusDetails%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class AssignmentFilterEvaluationStatusDetailsItemRequestBuilder extends BaseRequ
 
     /**
      * Delete navigation property assignmentFilterEvaluationStatusDetails for deviceManagement
-     * @param AssignmentFilterEvaluationStatusDetailsItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AssignmentFilterEvaluationStatusDetailsItemRequestBuild_b4b9d68c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?AssignmentFilterEvaluationStatusDetailsItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?AssignmentFilterEvaluationStatusDetailsItemRequestBuild_b4b9d68c $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class AssignmentFilterEvaluationStatusDetailsItemRequestBuilder extends BaseRequ
 
     /**
      * Managed device mobile app configuration states for this device.
-     * @param AssignmentFilterEvaluationStatusDetailsItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AssignmentFilterEvaluationStatusDetailsItemRequestBuild_572e79b4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AssignmentFilterEvaluationStatusDetails|null>
      * @throws Exception
     */
-    public function get(?AssignmentFilterEvaluationStatusDetailsItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AssignmentFilterEvaluationStatusDetailsItemRequestBuild_572e79b4 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class AssignmentFilterEvaluationStatusDetailsItemRequestBuilder extends BaseRequ
     /**
      * Update the navigation property assignmentFilterEvaluationStatusDetails in deviceManagement
      * @param AssignmentFilterEvaluationStatusDetails $body The request body
-     * @param AssignmentFilterEvaluationStatusDetailsItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AssignmentFilterEvaluationStatusDetailsItemRequestBuild_560b2557|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AssignmentFilterEvaluationStatusDetails|null>
      * @throws Exception
     */
-    public function patch(AssignmentFilterEvaluationStatusDetails $body, ?AssignmentFilterEvaluationStatusDetailsItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(AssignmentFilterEvaluationStatusDetails $body, ?AssignmentFilterEvaluationStatusDetailsItemRequestBuild_560b2557 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class AssignmentFilterEvaluationStatusDetailsItemRequestBuilder extends BaseRequ
 
     /**
      * Delete navigation property assignmentFilterEvaluationStatusDetails for deviceManagement
-     * @param AssignmentFilterEvaluationStatusDetailsItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AssignmentFilterEvaluationStatusDetailsItemRequestBuild_b4b9d68c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?AssignmentFilterEvaluationStatusDetailsItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?AssignmentFilterEvaluationStatusDetailsItemRequestBuild_b4b9d68c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class AssignmentFilterEvaluationStatusDetailsItemRequestBuilder extends BaseRequ
 
     /**
      * Managed device mobile app configuration states for this device.
-     * @param AssignmentFilterEvaluationStatusDetailsItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AssignmentFilterEvaluationStatusDetailsItemRequestBuild_572e79b4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AssignmentFilterEvaluationStatusDetailsItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AssignmentFilterEvaluationStatusDetailsItemRequestBuild_572e79b4 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class AssignmentFilterEvaluationStatusDetailsItemRequestBuilder extends BaseRequ
     /**
      * Update the navigation property assignmentFilterEvaluationStatusDetails in deviceManagement
      * @param AssignmentFilterEvaluationStatusDetails $body The request body
-     * @param AssignmentFilterEvaluationStatusDetailsItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AssignmentFilterEvaluationStatusDetailsItemRequestBuild_560b2557|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(AssignmentFilterEvaluationStatusDetails $body, ?AssignmentFilterEvaluationStatusDetailsItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(AssignmentFilterEvaluationStatusDetails $body, ?AssignmentFilterEvaluationStatusDetailsItemRequestBuild_560b2557 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

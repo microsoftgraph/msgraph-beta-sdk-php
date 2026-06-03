@@ -54,7 +54,7 @@ class AccessPackageAssignmentResourceRoleItemRequestBuilder extends BaseRequestB
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/entitlementManagement/accessPackageAssignments/{accessPackageAssignment%2Did}/accessPackageAssignmentResourceRoles/{accessPackageAssignmentResourceRole%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/entitlementManagement/accessPackageAssignments/{accessPackageAssignment%2Did}/accessPackageAssignmentResourceRoles/{accessPackageAssignmentResourceRole%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -64,11 +64,11 @@ class AccessPackageAssignmentResourceRoleItemRequestBuilder extends BaseRequestB
 
     /**
      * Delete navigation property accessPackageAssignmentResourceRoles for identityGovernance
-     * @param AccessPackageAssignmentResourceRoleItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageAssignmentResourceRoleItemRequestBuilderDe_a9973e12|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?AccessPackageAssignmentResourceRoleItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?AccessPackageAssignmentResourceRoleItemRequestBuilderDe_a9973e12 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -78,11 +78,11 @@ class AccessPackageAssignmentResourceRoleItemRequestBuilder extends BaseRequestB
 
     /**
      * The resource roles delivered to the target user for this assignment. Read-only. Nullable.
-     * @param AccessPackageAssignmentResourceRoleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageAssignmentResourceRoleItemRequestBuilderGe_7e00acbf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageAssignmentResourceRole|null>
      * @throws Exception
     */
-    public function get(?AccessPackageAssignmentResourceRoleItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AccessPackageAssignmentResourceRoleItemRequestBuilderGe_7e00acbf $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -93,11 +93,11 @@ class AccessPackageAssignmentResourceRoleItemRequestBuilder extends BaseRequestB
     /**
      * Update the navigation property accessPackageAssignmentResourceRoles in identityGovernance
      * @param AccessPackageAssignmentResourceRole $body The request body
-     * @param AccessPackageAssignmentResourceRoleItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageAssignmentResourceRoleItemRequestBuilderPa_5413de21|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageAssignmentResourceRole|null>
      * @throws Exception
     */
-    public function patch(AccessPackageAssignmentResourceRole $body, ?AccessPackageAssignmentResourceRoleItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(AccessPackageAssignmentResourceRole $body, ?AccessPackageAssignmentResourceRoleItemRequestBuilderPa_5413de21 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -107,10 +107,10 @@ class AccessPackageAssignmentResourceRoleItemRequestBuilder extends BaseRequestB
 
     /**
      * Delete navigation property accessPackageAssignmentResourceRoles for identityGovernance
-     * @param AccessPackageAssignmentResourceRoleItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageAssignmentResourceRoleItemRequestBuilderDe_a9973e12|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?AccessPackageAssignmentResourceRoleItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?AccessPackageAssignmentResourceRoleItemRequestBuilderDe_a9973e12 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -125,10 +125,10 @@ class AccessPackageAssignmentResourceRoleItemRequestBuilder extends BaseRequestB
 
     /**
      * The resource roles delivered to the target user for this assignment. Read-only. Nullable.
-     * @param AccessPackageAssignmentResourceRoleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageAssignmentResourceRoleItemRequestBuilderGe_7e00acbf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AccessPackageAssignmentResourceRoleItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AccessPackageAssignmentResourceRoleItemRequestBuilderGe_7e00acbf $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -147,10 +147,10 @@ class AccessPackageAssignmentResourceRoleItemRequestBuilder extends BaseRequestB
     /**
      * Update the navigation property accessPackageAssignmentResourceRoles in identityGovernance
      * @param AccessPackageAssignmentResourceRole $body The request body
-     * @param AccessPackageAssignmentResourceRoleItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageAssignmentResourceRoleItemRequestBuilderPa_5413de21|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(AccessPackageAssignmentResourceRole $body, ?AccessPackageAssignmentResourceRoleItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(AccessPackageAssignmentResourceRole $body, ?AccessPackageAssignmentResourceRoleItemRequestBuilderPa_5413de21 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

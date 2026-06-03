@@ -22,7 +22,7 @@ class WindowsFeatureUpdateProfileAssignmentItemRequestBuilder extends BaseReques
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/windowsFeatureUpdateProfiles/{windowsFeatureUpdateProfile%2Did}/assignments/{windowsFeatureUpdateProfileAssignment%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/windowsFeatureUpdateProfiles/{windowsFeatureUpdateProfile%2Did}/assignments/{windowsFeatureUpdateProfileAssignment%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class WindowsFeatureUpdateProfileAssignmentItemRequestBuilder extends BaseReques
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param WindowsFeatureUpdateProfileAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsFeatureUpdateProfileAssignmentItemRequestBuilder_0c097272|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?WindowsFeatureUpdateProfileAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?WindowsFeatureUpdateProfileAssignmentItemRequestBuilder_0c097272 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class WindowsFeatureUpdateProfileAssignmentItemRequestBuilder extends BaseReques
 
     /**
      * The list of group assignments of the profile.
-     * @param WindowsFeatureUpdateProfileAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsFeatureUpdateProfileAssignmentItemRequestBuilder_1c06c7bc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsFeatureUpdateProfileAssignment|null>
      * @throws Exception
     */
-    public function get(?WindowsFeatureUpdateProfileAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?WindowsFeatureUpdateProfileAssignmentItemRequestBuilder_1c06c7bc $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class WindowsFeatureUpdateProfileAssignmentItemRequestBuilder extends BaseReques
     /**
      * Update the navigation property assignments in deviceManagement
      * @param WindowsFeatureUpdateProfileAssignment $body The request body
-     * @param WindowsFeatureUpdateProfileAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsFeatureUpdateProfileAssignmentItemRequestBuilder_bd64bd48|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsFeatureUpdateProfileAssignment|null>
      * @throws Exception
     */
-    public function patch(WindowsFeatureUpdateProfileAssignment $body, ?WindowsFeatureUpdateProfileAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(WindowsFeatureUpdateProfileAssignment $body, ?WindowsFeatureUpdateProfileAssignmentItemRequestBuilder_bd64bd48 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class WindowsFeatureUpdateProfileAssignmentItemRequestBuilder extends BaseReques
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param WindowsFeatureUpdateProfileAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsFeatureUpdateProfileAssignmentItemRequestBuilder_0c097272|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?WindowsFeatureUpdateProfileAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?WindowsFeatureUpdateProfileAssignmentItemRequestBuilder_0c097272 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class WindowsFeatureUpdateProfileAssignmentItemRequestBuilder extends BaseReques
 
     /**
      * The list of group assignments of the profile.
-     * @param WindowsFeatureUpdateProfileAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsFeatureUpdateProfileAssignmentItemRequestBuilder_1c06c7bc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?WindowsFeatureUpdateProfileAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?WindowsFeatureUpdateProfileAssignmentItemRequestBuilder_1c06c7bc $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class WindowsFeatureUpdateProfileAssignmentItemRequestBuilder extends BaseReques
     /**
      * Update the navigation property assignments in deviceManagement
      * @param WindowsFeatureUpdateProfileAssignment $body The request body
-     * @param WindowsFeatureUpdateProfileAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsFeatureUpdateProfileAssignmentItemRequestBuilder_bd64bd48|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(WindowsFeatureUpdateProfileAssignment $body, ?WindowsFeatureUpdateProfileAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(WindowsFeatureUpdateProfileAssignment $body, ?WindowsFeatureUpdateProfileAssignmentItemRequestBuilder_bd64bd48 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

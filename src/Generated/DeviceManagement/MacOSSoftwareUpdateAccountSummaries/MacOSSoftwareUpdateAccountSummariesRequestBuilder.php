@@ -43,7 +43,7 @@ class MacOSSoftwareUpdateAccountSummariesRequestBuilder extends BaseRequestBuild
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/macOSSoftwareUpdateAccountSummaries{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class MacOSSoftwareUpdateAccountSummariesRequestBuilder extends BaseRequestBuild
 
     /**
      * The MacOS software update account summaries for this account.
-     * @param MacOSSoftwareUpdateAccountSummariesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MacOSSoftwareUpdateAccountSummariesRequestBuilderGetReq_2a2488da|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MacOSSoftwareUpdateAccountSummaryCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?MacOSSoftwareUpdateAccountSummariesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MacOSSoftwareUpdateAccountSummariesRequestBuilderGetReq_2a2488da $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class MacOSSoftwareUpdateAccountSummariesRequestBuilder extends BaseRequestBuild
     /**
      * Create new navigation property to macOSSoftwareUpdateAccountSummaries for deviceManagement
      * @param MacOSSoftwareUpdateAccountSummary $body The request body
-     * @param MacOSSoftwareUpdateAccountSummariesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MacOSSoftwareUpdateAccountSummariesRequestBuilderPostRe_a5348cd0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MacOSSoftwareUpdateAccountSummary|null>
      * @throws Exception
     */
-    public function post(MacOSSoftwareUpdateAccountSummary $body, ?MacOSSoftwareUpdateAccountSummariesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(MacOSSoftwareUpdateAccountSummary $body, ?MacOSSoftwareUpdateAccountSummariesRequestBuilderPostRe_a5348cd0 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class MacOSSoftwareUpdateAccountSummariesRequestBuilder extends BaseRequestBuild
 
     /**
      * The MacOS software update account summaries for this account.
-     * @param MacOSSoftwareUpdateAccountSummariesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MacOSSoftwareUpdateAccountSummariesRequestBuilderGetReq_2a2488da|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MacOSSoftwareUpdateAccountSummariesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MacOSSoftwareUpdateAccountSummariesRequestBuilderGetReq_2a2488da $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class MacOSSoftwareUpdateAccountSummariesRequestBuilder extends BaseRequestBuild
     /**
      * Create new navigation property to macOSSoftwareUpdateAccountSummaries for deviceManagement
      * @param MacOSSoftwareUpdateAccountSummary $body The request body
-     * @param MacOSSoftwareUpdateAccountSummariesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MacOSSoftwareUpdateAccountSummariesRequestBuilderPostRe_a5348cd0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(MacOSSoftwareUpdateAccountSummary $body, ?MacOSSoftwareUpdateAccountSummariesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(MacOSSoftwareUpdateAccountSummary $body, ?MacOSSoftwareUpdateAccountSummariesRequestBuilderPostRe_a5348cd0 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

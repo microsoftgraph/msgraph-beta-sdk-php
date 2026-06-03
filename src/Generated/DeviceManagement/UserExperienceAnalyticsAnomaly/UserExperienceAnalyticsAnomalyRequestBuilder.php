@@ -43,7 +43,7 @@ class UserExperienceAnalyticsAnomalyRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/userExperienceAnalyticsAnomaly{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class UserExperienceAnalyticsAnomalyRequestBuilder extends BaseRequestBuilder
 
     /**
      * The user experience analytics anomaly entity contains anomaly details.
-     * @param UserExperienceAnalyticsAnomalyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsAnomalyRequestBuilderGetRequestC_5ce29ad4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsAnomalyCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?UserExperienceAnalyticsAnomalyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserExperienceAnalyticsAnomalyRequestBuilderGetRequestC_5ce29ad4 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class UserExperienceAnalyticsAnomalyRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to userExperienceAnalyticsAnomaly for deviceManagement
      * @param UserExperienceAnalyticsAnomaly $body The request body
-     * @param UserExperienceAnalyticsAnomalyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsAnomalyRequestBuilderPostRequest_28615b81|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsAnomaly|null>
      * @throws Exception
     */
-    public function post(UserExperienceAnalyticsAnomaly $body, ?UserExperienceAnalyticsAnomalyRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(UserExperienceAnalyticsAnomaly $body, ?UserExperienceAnalyticsAnomalyRequestBuilderPostRequest_28615b81 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class UserExperienceAnalyticsAnomalyRequestBuilder extends BaseRequestBuilder
 
     /**
      * The user experience analytics anomaly entity contains anomaly details.
-     * @param UserExperienceAnalyticsAnomalyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsAnomalyRequestBuilderGetRequestC_5ce29ad4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UserExperienceAnalyticsAnomalyRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UserExperienceAnalyticsAnomalyRequestBuilderGetRequestC_5ce29ad4 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class UserExperienceAnalyticsAnomalyRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to userExperienceAnalyticsAnomaly for deviceManagement
      * @param UserExperienceAnalyticsAnomaly $body The request body
-     * @param UserExperienceAnalyticsAnomalyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsAnomalyRequestBuilderPostRequest_28615b81|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(UserExperienceAnalyticsAnomaly $body, ?UserExperienceAnalyticsAnomalyRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(UserExperienceAnalyticsAnomaly $body, ?UserExperienceAnalyticsAnomalyRequestBuilderPostRequest_28615b81 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

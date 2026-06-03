@@ -46,7 +46,7 @@ class OperationApprovalRequestItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/operationApprovalRequests/{operationApprovalRequest%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/operationApprovalRequests/{operationApprovalRequest%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -56,11 +56,11 @@ class OperationApprovalRequestItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property operationApprovalRequests for deviceManagement
-     * @param OperationApprovalRequestItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OperationApprovalRequestItemRequestBuilderDeleteRequest_8a4974d7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?OperationApprovalRequestItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?OperationApprovalRequestItemRequestBuilderDeleteRequest_8a4974d7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -70,11 +70,11 @@ class OperationApprovalRequestItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * The Operation Approval Requests
-     * @param OperationApprovalRequestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OperationApprovalRequestItemRequestBuilderGetRequestCon_2cf06d57|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OperationApprovalRequest|null>
      * @throws Exception
     */
-    public function get(?OperationApprovalRequestItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?OperationApprovalRequestItemRequestBuilderGetRequestCon_2cf06d57 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -85,11 +85,11 @@ class OperationApprovalRequestItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property operationApprovalRequests in deviceManagement
      * @param OperationApprovalRequest $body The request body
-     * @param OperationApprovalRequestItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OperationApprovalRequestItemRequestBuilderPatchRequestC_4651a5d8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OperationApprovalRequest|null>
      * @throws Exception
     */
-    public function patch(OperationApprovalRequest $body, ?OperationApprovalRequestItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(OperationApprovalRequest $body, ?OperationApprovalRequestItemRequestBuilderPatchRequestC_4651a5d8 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -99,10 +99,10 @@ class OperationApprovalRequestItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property operationApprovalRequests for deviceManagement
-     * @param OperationApprovalRequestItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OperationApprovalRequestItemRequestBuilderDeleteRequest_8a4974d7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?OperationApprovalRequestItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?OperationApprovalRequestItemRequestBuilderDeleteRequest_8a4974d7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -117,10 +117,10 @@ class OperationApprovalRequestItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * The Operation Approval Requests
-     * @param OperationApprovalRequestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OperationApprovalRequestItemRequestBuilderGetRequestCon_2cf06d57|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?OperationApprovalRequestItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?OperationApprovalRequestItemRequestBuilderGetRequestCon_2cf06d57 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -139,10 +139,10 @@ class OperationApprovalRequestItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property operationApprovalRequests in deviceManagement
      * @param OperationApprovalRequest $body The request body
-     * @param OperationApprovalRequestItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OperationApprovalRequestItemRequestBuilderPatchRequestC_4651a5d8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(OperationApprovalRequest $body, ?OperationApprovalRequestItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(OperationApprovalRequest $body, ?OperationApprovalRequestItemRequestBuilderPatchRequestC_4651a5d8 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

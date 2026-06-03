@@ -24,7 +24,7 @@ class ScheduledPermissionsRequestsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/permissionsManagement/scheduledPermissionsRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -43,11 +43,11 @@ class ScheduledPermissionsRequestsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Represents a permissions request that Permissions Management uses to manage permissions for an identity on resources in the authorization system. This request can be granted, rejected or canceled by identities in Permissions Management.
-     * @param ScheduledPermissionsRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ScheduledPermissionsRequestsRequestBuilderGetRequestCon_6dbe74c4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ScheduledPermissionsRequestCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?ScheduledPermissionsRequestsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ScheduledPermissionsRequestsRequestBuilderGetRequestCon_6dbe74c4 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -58,12 +58,12 @@ class ScheduledPermissionsRequestsRequestBuilder extends BaseRequestBuilder
     /**
      * Create a new scheduledPermissionsRequest object.
      * @param ScheduledPermissionsRequest $body The request body
-     * @param ScheduledPermissionsRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ScheduledPermissionsRequestsRequestBuilderPostRequestCo_a13aa876|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ScheduledPermissionsRequest|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/permissionsmanagement-post-scheduledpermissionsrequests?view=graph-rest-beta Find more info here
     */
-    public function post(ScheduledPermissionsRequest $body, ?ScheduledPermissionsRequestsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ScheduledPermissionsRequest $body, ?ScheduledPermissionsRequestsRequestBuilderPostRequestCo_a13aa876 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -73,10 +73,10 @@ class ScheduledPermissionsRequestsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Represents a permissions request that Permissions Management uses to manage permissions for an identity on resources in the authorization system. This request can be granted, rejected or canceled by identities in Permissions Management.
-     * @param ScheduledPermissionsRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ScheduledPermissionsRequestsRequestBuilderGetRequestCon_6dbe74c4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ScheduledPermissionsRequestsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ScheduledPermissionsRequestsRequestBuilderGetRequestCon_6dbe74c4 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -95,10 +95,10 @@ class ScheduledPermissionsRequestsRequestBuilder extends BaseRequestBuilder
     /**
      * Create a new scheduledPermissionsRequest object.
      * @param ScheduledPermissionsRequest $body The request body
-     * @param ScheduledPermissionsRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ScheduledPermissionsRequestsRequestBuilderPostRequestCo_a13aa876|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ScheduledPermissionsRequest $body, ?ScheduledPermissionsRequestsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ScheduledPermissionsRequest $body, ?ScheduledPermissionsRequestsRequestBuilderPostRequestCo_a13aa876 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

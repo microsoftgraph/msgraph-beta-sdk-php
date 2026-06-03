@@ -38,7 +38,7 @@ class GroupPolicyDefinitionValueItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/groupPolicyConfigurations/{groupPolicyConfiguration%2Did}/definitionValues/{groupPolicyDefinitionValue%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/groupPolicyConfigurations/{groupPolicyConfiguration%2Did}/definitionValues/{groupPolicyDefinitionValue%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -48,11 +48,11 @@ class GroupPolicyDefinitionValueItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property definitionValues for deviceManagement
-     * @param GroupPolicyDefinitionValueItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyDefinitionValueItemRequestBuilderDeleteReque_df8d01d5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?GroupPolicyDefinitionValueItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?GroupPolicyDefinitionValueItemRequestBuilderDeleteReque_df8d01d5 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class GroupPolicyDefinitionValueItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * The list of enabled or disabled group policy definition values for the configuration.
-     * @param GroupPolicyDefinitionValueItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyDefinitionValueItemRequestBuilderGetRequestC_0a433810|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GroupPolicyDefinitionValue|null>
      * @throws Exception
     */
-    public function get(?GroupPolicyDefinitionValueItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GroupPolicyDefinitionValueItemRequestBuilderGetRequestC_0a433810 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,11 +77,11 @@ class GroupPolicyDefinitionValueItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property definitionValues in deviceManagement
      * @param GroupPolicyDefinitionValue $body The request body
-     * @param GroupPolicyDefinitionValueItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyDefinitionValueItemRequestBuilderPatchReques_7c9516ef|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GroupPolicyDefinitionValue|null>
      * @throws Exception
     */
-    public function patch(GroupPolicyDefinitionValue $body, ?GroupPolicyDefinitionValueItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(GroupPolicyDefinitionValue $body, ?GroupPolicyDefinitionValueItemRequestBuilderPatchReques_7c9516ef $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -91,10 +91,10 @@ class GroupPolicyDefinitionValueItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property definitionValues for deviceManagement
-     * @param GroupPolicyDefinitionValueItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyDefinitionValueItemRequestBuilderDeleteReque_df8d01d5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?GroupPolicyDefinitionValueItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?GroupPolicyDefinitionValueItemRequestBuilderDeleteReque_df8d01d5 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -109,10 +109,10 @@ class GroupPolicyDefinitionValueItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * The list of enabled or disabled group policy definition values for the configuration.
-     * @param GroupPolicyDefinitionValueItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyDefinitionValueItemRequestBuilderGetRequestC_0a433810|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GroupPolicyDefinitionValueItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GroupPolicyDefinitionValueItemRequestBuilderGetRequestC_0a433810 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -131,10 +131,10 @@ class GroupPolicyDefinitionValueItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property definitionValues in deviceManagement
      * @param GroupPolicyDefinitionValue $body The request body
-     * @param GroupPolicyDefinitionValueItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyDefinitionValueItemRequestBuilderPatchReques_7c9516ef|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(GroupPolicyDefinitionValue $body, ?GroupPolicyDefinitionValueItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(GroupPolicyDefinitionValue $body, ?GroupPolicyDefinitionValueItemRequestBuilderPatchReques_7c9516ef $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

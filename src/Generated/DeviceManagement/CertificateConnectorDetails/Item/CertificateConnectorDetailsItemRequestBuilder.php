@@ -38,7 +38,7 @@ class CertificateConnectorDetailsItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/certificateConnectorDetails/{certificateConnectorDetails%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/certificateConnectorDetails/{certificateConnectorDetails%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -48,11 +48,11 @@ class CertificateConnectorDetailsItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property certificateConnectorDetails for deviceManagement
-     * @param CertificateConnectorDetailsItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CertificateConnectorDetailsItemRequestBuilderDeleteRequ_c20cb653|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CertificateConnectorDetailsItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CertificateConnectorDetailsItemRequestBuilderDeleteRequ_c20cb653 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class CertificateConnectorDetailsItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Collection of certificate connector details, each associated with a corresponding Intune Certificate Connector.
-     * @param CertificateConnectorDetailsItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CertificateConnectorDetailsItemRequestBuilderGetRequest_4ccae039|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CertificateConnectorDetails|null>
      * @throws Exception
     */
-    public function get(?CertificateConnectorDetailsItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CertificateConnectorDetailsItemRequestBuilderGetRequest_4ccae039 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,11 +77,11 @@ class CertificateConnectorDetailsItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property certificateConnectorDetails in deviceManagement
      * @param CertificateConnectorDetails $body The request body
-     * @param CertificateConnectorDetailsItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CertificateConnectorDetailsItemRequestBuilderPatchReque_60d9b819|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CertificateConnectorDetails|null>
      * @throws Exception
     */
-    public function patch(CertificateConnectorDetails $body, ?CertificateConnectorDetailsItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(CertificateConnectorDetails $body, ?CertificateConnectorDetailsItemRequestBuilderPatchReque_60d9b819 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -91,10 +91,10 @@ class CertificateConnectorDetailsItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property certificateConnectorDetails for deviceManagement
-     * @param CertificateConnectorDetailsItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CertificateConnectorDetailsItemRequestBuilderDeleteRequ_c20cb653|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CertificateConnectorDetailsItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CertificateConnectorDetailsItemRequestBuilderDeleteRequ_c20cb653 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -109,10 +109,10 @@ class CertificateConnectorDetailsItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Collection of certificate connector details, each associated with a corresponding Intune Certificate Connector.
-     * @param CertificateConnectorDetailsItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CertificateConnectorDetailsItemRequestBuilderGetRequest_4ccae039|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CertificateConnectorDetailsItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CertificateConnectorDetailsItemRequestBuilderGetRequest_4ccae039 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -131,10 +131,10 @@ class CertificateConnectorDetailsItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property certificateConnectorDetails in deviceManagement
      * @param CertificateConnectorDetails $body The request body
-     * @param CertificateConnectorDetailsItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CertificateConnectorDetailsItemRequestBuilderPatchReque_60d9b819|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CertificateConnectorDetails $body, ?CertificateConnectorDetailsItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(CertificateConnectorDetails $body, ?CertificateConnectorDetailsItemRequestBuilderPatchReque_60d9b819 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -13,7 +13,7 @@ use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Items\Item\CreateLink
 use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Items\Item\DocumentSetVersions\DocumentSetVersionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Items\Item\DriveItem\DriveItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Items\Item\Fields\FieldsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Items\Item\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval\GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Items\Item\GetActivitiesByIntervalWithStartDateTimeWithEndDateTime_58a4aa2a\GetActivitiesByIntervalWithStartDateTimeWithEndDateTime_be68aff7;
 use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Items\Item\LastModifiedByUser\LastModifiedByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Items\Item\Permissions\PermissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Shares\Item\EscapedList\Items\Item\Versions\VersionsRequestBuilder;
@@ -103,7 +103,7 @@ class ListItemItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/shares/{sharedDriveItem%2Did}/list/items/{listItem%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/shares/{sharedDriveItem%2Did}/list/items/{listItem%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -144,10 +144,10 @@ class ListItemItemRequestBuilder extends BaseRequestBuilder
      * @param string $endDateTime Usage: endDateTime='{endDateTime}'
      * @param string $interval Usage: interval='{interval}'
      * @param string $startDateTime Usage: startDateTime='{startDateTime}'
-     * @return GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder
+     * @return GetActivitiesByIntervalWithStartDateTimeWithEndDateTime_be68aff7
     */
-    public function getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(string $endDateTime, string $interval, string $startDateTime): GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder {
-        return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder($this->pathParameters, $this->requestAdapter, $endDateTime, $interval, $startDateTime);
+    public function getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(string $endDateTime, string $interval, string $startDateTime): GetActivitiesByIntervalWithStartDateTimeWithEndDateTime_be68aff7 {
+        return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTime_be68aff7($this->pathParameters, $this->requestAdapter, $endDateTime, $interval, $startDateTime);
     }
 
     /**

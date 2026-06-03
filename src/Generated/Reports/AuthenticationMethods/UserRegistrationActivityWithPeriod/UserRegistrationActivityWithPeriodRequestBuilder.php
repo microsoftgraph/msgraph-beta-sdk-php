@@ -34,12 +34,12 @@ class UserRegistrationActivityWithPeriodRequestBuilder extends BaseRequestBuilde
 
     /**
      * Get a list of the authentication methods and their corresponding number of successful and unsuccessful  registration and reset activities as defined in the userRegistrationActivity object.
-     * @param UserRegistrationActivityWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserRegistrationActivityWithPeriodRequestBuilderGetRequ_e7a53512|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserRegistrationActivityWithPeriodGetResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/authenticationmethodsroot-userregistrationactivity?view=graph-rest-beta Find more info here
     */
-    public function get(?UserRegistrationActivityWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserRegistrationActivityWithPeriodRequestBuilderGetRequ_e7a53512 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,10 +49,10 @@ class UserRegistrationActivityWithPeriodRequestBuilder extends BaseRequestBuilde
 
     /**
      * Get a list of the authentication methods and their corresponding number of successful and unsuccessful  registration and reset activities as defined in the userRegistrationActivity object.
-     * @param UserRegistrationActivityWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserRegistrationActivityWithPeriodRequestBuilderGetRequ_e7a53512|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UserRegistrationActivityWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UserRegistrationActivityWithPeriodRequestBuilderGetRequ_e7a53512 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

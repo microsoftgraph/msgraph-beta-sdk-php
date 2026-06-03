@@ -31,11 +31,11 @@ class GetAllCloudCertificationAuthorityLeafCertificatesRequestBuilder extends Ba
 
     /**
      * Invoke action getAllCloudCertificationAuthorityLeafCertificates
-     * @param GetAllCloudCertificationAuthorityLeafCertificatesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetAllCloudCertificationAuthorityLeafCertificatesReques_a53ef1d8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetAllCloudCertificationAuthorityLeafCertificatesPostResponse|null>
      * @throws Exception
     */
-    public function post(?GetAllCloudCertificationAuthorityLeafCertificatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?GetAllCloudCertificationAuthorityLeafCertificatesReques_a53ef1d8 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,10 +45,10 @@ class GetAllCloudCertificationAuthorityLeafCertificatesRequestBuilder extends Ba
 
     /**
      * Invoke action getAllCloudCertificationAuthorityLeafCertificates
-     * @param GetAllCloudCertificationAuthorityLeafCertificatesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetAllCloudCertificationAuthorityLeafCertificatesReques_a53ef1d8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?GetAllCloudCertificationAuthorityLeafCertificatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?GetAllCloudCertificationAuthorityLeafCertificatesReques_a53ef1d8 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

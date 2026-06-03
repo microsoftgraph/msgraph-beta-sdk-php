@@ -22,7 +22,7 @@ class MobileAppCatalogPackageItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceAppManagement/mobileAppCatalogPackages/{mobileAppCatalogPackage%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceAppManagement/mobileAppCatalogPackages/{mobileAppCatalogPackage%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class MobileAppCatalogPackageItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property mobileAppCatalogPackages for deviceAppManagement
-     * @param MobileAppCatalogPackageItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppCatalogPackageItemRequestBuilderDeleteRequestC_b774b448|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?MobileAppCatalogPackageItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?MobileAppCatalogPackageItemRequestBuilderDeleteRequestC_b774b448 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class MobileAppCatalogPackageItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property mobileAppCatalogPackages in deviceAppManagement
      * @param MobileAppCatalogPackage $body The request body
-     * @param MobileAppCatalogPackageItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppCatalogPackageItemRequestBuilderPatchRequestCo_9c7fb1b9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MobileAppCatalogPackage|null>
      * @throws Exception
     */
-    public function patch(MobileAppCatalogPackage $body, ?MobileAppCatalogPackageItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(MobileAppCatalogPackage $body, ?MobileAppCatalogPackageItemRequestBuilderPatchRequestCo_9c7fb1b9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class MobileAppCatalogPackageItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property mobileAppCatalogPackages for deviceAppManagement
-     * @param MobileAppCatalogPackageItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppCatalogPackageItemRequestBuilderDeleteRequestC_b774b448|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?MobileAppCatalogPackageItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?MobileAppCatalogPackageItemRequestBuilderDeleteRequestC_b774b448 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class MobileAppCatalogPackageItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property mobileAppCatalogPackages in deviceAppManagement
      * @param MobileAppCatalogPackage $body The request body
-     * @param MobileAppCatalogPackageItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppCatalogPackageItemRequestBuilderPatchRequestCo_9c7fb1b9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(MobileAppCatalogPackage $body, ?MobileAppCatalogPackageItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(MobileAppCatalogPackage $body, ?MobileAppCatalogPackageItemRequestBuilderPatchRequestCo_9c7fb1b9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

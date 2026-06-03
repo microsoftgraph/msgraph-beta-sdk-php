@@ -32,11 +32,11 @@ class RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilder extends BaseReque
 
     /**
      * Invoke function retrieveLatestUpgradeDefaultBaselinePolicy
-     * @param RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilde_3b0687be|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementConfigurationPolicy|null>
      * @throws Exception
     */
-    public function get(?RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilde_3b0687be $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilder extends BaseReque
 
     /**
      * Invoke function retrieveLatestUpgradeDefaultBaselinePolicy
-     * @param RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilde_3b0687be|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilde_3b0687be $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

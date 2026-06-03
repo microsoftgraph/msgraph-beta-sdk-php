@@ -32,11 +32,11 @@ class UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder extends BaseRe
 
     /**
      * Invoke function userExperienceAnalyticsSummarizedDeviceScopes
-     * @param UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsSummarizedDeviceScopesRequestBui_77bbcd59|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsDeviceScopeSummary|null>
      * @throws Exception
     */
-    public function get(?UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserExperienceAnalyticsSummarizedDeviceScopesRequestBui_77bbcd59 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder extends BaseRe
 
     /**
      * Invoke function userExperienceAnalyticsSummarizedDeviceScopes
-     * @param UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsSummarizedDeviceScopesRequestBui_77bbcd59|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UserExperienceAnalyticsSummarizedDeviceScopesRequestBui_77bbcd59 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -43,7 +43,7 @@ class AccessPackageResourceEnvironmentsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/entitlementManagement/accessPackageResourceEnvironments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,12 +53,12 @@ class AccessPackageResourceEnvironmentsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Retrieve a list of accessPackageResourceEnvironment objects and their properties.
-     * @param AccessPackageResourceEnvironmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageResourceEnvironmentsRequestBuilderGetReque_f2bad053|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageResourceEnvironmentCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/entitlementmanagement-list-accesspackageresourceenvironment?view=graph-rest-beta Find more info here
     */
-    public function get(?AccessPackageResourceEnvironmentsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AccessPackageResourceEnvironmentsRequestBuilderGetReque_f2bad053 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class AccessPackageResourceEnvironmentsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to accessPackageResourceEnvironments for identityGovernance
      * @param AccessPackageResourceEnvironment $body The request body
-     * @param AccessPackageResourceEnvironmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageResourceEnvironmentsRequestBuilderPostRequ_2f8a65ef|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageResourceEnvironment|null>
      * @throws Exception
     */
-    public function post(AccessPackageResourceEnvironment $body, ?AccessPackageResourceEnvironmentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AccessPackageResourceEnvironment $body, ?AccessPackageResourceEnvironmentsRequestBuilderPostRequ_2f8a65ef $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class AccessPackageResourceEnvironmentsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Retrieve a list of accessPackageResourceEnvironment objects and their properties.
-     * @param AccessPackageResourceEnvironmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageResourceEnvironmentsRequestBuilderGetReque_f2bad053|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AccessPackageResourceEnvironmentsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AccessPackageResourceEnvironmentsRequestBuilderGetReque_f2bad053 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -105,10 +105,10 @@ class AccessPackageResourceEnvironmentsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to accessPackageResourceEnvironments for identityGovernance
      * @param AccessPackageResourceEnvironment $body The request body
-     * @param AccessPackageResourceEnvironmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageResourceEnvironmentsRequestBuilderPostRequ_2f8a65ef|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AccessPackageResourceEnvironment $body, ?AccessPackageResourceEnvironmentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AccessPackageResourceEnvironment $body, ?AccessPackageResourceEnvironmentsRequestBuilderPostRequ_2f8a65ef $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

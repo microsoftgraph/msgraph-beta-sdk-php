@@ -22,7 +22,7 @@ class RegionalAndLanguageSettingsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}/settings/regionalAndLanguageSettings{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}/settings/regionalAndLanguageSettings');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class RegionalAndLanguageSettingsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property regionalAndLanguageSettings for users
-     * @param RegionalAndLanguageSettingsRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RegionalAndLanguageSettingsRequestBuilderDeleteRequestC_9a35007c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?RegionalAndLanguageSettingsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?RegionalAndLanguageSettingsRequestBuilderDeleteRequestC_9a35007c $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class RegionalAndLanguageSettingsRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property regionalAndLanguageSettings in users
      * @param RegionalAndLanguageSettings $body The request body
-     * @param RegionalAndLanguageSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RegionalAndLanguageSettingsRequestBuilderPatchRequestCo_9558ae61|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RegionalAndLanguageSettings|null>
      * @throws Exception
     */
-    public function patch(RegionalAndLanguageSettings $body, ?RegionalAndLanguageSettingsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(RegionalAndLanguageSettings $body, ?RegionalAndLanguageSettingsRequestBuilderPatchRequestCo_9558ae61 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class RegionalAndLanguageSettingsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property regionalAndLanguageSettings for users
-     * @param RegionalAndLanguageSettingsRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RegionalAndLanguageSettingsRequestBuilderDeleteRequestC_9a35007c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?RegionalAndLanguageSettingsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?RegionalAndLanguageSettingsRequestBuilderDeleteRequestC_9a35007c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class RegionalAndLanguageSettingsRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property regionalAndLanguageSettings in users
      * @param RegionalAndLanguageSettings $body The request body
-     * @param RegionalAndLanguageSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RegionalAndLanguageSettingsRequestBuilderPatchRequestCo_9558ae61|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(RegionalAndLanguageSettings $body, ?RegionalAndLanguageSettingsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(RegionalAndLanguageSettings $body, ?RegionalAndLanguageSettingsRequestBuilderPatchRequestCo_9558ae61 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

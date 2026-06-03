@@ -44,7 +44,7 @@ class AppConsentRequestsForApprovalRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}/appConsentRequestsForApproval{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -63,11 +63,11 @@ class AppConsentRequestsForApprovalRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get appConsentRequestsForApproval from users
-     * @param AppConsentRequestsForApprovalRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppConsentRequestsForApprovalRequestBuilderGetRequestCo_349bbfb2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AppConsentRequestCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?AppConsentRequestsForApprovalRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AppConsentRequestsForApprovalRequestBuilderGetRequestCo_349bbfb2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -78,11 +78,11 @@ class AppConsentRequestsForApprovalRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to appConsentRequestsForApproval for users
      * @param AppConsentRequest $body The request body
-     * @param AppConsentRequestsForApprovalRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppConsentRequestsForApprovalRequestBuilderPostRequestC_3531dbe7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AppConsentRequest|null>
      * @throws Exception
     */
-    public function post(AppConsentRequest $body, ?AppConsentRequestsForApprovalRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AppConsentRequest $body, ?AppConsentRequestsForApprovalRequestBuilderPostRequestC_3531dbe7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -92,10 +92,10 @@ class AppConsentRequestsForApprovalRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get appConsentRequestsForApproval from users
-     * @param AppConsentRequestsForApprovalRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppConsentRequestsForApprovalRequestBuilderGetRequestCo_349bbfb2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AppConsentRequestsForApprovalRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AppConsentRequestsForApprovalRequestBuilderGetRequestCo_349bbfb2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -114,10 +114,10 @@ class AppConsentRequestsForApprovalRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to appConsentRequestsForApproval for users
      * @param AppConsentRequest $body The request body
-     * @param AppConsentRequestsForApprovalRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppConsentRequestsForApprovalRequestBuilderPostRequestC_3531dbe7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AppConsentRequest $body, ?AppConsentRequestsForApprovalRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AppConsentRequest $body, ?AppConsentRequestsForApprovalRequestBuilderPostRequestC_3531dbe7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

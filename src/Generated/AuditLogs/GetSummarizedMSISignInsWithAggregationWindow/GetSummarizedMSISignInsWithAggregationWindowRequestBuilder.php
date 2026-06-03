@@ -34,12 +34,12 @@ class GetSummarizedMSISignInsWithAggregationWindowRequestBuilder extends BaseReq
 
     /**
      * Returns aggregated MSI sign-in event counts grouped by user, application, IP address, and time window, with drill-down capability using individual requestIds via the /signIns endpoint.
-     * @param GetSummarizedMSISignInsWithAggregationWindowRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetSummarizedMSISignInsWithAggregationWindowRequestBuil_ae5f593b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetSummarizedMSISignInsWithAggregationWindowGetResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/auditlogroot-getsummarizedmsisignins?view=graph-rest-beta Find more info here
     */
-    public function get(?GetSummarizedMSISignInsWithAggregationWindowRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetSummarizedMSISignInsWithAggregationWindowRequestBuil_ae5f593b $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,10 +49,10 @@ class GetSummarizedMSISignInsWithAggregationWindowRequestBuilder extends BaseReq
 
     /**
      * Returns aggregated MSI sign-in event counts grouped by user, application, IP address, and time window, with drill-down capability using individual requestIds via the /signIns endpoint.
-     * @param GetSummarizedMSISignInsWithAggregationWindowRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetSummarizedMSISignInsWithAggregationWindowRequestBuil_ae5f593b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetSummarizedMSISignInsWithAggregationWindowRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetSummarizedMSISignInsWithAggregationWindowRequestBuil_ae5f593b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

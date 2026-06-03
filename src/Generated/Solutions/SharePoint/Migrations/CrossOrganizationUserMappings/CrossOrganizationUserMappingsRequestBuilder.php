@@ -43,7 +43,7 @@ class CrossOrganizationUserMappingsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/sharePoint/migrations/crossOrganizationUserMappings{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,12 +53,12 @@ class CrossOrganizationUserMappingsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Retrieve a specific user identity mapping by the source user principal name (UPN). This method looks up existing user mappings and verifies migration configuration.
-     * @param CrossOrganizationUserMappingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossOrganizationUserMappingsRequestBuilderGetRequestCo_3fc689db|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SharePointUserIdentityMappingCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/sharepointuseridentitymapping-get?view=graph-rest-beta Find more info here
     */
-    public function get(?CrossOrganizationUserMappingsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CrossOrganizationUserMappingsRequestBuilderGetRequestCo_3fc689db $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class CrossOrganizationUserMappingsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to crossOrganizationUserMappings for solutions
      * @param SharePointUserIdentityMapping $body The request body
-     * @param CrossOrganizationUserMappingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossOrganizationUserMappingsRequestBuilderPostRequestC_20ce2d35|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SharePointUserIdentityMapping|null>
      * @throws Exception
     */
-    public function post(SharePointUserIdentityMapping $body, ?CrossOrganizationUserMappingsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(SharePointUserIdentityMapping $body, ?CrossOrganizationUserMappingsRequestBuilderPostRequestC_20ce2d35 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class CrossOrganizationUserMappingsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Retrieve a specific user identity mapping by the source user principal name (UPN). This method looks up existing user mappings and verifies migration configuration.
-     * @param CrossOrganizationUserMappingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossOrganizationUserMappingsRequestBuilderGetRequestCo_3fc689db|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CrossOrganizationUserMappingsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CrossOrganizationUserMappingsRequestBuilderGetRequestCo_3fc689db $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -105,10 +105,10 @@ class CrossOrganizationUserMappingsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to crossOrganizationUserMappings for solutions
      * @param SharePointUserIdentityMapping $body The request body
-     * @param CrossOrganizationUserMappingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossOrganizationUserMappingsRequestBuilderPostRequestC_20ce2d35|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(SharePointUserIdentityMapping $body, ?CrossOrganizationUserMappingsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(SharePointUserIdentityMapping $body, ?CrossOrganizationUserMappingsRequestBuilderPostRequestC_20ce2d35 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

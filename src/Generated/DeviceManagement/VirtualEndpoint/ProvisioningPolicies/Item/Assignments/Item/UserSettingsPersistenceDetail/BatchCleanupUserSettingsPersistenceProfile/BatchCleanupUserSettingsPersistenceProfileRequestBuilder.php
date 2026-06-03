@@ -32,11 +32,11 @@ class BatchCleanupUserSettingsPersistenceProfileRequestBuilder extends BaseReque
     /**
      * Invoke action batchCleanupUserSettingsPersistenceProfile
      * @param BatchCleanupUserSettingsPersistenceProfilePostRequestBody $body The request body
-     * @param BatchCleanupUserSettingsPersistenceProfileRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param BatchCleanupUserSettingsPersistenceProfileRequestBuilde_d80c26c4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(BatchCleanupUserSettingsPersistenceProfilePostRequestBody $body, ?BatchCleanupUserSettingsPersistenceProfileRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(BatchCleanupUserSettingsPersistenceProfilePostRequestBody $body, ?BatchCleanupUserSettingsPersistenceProfileRequestBuilde_d80c26c4 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,10 +47,10 @@ class BatchCleanupUserSettingsPersistenceProfileRequestBuilder extends BaseReque
     /**
      * Invoke action batchCleanupUserSettingsPersistenceProfile
      * @param BatchCleanupUserSettingsPersistenceProfilePostRequestBody $body The request body
-     * @param BatchCleanupUserSettingsPersistenceProfileRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param BatchCleanupUserSettingsPersistenceProfileRequestBuilde_d80c26c4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(BatchCleanupUserSettingsPersistenceProfilePostRequestBody $body, ?BatchCleanupUserSettingsPersistenceProfileRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(BatchCleanupUserSettingsPersistenceProfilePostRequestBody $body, ?BatchCleanupUserSettingsPersistenceProfileRequestBuilde_d80c26c4 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

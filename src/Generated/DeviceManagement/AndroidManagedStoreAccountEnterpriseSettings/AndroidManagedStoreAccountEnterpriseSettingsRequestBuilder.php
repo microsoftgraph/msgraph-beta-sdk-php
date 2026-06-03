@@ -110,7 +110,7 @@ class AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder extends BaseReq
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/androidManagedStoreAccountEnterpriseSettings{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/androidManagedStoreAccountEnterpriseSettings');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -120,11 +120,11 @@ class AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder extends BaseReq
 
     /**
      * Delete navigation property androidManagedStoreAccountEnterpriseSettings for deviceManagement
-     * @param AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidManagedStoreAccountEnterpriseSettingsRequestBuil_9662aea1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?AndroidManagedStoreAccountEnterpriseSettingsRequestBuil_9662aea1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -134,11 +134,11 @@ class AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder extends BaseReq
 
     /**
      * The singleton Android managed store account enterprise settings entity.
-     * @param AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidManagedStoreAccountEnterpriseSettingsRequestBuil_39c35ba0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AndroidManagedStoreAccountEnterpriseSettings|null>
      * @throws Exception
     */
-    public function get(?AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AndroidManagedStoreAccountEnterpriseSettingsRequestBuil_39c35ba0 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -149,11 +149,11 @@ class AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder extends BaseReq
     /**
      * Update the navigation property androidManagedStoreAccountEnterpriseSettings in deviceManagement
      * @param AndroidManagedStoreAccountEnterpriseSettings $body The request body
-     * @param AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidManagedStoreAccountEnterpriseSettingsRequestBuil_e76d7621|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AndroidManagedStoreAccountEnterpriseSettings|null>
      * @throws Exception
     */
-    public function patch(AndroidManagedStoreAccountEnterpriseSettings $body, ?AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(AndroidManagedStoreAccountEnterpriseSettings $body, ?AndroidManagedStoreAccountEnterpriseSettingsRequestBuil_e76d7621 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -163,10 +163,10 @@ class AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder extends BaseReq
 
     /**
      * Delete navigation property androidManagedStoreAccountEnterpriseSettings for deviceManagement
-     * @param AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidManagedStoreAccountEnterpriseSettingsRequestBuil_9662aea1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?AndroidManagedStoreAccountEnterpriseSettingsRequestBuil_9662aea1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -181,10 +181,10 @@ class AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder extends BaseReq
 
     /**
      * The singleton Android managed store account enterprise settings entity.
-     * @param AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidManagedStoreAccountEnterpriseSettingsRequestBuil_39c35ba0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AndroidManagedStoreAccountEnterpriseSettingsRequestBuil_39c35ba0 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -203,10 +203,10 @@ class AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder extends BaseReq
     /**
      * Update the navigation property androidManagedStoreAccountEnterpriseSettings in deviceManagement
      * @param AndroidManagedStoreAccountEnterpriseSettings $body The request body
-     * @param AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidManagedStoreAccountEnterpriseSettingsRequestBuil_e76d7621|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(AndroidManagedStoreAccountEnterpriseSettings $body, ?AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(AndroidManagedStoreAccountEnterpriseSettings $body, ?AndroidManagedStoreAccountEnterpriseSettingsRequestBuil_e76d7621 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -43,7 +43,7 @@ class AndroidManagedStoreAppConfigurationSchemasRequestBuilder extends BaseReque
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/androidManagedStoreAppConfigurationSchemas{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class AndroidManagedStoreAppConfigurationSchemasRequestBuilder extends BaseReque
 
     /**
      * Android Enterprise app configuration schema entities.
-     * @param AndroidManagedStoreAppConfigurationSchemasRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidManagedStoreAppConfigurationSchemasRequestBuilde_4b8ac4b7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AndroidManagedStoreAppConfigurationSchemaCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?AndroidManagedStoreAppConfigurationSchemasRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AndroidManagedStoreAppConfigurationSchemasRequestBuilde_4b8ac4b7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class AndroidManagedStoreAppConfigurationSchemasRequestBuilder extends BaseReque
     /**
      * Create new navigation property to androidManagedStoreAppConfigurationSchemas for deviceManagement
      * @param AndroidManagedStoreAppConfigurationSchema $body The request body
-     * @param AndroidManagedStoreAppConfigurationSchemasRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidManagedStoreAppConfigurationSchemasRequestBuilde_fc6d1f08|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AndroidManagedStoreAppConfigurationSchema|null>
      * @throws Exception
     */
-    public function post(AndroidManagedStoreAppConfigurationSchema $body, ?AndroidManagedStoreAppConfigurationSchemasRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AndroidManagedStoreAppConfigurationSchema $body, ?AndroidManagedStoreAppConfigurationSchemasRequestBuilde_fc6d1f08 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class AndroidManagedStoreAppConfigurationSchemasRequestBuilder extends BaseReque
 
     /**
      * Android Enterprise app configuration schema entities.
-     * @param AndroidManagedStoreAppConfigurationSchemasRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidManagedStoreAppConfigurationSchemasRequestBuilde_4b8ac4b7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AndroidManagedStoreAppConfigurationSchemasRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AndroidManagedStoreAppConfigurationSchemasRequestBuilde_4b8ac4b7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class AndroidManagedStoreAppConfigurationSchemasRequestBuilder extends BaseReque
     /**
      * Create new navigation property to androidManagedStoreAppConfigurationSchemas for deviceManagement
      * @param AndroidManagedStoreAppConfigurationSchema $body The request body
-     * @param AndroidManagedStoreAppConfigurationSchemasRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidManagedStoreAppConfigurationSchemasRequestBuilde_fc6d1f08|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AndroidManagedStoreAppConfigurationSchema $body, ?AndroidManagedStoreAppConfigurationSchemasRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AndroidManagedStoreAppConfigurationSchema $body, ?AndroidManagedStoreAppConfigurationSchemasRequestBuilde_fc6d1f08 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

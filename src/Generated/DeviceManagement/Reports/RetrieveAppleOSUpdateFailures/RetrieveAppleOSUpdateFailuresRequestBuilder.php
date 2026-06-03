@@ -33,11 +33,11 @@ class RetrieveAppleOSUpdateFailuresRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action retrieveAppleOSUpdateFailures
      * @param RetrieveAppleOSUpdateFailuresPostRequestBody $body The request body
-     * @param RetrieveAppleOSUpdateFailuresRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveAppleOSUpdateFailuresRequestBuilderPostRequestC_3a1af800|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(RetrieveAppleOSUpdateFailuresPostRequestBody $body, ?RetrieveAppleOSUpdateFailuresRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(RetrieveAppleOSUpdateFailuresPostRequestBody $body, ?RetrieveAppleOSUpdateFailuresRequestBuilderPostRequestC_3a1af800 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class RetrieveAppleOSUpdateFailuresRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action retrieveAppleOSUpdateFailures
      * @param RetrieveAppleOSUpdateFailuresPostRequestBody $body The request body
-     * @param RetrieveAppleOSUpdateFailuresRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveAppleOSUpdateFailuresRequestBuilderPostRequestC_3a1af800|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(RetrieveAppleOSUpdateFailuresPostRequestBody $body, ?RetrieveAppleOSUpdateFailuresRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(RetrieveAppleOSUpdateFailuresPostRequestBody $body, ?RetrieveAppleOSUpdateFailuresRequestBuilderPostRequestC_3a1af800 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

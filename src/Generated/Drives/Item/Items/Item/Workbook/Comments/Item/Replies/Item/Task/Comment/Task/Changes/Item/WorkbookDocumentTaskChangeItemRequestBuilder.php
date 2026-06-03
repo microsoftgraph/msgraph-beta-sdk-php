@@ -22,7 +22,7 @@ class WorkbookDocumentTaskChangeItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/comments/{workbookComment%2Did}/replies/{workbookCommentReply%2Did}/task/comment/task/changes/{workbookDocumentTaskChange%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/comments/{workbookComment%2Did}/replies/{workbookCommentReply%2Did}/task/comment/task/changes/{workbookDocumentTaskChange%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class WorkbookDocumentTaskChangeItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property changes for drives
-     * @param WorkbookDocumentTaskChangeItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WorkbookDocumentTaskChangeItemRequestBuilderDeleteReque_2f41b18e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?WorkbookDocumentTaskChangeItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?WorkbookDocumentTaskChangeItemRequestBuilderDeleteReque_2f41b18e $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class WorkbookDocumentTaskChangeItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * A collection of task change histories.
-     * @param WorkbookDocumentTaskChangeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WorkbookDocumentTaskChangeItemRequestBuilderGetRequestC_9433b096|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkbookDocumentTaskChange|null>
      * @throws Exception
     */
-    public function get(?WorkbookDocumentTaskChangeItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?WorkbookDocumentTaskChangeItemRequestBuilderGetRequestC_9433b096 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class WorkbookDocumentTaskChangeItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property changes in drives
      * @param WorkbookDocumentTaskChange $body The request body
-     * @param WorkbookDocumentTaskChangeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WorkbookDocumentTaskChangeItemRequestBuilderPatchReques_58cfe780|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WorkbookDocumentTaskChange|null>
      * @throws Exception
     */
-    public function patch(WorkbookDocumentTaskChange $body, ?WorkbookDocumentTaskChangeItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(WorkbookDocumentTaskChange $body, ?WorkbookDocumentTaskChangeItemRequestBuilderPatchReques_58cfe780 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class WorkbookDocumentTaskChangeItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property changes for drives
-     * @param WorkbookDocumentTaskChangeItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WorkbookDocumentTaskChangeItemRequestBuilderDeleteReque_2f41b18e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?WorkbookDocumentTaskChangeItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?WorkbookDocumentTaskChangeItemRequestBuilderDeleteReque_2f41b18e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class WorkbookDocumentTaskChangeItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * A collection of task change histories.
-     * @param WorkbookDocumentTaskChangeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WorkbookDocumentTaskChangeItemRequestBuilderGetRequestC_9433b096|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?WorkbookDocumentTaskChangeItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?WorkbookDocumentTaskChangeItemRequestBuilderGetRequestC_9433b096 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class WorkbookDocumentTaskChangeItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property changes in drives
      * @param WorkbookDocumentTaskChange $body The request body
-     * @param WorkbookDocumentTaskChangeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WorkbookDocumentTaskChangeItemRequestBuilderPatchReques_58cfe780|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(WorkbookDocumentTaskChange $body, ?WorkbookDocumentTaskChangeItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(WorkbookDocumentTaskChange $body, ?WorkbookDocumentTaskChangeItemRequestBuilderPatchReques_58cfe780 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

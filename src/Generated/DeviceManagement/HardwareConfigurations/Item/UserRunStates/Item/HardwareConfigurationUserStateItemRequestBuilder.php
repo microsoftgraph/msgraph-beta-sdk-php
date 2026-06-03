@@ -22,7 +22,7 @@ class HardwareConfigurationUserStateItemRequestBuilder extends BaseRequestBuilde
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/hardwareConfigurations/{hardwareConfiguration%2Did}/userRunStates/{hardwareConfigurationUserState%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/hardwareConfigurations/{hardwareConfiguration%2Did}/userRunStates/{hardwareConfigurationUserState%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class HardwareConfigurationUserStateItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property userRunStates for deviceManagement
-     * @param HardwareConfigurationUserStateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwareConfigurationUserStateItemRequestBuilderDeleteR_8a23dd78|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?HardwareConfigurationUserStateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?HardwareConfigurationUserStateItemRequestBuilderDeleteR_8a23dd78 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class HardwareConfigurationUserStateItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * List of run states for the hardware configuration across all users. Read-Only.
-     * @param HardwareConfigurationUserStateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwareConfigurationUserStateItemRequestBuilderGetRequ_63fc036c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HardwareConfigurationUserState|null>
      * @throws Exception
     */
-    public function get(?HardwareConfigurationUserStateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?HardwareConfigurationUserStateItemRequestBuilderGetRequ_63fc036c $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class HardwareConfigurationUserStateItemRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property userRunStates in deviceManagement
      * @param HardwareConfigurationUserState $body The request body
-     * @param HardwareConfigurationUserStateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwareConfigurationUserStateItemRequestBuilderPatchRe_470b1d81|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<HardwareConfigurationUserState|null>
      * @throws Exception
     */
-    public function patch(HardwareConfigurationUserState $body, ?HardwareConfigurationUserStateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(HardwareConfigurationUserState $body, ?HardwareConfigurationUserStateItemRequestBuilderPatchRe_470b1d81 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class HardwareConfigurationUserStateItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property userRunStates for deviceManagement
-     * @param HardwareConfigurationUserStateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwareConfigurationUserStateItemRequestBuilderDeleteR_8a23dd78|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?HardwareConfigurationUserStateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?HardwareConfigurationUserStateItemRequestBuilderDeleteR_8a23dd78 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class HardwareConfigurationUserStateItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * List of run states for the hardware configuration across all users. Read-Only.
-     * @param HardwareConfigurationUserStateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwareConfigurationUserStateItemRequestBuilderGetRequ_63fc036c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?HardwareConfigurationUserStateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?HardwareConfigurationUserStateItemRequestBuilderGetRequ_63fc036c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class HardwareConfigurationUserStateItemRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property userRunStates in deviceManagement
      * @param HardwareConfigurationUserState $body The request body
-     * @param HardwareConfigurationUserStateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param HardwareConfigurationUserStateItemRequestBuilderPatchRe_470b1d81|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(HardwareConfigurationUserState $body, ?HardwareConfigurationUserStateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(HardwareConfigurationUserState $body, ?HardwareConfigurationUserStateItemRequestBuilderPatchRe_470b1d81 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

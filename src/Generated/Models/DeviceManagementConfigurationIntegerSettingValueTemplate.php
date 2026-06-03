@@ -48,18 +48,18 @@ class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceMan
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'defaultValue' => fn(ParseNode $n) => $o->setDefaultValue($n->getObjectValue([DeviceManagementConfigurationIntegerSettingValueDefaultTemplate::class, 'createFromDiscriminatorValue'])),
-            'recommendedValueDefinition' => fn(ParseNode $n) => $o->setRecommendedValueDefinition($n->getObjectValue([DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate::class, 'createFromDiscriminatorValue'])),
-            'requiredValueDefinition' => fn(ParseNode $n) => $o->setRequiredValueDefinition($n->getObjectValue([DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate::class, 'createFromDiscriminatorValue'])),
+            'recommendedValueDefinition' => fn(ParseNode $n) => $o->setRecommendedValueDefinition($n->getObjectValue([DeviceManagementConfigurationIntegerSettingValueDefinit_b7e57fe4::class, 'createFromDiscriminatorValue'])),
+            'requiredValueDefinition' => fn(ParseNode $n) => $o->setRequiredValueDefinition($n->getObjectValue([DeviceManagementConfigurationIntegerSettingValueDefinit_b7e57fe4::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
      * Gets the recommendedValueDefinition property value. Recommended value definition.
-     * @return DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate|null
+     * @return DeviceManagementConfigurationIntegerSettingValueDefinit_b7e57fe4|null
     */
-    public function getRecommendedValueDefinition(): ?DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate {
+    public function getRecommendedValueDefinition(): ?DeviceManagementConfigurationIntegerSettingValueDefinit_b7e57fe4 {
         $val = $this->getBackingStore()->get('recommendedValueDefinition');
-        if (is_null($val) || $val instanceof DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate) {
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationIntegerSettingValueDefinit_b7e57fe4) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'recommendedValueDefinition'");
@@ -67,11 +67,11 @@ class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceMan
 
     /**
      * Gets the requiredValueDefinition property value. Required value definition.
-     * @return DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate|null
+     * @return DeviceManagementConfigurationIntegerSettingValueDefinit_b7e57fe4|null
     */
-    public function getRequiredValueDefinition(): ?DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate {
+    public function getRequiredValueDefinition(): ?DeviceManagementConfigurationIntegerSettingValueDefinit_b7e57fe4 {
         $val = $this->getBackingStore()->get('requiredValueDefinition');
-        if (is_null($val) || $val instanceof DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate) {
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationIntegerSettingValueDefinit_b7e57fe4) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'requiredValueDefinition'");
@@ -98,17 +98,17 @@ class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceMan
 
     /**
      * Sets the recommendedValueDefinition property value. Recommended value definition.
-     * @param DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate|null $value Value to set for the recommendedValueDefinition property.
+     * @param DeviceManagementConfigurationIntegerSettingValueDefinit_b7e57fe4|null $value Value to set for the recommendedValueDefinition property.
     */
-    public function setRecommendedValueDefinition(?DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate $value): void {
+    public function setRecommendedValueDefinition(?DeviceManagementConfigurationIntegerSettingValueDefinit_b7e57fe4 $value): void {
         $this->getBackingStore()->set('recommendedValueDefinition', $value);
     }
 
     /**
      * Sets the requiredValueDefinition property value. Required value definition.
-     * @param DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate|null $value Value to set for the requiredValueDefinition property.
+     * @param DeviceManagementConfigurationIntegerSettingValueDefinit_b7e57fe4|null $value Value to set for the requiredValueDefinition property.
     */
-    public function setRequiredValueDefinition(?DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate $value): void {
+    public function setRequiredValueDefinition(?DeviceManagementConfigurationIntegerSettingValueDefinit_b7e57fe4 $value): void {
         $this->getBackingStore()->set('requiredValueDefinition', $value);
     }
 

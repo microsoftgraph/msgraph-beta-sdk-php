@@ -30,7 +30,7 @@ class PermissionsCreepIndexDistributionItemRequestBuilder extends BaseRequestBui
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/permissionsAnalytics/gcp/permissionsCreepIndexDistributions/{permissionsCreepIndexDistribution%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/permissionsAnalytics/gcp/permissionsCreepIndexDistributions/{permissionsCreepIndexDistribution%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,11 +40,11 @@ class PermissionsCreepIndexDistributionItemRequestBuilder extends BaseRequestBui
 
     /**
      * Delete navigation property permissionsCreepIndexDistributions for identityGovernance
-     * @param PermissionsCreepIndexDistributionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionsCreepIndexDistributionItemRequestBuilderDele_0299d2e4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?PermissionsCreepIndexDistributionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?PermissionsCreepIndexDistributionItemRequestBuilderDele_0299d2e4 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,11 +54,11 @@ class PermissionsCreepIndexDistributionItemRequestBuilder extends BaseRequestBui
 
     /**
      * Represents the Permissions Creep Index (PCI) for the authorization system. PCI distribution chart shows the classification of human and nonhuman identities based on the PCI score in three buckets (low, medium, high).
-     * @param PermissionsCreepIndexDistributionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionsCreepIndexDistributionItemRequestBuilderGetR_eb18b1d7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PermissionsCreepIndexDistribution|null>
      * @throws Exception
     */
-    public function get(?PermissionsCreepIndexDistributionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?PermissionsCreepIndexDistributionItemRequestBuilderGetR_eb18b1d7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class PermissionsCreepIndexDistributionItemRequestBuilder extends BaseRequestBui
     /**
      * Update the navigation property permissionsCreepIndexDistributions in identityGovernance
      * @param PermissionsCreepIndexDistribution $body The request body
-     * @param PermissionsCreepIndexDistributionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionsCreepIndexDistributionItemRequestBuilderPatc_624d9189|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PermissionsCreepIndexDistribution|null>
      * @throws Exception
     */
-    public function patch(PermissionsCreepIndexDistribution $body, ?PermissionsCreepIndexDistributionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(PermissionsCreepIndexDistribution $body, ?PermissionsCreepIndexDistributionItemRequestBuilderPatc_624d9189 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class PermissionsCreepIndexDistributionItemRequestBuilder extends BaseRequestBui
 
     /**
      * Delete navigation property permissionsCreepIndexDistributions for identityGovernance
-     * @param PermissionsCreepIndexDistributionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionsCreepIndexDistributionItemRequestBuilderDele_0299d2e4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?PermissionsCreepIndexDistributionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?PermissionsCreepIndexDistributionItemRequestBuilderDele_0299d2e4 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -101,10 +101,10 @@ class PermissionsCreepIndexDistributionItemRequestBuilder extends BaseRequestBui
 
     /**
      * Represents the Permissions Creep Index (PCI) for the authorization system. PCI distribution chart shows the classification of human and nonhuman identities based on the PCI score in three buckets (low, medium, high).
-     * @param PermissionsCreepIndexDistributionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionsCreepIndexDistributionItemRequestBuilderGetR_eb18b1d7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?PermissionsCreepIndexDistributionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?PermissionsCreepIndexDistributionItemRequestBuilderGetR_eb18b1d7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -123,10 +123,10 @@ class PermissionsCreepIndexDistributionItemRequestBuilder extends BaseRequestBui
     /**
      * Update the navigation property permissionsCreepIndexDistributions in identityGovernance
      * @param PermissionsCreepIndexDistribution $body The request body
-     * @param PermissionsCreepIndexDistributionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionsCreepIndexDistributionItemRequestBuilderPatc_624d9189|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(PermissionsCreepIndexDistribution $body, ?PermissionsCreepIndexDistributionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(PermissionsCreepIndexDistribution $body, ?PermissionsCreepIndexDistributionItemRequestBuilderPatc_624d9189 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

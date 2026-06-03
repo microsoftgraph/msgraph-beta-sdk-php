@@ -78,7 +78,7 @@ class OrganizationalBrandingThemeLocalizationLocaleItemRequestBuilder extends Ba
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/organization/{organization%2Did}/branding/themes/{organizationalBrandingTheme%2Did}/localizations/{organizationalBrandingThemeLocalization%2Dlocale}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/organization/{organization%2Did}/branding/themes/{organizationalBrandingTheme%2Did}/localizations/{organizationalBrandingThemeLocalization%2Dlocale}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -88,11 +88,11 @@ class OrganizationalBrandingThemeLocalizationLocaleItemRequestBuilder extends Ba
 
     /**
      * Delete navigation property localizations for organization
-     * @param OrganizationalBrandingThemeLocalizationLocaleItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OrganizationalBrandingThemeLocalizationLocaleItemReques_63653d72|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?OrganizationalBrandingThemeLocalizationLocaleItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?OrganizationalBrandingThemeLocalizationLocaleItemReques_63653d72 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -102,11 +102,11 @@ class OrganizationalBrandingThemeLocalizationLocaleItemRequestBuilder extends Ba
 
     /**
      * Represents a locale-based branding theme.
-     * @param OrganizationalBrandingThemeLocalizationLocaleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OrganizationalBrandingThemeLocalizationLocaleItemReques_23e65ef9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OrganizationalBrandingThemeLocalization|null>
      * @throws Exception
     */
-    public function get(?OrganizationalBrandingThemeLocalizationLocaleItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?OrganizationalBrandingThemeLocalizationLocaleItemReques_23e65ef9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -117,11 +117,11 @@ class OrganizationalBrandingThemeLocalizationLocaleItemRequestBuilder extends Ba
     /**
      * Update the navigation property localizations in organization
      * @param OrganizationalBrandingThemeLocalization $body The request body
-     * @param OrganizationalBrandingThemeLocalizationLocaleItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OrganizationalBrandingThemeLocalizationLocaleItemReques_73da0105|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OrganizationalBrandingThemeLocalization|null>
      * @throws Exception
     */
-    public function patch(OrganizationalBrandingThemeLocalization $body, ?OrganizationalBrandingThemeLocalizationLocaleItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(OrganizationalBrandingThemeLocalization $body, ?OrganizationalBrandingThemeLocalizationLocaleItemReques_73da0105 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -131,10 +131,10 @@ class OrganizationalBrandingThemeLocalizationLocaleItemRequestBuilder extends Ba
 
     /**
      * Delete navigation property localizations for organization
-     * @param OrganizationalBrandingThemeLocalizationLocaleItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OrganizationalBrandingThemeLocalizationLocaleItemReques_63653d72|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?OrganizationalBrandingThemeLocalizationLocaleItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?OrganizationalBrandingThemeLocalizationLocaleItemReques_63653d72 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -149,10 +149,10 @@ class OrganizationalBrandingThemeLocalizationLocaleItemRequestBuilder extends Ba
 
     /**
      * Represents a locale-based branding theme.
-     * @param OrganizationalBrandingThemeLocalizationLocaleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OrganizationalBrandingThemeLocalizationLocaleItemReques_23e65ef9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?OrganizationalBrandingThemeLocalizationLocaleItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?OrganizationalBrandingThemeLocalizationLocaleItemReques_23e65ef9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -171,10 +171,10 @@ class OrganizationalBrandingThemeLocalizationLocaleItemRequestBuilder extends Ba
     /**
      * Update the navigation property localizations in organization
      * @param OrganizationalBrandingThemeLocalization $body The request body
-     * @param OrganizationalBrandingThemeLocalizationLocaleItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OrganizationalBrandingThemeLocalizationLocaleItemReques_73da0105|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(OrganizationalBrandingThemeLocalization $body, ?OrganizationalBrandingThemeLocalizationLocaleItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(OrganizationalBrandingThemeLocalization $body, ?OrganizationalBrandingThemeLocalizationLocaleItemReques_73da0105 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

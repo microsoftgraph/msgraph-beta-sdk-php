@@ -22,7 +22,7 @@ class ManagedDeviceComplianceItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/managedDeviceCompliances/{managedDeviceCompliance%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/managedDeviceCompliances/{managedDeviceCompliance%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class ManagedDeviceComplianceItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property managedDeviceCompliances for tenantRelationships
-     * @param ManagedDeviceComplianceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceComplianceItemRequestBuilderDeleteRequestC_deec66e4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ManagedDeviceComplianceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ManagedDeviceComplianceItemRequestBuilderDeleteRequestC_deec66e4 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class ManagedDeviceComplianceItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property managedDeviceCompliances in tenantRelationships
      * @param ManagedDeviceCompliance $body The request body
-     * @param ManagedDeviceComplianceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceComplianceItemRequestBuilderPatchRequestCo_046c3c7d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedDeviceCompliance|null>
      * @throws Exception
     */
-    public function patch(ManagedDeviceCompliance $body, ?ManagedDeviceComplianceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ManagedDeviceCompliance $body, ?ManagedDeviceComplianceItemRequestBuilderPatchRequestCo_046c3c7d $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -76,10 +76,10 @@ class ManagedDeviceComplianceItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property managedDeviceCompliances for tenantRelationships
-     * @param ManagedDeviceComplianceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceComplianceItemRequestBuilderDeleteRequestC_deec66e4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ManagedDeviceComplianceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ManagedDeviceComplianceItemRequestBuilderDeleteRequestC_deec66e4 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -116,10 +116,10 @@ class ManagedDeviceComplianceItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property managedDeviceCompliances in tenantRelationships
      * @param ManagedDeviceCompliance $body The request body
-     * @param ManagedDeviceComplianceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceComplianceItemRequestBuilderPatchRequestCo_046c3c7d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ManagedDeviceCompliance $body, ?ManagedDeviceComplianceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ManagedDeviceCompliance $body, ?ManagedDeviceComplianceItemRequestBuilderPatchRequestCo_046c3c7d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

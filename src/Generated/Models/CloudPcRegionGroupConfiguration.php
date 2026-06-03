@@ -101,7 +101,7 @@ class CloudPcRegionGroupConfiguration implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Gets the regions property value. The regions property
+     * Gets the regions property value. The list of region names within the region group. The default value is automatic.
      * @return array<string>|null
     */
     public function getRegions(): ?array {
@@ -158,7 +158,7 @@ class CloudPcRegionGroupConfiguration implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Sets the regions property value. The regions property
+     * Sets the regions property value. The list of region names within the region group. The default value is automatic.
      * @param array<string>|null $value Value to set for the regions property.
     */
     public function setRegions(?array $value): void {

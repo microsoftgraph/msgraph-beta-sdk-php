@@ -43,7 +43,7 @@ class DeviceCustomAttributeShellScriptsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/deviceCustomAttributeShellScripts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class DeviceCustomAttributeShellScriptsRequestBuilder extends BaseRequestBuilder
 
     /**
      * The list of device custom attribute shell scripts associated with the tenant.
-     * @param DeviceCustomAttributeShellScriptsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceCustomAttributeShellScriptsRequestBuilderGetReque_2c9afe93|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceCustomAttributeShellScriptCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?DeviceCustomAttributeShellScriptsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DeviceCustomAttributeShellScriptsRequestBuilderGetReque_2c9afe93 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class DeviceCustomAttributeShellScriptsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to deviceCustomAttributeShellScripts for deviceManagement
      * @param DeviceCustomAttributeShellScript $body The request body
-     * @param DeviceCustomAttributeShellScriptsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceCustomAttributeShellScriptsRequestBuilderPostRequ_6651c6f6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceCustomAttributeShellScript|null>
      * @throws Exception
     */
-    public function post(DeviceCustomAttributeShellScript $body, ?DeviceCustomAttributeShellScriptsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(DeviceCustomAttributeShellScript $body, ?DeviceCustomAttributeShellScriptsRequestBuilderPostRequ_6651c6f6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class DeviceCustomAttributeShellScriptsRequestBuilder extends BaseRequestBuilder
 
     /**
      * The list of device custom attribute shell scripts associated with the tenant.
-     * @param DeviceCustomAttributeShellScriptsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceCustomAttributeShellScriptsRequestBuilderGetReque_2c9afe93|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DeviceCustomAttributeShellScriptsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DeviceCustomAttributeShellScriptsRequestBuilderGetReque_2c9afe93 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class DeviceCustomAttributeShellScriptsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to deviceCustomAttributeShellScripts for deviceManagement
      * @param DeviceCustomAttributeShellScript $body The request body
-     * @param DeviceCustomAttributeShellScriptsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceCustomAttributeShellScriptsRequestBuilderPostRequ_6651c6f6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(DeviceCustomAttributeShellScript $body, ?DeviceCustomAttributeShellScriptsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(DeviceCustomAttributeShellScript $body, ?DeviceCustomAttributeShellScriptsRequestBuilderPostRequ_6651c6f6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

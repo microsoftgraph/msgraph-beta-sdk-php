@@ -22,7 +22,7 @@ class DeviceManagementDerivedCredentialSettingsItemRequestBuilder extends BaseRe
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/derivedCredentials/{deviceManagementDerivedCredentialSettings%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/derivedCredentials/{deviceManagementDerivedCredentialSettings%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class DeviceManagementDerivedCredentialSettingsItemRequestBuilder extends BaseRe
 
     /**
      * Delete navigation property derivedCredentials for deviceManagement
-     * @param DeviceManagementDerivedCredentialSettingsItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementDerivedCredentialSettingsItemRequestBui_86c642b6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DeviceManagementDerivedCredentialSettingsItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DeviceManagementDerivedCredentialSettingsItemRequestBui_86c642b6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class DeviceManagementDerivedCredentialSettingsItemRequestBuilder extends BaseRe
 
     /**
      * Collection of Derived credential settings associated with account.
-     * @param DeviceManagementDerivedCredentialSettingsItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementDerivedCredentialSettingsItemRequestBui_cf7063e4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementDerivedCredentialSettings|null>
      * @throws Exception
     */
-    public function get(?DeviceManagementDerivedCredentialSettingsItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DeviceManagementDerivedCredentialSettingsItemRequestBui_cf7063e4 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class DeviceManagementDerivedCredentialSettingsItemRequestBuilder extends BaseRe
     /**
      * Update the navigation property derivedCredentials in deviceManagement
      * @param DeviceManagementDerivedCredentialSettings $body The request body
-     * @param DeviceManagementDerivedCredentialSettingsItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementDerivedCredentialSettingsItemRequestBui_5a1e6241|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementDerivedCredentialSettings|null>
      * @throws Exception
     */
-    public function patch(DeviceManagementDerivedCredentialSettings $body, ?DeviceManagementDerivedCredentialSettingsItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DeviceManagementDerivedCredentialSettings $body, ?DeviceManagementDerivedCredentialSettingsItemRequestBui_5a1e6241 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class DeviceManagementDerivedCredentialSettingsItemRequestBuilder extends BaseRe
 
     /**
      * Delete navigation property derivedCredentials for deviceManagement
-     * @param DeviceManagementDerivedCredentialSettingsItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementDerivedCredentialSettingsItemRequestBui_86c642b6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DeviceManagementDerivedCredentialSettingsItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DeviceManagementDerivedCredentialSettingsItemRequestBui_86c642b6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class DeviceManagementDerivedCredentialSettingsItemRequestBuilder extends BaseRe
 
     /**
      * Collection of Derived credential settings associated with account.
-     * @param DeviceManagementDerivedCredentialSettingsItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementDerivedCredentialSettingsItemRequestBui_cf7063e4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DeviceManagementDerivedCredentialSettingsItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DeviceManagementDerivedCredentialSettingsItemRequestBui_cf7063e4 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class DeviceManagementDerivedCredentialSettingsItemRequestBuilder extends BaseRe
     /**
      * Update the navigation property derivedCredentials in deviceManagement
      * @param DeviceManagementDerivedCredentialSettings $body The request body
-     * @param DeviceManagementDerivedCredentialSettingsItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementDerivedCredentialSettingsItemRequestBui_5a1e6241|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DeviceManagementDerivedCredentialSettings $body, ?DeviceManagementDerivedCredentialSettingsItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DeviceManagementDerivedCredentialSettings $body, ?DeviceManagementDerivedCredentialSettingsItemRequestBui_5a1e6241 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

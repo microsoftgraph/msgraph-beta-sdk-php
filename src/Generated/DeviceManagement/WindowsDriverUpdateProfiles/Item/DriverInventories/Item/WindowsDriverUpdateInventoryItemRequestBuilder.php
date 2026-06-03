@@ -22,7 +22,7 @@ class WindowsDriverUpdateInventoryItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/windowsDriverUpdateProfiles/{windowsDriverUpdateProfile%2Did}/driverInventories/{windowsDriverUpdateInventory%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/windowsDriverUpdateProfiles/{windowsDriverUpdateProfile%2Did}/driverInventories/{windowsDriverUpdateInventory%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class WindowsDriverUpdateInventoryItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property driverInventories for deviceManagement
-     * @param WindowsDriverUpdateInventoryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsDriverUpdateInventoryItemRequestBuilderDeleteReq_94b70c8e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?WindowsDriverUpdateInventoryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?WindowsDriverUpdateInventoryItemRequestBuilderDeleteReq_94b70c8e $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class WindowsDriverUpdateInventoryItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Driver inventories for this profile.
-     * @param WindowsDriverUpdateInventoryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsDriverUpdateInventoryItemRequestBuilderGetReques_de01cfdc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsDriverUpdateInventory|null>
      * @throws Exception
     */
-    public function get(?WindowsDriverUpdateInventoryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?WindowsDriverUpdateInventoryItemRequestBuilderGetReques_de01cfdc $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class WindowsDriverUpdateInventoryItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property driverInventories in deviceManagement
      * @param WindowsDriverUpdateInventory $body The request body
-     * @param WindowsDriverUpdateInventoryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsDriverUpdateInventoryItemRequestBuilderPatchRequ_6ea5135f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsDriverUpdateInventory|null>
      * @throws Exception
     */
-    public function patch(WindowsDriverUpdateInventory $body, ?WindowsDriverUpdateInventoryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(WindowsDriverUpdateInventory $body, ?WindowsDriverUpdateInventoryItemRequestBuilderPatchRequ_6ea5135f $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class WindowsDriverUpdateInventoryItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property driverInventories for deviceManagement
-     * @param WindowsDriverUpdateInventoryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsDriverUpdateInventoryItemRequestBuilderDeleteReq_94b70c8e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?WindowsDriverUpdateInventoryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?WindowsDriverUpdateInventoryItemRequestBuilderDeleteReq_94b70c8e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class WindowsDriverUpdateInventoryItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Driver inventories for this profile.
-     * @param WindowsDriverUpdateInventoryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsDriverUpdateInventoryItemRequestBuilderGetReques_de01cfdc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?WindowsDriverUpdateInventoryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?WindowsDriverUpdateInventoryItemRequestBuilderGetReques_de01cfdc $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class WindowsDriverUpdateInventoryItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property driverInventories in deviceManagement
      * @param WindowsDriverUpdateInventory $body The request body
-     * @param WindowsDriverUpdateInventoryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsDriverUpdateInventoryItemRequestBuilderPatchRequ_6ea5135f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(WindowsDriverUpdateInventory $body, ?WindowsDriverUpdateInventoryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(WindowsDriverUpdateInventory $body, ?WindowsDriverUpdateInventoryItemRequestBuilderPatchRequ_6ea5135f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

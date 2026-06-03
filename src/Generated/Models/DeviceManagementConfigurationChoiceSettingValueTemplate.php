@@ -79,8 +79,8 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
         return  [
             'defaultValue' => fn(ParseNode $n) => $o->setDefaultValue($n->getObjectValue([DeviceManagementConfigurationChoiceSettingValueDefaultTemplate::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'recommendedValueDefinition' => fn(ParseNode $n) => $o->setRecommendedValueDefinition($n->getObjectValue([DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate::class, 'createFromDiscriminatorValue'])),
-            'requiredValueDefinition' => fn(ParseNode $n) => $o->setRequiredValueDefinition($n->getObjectValue([DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate::class, 'createFromDiscriminatorValue'])),
+            'recommendedValueDefinition' => fn(ParseNode $n) => $o->setRecommendedValueDefinition($n->getObjectValue([DeviceManagementConfigurationChoiceSettingValueDefiniti_8ae78d29::class, 'createFromDiscriminatorValue'])),
+            'requiredValueDefinition' => fn(ParseNode $n) => $o->setRequiredValueDefinition($n->getObjectValue([DeviceManagementConfigurationChoiceSettingValueDefiniti_8ae78d29::class, 'createFromDiscriminatorValue'])),
             'settingValueTemplateId' => fn(ParseNode $n) => $o->setSettingValueTemplateId($n->getStringValue()),
         ];
     }
@@ -99,11 +99,11 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
 
     /**
      * Gets the recommendedValueDefinition property value. Recommended definition override.
-     * @return DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate|null
+     * @return DeviceManagementConfigurationChoiceSettingValueDefiniti_8ae78d29|null
     */
-    public function getRecommendedValueDefinition(): ?DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate {
+    public function getRecommendedValueDefinition(): ?DeviceManagementConfigurationChoiceSettingValueDefiniti_8ae78d29 {
         $val = $this->getBackingStore()->get('recommendedValueDefinition');
-        if (is_null($val) || $val instanceof DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate) {
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationChoiceSettingValueDefiniti_8ae78d29) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'recommendedValueDefinition'");
@@ -111,11 +111,11 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
 
     /**
      * Gets the requiredValueDefinition property value. Required definition override.
-     * @return DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate|null
+     * @return DeviceManagementConfigurationChoiceSettingValueDefiniti_8ae78d29|null
     */
-    public function getRequiredValueDefinition(): ?DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate {
+    public function getRequiredValueDefinition(): ?DeviceManagementConfigurationChoiceSettingValueDefiniti_8ae78d29 {
         $val = $this->getBackingStore()->get('requiredValueDefinition');
-        if (is_null($val) || $val instanceof DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate) {
+        if (is_null($val) || $val instanceof DeviceManagementConfigurationChoiceSettingValueDefiniti_8ae78d29) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'requiredValueDefinition'");
@@ -180,17 +180,17 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
 
     /**
      * Sets the recommendedValueDefinition property value. Recommended definition override.
-     * @param DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate|null $value Value to set for the recommendedValueDefinition property.
+     * @param DeviceManagementConfigurationChoiceSettingValueDefiniti_8ae78d29|null $value Value to set for the recommendedValueDefinition property.
     */
-    public function setRecommendedValueDefinition(?DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate $value): void {
+    public function setRecommendedValueDefinition(?DeviceManagementConfigurationChoiceSettingValueDefiniti_8ae78d29 $value): void {
         $this->getBackingStore()->set('recommendedValueDefinition', $value);
     }
 
     /**
      * Sets the requiredValueDefinition property value. Required definition override.
-     * @param DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate|null $value Value to set for the requiredValueDefinition property.
+     * @param DeviceManagementConfigurationChoiceSettingValueDefiniti_8ae78d29|null $value Value to set for the requiredValueDefinition property.
     */
-    public function setRequiredValueDefinition(?DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate $value): void {
+    public function setRequiredValueDefinition(?DeviceManagementConfigurationChoiceSettingValueDefiniti_8ae78d29 $value): void {
         $this->getBackingStore()->set('requiredValueDefinition', $value);
     }
 

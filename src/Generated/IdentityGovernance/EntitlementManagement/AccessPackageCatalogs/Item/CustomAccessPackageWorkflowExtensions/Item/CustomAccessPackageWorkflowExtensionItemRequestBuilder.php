@@ -22,7 +22,7 @@ class CustomAccessPackageWorkflowExtensionItemRequestBuilder extends BaseRequest
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/entitlementManagement/accessPackageCatalogs/{accessPackageCatalog%2Did}/customAccessPackageWorkflowExtensions/{customAccessPackageWorkflowExtension%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/entitlementManagement/accessPackageCatalogs/{accessPackageCatalog%2Did}/customAccessPackageWorkflowExtensions/{customAccessPackageWorkflowExtension%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,12 +32,12 @@ class CustomAccessPackageWorkflowExtensionItemRequestBuilder extends BaseRequest
 
     /**
      * Delete an accessPackageAssignmentRequestWorkflowExtension object. The custom workflow extension must first be removed from any associated policies before it can be deleted. Follow these steps to remove the custom workflow extension from any associated policies:1. First retrieve the accessPackageCatalogId by calling the Get accessPackageAssignmentPolicies operation and appending ?$expand=accessPackage($expand=accessPackageCatalog) to the query. For example, https://graph.microsoft.com/beta/identityGovernance/entitlementManagement/accessPackageAssignmentPolicies?$expand=accessPackage($expand=accessPackageCatalog).2. Use the access package catalog ID and retrieve the ID of the accessPackageCustomWorkflowExtension object that you want to delete by running the List accessPackageCustomWorkflowExtensions operation.3. Call the Update accessPackageAssignmentPolicy operation to remove the custom workflow extension object from the policy. For an example, see Example 3: Remove the customExtensionStageSettings from a policy.
-     * @param CustomAccessPackageWorkflowExtensionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomAccessPackageWorkflowExtensionItemRequestBuilderD_f23cad19|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/accesspackageassignmentrequestworkflowextension-delete?view=graph-rest-beta Find more info here
     */
-    public function delete(?CustomAccessPackageWorkflowExtensionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CustomAccessPackageWorkflowExtensionItemRequestBuilderD_f23cad19 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,12 +47,12 @@ class CustomAccessPackageWorkflowExtensionItemRequestBuilder extends BaseRequest
 
     /**
      * Read the properties and relationships of a customAccessPackageWorkflowExtension object for an accessPackageCatalog object.
-     * @param CustomAccessPackageWorkflowExtensionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomAccessPackageWorkflowExtensionItemRequestBuilderG_18bc28d2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomAccessPackageWorkflowExtension|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/customaccesspackageworkflowextension-get?view=graph-rest-beta Find more info here
     */
-    public function get(?CustomAccessPackageWorkflowExtensionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CustomAccessPackageWorkflowExtensionItemRequestBuilderG_18bc28d2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -63,12 +63,12 @@ class CustomAccessPackageWorkflowExtensionItemRequestBuilder extends BaseRequest
     /**
      * Update the properties of an existing customAccessPackageWorkflowExtension object.
      * @param CustomAccessPackageWorkflowExtension $body The request body
-     * @param CustomAccessPackageWorkflowExtensionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomAccessPackageWorkflowExtensionItemRequestBuilderP_c96868e3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomAccessPackageWorkflowExtension|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/customaccesspackageworkflowextension-update?view=graph-rest-beta Find more info here
     */
-    public function patch(CustomAccessPackageWorkflowExtension $body, ?CustomAccessPackageWorkflowExtensionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(CustomAccessPackageWorkflowExtension $body, ?CustomAccessPackageWorkflowExtensionItemRequestBuilderP_c96868e3 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -78,10 +78,10 @@ class CustomAccessPackageWorkflowExtensionItemRequestBuilder extends BaseRequest
 
     /**
      * Delete an accessPackageAssignmentRequestWorkflowExtension object. The custom workflow extension must first be removed from any associated policies before it can be deleted. Follow these steps to remove the custom workflow extension from any associated policies:1. First retrieve the accessPackageCatalogId by calling the Get accessPackageAssignmentPolicies operation and appending ?$expand=accessPackage($expand=accessPackageCatalog) to the query. For example, https://graph.microsoft.com/beta/identityGovernance/entitlementManagement/accessPackageAssignmentPolicies?$expand=accessPackage($expand=accessPackageCatalog).2. Use the access package catalog ID and retrieve the ID of the accessPackageCustomWorkflowExtension object that you want to delete by running the List accessPackageCustomWorkflowExtensions operation.3. Call the Update accessPackageAssignmentPolicy operation to remove the custom workflow extension object from the policy. For an example, see Example 3: Remove the customExtensionStageSettings from a policy.
-     * @param CustomAccessPackageWorkflowExtensionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomAccessPackageWorkflowExtensionItemRequestBuilderD_f23cad19|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CustomAccessPackageWorkflowExtensionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CustomAccessPackageWorkflowExtensionItemRequestBuilderD_f23cad19 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -96,10 +96,10 @@ class CustomAccessPackageWorkflowExtensionItemRequestBuilder extends BaseRequest
 
     /**
      * Read the properties and relationships of a customAccessPackageWorkflowExtension object for an accessPackageCatalog object.
-     * @param CustomAccessPackageWorkflowExtensionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomAccessPackageWorkflowExtensionItemRequestBuilderG_18bc28d2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CustomAccessPackageWorkflowExtensionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CustomAccessPackageWorkflowExtensionItemRequestBuilderG_18bc28d2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -118,10 +118,10 @@ class CustomAccessPackageWorkflowExtensionItemRequestBuilder extends BaseRequest
     /**
      * Update the properties of an existing customAccessPackageWorkflowExtension object.
      * @param CustomAccessPackageWorkflowExtension $body The request body
-     * @param CustomAccessPackageWorkflowExtensionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomAccessPackageWorkflowExtensionItemRequestBuilderP_c96868e3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CustomAccessPackageWorkflowExtension $body, ?CustomAccessPackageWorkflowExtensionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(CustomAccessPackageWorkflowExtension $body, ?CustomAccessPackageWorkflowExtensionItemRequestBuilderP_c96868e3 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

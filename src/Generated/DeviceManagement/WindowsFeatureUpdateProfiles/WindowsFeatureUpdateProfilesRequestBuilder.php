@@ -43,7 +43,7 @@ class WindowsFeatureUpdateProfilesRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/windowsFeatureUpdateProfiles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class WindowsFeatureUpdateProfilesRequestBuilder extends BaseRequestBuilder
 
     /**
      * A collection of windows feature update profiles
-     * @param WindowsFeatureUpdateProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsFeatureUpdateProfilesRequestBuilderGetRequestCon_f1f1a614|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsFeatureUpdateProfileCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?WindowsFeatureUpdateProfilesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?WindowsFeatureUpdateProfilesRequestBuilderGetRequestCon_f1f1a614 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class WindowsFeatureUpdateProfilesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to windowsFeatureUpdateProfiles for deviceManagement
      * @param WindowsFeatureUpdateProfile $body The request body
-     * @param WindowsFeatureUpdateProfilesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsFeatureUpdateProfilesRequestBuilderPostRequestCo_a6401c6b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsFeatureUpdateProfile|null>
      * @throws Exception
     */
-    public function post(WindowsFeatureUpdateProfile $body, ?WindowsFeatureUpdateProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(WindowsFeatureUpdateProfile $body, ?WindowsFeatureUpdateProfilesRequestBuilderPostRequestCo_a6401c6b $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class WindowsFeatureUpdateProfilesRequestBuilder extends BaseRequestBuilder
 
     /**
      * A collection of windows feature update profiles
-     * @param WindowsFeatureUpdateProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsFeatureUpdateProfilesRequestBuilderGetRequestCon_f1f1a614|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?WindowsFeatureUpdateProfilesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?WindowsFeatureUpdateProfilesRequestBuilderGetRequestCon_f1f1a614 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class WindowsFeatureUpdateProfilesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to windowsFeatureUpdateProfiles for deviceManagement
      * @param WindowsFeatureUpdateProfile $body The request body
-     * @param WindowsFeatureUpdateProfilesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsFeatureUpdateProfilesRequestBuilderPostRequestCo_a6401c6b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(WindowsFeatureUpdateProfile $body, ?WindowsFeatureUpdateProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(WindowsFeatureUpdateProfile $body, ?WindowsFeatureUpdateProfilesRequestBuilderPostRequestCo_a6401c6b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

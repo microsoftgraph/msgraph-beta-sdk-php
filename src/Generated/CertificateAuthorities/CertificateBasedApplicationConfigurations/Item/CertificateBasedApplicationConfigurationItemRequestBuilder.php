@@ -30,7 +30,7 @@ class CertificateBasedApplicationConfigurationItemRequestBuilder extends BaseReq
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/certificateAuthorities/certificateBasedApplicationConfigurations/{certificateBasedApplicationConfiguration%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/certificateAuthorities/certificateBasedApplicationConfigurations/{certificateBasedApplicationConfiguration%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,11 +40,11 @@ class CertificateBasedApplicationConfigurationItemRequestBuilder extends BaseReq
 
     /**
      * Delete navigation property certificateBasedApplicationConfigurations for certificateAuthorities
-     * @param CertificateBasedApplicationConfigurationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CertificateBasedApplicationConfigurationItemRequestBuil_e7ab9f2c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CertificateBasedApplicationConfigurationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CertificateBasedApplicationConfigurationItemRequestBuil_e7ab9f2c $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,11 +54,11 @@ class CertificateBasedApplicationConfigurationItemRequestBuilder extends BaseReq
 
     /**
      * Defines the trusted certificate authorities for certificates that can be added to apps and service principals in the tenant.
-     * @param CertificateBasedApplicationConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CertificateBasedApplicationConfigurationItemRequestBuil_32526299|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CertificateBasedApplicationConfiguration|null>
      * @throws Exception
     */
-    public function get(?CertificateBasedApplicationConfigurationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CertificateBasedApplicationConfigurationItemRequestBuil_32526299 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class CertificateBasedApplicationConfigurationItemRequestBuilder extends BaseReq
     /**
      * Update the navigation property certificateBasedApplicationConfigurations in certificateAuthorities
      * @param CertificateBasedApplicationConfiguration $body The request body
-     * @param CertificateBasedApplicationConfigurationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CertificateBasedApplicationConfigurationItemRequestBuil_86c1eceb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CertificateBasedApplicationConfiguration|null>
      * @throws Exception
     */
-    public function patch(CertificateBasedApplicationConfiguration $body, ?CertificateBasedApplicationConfigurationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(CertificateBasedApplicationConfiguration $body, ?CertificateBasedApplicationConfigurationItemRequestBuil_86c1eceb $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class CertificateBasedApplicationConfigurationItemRequestBuilder extends BaseReq
 
     /**
      * Delete navigation property certificateBasedApplicationConfigurations for certificateAuthorities
-     * @param CertificateBasedApplicationConfigurationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CertificateBasedApplicationConfigurationItemRequestBuil_e7ab9f2c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CertificateBasedApplicationConfigurationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CertificateBasedApplicationConfigurationItemRequestBuil_e7ab9f2c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -101,10 +101,10 @@ class CertificateBasedApplicationConfigurationItemRequestBuilder extends BaseReq
 
     /**
      * Defines the trusted certificate authorities for certificates that can be added to apps and service principals in the tenant.
-     * @param CertificateBasedApplicationConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CertificateBasedApplicationConfigurationItemRequestBuil_32526299|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CertificateBasedApplicationConfigurationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CertificateBasedApplicationConfigurationItemRequestBuil_32526299 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -123,10 +123,10 @@ class CertificateBasedApplicationConfigurationItemRequestBuilder extends BaseReq
     /**
      * Update the navigation property certificateBasedApplicationConfigurations in certificateAuthorities
      * @param CertificateBasedApplicationConfiguration $body The request body
-     * @param CertificateBasedApplicationConfigurationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CertificateBasedApplicationConfigurationItemRequestBuil_86c1eceb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CertificateBasedApplicationConfiguration $body, ?CertificateBasedApplicationConfigurationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(CertificateBasedApplicationConfiguration $body, ?CertificateBasedApplicationConfigurationItemRequestBuil_86c1eceb $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

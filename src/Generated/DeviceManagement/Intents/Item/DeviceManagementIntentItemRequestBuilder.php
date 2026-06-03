@@ -136,7 +136,7 @@ class DeviceManagementIntentItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/intents/{deviceManagementIntent%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/intents/{deviceManagementIntent%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -146,11 +146,11 @@ class DeviceManagementIntentItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property intents for deviceManagement
-     * @param DeviceManagementIntentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementIntentItemRequestBuilderDeleteRequestCo_d08222b7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DeviceManagementIntentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DeviceManagementIntentItemRequestBuilderDeleteRequestCo_d08222b7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -175,11 +175,11 @@ class DeviceManagementIntentItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property intents in deviceManagement
      * @param DeviceManagementIntent $body The request body
-     * @param DeviceManagementIntentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementIntentItemRequestBuilderPatchRequestCon_980efc2a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementIntent|null>
      * @throws Exception
     */
-    public function patch(DeviceManagementIntent $body, ?DeviceManagementIntentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DeviceManagementIntent $body, ?DeviceManagementIntentItemRequestBuilderPatchRequestCon_980efc2a $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -189,10 +189,10 @@ class DeviceManagementIntentItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property intents for deviceManagement
-     * @param DeviceManagementIntentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementIntentItemRequestBuilderDeleteRequestCo_d08222b7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DeviceManagementIntentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DeviceManagementIntentItemRequestBuilderDeleteRequestCo_d08222b7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -229,10 +229,10 @@ class DeviceManagementIntentItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property intents in deviceManagement
      * @param DeviceManagementIntent $body The request body
-     * @param DeviceManagementIntentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementIntentItemRequestBuilderPatchRequestCon_980efc2a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DeviceManagementIntent $body, ?DeviceManagementIntentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DeviceManagementIntent $body, ?DeviceManagementIntentItemRequestBuilderPatchRequestCon_980efc2a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

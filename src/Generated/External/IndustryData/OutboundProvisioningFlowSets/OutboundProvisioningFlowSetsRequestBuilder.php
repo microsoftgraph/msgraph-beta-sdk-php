@@ -43,7 +43,7 @@ class OutboundProvisioningFlowSetsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/external/industryData/outboundProvisioningFlowSets{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,12 +53,12 @@ class OutboundProvisioningFlowSetsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a list of the outboundProvisioningFlowSet objects and their properties.
-     * @param OutboundProvisioningFlowSetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OutboundProvisioningFlowSetsRequestBuilderGetRequestCon_5b13ea40|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OutboundProvisioningFlowSetCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/industrydata-industrydataroot-list-outboundprovisioningflowsets?view=graph-rest-beta Find more info here
     */
-    public function get(?OutboundProvisioningFlowSetsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?OutboundProvisioningFlowSetsRequestBuilderGetRequestCon_5b13ea40 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class OutboundProvisioningFlowSetsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to outboundProvisioningFlowSets for external
      * @param OutboundProvisioningFlowSet $body The request body
-     * @param OutboundProvisioningFlowSetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OutboundProvisioningFlowSetsRequestBuilderPostRequestCo_c14a2942|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OutboundProvisioningFlowSet|null>
      * @throws Exception
     */
-    public function post(OutboundProvisioningFlowSet $body, ?OutboundProvisioningFlowSetsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(OutboundProvisioningFlowSet $body, ?OutboundProvisioningFlowSetsRequestBuilderPostRequestCo_c14a2942 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class OutboundProvisioningFlowSetsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a list of the outboundProvisioningFlowSet objects and their properties.
-     * @param OutboundProvisioningFlowSetsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OutboundProvisioningFlowSetsRequestBuilderGetRequestCon_5b13ea40|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?OutboundProvisioningFlowSetsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?OutboundProvisioningFlowSetsRequestBuilderGetRequestCon_5b13ea40 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -105,10 +105,10 @@ class OutboundProvisioningFlowSetsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to outboundProvisioningFlowSets for external
      * @param OutboundProvisioningFlowSet $body The request body
-     * @param OutboundProvisioningFlowSetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OutboundProvisioningFlowSetsRequestBuilderPostRequestCo_c14a2942|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(OutboundProvisioningFlowSet $body, ?OutboundProvisioningFlowSetsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(OutboundProvisioningFlowSet $body, ?OutboundProvisioningFlowSetsRequestBuilderPostRequestCo_c14a2942 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

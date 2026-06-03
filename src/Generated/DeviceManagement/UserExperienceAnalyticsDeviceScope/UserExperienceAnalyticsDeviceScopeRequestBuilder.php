@@ -30,7 +30,7 @@ class UserExperienceAnalyticsDeviceScopeRequestBuilder extends BaseRequestBuilde
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceScope{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceScope');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,11 +40,11 @@ class UserExperienceAnalyticsDeviceScopeRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property userExperienceAnalyticsDeviceScope for deviceManagement
-     * @param UserExperienceAnalyticsDeviceScopeRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceScopeRequestBuilderDeleteR_92324a15|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?UserExperienceAnalyticsDeviceScopeRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?UserExperienceAnalyticsDeviceScopeRequestBuilderDeleteR_92324a15 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,11 +54,11 @@ class UserExperienceAnalyticsDeviceScopeRequestBuilder extends BaseRequestBuilde
 
     /**
      * The user experience analytics device scope entity endpoint to trigger on the service to either START or STOP computing metrics data based on a device scope configuration.
-     * @param UserExperienceAnalyticsDeviceScopeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceScopeRequestBuilderGetRequ_17a83ea4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsDeviceScope|null>
      * @throws Exception
     */
-    public function get(?UserExperienceAnalyticsDeviceScopeRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserExperienceAnalyticsDeviceScopeRequestBuilderGetRequ_17a83ea4 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class UserExperienceAnalyticsDeviceScopeRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property userExperienceAnalyticsDeviceScope in deviceManagement
      * @param UserExperienceAnalyticsDeviceScope $body The request body
-     * @param UserExperienceAnalyticsDeviceScopeRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceScopeRequestBuilderPatchRe_a0924993|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsDeviceScope|null>
      * @throws Exception
     */
-    public function patch(UserExperienceAnalyticsDeviceScope $body, ?UserExperienceAnalyticsDeviceScopeRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(UserExperienceAnalyticsDeviceScope $body, ?UserExperienceAnalyticsDeviceScopeRequestBuilderPatchRe_a0924993 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class UserExperienceAnalyticsDeviceScopeRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property userExperienceAnalyticsDeviceScope for deviceManagement
-     * @param UserExperienceAnalyticsDeviceScopeRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceScopeRequestBuilderDeleteR_92324a15|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?UserExperienceAnalyticsDeviceScopeRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?UserExperienceAnalyticsDeviceScopeRequestBuilderDeleteR_92324a15 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -101,10 +101,10 @@ class UserExperienceAnalyticsDeviceScopeRequestBuilder extends BaseRequestBuilde
 
     /**
      * The user experience analytics device scope entity endpoint to trigger on the service to either START or STOP computing metrics data based on a device scope configuration.
-     * @param UserExperienceAnalyticsDeviceScopeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceScopeRequestBuilderGetRequ_17a83ea4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UserExperienceAnalyticsDeviceScopeRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UserExperienceAnalyticsDeviceScopeRequestBuilderGetRequ_17a83ea4 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -123,10 +123,10 @@ class UserExperienceAnalyticsDeviceScopeRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property userExperienceAnalyticsDeviceScope in deviceManagement
      * @param UserExperienceAnalyticsDeviceScope $body The request body
-     * @param UserExperienceAnalyticsDeviceScopeRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceScopeRequestBuilderPatchRe_a0924993|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(UserExperienceAnalyticsDeviceScope $body, ?UserExperienceAnalyticsDeviceScopeRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(UserExperienceAnalyticsDeviceScope $body, ?UserExperienceAnalyticsDeviceScopeRequestBuilderPatchRe_a0924993 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

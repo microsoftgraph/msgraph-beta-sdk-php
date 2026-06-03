@@ -43,7 +43,7 @@ class EmailThreatSubmissionPoliciesRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/threatSubmission/emailThreatSubmissionPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class EmailThreatSubmissionPoliciesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get emailThreatSubmissionPolicies from threatSubmission
-     * @param EmailThreatSubmissionPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmailThreatSubmissionPoliciesRequestBuilderGetRequestCo_be296ef6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EmailThreatSubmissionPolicyCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?EmailThreatSubmissionPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?EmailThreatSubmissionPoliciesRequestBuilderGetRequestCo_be296ef6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class EmailThreatSubmissionPoliciesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to emailThreatSubmissionPolicies for threatSubmission
      * @param EmailThreatSubmissionPolicy $body The request body
-     * @param EmailThreatSubmissionPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmailThreatSubmissionPoliciesRequestBuilderPostRequestC_05f56114|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EmailThreatSubmissionPolicy|null>
      * @throws Exception
     */
-    public function post(EmailThreatSubmissionPolicy $body, ?EmailThreatSubmissionPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(EmailThreatSubmissionPolicy $body, ?EmailThreatSubmissionPoliciesRequestBuilderPostRequestC_05f56114 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class EmailThreatSubmissionPoliciesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get emailThreatSubmissionPolicies from threatSubmission
-     * @param EmailThreatSubmissionPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmailThreatSubmissionPoliciesRequestBuilderGetRequestCo_be296ef6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?EmailThreatSubmissionPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?EmailThreatSubmissionPoliciesRequestBuilderGetRequestCo_be296ef6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class EmailThreatSubmissionPoliciesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to emailThreatSubmissionPolicies for threatSubmission
      * @param EmailThreatSubmissionPolicy $body The request body
-     * @param EmailThreatSubmissionPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmailThreatSubmissionPoliciesRequestBuilderPostRequestC_05f56114|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(EmailThreatSubmissionPolicy $body, ?EmailThreatSubmissionPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(EmailThreatSubmissionPolicy $body, ?EmailThreatSubmissionPoliciesRequestBuilderPostRequestC_05f56114 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
