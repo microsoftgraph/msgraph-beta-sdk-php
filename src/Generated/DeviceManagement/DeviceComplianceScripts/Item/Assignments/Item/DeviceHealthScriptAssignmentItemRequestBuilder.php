@@ -22,7 +22,7 @@ class DeviceHealthScriptAssignmentItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/deviceComplianceScripts/{deviceComplianceScript%2Did}/assignments/{deviceHealthScriptAssignment%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/deviceComplianceScripts/{deviceComplianceScript%2Did}/assignments/{deviceHealthScriptAssignment%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class DeviceHealthScriptAssignmentItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param DeviceHealthScriptAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceHealthScriptAssignmentItemRequestBuilderDeleteReq_929b4394|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DeviceHealthScriptAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DeviceHealthScriptAssignmentItemRequestBuilderDeleteReq_929b4394 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class DeviceHealthScriptAssignmentItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * The list of group assignments for the device compliance script
-     * @param DeviceHealthScriptAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceHealthScriptAssignmentItemRequestBuilderGetReques_41391553|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceHealthScriptAssignment|null>
      * @throws Exception
     */
-    public function get(?DeviceHealthScriptAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DeviceHealthScriptAssignmentItemRequestBuilderGetReques_41391553 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class DeviceHealthScriptAssignmentItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property assignments in deviceManagement
      * @param DeviceHealthScriptAssignment $body The request body
-     * @param DeviceHealthScriptAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceHealthScriptAssignmentItemRequestBuilderPatchRequ_8533ba4f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceHealthScriptAssignment|null>
      * @throws Exception
     */
-    public function patch(DeviceHealthScriptAssignment $body, ?DeviceHealthScriptAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DeviceHealthScriptAssignment $body, ?DeviceHealthScriptAssignmentItemRequestBuilderPatchRequ_8533ba4f $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class DeviceHealthScriptAssignmentItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param DeviceHealthScriptAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceHealthScriptAssignmentItemRequestBuilderDeleteReq_929b4394|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DeviceHealthScriptAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DeviceHealthScriptAssignmentItemRequestBuilderDeleteReq_929b4394 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,12 +93,12 @@ class DeviceHealthScriptAssignmentItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * The list of group assignments for the device compliance script
-     * @param DeviceHealthScriptAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceHealthScriptAssignmentItemRequestBuilderGetReques_41391553|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DeviceHealthScriptAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DeviceHealthScriptAssignmentItemRequestBuilderGetReques_41391553 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/deviceComplianceScripts/{deviceComplianceScript%2Did}/assignments/{deviceHealthScriptAssignment%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class DeviceHealthScriptAssignmentItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property assignments in deviceManagement
      * @param DeviceHealthScriptAssignment $body The request body
-     * @param DeviceHealthScriptAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceHealthScriptAssignmentItemRequestBuilderPatchRequ_8533ba4f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DeviceHealthScriptAssignment $body, ?DeviceHealthScriptAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DeviceHealthScriptAssignment $body, ?DeviceHealthScriptAssignmentItemRequestBuilderPatchRequ_8533ba4f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

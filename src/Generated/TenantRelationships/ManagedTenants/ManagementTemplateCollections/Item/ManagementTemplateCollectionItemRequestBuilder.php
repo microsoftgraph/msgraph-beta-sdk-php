@@ -30,7 +30,7 @@ class ManagementTemplateCollectionItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/managementTemplateCollections/{managementTemplateCollection%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/managementTemplateCollections/{managementTemplateCollection%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,11 +40,11 @@ class ManagementTemplateCollectionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property managementTemplateCollections for tenantRelationships
-     * @param ManagementTemplateCollectionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateCollectionItemRequestBuilderDeleteReq_f0ed903f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ManagementTemplateCollectionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ManagementTemplateCollectionItemRequestBuilderDeleteReq_f0ed903f $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,11 +54,11 @@ class ManagementTemplateCollectionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get managementTemplateCollections from tenantRelationships
-     * @param ManagementTemplateCollectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateCollectionItemRequestBuilderGetReques_ed79e891|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementTemplateCollection|null>
      * @throws Exception
     */
-    public function get(?ManagementTemplateCollectionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagementTemplateCollectionItemRequestBuilderGetReques_ed79e891 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class ManagementTemplateCollectionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property managementTemplateCollections in tenantRelationships
      * @param ManagementTemplateCollection $body The request body
-     * @param ManagementTemplateCollectionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateCollectionItemRequestBuilderPatchRequ_0fc13da1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementTemplateCollection|null>
      * @throws Exception
     */
-    public function patch(ManagementTemplateCollection $body, ?ManagementTemplateCollectionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ManagementTemplateCollection $body, ?ManagementTemplateCollectionItemRequestBuilderPatchRequ_0fc13da1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class ManagementTemplateCollectionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property managementTemplateCollections for tenantRelationships
-     * @param ManagementTemplateCollectionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateCollectionItemRequestBuilderDeleteReq_f0ed903f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ManagementTemplateCollectionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ManagementTemplateCollectionItemRequestBuilderDeleteReq_f0ed903f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -101,12 +101,12 @@ class ManagementTemplateCollectionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get managementTemplateCollections from tenantRelationships
-     * @param ManagementTemplateCollectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateCollectionItemRequestBuilderGetReques_ed79e891|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagementTemplateCollectionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagementTemplateCollectionItemRequestBuilderGetReques_ed79e891 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/managementTemplateCollections/{managementTemplateCollection%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -123,10 +123,10 @@ class ManagementTemplateCollectionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property managementTemplateCollections in tenantRelationships
      * @param ManagementTemplateCollection $body The request body
-     * @param ManagementTemplateCollectionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateCollectionItemRequestBuilderPatchRequ_0fc13da1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ManagementTemplateCollection $body, ?ManagementTemplateCollectionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ManagementTemplateCollection $body, ?ManagementTemplateCollectionItemRequestBuilderPatchRequ_0fc13da1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -33,11 +33,11 @@ class GetConfigurationSettingsReportRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action getConfigurationSettingsReport
      * @param GetConfigurationSettingsReportPostRequestBody $body The request body
-     * @param GetConfigurationSettingsReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetConfigurationSettingsReportRequestBuilderPostRequest_783f29b8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(GetConfigurationSettingsReportPostRequestBody $body, ?GetConfigurationSettingsReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetConfigurationSettingsReportPostRequestBody $body, ?GetConfigurationSettingsReportRequestBuilderPostRequest_783f29b8 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class GetConfigurationSettingsReportRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action getConfigurationSettingsReport
      * @param GetConfigurationSettingsReportPostRequestBody $body The request body
-     * @param GetConfigurationSettingsReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetConfigurationSettingsReportRequestBuilderPostRequest_783f29b8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetConfigurationSettingsReportPostRequestBody $body, ?GetConfigurationSettingsReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetConfigurationSettingsReportPostRequestBody $body, ?GetConfigurationSettingsReportRequestBuilderPostRequest_783f29b8 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

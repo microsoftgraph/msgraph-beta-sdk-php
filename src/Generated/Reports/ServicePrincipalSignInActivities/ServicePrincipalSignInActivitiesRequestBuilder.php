@@ -43,7 +43,7 @@ class ServicePrincipalSignInActivitiesRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/reports/servicePrincipalSignInActivities{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,12 +53,12 @@ class ServicePrincipalSignInActivitiesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a list of servicePrincipalSignInActivity objects that contains sign-in activity information for service principals in a Microsoft Entra tenant. You can use a service principal as a client or resource. A service principal supports delegated or app-only authentication context.
-     * @param ServicePrincipalSignInActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalSignInActivitiesRequestBuilderGetReques_ee96e8b8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServicePrincipalSignInActivityCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/reportroot-list-serviceprincipalsigninactivities?view=graph-rest-beta Find more info here
     */
-    public function get(?ServicePrincipalSignInActivitiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ServicePrincipalSignInActivitiesRequestBuilderGetReques_ee96e8b8 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class ServicePrincipalSignInActivitiesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to servicePrincipalSignInActivities for reports
      * @param ServicePrincipalSignInActivity $body The request body
-     * @param ServicePrincipalSignInActivitiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalSignInActivitiesRequestBuilderPostReque_1072b40e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServicePrincipalSignInActivity|null>
      * @throws Exception
     */
-    public function post(ServicePrincipalSignInActivity $body, ?ServicePrincipalSignInActivitiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ServicePrincipalSignInActivity $body, ?ServicePrincipalSignInActivitiesRequestBuilderPostReque_1072b40e $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,12 +83,12 @@ class ServicePrincipalSignInActivitiesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a list of servicePrincipalSignInActivity objects that contains sign-in activity information for service principals in a Microsoft Entra tenant. You can use a service principal as a client or resource. A service principal supports delegated or app-only authentication context.
-     * @param ServicePrincipalSignInActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalSignInActivitiesRequestBuilderGetReques_ee96e8b8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ServicePrincipalSignInActivitiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ServicePrincipalSignInActivitiesRequestBuilderGetReques_ee96e8b8 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/reports/servicePrincipalSignInActivities{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -105,12 +105,12 @@ class ServicePrincipalSignInActivitiesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to servicePrincipalSignInActivities for reports
      * @param ServicePrincipalSignInActivity $body The request body
-     * @param ServicePrincipalSignInActivitiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalSignInActivitiesRequestBuilderPostReque_1072b40e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ServicePrincipalSignInActivity $body, ?ServicePrincipalSignInActivitiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ServicePrincipalSignInActivity $body, ?ServicePrincipalSignInActivitiesRequestBuilderPostReque_1072b40e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/reports/servicePrincipalSignInActivities';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

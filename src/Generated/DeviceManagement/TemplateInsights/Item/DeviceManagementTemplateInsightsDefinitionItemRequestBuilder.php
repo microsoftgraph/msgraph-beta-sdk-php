@@ -22,7 +22,7 @@ class DeviceManagementTemplateInsightsDefinitionItemRequestBuilder extends BaseR
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/templateInsights/{deviceManagementTemplateInsightsDefinition%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/templateInsights/{deviceManagementTemplateInsightsDefinition%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class DeviceManagementTemplateInsightsDefinitionItemRequestBuilder extends BaseR
 
     /**
      * Delete navigation property templateInsights for deviceManagement
-     * @param DeviceManagementTemplateInsightsDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementTemplateInsightsDefinitionItemRequestBu_bc8ee006|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DeviceManagementTemplateInsightsDefinitionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DeviceManagementTemplateInsightsDefinitionItemRequestBu_bc8ee006 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class DeviceManagementTemplateInsightsDefinitionItemRequestBuilder extends BaseR
 
     /**
      * List of setting insights in a template
-     * @param DeviceManagementTemplateInsightsDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementTemplateInsightsDefinitionItemRequestBu_ce5419e0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementTemplateInsightsDefinition|null>
      * @throws Exception
     */
-    public function get(?DeviceManagementTemplateInsightsDefinitionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DeviceManagementTemplateInsightsDefinitionItemRequestBu_ce5419e0 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class DeviceManagementTemplateInsightsDefinitionItemRequestBuilder extends BaseR
     /**
      * Update the navigation property templateInsights in deviceManagement
      * @param DeviceManagementTemplateInsightsDefinition $body The request body
-     * @param DeviceManagementTemplateInsightsDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementTemplateInsightsDefinitionItemRequestBu_9a867ee7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementTemplateInsightsDefinition|null>
      * @throws Exception
     */
-    public function patch(DeviceManagementTemplateInsightsDefinition $body, ?DeviceManagementTemplateInsightsDefinitionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DeviceManagementTemplateInsightsDefinition $body, ?DeviceManagementTemplateInsightsDefinitionItemRequestBu_9a867ee7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class DeviceManagementTemplateInsightsDefinitionItemRequestBuilder extends BaseR
 
     /**
      * Delete navigation property templateInsights for deviceManagement
-     * @param DeviceManagementTemplateInsightsDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementTemplateInsightsDefinitionItemRequestBu_bc8ee006|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DeviceManagementTemplateInsightsDefinitionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DeviceManagementTemplateInsightsDefinitionItemRequestBu_bc8ee006 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,12 +93,12 @@ class DeviceManagementTemplateInsightsDefinitionItemRequestBuilder extends BaseR
 
     /**
      * List of setting insights in a template
-     * @param DeviceManagementTemplateInsightsDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementTemplateInsightsDefinitionItemRequestBu_ce5419e0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DeviceManagementTemplateInsightsDefinitionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DeviceManagementTemplateInsightsDefinitionItemRequestBu_ce5419e0 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/templateInsights/{deviceManagementTemplateInsightsDefinition%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class DeviceManagementTemplateInsightsDefinitionItemRequestBuilder extends BaseR
     /**
      * Update the navigation property templateInsights in deviceManagement
      * @param DeviceManagementTemplateInsightsDefinition $body The request body
-     * @param DeviceManagementTemplateInsightsDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementTemplateInsightsDefinitionItemRequestBu_9a867ee7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DeviceManagementTemplateInsightsDefinition $body, ?DeviceManagementTemplateInsightsDefinitionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DeviceManagementTemplateInsightsDefinition $body, ?DeviceManagementTemplateInsightsDefinitionItemRequestBu_9a867ee7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

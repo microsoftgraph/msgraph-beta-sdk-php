@@ -22,7 +22,7 @@ class SignInIdentifierBaseNameItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/identity/signInIdentifiers/{signInIdentifierBase%2Dname}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/identity/signInIdentifiers/{signInIdentifierBase%2Dname}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class SignInIdentifierBaseNameItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property signInIdentifiers for identity
-     * @param SignInIdentifierBaseNameItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SignInIdentifierBaseNameItemRequestBuilderDeleteRequest_24bfbe8e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?SignInIdentifierBaseNameItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?SignInIdentifierBaseNameItemRequestBuilderDeleteRequest_24bfbe8e $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class SignInIdentifierBaseNameItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get signInIdentifiers from identity
-     * @param SignInIdentifierBaseNameItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SignInIdentifierBaseNameItemRequestBuilderGetRequestCon_1ab458d8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SignInIdentifierBase|null>
      * @throws Exception
     */
-    public function get(?SignInIdentifierBaseNameItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?SignInIdentifierBaseNameItemRequestBuilderGetRequestCon_1ab458d8 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class SignInIdentifierBaseNameItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property signInIdentifiers in identity
      * @param SignInIdentifierBase $body The request body
-     * @param SignInIdentifierBaseNameItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SignInIdentifierBaseNameItemRequestBuilderPatchRequestC_1b36b3d0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SignInIdentifierBase|null>
      * @throws Exception
     */
-    public function patch(SignInIdentifierBase $body, ?SignInIdentifierBaseNameItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(SignInIdentifierBase $body, ?SignInIdentifierBaseNameItemRequestBuilderPatchRequestC_1b36b3d0 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class SignInIdentifierBaseNameItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property signInIdentifiers for identity
-     * @param SignInIdentifierBaseNameItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SignInIdentifierBaseNameItemRequestBuilderDeleteRequest_24bfbe8e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?SignInIdentifierBaseNameItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?SignInIdentifierBaseNameItemRequestBuilderDeleteRequest_24bfbe8e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,12 +93,12 @@ class SignInIdentifierBaseNameItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get signInIdentifiers from identity
-     * @param SignInIdentifierBaseNameItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SignInIdentifierBaseNameItemRequestBuilderGetRequestCon_1ab458d8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?SignInIdentifierBaseNameItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?SignInIdentifierBaseNameItemRequestBuilderGetRequestCon_1ab458d8 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/identity/signInIdentifiers/{signInIdentifierBase%2Dname}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class SignInIdentifierBaseNameItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property signInIdentifiers in identity
      * @param SignInIdentifierBase $body The request body
-     * @param SignInIdentifierBaseNameItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SignInIdentifierBaseNameItemRequestBuilderPatchRequestC_1b36b3d0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(SignInIdentifierBase $body, ?SignInIdentifierBaseNameItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(SignInIdentifierBase $body, ?SignInIdentifierBaseNameItemRequestBuilderPatchRequestC_1b36b3d0 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

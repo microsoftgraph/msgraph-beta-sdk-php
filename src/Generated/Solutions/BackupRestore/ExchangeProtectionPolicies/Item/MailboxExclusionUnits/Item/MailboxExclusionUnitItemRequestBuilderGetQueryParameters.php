@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ExchangeProtect
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get mailboxExclusionUnits from solutions
+ * Get a mailbox exclusion unit associated with an Exchange protection policy.
 */
 class MailboxExclusionUnitItemRequestBuilderGetQueryParameters 
 {

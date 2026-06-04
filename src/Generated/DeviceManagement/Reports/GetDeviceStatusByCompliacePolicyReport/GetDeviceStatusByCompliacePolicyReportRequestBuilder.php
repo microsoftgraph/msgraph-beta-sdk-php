@@ -33,11 +33,11 @@ class GetDeviceStatusByCompliacePolicyReportRequestBuilder extends BaseRequestBu
     /**
      * Invoke action getDeviceStatusByCompliacePolicyReport
      * @param GetDeviceStatusByCompliacePolicyReportPostRequestBody $body The request body
-     * @param GetDeviceStatusByCompliacePolicyReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetDeviceStatusByCompliacePolicyReportRequestBuilderPos_3913d8b1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(GetDeviceStatusByCompliacePolicyReportPostRequestBody $body, ?GetDeviceStatusByCompliacePolicyReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetDeviceStatusByCompliacePolicyReportPostRequestBody $body, ?GetDeviceStatusByCompliacePolicyReportRequestBuilderPos_3913d8b1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class GetDeviceStatusByCompliacePolicyReportRequestBuilder extends BaseRequestBu
     /**
      * Invoke action getDeviceStatusByCompliacePolicyReport
      * @param GetDeviceStatusByCompliacePolicyReportPostRequestBody $body The request body
-     * @param GetDeviceStatusByCompliacePolicyReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetDeviceStatusByCompliacePolicyReportRequestBuilderPos_3913d8b1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetDeviceStatusByCompliacePolicyReportPostRequestBody $body, ?GetDeviceStatusByCompliacePolicyReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetDeviceStatusByCompliacePolicyReportPostRequestBody $body, ?GetDeviceStatusByCompliacePolicyReportRequestBuilderPos_3913d8b1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

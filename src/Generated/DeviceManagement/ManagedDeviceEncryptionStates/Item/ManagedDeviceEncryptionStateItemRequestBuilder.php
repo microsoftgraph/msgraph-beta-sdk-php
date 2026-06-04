@@ -22,7 +22,7 @@ class ManagedDeviceEncryptionStateItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/managedDeviceEncryptionStates/{managedDeviceEncryptionState%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/managedDeviceEncryptionStates/{managedDeviceEncryptionState%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class ManagedDeviceEncryptionStateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property managedDeviceEncryptionStates for deviceManagement
-     * @param ManagedDeviceEncryptionStateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceEncryptionStateItemRequestBuilderDeleteReq_6ee72d78|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ManagedDeviceEncryptionStateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ManagedDeviceEncryptionStateItemRequestBuilderDeleteReq_6ee72d78 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class ManagedDeviceEncryptionStateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Encryption report for devices in this account
-     * @param ManagedDeviceEncryptionStateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceEncryptionStateItemRequestBuilderGetReques_e5b223ef|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedDeviceEncryptionState|null>
      * @throws Exception
     */
-    public function get(?ManagedDeviceEncryptionStateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagedDeviceEncryptionStateItemRequestBuilderGetReques_e5b223ef $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class ManagedDeviceEncryptionStateItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property managedDeviceEncryptionStates in deviceManagement
      * @param ManagedDeviceEncryptionState $body The request body
-     * @param ManagedDeviceEncryptionStateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceEncryptionStateItemRequestBuilderPatchRequ_0147d422|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedDeviceEncryptionState|null>
      * @throws Exception
     */
-    public function patch(ManagedDeviceEncryptionState $body, ?ManagedDeviceEncryptionStateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ManagedDeviceEncryptionState $body, ?ManagedDeviceEncryptionStateItemRequestBuilderPatchRequ_0147d422 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class ManagedDeviceEncryptionStateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property managedDeviceEncryptionStates for deviceManagement
-     * @param ManagedDeviceEncryptionStateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceEncryptionStateItemRequestBuilderDeleteReq_6ee72d78|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ManagedDeviceEncryptionStateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ManagedDeviceEncryptionStateItemRequestBuilderDeleteReq_6ee72d78 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,12 +93,12 @@ class ManagedDeviceEncryptionStateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Encryption report for devices in this account
-     * @param ManagedDeviceEncryptionStateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceEncryptionStateItemRequestBuilderGetReques_e5b223ef|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagedDeviceEncryptionStateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagedDeviceEncryptionStateItemRequestBuilderGetReques_e5b223ef $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/managedDeviceEncryptionStates/{managedDeviceEncryptionState%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class ManagedDeviceEncryptionStateItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property managedDeviceEncryptionStates in deviceManagement
      * @param ManagedDeviceEncryptionState $body The request body
-     * @param ManagedDeviceEncryptionStateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceEncryptionStateItemRequestBuilderPatchRequ_0147d422|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ManagedDeviceEncryptionState $body, ?ManagedDeviceEncryptionStateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ManagedDeviceEncryptionState $body, ?ManagedDeviceEncryptionStateItemRequestBuilderPatchRequ_0147d422 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

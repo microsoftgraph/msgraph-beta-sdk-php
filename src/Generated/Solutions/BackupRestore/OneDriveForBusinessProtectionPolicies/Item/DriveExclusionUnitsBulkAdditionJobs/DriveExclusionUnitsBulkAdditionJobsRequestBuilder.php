@@ -51,12 +51,13 @@ class DriveExclusionUnitsBulkAdditionJobsRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Get driveExclusionUnitsBulkAdditionJobs from solutions
-     * @param DriveExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * Get a list of drive exclusion units bulk addition jobs associated with a OneDrive for work or school protection policy.
+     * @param DriveExclusionUnitsBulkAdditionJobsRequestBuilderGetReq_95248282|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DriveExclusionUnitsBulkAdditionJobCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/onedriveforbusinessprotectionpolicy-list-driveexclusionunitsbulkadditionjobs?view=graph-rest-beta Find more info here
     */
-    public function get(?DriveExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DriveExclusionUnitsBulkAdditionJobsRequestBuilderGetReq_95248282 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -65,11 +66,11 @@ class DriveExclusionUnitsBulkAdditionJobsRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Get driveExclusionUnitsBulkAdditionJobs from solutions
-     * @param DriveExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * Get a list of drive exclusion units bulk addition jobs associated with a OneDrive for work or school protection policy.
+     * @param DriveExclusionUnitsBulkAdditionJobsRequestBuilderGetReq_95248282|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DriveExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DriveExclusionUnitsBulkAdditionJobsRequestBuilderGetReq_95248282 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -43,7 +43,7 @@ class OnPremisesPublishingProfilesRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/onPremisesPublishingProfiles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class OnPremisesPublishingProfilesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get entities from onPremisesPublishingProfiles
-     * @param OnPremisesPublishingProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnPremisesPublishingProfilesRequestBuilderGetRequestCon_887a2125|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnPremisesPublishingProfileCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?OnPremisesPublishingProfilesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?OnPremisesPublishingProfilesRequestBuilderGetRequestCon_887a2125 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class OnPremisesPublishingProfilesRequestBuilder extends BaseRequestBuilder
     /**
      * Add new entity to onPremisesPublishingProfiles
      * @param OnPremisesPublishingProfile $body The request body
-     * @param OnPremisesPublishingProfilesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnPremisesPublishingProfilesRequestBuilderPostRequestCo_353f46cb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnPremisesPublishingProfile|null>
      * @throws Exception
     */
-    public function post(OnPremisesPublishingProfile $body, ?OnPremisesPublishingProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(OnPremisesPublishingProfile $body, ?OnPremisesPublishingProfilesRequestBuilderPostRequestCo_353f46cb $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,12 +82,12 @@ class OnPremisesPublishingProfilesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get entities from onPremisesPublishingProfiles
-     * @param OnPremisesPublishingProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnPremisesPublishingProfilesRequestBuilderGetRequestCon_887a2125|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?OnPremisesPublishingProfilesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?OnPremisesPublishingProfilesRequestBuilderGetRequestCon_887a2125 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/onPremisesPublishingProfiles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,12 +104,12 @@ class OnPremisesPublishingProfilesRequestBuilder extends BaseRequestBuilder
     /**
      * Add new entity to onPremisesPublishingProfiles
      * @param OnPremisesPublishingProfile $body The request body
-     * @param OnPremisesPublishingProfilesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnPremisesPublishingProfilesRequestBuilderPostRequestCo_353f46cb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(OnPremisesPublishingProfile $body, ?OnPremisesPublishingProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(OnPremisesPublishingProfile $body, ?OnPremisesPublishingProfilesRequestBuilderPostRequestCo_353f46cb $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/onPremisesPublishingProfiles';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

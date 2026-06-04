@@ -36,11 +36,11 @@ class GetYammerGroupsActivityDetailWithDateRequestBuilder extends BaseRequestBui
 
     /**
      * Invoke function getYammerGroupsActivityDetail
-     * @param GetYammerGroupsActivityDetailWithDateRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetYammerGroupsActivityDetailWithDateRequestBuilderGetR_c2dacc4c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function get(?GetYammerGroupsActivityDetailWithDateRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetYammerGroupsActivityDetailWithDateRequestBuilderGetR_c2dacc4c $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -52,10 +52,10 @@ class GetYammerGroupsActivityDetailWithDateRequestBuilder extends BaseRequestBui
 
     /**
      * Invoke function getYammerGroupsActivityDetail
-     * @param GetYammerGroupsActivityDetailWithDateRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetYammerGroupsActivityDetailWithDateRequestBuilderGetR_c2dacc4c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetYammerGroupsActivityDetailWithDateRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetYammerGroupsActivityDetailWithDateRequestBuilderGetR_c2dacc4c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -108,6 +108,7 @@ class SummarizedSignIn extends Entity implements Parsable
             'signInCount' => fn(ParseNode $n) => $o->setSignInCount($n->getIntegerValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getObjectValue([SignInStatus::class, 'createFromDiscriminatorValue'])),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
+            'tokenIssuerType' => fn(ParseNode $n) => $o->setTokenIssuerType($n->getEnumValue(TokenIssuerType::class)),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
     }
@@ -233,6 +234,18 @@ class SummarizedSignIn extends Entity implements Parsable
     }
 
     /**
+     * Gets the tokenIssuerType property value. The tokenIssuerType property
+     * @return TokenIssuerType|null
+    */
+    public function getTokenIssuerType(): ?TokenIssuerType {
+        $val = $this->getBackingStore()->get('tokenIssuerType');
+        if (is_null($val) || $val instanceof TokenIssuerType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tokenIssuerType'");
+    }
+
+    /**
      * Gets the userPrincipalName property value. User principal name of the user that initiated the sign-in. This value is always in lowercase. For guest users whose values in the user object typically contain #EXT# before the domain part, this property stores the value in both lowercase and the 'true' format. For example, while the user object stores AdeleVance_fabrikam.com#EXT#@contoso.com, the sign-in logs store adelevance@fabrikam.com. Supports $filter (eq).
      * @return string|null
     */
@@ -265,6 +278,7 @@ class SummarizedSignIn extends Entity implements Parsable
         $writer->writeIntegerValue('signInCount', $this->getSignInCount());
         $writer->writeObjectValue('status', $this->getStatus());
         $writer->writeStringValue('tenantId', $this->getTenantId());
+        $writer->writeEnumValue('tokenIssuerType', $this->getTokenIssuerType());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
 
@@ -386,6 +400,14 @@ class SummarizedSignIn extends Entity implements Parsable
     */
     public function setTenantId(?string $value): void {
         $this->getBackingStore()->set('tenantId', $value);
+    }
+
+    /**
+     * Sets the tokenIssuerType property value. The tokenIssuerType property
+     * @param TokenIssuerType|null $value Value to set for the tokenIssuerType property.
+    */
+    public function setTokenIssuerType(?TokenIssuerType $value): void {
+        $this->getBackingStore()->set('tokenIssuerType', $value);
     }
 
     /**

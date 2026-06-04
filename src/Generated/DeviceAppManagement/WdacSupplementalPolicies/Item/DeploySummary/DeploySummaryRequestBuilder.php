@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\WdacSupplementalPol
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary;
+use Microsoft\Graph\Beta\Generated\Models\WindowsDefenderApplicationControlSupplementalPolicyDepl_3c935e9e;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -22,7 +22,7 @@ class DeploySummaryRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceAppManagement/wdacSupplementalPolicies/{windowsDefenderApplicationControlSupplementalPolicy%2Did}/deploySummary{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceAppManagement/wdacSupplementalPolicies/{windowsDefenderApplicationControlSupplementalPolicy%2Did}/deploySummary');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -47,7 +47,7 @@ class DeploySummaryRequestBuilder extends BaseRequestBuilder
     /**
      * WindowsDefenderApplicationControl supplemental policy deployment summary.
      * @param DeploySummaryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary|null>
+     * @return Promise<WindowsDefenderApplicationControlSupplementalPolicyDepl_3c935e9e|null>
      * @throws Exception
     */
     public function get(?DeploySummaryRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
@@ -55,22 +55,22 @@ class DeploySummaryRequestBuilder extends BaseRequestBuilder
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        return $this->requestAdapter->sendAsync($requestInfo, [WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary::class, 'createFromDiscriminatorValue'], $errorMappings);
+        return $this->requestAdapter->sendAsync($requestInfo, [WindowsDefenderApplicationControlSupplementalPolicyDepl_3c935e9e::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
      * Update the navigation property deploySummary in deviceAppManagement
-     * @param WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary $body The request body
+     * @param WindowsDefenderApplicationControlSupplementalPolicyDepl_3c935e9e $body The request body
      * @param DeploySummaryRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary|null>
+     * @return Promise<WindowsDefenderApplicationControlSupplementalPolicyDepl_3c935e9e|null>
      * @throws Exception
     */
-    public function patch(WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary $body, ?DeploySummaryRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(WindowsDefenderApplicationControlSupplementalPolicyDepl_3c935e9e $body, ?DeploySummaryRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        return $this->requestAdapter->sendAsync($requestInfo, [WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary::class, 'createFromDiscriminatorValue'], $errorMappings);
+        return $this->requestAdapter->sendAsync($requestInfo, [WindowsDefenderApplicationControlSupplementalPolicyDepl_3c935e9e::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
@@ -98,7 +98,7 @@ class DeploySummaryRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?DeploySummaryRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/wdacSupplementalPolicies/{windowsDefenderApplicationControlSupplementalPolicy%2Did}/deploySummary{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -114,11 +114,11 @@ class DeploySummaryRequestBuilder extends BaseRequestBuilder
 
     /**
      * Update the navigation property deploySummary in deviceAppManagement
-     * @param WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary $body The request body
+     * @param WindowsDefenderApplicationControlSupplementalPolicyDepl_3c935e9e $body The request body
      * @param DeploySummaryRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary $body, ?DeploySummaryRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(WindowsDefenderApplicationControlSupplementalPolicyDepl_3c935e9e $body, ?DeploySummaryRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -30,7 +30,7 @@ class OutboundProvisioningFlowSetItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/external/industryData/outboundProvisioningFlowSets/{outboundProvisioningFlowSet%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/external/industryData/outboundProvisioningFlowSets/{outboundProvisioningFlowSet%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,11 +40,11 @@ class OutboundProvisioningFlowSetItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property outboundProvisioningFlowSets for external
-     * @param OutboundProvisioningFlowSetItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OutboundProvisioningFlowSetItemRequestBuilderDeleteRequ_19165644|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?OutboundProvisioningFlowSetItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?OutboundProvisioningFlowSetItemRequestBuilderDeleteRequ_19165644 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,11 +54,11 @@ class OutboundProvisioningFlowSetItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get outboundProvisioningFlowSets from external
-     * @param OutboundProvisioningFlowSetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OutboundProvisioningFlowSetItemRequestBuilderGetRequest_650a2ba3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OutboundProvisioningFlowSet|null>
      * @throws Exception
     */
-    public function get(?OutboundProvisioningFlowSetItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?OutboundProvisioningFlowSetItemRequestBuilderGetRequest_650a2ba3 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class OutboundProvisioningFlowSetItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property outboundProvisioningFlowSets in external
      * @param OutboundProvisioningFlowSet $body The request body
-     * @param OutboundProvisioningFlowSetItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OutboundProvisioningFlowSetItemRequestBuilderPatchReque_5b00fcea|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OutboundProvisioningFlowSet|null>
      * @throws Exception
     */
-    public function patch(OutboundProvisioningFlowSet $body, ?OutboundProvisioningFlowSetItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(OutboundProvisioningFlowSet $body, ?OutboundProvisioningFlowSetItemRequestBuilderPatchReque_5b00fcea $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class OutboundProvisioningFlowSetItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property outboundProvisioningFlowSets for external
-     * @param OutboundProvisioningFlowSetItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OutboundProvisioningFlowSetItemRequestBuilderDeleteRequ_19165644|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?OutboundProvisioningFlowSetItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?OutboundProvisioningFlowSetItemRequestBuilderDeleteRequ_19165644 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -101,12 +101,12 @@ class OutboundProvisioningFlowSetItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get outboundProvisioningFlowSets from external
-     * @param OutboundProvisioningFlowSetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OutboundProvisioningFlowSetItemRequestBuilderGetRequest_650a2ba3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?OutboundProvisioningFlowSetItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?OutboundProvisioningFlowSetItemRequestBuilderGetRequest_650a2ba3 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/external/industryData/outboundProvisioningFlowSets/{outboundProvisioningFlowSet%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -123,10 +123,10 @@ class OutboundProvisioningFlowSetItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property outboundProvisioningFlowSets in external
      * @param OutboundProvisioningFlowSet $body The request body
-     * @param OutboundProvisioningFlowSetItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OutboundProvisioningFlowSetItemRequestBuilderPatchReque_5b00fcea|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(OutboundProvisioningFlowSet $body, ?OutboundProvisioningFlowSetItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(OutboundProvisioningFlowSet $body, ?OutboundProvisioningFlowSetItemRequestBuilderPatchReque_5b00fcea $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

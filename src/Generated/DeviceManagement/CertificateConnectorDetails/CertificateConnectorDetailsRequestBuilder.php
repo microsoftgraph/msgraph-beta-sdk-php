@@ -43,7 +43,7 @@ class CertificateConnectorDetailsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/certificateConnectorDetails{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -68,11 +68,11 @@ class CertificateConnectorDetailsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to certificateConnectorDetails for deviceManagement
      * @param CertificateConnectorDetails $body The request body
-     * @param CertificateConnectorDetailsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CertificateConnectorDetailsRequestBuilderPostRequestCon_0f297d98|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CertificateConnectorDetails|null>
      * @throws Exception
     */
-    public function post(CertificateConnectorDetails $body, ?CertificateConnectorDetailsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(CertificateConnectorDetails $body, ?CertificateConnectorDetailsRequestBuilderPostRequestCon_0f297d98 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -87,7 +87,7 @@ class CertificateConnectorDetailsRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?CertificateConnectorDetailsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/certificateConnectorDetails{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,12 +104,12 @@ class CertificateConnectorDetailsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to certificateConnectorDetails for deviceManagement
      * @param CertificateConnectorDetails $body The request body
-     * @param CertificateConnectorDetailsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CertificateConnectorDetailsRequestBuilderPostRequestCon_0f297d98|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(CertificateConnectorDetails $body, ?CertificateConnectorDetailsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(CertificateConnectorDetails $body, ?CertificateConnectorDetailsRequestBuilderPostRequestCon_0f297d98 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/certificateConnectorDetails';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

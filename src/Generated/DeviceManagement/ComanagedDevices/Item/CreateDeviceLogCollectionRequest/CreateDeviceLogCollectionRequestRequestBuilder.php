@@ -33,11 +33,11 @@ class CreateDeviceLogCollectionRequestRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action createDeviceLogCollectionRequest
      * @param CreateDeviceLogCollectionRequestPostRequestBody $body The request body
-     * @param CreateDeviceLogCollectionRequestRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CreateDeviceLogCollectionRequestRequestBuilderPostReque_270ed313|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceLogCollectionResponse|null>
      * @throws Exception
     */
-    public function post(CreateDeviceLogCollectionRequestPostRequestBody $body, ?CreateDeviceLogCollectionRequestRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(CreateDeviceLogCollectionRequestPostRequestBody $body, ?CreateDeviceLogCollectionRequestRequestBuilderPostReque_270ed313 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class CreateDeviceLogCollectionRequestRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action createDeviceLogCollectionRequest
      * @param CreateDeviceLogCollectionRequestPostRequestBody $body The request body
-     * @param CreateDeviceLogCollectionRequestRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CreateDeviceLogCollectionRequestRequestBuilderPostReque_270ed313|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(CreateDeviceLogCollectionRequestPostRequestBody $body, ?CreateDeviceLogCollectionRequestRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(CreateDeviceLogCollectionRequestPostRequestBody $body, ?CreateDeviceLogCollectionRequestRequestBuilderPostReque_270ed313 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

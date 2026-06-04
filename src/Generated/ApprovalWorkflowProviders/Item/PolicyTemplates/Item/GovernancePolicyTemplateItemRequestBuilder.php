@@ -22,7 +22,7 @@ class GovernancePolicyTemplateItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/approvalWorkflowProviders/{approvalWorkflowProvider%2Did}/policyTemplates/{governancePolicyTemplate%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/approvalWorkflowProviders/{approvalWorkflowProvider%2Did}/policyTemplates/{governancePolicyTemplate%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class GovernancePolicyTemplateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property policyTemplates for approvalWorkflowProviders
-     * @param GovernancePolicyTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernancePolicyTemplateItemRequestBuilderDeleteRequest_d9ff69e8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?GovernancePolicyTemplateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?GovernancePolicyTemplateItemRequestBuilderDeleteRequest_d9ff69e8 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class GovernancePolicyTemplateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get policyTemplates from approvalWorkflowProviders
-     * @param GovernancePolicyTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernancePolicyTemplateItemRequestBuilderGetRequestCon_84774ca6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GovernancePolicyTemplate|null>
      * @throws Exception
     */
-    public function get(?GovernancePolicyTemplateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GovernancePolicyTemplateItemRequestBuilderGetRequestCon_84774ca6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class GovernancePolicyTemplateItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property policyTemplates in approvalWorkflowProviders
      * @param GovernancePolicyTemplate $body The request body
-     * @param GovernancePolicyTemplateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernancePolicyTemplateItemRequestBuilderPatchRequestC_b41d502c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GovernancePolicyTemplate|null>
      * @throws Exception
     */
-    public function patch(GovernancePolicyTemplate $body, ?GovernancePolicyTemplateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(GovernancePolicyTemplate $body, ?GovernancePolicyTemplateItemRequestBuilderPatchRequestC_b41d502c $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class GovernancePolicyTemplateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property policyTemplates for approvalWorkflowProviders
-     * @param GovernancePolicyTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernancePolicyTemplateItemRequestBuilderDeleteRequest_d9ff69e8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?GovernancePolicyTemplateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?GovernancePolicyTemplateItemRequestBuilderDeleteRequest_d9ff69e8 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,12 +93,12 @@ class GovernancePolicyTemplateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get policyTemplates from approvalWorkflowProviders
-     * @param GovernancePolicyTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernancePolicyTemplateItemRequestBuilderGetRequestCon_84774ca6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GovernancePolicyTemplateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GovernancePolicyTemplateItemRequestBuilderGetRequestCon_84774ca6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/approvalWorkflowProviders/{approvalWorkflowProvider%2Did}/policyTemplates/{governancePolicyTemplate%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class GovernancePolicyTemplateItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property policyTemplates in approvalWorkflowProviders
      * @param GovernancePolicyTemplate $body The request body
-     * @param GovernancePolicyTemplateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernancePolicyTemplateItemRequestBuilderPatchRequestC_b41d502c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(GovernancePolicyTemplate $body, ?GovernancePolicyTemplateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(GovernancePolicyTemplate $body, ?GovernancePolicyTemplateItemRequestBuilderPatchRequestC_b41d502c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

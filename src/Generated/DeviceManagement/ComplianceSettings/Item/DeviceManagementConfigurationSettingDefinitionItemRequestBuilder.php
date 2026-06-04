@@ -22,7 +22,7 @@ class DeviceManagementConfigurationSettingDefinitionItemRequestBuilder extends B
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/complianceSettings/{deviceManagementConfigurationSettingDefinition%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/complianceSettings/{deviceManagementConfigurationSettingDefinition%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class DeviceManagementConfigurationSettingDefinitionItemRequestBuilder extends B
 
     /**
      * Delete navigation property complianceSettings for deviceManagement
-     * @param DeviceManagementConfigurationSettingDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementConfigurationSettingDefinitionItemReque_f06ee41a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DeviceManagementConfigurationSettingDefinitionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DeviceManagementConfigurationSettingDefinitionItemReque_f06ee41a $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class DeviceManagementConfigurationSettingDefinitionItemRequestBuilder extends B
 
     /**
      * List of all ComplianceSettings
-     * @param DeviceManagementConfigurationSettingDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementConfigurationSettingDefinitionItemReque_b9e14d9c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementConfigurationSettingDefinition|null>
      * @throws Exception
     */
-    public function get(?DeviceManagementConfigurationSettingDefinitionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DeviceManagementConfigurationSettingDefinitionItemReque_b9e14d9c $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class DeviceManagementConfigurationSettingDefinitionItemRequestBuilder extends B
     /**
      * Update the navigation property complianceSettings in deviceManagement
      * @param DeviceManagementConfigurationSettingDefinition $body The request body
-     * @param DeviceManagementConfigurationSettingDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementConfigurationSettingDefinitionItemReque_a40df461|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementConfigurationSettingDefinition|null>
      * @throws Exception
     */
-    public function patch(DeviceManagementConfigurationSettingDefinition $body, ?DeviceManagementConfigurationSettingDefinitionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DeviceManagementConfigurationSettingDefinition $body, ?DeviceManagementConfigurationSettingDefinitionItemReque_a40df461 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class DeviceManagementConfigurationSettingDefinitionItemRequestBuilder extends B
 
     /**
      * Delete navigation property complianceSettings for deviceManagement
-     * @param DeviceManagementConfigurationSettingDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementConfigurationSettingDefinitionItemReque_f06ee41a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DeviceManagementConfigurationSettingDefinitionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DeviceManagementConfigurationSettingDefinitionItemReque_f06ee41a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,12 +93,12 @@ class DeviceManagementConfigurationSettingDefinitionItemRequestBuilder extends B
 
     /**
      * List of all ComplianceSettings
-     * @param DeviceManagementConfigurationSettingDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementConfigurationSettingDefinitionItemReque_b9e14d9c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DeviceManagementConfigurationSettingDefinitionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DeviceManagementConfigurationSettingDefinitionItemReque_b9e14d9c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/complianceSettings/{deviceManagementConfigurationSettingDefinition%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class DeviceManagementConfigurationSettingDefinitionItemRequestBuilder extends B
     /**
      * Update the navigation property complianceSettings in deviceManagement
      * @param DeviceManagementConfigurationSettingDefinition $body The request body
-     * @param DeviceManagementConfigurationSettingDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementConfigurationSettingDefinitionItemReque_a40df461|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DeviceManagementConfigurationSettingDefinition $body, ?DeviceManagementConfigurationSettingDefinitionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DeviceManagementConfigurationSettingDefinition $body, ?DeviceManagementConfigurationSettingDefinitionItemReque_a40df461 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

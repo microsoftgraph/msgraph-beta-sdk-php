@@ -32,12 +32,12 @@ class MicrosoftGraphWindowsUpdatesUpdateAudienceByIdRequestBuilder extends BaseR
     /**
      * Update the members and exclusions collections of a deploymentAudience with updatableAsset resources of the same type. Adding an azureADDevice to the members or exclusions collections of a deployment audience automatically creates a Microsoft Entra device object if it does not already exist. If the same updatableAsset gets included in the exclusions and members collections of a deploymentAudience, deployment will not apply to that asset. You can also use the method updateAudience to update the deploymentAudience.
      * @param UpdateAudienceByIdPostRequestBody $body The request body
-     * @param MicrosoftGraphWindowsUpdatesUpdateAudienceByIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphWindowsUpdatesUpdateAudienceByIdRequestBu_d5431b7f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/windowsupdates-deploymentaudience-updateaudiencebyid?view=graph-rest-beta Find more info here
     */
-    public function post(UpdateAudienceByIdPostRequestBody $body, ?MicrosoftGraphWindowsUpdatesUpdateAudienceByIdRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(UpdateAudienceByIdPostRequestBody $body, ?MicrosoftGraphWindowsUpdatesUpdateAudienceByIdRequestBu_d5431b7f $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class MicrosoftGraphWindowsUpdatesUpdateAudienceByIdRequestBuilder extends BaseR
     /**
      * Update the members and exclusions collections of a deploymentAudience with updatableAsset resources of the same type. Adding an azureADDevice to the members or exclusions collections of a deployment audience automatically creates a Microsoft Entra device object if it does not already exist. If the same updatableAsset gets included in the exclusions and members collections of a deploymentAudience, deployment will not apply to that asset. You can also use the method updateAudience to update the deploymentAudience.
      * @param UpdateAudienceByIdPostRequestBody $body The request body
-     * @param MicrosoftGraphWindowsUpdatesUpdateAudienceByIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphWindowsUpdatesUpdateAudienceByIdRequestBu_d5431b7f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(UpdateAudienceByIdPostRequestBody $body, ?MicrosoftGraphWindowsUpdatesUpdateAudienceByIdRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(UpdateAudienceByIdPostRequestBody $body, ?MicrosoftGraphWindowsUpdatesUpdateAudienceByIdRequestBu_d5431b7f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

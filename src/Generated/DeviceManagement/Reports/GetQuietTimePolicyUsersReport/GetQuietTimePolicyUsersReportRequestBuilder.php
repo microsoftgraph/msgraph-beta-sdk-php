@@ -33,11 +33,11 @@ class GetQuietTimePolicyUsersReportRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action getQuietTimePolicyUsersReport
      * @param GetQuietTimePolicyUsersReportPostRequestBody $body The request body
-     * @param GetQuietTimePolicyUsersReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetQuietTimePolicyUsersReportRequestBuilderPostRequestC_260596ae|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(GetQuietTimePolicyUsersReportPostRequestBody $body, ?GetQuietTimePolicyUsersReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetQuietTimePolicyUsersReportPostRequestBody $body, ?GetQuietTimePolicyUsersReportRequestBuilderPostRequestC_260596ae $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class GetQuietTimePolicyUsersReportRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action getQuietTimePolicyUsersReport
      * @param GetQuietTimePolicyUsersReportPostRequestBody $body The request body
-     * @param GetQuietTimePolicyUsersReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetQuietTimePolicyUsersReportRequestBuilderPostRequestC_260596ae|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetQuietTimePolicyUsersReportPostRequestBody $body, ?GetQuietTimePolicyUsersReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetQuietTimePolicyUsersReportPostRequestBody $body, ?GetQuietTimePolicyUsersReportRequestBuilderPostRequestC_260596ae $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

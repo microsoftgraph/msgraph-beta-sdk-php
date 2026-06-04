@@ -43,7 +43,7 @@ class DeviceConfigurationRestrictedAppsViolationsRequestBuilder extends BaseRequ
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/deviceConfigurationRestrictedAppsViolations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class DeviceConfigurationRestrictedAppsViolationsRequestBuilder extends BaseRequ
 
     /**
      * Restricted apps violations for this account.
-     * @param DeviceConfigurationRestrictedAppsViolationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceConfigurationRestrictedAppsViolationsRequestBuild_bccaab42|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RestrictedAppsViolationCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?DeviceConfigurationRestrictedAppsViolationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DeviceConfigurationRestrictedAppsViolationsRequestBuild_bccaab42 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class DeviceConfigurationRestrictedAppsViolationsRequestBuilder extends BaseRequ
     /**
      * Create new navigation property to deviceConfigurationRestrictedAppsViolations for deviceManagement
      * @param RestrictedAppsViolation $body The request body
-     * @param DeviceConfigurationRestrictedAppsViolationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceConfigurationRestrictedAppsViolationsRequestBuild_17117926|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RestrictedAppsViolation|null>
      * @throws Exception
     */
-    public function post(RestrictedAppsViolation $body, ?DeviceConfigurationRestrictedAppsViolationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(RestrictedAppsViolation $body, ?DeviceConfigurationRestrictedAppsViolationsRequestBuild_17117926 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,12 +82,12 @@ class DeviceConfigurationRestrictedAppsViolationsRequestBuilder extends BaseRequ
 
     /**
      * Restricted apps violations for this account.
-     * @param DeviceConfigurationRestrictedAppsViolationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceConfigurationRestrictedAppsViolationsRequestBuild_bccaab42|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DeviceConfigurationRestrictedAppsViolationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DeviceConfigurationRestrictedAppsViolationsRequestBuild_bccaab42 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/deviceConfigurationRestrictedAppsViolations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,12 +104,12 @@ class DeviceConfigurationRestrictedAppsViolationsRequestBuilder extends BaseRequ
     /**
      * Create new navigation property to deviceConfigurationRestrictedAppsViolations for deviceManagement
      * @param RestrictedAppsViolation $body The request body
-     * @param DeviceConfigurationRestrictedAppsViolationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceConfigurationRestrictedAppsViolationsRequestBuild_17117926|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(RestrictedAppsViolation $body, ?DeviceConfigurationRestrictedAppsViolationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(RestrictedAppsViolation $body, ?DeviceConfigurationRestrictedAppsViolationsRequestBuild_17117926 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/deviceConfigurationRestrictedAppsViolations';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

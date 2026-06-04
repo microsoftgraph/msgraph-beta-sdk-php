@@ -31,11 +31,11 @@ class ImportOffice365DeviceConfigurationPoliciesRequestBuilder extends BaseReque
 
     /**
      * Invoke action importOffice365DeviceConfigurationPolicies
-     * @param ImportOffice365DeviceConfigurationPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ImportOffice365DeviceConfigurationPoliciesRequestBuilde_ed29ab7b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ImportOffice365DeviceConfigurationPoliciesPostResponse|null>
      * @throws Exception
     */
-    public function post(?ImportOffice365DeviceConfigurationPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?ImportOffice365DeviceConfigurationPoliciesRequestBuilde_ed29ab7b $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,10 +45,10 @@ class ImportOffice365DeviceConfigurationPoliciesRequestBuilder extends BaseReque
 
     /**
      * Invoke action importOffice365DeviceConfigurationPolicies
-     * @param ImportOffice365DeviceConfigurationPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ImportOffice365DeviceConfigurationPoliciesRequestBuilde_ed29ab7b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?ImportOffice365DeviceConfigurationPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?ImportOffice365DeviceConfigurationPoliciesRequestBuilde_ed29ab7b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

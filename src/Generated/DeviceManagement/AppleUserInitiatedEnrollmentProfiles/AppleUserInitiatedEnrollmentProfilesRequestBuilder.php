@@ -43,7 +43,7 @@ class AppleUserInitiatedEnrollmentProfilesRequestBuilder extends BaseRequestBuil
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/appleUserInitiatedEnrollmentProfiles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class AppleUserInitiatedEnrollmentProfilesRequestBuilder extends BaseRequestBuil
 
     /**
      * Apple user initiated enrollment profiles
-     * @param AppleUserInitiatedEnrollmentProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppleUserInitiatedEnrollmentProfilesRequestBuilderGetRe_524274cf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AppleUserInitiatedEnrollmentProfileCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?AppleUserInitiatedEnrollmentProfilesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AppleUserInitiatedEnrollmentProfilesRequestBuilderGetRe_524274cf $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class AppleUserInitiatedEnrollmentProfilesRequestBuilder extends BaseRequestBuil
     /**
      * Create new navigation property to appleUserInitiatedEnrollmentProfiles for deviceManagement
      * @param AppleUserInitiatedEnrollmentProfile $body The request body
-     * @param AppleUserInitiatedEnrollmentProfilesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppleUserInitiatedEnrollmentProfilesRequestBuilderPostR_c2ecc7fc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AppleUserInitiatedEnrollmentProfile|null>
      * @throws Exception
     */
-    public function post(AppleUserInitiatedEnrollmentProfile $body, ?AppleUserInitiatedEnrollmentProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AppleUserInitiatedEnrollmentProfile $body, ?AppleUserInitiatedEnrollmentProfilesRequestBuilderPostR_c2ecc7fc $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,12 +82,12 @@ class AppleUserInitiatedEnrollmentProfilesRequestBuilder extends BaseRequestBuil
 
     /**
      * Apple user initiated enrollment profiles
-     * @param AppleUserInitiatedEnrollmentProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppleUserInitiatedEnrollmentProfilesRequestBuilderGetRe_524274cf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AppleUserInitiatedEnrollmentProfilesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AppleUserInitiatedEnrollmentProfilesRequestBuilderGetRe_524274cf $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/appleUserInitiatedEnrollmentProfiles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,12 +104,12 @@ class AppleUserInitiatedEnrollmentProfilesRequestBuilder extends BaseRequestBuil
     /**
      * Create new navigation property to appleUserInitiatedEnrollmentProfiles for deviceManagement
      * @param AppleUserInitiatedEnrollmentProfile $body The request body
-     * @param AppleUserInitiatedEnrollmentProfilesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppleUserInitiatedEnrollmentProfilesRequestBuilderPostR_c2ecc7fc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AppleUserInitiatedEnrollmentProfile $body, ?AppleUserInitiatedEnrollmentProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AppleUserInitiatedEnrollmentProfile $body, ?AppleUserInitiatedEnrollmentProfilesRequestBuilderPostR_c2ecc7fc $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/appleUserInitiatedEnrollmentProfiles';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

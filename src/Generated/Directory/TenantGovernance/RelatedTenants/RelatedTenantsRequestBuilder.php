@@ -7,7 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\RelatedTenants\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\RelatedTenants\Item\RelatedTenantItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\RelatedTenants\MicrosoftGraphTenantGovernanceServicesRefresh\MicrosoftGraphTenantGovernanceServicesRefreshRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\RelatedTenants\MicrosoftGraphTenantGovernanceServicesRefreshStatus\MicrosoftGraphTenantGovernanceServicesRefreshStatusRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\RelatedTenants\MicrosoftGraphTenantGovernanceServicesRefreshStatus\MicrosoftGraphTenantGovernanceServicesRefreshStatusRequ_f386b52a;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\RelatedTenant;
 use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\RelatedTenantCollectionResponse;
@@ -38,8 +38,8 @@ class RelatedTenantsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the refreshStatus method.
     */
-    public function microsoftGraphTenantGovernanceServicesRefreshStatus(): MicrosoftGraphTenantGovernanceServicesRefreshStatusRequestBuilder {
-        return new MicrosoftGraphTenantGovernanceServicesRefreshStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphTenantGovernanceServicesRefreshStatus(): MicrosoftGraphTenantGovernanceServicesRefreshStatusRequ_f386b52a {
+        return new MicrosoftGraphTenantGovernanceServicesRefreshStatusRequ_f386b52a($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -59,7 +59,7 @@ class RelatedTenantsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/directory/tenantGovernance/relatedTenants{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -104,7 +104,7 @@ class RelatedTenantsRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?RelatedTenantsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/directory/tenantGovernance/relatedTenants{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -126,7 +126,7 @@ class RelatedTenantsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(RelatedTenant $body, ?RelatedTenantsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/directory/tenantGovernance/relatedTenants';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

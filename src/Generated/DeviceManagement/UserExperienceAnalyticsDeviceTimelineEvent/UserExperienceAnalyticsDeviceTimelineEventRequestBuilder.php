@@ -43,7 +43,7 @@ class UserExperienceAnalyticsDeviceTimelineEventRequestBuilder extends BaseReque
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceTimelineEvent{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class UserExperienceAnalyticsDeviceTimelineEventRequestBuilder extends BaseReque
 
     /**
      * The user experience analytics device events entity contains NRT device timeline event details.
-     * @param UserExperienceAnalyticsDeviceTimelineEventRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceTimelineEventRequestBuilde_a64f399e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsDeviceTimelineEventCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?UserExperienceAnalyticsDeviceTimelineEventRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserExperienceAnalyticsDeviceTimelineEventRequestBuilde_a64f399e $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class UserExperienceAnalyticsDeviceTimelineEventRequestBuilder extends BaseReque
     /**
      * Create new navigation property to userExperienceAnalyticsDeviceTimelineEvent for deviceManagement
      * @param UserExperienceAnalyticsDeviceTimelineEvent $body The request body
-     * @param UserExperienceAnalyticsDeviceTimelineEventRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceTimelineEventRequestBuilde_b786997d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsDeviceTimelineEvent|null>
      * @throws Exception
     */
-    public function post(UserExperienceAnalyticsDeviceTimelineEvent $body, ?UserExperienceAnalyticsDeviceTimelineEventRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(UserExperienceAnalyticsDeviceTimelineEvent $body, ?UserExperienceAnalyticsDeviceTimelineEventRequestBuilde_b786997d $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,12 +82,12 @@ class UserExperienceAnalyticsDeviceTimelineEventRequestBuilder extends BaseReque
 
     /**
      * The user experience analytics device events entity contains NRT device timeline event details.
-     * @param UserExperienceAnalyticsDeviceTimelineEventRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceTimelineEventRequestBuilde_a64f399e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UserExperienceAnalyticsDeviceTimelineEventRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UserExperienceAnalyticsDeviceTimelineEventRequestBuilde_a64f399e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceTimelineEvent{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,12 +104,12 @@ class UserExperienceAnalyticsDeviceTimelineEventRequestBuilder extends BaseReque
     /**
      * Create new navigation property to userExperienceAnalyticsDeviceTimelineEvent for deviceManagement
      * @param UserExperienceAnalyticsDeviceTimelineEvent $body The request body
-     * @param UserExperienceAnalyticsDeviceTimelineEventRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceTimelineEventRequestBuilde_b786997d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(UserExperienceAnalyticsDeviceTimelineEvent $body, ?UserExperienceAnalyticsDeviceTimelineEventRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(UserExperienceAnalyticsDeviceTimelineEvent $body, ?UserExperienceAnalyticsDeviceTimelineEventRequestBuilde_b786997d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceTimelineEvent';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

@@ -46,7 +46,7 @@ class WindowsAutopilotDeploymentProfileItemRequestBuilder extends BaseRequestBui
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/windowsAutopilotDeploymentProfiles/{windowsAutopilotDeploymentProfile%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/windowsAutopilotDeploymentProfiles/{windowsAutopilotDeploymentProfile%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -56,11 +56,11 @@ class WindowsAutopilotDeploymentProfileItemRequestBuilder extends BaseRequestBui
 
     /**
      * Delete navigation property windowsAutopilotDeploymentProfiles for deviceManagement
-     * @param WindowsAutopilotDeploymentProfileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsAutopilotDeploymentProfileItemRequestBuilderDele_da5b286a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?WindowsAutopilotDeploymentProfileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?WindowsAutopilotDeploymentProfileItemRequestBuilderDele_da5b286a $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -70,11 +70,11 @@ class WindowsAutopilotDeploymentProfileItemRequestBuilder extends BaseRequestBui
 
     /**
      * Windows auto pilot deployment profiles
-     * @param WindowsAutopilotDeploymentProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsAutopilotDeploymentProfileItemRequestBuilderGetR_03137de5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsAutopilotDeploymentProfile|null>
      * @throws Exception
     */
-    public function get(?WindowsAutopilotDeploymentProfileItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?WindowsAutopilotDeploymentProfileItemRequestBuilderGetR_03137de5 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -85,11 +85,11 @@ class WindowsAutopilotDeploymentProfileItemRequestBuilder extends BaseRequestBui
     /**
      * Update the navigation property windowsAutopilotDeploymentProfiles in deviceManagement
      * @param WindowsAutopilotDeploymentProfile $body The request body
-     * @param WindowsAutopilotDeploymentProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsAutopilotDeploymentProfileItemRequestBuilderPatc_ddf2e8af|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsAutopilotDeploymentProfile|null>
      * @throws Exception
     */
-    public function patch(WindowsAutopilotDeploymentProfile $body, ?WindowsAutopilotDeploymentProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(WindowsAutopilotDeploymentProfile $body, ?WindowsAutopilotDeploymentProfileItemRequestBuilderPatc_ddf2e8af $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -99,10 +99,10 @@ class WindowsAutopilotDeploymentProfileItemRequestBuilder extends BaseRequestBui
 
     /**
      * Delete navigation property windowsAutopilotDeploymentProfiles for deviceManagement
-     * @param WindowsAutopilotDeploymentProfileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsAutopilotDeploymentProfileItemRequestBuilderDele_da5b286a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?WindowsAutopilotDeploymentProfileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?WindowsAutopilotDeploymentProfileItemRequestBuilderDele_da5b286a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -117,12 +117,12 @@ class WindowsAutopilotDeploymentProfileItemRequestBuilder extends BaseRequestBui
 
     /**
      * Windows auto pilot deployment profiles
-     * @param WindowsAutopilotDeploymentProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsAutopilotDeploymentProfileItemRequestBuilderGetR_03137de5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?WindowsAutopilotDeploymentProfileItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?WindowsAutopilotDeploymentProfileItemRequestBuilderGetR_03137de5 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/windowsAutopilotDeploymentProfiles/{windowsAutopilotDeploymentProfile%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -139,10 +139,10 @@ class WindowsAutopilotDeploymentProfileItemRequestBuilder extends BaseRequestBui
     /**
      * Update the navigation property windowsAutopilotDeploymentProfiles in deviceManagement
      * @param WindowsAutopilotDeploymentProfile $body The request body
-     * @param WindowsAutopilotDeploymentProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsAutopilotDeploymentProfileItemRequestBuilderPatc_ddf2e8af|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(WindowsAutopilotDeploymentProfile $body, ?WindowsAutopilotDeploymentProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(WindowsAutopilotDeploymentProfile $body, ?WindowsAutopilotDeploymentProfileItemRequestBuilderPatc_ddf2e8af $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

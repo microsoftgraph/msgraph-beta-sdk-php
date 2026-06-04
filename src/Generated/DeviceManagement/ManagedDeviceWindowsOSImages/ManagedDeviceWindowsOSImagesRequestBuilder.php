@@ -43,7 +43,7 @@ class ManagedDeviceWindowsOSImagesRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/managedDeviceWindowsOSImages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class ManagedDeviceWindowsOSImagesRequestBuilder extends BaseRequestBuilder
 
     /**
      * A list of ManagedDeviceWindowsOperatingSystemImages
-     * @param ManagedDeviceWindowsOSImagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceWindowsOSImagesRequestBuilderGetRequestCon_50abc9fc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedDeviceWindowsOperatingSystemImageCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?ManagedDeviceWindowsOSImagesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagedDeviceWindowsOSImagesRequestBuilderGetRequestCon_50abc9fc $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class ManagedDeviceWindowsOSImagesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to managedDeviceWindowsOSImages for deviceManagement
      * @param ManagedDeviceWindowsOperatingSystemImage $body The request body
-     * @param ManagedDeviceWindowsOSImagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceWindowsOSImagesRequestBuilderPostRequestCo_a8b15e78|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedDeviceWindowsOperatingSystemImage|null>
      * @throws Exception
     */
-    public function post(ManagedDeviceWindowsOperatingSystemImage $body, ?ManagedDeviceWindowsOSImagesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ManagedDeviceWindowsOperatingSystemImage $body, ?ManagedDeviceWindowsOSImagesRequestBuilderPostRequestCo_a8b15e78 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,12 +82,12 @@ class ManagedDeviceWindowsOSImagesRequestBuilder extends BaseRequestBuilder
 
     /**
      * A list of ManagedDeviceWindowsOperatingSystemImages
-     * @param ManagedDeviceWindowsOSImagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceWindowsOSImagesRequestBuilderGetRequestCon_50abc9fc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagedDeviceWindowsOSImagesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagedDeviceWindowsOSImagesRequestBuilderGetRequestCon_50abc9fc $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/managedDeviceWindowsOSImages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,12 +104,12 @@ class ManagedDeviceWindowsOSImagesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to managedDeviceWindowsOSImages for deviceManagement
      * @param ManagedDeviceWindowsOperatingSystemImage $body The request body
-     * @param ManagedDeviceWindowsOSImagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceWindowsOSImagesRequestBuilderPostRequestCo_a8b15e78|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ManagedDeviceWindowsOperatingSystemImage $body, ?ManagedDeviceWindowsOSImagesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ManagedDeviceWindowsOperatingSystemImage $body, ?ManagedDeviceWindowsOSImagesRequestBuilderPostRequestCo_a8b15e78 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/managedDeviceWindowsOSImages';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

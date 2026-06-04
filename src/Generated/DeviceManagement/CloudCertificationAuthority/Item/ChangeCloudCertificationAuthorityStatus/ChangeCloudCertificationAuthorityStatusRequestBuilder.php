@@ -33,11 +33,11 @@ class ChangeCloudCertificationAuthorityStatusRequestBuilder extends BaseRequestB
     /**
      * Invoke action changeCloudCertificationAuthorityStatus
      * @param ChangeCloudCertificationAuthorityStatusPostRequestBody $body The request body
-     * @param ChangeCloudCertificationAuthorityStatusRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ChangeCloudCertificationAuthorityStatusRequestBuilderPo_ccbffc72|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudCertificationAuthority|null>
      * @throws Exception
     */
-    public function post(ChangeCloudCertificationAuthorityStatusPostRequestBody $body, ?ChangeCloudCertificationAuthorityStatusRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ChangeCloudCertificationAuthorityStatusPostRequestBody $body, ?ChangeCloudCertificationAuthorityStatusRequestBuilderPo_ccbffc72 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class ChangeCloudCertificationAuthorityStatusRequestBuilder extends BaseRequestB
     /**
      * Invoke action changeCloudCertificationAuthorityStatus
      * @param ChangeCloudCertificationAuthorityStatusPostRequestBody $body The request body
-     * @param ChangeCloudCertificationAuthorityStatusRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ChangeCloudCertificationAuthorityStatusRequestBuilderPo_ccbffc72|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ChangeCloudCertificationAuthorityStatusPostRequestBody $body, ?ChangeCloudCertificationAuthorityStatusRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ChangeCloudCertificationAuthorityStatusPostRequestBody $body, ?ChangeCloudCertificationAuthorityStatusRequestBuilderPo_ccbffc72 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

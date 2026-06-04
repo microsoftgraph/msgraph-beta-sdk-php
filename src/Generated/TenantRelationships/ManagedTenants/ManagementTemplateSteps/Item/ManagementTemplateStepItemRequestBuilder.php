@@ -46,7 +46,7 @@ class ManagementTemplateStepItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/managementTemplateSteps/{managementTemplateStep%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/managementTemplateSteps/{managementTemplateStep%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -56,11 +56,11 @@ class ManagementTemplateStepItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property managementTemplateSteps for tenantRelationships
-     * @param ManagementTemplateStepItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepItemRequestBuilderDeleteRequestCo_4ed8e5b9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ManagementTemplateStepItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ManagementTemplateStepItemRequestBuilderDeleteRequestCo_4ed8e5b9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -85,11 +85,11 @@ class ManagementTemplateStepItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property managementTemplateSteps in tenantRelationships
      * @param ManagementTemplateStep $body The request body
-     * @param ManagementTemplateStepItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepItemRequestBuilderPatchRequestCon_821ce022|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementTemplateStep|null>
      * @throws Exception
     */
-    public function patch(ManagementTemplateStep $body, ?ManagementTemplateStepItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ManagementTemplateStep $body, ?ManagementTemplateStepItemRequestBuilderPatchRequestCon_821ce022 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -99,10 +99,10 @@ class ManagementTemplateStepItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property managementTemplateSteps for tenantRelationships
-     * @param ManagementTemplateStepItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepItemRequestBuilderDeleteRequestCo_4ed8e5b9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ManagementTemplateStepItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ManagementTemplateStepItemRequestBuilderDeleteRequestCo_4ed8e5b9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -122,7 +122,7 @@ class ManagementTemplateStepItemRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?ManagementTemplateStepItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/managementTemplateSteps/{managementTemplateStep%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -139,10 +139,10 @@ class ManagementTemplateStepItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property managementTemplateSteps in tenantRelationships
      * @param ManagementTemplateStep $body The request body
-     * @param ManagementTemplateStepItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepItemRequestBuilderPatchRequestCon_821ce022|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ManagementTemplateStep $body, ?ManagementTemplateStepItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ManagementTemplateStep $body, ?ManagementTemplateStepItemRequestBuilderPatchRequestCon_821ce022 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

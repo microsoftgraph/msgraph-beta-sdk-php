@@ -43,7 +43,7 @@ class WindowsManagedAppProtectionsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceAppManagement/windowsManagedAppProtections{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class WindowsManagedAppProtectionsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Windows managed app policies.
-     * @param WindowsManagedAppProtectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsManagedAppProtectionsRequestBuilderGetRequestCon_4181b6cf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsManagedAppProtectionCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?WindowsManagedAppProtectionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?WindowsManagedAppProtectionsRequestBuilderGetRequestCon_4181b6cf $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class WindowsManagedAppProtectionsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to windowsManagedAppProtections for deviceAppManagement
      * @param WindowsManagedAppProtection $body The request body
-     * @param WindowsManagedAppProtectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsManagedAppProtectionsRequestBuilderPostRequestCo_d8d1b5a6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsManagedAppProtection|null>
      * @throws Exception
     */
-    public function post(WindowsManagedAppProtection $body, ?WindowsManagedAppProtectionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(WindowsManagedAppProtection $body, ?WindowsManagedAppProtectionsRequestBuilderPostRequestCo_d8d1b5a6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,12 +82,12 @@ class WindowsManagedAppProtectionsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Windows managed app policies.
-     * @param WindowsManagedAppProtectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsManagedAppProtectionsRequestBuilderGetRequestCon_4181b6cf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?WindowsManagedAppProtectionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?WindowsManagedAppProtectionsRequestBuilderGetRequestCon_4181b6cf $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/windowsManagedAppProtections{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,12 +104,12 @@ class WindowsManagedAppProtectionsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to windowsManagedAppProtections for deviceAppManagement
      * @param WindowsManagedAppProtection $body The request body
-     * @param WindowsManagedAppProtectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsManagedAppProtectionsRequestBuilderPostRequestCo_d8d1b5a6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(WindowsManagedAppProtection $body, ?WindowsManagedAppProtectionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(WindowsManagedAppProtection $body, ?WindowsManagedAppProtectionsRequestBuilderPostRequestCo_d8d1b5a6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/windowsManagedAppProtections';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

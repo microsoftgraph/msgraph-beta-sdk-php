@@ -5,10 +5,10 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalytic
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBatteryHealthOsPerformance\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBatteryHealthOsPerformance\Item\UserExperienceAnalyticsBatteryHealthOsPerformanceItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBatteryHealthOsPerformance\Item\UserExperienceAnalyticsBatteryHealthOsPerformanceItemRe_313fb409;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsBatteryHealthOsPerformance;
-use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsBatteryHealthOsPerformanceCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsBatteryHealthOsPerformanceCollec_2e7f8f2a;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -29,12 +29,12 @@ class UserExperienceAnalyticsBatteryHealthOsPerformanceRequestBuilder extends Ba
     /**
      * Provides operations to manage the userExperienceAnalyticsBatteryHealthOsPerformance property of the microsoft.graph.deviceManagement entity.
      * @param string $userExperienceAnalyticsBatteryHealthOsPerformanceId The unique identifier of userExperienceAnalyticsBatteryHealthOsPerformance
-     * @return UserExperienceAnalyticsBatteryHealthOsPerformanceItemRequestBuilder
+     * @return UserExperienceAnalyticsBatteryHealthOsPerformanceItemRe_313fb409
     */
-    public function byUserExperienceAnalyticsBatteryHealthOsPerformanceId(string $userExperienceAnalyticsBatteryHealthOsPerformanceId): UserExperienceAnalyticsBatteryHealthOsPerformanceItemRequestBuilder {
+    public function byUserExperienceAnalyticsBatteryHealthOsPerformanceId(string $userExperienceAnalyticsBatteryHealthOsPerformanceId): UserExperienceAnalyticsBatteryHealthOsPerformanceItemRe_313fb409 {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsBatteryHealthOsPerformance%2Did'] = $userExperienceAnalyticsBatteryHealthOsPerformanceId;
-        return new UserExperienceAnalyticsBatteryHealthOsPerformanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsBatteryHealthOsPerformanceItemRe_313fb409($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -43,7 +43,7 @@ class UserExperienceAnalyticsBatteryHealthOsPerformanceRequestBuilder extends Ba
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/userExperienceAnalyticsBatteryHealthOsPerformance{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,26 +53,26 @@ class UserExperienceAnalyticsBatteryHealthOsPerformanceRequestBuilder extends Ba
 
     /**
      * User Experience Analytics Battery Health Os Performance
-     * @param UserExperienceAnalyticsBatteryHealthOsPerformanceRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<UserExperienceAnalyticsBatteryHealthOsPerformanceCollectionResponse|null>
+     * @param UserExperienceAnalyticsBatteryHealthOsPerformanceReques_ff7674b0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise<UserExperienceAnalyticsBatteryHealthOsPerformanceCollec_2e7f8f2a|null>
      * @throws Exception
     */
-    public function get(?UserExperienceAnalyticsBatteryHealthOsPerformanceRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserExperienceAnalyticsBatteryHealthOsPerformanceReques_ff7674b0 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        return $this->requestAdapter->sendAsync($requestInfo, [UserExperienceAnalyticsBatteryHealthOsPerformanceCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+        return $this->requestAdapter->sendAsync($requestInfo, [UserExperienceAnalyticsBatteryHealthOsPerformanceCollec_2e7f8f2a::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
      * Create new navigation property to userExperienceAnalyticsBatteryHealthOsPerformance for deviceManagement
      * @param UserExperienceAnalyticsBatteryHealthOsPerformance $body The request body
-     * @param UserExperienceAnalyticsBatteryHealthOsPerformanceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsBatteryHealthOsPerformanceReques_e71fbf32|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsBatteryHealthOsPerformance|null>
      * @throws Exception
     */
-    public function post(UserExperienceAnalyticsBatteryHealthOsPerformance $body, ?UserExperienceAnalyticsBatteryHealthOsPerformanceRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(UserExperienceAnalyticsBatteryHealthOsPerformance $body, ?UserExperienceAnalyticsBatteryHealthOsPerformanceReques_e71fbf32 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,12 +82,12 @@ class UserExperienceAnalyticsBatteryHealthOsPerformanceRequestBuilder extends Ba
 
     /**
      * User Experience Analytics Battery Health Os Performance
-     * @param UserExperienceAnalyticsBatteryHealthOsPerformanceRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsBatteryHealthOsPerformanceReques_ff7674b0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UserExperienceAnalyticsBatteryHealthOsPerformanceRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UserExperienceAnalyticsBatteryHealthOsPerformanceReques_ff7674b0 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/userExperienceAnalyticsBatteryHealthOsPerformance{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,12 +104,12 @@ class UserExperienceAnalyticsBatteryHealthOsPerformanceRequestBuilder extends Ba
     /**
      * Create new navigation property to userExperienceAnalyticsBatteryHealthOsPerformance for deviceManagement
      * @param UserExperienceAnalyticsBatteryHealthOsPerformance $body The request body
-     * @param UserExperienceAnalyticsBatteryHealthOsPerformanceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsBatteryHealthOsPerformanceReques_e71fbf32|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(UserExperienceAnalyticsBatteryHealthOsPerformance $body, ?UserExperienceAnalyticsBatteryHealthOsPerformanceRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(UserExperienceAnalyticsBatteryHealthOsPerformance $body, ?UserExperienceAnalyticsBatteryHealthOsPerformanceReques_e71fbf32 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/userExperienceAnalyticsBatteryHealthOsPerformance';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

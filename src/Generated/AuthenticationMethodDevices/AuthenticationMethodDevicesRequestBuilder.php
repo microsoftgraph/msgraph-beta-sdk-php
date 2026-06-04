@@ -43,7 +43,7 @@ class AuthenticationMethodDevicesRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/authenticationMethodDevices{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -68,11 +68,11 @@ class AuthenticationMethodDevicesRequestBuilder extends BaseRequestBuilder
     /**
      * Add new entity to authenticationMethodDevices
      * @param AuthenticationMethodDevice $body The request body
-     * @param AuthenticationMethodDevicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AuthenticationMethodDevicesRequestBuilderPostRequestCon_904dcc2d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthenticationMethodDevice|null>
      * @throws Exception
     */
-    public function post(AuthenticationMethodDevice $body, ?AuthenticationMethodDevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AuthenticationMethodDevice $body, ?AuthenticationMethodDevicesRequestBuilderPostRequestCon_904dcc2d $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -87,7 +87,7 @@ class AuthenticationMethodDevicesRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?AuthenticationMethodDevicesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/authenticationMethodDevices{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,12 +104,12 @@ class AuthenticationMethodDevicesRequestBuilder extends BaseRequestBuilder
     /**
      * Add new entity to authenticationMethodDevices
      * @param AuthenticationMethodDevice $body The request body
-     * @param AuthenticationMethodDevicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AuthenticationMethodDevicesRequestBuilderPostRequestCon_904dcc2d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AuthenticationMethodDevice $body, ?AuthenticationMethodDevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AuthenticationMethodDevice $body, ?AuthenticationMethodDevicesRequestBuilderPostRequestCon_904dcc2d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/authenticationMethodDevices';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

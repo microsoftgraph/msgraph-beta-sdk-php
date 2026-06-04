@@ -22,7 +22,7 @@ class ConditionalAccessPolicyCoverageItemRequestBuilder extends BaseRequestBuild
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/conditionalAccessPolicyCoverages/{conditionalAccessPolicyCoverage%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/conditionalAccessPolicyCoverages/{conditionalAccessPolicyCoverage%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class ConditionalAccessPolicyCoverageItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Delete navigation property conditionalAccessPolicyCoverages for tenantRelationships
-     * @param ConditionalAccessPolicyCoverageItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConditionalAccessPolicyCoverageItemRequestBuilderDelete_6b22a708|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ConditionalAccessPolicyCoverageItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ConditionalAccessPolicyCoverageItemRequestBuilderDelete_6b22a708 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,12 +46,12 @@ class ConditionalAccessPolicyCoverageItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Read the properties and relationships of a conditionalAccessPolicyCoverage object.
-     * @param ConditionalAccessPolicyCoverageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConditionalAccessPolicyCoverageItemRequestBuilderGetReq_c145cae1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConditionalAccessPolicyCoverage|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/managedtenants-conditionalaccesspolicycoverage-get?view=graph-rest-beta Find more info here
     */
-    public function get(?ConditionalAccessPolicyCoverageItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ConditionalAccessPolicyCoverageItemRequestBuilderGetReq_c145cae1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class ConditionalAccessPolicyCoverageItemRequestBuilder extends BaseRequestBuild
     /**
      * Update the navigation property conditionalAccessPolicyCoverages in tenantRelationships
      * @param ConditionalAccessPolicyCoverage $body The request body
-     * @param ConditionalAccessPolicyCoverageItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConditionalAccessPolicyCoverageItemRequestBuilderPatchR_8bf0ca74|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConditionalAccessPolicyCoverage|null>
      * @throws Exception
     */
-    public function patch(ConditionalAccessPolicyCoverage $body, ?ConditionalAccessPolicyCoverageItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ConditionalAccessPolicyCoverage $body, ?ConditionalAccessPolicyCoverageItemRequestBuilderPatchR_8bf0ca74 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -76,10 +76,10 @@ class ConditionalAccessPolicyCoverageItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Delete navigation property conditionalAccessPolicyCoverages for tenantRelationships
-     * @param ConditionalAccessPolicyCoverageItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConditionalAccessPolicyCoverageItemRequestBuilderDelete_6b22a708|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ConditionalAccessPolicyCoverageItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ConditionalAccessPolicyCoverageItemRequestBuilderDelete_6b22a708 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -94,12 +94,12 @@ class ConditionalAccessPolicyCoverageItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Read the properties and relationships of a conditionalAccessPolicyCoverage object.
-     * @param ConditionalAccessPolicyCoverageItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConditionalAccessPolicyCoverageItemRequestBuilderGetReq_c145cae1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ConditionalAccessPolicyCoverageItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ConditionalAccessPolicyCoverageItemRequestBuilderGetReq_c145cae1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/conditionalAccessPolicyCoverages/{conditionalAccessPolicyCoverage%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -116,10 +116,10 @@ class ConditionalAccessPolicyCoverageItemRequestBuilder extends BaseRequestBuild
     /**
      * Update the navigation property conditionalAccessPolicyCoverages in tenantRelationships
      * @param ConditionalAccessPolicyCoverage $body The request body
-     * @param ConditionalAccessPolicyCoverageItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConditionalAccessPolicyCoverageItemRequestBuilderPatchR_8bf0ca74|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ConditionalAccessPolicyCoverage $body, ?ConditionalAccessPolicyCoverageItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ConditionalAccessPolicyCoverage $body, ?ConditionalAccessPolicyCoverageItemRequestBuilderPatchR_8bf0ca74 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

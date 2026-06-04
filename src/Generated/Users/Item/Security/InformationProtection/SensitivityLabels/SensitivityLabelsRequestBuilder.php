@@ -10,7 +10,7 @@ use Microsoft\Graph\Beta\Generated\Models\Security\SensitivityLabelCollectionRes
 use Microsoft\Graph\Beta\Generated\Users\Item\Security\InformationProtection\SensitivityLabels\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Security\InformationProtection\SensitivityLabels\Item\SensitivityLabelItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityEvaluateApplication\MicrosoftGraphSecurityEvaluateApplicationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityEvaluateClassificationResults\MicrosoftGraphSecurityEvaluateClassificationResultsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityEvaluateClassificationResults\MicrosoftGraphSecurityEvaluateClassificationResultsRequ_fb04bbec;
 use Microsoft\Graph\Beta\Generated\Users\Item\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityEvaluateRemoval\MicrosoftGraphSecurityEvaluateRemovalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Security\InformationProtection\SensitivityLabels\MicrosoftGraphSecurityExtractContentLabel\MicrosoftGraphSecurityExtractContentLabelRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -40,8 +40,8 @@ class SensitivityLabelsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the evaluateClassificationResults method.
     */
-    public function microsoftGraphSecurityEvaluateClassificationResults(): MicrosoftGraphSecurityEvaluateClassificationResultsRequestBuilder {
-        return new MicrosoftGraphSecurityEvaluateClassificationResultsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphSecurityEvaluateClassificationResults(): MicrosoftGraphSecurityEvaluateClassificationResultsRequ_fb04bbec {
+        return new MicrosoftGraphSecurityEvaluateClassificationResultsRequ_fb04bbec($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -75,7 +75,7 @@ class SensitivityLabelsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}/security/informationProtection/sensitivityLabels{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -120,7 +120,7 @@ class SensitivityLabelsRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?SensitivityLabelsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/security/informationProtection/sensitivityLabels{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -142,7 +142,7 @@ class SensitivityLabelsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(SensitivityLabel $body, ?SensitivityLabelsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/security/informationProtection/sensitivityLabels';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

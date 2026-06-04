@@ -22,7 +22,7 @@ class TenantDetailedInformationItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/tenantsDetailedInformation/{tenantDetailedInformation%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/tenantsDetailedInformation/{tenantDetailedInformation%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class TenantDetailedInformationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property tenantsDetailedInformation for tenantRelationships
-     * @param TenantDetailedInformationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TenantDetailedInformationItemRequestBuilderDeleteReques_7c71990e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?TenantDetailedInformationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?TenantDetailedInformationItemRequestBuilderDeleteReques_7c71990e $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,12 +46,12 @@ class TenantDetailedInformationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of a tenantDetailedInformation object.
-     * @param TenantDetailedInformationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TenantDetailedInformationItemRequestBuilderGetRequestCo_5a5e6dcc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantDetailedInformation|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/managedtenants-tenantdetailedinformation-get?view=graph-rest-beta Find more info here
     */
-    public function get(?TenantDetailedInformationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?TenantDetailedInformationItemRequestBuilderGetRequestCo_5a5e6dcc $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class TenantDetailedInformationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property tenantsDetailedInformation in tenantRelationships
      * @param TenantDetailedInformation $body The request body
-     * @param TenantDetailedInformationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TenantDetailedInformationItemRequestBuilderPatchRequest_31c09aa2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantDetailedInformation|null>
      * @throws Exception
     */
-    public function patch(TenantDetailedInformation $body, ?TenantDetailedInformationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(TenantDetailedInformation $body, ?TenantDetailedInformationItemRequestBuilderPatchRequest_31c09aa2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -76,10 +76,10 @@ class TenantDetailedInformationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property tenantsDetailedInformation for tenantRelationships
-     * @param TenantDetailedInformationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TenantDetailedInformationItemRequestBuilderDeleteReques_7c71990e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?TenantDetailedInformationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?TenantDetailedInformationItemRequestBuilderDeleteReques_7c71990e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -94,12 +94,12 @@ class TenantDetailedInformationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of a tenantDetailedInformation object.
-     * @param TenantDetailedInformationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TenantDetailedInformationItemRequestBuilderGetRequestCo_5a5e6dcc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?TenantDetailedInformationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?TenantDetailedInformationItemRequestBuilderGetRequestCo_5a5e6dcc $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/tenantsDetailedInformation/{tenantDetailedInformation%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -116,10 +116,10 @@ class TenantDetailedInformationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property tenantsDetailedInformation in tenantRelationships
      * @param TenantDetailedInformation $body The request body
-     * @param TenantDetailedInformationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TenantDetailedInformationItemRequestBuilderPatchRequest_31c09aa2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(TenantDetailedInformation $body, ?TenantDetailedInformationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(TenantDetailedInformation $body, ?TenantDetailedInformationItemRequestBuilderPatchRequest_31c09aa2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

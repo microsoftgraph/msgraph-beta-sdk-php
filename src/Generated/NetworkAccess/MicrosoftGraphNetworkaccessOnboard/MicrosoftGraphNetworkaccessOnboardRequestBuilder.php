@@ -31,11 +31,11 @@ class MicrosoftGraphNetworkaccessOnboardRequestBuilder extends BaseRequestBuilde
 
     /**
      * Invoke action onboard
-     * @param MicrosoftGraphNetworkaccessOnboardRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphNetworkaccessOnboardRequestBuilderPostReq_b0dc54d9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(?MicrosoftGraphNetworkaccessOnboardRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?MicrosoftGraphNetworkaccessOnboardRequestBuilderPostReq_b0dc54d9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,10 +45,10 @@ class MicrosoftGraphNetworkaccessOnboardRequestBuilder extends BaseRequestBuilde
 
     /**
      * Invoke action onboard
-     * @param MicrosoftGraphNetworkaccessOnboardRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphNetworkaccessOnboardRequestBuilderPostReq_b0dc54d9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?MicrosoftGraphNetworkaccessOnboardRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?MicrosoftGraphNetworkaccessOnboardRequestBuilderPostReq_b0dc54d9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

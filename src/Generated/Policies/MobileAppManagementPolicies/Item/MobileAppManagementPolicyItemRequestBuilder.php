@@ -30,7 +30,7 @@ class MobileAppManagementPolicyItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/policies/mobileAppManagementPolicies/{mobileAppManagementPolicy%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/policies/mobileAppManagementPolicies/{mobileAppManagementPolicy%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,12 +40,12 @@ class MobileAppManagementPolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete a mobilityManagementPolicy object.
-     * @param MobileAppManagementPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppManagementPolicyItemRequestBuilderDeleteReques_ba237e83|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-delete?view=graph-rest-beta Find more info here
     */
-    public function delete(?MobileAppManagementPolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?MobileAppManagementPolicyItemRequestBuilderDeleteReques_ba237e83 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -55,12 +55,12 @@ class MobileAppManagementPolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of a mobilityManagementPolicy object.
-     * @param MobileAppManagementPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppManagementPolicyItemRequestBuilderGetRequestCo_83ba6073|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MobileAppManagementPolicy|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-get?view=graph-rest-beta Find more info here
     */
-    public function get(?MobileAppManagementPolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MobileAppManagementPolicyItemRequestBuilderGetRequestCo_83ba6073 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -71,12 +71,12 @@ class MobileAppManagementPolicyItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a mobilityManagementPolicy object.
      * @param MobileAppManagementPolicy $body The request body
-     * @param MobileAppManagementPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppManagementPolicyItemRequestBuilderPatchRequest_36e6b174|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MobileAppManagementPolicy|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/mobileappmanagementpolicies-update?view=graph-rest-beta Find more info here
     */
-    public function patch(MobileAppManagementPolicy $body, ?MobileAppManagementPolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(MobileAppManagementPolicy $body, ?MobileAppManagementPolicyItemRequestBuilderPatchRequest_36e6b174 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -86,10 +86,10 @@ class MobileAppManagementPolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete a mobilityManagementPolicy object.
-     * @param MobileAppManagementPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppManagementPolicyItemRequestBuilderDeleteReques_ba237e83|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?MobileAppManagementPolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?MobileAppManagementPolicyItemRequestBuilderDeleteReques_ba237e83 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,12 +104,12 @@ class MobileAppManagementPolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of a mobilityManagementPolicy object.
-     * @param MobileAppManagementPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppManagementPolicyItemRequestBuilderGetRequestCo_83ba6073|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MobileAppManagementPolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MobileAppManagementPolicyItemRequestBuilderGetRequestCo_83ba6073 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/policies/mobileAppManagementPolicies/{mobileAppManagementPolicy%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -126,10 +126,10 @@ class MobileAppManagementPolicyItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a mobilityManagementPolicy object.
      * @param MobileAppManagementPolicy $body The request body
-     * @param MobileAppManagementPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppManagementPolicyItemRequestBuilderPatchRequest_36e6b174|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(MobileAppManagementPolicy $body, ?MobileAppManagementPolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(MobileAppManagementPolicy $body, ?MobileAppManagementPolicyItemRequestBuilderPatchRequest_36e6b174 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

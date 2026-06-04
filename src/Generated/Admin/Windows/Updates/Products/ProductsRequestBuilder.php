@@ -6,8 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\Item\ProductItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogID\MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogIDRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumber\MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumberRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogID\MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogI_bdd48f50;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumber\MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumberR_249282ba;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\Product;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\ProductCollectionResponse;
@@ -45,7 +45,7 @@ class ProductsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/admin/windows/updates/products{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -70,19 +70,19 @@ class ProductsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the findByCatalogId method.
      * @param string $catalogID Usage: catalogID='{catalogID}'
-     * @return MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogIDRequestBuilder
+     * @return MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogI_bdd48f50
     */
-    public function microsoftGraphWindowsUpdatesFindByCatalogIdWithCatalogID(string $catalogID): MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogIDRequestBuilder {
-        return new MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogIDRequestBuilder($this->pathParameters, $this->requestAdapter, $catalogID);
+    public function microsoftGraphWindowsUpdatesFindByCatalogIdWithCatalogID(string $catalogID): MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogI_bdd48f50 {
+        return new MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogI_bdd48f50($this->pathParameters, $this->requestAdapter, $catalogID);
     }
 
     /**
      * Provides operations to call the findByKbNumber method.
      * @param int $kbNumber Usage: kbNumber={kbNumber}
-     * @return MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumberRequestBuilder
+     * @return MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumberR_249282ba
     */
-    public function microsoftGraphWindowsUpdatesFindByKbNumberWithKbNumber(int $kbNumber): MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumberRequestBuilder {
-        return new MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumberRequestBuilder($this->pathParameters, $this->requestAdapter, $kbNumber);
+    public function microsoftGraphWindowsUpdatesFindByKbNumberWithKbNumber(int $kbNumber): MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumberR_249282ba {
+        return new MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumberR_249282ba($this->pathParameters, $this->requestAdapter, $kbNumber);
     }
 
     /**
@@ -107,7 +107,7 @@ class ProductsRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?ProductsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/admin/windows/updates/products{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -129,7 +129,7 @@ class ProductsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(Product $body, ?ProductsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/admin/windows/updates/products';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

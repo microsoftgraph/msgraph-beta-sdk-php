@@ -22,7 +22,7 @@ class RecommendationConfigurationRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/directory/recommendationConfiguration{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/directory/recommendationConfiguration');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class RecommendationConfigurationRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property recommendationConfiguration for directory
-     * @param RecommendationConfigurationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RecommendationConfigurationRequestBuilderDeleteRequestC_e7b950cc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?RecommendationConfigurationRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?RecommendationConfigurationRequestBuilderDeleteRequestC_e7b950cc $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,12 +62,12 @@ class RecommendationConfigurationRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a recommendationConfiguration object.
      * @param RecommendationConfiguration $body The request body
-     * @param RecommendationConfigurationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RecommendationConfigurationRequestBuilderPatchRequestCo_527576f9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RecommendationConfiguration|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/recommendationconfiguration-update?view=graph-rest-beta Find more info here
     */
-    public function patch(RecommendationConfiguration $body, ?RecommendationConfigurationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(RecommendationConfiguration $body, ?RecommendationConfigurationRequestBuilderPatchRequestCo_527576f9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,10 +77,10 @@ class RecommendationConfigurationRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property recommendationConfiguration for directory
-     * @param RecommendationConfigurationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RecommendationConfigurationRequestBuilderDeleteRequestC_e7b950cc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?RecommendationConfigurationRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?RecommendationConfigurationRequestBuilderDeleteRequestC_e7b950cc $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -100,7 +100,7 @@ class RecommendationConfigurationRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?RecommendationConfigurationRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/directory/recommendationConfiguration{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -117,10 +117,10 @@ class RecommendationConfigurationRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a recommendationConfiguration object.
      * @param RecommendationConfiguration $body The request body
-     * @param RecommendationConfigurationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RecommendationConfigurationRequestBuilderPatchRequestCo_527576f9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(RecommendationConfiguration $body, ?RecommendationConfigurationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(RecommendationConfiguration $body, ?RecommendationConfigurationRequestBuilderPatchRequestCo_527576f9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

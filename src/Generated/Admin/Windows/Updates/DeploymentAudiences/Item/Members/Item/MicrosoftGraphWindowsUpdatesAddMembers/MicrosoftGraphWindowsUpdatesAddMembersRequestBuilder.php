@@ -32,12 +32,12 @@ class MicrosoftGraphWindowsUpdatesAddMembersRequestBuilder extends BaseRequestBu
     /**
      * Add members to an updatableAssetGroup. You can add azureADDevice resources as members, but may not add updatableAssetGroup resources as members. Adding a Microsoft Entra device as a member of an updatable asset group automatically creates an azureADDevice object, if it does not already exist. You can also use the method addMembersById to add members.
      * @param AddMembersPostRequestBody $body The request body
-     * @param MicrosoftGraphWindowsUpdatesAddMembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphWindowsUpdatesAddMembersRequestBuilderPos_4809b4bf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/windowsupdates-updatableassetgroup-addmembers?view=graph-rest-beta Find more info here
     */
-    public function post(AddMembersPostRequestBody $body, ?MicrosoftGraphWindowsUpdatesAddMembersRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AddMembersPostRequestBody $body, ?MicrosoftGraphWindowsUpdatesAddMembersRequestBuilderPos_4809b4bf $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class MicrosoftGraphWindowsUpdatesAddMembersRequestBuilder extends BaseRequestBu
     /**
      * Add members to an updatableAssetGroup. You can add azureADDevice resources as members, but may not add updatableAssetGroup resources as members. Adding a Microsoft Entra device as a member of an updatable asset group automatically creates an azureADDevice object, if it does not already exist. You can also use the method addMembersById to add members.
      * @param AddMembersPostRequestBody $body The request body
-     * @param MicrosoftGraphWindowsUpdatesAddMembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphWindowsUpdatesAddMembersRequestBuilderPos_4809b4bf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AddMembersPostRequestBody $body, ?MicrosoftGraphWindowsUpdatesAddMembersRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AddMembersPostRequestBody $body, ?MicrosoftGraphWindowsUpdatesAddMembersRequestBuilderPos_4809b4bf $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

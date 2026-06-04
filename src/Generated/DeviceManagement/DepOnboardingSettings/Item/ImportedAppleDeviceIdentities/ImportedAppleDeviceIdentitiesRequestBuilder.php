@@ -51,7 +51,7 @@ class ImportedAppleDeviceIdentitiesRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/depOnboardingSettings/{depOnboardingSetting%2Did}/importedAppleDeviceIdentities{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -61,11 +61,11 @@ class ImportedAppleDeviceIdentitiesRequestBuilder extends BaseRequestBuilder
 
     /**
      * The imported Apple device identities.
-     * @param ImportedAppleDeviceIdentitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ImportedAppleDeviceIdentitiesRequestBuilderGetRequestCo_6709b749|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ImportedAppleDeviceIdentityCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?ImportedAppleDeviceIdentitiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ImportedAppleDeviceIdentitiesRequestBuilderGetRequestCo_6709b749 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -76,11 +76,11 @@ class ImportedAppleDeviceIdentitiesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to importedAppleDeviceIdentities for deviceManagement
      * @param ImportedAppleDeviceIdentity $body The request body
-     * @param ImportedAppleDeviceIdentitiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ImportedAppleDeviceIdentitiesRequestBuilderPostRequestC_318fdf6b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ImportedAppleDeviceIdentity|null>
      * @throws Exception
     */
-    public function post(ImportedAppleDeviceIdentity $body, ?ImportedAppleDeviceIdentitiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ImportedAppleDeviceIdentity $body, ?ImportedAppleDeviceIdentitiesRequestBuilderPostRequestC_318fdf6b $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -90,12 +90,12 @@ class ImportedAppleDeviceIdentitiesRequestBuilder extends BaseRequestBuilder
 
     /**
      * The imported Apple device identities.
-     * @param ImportedAppleDeviceIdentitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ImportedAppleDeviceIdentitiesRequestBuilderGetRequestCo_6709b749|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ImportedAppleDeviceIdentitiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ImportedAppleDeviceIdentitiesRequestBuilderGetRequestCo_6709b749 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/depOnboardingSettings/{depOnboardingSetting%2Did}/importedAppleDeviceIdentities{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -112,12 +112,12 @@ class ImportedAppleDeviceIdentitiesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to importedAppleDeviceIdentities for deviceManagement
      * @param ImportedAppleDeviceIdentity $body The request body
-     * @param ImportedAppleDeviceIdentitiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ImportedAppleDeviceIdentitiesRequestBuilderPostRequestC_318fdf6b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ImportedAppleDeviceIdentity $body, ?ImportedAppleDeviceIdentitiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ImportedAppleDeviceIdentity $body, ?ImportedAppleDeviceIdentitiesRequestBuilderPostRequestC_318fdf6b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/depOnboardingSettings/{depOnboardingSetting%2Did}/importedAppleDeviceIdentities';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

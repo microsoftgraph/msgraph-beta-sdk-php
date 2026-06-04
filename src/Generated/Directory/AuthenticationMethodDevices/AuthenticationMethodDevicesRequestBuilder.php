@@ -30,7 +30,7 @@ class AuthenticationMethodDevicesRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/directory/authenticationMethodDevices{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/directory/authenticationMethodDevices');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,11 +40,11 @@ class AuthenticationMethodDevicesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property authenticationMethodDevices for directory
-     * @param AuthenticationMethodDevicesRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AuthenticationMethodDevicesRequestBuilderDeleteRequestC_270505ca|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?AuthenticationMethodDevicesRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?AuthenticationMethodDevicesRequestBuilderDeleteRequestC_270505ca $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class AuthenticationMethodDevicesRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property authenticationMethodDevices in directory
      * @param AuthenticationMethodDevice $body The request body
-     * @param AuthenticationMethodDevicesRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AuthenticationMethodDevicesRequestBuilderPatchRequestCo_9d280ac6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthenticationMethodDevice|null>
      * @throws Exception
     */
-    public function patch(AuthenticationMethodDevice $body, ?AuthenticationMethodDevicesRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(AuthenticationMethodDevice $body, ?AuthenticationMethodDevicesRequestBuilderPatchRequestCo_9d280ac6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class AuthenticationMethodDevicesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property authenticationMethodDevices for directory
-     * @param AuthenticationMethodDevicesRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AuthenticationMethodDevicesRequestBuilderDeleteRequestC_270505ca|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?AuthenticationMethodDevicesRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?AuthenticationMethodDevicesRequestBuilderDeleteRequestC_270505ca $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -106,7 +106,7 @@ class AuthenticationMethodDevicesRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?AuthenticationMethodDevicesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/directory/authenticationMethodDevices{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -123,10 +123,10 @@ class AuthenticationMethodDevicesRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property authenticationMethodDevices in directory
      * @param AuthenticationMethodDevice $body The request body
-     * @param AuthenticationMethodDevicesRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AuthenticationMethodDevicesRequestBuilderPatchRequestCo_9d280ac6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(AuthenticationMethodDevice $body, ?AuthenticationMethodDevicesRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(AuthenticationMethodDevice $body, ?AuthenticationMethodDevicesRequestBuilderPatchRequestCo_9d280ac6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

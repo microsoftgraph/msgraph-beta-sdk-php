@@ -43,7 +43,7 @@ class ManagedAppLogCollectionRequestsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceAppManagement/managedAppRegistrations/{managedAppRegistration%2Did}/managedAppLogCollectionRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class ManagedAppLogCollectionRequestsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Zero or more log collection requests triggered for the app.
-     * @param ManagedAppLogCollectionRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedAppLogCollectionRequestsRequestBuilderGetRequest_541b2c00|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedAppLogCollectionRequestCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?ManagedAppLogCollectionRequestsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagedAppLogCollectionRequestsRequestBuilderGetRequest_541b2c00 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class ManagedAppLogCollectionRequestsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to managedAppLogCollectionRequests for deviceAppManagement
      * @param ManagedAppLogCollectionRequest $body The request body
-     * @param ManagedAppLogCollectionRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedAppLogCollectionRequestsRequestBuilderPostReques_75afced5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedAppLogCollectionRequest|null>
      * @throws Exception
     */
-    public function post(ManagedAppLogCollectionRequest $body, ?ManagedAppLogCollectionRequestsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ManagedAppLogCollectionRequest $body, ?ManagedAppLogCollectionRequestsRequestBuilderPostReques_75afced5 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,12 +82,12 @@ class ManagedAppLogCollectionRequestsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Zero or more log collection requests triggered for the app.
-     * @param ManagedAppLogCollectionRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedAppLogCollectionRequestsRequestBuilderGetRequest_541b2c00|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagedAppLogCollectionRequestsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagedAppLogCollectionRequestsRequestBuilderGetRequest_541b2c00 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/managedAppRegistrations/{managedAppRegistration%2Did}/managedAppLogCollectionRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,12 +104,12 @@ class ManagedAppLogCollectionRequestsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to managedAppLogCollectionRequests for deviceAppManagement
      * @param ManagedAppLogCollectionRequest $body The request body
-     * @param ManagedAppLogCollectionRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedAppLogCollectionRequestsRequestBuilderPostReques_75afced5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ManagedAppLogCollectionRequest $body, ?ManagedAppLogCollectionRequestsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ManagedAppLogCollectionRequest $body, ?ManagedAppLogCollectionRequestsRequestBuilderPostReques_75afced5 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/managedAppRegistrations/{managedAppRegistration%2Did}/managedAppLogCollectionRequests';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

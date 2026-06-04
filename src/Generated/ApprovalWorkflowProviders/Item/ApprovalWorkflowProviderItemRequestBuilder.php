@@ -46,7 +46,7 @@ class ApprovalWorkflowProviderItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/approvalWorkflowProviders/{approvalWorkflowProvider%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/approvalWorkflowProviders/{approvalWorkflowProvider%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -56,11 +56,11 @@ class ApprovalWorkflowProviderItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete entity from approvalWorkflowProviders
-     * @param ApprovalWorkflowProviderItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApprovalWorkflowProviderItemRequestBuilderDeleteRequest_11ce2c3f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ApprovalWorkflowProviderItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ApprovalWorkflowProviderItemRequestBuilderDeleteRequest_11ce2c3f $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -70,11 +70,11 @@ class ApprovalWorkflowProviderItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get entity from approvalWorkflowProviders by key
-     * @param ApprovalWorkflowProviderItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApprovalWorkflowProviderItemRequestBuilderGetRequestCon_9d1ef552|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApprovalWorkflowProvider|null>
      * @throws Exception
     */
-    public function get(?ApprovalWorkflowProviderItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ApprovalWorkflowProviderItemRequestBuilderGetRequestCon_9d1ef552 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -85,11 +85,11 @@ class ApprovalWorkflowProviderItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update entity in approvalWorkflowProviders
      * @param ApprovalWorkflowProvider $body The request body
-     * @param ApprovalWorkflowProviderItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApprovalWorkflowProviderItemRequestBuilderPatchRequestC_696674a2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApprovalWorkflowProvider|null>
      * @throws Exception
     */
-    public function patch(ApprovalWorkflowProvider $body, ?ApprovalWorkflowProviderItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ApprovalWorkflowProvider $body, ?ApprovalWorkflowProviderItemRequestBuilderPatchRequestC_696674a2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -99,10 +99,10 @@ class ApprovalWorkflowProviderItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete entity from approvalWorkflowProviders
-     * @param ApprovalWorkflowProviderItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApprovalWorkflowProviderItemRequestBuilderDeleteRequest_11ce2c3f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ApprovalWorkflowProviderItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ApprovalWorkflowProviderItemRequestBuilderDeleteRequest_11ce2c3f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -117,12 +117,12 @@ class ApprovalWorkflowProviderItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get entity from approvalWorkflowProviders by key
-     * @param ApprovalWorkflowProviderItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApprovalWorkflowProviderItemRequestBuilderGetRequestCon_9d1ef552|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ApprovalWorkflowProviderItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ApprovalWorkflowProviderItemRequestBuilderGetRequestCon_9d1ef552 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/approvalWorkflowProviders/{approvalWorkflowProvider%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -139,10 +139,10 @@ class ApprovalWorkflowProviderItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update entity in approvalWorkflowProviders
      * @param ApprovalWorkflowProvider $body The request body
-     * @param ApprovalWorkflowProviderItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApprovalWorkflowProviderItemRequestBuilderPatchRequestC_696674a2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ApprovalWorkflowProvider $body, ?ApprovalWorkflowProviderItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ApprovalWorkflowProvider $body, ?ApprovalWorkflowProviderItemRequestBuilderPatchRequestC_696674a2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

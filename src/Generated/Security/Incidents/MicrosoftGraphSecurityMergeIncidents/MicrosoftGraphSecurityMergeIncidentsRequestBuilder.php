@@ -33,12 +33,12 @@ class MicrosoftGraphSecurityMergeIncidentsRequestBuilder extends BaseRequestBuil
     /**
      * Merge multiple incident resources into a single incident.
      * @param MergeIncidentsPostRequestBody $body The request body
-     * @param MicrosoftGraphSecurityMergeIncidentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphSecurityMergeIncidentsRequestBuilderPostR_c5eda1c7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MergeResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/security-incident-mergeincidents?view=graph-rest-beta Find more info here
     */
-    public function post(MergeIncidentsPostRequestBody $body, ?MicrosoftGraphSecurityMergeIncidentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(MergeIncidentsPostRequestBody $body, ?MicrosoftGraphSecurityMergeIncidentsRequestBuilderPostR_c5eda1c7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,10 +49,10 @@ class MicrosoftGraphSecurityMergeIncidentsRequestBuilder extends BaseRequestBuil
     /**
      * Merge multiple incident resources into a single incident.
      * @param MergeIncidentsPostRequestBody $body The request body
-     * @param MicrosoftGraphSecurityMergeIncidentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphSecurityMergeIncidentsRequestBuilderPostR_c5eda1c7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(MergeIncidentsPostRequestBody $body, ?MicrosoftGraphSecurityMergeIncidentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(MergeIncidentsPostRequestBody $body, ?MicrosoftGraphSecurityMergeIncidentsRequestBuilderPostR_c5eda1c7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

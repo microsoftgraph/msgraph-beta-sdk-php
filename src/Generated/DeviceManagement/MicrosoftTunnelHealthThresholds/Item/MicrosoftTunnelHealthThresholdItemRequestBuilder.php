@@ -22,7 +22,7 @@ class MicrosoftTunnelHealthThresholdItemRequestBuilder extends BaseRequestBuilde
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/microsoftTunnelHealthThresholds/{microsoftTunnelHealthThreshold%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/microsoftTunnelHealthThresholds/{microsoftTunnelHealthThreshold%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class MicrosoftTunnelHealthThresholdItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property microsoftTunnelHealthThresholds for deviceManagement
-     * @param MicrosoftTunnelHealthThresholdItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelHealthThresholdItemRequestBuilderDeleteR_349255ac|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?MicrosoftTunnelHealthThresholdItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?MicrosoftTunnelHealthThresholdItemRequestBuilderDeleteR_349255ac $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class MicrosoftTunnelHealthThresholdItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Collection of MicrosoftTunnelHealthThreshold settings associated with account.
-     * @param MicrosoftTunnelHealthThresholdItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelHealthThresholdItemRequestBuilderGetRequ_1da60d9e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MicrosoftTunnelHealthThreshold|null>
      * @throws Exception
     */
-    public function get(?MicrosoftTunnelHealthThresholdItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MicrosoftTunnelHealthThresholdItemRequestBuilderGetRequ_1da60d9e $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class MicrosoftTunnelHealthThresholdItemRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property microsoftTunnelHealthThresholds in deviceManagement
      * @param MicrosoftTunnelHealthThreshold $body The request body
-     * @param MicrosoftTunnelHealthThresholdItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelHealthThresholdItemRequestBuilderPatchRe_eef776c1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MicrosoftTunnelHealthThreshold|null>
      * @throws Exception
     */
-    public function patch(MicrosoftTunnelHealthThreshold $body, ?MicrosoftTunnelHealthThresholdItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(MicrosoftTunnelHealthThreshold $body, ?MicrosoftTunnelHealthThresholdItemRequestBuilderPatchRe_eef776c1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class MicrosoftTunnelHealthThresholdItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property microsoftTunnelHealthThresholds for deviceManagement
-     * @param MicrosoftTunnelHealthThresholdItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelHealthThresholdItemRequestBuilderDeleteR_349255ac|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?MicrosoftTunnelHealthThresholdItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?MicrosoftTunnelHealthThresholdItemRequestBuilderDeleteR_349255ac $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,12 +93,12 @@ class MicrosoftTunnelHealthThresholdItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Collection of MicrosoftTunnelHealthThreshold settings associated with account.
-     * @param MicrosoftTunnelHealthThresholdItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelHealthThresholdItemRequestBuilderGetRequ_1da60d9e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MicrosoftTunnelHealthThresholdItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MicrosoftTunnelHealthThresholdItemRequestBuilderGetRequ_1da60d9e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/microsoftTunnelHealthThresholds/{microsoftTunnelHealthThreshold%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class MicrosoftTunnelHealthThresholdItemRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property microsoftTunnelHealthThresholds in deviceManagement
      * @param MicrosoftTunnelHealthThreshold $body The request body
-     * @param MicrosoftTunnelHealthThresholdItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelHealthThresholdItemRequestBuilderPatchRe_eef776c1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(MicrosoftTunnelHealthThreshold $body, ?MicrosoftTunnelHealthThresholdItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(MicrosoftTunnelHealthThreshold $body, ?MicrosoftTunnelHealthThresholdItemRequestBuilderPatchRe_eef776c1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

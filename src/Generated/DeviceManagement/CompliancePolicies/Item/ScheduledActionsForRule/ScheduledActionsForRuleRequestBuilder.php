@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Ite
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\ScheduledActionsForRule\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\ScheduledActionsForRule\Item\DeviceManagementComplianceScheduledActionForRuleItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\CompliancePolicies\Item\ScheduledActionsForRule\Item\DeviceManagementComplianceScheduledActionForRuleItemReq_0081baa3;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementComplianceScheduledActionForRule;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagementComplianceScheduledActionForRuleCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagementComplianceScheduledActionForRuleCollect_155ce63e;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -29,12 +29,12 @@ class ScheduledActionsForRuleRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceManagementCompliancePolicy entity.
      * @param string $deviceManagementComplianceScheduledActionForRuleId The unique identifier of deviceManagementComplianceScheduledActionForRule
-     * @return DeviceManagementComplianceScheduledActionForRuleItemRequestBuilder
+     * @return DeviceManagementComplianceScheduledActionForRuleItemReq_0081baa3
     */
-    public function byDeviceManagementComplianceScheduledActionForRuleId(string $deviceManagementComplianceScheduledActionForRuleId): DeviceManagementComplianceScheduledActionForRuleItemRequestBuilder {
+    public function byDeviceManagementComplianceScheduledActionForRuleId(string $deviceManagementComplianceScheduledActionForRuleId): DeviceManagementComplianceScheduledActionForRuleItemReq_0081baa3 {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementComplianceScheduledActionForRule%2Did'] = $deviceManagementComplianceScheduledActionForRuleId;
-        return new DeviceManagementComplianceScheduledActionForRuleItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceManagementComplianceScheduledActionForRuleItemReq_0081baa3($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -43,7 +43,7 @@ class ScheduledActionsForRuleRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/compliancePolicies/{deviceManagementCompliancePolicy%2Did}/scheduledActionsForRule{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -54,7 +54,7 @@ class ScheduledActionsForRuleRequestBuilder extends BaseRequestBuilder
     /**
      * The list of scheduled action for this rule
      * @param ScheduledActionsForRuleRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<DeviceManagementComplianceScheduledActionForRuleCollectionResponse|null>
+     * @return Promise<DeviceManagementComplianceScheduledActionForRuleCollect_155ce63e|null>
      * @throws Exception
     */
     public function get(?ScheduledActionsForRuleRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
@@ -62,7 +62,7 @@ class ScheduledActionsForRuleRequestBuilder extends BaseRequestBuilder
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagementComplianceScheduledActionForRuleCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+        return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagementComplianceScheduledActionForRuleCollect_155ce63e::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
@@ -87,7 +87,7 @@ class ScheduledActionsForRuleRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?ScheduledActionsForRuleRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/compliancePolicies/{deviceManagementCompliancePolicy%2Did}/scheduledActionsForRule{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -109,7 +109,7 @@ class ScheduledActionsForRuleRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(DeviceManagementComplianceScheduledActionForRule $body, ?ScheduledActionsForRuleRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/compliancePolicies/{deviceManagementCompliancePolicy%2Did}/scheduledActionsForRule';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

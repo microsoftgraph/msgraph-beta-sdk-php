@@ -4,7 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageId\ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageId\ConvertFromMobileAppCatalogPackageWithMobileAppCatalogP_bce13f5a;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\GraphAndroidForWorkApp\GraphAndroidForWorkAppRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\GraphAndroidLobApp\GraphAndroidLobAppRequestBuilder;
@@ -228,7 +228,7 @@ class MobileAppsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceAppManagement/mobileApps{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -239,10 +239,10 @@ class MobileAppsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the convertFromMobileAppCatalogPackage method.
      * @param string $mobileAppCatalogPackageId Usage: mobileAppCatalogPackageId='{mobileAppCatalogPackageId}'
-     * @return ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageIdRequestBuilder
+     * @return ConvertFromMobileAppCatalogPackageWithMobileAppCatalogP_bce13f5a
     */
-    public function convertFromMobileAppCatalogPackageWithMobileAppCatalogPackageId(string $mobileAppCatalogPackageId): ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageIdRequestBuilder {
-        return new ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageIdRequestBuilder($this->pathParameters, $this->requestAdapter, $mobileAppCatalogPackageId);
+    public function convertFromMobileAppCatalogPackageWithMobileAppCatalogPackageId(string $mobileAppCatalogPackageId): ConvertFromMobileAppCatalogPackageWithMobileAppCatalogP_bce13f5a {
+        return new ConvertFromMobileAppCatalogPackageWithMobileAppCatalogP_bce13f5a($this->pathParameters, $this->requestAdapter, $mobileAppCatalogPackageId);
     }
 
     /**
@@ -281,7 +281,7 @@ class MobileAppsRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?MobileAppsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/mobileApps{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -303,7 +303,7 @@ class MobileAppsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(MobileApp $body, ?MobileAppsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/mobileApps';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

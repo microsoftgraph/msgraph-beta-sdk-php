@@ -38,7 +38,7 @@ class ManagedTenantAlertRuleItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/managedTenantAlertRules/{managedTenantAlertRule%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/managedTenantAlertRules/{managedTenantAlertRule%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -48,11 +48,11 @@ class ManagedTenantAlertRuleItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property managedTenantAlertRules for tenantRelationships
-     * @param ManagedTenantAlertRuleItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantAlertRuleItemRequestBuilderDeleteRequestCo_49fa3500|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ManagedTenantAlertRuleItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ManagedTenantAlertRuleItemRequestBuilderDeleteRequestCo_49fa3500 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,11 +77,11 @@ class ManagedTenantAlertRuleItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property managedTenantAlertRules in tenantRelationships
      * @param ManagedTenantAlertRule $body The request body
-     * @param ManagedTenantAlertRuleItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantAlertRuleItemRequestBuilderPatchRequestCon_d04ead78|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedTenantAlertRule|null>
      * @throws Exception
     */
-    public function patch(ManagedTenantAlertRule $body, ?ManagedTenantAlertRuleItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ManagedTenantAlertRule $body, ?ManagedTenantAlertRuleItemRequestBuilderPatchRequestCon_d04ead78 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -91,10 +91,10 @@ class ManagedTenantAlertRuleItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property managedTenantAlertRules for tenantRelationships
-     * @param ManagedTenantAlertRuleItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantAlertRuleItemRequestBuilderDeleteRequestCo_49fa3500|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ManagedTenantAlertRuleItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ManagedTenantAlertRuleItemRequestBuilderDeleteRequestCo_49fa3500 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -114,7 +114,7 @@ class ManagedTenantAlertRuleItemRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?ManagedTenantAlertRuleItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/managedTenantAlertRules/{managedTenantAlertRule%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -131,10 +131,10 @@ class ManagedTenantAlertRuleItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property managedTenantAlertRules in tenantRelationships
      * @param ManagedTenantAlertRule $body The request body
-     * @param ManagedTenantAlertRuleItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantAlertRuleItemRequestBuilderPatchRequestCon_d04ead78|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ManagedTenantAlertRule $body, ?ManagedTenantAlertRuleItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ManagedTenantAlertRule $body, ?ManagedTenantAlertRuleItemRequestBuilderPatchRequestCon_d04ead78 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

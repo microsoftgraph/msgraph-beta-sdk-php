@@ -39,7 +39,7 @@ class AccessPackagesWithUniqueNameRequestBuilder extends BaseRequestBuilder
      * @param string|null $uniqueName Alternate key of accessPackage
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $uniqueName = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/entitlementManagement/accessPackages(uniqueName=\'{uniqueName}\'){?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/entitlementManagement/accessPackages(uniqueName=\'{uniqueName}\')');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['uniqueName'] = $uniqueName;
@@ -51,12 +51,12 @@ class AccessPackagesWithUniqueNameRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete an accessPackage object. You can't delete an access package if it has any accessPackageAssignment. To delete the access package, first query if there are any assignments with a filter to indicate the specific access package, such as: $filter=accessPackage/id eq 'a914b616-e04e-476b-aa37-91038f0b165b'. For more information on how to remove assignments that are still in the delivered state, see Remove an assignment.
-     * @param AccessPackagesWithUniqueNameRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackagesWithUniqueNameRequestBuilderDeleteRequest_a14b248b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/accesspackage-delete?view=graph-rest-beta Find more info here
     */
-    public function delete(?AccessPackagesWithUniqueNameRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?AccessPackagesWithUniqueNameRequestBuilderDeleteRequest_a14b248b $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -66,12 +66,12 @@ class AccessPackagesWithUniqueNameRequestBuilder extends BaseRequestBuilder
 
     /**
      * Retrieve the properties and relationships of an accessPackage object.
-     * @param AccessPackagesWithUniqueNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackagesWithUniqueNameRequestBuilderGetRequestCon_3a8520d0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackage|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/accesspackage-get?view=graph-rest-beta Find more info here
     */
-    public function get(?AccessPackagesWithUniqueNameRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AccessPackagesWithUniqueNameRequestBuilderGetRequestCon_3a8520d0 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,12 +82,12 @@ class AccessPackagesWithUniqueNameRequestBuilder extends BaseRequestBuilder
     /**
      * Update an existing accessPackage object to change one or more of its properties, such as the display name or description.
      * @param AccessPackage $body The request body
-     * @param AccessPackagesWithUniqueNameRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackagesWithUniqueNameRequestBuilderPatchRequestC_2249f5c7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackage|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/accesspackage-update?view=graph-rest-beta Find more info here
     */
-    public function patch(AccessPackage $body, ?AccessPackagesWithUniqueNameRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(AccessPackage $body, ?AccessPackagesWithUniqueNameRequestBuilderPatchRequestC_2249f5c7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -97,10 +97,10 @@ class AccessPackagesWithUniqueNameRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete an accessPackage object. You can't delete an access package if it has any accessPackageAssignment. To delete the access package, first query if there are any assignments with a filter to indicate the specific access package, such as: $filter=accessPackage/id eq 'a914b616-e04e-476b-aa37-91038f0b165b'. For more information on how to remove assignments that are still in the delivered state, see Remove an assignment.
-     * @param AccessPackagesWithUniqueNameRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackagesWithUniqueNameRequestBuilderDeleteRequest_a14b248b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?AccessPackagesWithUniqueNameRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?AccessPackagesWithUniqueNameRequestBuilderDeleteRequest_a14b248b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,12 +115,12 @@ class AccessPackagesWithUniqueNameRequestBuilder extends BaseRequestBuilder
 
     /**
      * Retrieve the properties and relationships of an accessPackage object.
-     * @param AccessPackagesWithUniqueNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackagesWithUniqueNameRequestBuilderGetRequestCon_3a8520d0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AccessPackagesWithUniqueNameRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AccessPackagesWithUniqueNameRequestBuilderGetRequestCon_3a8520d0 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/entitlementManagement/accessPackages(uniqueName=\'{uniqueName}\'){?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -137,10 +137,10 @@ class AccessPackagesWithUniqueNameRequestBuilder extends BaseRequestBuilder
     /**
      * Update an existing accessPackage object to change one or more of its properties, such as the display name or description.
      * @param AccessPackage $body The request body
-     * @param AccessPackagesWithUniqueNameRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackagesWithUniqueNameRequestBuilderPatchRequestC_2249f5c7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(AccessPackage $body, ?AccessPackagesWithUniqueNameRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(AccessPackage $body, ?AccessPackagesWithUniqueNameRequestBuilderPatchRequestC_2249f5c7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

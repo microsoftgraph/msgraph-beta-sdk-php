@@ -23,7 +23,7 @@ class BusinessScenariosWithUniqueNameRequestBuilder extends BaseRequestBuilder
      * @param string|null $uniqueName Alternate key of businessScenario
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $uniqueName = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/businessScenarios(uniqueName=\'{uniqueName}\'){?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/businessScenarios(uniqueName=\'{uniqueName}\')');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['uniqueName'] = $uniqueName;
@@ -35,12 +35,12 @@ class BusinessScenariosWithUniqueNameRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete a businessScenario object. The deletion of a scenario causes all data associated with the scenario to be deleted.
-     * @param BusinessScenariosWithUniqueNameRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param BusinessScenariosWithUniqueNameRequestBuilderDeleteRequ_49a84cd1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/businessscenario-delete?view=graph-rest-beta Find more info here
     */
-    public function delete(?BusinessScenariosWithUniqueNameRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?BusinessScenariosWithUniqueNameRequestBuilderDeleteRequ_49a84cd1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,12 +50,12 @@ class BusinessScenariosWithUniqueNameRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of a businessScenario object.
-     * @param BusinessScenariosWithUniqueNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param BusinessScenariosWithUniqueNameRequestBuilderGetRequest_97ba499e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BusinessScenario|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/businessscenario-get?view=graph-rest-beta Find more info here
     */
-    public function get(?BusinessScenariosWithUniqueNameRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?BusinessScenariosWithUniqueNameRequestBuilderGetRequest_97ba499e $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -66,12 +66,12 @@ class BusinessScenariosWithUniqueNameRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a businessScenario object.
      * @param BusinessScenario $body The request body
-     * @param BusinessScenariosWithUniqueNameRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param BusinessScenariosWithUniqueNameRequestBuilderPatchReque_0695fa7d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BusinessScenario|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/businessscenario-update?view=graph-rest-beta Find more info here
     */
-    public function patch(BusinessScenario $body, ?BusinessScenariosWithUniqueNameRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(BusinessScenario $body, ?BusinessScenariosWithUniqueNameRequestBuilderPatchReque_0695fa7d $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -81,10 +81,10 @@ class BusinessScenariosWithUniqueNameRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete a businessScenario object. The deletion of a scenario causes all data associated with the scenario to be deleted.
-     * @param BusinessScenariosWithUniqueNameRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param BusinessScenariosWithUniqueNameRequestBuilderDeleteRequ_49a84cd1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?BusinessScenariosWithUniqueNameRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?BusinessScenariosWithUniqueNameRequestBuilderDeleteRequ_49a84cd1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -99,12 +99,12 @@ class BusinessScenariosWithUniqueNameRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of a businessScenario object.
-     * @param BusinessScenariosWithUniqueNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param BusinessScenariosWithUniqueNameRequestBuilderGetRequest_97ba499e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?BusinessScenariosWithUniqueNameRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?BusinessScenariosWithUniqueNameRequestBuilderGetRequest_97ba499e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/solutions/businessScenarios(uniqueName=\'{uniqueName}\'){?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -121,10 +121,10 @@ class BusinessScenariosWithUniqueNameRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a businessScenario object.
      * @param BusinessScenario $body The request body
-     * @param BusinessScenariosWithUniqueNameRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param BusinessScenariosWithUniqueNameRequestBuilderPatchReque_0695fa7d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(BusinessScenario $body, ?BusinessScenariosWithUniqueNameRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(BusinessScenario $body, ?BusinessScenariosWithUniqueNameRequestBuilderPatchReque_0695fa7d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

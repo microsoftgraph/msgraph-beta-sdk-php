@@ -23,7 +23,7 @@ class CatalogsWithUniqueNameRequestBuilder extends BaseRequestBuilder
      * @param string|null $uniqueName Alternate key of accessPackageCatalog
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $uniqueName = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/catalogs(uniqueName=\'{uniqueName}\'){?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/catalogs(uniqueName=\'{uniqueName}\')');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['uniqueName'] = $uniqueName;
@@ -101,7 +101,7 @@ class CatalogsWithUniqueNameRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?CatalogsWithUniqueNameRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/catalogs(uniqueName=\'{uniqueName}\'){?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {

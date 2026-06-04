@@ -33,12 +33,12 @@ class MicrosoftGraphSecurityMoveAlertsRequestBuilder extends BaseRequestBuilder
     /**
      * Move one or more alert resources to a new or existing incident.
      * @param MoveAlertsPostRequestBody $body The request body
-     * @param MicrosoftGraphSecurityMoveAlertsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphSecurityMoveAlertsRequestBuilderPostReque_d3f7a2c3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MergeResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/security-alert-movealerts?view=graph-rest-beta Find more info here
     */
-    public function post(MoveAlertsPostRequestBody $body, ?MicrosoftGraphSecurityMoveAlertsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(MoveAlertsPostRequestBody $body, ?MicrosoftGraphSecurityMoveAlertsRequestBuilderPostReque_d3f7a2c3 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,10 +49,10 @@ class MicrosoftGraphSecurityMoveAlertsRequestBuilder extends BaseRequestBuilder
     /**
      * Move one or more alert resources to a new or existing incident.
      * @param MoveAlertsPostRequestBody $body The request body
-     * @param MicrosoftGraphSecurityMoveAlertsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphSecurityMoveAlertsRequestBuilderPostReque_d3f7a2c3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(MoveAlertsPostRequestBody $body, ?MicrosoftGraphSecurityMoveAlertsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(MoveAlertsPostRequestBody $body, ?MicrosoftGraphSecurityMoveAlertsRequestBuilderPostReque_d3f7a2c3 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

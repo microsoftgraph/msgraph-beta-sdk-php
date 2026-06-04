@@ -22,7 +22,7 @@ class WorkplaceSensorDeviceItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/workplace/sensorDevices/{workplaceSensorDevice%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/workplace/sensorDevices/{workplaceSensorDevice%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,12 +32,12 @@ class WorkplaceSensorDeviceItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete a workplace sensor device.
-     * @param WorkplaceSensorDeviceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WorkplaceSensorDeviceItemRequestBuilderDeleteRequestCon_2b39839a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/workplacesensordevice-delete?view=graph-rest-beta Find more info here
     */
-    public function delete(?WorkplaceSensorDeviceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?WorkplaceSensorDeviceItemRequestBuilderDeleteRequestCon_2b39839a $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -78,10 +78,10 @@ class WorkplaceSensorDeviceItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete a workplace sensor device.
-     * @param WorkplaceSensorDeviceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WorkplaceSensorDeviceItemRequestBuilderDeleteRequestCon_2b39839a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?WorkplaceSensorDeviceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?WorkplaceSensorDeviceItemRequestBuilderDeleteRequestCon_2b39839a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -101,7 +101,7 @@ class WorkplaceSensorDeviceItemRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?WorkplaceSensorDeviceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/workplace/sensorDevices/{workplaceSensorDevice%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {

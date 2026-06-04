@@ -32,12 +32,12 @@ class BatchApplyCustomDataProvidedResourceDecisionsRequestBuilder extends BaseRe
     /**
      * Enables reviewers to set the applyResult and applyDescription on all accessReviewInstanceDecisionItem objects in batches by using customDataProvidedResourceId. NOTE: The access review instance must be in an Applying state.
      * @param BatchApplyCustomDataProvidedResourceDecisionsPostRequestBody $body The request body
-     * @param BatchApplyCustomDataProvidedResourceDecisionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param BatchApplyCustomDataProvidedResourceDecisionsRequestBui_dee9f88c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/accessreviewinstance-batchapplycustomdataprovidedresourcedecisions?view=graph-rest-beta Find more info here
     */
-    public function post(BatchApplyCustomDataProvidedResourceDecisionsPostRequestBody $body, ?BatchApplyCustomDataProvidedResourceDecisionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(BatchApplyCustomDataProvidedResourceDecisionsPostRequestBody $body, ?BatchApplyCustomDataProvidedResourceDecisionsRequestBui_dee9f88c $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class BatchApplyCustomDataProvidedResourceDecisionsRequestBuilder extends BaseRe
     /**
      * Enables reviewers to set the applyResult and applyDescription on all accessReviewInstanceDecisionItem objects in batches by using customDataProvidedResourceId. NOTE: The access review instance must be in an Applying state.
      * @param BatchApplyCustomDataProvidedResourceDecisionsPostRequestBody $body The request body
-     * @param BatchApplyCustomDataProvidedResourceDecisionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param BatchApplyCustomDataProvidedResourceDecisionsRequestBui_dee9f88c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(BatchApplyCustomDataProvidedResourceDecisionsPostRequestBody $body, ?BatchApplyCustomDataProvidedResourceDecisionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(BatchApplyCustomDataProvidedResourceDecisionsPostRequestBody $body, ?BatchApplyCustomDataProvidedResourceDecisionsRequestBui_dee9f88c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

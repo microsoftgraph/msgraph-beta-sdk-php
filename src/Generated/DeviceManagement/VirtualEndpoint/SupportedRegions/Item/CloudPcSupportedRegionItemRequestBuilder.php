@@ -22,7 +22,7 @@ class CloudPcSupportedRegionItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/virtualEndpoint/supportedRegions/{cloudPcSupportedRegion%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/virtualEndpoint/supportedRegions/{cloudPcSupportedRegion%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class CloudPcSupportedRegionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property supportedRegions for deviceManagement
-     * @param CloudPcSupportedRegionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcSupportedRegionItemRequestBuilderDeleteRequestCo_a5ff9301|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CloudPcSupportedRegionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CloudPcSupportedRegionItemRequestBuilderDeleteRequestCo_a5ff9301 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class CloudPcSupportedRegionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property supportedRegions in deviceManagement
      * @param CloudPcSupportedRegion $body The request body
-     * @param CloudPcSupportedRegionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcSupportedRegionItemRequestBuilderPatchRequestCon_94e8c642|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcSupportedRegion|null>
      * @throws Exception
     */
-    public function patch(CloudPcSupportedRegion $body, ?CloudPcSupportedRegionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(CloudPcSupportedRegion $body, ?CloudPcSupportedRegionItemRequestBuilderPatchRequestCon_94e8c642 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class CloudPcSupportedRegionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property supportedRegions for deviceManagement
-     * @param CloudPcSupportedRegionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcSupportedRegionItemRequestBuilderDeleteRequestCo_a5ff9301|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CloudPcSupportedRegionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CloudPcSupportedRegionItemRequestBuilderDeleteRequestCo_a5ff9301 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -98,7 +98,7 @@ class CloudPcSupportedRegionItemRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?CloudPcSupportedRegionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/virtualEndpoint/supportedRegions/{cloudPcSupportedRegion%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class CloudPcSupportedRegionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property supportedRegions in deviceManagement
      * @param CloudPcSupportedRegion $body The request body
-     * @param CloudPcSupportedRegionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcSupportedRegionItemRequestBuilderPatchRequestCon_94e8c642|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CloudPcSupportedRegion $body, ?CloudPcSupportedRegionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(CloudPcSupportedRegion $body, ?CloudPcSupportedRegionItemRequestBuilderPatchRequestCon_94e8c642 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

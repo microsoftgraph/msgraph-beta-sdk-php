@@ -44,7 +44,7 @@ class ScheduledPermissionsApprovalsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/permissionsManagement/scheduledPermissionsApprovals{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -63,11 +63,11 @@ class ScheduledPermissionsApprovalsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get scheduledPermissionsApprovals from identityGovernance
-     * @param ScheduledPermissionsApprovalsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ScheduledPermissionsApprovalsRequestBuilderGetRequestCo_b7cfab78|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApprovalCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?ScheduledPermissionsApprovalsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ScheduledPermissionsApprovalsRequestBuilderGetRequestCo_b7cfab78 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -78,11 +78,11 @@ class ScheduledPermissionsApprovalsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to scheduledPermissionsApprovals for identityGovernance
      * @param Approval $body The request body
-     * @param ScheduledPermissionsApprovalsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ScheduledPermissionsApprovalsRequestBuilderPostRequestC_ddb99313|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Approval|null>
      * @throws Exception
     */
-    public function post(Approval $body, ?ScheduledPermissionsApprovalsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(Approval $body, ?ScheduledPermissionsApprovalsRequestBuilderPostRequestC_ddb99313 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -92,12 +92,12 @@ class ScheduledPermissionsApprovalsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get scheduledPermissionsApprovals from identityGovernance
-     * @param ScheduledPermissionsApprovalsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ScheduledPermissionsApprovalsRequestBuilderGetRequestCo_b7cfab78|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ScheduledPermissionsApprovalsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ScheduledPermissionsApprovalsRequestBuilderGetRequestCo_b7cfab78 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/permissionsManagement/scheduledPermissionsApprovals{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -114,12 +114,12 @@ class ScheduledPermissionsApprovalsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to scheduledPermissionsApprovals for identityGovernance
      * @param Approval $body The request body
-     * @param ScheduledPermissionsApprovalsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ScheduledPermissionsApprovalsRequestBuilderPostRequestC_ddb99313|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(Approval $body, ?ScheduledPermissionsApprovalsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(Approval $body, ?ScheduledPermissionsApprovalsRequestBuilderPostRequestC_ddb99313 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/permissionsManagement/scheduledPermissionsApprovals';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

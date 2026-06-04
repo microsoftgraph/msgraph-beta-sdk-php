@@ -22,7 +22,7 @@ class M365CapabilityBaseNameItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/policies/crossTenantAccessPolicy/default/m365Capabilities/{m365CapabilityBase%2Dname}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/policies/crossTenantAccessPolicy/default/m365Capabilities/{m365CapabilityBase%2Dname}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class M365CapabilityBaseNameItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property m365Capabilities for policies
-     * @param M365CapabilityBaseNameItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param M365CapabilityBaseNameItemRequestBuilderDeleteRequestCo_3f6e9747|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?M365CapabilityBaseNameItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?M365CapabilityBaseNameItemRequestBuilderDeleteRequestCo_3f6e9747 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class M365CapabilityBaseNameItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property m365Capabilities in policies
      * @param M365CapabilityBase $body The request body
-     * @param M365CapabilityBaseNameItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param M365CapabilityBaseNameItemRequestBuilderPatchRequestCon_4d034236|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<M365CapabilityBase|null>
      * @throws Exception
     */
-    public function patch(M365CapabilityBase $body, ?M365CapabilityBaseNameItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(M365CapabilityBase $body, ?M365CapabilityBaseNameItemRequestBuilderPatchRequestCon_4d034236 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class M365CapabilityBaseNameItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property m365Capabilities for policies
-     * @param M365CapabilityBaseNameItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param M365CapabilityBaseNameItemRequestBuilderDeleteRequestCo_3f6e9747|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?M365CapabilityBaseNameItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?M365CapabilityBaseNameItemRequestBuilderDeleteRequestCo_3f6e9747 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -98,7 +98,7 @@ class M365CapabilityBaseNameItemRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?M365CapabilityBaseNameItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/policies/crossTenantAccessPolicy/default/m365Capabilities/{m365CapabilityBase%2Dname}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class M365CapabilityBaseNameItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property m365Capabilities in policies
      * @param M365CapabilityBase $body The request body
-     * @param M365CapabilityBaseNameItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param M365CapabilityBaseNameItemRequestBuilderPatchRequestCon_4d034236|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(M365CapabilityBase $body, ?M365CapabilityBaseNameItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(M365CapabilityBase $body, ?M365CapabilityBaseNameItemRequestBuilderPatchRequestCon_4d034236 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

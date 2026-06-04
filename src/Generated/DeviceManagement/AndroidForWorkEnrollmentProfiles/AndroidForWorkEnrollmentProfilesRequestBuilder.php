@@ -43,7 +43,7 @@ class AndroidForWorkEnrollmentProfilesRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/androidForWorkEnrollmentProfiles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class AndroidForWorkEnrollmentProfilesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Android for Work enrollment profile entities.
-     * @param AndroidForWorkEnrollmentProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidForWorkEnrollmentProfilesRequestBuilderGetReques_8b920548|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AndroidForWorkEnrollmentProfileCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?AndroidForWorkEnrollmentProfilesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AndroidForWorkEnrollmentProfilesRequestBuilderGetReques_8b920548 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class AndroidForWorkEnrollmentProfilesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to androidForWorkEnrollmentProfiles for deviceManagement
      * @param AndroidForWorkEnrollmentProfile $body The request body
-     * @param AndroidForWorkEnrollmentProfilesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidForWorkEnrollmentProfilesRequestBuilderPostReque_f9aa6344|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AndroidForWorkEnrollmentProfile|null>
      * @throws Exception
     */
-    public function post(AndroidForWorkEnrollmentProfile $body, ?AndroidForWorkEnrollmentProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AndroidForWorkEnrollmentProfile $body, ?AndroidForWorkEnrollmentProfilesRequestBuilderPostReque_f9aa6344 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,12 +82,12 @@ class AndroidForWorkEnrollmentProfilesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Android for Work enrollment profile entities.
-     * @param AndroidForWorkEnrollmentProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidForWorkEnrollmentProfilesRequestBuilderGetReques_8b920548|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AndroidForWorkEnrollmentProfilesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AndroidForWorkEnrollmentProfilesRequestBuilderGetReques_8b920548 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/androidForWorkEnrollmentProfiles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,12 +104,12 @@ class AndroidForWorkEnrollmentProfilesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to androidForWorkEnrollmentProfiles for deviceManagement
      * @param AndroidForWorkEnrollmentProfile $body The request body
-     * @param AndroidForWorkEnrollmentProfilesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidForWorkEnrollmentProfilesRequestBuilderPostReque_f9aa6344|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AndroidForWorkEnrollmentProfile $body, ?AndroidForWorkEnrollmentProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AndroidForWorkEnrollmentProfile $body, ?AndroidForWorkEnrollmentProfilesRequestBuilderPostReque_f9aa6344 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/androidForWorkEnrollmentProfiles';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

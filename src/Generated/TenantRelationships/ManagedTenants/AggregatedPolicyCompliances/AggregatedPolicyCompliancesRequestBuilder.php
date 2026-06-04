@@ -43,7 +43,7 @@ class AggregatedPolicyCompliancesRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/aggregatedPolicyCompliances{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -69,11 +69,11 @@ class AggregatedPolicyCompliancesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to aggregatedPolicyCompliances for tenantRelationships
      * @param AggregatedPolicyCompliance $body The request body
-     * @param AggregatedPolicyCompliancesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AggregatedPolicyCompliancesRequestBuilderPostRequestCon_d65dc620|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AggregatedPolicyCompliance|null>
      * @throws Exception
     */
-    public function post(AggregatedPolicyCompliance $body, ?AggregatedPolicyCompliancesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AggregatedPolicyCompliance $body, ?AggregatedPolicyCompliancesRequestBuilderPostRequestCon_d65dc620 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -88,7 +88,7 @@ class AggregatedPolicyCompliancesRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?AggregatedPolicyCompliancesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/aggregatedPolicyCompliances{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -105,12 +105,12 @@ class AggregatedPolicyCompliancesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to aggregatedPolicyCompliances for tenantRelationships
      * @param AggregatedPolicyCompliance $body The request body
-     * @param AggregatedPolicyCompliancesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AggregatedPolicyCompliancesRequestBuilderPostRequestCon_d65dc620|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AggregatedPolicyCompliance $body, ?AggregatedPolicyCompliancesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AggregatedPolicyCompliance $body, ?AggregatedPolicyCompliancesRequestBuilderPostRequestCon_d65dc620 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/aggregatedPolicyCompliances';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

@@ -30,7 +30,7 @@ class AccessPackageResourceScopeRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/entitlementManagement/accessPackageAssignmentResourceRoles/{accessPackageAssignmentResourceRole%2Did}/accessPackageResourceScope{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/entitlementManagement/accessPackageAssignmentResourceRoles/{accessPackageAssignmentResourceRole%2Did}/accessPackageResourceScope');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,11 +40,11 @@ class AccessPackageResourceScopeRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property accessPackageResourceScope for identityGovernance
-     * @param AccessPackageResourceScopeRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageResourceScopeRequestBuilderDeleteRequestCo_2fbad3c2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?AccessPackageResourceScopeRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?AccessPackageResourceScopeRequestBuilderDeleteRequestCo_2fbad3c2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class AccessPackageResourceScopeRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property accessPackageResourceScope in identityGovernance
      * @param AccessPackageResourceScope $body The request body
-     * @param AccessPackageResourceScopeRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageResourceScopeRequestBuilderPatchRequestCon_23b84293|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageResourceScope|null>
      * @throws Exception
     */
-    public function patch(AccessPackageResourceScope $body, ?AccessPackageResourceScopeRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(AccessPackageResourceScope $body, ?AccessPackageResourceScopeRequestBuilderPatchRequestCon_23b84293 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class AccessPackageResourceScopeRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property accessPackageResourceScope for identityGovernance
-     * @param AccessPackageResourceScopeRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageResourceScopeRequestBuilderDeleteRequestCo_2fbad3c2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?AccessPackageResourceScopeRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?AccessPackageResourceScopeRequestBuilderDeleteRequestCo_2fbad3c2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -106,7 +106,7 @@ class AccessPackageResourceScopeRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?AccessPackageResourceScopeRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/entitlementManagement/accessPackageAssignmentResourceRoles/{accessPackageAssignmentResourceRole%2Did}/accessPackageResourceScope{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -123,10 +123,10 @@ class AccessPackageResourceScopeRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property accessPackageResourceScope in identityGovernance
      * @param AccessPackageResourceScope $body The request body
-     * @param AccessPackageResourceScopeRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageResourceScopeRequestBuilderPatchRequestCon_23b84293|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(AccessPackageResourceScope $body, ?AccessPackageResourceScopeRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(AccessPackageResourceScope $body, ?AccessPackageResourceScopeRequestBuilderPatchRequestCon_23b84293 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

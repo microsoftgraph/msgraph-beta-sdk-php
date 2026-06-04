@@ -23,7 +23,7 @@ class SessionsWithJoinWebUrlRequestBuilder extends BaseRequestBuilder
      * @param string|null $joinWebUrl Alternate key of virtualEventSession
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $joinWebUrl = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/sessions(joinWebUrl=\'{joinWebUrl}\'){?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/sessions(joinWebUrl=\'{joinWebUrl}\')');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['joinWebUrl'] = $joinWebUrl;
@@ -102,7 +102,7 @@ class SessionsWithJoinWebUrlRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?SessionsWithJoinWebUrlRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/sessions(joinWebUrl=\'{joinWebUrl}\'){?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {

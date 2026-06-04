@@ -70,7 +70,7 @@ class NoncustodialDataSourceItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/compliance/ediscovery/cases/{case%2Did}/noncustodialDataSources/{noncustodialDataSource%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/compliance/ediscovery/cases/{case%2Did}/noncustodialDataSources/{noncustodialDataSource%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -80,11 +80,11 @@ class NoncustodialDataSourceItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property noncustodialDataSources for compliance
-     * @param NoncustodialDataSourceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param NoncustodialDataSourceItemRequestBuilderDeleteRequestCo_dab145af|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?NoncustodialDataSourceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?NoncustodialDataSourceItemRequestBuilderDeleteRequestCo_dab145af $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -110,11 +110,11 @@ class NoncustodialDataSourceItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property noncustodialDataSources in compliance
      * @param NoncustodialDataSource $body The request body
-     * @param NoncustodialDataSourceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param NoncustodialDataSourceItemRequestBuilderPatchRequestCon_96f1398e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<NoncustodialDataSource|null>
      * @throws Exception
     */
-    public function patch(NoncustodialDataSource $body, ?NoncustodialDataSourceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(NoncustodialDataSource $body, ?NoncustodialDataSourceItemRequestBuilderPatchRequestCon_96f1398e $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -124,10 +124,10 @@ class NoncustodialDataSourceItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property noncustodialDataSources for compliance
-     * @param NoncustodialDataSourceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param NoncustodialDataSourceItemRequestBuilderDeleteRequestCo_dab145af|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?NoncustodialDataSourceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?NoncustodialDataSourceItemRequestBuilderDeleteRequestCo_dab145af $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -147,7 +147,7 @@ class NoncustodialDataSourceItemRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?NoncustodialDataSourceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/compliance/ediscovery/cases/{case%2Did}/noncustodialDataSources/{noncustodialDataSource%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -164,10 +164,10 @@ class NoncustodialDataSourceItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property noncustodialDataSources in compliance
      * @param NoncustodialDataSource $body The request body
-     * @param NoncustodialDataSourceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param NoncustodialDataSourceItemRequestBuilderPatchRequestCon_96f1398e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(NoncustodialDataSource $body, ?NoncustodialDataSourceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(NoncustodialDataSource $body, ?NoncustodialDataSourceItemRequestBuilderPatchRequestCon_96f1398e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

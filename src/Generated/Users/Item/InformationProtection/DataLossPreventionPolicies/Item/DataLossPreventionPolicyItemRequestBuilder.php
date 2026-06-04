@@ -22,7 +22,7 @@ class DataLossPreventionPolicyItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}/informationProtection/dataLossPreventionPolicies/{dataLossPreventionPolicy%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}/informationProtection/dataLossPreventionPolicies/{dataLossPreventionPolicy%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class DataLossPreventionPolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property dataLossPreventionPolicies for users
-     * @param DataLossPreventionPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DataLossPreventionPolicyItemRequestBuilderDeleteRequest_49ad246f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DataLossPreventionPolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DataLossPreventionPolicyItemRequestBuilderDeleteRequest_49ad246f $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class DataLossPreventionPolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get dataLossPreventionPolicies from users
-     * @param DataLossPreventionPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DataLossPreventionPolicyItemRequestBuilderGetRequestCon_9d3c7e04|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DataLossPreventionPolicy|null>
      * @throws Exception
     */
-    public function get(?DataLossPreventionPolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DataLossPreventionPolicyItemRequestBuilderGetRequestCon_9d3c7e04 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class DataLossPreventionPolicyItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property dataLossPreventionPolicies in users
      * @param DataLossPreventionPolicy $body The request body
-     * @param DataLossPreventionPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DataLossPreventionPolicyItemRequestBuilderPatchRequestC_4a2230fd|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DataLossPreventionPolicy|null>
      * @throws Exception
     */
-    public function patch(DataLossPreventionPolicy $body, ?DataLossPreventionPolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DataLossPreventionPolicy $body, ?DataLossPreventionPolicyItemRequestBuilderPatchRequestC_4a2230fd $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class DataLossPreventionPolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property dataLossPreventionPolicies for users
-     * @param DataLossPreventionPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DataLossPreventionPolicyItemRequestBuilderDeleteRequest_49ad246f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DataLossPreventionPolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DataLossPreventionPolicyItemRequestBuilderDeleteRequest_49ad246f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,12 +93,12 @@ class DataLossPreventionPolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get dataLossPreventionPolicies from users
-     * @param DataLossPreventionPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DataLossPreventionPolicyItemRequestBuilderGetRequestCon_9d3c7e04|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DataLossPreventionPolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DataLossPreventionPolicyItemRequestBuilderGetRequestCon_9d3c7e04 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/informationProtection/dataLossPreventionPolicies/{dataLossPreventionPolicy%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class DataLossPreventionPolicyItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property dataLossPreventionPolicies in users
      * @param DataLossPreventionPolicy $body The request body
-     * @param DataLossPreventionPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DataLossPreventionPolicyItemRequestBuilderPatchRequestC_4a2230fd|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DataLossPreventionPolicy $body, ?DataLossPreventionPolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DataLossPreventionPolicy $body, ?DataLossPreventionPolicyItemRequestBuilderPatchRequestC_4a2230fd $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

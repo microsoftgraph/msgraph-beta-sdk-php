@@ -22,7 +22,7 @@ class YearTimePeriodDefinitionItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/external/industryData/years/{yearTimePeriodDefinition%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/external/industryData/years/{yearTimePeriodDefinition%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,12 +32,12 @@ class YearTimePeriodDefinitionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete a yearTimePeriodDefinition object.
-     * @param YearTimePeriodDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param YearTimePeriodDefinitionItemRequestBuilderDeleteRequest_173d9be6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/industrydata-yeartimeperioddefinition-delete?view=graph-rest-beta Find more info here
     */
-    public function delete(?YearTimePeriodDefinitionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?YearTimePeriodDefinitionItemRequestBuilderDeleteRequest_173d9be6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,12 +47,12 @@ class YearTimePeriodDefinitionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of a yearTimePeriodDefinition object.
-     * @param YearTimePeriodDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param YearTimePeriodDefinitionItemRequestBuilderGetRequestCon_8c1d78d9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<YearTimePeriodDefinition|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/industrydata-yeartimeperioddefinition-get?view=graph-rest-beta Find more info here
     */
-    public function get(?YearTimePeriodDefinitionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?YearTimePeriodDefinitionItemRequestBuilderGetRequestCon_8c1d78d9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -63,12 +63,12 @@ class YearTimePeriodDefinitionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a yearTimePeriodDefinition object.
      * @param YearTimePeriodDefinition $body The request body
-     * @param YearTimePeriodDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param YearTimePeriodDefinitionItemRequestBuilderPatchRequestC_c490d789|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<YearTimePeriodDefinition|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/industrydata-yeartimeperioddefinition-update?view=graph-rest-beta Find more info here
     */
-    public function patch(YearTimePeriodDefinition $body, ?YearTimePeriodDefinitionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(YearTimePeriodDefinition $body, ?YearTimePeriodDefinitionItemRequestBuilderPatchRequestC_c490d789 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -78,10 +78,10 @@ class YearTimePeriodDefinitionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete a yearTimePeriodDefinition object.
-     * @param YearTimePeriodDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param YearTimePeriodDefinitionItemRequestBuilderDeleteRequest_173d9be6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?YearTimePeriodDefinitionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?YearTimePeriodDefinitionItemRequestBuilderDeleteRequest_173d9be6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -96,12 +96,12 @@ class YearTimePeriodDefinitionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of a yearTimePeriodDefinition object.
-     * @param YearTimePeriodDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param YearTimePeriodDefinitionItemRequestBuilderGetRequestCon_8c1d78d9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?YearTimePeriodDefinitionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?YearTimePeriodDefinitionItemRequestBuilderGetRequestCon_8c1d78d9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/external/industryData/years/{yearTimePeriodDefinition%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -118,10 +118,10 @@ class YearTimePeriodDefinitionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a yearTimePeriodDefinition object.
      * @param YearTimePeriodDefinition $body The request body
-     * @param YearTimePeriodDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param YearTimePeriodDefinitionItemRequestBuilderPatchRequestC_c490d789|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(YearTimePeriodDefinition $body, ?YearTimePeriodDefinitionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(YearTimePeriodDefinition $body, ?YearTimePeriodDefinitionItemRequestBuilderPatchRequestC_c490d789 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

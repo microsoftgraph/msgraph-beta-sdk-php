@@ -4,7 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\Settings;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\Settings\MicrosoftGraphTenantGovernanceServicesEnableRelatedTenants\MicrosoftGraphTenantGovernanceServicesEnableRelatedTenantsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\Settings\MicrosoftGraphTenantGovernanceServicesEnableRelatedTenants\MicrosoftGraphTenantGovernanceServicesEnableRelatedTena_9dd95bab;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\TenantGovernanceSetting;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -20,8 +20,8 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the enableRelatedTenants method.
     */
-    public function microsoftGraphTenantGovernanceServicesEnableRelatedTenants(): MicrosoftGraphTenantGovernanceServicesEnableRelatedTenantsRequestBuilder {
-        return new MicrosoftGraphTenantGovernanceServicesEnableRelatedTenantsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphTenantGovernanceServicesEnableRelatedTenants(): MicrosoftGraphTenantGovernanceServicesEnableRelatedTena_9dd95bab {
+        return new MicrosoftGraphTenantGovernanceServicesEnableRelatedTena_9dd95bab($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -30,7 +30,7 @@ class SettingsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/directory/tenantGovernance/settings{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/directory/tenantGovernance/settings');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -108,7 +108,7 @@ class SettingsRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?SettingsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/directory/tenantGovernance/settings{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {

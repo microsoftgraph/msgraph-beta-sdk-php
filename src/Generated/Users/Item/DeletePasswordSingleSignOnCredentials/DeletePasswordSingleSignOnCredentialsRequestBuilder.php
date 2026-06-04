@@ -32,12 +32,12 @@ class DeletePasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBui
     /**
      * Delete the password-based single sign-on credentials for a given user to a given service principal.
      * @param DeletePasswordSingleSignOnCredentialsPostRequestBody $body The request body
-     * @param DeletePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeletePasswordSingleSignOnCredentialsRequestBuilderPost_37e2eb1a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/user-deletepasswordsinglesignoncredentials?view=graph-rest-beta Find more info here
     */
-    public function post(DeletePasswordSingleSignOnCredentialsPostRequestBody $body, ?DeletePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(DeletePasswordSingleSignOnCredentialsPostRequestBody $body, ?DeletePasswordSingleSignOnCredentialsRequestBuilderPost_37e2eb1a $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class DeletePasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBui
     /**
      * Delete the password-based single sign-on credentials for a given user to a given service principal.
      * @param DeletePasswordSingleSignOnCredentialsPostRequestBody $body The request body
-     * @param DeletePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeletePasswordSingleSignOnCredentialsRequestBuilderPost_37e2eb1a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(DeletePasswordSingleSignOnCredentialsPostRequestBody $body, ?DeletePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(DeletePasswordSingleSignOnCredentialsPostRequestBody $body, ?DeletePasswordSingleSignOnCredentialsRequestBuilderPost_37e2eb1a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

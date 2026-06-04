@@ -43,7 +43,7 @@ class CredentialUserRegistrationDetailsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/reports/credentialUserRegistrationDetails{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,12 +53,12 @@ class CredentialUserRegistrationDetailsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a list of credentialUserRegistrationDetails objects for a given tenant.
-     * @param CredentialUserRegistrationDetailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CredentialUserRegistrationDetailsRequestBuilderGetReque_6b870880|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CredentialUserRegistrationDetailsCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-beta Find more info here
     */
-    public function get(?CredentialUserRegistrationDetailsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CredentialUserRegistrationDetailsRequestBuilderGetReque_6b870880 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class CredentialUserRegistrationDetailsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to credentialUserRegistrationDetails for reports
      * @param CredentialUserRegistrationDetails $body The request body
-     * @param CredentialUserRegistrationDetailsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CredentialUserRegistrationDetailsRequestBuilderPostRequ_a27fcfec|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CredentialUserRegistrationDetails|null>
      * @throws Exception
     */
-    public function post(CredentialUserRegistrationDetails $body, ?CredentialUserRegistrationDetailsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(CredentialUserRegistrationDetails $body, ?CredentialUserRegistrationDetailsRequestBuilderPostRequ_a27fcfec $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,12 +83,12 @@ class CredentialUserRegistrationDetailsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a list of credentialUserRegistrationDetails objects for a given tenant.
-     * @param CredentialUserRegistrationDetailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CredentialUserRegistrationDetailsRequestBuilderGetReque_6b870880|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CredentialUserRegistrationDetailsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CredentialUserRegistrationDetailsRequestBuilderGetReque_6b870880 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/reports/credentialUserRegistrationDetails{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -105,12 +105,12 @@ class CredentialUserRegistrationDetailsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to credentialUserRegistrationDetails for reports
      * @param CredentialUserRegistrationDetails $body The request body
-     * @param CredentialUserRegistrationDetailsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CredentialUserRegistrationDetailsRequestBuilderPostRequ_a27fcfec|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(CredentialUserRegistrationDetails $body, ?CredentialUserRegistrationDetailsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(CredentialUserRegistrationDetails $body, ?CredentialUserRegistrationDetailsRequestBuilderPostRequ_a27fcfec $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/reports/credentialUserRegistrationDetails';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

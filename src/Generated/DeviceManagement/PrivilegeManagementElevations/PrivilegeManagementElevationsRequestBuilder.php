@@ -43,7 +43,7 @@ class PrivilegeManagementElevationsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/privilegeManagementElevations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class PrivilegeManagementElevationsRequestBuilder extends BaseRequestBuilder
 
     /**
      * The endpoint privilege management elevation event entity contains elevation details.
-     * @param PrivilegeManagementElevationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegeManagementElevationsRequestBuilderGetRequestCo_692a75fa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrivilegeManagementElevationCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?PrivilegeManagementElevationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?PrivilegeManagementElevationsRequestBuilderGetRequestCo_692a75fa $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class PrivilegeManagementElevationsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to privilegeManagementElevations for deviceManagement
      * @param PrivilegeManagementElevation $body The request body
-     * @param PrivilegeManagementElevationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegeManagementElevationsRequestBuilderPostRequestC_74d67106|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrivilegeManagementElevation|null>
      * @throws Exception
     */
-    public function post(PrivilegeManagementElevation $body, ?PrivilegeManagementElevationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(PrivilegeManagementElevation $body, ?PrivilegeManagementElevationsRequestBuilderPostRequestC_74d67106 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,12 +82,12 @@ class PrivilegeManagementElevationsRequestBuilder extends BaseRequestBuilder
 
     /**
      * The endpoint privilege management elevation event entity contains elevation details.
-     * @param PrivilegeManagementElevationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegeManagementElevationsRequestBuilderGetRequestCo_692a75fa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?PrivilegeManagementElevationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?PrivilegeManagementElevationsRequestBuilderGetRequestCo_692a75fa $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/privilegeManagementElevations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,12 +104,12 @@ class PrivilegeManagementElevationsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to privilegeManagementElevations for deviceManagement
      * @param PrivilegeManagementElevation $body The request body
-     * @param PrivilegeManagementElevationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegeManagementElevationsRequestBuilderPostRequestC_74d67106|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(PrivilegeManagementElevation $body, ?PrivilegeManagementElevationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(PrivilegeManagementElevation $body, ?PrivilegeManagementElevationsRequestBuilderPostRequestC_74d67106 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/privilegeManagementElevations';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

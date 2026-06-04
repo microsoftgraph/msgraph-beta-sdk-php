@@ -31,11 +31,11 @@ class RetrieveZebraFotaDeviceModelsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Invoke function retrieveZebraFotaDeviceModels
-     * @param RetrieveZebraFotaDeviceModelsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveZebraFotaDeviceModelsRequestBuilderGetRequestCo_8c0e6da0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RetrieveZebraFotaDeviceModelsGetResponse|null>
      * @throws Exception
     */
-    public function get(?RetrieveZebraFotaDeviceModelsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?RetrieveZebraFotaDeviceModelsRequestBuilderGetRequestCo_8c0e6da0 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,10 +45,10 @@ class RetrieveZebraFotaDeviceModelsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Invoke function retrieveZebraFotaDeviceModels
-     * @param RetrieveZebraFotaDeviceModelsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveZebraFotaDeviceModelsRequestBuilderGetRequestCo_8c0e6da0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?RetrieveZebraFotaDeviceModelsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?RetrieveZebraFotaDeviceModelsRequestBuilderGetRequestCo_8c0e6da0 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

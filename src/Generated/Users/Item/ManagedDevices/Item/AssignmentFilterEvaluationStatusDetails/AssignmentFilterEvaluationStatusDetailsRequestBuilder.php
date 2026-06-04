@@ -43,7 +43,7 @@ class AssignmentFilterEvaluationStatusDetailsRequestBuilder extends BaseRequestB
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/assignmentFilterEvaluationStatusDetails{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class AssignmentFilterEvaluationStatusDetailsRequestBuilder extends BaseRequestB
 
     /**
      * Managed device mobile app configuration states for this device.
-     * @param AssignmentFilterEvaluationStatusDetailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AssignmentFilterEvaluationStatusDetailsRequestBuilderGe_5e41e4a1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AssignmentFilterEvaluationStatusDetailsCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?AssignmentFilterEvaluationStatusDetailsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AssignmentFilterEvaluationStatusDetailsRequestBuilderGe_5e41e4a1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class AssignmentFilterEvaluationStatusDetailsRequestBuilder extends BaseRequestB
     /**
      * Create new navigation property to assignmentFilterEvaluationStatusDetails for users
      * @param AssignmentFilterEvaluationStatusDetails $body The request body
-     * @param AssignmentFilterEvaluationStatusDetailsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AssignmentFilterEvaluationStatusDetailsRequestBuilderPo_a209d3c6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AssignmentFilterEvaluationStatusDetails|null>
      * @throws Exception
     */
-    public function post(AssignmentFilterEvaluationStatusDetails $body, ?AssignmentFilterEvaluationStatusDetailsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AssignmentFilterEvaluationStatusDetails $body, ?AssignmentFilterEvaluationStatusDetailsRequestBuilderPo_a209d3c6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,12 +82,12 @@ class AssignmentFilterEvaluationStatusDetailsRequestBuilder extends BaseRequestB
 
     /**
      * Managed device mobile app configuration states for this device.
-     * @param AssignmentFilterEvaluationStatusDetailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AssignmentFilterEvaluationStatusDetailsRequestBuilderGe_5e41e4a1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AssignmentFilterEvaluationStatusDetailsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AssignmentFilterEvaluationStatusDetailsRequestBuilderGe_5e41e4a1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/assignmentFilterEvaluationStatusDetails{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,12 +104,12 @@ class AssignmentFilterEvaluationStatusDetailsRequestBuilder extends BaseRequestB
     /**
      * Create new navigation property to assignmentFilterEvaluationStatusDetails for users
      * @param AssignmentFilterEvaluationStatusDetails $body The request body
-     * @param AssignmentFilterEvaluationStatusDetailsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AssignmentFilterEvaluationStatusDetailsRequestBuilderPo_a209d3c6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AssignmentFilterEvaluationStatusDetails $body, ?AssignmentFilterEvaluationStatusDetailsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AssignmentFilterEvaluationStatusDetails $body, ?AssignmentFilterEvaluationStatusDetailsRequestBuilderPo_a209d3c6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/assignmentFilterEvaluationStatusDetails';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

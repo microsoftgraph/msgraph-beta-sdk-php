@@ -6,7 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleDefinition;
-use Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleDefinitions\Item\InheritsPermissionsFrom\Item\AssignedPrincipalsWithTransitivedirectoryScopeTypeDirectoryScopeTypeDirectoryScopeIdDirectoryScopeId\AssignedPrincipalsWithTransitivedirectoryScopeTypeDirectoryScopeTypeDirectoryScopeIdDirectoryScopeIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\RoleManagement\DeviceManagement\RoleDefinitions\Item\InheritsPermissionsFrom\Item\AssignedPrincipalsWithTransitivedirectoryScopeTypeDirec_ac00e1fd\AssignedPrincipalsWithTransitivedirectoryScopeTypeDirec_c9177a9a;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -20,8 +20,8 @@ class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the assignedPrincipals method.
     */
-    public function assignedPrincipalsWithTransitivedirectoryScopeTypeDirectoryScopeTypeDirectoryScopeIdDirectoryScopeId(): AssignedPrincipalsWithTransitivedirectoryScopeTypeDirectoryScopeTypeDirectoryScopeIdDirectoryScopeIdRequestBuilder {
-        return new AssignedPrincipalsWithTransitivedirectoryScopeTypeDirectoryScopeTypeDirectoryScopeIdDirectoryScopeIdRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function assignedPrincipalsWithTransitivedirectoryScopeTypeDirectoryScopeTypeDirectoryScopeIdDirectoryScopeId(): AssignedPrincipalsWithTransitivedirectoryScopeTypeDirec_c9177a9a {
+        return new AssignedPrincipalsWithTransitivedirectoryScopeTypeDirec_c9177a9a($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -30,7 +30,7 @@ class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/roleManagement/deviceManagement/roleDefinitions/{unifiedRoleDefinition%2Did}/inheritsPermissionsFrom/{unifiedRoleDefinition%2Did1}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/roleManagement/deviceManagement/roleDefinitions/{unifiedRoleDefinition%2Did}/inheritsPermissionsFrom/{unifiedRoleDefinition%2Did1}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,11 +40,11 @@ class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property inheritsPermissionsFrom for roleManagement
-     * @param UnifiedRoleDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnifiedRoleDefinitionItemRequestBuilderDeleteRequestCon_e3e589a1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?UnifiedRoleDefinitionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?UnifiedRoleDefinitionItemRequestBuilderDeleteRequestCon_e3e589a1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property inheritsPermissionsFrom for roleManagement
-     * @param UnifiedRoleDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnifiedRoleDefinitionItemRequestBuilderDeleteRequestCon_e3e589a1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?UnifiedRoleDefinitionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?UnifiedRoleDefinitionItemRequestBuilderDeleteRequestCon_e3e589a1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -106,7 +106,7 @@ class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/roleManagement/deviceManagement/roleDefinitions/{unifiedRoleDefinition%2Did}/inheritsPermissionsFrom/{unifiedRoleDefinition%2Did1}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {

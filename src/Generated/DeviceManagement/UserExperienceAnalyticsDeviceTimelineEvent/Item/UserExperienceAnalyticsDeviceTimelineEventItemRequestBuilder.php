@@ -22,7 +22,7 @@ class UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilder extends BaseR
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceTimelineEvent/{userExperienceAnalyticsDeviceTimelineEvent%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceTimelineEvent/{userExperienceAnalyticsDeviceTimelineEvent%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilder extends BaseR
 
     /**
      * Delete navigation property userExperienceAnalyticsDeviceTimelineEvent for deviceManagement
-     * @param UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceTimelineEventItemRequestBu_d877ad12|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?UserExperienceAnalyticsDeviceTimelineEventItemRequestBu_d877ad12 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilder extends BaseR
 
     /**
      * The user experience analytics device events entity contains NRT device timeline event details.
-     * @param UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceTimelineEventItemRequestBu_e929d997|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsDeviceTimelineEvent|null>
      * @throws Exception
     */
-    public function get(?UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserExperienceAnalyticsDeviceTimelineEventItemRequestBu_e929d997 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilder extends BaseR
     /**
      * Update the navigation property userExperienceAnalyticsDeviceTimelineEvent in deviceManagement
      * @param UserExperienceAnalyticsDeviceTimelineEvent $body The request body
-     * @param UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceTimelineEventItemRequestBu_78d27349|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsDeviceTimelineEvent|null>
      * @throws Exception
     */
-    public function patch(UserExperienceAnalyticsDeviceTimelineEvent $body, ?UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(UserExperienceAnalyticsDeviceTimelineEvent $body, ?UserExperienceAnalyticsDeviceTimelineEventItemRequestBu_78d27349 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilder extends BaseR
 
     /**
      * Delete navigation property userExperienceAnalyticsDeviceTimelineEvent for deviceManagement
-     * @param UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceTimelineEventItemRequestBu_d877ad12|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?UserExperienceAnalyticsDeviceTimelineEventItemRequestBu_d877ad12 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,12 +93,12 @@ class UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilder extends BaseR
 
     /**
      * The user experience analytics device events entity contains NRT device timeline event details.
-     * @param UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceTimelineEventItemRequestBu_e929d997|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UserExperienceAnalyticsDeviceTimelineEventItemRequestBu_e929d997 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceTimelineEvent/{userExperienceAnalyticsDeviceTimelineEvent%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilder extends BaseR
     /**
      * Update the navigation property userExperienceAnalyticsDeviceTimelineEvent in deviceManagement
      * @param UserExperienceAnalyticsDeviceTimelineEvent $body The request body
-     * @param UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceTimelineEventItemRequestBu_78d27349|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(UserExperienceAnalyticsDeviceTimelineEvent $body, ?UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(UserExperienceAnalyticsDeviceTimelineEvent $body, ?UserExperienceAnalyticsDeviceTimelineEventItemRequestBu_78d27349 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

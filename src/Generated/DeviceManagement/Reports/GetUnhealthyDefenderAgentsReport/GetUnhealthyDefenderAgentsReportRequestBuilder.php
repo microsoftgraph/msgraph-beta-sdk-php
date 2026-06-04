@@ -33,11 +33,11 @@ class GetUnhealthyDefenderAgentsReportRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action getUnhealthyDefenderAgentsReport
      * @param GetUnhealthyDefenderAgentsReportPostRequestBody $body The request body
-     * @param GetUnhealthyDefenderAgentsReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetUnhealthyDefenderAgentsReportRequestBuilderPostReque_e86a32a7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(GetUnhealthyDefenderAgentsReportPostRequestBody $body, ?GetUnhealthyDefenderAgentsReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetUnhealthyDefenderAgentsReportPostRequestBody $body, ?GetUnhealthyDefenderAgentsReportRequestBuilderPostReque_e86a32a7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class GetUnhealthyDefenderAgentsReportRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action getUnhealthyDefenderAgentsReport
      * @param GetUnhealthyDefenderAgentsReportPostRequestBody $body The request body
-     * @param GetUnhealthyDefenderAgentsReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetUnhealthyDefenderAgentsReportRequestBuilderPostReque_e86a32a7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetUnhealthyDefenderAgentsReportPostRequestBody $body, ?GetUnhealthyDefenderAgentsReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetUnhealthyDefenderAgentsReportPostRequestBody $body, ?GetUnhealthyDefenderAgentsReportRequestBuilderPostReque_e86a32a7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

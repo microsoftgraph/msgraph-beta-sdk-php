@@ -22,7 +22,7 @@ class ComanagementEligibleDeviceItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/comanagementEligibleDevices/{comanagementEligibleDevice%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/comanagementEligibleDevices/{comanagementEligibleDevice%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class ComanagementEligibleDeviceItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property comanagementEligibleDevices for deviceManagement
-     * @param ComanagementEligibleDeviceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ComanagementEligibleDeviceItemRequestBuilderDeleteReque_c6e183f2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ComanagementEligibleDeviceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ComanagementEligibleDeviceItemRequestBuilderDeleteReque_c6e183f2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class ComanagementEligibleDeviceItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * The list of co-management eligible devices report
-     * @param ComanagementEligibleDeviceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ComanagementEligibleDeviceItemRequestBuilderGetRequestC_26981b79|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ComanagementEligibleDevice|null>
      * @throws Exception
     */
-    public function get(?ComanagementEligibleDeviceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ComanagementEligibleDeviceItemRequestBuilderGetRequestC_26981b79 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class ComanagementEligibleDeviceItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property comanagementEligibleDevices in deviceManagement
      * @param ComanagementEligibleDevice $body The request body
-     * @param ComanagementEligibleDeviceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ComanagementEligibleDeviceItemRequestBuilderPatchReques_de667858|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ComanagementEligibleDevice|null>
      * @throws Exception
     */
-    public function patch(ComanagementEligibleDevice $body, ?ComanagementEligibleDeviceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ComanagementEligibleDevice $body, ?ComanagementEligibleDeviceItemRequestBuilderPatchReques_de667858 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class ComanagementEligibleDeviceItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property comanagementEligibleDevices for deviceManagement
-     * @param ComanagementEligibleDeviceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ComanagementEligibleDeviceItemRequestBuilderDeleteReque_c6e183f2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ComanagementEligibleDeviceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ComanagementEligibleDeviceItemRequestBuilderDeleteReque_c6e183f2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,12 +93,12 @@ class ComanagementEligibleDeviceItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * The list of co-management eligible devices report
-     * @param ComanagementEligibleDeviceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ComanagementEligibleDeviceItemRequestBuilderGetRequestC_26981b79|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ComanagementEligibleDeviceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ComanagementEligibleDeviceItemRequestBuilderGetRequestC_26981b79 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/comanagementEligibleDevices/{comanagementEligibleDevice%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class ComanagementEligibleDeviceItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property comanagementEligibleDevices in deviceManagement
      * @param ComanagementEligibleDevice $body The request body
-     * @param ComanagementEligibleDeviceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ComanagementEligibleDeviceItemRequestBuilderPatchReques_de667858|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ComanagementEligibleDevice $body, ?ComanagementEligibleDeviceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ComanagementEligibleDevice $body, ?ComanagementEligibleDeviceItemRequestBuilderPatchReques_de667858 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

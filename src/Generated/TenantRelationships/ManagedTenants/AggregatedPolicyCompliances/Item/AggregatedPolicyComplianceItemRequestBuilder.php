@@ -22,7 +22,7 @@ class AggregatedPolicyComplianceItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/aggregatedPolicyCompliances/{aggregatedPolicyCompliance%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/aggregatedPolicyCompliances/{aggregatedPolicyCompliance%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class AggregatedPolicyComplianceItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property aggregatedPolicyCompliances for tenantRelationships
-     * @param AggregatedPolicyComplianceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AggregatedPolicyComplianceItemRequestBuilderDeleteReque_6819b1d1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?AggregatedPolicyComplianceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?AggregatedPolicyComplianceItemRequestBuilderDeleteReque_6819b1d1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class AggregatedPolicyComplianceItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Aggregate view of device compliance policies across managed tenants.
-     * @param AggregatedPolicyComplianceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AggregatedPolicyComplianceItemRequestBuilderGetRequestC_cc52c723|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AggregatedPolicyCompliance|null>
      * @throws Exception
     */
-    public function get(?AggregatedPolicyComplianceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AggregatedPolicyComplianceItemRequestBuilderGetRequestC_cc52c723 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class AggregatedPolicyComplianceItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property aggregatedPolicyCompliances in tenantRelationships
      * @param AggregatedPolicyCompliance $body The request body
-     * @param AggregatedPolicyComplianceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AggregatedPolicyComplianceItemRequestBuilderPatchReques_3a759375|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AggregatedPolicyCompliance|null>
      * @throws Exception
     */
-    public function patch(AggregatedPolicyCompliance $body, ?AggregatedPolicyComplianceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(AggregatedPolicyCompliance $body, ?AggregatedPolicyComplianceItemRequestBuilderPatchReques_3a759375 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class AggregatedPolicyComplianceItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property aggregatedPolicyCompliances for tenantRelationships
-     * @param AggregatedPolicyComplianceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AggregatedPolicyComplianceItemRequestBuilderDeleteReque_6819b1d1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?AggregatedPolicyComplianceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?AggregatedPolicyComplianceItemRequestBuilderDeleteReque_6819b1d1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,12 +93,12 @@ class AggregatedPolicyComplianceItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Aggregate view of device compliance policies across managed tenants.
-     * @param AggregatedPolicyComplianceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AggregatedPolicyComplianceItemRequestBuilderGetRequestC_cc52c723|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AggregatedPolicyComplianceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AggregatedPolicyComplianceItemRequestBuilderGetRequestC_cc52c723 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/aggregatedPolicyCompliances/{aggregatedPolicyCompliance%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class AggregatedPolicyComplianceItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property aggregatedPolicyCompliances in tenantRelationships
      * @param AggregatedPolicyCompliance $body The request body
-     * @param AggregatedPolicyComplianceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AggregatedPolicyComplianceItemRequestBuilderPatchReques_3a759375|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(AggregatedPolicyCompliance $body, ?AggregatedPolicyComplianceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(AggregatedPolicyCompliance $body, ?AggregatedPolicyComplianceItemRequestBuilderPatchReques_3a759375 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

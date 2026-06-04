@@ -34,11 +34,11 @@ class GetPlatformSupportedPropertiesWithPlatformRequestBuilder extends BaseReque
 
     /**
      * Invoke function getPlatformSupportedProperties
-     * @param GetPlatformSupportedPropertiesWithPlatformRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetPlatformSupportedPropertiesWithPlatformRequestBuilde_658c6352|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetPlatformSupportedPropertiesWithPlatformGetResponse|null>
      * @throws Exception
     */
-    public function get(?GetPlatformSupportedPropertiesWithPlatformRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetPlatformSupportedPropertiesWithPlatformRequestBuilde_658c6352 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class GetPlatformSupportedPropertiesWithPlatformRequestBuilder extends BaseReque
 
     /**
      * Invoke function getPlatformSupportedProperties
-     * @param GetPlatformSupportedPropertiesWithPlatformRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetPlatformSupportedPropertiesWithPlatformRequestBuilde_658c6352|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetPlatformSupportedPropertiesWithPlatformRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetPlatformSupportedPropertiesWithPlatformRequestBuilde_658c6352 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

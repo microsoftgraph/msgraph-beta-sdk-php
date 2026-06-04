@@ -7,7 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ManagedTenants\Tenant;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Tenants\Item\MicrosoftGraphManagedTenantsOffboardTenant\MicrosoftGraphManagedTenantsOffboardTenantRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Tenants\Item\MicrosoftGraphManagedTenantsResetTenantOnboardingStatus\MicrosoftGraphManagedTenantsResetTenantOnboardingStatusRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Tenants\Item\MicrosoftGraphManagedTenantsResetTenantOnboardingStatus\MicrosoftGraphManagedTenantsResetTenantOnboardingStatus_bec559ea;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -28,8 +28,8 @@ class TenantItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the resetTenantOnboardingStatus method.
     */
-    public function microsoftGraphManagedTenantsResetTenantOnboardingStatus(): MicrosoftGraphManagedTenantsResetTenantOnboardingStatusRequestBuilder {
-        return new MicrosoftGraphManagedTenantsResetTenantOnboardingStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphManagedTenantsResetTenantOnboardingStatus(): MicrosoftGraphManagedTenantsResetTenantOnboardingStatus_bec559ea {
+        return new MicrosoftGraphManagedTenantsResetTenantOnboardingStatus_bec559ea($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -38,7 +38,7 @@ class TenantItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/tenants/{tenant%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/tenants/{tenant%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -115,7 +115,7 @@ class TenantItemRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?TenantItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/tenants/{tenant%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {

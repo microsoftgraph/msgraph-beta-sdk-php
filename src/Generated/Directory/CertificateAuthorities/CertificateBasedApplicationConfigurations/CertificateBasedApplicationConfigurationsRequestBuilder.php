@@ -43,7 +43,7 @@ class CertificateBasedApplicationConfigurationsRequestBuilder extends BaseReques
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/directory/certificateAuthorities/certificateBasedApplicationConfigurations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,12 +53,12 @@ class CertificateBasedApplicationConfigurationsRequestBuilder extends BaseReques
 
     /**
      * Get a list of certificateBasedApplicationConfiguration objects.
-     * @param CertificateBasedApplicationConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CertificateBasedApplicationConfigurationsRequestBuilder_6c0eb339|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CertificateBasedApplicationConfigurationCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/certificateauthoritypath-list-certificatebasedapplicationconfigurations?view=graph-rest-beta Find more info here
     */
-    public function get(?CertificateBasedApplicationConfigurationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CertificateBasedApplicationConfigurationsRequestBuilder_6c0eb339 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,12 +69,12 @@ class CertificateBasedApplicationConfigurationsRequestBuilder extends BaseReques
     /**
      * Create a new certificateBasedApplicationConfiguration  object.
      * @param CertificateBasedApplicationConfiguration $body The request body
-     * @param CertificateBasedApplicationConfigurationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CertificateBasedApplicationConfigurationsRequestBuilder_9fcfd4b9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CertificateBasedApplicationConfiguration|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/certificateauthoritypath-post-certificatebasedapplicationconfigurations?view=graph-rest-beta Find more info here
     */
-    public function post(CertificateBasedApplicationConfiguration $body, ?CertificateBasedApplicationConfigurationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(CertificateBasedApplicationConfiguration $body, ?CertificateBasedApplicationConfigurationsRequestBuilder_9fcfd4b9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -84,12 +84,12 @@ class CertificateBasedApplicationConfigurationsRequestBuilder extends BaseReques
 
     /**
      * Get a list of certificateBasedApplicationConfiguration objects.
-     * @param CertificateBasedApplicationConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CertificateBasedApplicationConfigurationsRequestBuilder_6c0eb339|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CertificateBasedApplicationConfigurationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CertificateBasedApplicationConfigurationsRequestBuilder_6c0eb339 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/directory/certificateAuthorities/certificateBasedApplicationConfigurations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -106,12 +106,12 @@ class CertificateBasedApplicationConfigurationsRequestBuilder extends BaseReques
     /**
      * Create a new certificateBasedApplicationConfiguration  object.
      * @param CertificateBasedApplicationConfiguration $body The request body
-     * @param CertificateBasedApplicationConfigurationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CertificateBasedApplicationConfigurationsRequestBuilder_9fcfd4b9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(CertificateBasedApplicationConfiguration $body, ?CertificateBasedApplicationConfigurationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(CertificateBasedApplicationConfiguration $body, ?CertificateBasedApplicationConfigurationsRequestBuilder_9fcfd4b9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/directory/certificateAuthorities/certificateBasedApplicationConfigurations';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

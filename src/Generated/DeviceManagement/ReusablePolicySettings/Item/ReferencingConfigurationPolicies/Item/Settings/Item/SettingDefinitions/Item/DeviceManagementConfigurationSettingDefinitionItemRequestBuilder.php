@@ -32,11 +32,11 @@ class DeviceManagementConfigurationSettingDefinitionItemRequestBuilder extends B
 
     /**
      * List of related Setting Definitions. This property is read-only.
-     * @param DeviceManagementConfigurationSettingDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementConfigurationSettingDefinitionItemReque_b9e14d9c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementConfigurationSettingDefinition|null>
      * @throws Exception
     */
-    public function get(?DeviceManagementConfigurationSettingDefinitionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DeviceManagementConfigurationSettingDefinitionItemReque_b9e14d9c $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class DeviceManagementConfigurationSettingDefinitionItemRequestBuilder extends B
 
     /**
      * List of related Setting Definitions. This property is read-only.
-     * @param DeviceManagementConfigurationSettingDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementConfigurationSettingDefinitionItemReque_b9e14d9c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DeviceManagementConfigurationSettingDefinitionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DeviceManagementConfigurationSettingDefinitionItemReque_b9e14d9c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

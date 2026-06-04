@@ -30,7 +30,7 @@ class OnPremAuthenticationPolicyItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/policies/onPremAuthenticationPolicies/{onPremAuthenticationPolicy%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/policies/onPremAuthenticationPolicies/{onPremAuthenticationPolicy%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,12 +40,12 @@ class OnPremAuthenticationPolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete an onPremAuthenticationPolicy object.
-     * @param OnPremAuthenticationPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnPremAuthenticationPolicyItemRequestBuilderDeleteReque_d77f300a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/onpremauthenticationpolicy-delete?view=graph-rest-beta Find more info here
     */
-    public function delete(?OnPremAuthenticationPolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?OnPremAuthenticationPolicyItemRequestBuilderDeleteReque_d77f300a $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -55,12 +55,12 @@ class OnPremAuthenticationPolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of onPremAuthenticationPolicy object.
-     * @param OnPremAuthenticationPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnPremAuthenticationPolicyItemRequestBuilderGetRequestC_d226abcf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnPremAuthenticationPolicy|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/onpremauthenticationpolicy-get?view=graph-rest-beta Find more info here
     */
-    public function get(?OnPremAuthenticationPolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?OnPremAuthenticationPolicyItemRequestBuilderGetRequestC_d226abcf $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -71,12 +71,12 @@ class OnPremAuthenticationPolicyItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of an onPremAuthenticationPolicy object.
      * @param OnPremAuthenticationPolicy $body The request body
-     * @param OnPremAuthenticationPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnPremAuthenticationPolicyItemRequestBuilderPatchReques_b25b3cf6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnPremAuthenticationPolicy|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/onpremauthenticationpolicy-update?view=graph-rest-beta Find more info here
     */
-    public function patch(OnPremAuthenticationPolicy $body, ?OnPremAuthenticationPolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(OnPremAuthenticationPolicy $body, ?OnPremAuthenticationPolicyItemRequestBuilderPatchReques_b25b3cf6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -86,10 +86,10 @@ class OnPremAuthenticationPolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete an onPremAuthenticationPolicy object.
-     * @param OnPremAuthenticationPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnPremAuthenticationPolicyItemRequestBuilderDeleteReque_d77f300a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?OnPremAuthenticationPolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?OnPremAuthenticationPolicyItemRequestBuilderDeleteReque_d77f300a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,12 +104,12 @@ class OnPremAuthenticationPolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of onPremAuthenticationPolicy object.
-     * @param OnPremAuthenticationPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnPremAuthenticationPolicyItemRequestBuilderGetRequestC_d226abcf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?OnPremAuthenticationPolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?OnPremAuthenticationPolicyItemRequestBuilderGetRequestC_d226abcf $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/policies/onPremAuthenticationPolicies/{onPremAuthenticationPolicy%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -126,10 +126,10 @@ class OnPremAuthenticationPolicyItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of an onPremAuthenticationPolicy object.
      * @param OnPremAuthenticationPolicy $body The request body
-     * @param OnPremAuthenticationPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnPremAuthenticationPolicyItemRequestBuilderPatchReques_b25b3cf6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(OnPremAuthenticationPolicy $body, ?OnPremAuthenticationPolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(OnPremAuthenticationPolicy $body, ?OnPremAuthenticationPolicyItemRequestBuilderPatchReques_b25b3cf6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

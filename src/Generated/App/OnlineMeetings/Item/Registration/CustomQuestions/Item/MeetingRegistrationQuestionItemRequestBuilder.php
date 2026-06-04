@@ -22,7 +22,7 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/app/onlineMeetings/{onlineMeeting%2Did}/registration/customQuestions/{meetingRegistrationQuestion%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/app/onlineMeetings/{onlineMeeting%2Did}/registration/customQuestions/{meetingRegistrationQuestion%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property customQuestions for app
-     * @param MeetingRegistrationQuestionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MeetingRegistrationQuestionItemRequestBuilderDeleteRequ_9f341082|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?MeetingRegistrationQuestionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?MeetingRegistrationQuestionItemRequestBuilderDeleteRequ_9f341082 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Custom registration questions.
-     * @param MeetingRegistrationQuestionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MeetingRegistrationQuestionItemRequestBuilderGetRequest_3c39bc74|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MeetingRegistrationQuestion|null>
      * @throws Exception
     */
-    public function get(?MeetingRegistrationQuestionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MeetingRegistrationQuestionItemRequestBuilderGetRequest_3c39bc74 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property customQuestions in app
      * @param MeetingRegistrationQuestion $body The request body
-     * @param MeetingRegistrationQuestionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MeetingRegistrationQuestionItemRequestBuilderPatchReque_965d867c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MeetingRegistrationQuestion|null>
      * @throws Exception
     */
-    public function patch(MeetingRegistrationQuestion $body, ?MeetingRegistrationQuestionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(MeetingRegistrationQuestion $body, ?MeetingRegistrationQuestionItemRequestBuilderPatchReque_965d867c $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property customQuestions for app
-     * @param MeetingRegistrationQuestionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MeetingRegistrationQuestionItemRequestBuilderDeleteRequ_9f341082|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?MeetingRegistrationQuestionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?MeetingRegistrationQuestionItemRequestBuilderDeleteRequ_9f341082 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,12 +93,12 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Custom registration questions.
-     * @param MeetingRegistrationQuestionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MeetingRegistrationQuestionItemRequestBuilderGetRequest_3c39bc74|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MeetingRegistrationQuestionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MeetingRegistrationQuestionItemRequestBuilderGetRequest_3c39bc74 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/app/onlineMeetings/{onlineMeeting%2Did}/registration/customQuestions/{meetingRegistrationQuestion%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class MeetingRegistrationQuestionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property customQuestions in app
      * @param MeetingRegistrationQuestion $body The request body
-     * @param MeetingRegistrationQuestionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MeetingRegistrationQuestionItemRequestBuilderPatchReque_965d867c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(MeetingRegistrationQuestion $body, ?MeetingRegistrationQuestionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(MeetingRegistrationQuestion $body, ?MeetingRegistrationQuestionItemRequestBuilderPatchReque_965d867c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

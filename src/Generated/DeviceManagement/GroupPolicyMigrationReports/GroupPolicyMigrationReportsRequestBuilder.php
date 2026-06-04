@@ -51,7 +51,7 @@ class GroupPolicyMigrationReportsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/groupPolicyMigrationReports{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -76,11 +76,11 @@ class GroupPolicyMigrationReportsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to groupPolicyMigrationReports for deviceManagement
      * @param GroupPolicyMigrationReport $body The request body
-     * @param GroupPolicyMigrationReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyMigrationReportsRequestBuilderPostRequestCon_c39dd0e9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GroupPolicyMigrationReport|null>
      * @throws Exception
     */
-    public function post(GroupPolicyMigrationReport $body, ?GroupPolicyMigrationReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GroupPolicyMigrationReport $body, ?GroupPolicyMigrationReportsRequestBuilderPostRequestCon_c39dd0e9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -95,7 +95,7 @@ class GroupPolicyMigrationReportsRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?GroupPolicyMigrationReportsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/groupPolicyMigrationReports{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -112,12 +112,12 @@ class GroupPolicyMigrationReportsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to groupPolicyMigrationReports for deviceManagement
      * @param GroupPolicyMigrationReport $body The request body
-     * @param GroupPolicyMigrationReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyMigrationReportsRequestBuilderPostRequestCon_c39dd0e9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GroupPolicyMigrationReport $body, ?GroupPolicyMigrationReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GroupPolicyMigrationReport $body, ?GroupPolicyMigrationReportsRequestBuilderPostRequestCon_c39dd0e9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/groupPolicyMigrationReports';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

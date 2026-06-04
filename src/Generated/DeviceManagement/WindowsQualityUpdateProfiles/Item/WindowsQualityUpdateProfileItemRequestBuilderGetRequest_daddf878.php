@@ -1,0 +1,39 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdateProfiles\Item;
+
+use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
+use Microsoft\Kiota\Abstractions\RequestOption;
+
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options. Original name: WindowsQualityUpdateProfileItemRequestBuilderGetRequestConfiguration
+*/
+class WindowsQualityUpdateProfileItemRequestBuilderGetRequest_daddf878 extends BaseRequestConfiguration 
+{
+    /**
+     * @var WindowsQualityUpdateProfileItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?WindowsQualityUpdateProfileItemRequestBuilderGetQueryParameters $queryParameters = null;
+    
+    /**
+     * Instantiates a new WindowsQualityUpdateProfileItemRequestBuilderGetRequest_daddf878 and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
+     * @param WindowsQualityUpdateProfileItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?WindowsQualityUpdateProfileItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        parent::__construct($headers ?? [], $options ?? []);
+        $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new WindowsQualityUpdateProfileItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return WindowsQualityUpdateProfileItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): WindowsQualityUpdateProfileItemRequestBuilderGetQueryParameters {
+        return new WindowsQualityUpdateProfileItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+}

@@ -35,11 +35,11 @@ class GetMailboxUsageMailboxCountsWithPeriodRequestBuilder extends BaseRequestBu
 
     /**
      * Invoke function getMailboxUsageMailboxCounts
-     * @param GetMailboxUsageMailboxCountsWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetMailboxUsageMailboxCountsWithPeriodRequestBuilderGet_2d09a054|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function get(?GetMailboxUsageMailboxCountsWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetMailboxUsageMailboxCountsWithPeriodRequestBuilderGet_2d09a054 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -51,10 +51,10 @@ class GetMailboxUsageMailboxCountsWithPeriodRequestBuilder extends BaseRequestBu
 
     /**
      * Invoke function getMailboxUsageMailboxCounts
-     * @param GetMailboxUsageMailboxCountsWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetMailboxUsageMailboxCountsWithPeriodRequestBuilderGet_2d09a054|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetMailboxUsageMailboxCountsWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetMailboxUsageMailboxCountsWithPeriodRequestBuilderGet_2d09a054 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

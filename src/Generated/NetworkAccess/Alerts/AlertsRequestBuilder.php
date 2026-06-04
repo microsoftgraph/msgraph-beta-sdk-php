@@ -10,9 +10,9 @@ use Microsoft\Graph\Beta\Generated\Models\Networkaccess\AlertCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Alerts\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Alerts\Item\AlertItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Alerts\MicrosoftGraphNetworkaccessGetAlertFrequenciesWithStartDateTimeWithEndDateTime\MicrosoftGraphNetworkaccessGetAlertFrequenciesWithStartDateTimeWithEndDateTimeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Alerts\MicrosoftGraphNetworkaccessGetAlertSeveritySummariesWithStartDateTimeWithEndDateTime\MicrosoftGraphNetworkaccessGetAlertSeveritySummariesWithStartDateTimeWithEndDateTimeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Alerts\MicrosoftGraphNetworkaccessGetAlertSummariesWithStartDateTimeWithEndDateTime\MicrosoftGraphNetworkaccessGetAlertSummariesWithStartDateTimeWithEndDateTimeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Alerts\MicrosoftGraphNetworkaccessGetAlertFrequenciesWithStart_00987de1\MicrosoftGraphNetworkaccessGetAlertFrequenciesWithStart_a799d8f5;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Alerts\MicrosoftGraphNetworkaccessGetAlertSeveritySummariesWit_472bb6fa\MicrosoftGraphNetworkaccessGetAlertSeveritySummariesWit_16a02312;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Alerts\MicrosoftGraphNetworkaccessGetAlertSummariesWithStartDa_04a144d9\MicrosoftGraphNetworkaccessGetAlertSummariesWithStartDa_e610bebf;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -47,7 +47,7 @@ class AlertsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/networkAccess/alerts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -74,30 +74,30 @@ class AlertsRequestBuilder extends BaseRequestBuilder
      * Provides operations to call the getAlertFrequencies method.
      * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
      * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
-     * @return MicrosoftGraphNetworkaccessGetAlertFrequenciesWithStartDateTimeWithEndDateTimeRequestBuilder
+     * @return MicrosoftGraphNetworkaccessGetAlertFrequenciesWithStart_a799d8f5
     */
-    public function microsoftGraphNetworkaccessGetAlertFrequenciesWithStartDateTimeWithEndDateTime(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessGetAlertFrequenciesWithStartDateTimeWithEndDateTimeRequestBuilder {
-        return new MicrosoftGraphNetworkaccessGetAlertFrequenciesWithStartDateTimeWithEndDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
+    public function microsoftGraphNetworkaccessGetAlertFrequenciesWithStartDateTimeWithEndDateTime(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessGetAlertFrequenciesWithStart_a799d8f5 {
+        return new MicrosoftGraphNetworkaccessGetAlertFrequenciesWithStart_a799d8f5($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
     }
 
     /**
      * Provides operations to call the getAlertSeveritySummaries method.
      * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
      * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
-     * @return MicrosoftGraphNetworkaccessGetAlertSeveritySummariesWithStartDateTimeWithEndDateTimeRequestBuilder
+     * @return MicrosoftGraphNetworkaccessGetAlertSeveritySummariesWit_16a02312
     */
-    public function microsoftGraphNetworkaccessGetAlertSeveritySummariesWithStartDateTimeWithEndDateTime(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessGetAlertSeveritySummariesWithStartDateTimeWithEndDateTimeRequestBuilder {
-        return new MicrosoftGraphNetworkaccessGetAlertSeveritySummariesWithStartDateTimeWithEndDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
+    public function microsoftGraphNetworkaccessGetAlertSeveritySummariesWithStartDateTimeWithEndDateTime(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessGetAlertSeveritySummariesWit_16a02312 {
+        return new MicrosoftGraphNetworkaccessGetAlertSeveritySummariesWit_16a02312($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
     }
 
     /**
      * Provides operations to call the getAlertSummaries method.
      * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
      * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
-     * @return MicrosoftGraphNetworkaccessGetAlertSummariesWithStartDateTimeWithEndDateTimeRequestBuilder
+     * @return MicrosoftGraphNetworkaccessGetAlertSummariesWithStartDa_e610bebf
     */
-    public function microsoftGraphNetworkaccessGetAlertSummariesWithStartDateTimeWithEndDateTime(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessGetAlertSummariesWithStartDateTimeWithEndDateTimeRequestBuilder {
-        return new MicrosoftGraphNetworkaccessGetAlertSummariesWithStartDateTimeWithEndDateTimeRequestBuilder($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
+    public function microsoftGraphNetworkaccessGetAlertSummariesWithStartDateTimeWithEndDateTime(DateTime $endDateTime, DateTime $startDateTime): MicrosoftGraphNetworkaccessGetAlertSummariesWithStartDa_e610bebf {
+        return new MicrosoftGraphNetworkaccessGetAlertSummariesWithStartDa_e610bebf($this->pathParameters, $this->requestAdapter, $endDateTime, $startDateTime);
     }
 
     /**
@@ -122,7 +122,7 @@ class AlertsRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?AlertsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/alerts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -144,7 +144,7 @@ class AlertsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(Alert $body, ?AlertsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/alerts';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

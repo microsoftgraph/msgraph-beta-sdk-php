@@ -33,11 +33,11 @@ class GetComplianceSettingsReportRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action getComplianceSettingsReport
      * @param GetComplianceSettingsReportPostRequestBody $body The request body
-     * @param GetComplianceSettingsReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetComplianceSettingsReportRequestBuilderPostRequestCon_c030ef63|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(GetComplianceSettingsReportPostRequestBody $body, ?GetComplianceSettingsReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetComplianceSettingsReportPostRequestBody $body, ?GetComplianceSettingsReportRequestBuilderPostRequestCon_c030ef63 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class GetComplianceSettingsReportRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action getComplianceSettingsReport
      * @param GetComplianceSettingsReportPostRequestBody $body The request body
-     * @param GetComplianceSettingsReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetComplianceSettingsReportRequestBuilderPostRequestCon_c030ef63|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetComplianceSettingsReportPostRequestBody $body, ?GetComplianceSettingsReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetComplianceSettingsReportPostRequestBody $body, ?GetComplianceSettingsReportRequestBuilderPostRequestCon_c030ef63 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -32,12 +32,12 @@ class MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilder extends BaseReque
     /**
      * Add members of the same type to an updatableAssetGroup. You can also use the method addMembers to add members.
      * @param AddMembersByIdPostRequestBody $body The request body
-     * @param MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilde_4b167650|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/windowsupdates-updatableassetgroup-addmembersbyid?view=graph-rest-beta Find more info here
     */
-    public function post(AddMembersByIdPostRequestBody $body, ?MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AddMembersByIdPostRequestBody $body, ?MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilde_4b167650 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilder extends BaseReque
     /**
      * Add members of the same type to an updatableAssetGroup. You can also use the method addMembers to add members.
      * @param AddMembersByIdPostRequestBody $body The request body
-     * @param MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilde_4b167650|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AddMembersByIdPostRequestBody $body, ?MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AddMembersByIdPostRequestBody $body, ?MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilde_4b167650 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -33,11 +33,11 @@ class GetDevicesStatusBySettingReportRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action getDevicesStatusBySettingReport
      * @param GetDevicesStatusBySettingReportPostRequestBody $body The request body
-     * @param GetDevicesStatusBySettingReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetDevicesStatusBySettingReportRequestBuilderPostReques_893033a8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(GetDevicesStatusBySettingReportPostRequestBody $body, ?GetDevicesStatusBySettingReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetDevicesStatusBySettingReportPostRequestBody $body, ?GetDevicesStatusBySettingReportRequestBuilderPostReques_893033a8 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class GetDevicesStatusBySettingReportRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action getDevicesStatusBySettingReport
      * @param GetDevicesStatusBySettingReportPostRequestBody $body The request body
-     * @param GetDevicesStatusBySettingReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetDevicesStatusBySettingReportRequestBuilderPostReques_893033a8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetDevicesStatusBySettingReportPostRequestBody $body, ?GetDevicesStatusBySettingReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetDevicesStatusBySettingReportPostRequestBody $body, ?GetDevicesStatusBySettingReportRequestBuilderPostReques_893033a8 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

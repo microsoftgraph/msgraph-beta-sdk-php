@@ -70,7 +70,7 @@ class DeviceCustomAttributeShellScriptItemRequestBuilder extends BaseRequestBuil
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/deviceCustomAttributeShellScripts/{deviceCustomAttributeShellScript%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/deviceCustomAttributeShellScripts/{deviceCustomAttributeShellScript%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -80,11 +80,11 @@ class DeviceCustomAttributeShellScriptItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Delete navigation property deviceCustomAttributeShellScripts for deviceManagement
-     * @param DeviceCustomAttributeShellScriptItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceCustomAttributeShellScriptItemRequestBuilderDelet_117199b2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DeviceCustomAttributeShellScriptItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DeviceCustomAttributeShellScriptItemRequestBuilderDelet_117199b2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -94,11 +94,11 @@ class DeviceCustomAttributeShellScriptItemRequestBuilder extends BaseRequestBuil
 
     /**
      * The list of device custom attribute shell scripts associated with the tenant.
-     * @param DeviceCustomAttributeShellScriptItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceCustomAttributeShellScriptItemRequestBuilderGetRe_76f1b003|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceCustomAttributeShellScript|null>
      * @throws Exception
     */
-    public function get(?DeviceCustomAttributeShellScriptItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DeviceCustomAttributeShellScriptItemRequestBuilderGetRe_76f1b003 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -109,11 +109,11 @@ class DeviceCustomAttributeShellScriptItemRequestBuilder extends BaseRequestBuil
     /**
      * Update the navigation property deviceCustomAttributeShellScripts in deviceManagement
      * @param DeviceCustomAttributeShellScript $body The request body
-     * @param DeviceCustomAttributeShellScriptItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceCustomAttributeShellScriptItemRequestBuilderPatch_539b2ca9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceCustomAttributeShellScript|null>
      * @throws Exception
     */
-    public function patch(DeviceCustomAttributeShellScript $body, ?DeviceCustomAttributeShellScriptItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DeviceCustomAttributeShellScript $body, ?DeviceCustomAttributeShellScriptItemRequestBuilderPatch_539b2ca9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -123,10 +123,10 @@ class DeviceCustomAttributeShellScriptItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Delete navigation property deviceCustomAttributeShellScripts for deviceManagement
-     * @param DeviceCustomAttributeShellScriptItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceCustomAttributeShellScriptItemRequestBuilderDelet_117199b2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DeviceCustomAttributeShellScriptItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DeviceCustomAttributeShellScriptItemRequestBuilderDelet_117199b2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -141,12 +141,12 @@ class DeviceCustomAttributeShellScriptItemRequestBuilder extends BaseRequestBuil
 
     /**
      * The list of device custom attribute shell scripts associated with the tenant.
-     * @param DeviceCustomAttributeShellScriptItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceCustomAttributeShellScriptItemRequestBuilderGetRe_76f1b003|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DeviceCustomAttributeShellScriptItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DeviceCustomAttributeShellScriptItemRequestBuilderGetRe_76f1b003 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/deviceCustomAttributeShellScripts/{deviceCustomAttributeShellScript%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -163,10 +163,10 @@ class DeviceCustomAttributeShellScriptItemRequestBuilder extends BaseRequestBuil
     /**
      * Update the navigation property deviceCustomAttributeShellScripts in deviceManagement
      * @param DeviceCustomAttributeShellScript $body The request body
-     * @param DeviceCustomAttributeShellScriptItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceCustomAttributeShellScriptItemRequestBuilderPatch_539b2ca9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DeviceCustomAttributeShellScript $body, ?DeviceCustomAttributeShellScriptItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DeviceCustomAttributeShellScript $body, ?DeviceCustomAttributeShellScriptItemRequestBuilderPatch_539b2ca9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

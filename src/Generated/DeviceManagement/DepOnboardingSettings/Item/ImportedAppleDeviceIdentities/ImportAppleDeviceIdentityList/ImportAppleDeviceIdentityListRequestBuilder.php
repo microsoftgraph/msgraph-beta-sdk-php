@@ -32,11 +32,11 @@ class ImportAppleDeviceIdentityListRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action importAppleDeviceIdentityList
      * @param ImportAppleDeviceIdentityListPostRequestBody $body The request body
-     * @param ImportAppleDeviceIdentityListRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ImportAppleDeviceIdentityListRequestBuilderPostRequestC_43830829|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ImportAppleDeviceIdentityListPostResponse|null>
      * @throws Exception
     */
-    public function post(ImportAppleDeviceIdentityListPostRequestBody $body, ?ImportAppleDeviceIdentityListRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ImportAppleDeviceIdentityListPostRequestBody $body, ?ImportAppleDeviceIdentityListRequestBuilderPostRequestC_43830829 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,10 +47,10 @@ class ImportAppleDeviceIdentityListRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action importAppleDeviceIdentityList
      * @param ImportAppleDeviceIdentityListPostRequestBody $body The request body
-     * @param ImportAppleDeviceIdentityListRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ImportAppleDeviceIdentityListRequestBuilderPostRequestC_43830829|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ImportAppleDeviceIdentityListPostRequestBody $body, ?ImportAppleDeviceIdentityListRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ImportAppleDeviceIdentityListPostRequestBody $body, ?ImportAppleDeviceIdentityListRequestBuilderPostRequestC_43830829 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

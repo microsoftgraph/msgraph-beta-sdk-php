@@ -22,7 +22,7 @@ class WindowsQualityUpdatePolicyAssignmentItemRequestBuilder extends BaseRequest
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/windowsQualityUpdatePolicies/{windowsQualityUpdatePolicy%2Did}/assignments/{windowsQualityUpdatePolicyAssignment%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/windowsQualityUpdatePolicies/{windowsQualityUpdatePolicy%2Did}/assignments/{windowsQualityUpdatePolicyAssignment%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class WindowsQualityUpdatePolicyAssignmentItemRequestBuilder extends BaseRequest
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param WindowsQualityUpdatePolicyAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsQualityUpdatePolicyAssignmentItemRequestBuilderD_b8695eb7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?WindowsQualityUpdatePolicyAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?WindowsQualityUpdatePolicyAssignmentItemRequestBuilderD_b8695eb7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class WindowsQualityUpdatePolicyAssignmentItemRequestBuilder extends BaseRequest
 
     /**
      * List of the groups this profile is assgined to.
-     * @param WindowsQualityUpdatePolicyAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsQualityUpdatePolicyAssignmentItemRequestBuilderG_20a4f915|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsQualityUpdatePolicyAssignment|null>
      * @throws Exception
     */
-    public function get(?WindowsQualityUpdatePolicyAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?WindowsQualityUpdatePolicyAssignmentItemRequestBuilderG_20a4f915 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class WindowsQualityUpdatePolicyAssignmentItemRequestBuilder extends BaseRequest
     /**
      * Update the navigation property assignments in deviceManagement
      * @param WindowsQualityUpdatePolicyAssignment $body The request body
-     * @param WindowsQualityUpdatePolicyAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsQualityUpdatePolicyAssignmentItemRequestBuilderP_49a723b7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsQualityUpdatePolicyAssignment|null>
      * @throws Exception
     */
-    public function patch(WindowsQualityUpdatePolicyAssignment $body, ?WindowsQualityUpdatePolicyAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(WindowsQualityUpdatePolicyAssignment $body, ?WindowsQualityUpdatePolicyAssignmentItemRequestBuilderP_49a723b7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class WindowsQualityUpdatePolicyAssignmentItemRequestBuilder extends BaseRequest
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param WindowsQualityUpdatePolicyAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsQualityUpdatePolicyAssignmentItemRequestBuilderD_b8695eb7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?WindowsQualityUpdatePolicyAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?WindowsQualityUpdatePolicyAssignmentItemRequestBuilderD_b8695eb7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,12 +93,12 @@ class WindowsQualityUpdatePolicyAssignmentItemRequestBuilder extends BaseRequest
 
     /**
      * List of the groups this profile is assgined to.
-     * @param WindowsQualityUpdatePolicyAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsQualityUpdatePolicyAssignmentItemRequestBuilderG_20a4f915|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?WindowsQualityUpdatePolicyAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?WindowsQualityUpdatePolicyAssignmentItemRequestBuilderG_20a4f915 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/windowsQualityUpdatePolicies/{windowsQualityUpdatePolicy%2Did}/assignments/{windowsQualityUpdatePolicyAssignment%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class WindowsQualityUpdatePolicyAssignmentItemRequestBuilder extends BaseRequest
     /**
      * Update the navigation property assignments in deviceManagement
      * @param WindowsQualityUpdatePolicyAssignment $body The request body
-     * @param WindowsQualityUpdatePolicyAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsQualityUpdatePolicyAssignmentItemRequestBuilderP_49a723b7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(WindowsQualityUpdatePolicyAssignment $body, ?WindowsQualityUpdatePolicyAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(WindowsQualityUpdatePolicyAssignment $body, ?WindowsQualityUpdatePolicyAssignmentItemRequestBuilderP_49a723b7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

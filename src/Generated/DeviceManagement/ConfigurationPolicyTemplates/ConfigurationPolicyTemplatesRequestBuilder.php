@@ -43,7 +43,7 @@ class ConfigurationPolicyTemplatesRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/configurationPolicyTemplates{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class ConfigurationPolicyTemplatesRequestBuilder extends BaseRequestBuilder
 
     /**
      * List of all templates
-     * @param ConfigurationPolicyTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConfigurationPolicyTemplatesRequestBuilderGetRequestCon_293f56fa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementConfigurationPolicyTemplateCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?ConfigurationPolicyTemplatesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ConfigurationPolicyTemplatesRequestBuilderGetRequestCon_293f56fa $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class ConfigurationPolicyTemplatesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to configurationPolicyTemplates for deviceManagement
      * @param DeviceManagementConfigurationPolicyTemplate $body The request body
-     * @param ConfigurationPolicyTemplatesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConfigurationPolicyTemplatesRequestBuilderPostRequestCo_f62b0884|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementConfigurationPolicyTemplate|null>
      * @throws Exception
     */
-    public function post(DeviceManagementConfigurationPolicyTemplate $body, ?ConfigurationPolicyTemplatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(DeviceManagementConfigurationPolicyTemplate $body, ?ConfigurationPolicyTemplatesRequestBuilderPostRequestCo_f62b0884 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,12 +82,12 @@ class ConfigurationPolicyTemplatesRequestBuilder extends BaseRequestBuilder
 
     /**
      * List of all templates
-     * @param ConfigurationPolicyTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConfigurationPolicyTemplatesRequestBuilderGetRequestCon_293f56fa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ConfigurationPolicyTemplatesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ConfigurationPolicyTemplatesRequestBuilderGetRequestCon_293f56fa $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/configurationPolicyTemplates{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,12 +104,12 @@ class ConfigurationPolicyTemplatesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to configurationPolicyTemplates for deviceManagement
      * @param DeviceManagementConfigurationPolicyTemplate $body The request body
-     * @param ConfigurationPolicyTemplatesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConfigurationPolicyTemplatesRequestBuilderPostRequestCo_f62b0884|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(DeviceManagementConfigurationPolicyTemplate $body, ?ConfigurationPolicyTemplatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(DeviceManagementConfigurationPolicyTemplate $body, ?ConfigurationPolicyTemplatesRequestBuilderPostRequestCo_f62b0884 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/configurationPolicyTemplates';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

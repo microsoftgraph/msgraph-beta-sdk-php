@@ -22,7 +22,7 @@ class CloudPcManagedLicenseItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/virtualEndpoint/managedLicenses/{cloudPcManagedLicense%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/virtualEndpoint/managedLicenses/{cloudPcManagedLicense%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class CloudPcManagedLicenseItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property managedLicenses for deviceManagement
-     * @param CloudPcManagedLicenseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcManagedLicenseItemRequestBuilderDeleteRequestCon_8351115f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CloudPcManagedLicenseItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CloudPcManagedLicenseItemRequestBuilderDeleteRequestCon_8351115f $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class CloudPcManagedLicenseItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property managedLicenses for deviceManagement
-     * @param CloudPcManagedLicenseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcManagedLicenseItemRequestBuilderDeleteRequestCon_8351115f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CloudPcManagedLicenseItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CloudPcManagedLicenseItemRequestBuilderDeleteRequestCon_8351115f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -98,7 +98,7 @@ class CloudPcManagedLicenseItemRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?CloudPcManagedLicenseItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/virtualEndpoint/managedLicenses/{cloudPcManagedLicense%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {

@@ -43,7 +43,7 @@ class MobileAppManagementPoliciesRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/policies/mobileAppManagementPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -69,11 +69,11 @@ class MobileAppManagementPoliciesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to mobileAppManagementPolicies for policies
      * @param MobileAppManagementPolicy $body The request body
-     * @param MobileAppManagementPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppManagementPoliciesRequestBuilderPostRequestCon_654c1288|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MobileAppManagementPolicy|null>
      * @throws Exception
     */
-    public function post(MobileAppManagementPolicy $body, ?MobileAppManagementPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(MobileAppManagementPolicy $body, ?MobileAppManagementPoliciesRequestBuilderPostRequestCon_654c1288 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -88,7 +88,7 @@ class MobileAppManagementPoliciesRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?MobileAppManagementPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/policies/mobileAppManagementPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -105,12 +105,12 @@ class MobileAppManagementPoliciesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to mobileAppManagementPolicies for policies
      * @param MobileAppManagementPolicy $body The request body
-     * @param MobileAppManagementPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppManagementPoliciesRequestBuilderPostRequestCon_654c1288|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(MobileAppManagementPolicy $body, ?MobileAppManagementPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(MobileAppManagementPolicy $body, ?MobileAppManagementPoliciesRequestBuilderPostRequestCon_654c1288 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/policies/mobileAppManagementPolicies';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

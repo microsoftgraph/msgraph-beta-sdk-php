@@ -46,7 +46,7 @@ class SecurityScoreRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/security/partner/securityScore{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/security/partner/securityScore');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -123,7 +123,7 @@ class SecurityScoreRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?SecurityScoreRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/security/partner/securityScore{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {

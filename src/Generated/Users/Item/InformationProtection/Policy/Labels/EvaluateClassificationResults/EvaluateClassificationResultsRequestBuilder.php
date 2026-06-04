@@ -32,12 +32,12 @@ class EvaluateClassificationResultsRequestBuilder extends BaseRequestBuilder
     /**
      * Using classification results, compute the information protection label that should be applied and return the set of actions that must be taken to correctly label the information. This API is useful when a label should be set automatically based on classification of the file contents, rather than labeled directly by a user or service. To evaluate based on classification results, provide contentInfo, which includes existing content metadata key/value pairs, and classification results. The API returns an informationProtectionAction that contains one of more of the following:
      * @param EvaluateClassificationResultsPostRequestBody $body The request body
-     * @param EvaluateClassificationResultsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EvaluateClassificationResultsRequestBuilderPostRequestC_cfe1c162|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EvaluateClassificationResultsPostResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/informationprotectionlabel-evaluateclassificationresults?view=graph-rest-beta Find more info here
     */
-    public function post(EvaluateClassificationResultsPostRequestBody $body, ?EvaluateClassificationResultsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(EvaluateClassificationResultsPostRequestBody $body, ?EvaluateClassificationResultsRequestBuilderPostRequestC_cfe1c162 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class EvaluateClassificationResultsRequestBuilder extends BaseRequestBuilder
     /**
      * Using classification results, compute the information protection label that should be applied and return the set of actions that must be taken to correctly label the information. This API is useful when a label should be set automatically based on classification of the file contents, rather than labeled directly by a user or service. To evaluate based on classification results, provide contentInfo, which includes existing content metadata key/value pairs, and classification results. The API returns an informationProtectionAction that contains one of more of the following:
      * @param EvaluateClassificationResultsPostRequestBody $body The request body
-     * @param EvaluateClassificationResultsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EvaluateClassificationResultsRequestBuilderPostRequestC_cfe1c162|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(EvaluateClassificationResultsPostRequestBody $body, ?EvaluateClassificationResultsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(EvaluateClassificationResultsPostRequestBody $body, ?EvaluateClassificationResultsRequestBuilderPostRequestC_cfe1c162 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -22,7 +22,7 @@ class CrossCloudGovernmentOrganizationMappingRequestBuilder extends BaseRequestB
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/virtualEndpoint/crossCloudGovernmentOrganizationMapping{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/virtualEndpoint/crossCloudGovernmentOrganizationMapping');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class CrossCloudGovernmentOrganizationMappingRequestBuilder extends BaseRequestB
 
     /**
      * Delete navigation property crossCloudGovernmentOrganizationMapping for deviceManagement
-     * @param CrossCloudGovernmentOrganizationMappingRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossCloudGovernmentOrganizationMappingRequestBuilderDe_d8872a86|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CrossCloudGovernmentOrganizationMappingRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CrossCloudGovernmentOrganizationMappingRequestBuilderDe_d8872a86 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,12 +46,12 @@ class CrossCloudGovernmentOrganizationMappingRequestBuilder extends BaseRequestB
 
     /**
      * Read the properties and relationships of a cloudPcCrossCloudGovernmentOrganizationMapping object.
-     * @param CrossCloudGovernmentOrganizationMappingRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossCloudGovernmentOrganizationMappingRequestBuilderGe_cf000413|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcCrossCloudGovernmentOrganizationMapping|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpccrosscloudgovernmentorganizationmapping-get?view=graph-rest-beta Find more info here
     */
-    public function get(?CrossCloudGovernmentOrganizationMappingRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CrossCloudGovernmentOrganizationMappingRequestBuilderGe_cf000413 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class CrossCloudGovernmentOrganizationMappingRequestBuilder extends BaseRequestB
     /**
      * Update the navigation property crossCloudGovernmentOrganizationMapping in deviceManagement
      * @param CloudPcCrossCloudGovernmentOrganizationMapping $body The request body
-     * @param CrossCloudGovernmentOrganizationMappingRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossCloudGovernmentOrganizationMappingRequestBuilderPa_26c91a27|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcCrossCloudGovernmentOrganizationMapping|null>
      * @throws Exception
     */
-    public function patch(CloudPcCrossCloudGovernmentOrganizationMapping $body, ?CrossCloudGovernmentOrganizationMappingRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(CloudPcCrossCloudGovernmentOrganizationMapping $body, ?CrossCloudGovernmentOrganizationMappingRequestBuilderPa_26c91a27 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -76,10 +76,10 @@ class CrossCloudGovernmentOrganizationMappingRequestBuilder extends BaseRequestB
 
     /**
      * Delete navigation property crossCloudGovernmentOrganizationMapping for deviceManagement
-     * @param CrossCloudGovernmentOrganizationMappingRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossCloudGovernmentOrganizationMappingRequestBuilderDe_d8872a86|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CrossCloudGovernmentOrganizationMappingRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CrossCloudGovernmentOrganizationMappingRequestBuilderDe_d8872a86 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -94,12 +94,12 @@ class CrossCloudGovernmentOrganizationMappingRequestBuilder extends BaseRequestB
 
     /**
      * Read the properties and relationships of a cloudPcCrossCloudGovernmentOrganizationMapping object.
-     * @param CrossCloudGovernmentOrganizationMappingRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossCloudGovernmentOrganizationMappingRequestBuilderGe_cf000413|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CrossCloudGovernmentOrganizationMappingRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CrossCloudGovernmentOrganizationMappingRequestBuilderGe_cf000413 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/virtualEndpoint/crossCloudGovernmentOrganizationMapping{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -116,10 +116,10 @@ class CrossCloudGovernmentOrganizationMappingRequestBuilder extends BaseRequestB
     /**
      * Update the navigation property crossCloudGovernmentOrganizationMapping in deviceManagement
      * @param CloudPcCrossCloudGovernmentOrganizationMapping $body The request body
-     * @param CrossCloudGovernmentOrganizationMappingRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossCloudGovernmentOrganizationMappingRequestBuilderPa_26c91a27|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CloudPcCrossCloudGovernmentOrganizationMapping $body, ?CrossCloudGovernmentOrganizationMappingRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(CloudPcCrossCloudGovernmentOrganizationMapping $body, ?CrossCloudGovernmentOrganizationMappingRequestBuilderPa_26c91a27 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

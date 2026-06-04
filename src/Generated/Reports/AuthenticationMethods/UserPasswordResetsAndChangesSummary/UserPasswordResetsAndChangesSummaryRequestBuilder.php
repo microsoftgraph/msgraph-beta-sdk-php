@@ -43,7 +43,7 @@ class UserPasswordResetsAndChangesSummaryRequestBuilder extends BaseRequestBuild
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/reports/authenticationMethods/userPasswordResetsAndChangesSummary{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,12 +53,12 @@ class UserPasswordResetsAndChangesSummaryRequestBuilder extends BaseRequestBuild
 
     /**
      * Gets a list of password resets and changes that occurred in a given aggregation window as defined in the userPasswordResetsAndChangesSummary object.
-     * @param UserPasswordResetsAndChangesSummaryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserPasswordResetsAndChangesSummaryRequestBuilderGetReq_2a478603|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserPasswordResetsAndChangesSummaryCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/authenticationmethodsroot-list-userpasswordresetsandchangessummary?view=graph-rest-beta Find more info here
     */
-    public function get(?UserPasswordResetsAndChangesSummaryRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserPasswordResetsAndChangesSummaryRequestBuilderGetReq_2a478603 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class UserPasswordResetsAndChangesSummaryRequestBuilder extends BaseRequestBuild
     /**
      * Create new navigation property to userPasswordResetsAndChangesSummary for reports
      * @param UserPasswordResetsAndChangesSummary $body The request body
-     * @param UserPasswordResetsAndChangesSummaryRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserPasswordResetsAndChangesSummaryRequestBuilderPostRe_f9b01c4c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserPasswordResetsAndChangesSummary|null>
      * @throws Exception
     */
-    public function post(UserPasswordResetsAndChangesSummary $body, ?UserPasswordResetsAndChangesSummaryRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(UserPasswordResetsAndChangesSummary $body, ?UserPasswordResetsAndChangesSummaryRequestBuilderPostRe_f9b01c4c $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,12 +83,12 @@ class UserPasswordResetsAndChangesSummaryRequestBuilder extends BaseRequestBuild
 
     /**
      * Gets a list of password resets and changes that occurred in a given aggregation window as defined in the userPasswordResetsAndChangesSummary object.
-     * @param UserPasswordResetsAndChangesSummaryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserPasswordResetsAndChangesSummaryRequestBuilderGetReq_2a478603|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UserPasswordResetsAndChangesSummaryRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UserPasswordResetsAndChangesSummaryRequestBuilderGetReq_2a478603 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/reports/authenticationMethods/userPasswordResetsAndChangesSummary{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -105,12 +105,12 @@ class UserPasswordResetsAndChangesSummaryRequestBuilder extends BaseRequestBuild
     /**
      * Create new navigation property to userPasswordResetsAndChangesSummary for reports
      * @param UserPasswordResetsAndChangesSummary $body The request body
-     * @param UserPasswordResetsAndChangesSummaryRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserPasswordResetsAndChangesSummaryRequestBuilderPostRe_f9b01c4c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(UserPasswordResetsAndChangesSummary $body, ?UserPasswordResetsAndChangesSummaryRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(UserPasswordResetsAndChangesSummary $body, ?UserPasswordResetsAndChangesSummaryRequestBuilderPostRe_f9b01c4c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/reports/authenticationMethods/userPasswordResetsAndChangesSummary';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

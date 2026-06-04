@@ -30,7 +30,7 @@ class CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBuilder extends BaseR
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/policies/deletedItems/crossTenantSyncPolicyPartners/{crossTenantIdentitySyncPolicyPartner%2DtenantId}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/policies/deletedItems/crossTenantSyncPolicyPartners/{crossTenantIdentitySyncPolicyPartner%2DtenantId}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,12 +40,12 @@ class CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBuilder extends BaseR
 
     /**
      * Permanently delete a policyDeletableItem object, which might be one of the following deleted policy types:- crossTenantAccessPolicyConfigurationPartner- crossTenantIdentitySyncPolicyPartner- conditionalAccessPolicy- namedLocation
-     * @param CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBu_54784790|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/policydeletableitem-delete?view=graph-rest-beta Find more info here
     */
-    public function delete(?CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBu_54784790 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -55,12 +55,12 @@ class CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBuilder extends BaseR
 
     /**
      * Read the properties and relationships of a policyDeletableItem object, which might be one of the following deleted policy types:- crossTenantAccessPolicyConfigurationPartner- crossTenantIdentitySyncPolicyPartner- conditionalAccessPolicy- namedLocation
-     * @param CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBu_55e7a7f3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CrossTenantIdentitySyncPolicyPartner|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/policydeletableitem-get?view=graph-rest-beta Find more info here
     */
-    public function get(?CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBu_55e7a7f3 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -71,11 +71,11 @@ class CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBuilder extends BaseR
     /**
      * Update the navigation property crossTenantSyncPolicyPartners in policies
      * @param CrossTenantIdentitySyncPolicyPartner $body The request body
-     * @param CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBu_338131a4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CrossTenantIdentitySyncPolicyPartner|null>
      * @throws Exception
     */
-    public function put(CrossTenantIdentitySyncPolicyPartner $body, ?CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBuilderPutRequestConfiguration $requestConfiguration = null): Promise {
+    public function put(CrossTenantIdentitySyncPolicyPartner $body, ?CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBu_338131a4 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPutRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -85,10 +85,10 @@ class CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBuilder extends BaseR
 
     /**
      * Permanently delete a policyDeletableItem object, which might be one of the following deleted policy types:- crossTenantAccessPolicyConfigurationPartner- crossTenantIdentitySyncPolicyPartner- conditionalAccessPolicy- namedLocation
-     * @param CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBu_54784790|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBu_54784790 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -103,12 +103,12 @@ class CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBuilder extends BaseR
 
     /**
      * Read the properties and relationships of a policyDeletableItem object, which might be one of the following deleted policy types:- crossTenantAccessPolicyConfigurationPartner- crossTenantIdentitySyncPolicyPartner- conditionalAccessPolicy- namedLocation
-     * @param CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBu_55e7a7f3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBu_55e7a7f3 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/policies/deletedItems/crossTenantSyncPolicyPartners/{crossTenantIdentitySyncPolicyPartner%2DtenantId}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -125,10 +125,10 @@ class CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBuilder extends BaseR
     /**
      * Update the navigation property crossTenantSyncPolicyPartners in policies
      * @param CrossTenantIdentitySyncPolicyPartner $body The request body
-     * @param CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBu_338131a4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPutRequestInformation(CrossTenantIdentitySyncPolicyPartner $body, ?CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBuilderPutRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPutRequestInformation(CrossTenantIdentitySyncPolicyPartner $body, ?CrossTenantIdentitySyncPolicyPartnerTenantItemRequestBu_338131a4 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

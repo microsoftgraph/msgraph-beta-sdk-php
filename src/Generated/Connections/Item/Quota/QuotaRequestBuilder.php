@@ -22,7 +22,7 @@ class QuotaRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/connections/{externalConnection%2Did}/quota{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/connections/{externalConnection%2Did}/quota');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -98,7 +98,7 @@ class QuotaRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?QuotaRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/connections/{externalConnection%2Did}/quota{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {

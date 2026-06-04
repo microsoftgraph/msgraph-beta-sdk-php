@@ -22,7 +22,7 @@ class EndpointPrivilegeManagementProvisioningStatusRequestBuilder extends BaseRe
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/endpointPrivilegeManagementProvisioningStatus{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/endpointPrivilegeManagementProvisioningStatus');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class EndpointPrivilegeManagementProvisioningStatusRequestBuilder extends BaseRe
 
     /**
      * Delete navigation property endpointPrivilegeManagementProvisioningStatus for deviceManagement
-     * @param EndpointPrivilegeManagementProvisioningStatusRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EndpointPrivilegeManagementProvisioningStatusRequestBui_bb10e8eb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?EndpointPrivilegeManagementProvisioningStatusRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?EndpointPrivilegeManagementProvisioningStatusRequestBui_bb10e8eb $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class EndpointPrivilegeManagementProvisioningStatusRequestBuilder extends BaseRe
 
     /**
      * Endpoint privilege management (EPM) tenant provisioning status contains tenant level license and onboarding state information.
-     * @param EndpointPrivilegeManagementProvisioningStatusRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EndpointPrivilegeManagementProvisioningStatusRequestBui_98e5151e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EndpointPrivilegeManagementProvisioningStatus|null>
      * @throws Exception
     */
-    public function get(?EndpointPrivilegeManagementProvisioningStatusRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?EndpointPrivilegeManagementProvisioningStatusRequestBui_98e5151e $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class EndpointPrivilegeManagementProvisioningStatusRequestBuilder extends BaseRe
     /**
      * Update the navigation property endpointPrivilegeManagementProvisioningStatus in deviceManagement
      * @param EndpointPrivilegeManagementProvisioningStatus $body The request body
-     * @param EndpointPrivilegeManagementProvisioningStatusRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EndpointPrivilegeManagementProvisioningStatusRequestBui_20afc9ed|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EndpointPrivilegeManagementProvisioningStatus|null>
      * @throws Exception
     */
-    public function patch(EndpointPrivilegeManagementProvisioningStatus $body, ?EndpointPrivilegeManagementProvisioningStatusRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(EndpointPrivilegeManagementProvisioningStatus $body, ?EndpointPrivilegeManagementProvisioningStatusRequestBui_20afc9ed $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class EndpointPrivilegeManagementProvisioningStatusRequestBuilder extends BaseRe
 
     /**
      * Delete navigation property endpointPrivilegeManagementProvisioningStatus for deviceManagement
-     * @param EndpointPrivilegeManagementProvisioningStatusRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EndpointPrivilegeManagementProvisioningStatusRequestBui_bb10e8eb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?EndpointPrivilegeManagementProvisioningStatusRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?EndpointPrivilegeManagementProvisioningStatusRequestBui_bb10e8eb $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,12 +93,12 @@ class EndpointPrivilegeManagementProvisioningStatusRequestBuilder extends BaseRe
 
     /**
      * Endpoint privilege management (EPM) tenant provisioning status contains tenant level license and onboarding state information.
-     * @param EndpointPrivilegeManagementProvisioningStatusRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EndpointPrivilegeManagementProvisioningStatusRequestBui_98e5151e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?EndpointPrivilegeManagementProvisioningStatusRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?EndpointPrivilegeManagementProvisioningStatusRequestBui_98e5151e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/endpointPrivilegeManagementProvisioningStatus{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class EndpointPrivilegeManagementProvisioningStatusRequestBuilder extends BaseRe
     /**
      * Update the navigation property endpointPrivilegeManagementProvisioningStatus in deviceManagement
      * @param EndpointPrivilegeManagementProvisioningStatus $body The request body
-     * @param EndpointPrivilegeManagementProvisioningStatusRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EndpointPrivilegeManagementProvisioningStatusRequestBui_20afc9ed|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(EndpointPrivilegeManagementProvisioningStatus $body, ?EndpointPrivilegeManagementProvisioningStatusRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(EndpointPrivilegeManagementProvisioningStatus $body, ?EndpointPrivilegeManagementProvisioningStatusRequestBui_20afc9ed $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

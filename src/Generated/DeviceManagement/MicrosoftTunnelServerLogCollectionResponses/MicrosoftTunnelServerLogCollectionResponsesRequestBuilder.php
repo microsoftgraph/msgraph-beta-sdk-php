@@ -43,7 +43,7 @@ class MicrosoftTunnelServerLogCollectionResponsesRequestBuilder extends BaseRequ
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/microsoftTunnelServerLogCollectionResponses{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class MicrosoftTunnelServerLogCollectionResponsesRequestBuilder extends BaseRequ
 
     /**
      * Collection of MicrosoftTunnelServerLogCollectionResponse settings associated with account.
-     * @param MicrosoftTunnelServerLogCollectionResponsesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelServerLogCollectionResponsesRequestBuild_292e8c77|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MicrosoftTunnelServerLogCollectionResponseCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?MicrosoftTunnelServerLogCollectionResponsesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MicrosoftTunnelServerLogCollectionResponsesRequestBuild_292e8c77 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class MicrosoftTunnelServerLogCollectionResponsesRequestBuilder extends BaseRequ
     /**
      * Create new navigation property to microsoftTunnelServerLogCollectionResponses for deviceManagement
      * @param MicrosoftTunnelServerLogCollectionResponse $body The request body
-     * @param MicrosoftTunnelServerLogCollectionResponsesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelServerLogCollectionResponsesRequestBuild_1b0551a6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MicrosoftTunnelServerLogCollectionResponse|null>
      * @throws Exception
     */
-    public function post(MicrosoftTunnelServerLogCollectionResponse $body, ?MicrosoftTunnelServerLogCollectionResponsesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(MicrosoftTunnelServerLogCollectionResponse $body, ?MicrosoftTunnelServerLogCollectionResponsesRequestBuild_1b0551a6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,12 +82,12 @@ class MicrosoftTunnelServerLogCollectionResponsesRequestBuilder extends BaseRequ
 
     /**
      * Collection of MicrosoftTunnelServerLogCollectionResponse settings associated with account.
-     * @param MicrosoftTunnelServerLogCollectionResponsesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelServerLogCollectionResponsesRequestBuild_292e8c77|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MicrosoftTunnelServerLogCollectionResponsesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MicrosoftTunnelServerLogCollectionResponsesRequestBuild_292e8c77 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/microsoftTunnelServerLogCollectionResponses{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,12 +104,12 @@ class MicrosoftTunnelServerLogCollectionResponsesRequestBuilder extends BaseRequ
     /**
      * Create new navigation property to microsoftTunnelServerLogCollectionResponses for deviceManagement
      * @param MicrosoftTunnelServerLogCollectionResponse $body The request body
-     * @param MicrosoftTunnelServerLogCollectionResponsesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelServerLogCollectionResponsesRequestBuild_1b0551a6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(MicrosoftTunnelServerLogCollectionResponse $body, ?MicrosoftTunnelServerLogCollectionResponsesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(MicrosoftTunnelServerLogCollectionResponse $body, ?MicrosoftTunnelServerLogCollectionResponsesRequestBuild_1b0551a6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/microsoftTunnelServerLogCollectionResponses';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

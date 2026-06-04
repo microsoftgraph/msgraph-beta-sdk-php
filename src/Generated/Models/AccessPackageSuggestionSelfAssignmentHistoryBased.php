@@ -34,7 +34,7 @@ class AccessPackageSuggestionSelfAssignmentHistoryBased extends AccessPackageSug
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'lastAssignmentDateTime' => fn(ParseNode $n) => $o->setLastAssignmentDateTime($n->getDateTimeValue()),
-            'pastAssigmentCount' => fn(ParseNode $n) => $o->setPastAssigmentCount($n->getIntegerValue()),
+            'pastAssignmentCount' => fn(ParseNode $n) => $o->setPastAssignmentCount($n->getIntegerValue()),
         ]);
     }
 
@@ -51,15 +51,15 @@ class AccessPackageSuggestionSelfAssignmentHistoryBased extends AccessPackageSug
     }
 
     /**
-     * Gets the pastAssigmentCount property value. The pastAssigmentCount property
+     * Gets the pastAssignmentCount property value. The number of times the user has been assigned to this access package in the past. Read-only.
      * @return int|null
     */
-    public function getPastAssigmentCount(): ?int {
-        $val = $this->getBackingStore()->get('pastAssigmentCount');
+    public function getPastAssignmentCount(): ?int {
+        $val = $this->getBackingStore()->get('pastAssignmentCount');
         if (is_null($val) || is_int($val)) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'pastAssigmentCount'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pastAssignmentCount'");
     }
 
     /**
@@ -69,7 +69,7 @@ class AccessPackageSuggestionSelfAssignmentHistoryBased extends AccessPackageSug
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeDateTimeValue('lastAssignmentDateTime', $this->getLastAssignmentDateTime());
-        $writer->writeIntegerValue('pastAssigmentCount', $this->getPastAssigmentCount());
+        $writer->writeIntegerValue('pastAssignmentCount', $this->getPastAssignmentCount());
     }
 
     /**
@@ -81,11 +81,11 @@ class AccessPackageSuggestionSelfAssignmentHistoryBased extends AccessPackageSug
     }
 
     /**
-     * Sets the pastAssigmentCount property value. The pastAssigmentCount property
-     * @param int|null $value Value to set for the pastAssigmentCount property.
+     * Sets the pastAssignmentCount property value. The number of times the user has been assigned to this access package in the past. Read-only.
+     * @param int|null $value Value to set for the pastAssignmentCount property.
     */
-    public function setPastAssigmentCount(?int $value): void {
-        $this->getBackingStore()->set('pastAssigmentCount', $value);
+    public function setPastAssignmentCount(?int $value): void {
+        $this->getBackingStore()->set('pastAssignmentCount', $value);
     }
 
 }

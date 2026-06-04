@@ -126,9 +126,9 @@ use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAnomalyCorrelat
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAnomalyDevice;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAnomalySeverityOverview;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAppHealthApplicationPerformance;
+use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAppHealthAppPerformanceByAppVers_666db35f;
+use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAppHealthAppPerformanceByAppVers_d22979be;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion;
-use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails;
-use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAppHealthDeviceModelPerformance;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsAppHealthDevicePerformance;
@@ -186,6 +186,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * Singleton that acts as container for a collection of Resource Access entities.
+*/
 class DeviceManagement extends Entity implements Parsable 
 {
     /**
@@ -1239,8 +1242,8 @@ class DeviceManagement extends Entity implements Parsable
             'userExperienceAnalyticsAnomalySeverityOverview' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsAnomalySeverityOverview($n->getObjectValue([UserExperienceAnalyticsAnomalySeverityOverview::class, 'createFromDiscriminatorValue'])),
             'userExperienceAnalyticsAppHealthApplicationPerformance' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsAppHealthApplicationPerformance($n->getCollectionOfObjectValues([UserExperienceAnalyticsAppHealthApplicationPerformance::class, 'createFromDiscriminatorValue'])),
             'userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion($n->getCollectionOfObjectValues([UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion::class, 'createFromDiscriminatorValue'])),
-            'userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails($n->getCollectionOfObjectValues([UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails::class, 'createFromDiscriminatorValue'])),
-            'userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId($n->getCollectionOfObjectValues([UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId::class, 'createFromDiscriminatorValue'])),
+            'userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails($n->getCollectionOfObjectValues([UserExperienceAnalyticsAppHealthAppPerformanceByAppVers_d22979be::class, 'createFromDiscriminatorValue'])),
+            'userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId($n->getCollectionOfObjectValues([UserExperienceAnalyticsAppHealthAppPerformanceByAppVers_666db35f::class, 'createFromDiscriminatorValue'])),
             'userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion($n->getCollectionOfObjectValues([UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion::class, 'createFromDiscriminatorValue'])),
             'userExperienceAnalyticsAppHealthDeviceModelPerformance' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsAppHealthDeviceModelPerformance($n->getCollectionOfObjectValues([UserExperienceAnalyticsAppHealthDeviceModelPerformance::class, 'createFromDiscriminatorValue'])),
             'userExperienceAnalyticsAppHealthDevicePerformance' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsAppHealthDevicePerformance($n->getCollectionOfObjectValues([UserExperienceAnalyticsAppHealthDevicePerformance::class, 'createFromDiscriminatorValue'])),
@@ -2247,13 +2250,13 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Gets the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails property value. User experience analytics appHealth Application Performance by App Version details
-     * @return array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails>|null
+     * @return array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVers_d22979be>|null
     */
     public function getUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails(): ?array {
         $val = $this->getBackingStore()->get('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails::class);
-            /** @var array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails>|null $val */
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsAppHealthAppPerformanceByAppVers_d22979be::class);
+            /** @var array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVers_d22979be>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails'");
@@ -2261,13 +2264,13 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Gets the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId property value. User experience analytics appHealth Application Performance by App Version Device Id
-     * @return array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId>|null
+     * @return array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVers_666db35f>|null
     */
     public function getUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId(): ?array {
         $val = $this->getBackingStore()->get('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId::class);
-            /** @var array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId>|null $val */
+            TypeUtils::validateCollectionValues($val, UserExperienceAnalyticsAppHealthAppPerformanceByAppVers_666db35f::class);
+            /** @var array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVers_666db35f>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId'");
@@ -4308,7 +4311,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails property value. User experience analytics appHealth Application Performance by App Version details
-     * @param array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails>|null $value Value to set for the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails property.
+     * @param array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVers_d22979be>|null $value Value to set for the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails property.
     */
     public function setUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails', $value);
@@ -4316,7 +4319,7 @@ class DeviceManagement extends Entity implements Parsable
 
     /**
      * Sets the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId property value. User experience analytics appHealth Application Performance by App Version Device Id
-     * @param array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId>|null $value Value to set for the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId property.
+     * @param array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVers_666db35f>|null $value Value to set for the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId property.
     */
     public function setUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId(?array $value): void {
         $this->getBackingStore()->set('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId', $value);

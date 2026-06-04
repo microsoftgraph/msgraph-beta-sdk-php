@@ -22,7 +22,7 @@ class ManagementTemplateStepTenantSummaryItemRequestBuilder extends BaseRequestB
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/managementTemplateStepTenantSummaries/{managementTemplateStepTenantSummary%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/managementTemplateStepTenantSummaries/{managementTemplateStepTenantSummary%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class ManagementTemplateStepTenantSummaryItemRequestBuilder extends BaseRequestB
 
     /**
      * Delete navigation property managementTemplateStepTenantSummaries for tenantRelationships
-     * @param ManagementTemplateStepTenantSummaryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepTenantSummaryItemRequestBuilderDe_021c4608|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ManagementTemplateStepTenantSummaryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ManagementTemplateStepTenantSummaryItemRequestBuilderDe_021c4608 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class ManagementTemplateStepTenantSummaryItemRequestBuilder extends BaseRequestB
 
     /**
      * Get managementTemplateStepTenantSummaries from tenantRelationships
-     * @param ManagementTemplateStepTenantSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepTenantSummaryItemRequestBuilderGe_8e741bdb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementTemplateStepTenantSummary|null>
      * @throws Exception
     */
-    public function get(?ManagementTemplateStepTenantSummaryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagementTemplateStepTenantSummaryItemRequestBuilderGe_8e741bdb $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class ManagementTemplateStepTenantSummaryItemRequestBuilder extends BaseRequestB
     /**
      * Update the navigation property managementTemplateStepTenantSummaries in tenantRelationships
      * @param ManagementTemplateStepTenantSummary $body The request body
-     * @param ManagementTemplateStepTenantSummaryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepTenantSummaryItemRequestBuilderPa_05e156fd|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementTemplateStepTenantSummary|null>
      * @throws Exception
     */
-    public function patch(ManagementTemplateStepTenantSummary $body, ?ManagementTemplateStepTenantSummaryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ManagementTemplateStepTenantSummary $body, ?ManagementTemplateStepTenantSummaryItemRequestBuilderPa_05e156fd $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class ManagementTemplateStepTenantSummaryItemRequestBuilder extends BaseRequestB
 
     /**
      * Delete navigation property managementTemplateStepTenantSummaries for tenantRelationships
-     * @param ManagementTemplateStepTenantSummaryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepTenantSummaryItemRequestBuilderDe_021c4608|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ManagementTemplateStepTenantSummaryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ManagementTemplateStepTenantSummaryItemRequestBuilderDe_021c4608 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,12 +93,12 @@ class ManagementTemplateStepTenantSummaryItemRequestBuilder extends BaseRequestB
 
     /**
      * Get managementTemplateStepTenantSummaries from tenantRelationships
-     * @param ManagementTemplateStepTenantSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepTenantSummaryItemRequestBuilderGe_8e741bdb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagementTemplateStepTenantSummaryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagementTemplateStepTenantSummaryItemRequestBuilderGe_8e741bdb $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/managementTemplateStepTenantSummaries/{managementTemplateStepTenantSummary%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class ManagementTemplateStepTenantSummaryItemRequestBuilder extends BaseRequestB
     /**
      * Update the navigation property managementTemplateStepTenantSummaries in tenantRelationships
      * @param ManagementTemplateStepTenantSummary $body The request body
-     * @param ManagementTemplateStepTenantSummaryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepTenantSummaryItemRequestBuilderPa_05e156fd|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ManagementTemplateStepTenantSummary $body, ?ManagementTemplateStepTenantSummaryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ManagementTemplateStepTenantSummary $body, ?ManagementTemplateStepTenantSummaryItemRequestBuilderPa_05e156fd $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

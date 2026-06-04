@@ -22,7 +22,7 @@ class PrivilegedSignupStatusItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/privilegedSignupStatus/{privilegedSignupStatus%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/privilegedSignupStatus/{privilegedSignupStatus%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class PrivilegedSignupStatusItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete entity from privilegedSignupStatus
-     * @param PrivilegedSignupStatusItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegedSignupStatusItemRequestBuilderDeleteRequestCo_dfcaa265|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?PrivilegedSignupStatusItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?PrivilegedSignupStatusItemRequestBuilderDeleteRequestCo_dfcaa265 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class PrivilegedSignupStatusItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update entity in privilegedSignupStatus
      * @param PrivilegedSignupStatus $body The request body
-     * @param PrivilegedSignupStatusItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegedSignupStatusItemRequestBuilderPatchRequestCon_2b2605c5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrivilegedSignupStatus|null>
      * @throws Exception
     */
-    public function patch(PrivilegedSignupStatus $body, ?PrivilegedSignupStatusItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(PrivilegedSignupStatus $body, ?PrivilegedSignupStatusItemRequestBuilderPatchRequestCon_2b2605c5 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class PrivilegedSignupStatusItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete entity from privilegedSignupStatus
-     * @param PrivilegedSignupStatusItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegedSignupStatusItemRequestBuilderDeleteRequestCo_dfcaa265|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?PrivilegedSignupStatusItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?PrivilegedSignupStatusItemRequestBuilderDeleteRequestCo_dfcaa265 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -98,7 +98,7 @@ class PrivilegedSignupStatusItemRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?PrivilegedSignupStatusItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/privilegedSignupStatus/{privilegedSignupStatus%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class PrivilegedSignupStatusItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update entity in privilegedSignupStatus
      * @param PrivilegedSignupStatus $body The request body
-     * @param PrivilegedSignupStatusItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegedSignupStatusItemRequestBuilderPatchRequestCon_2b2605c5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(PrivilegedSignupStatus $body, ?PrivilegedSignupStatusItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(PrivilegedSignupStatus $body, ?PrivilegedSignupStatusItemRequestBuilderPatchRequestCon_2b2605c5 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

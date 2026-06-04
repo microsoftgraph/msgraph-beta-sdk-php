@@ -43,7 +43,7 @@ class UserExperienceAnalyticsDeviceScopesRequestBuilder extends BaseRequestBuild
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceScopes{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class UserExperienceAnalyticsDeviceScopesRequestBuilder extends BaseRequestBuild
 
     /**
      * The user experience analytics device scope entity contains device scope configuration use to apply filtering on the endpoint analytics reports.
-     * @param UserExperienceAnalyticsDeviceScopesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceScopesRequestBuilderGetReq_755c126a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsDeviceScopeCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?UserExperienceAnalyticsDeviceScopesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserExperienceAnalyticsDeviceScopesRequestBuilderGetReq_755c126a $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class UserExperienceAnalyticsDeviceScopesRequestBuilder extends BaseRequestBuild
     /**
      * Create new navigation property to userExperienceAnalyticsDeviceScopes for deviceManagement
      * @param UserExperienceAnalyticsDeviceScope $body The request body
-     * @param UserExperienceAnalyticsDeviceScopesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceScopesRequestBuilderPostRe_6ba9232b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsDeviceScope|null>
      * @throws Exception
     */
-    public function post(UserExperienceAnalyticsDeviceScope $body, ?UserExperienceAnalyticsDeviceScopesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(UserExperienceAnalyticsDeviceScope $body, ?UserExperienceAnalyticsDeviceScopesRequestBuilderPostRe_6ba9232b $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,12 +82,12 @@ class UserExperienceAnalyticsDeviceScopesRequestBuilder extends BaseRequestBuild
 
     /**
      * The user experience analytics device scope entity contains device scope configuration use to apply filtering on the endpoint analytics reports.
-     * @param UserExperienceAnalyticsDeviceScopesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceScopesRequestBuilderGetReq_755c126a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UserExperienceAnalyticsDeviceScopesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UserExperienceAnalyticsDeviceScopesRequestBuilderGetReq_755c126a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceScopes{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,12 +104,12 @@ class UserExperienceAnalyticsDeviceScopesRequestBuilder extends BaseRequestBuild
     /**
      * Create new navigation property to userExperienceAnalyticsDeviceScopes for deviceManagement
      * @param UserExperienceAnalyticsDeviceScope $body The request body
-     * @param UserExperienceAnalyticsDeviceScopesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceScopesRequestBuilderPostRe_6ba9232b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(UserExperienceAnalyticsDeviceScope $body, ?UserExperienceAnalyticsDeviceScopesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(UserExperienceAnalyticsDeviceScope $body, ?UserExperienceAnalyticsDeviceScopesRequestBuilderPostRe_6ba9232b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceScopes';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

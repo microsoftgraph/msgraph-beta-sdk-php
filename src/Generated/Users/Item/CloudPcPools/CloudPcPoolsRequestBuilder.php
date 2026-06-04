@@ -43,7 +43,7 @@ class CloudPcPoolsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/users/{user%2Did}/cloudPcPools{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -52,7 +52,7 @@ class CloudPcPoolsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get cloudPcPools from users
+     * The user's Cloud PC pools. Read-only. Nullable.
      * @param CloudPcPoolsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcPoolCollectionResponse|null>
      * @throws Exception
@@ -81,13 +81,13 @@ class CloudPcPoolsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get cloudPcPools from users
+     * The user's Cloud PC pools. Read-only. Nullable.
      * @param CloudPcPoolsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
     public function toGetRequestInformation(?CloudPcPoolsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/cloudPcPools{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -109,7 +109,7 @@ class CloudPcPoolsRequestBuilder extends BaseRequestBuilder
     */
     public function toPostRequestInformation(CloudPcPool $body, ?CloudPcPoolsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/users/{user%2Did}/cloudPcPools';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

@@ -22,7 +22,7 @@ class DeviceManagementDomainJoinConnectorItemRequestBuilder extends BaseRequestB
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/domainJoinConnectors/{deviceManagementDomainJoinConnector%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/domainJoinConnectors/{deviceManagementDomainJoinConnector%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class DeviceManagementDomainJoinConnectorItemRequestBuilder extends BaseRequestB
 
     /**
      * Delete navigation property domainJoinConnectors for deviceManagement
-     * @param DeviceManagementDomainJoinConnectorItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementDomainJoinConnectorItemRequestBuilderDe_54af40b4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DeviceManagementDomainJoinConnectorItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DeviceManagementDomainJoinConnectorItemRequestBuilderDe_54af40b4 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class DeviceManagementDomainJoinConnectorItemRequestBuilder extends BaseRequestB
 
     /**
      * A list of connector objects.
-     * @param DeviceManagementDomainJoinConnectorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementDomainJoinConnectorItemRequestBuilderGe_e2c21963|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementDomainJoinConnector|null>
      * @throws Exception
     */
-    public function get(?DeviceManagementDomainJoinConnectorItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DeviceManagementDomainJoinConnectorItemRequestBuilderGe_e2c21963 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class DeviceManagementDomainJoinConnectorItemRequestBuilder extends BaseRequestB
     /**
      * Update the navigation property domainJoinConnectors in deviceManagement
      * @param DeviceManagementDomainJoinConnector $body The request body
-     * @param DeviceManagementDomainJoinConnectorItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementDomainJoinConnectorItemRequestBuilderPa_eed0ba74|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementDomainJoinConnector|null>
      * @throws Exception
     */
-    public function patch(DeviceManagementDomainJoinConnector $body, ?DeviceManagementDomainJoinConnectorItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DeviceManagementDomainJoinConnector $body, ?DeviceManagementDomainJoinConnectorItemRequestBuilderPa_eed0ba74 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class DeviceManagementDomainJoinConnectorItemRequestBuilder extends BaseRequestB
 
     /**
      * Delete navigation property domainJoinConnectors for deviceManagement
-     * @param DeviceManagementDomainJoinConnectorItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementDomainJoinConnectorItemRequestBuilderDe_54af40b4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DeviceManagementDomainJoinConnectorItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DeviceManagementDomainJoinConnectorItemRequestBuilderDe_54af40b4 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,12 +93,12 @@ class DeviceManagementDomainJoinConnectorItemRequestBuilder extends BaseRequestB
 
     /**
      * A list of connector objects.
-     * @param DeviceManagementDomainJoinConnectorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementDomainJoinConnectorItemRequestBuilderGe_e2c21963|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DeviceManagementDomainJoinConnectorItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DeviceManagementDomainJoinConnectorItemRequestBuilderGe_e2c21963 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/domainJoinConnectors/{deviceManagementDomainJoinConnector%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class DeviceManagementDomainJoinConnectorItemRequestBuilder extends BaseRequestB
     /**
      * Update the navigation property domainJoinConnectors in deviceManagement
      * @param DeviceManagementDomainJoinConnector $body The request body
-     * @param DeviceManagementDomainJoinConnectorItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementDomainJoinConnectorItemRequestBuilderPa_eed0ba74|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DeviceManagementDomainJoinConnector $body, ?DeviceManagementDomainJoinConnectorItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DeviceManagementDomainJoinConnector $body, ?DeviceManagementDomainJoinConnectorItemRequestBuilderPa_eed0ba74 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

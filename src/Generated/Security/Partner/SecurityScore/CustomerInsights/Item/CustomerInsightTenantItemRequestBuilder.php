@@ -22,7 +22,7 @@ class CustomerInsightTenantItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/security/partner/securityScore/customerInsights/{customerInsight%2DtenantId}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/security/partner/securityScore/customerInsights/{customerInsight%2DtenantId}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class CustomerInsightTenantItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property customerInsights for security
-     * @param CustomerInsightTenantItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomerInsightTenantItemRequestBuilderDeleteRequestCon_694add6d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CustomerInsightTenantItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CustomerInsightTenantItemRequestBuilderDeleteRequestCon_694add6d $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class CustomerInsightTenantItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property customerInsights for security
-     * @param CustomerInsightTenantItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomerInsightTenantItemRequestBuilderDeleteRequestCon_694add6d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CustomerInsightTenantItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CustomerInsightTenantItemRequestBuilderDeleteRequestCon_694add6d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -98,7 +98,7 @@ class CustomerInsightTenantItemRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?CustomerInsightTenantItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/security/partner/securityScore/customerInsights/{customerInsight%2DtenantId}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {

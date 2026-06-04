@@ -22,7 +22,7 @@ class ConnectivityConfigurationLinkItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/networkAccess/connectivity/branches/{branchSite%2Did}/connectivityConfiguration/links/{connectivityConfigurationLink%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/networkAccess/connectivity/branches/{branchSite%2Did}/connectivityConfiguration/links/{connectivityConfigurationLink%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class ConnectivityConfigurationLinkItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property links for networkAccess
-     * @param ConnectivityConfigurationLinkItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConnectivityConfigurationLinkItemRequestBuilderDeleteRe_43915cd7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ConnectivityConfigurationLinkItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ConnectivityConfigurationLinkItemRequestBuilderDeleteRe_43915cd7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class ConnectivityConfigurationLinkItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * List of connectivity configurations for deviceLink objects.
-     * @param ConnectivityConfigurationLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConnectivityConfigurationLinkItemRequestBuilderGetReque_e7da3325|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConnectivityConfigurationLink|null>
      * @throws Exception
     */
-    public function get(?ConnectivityConfigurationLinkItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ConnectivityConfigurationLinkItemRequestBuilderGetReque_e7da3325 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class ConnectivityConfigurationLinkItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property links in networkAccess
      * @param ConnectivityConfigurationLink $body The request body
-     * @param ConnectivityConfigurationLinkItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConnectivityConfigurationLinkItemRequestBuilderPatchReq_09334da2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConnectivityConfigurationLink|null>
      * @throws Exception
     */
-    public function patch(ConnectivityConfigurationLink $body, ?ConnectivityConfigurationLinkItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ConnectivityConfigurationLink $body, ?ConnectivityConfigurationLinkItemRequestBuilderPatchReq_09334da2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class ConnectivityConfigurationLinkItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property links for networkAccess
-     * @param ConnectivityConfigurationLinkItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConnectivityConfigurationLinkItemRequestBuilderDeleteRe_43915cd7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ConnectivityConfigurationLinkItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ConnectivityConfigurationLinkItemRequestBuilderDeleteRe_43915cd7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,12 +93,12 @@ class ConnectivityConfigurationLinkItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * List of connectivity configurations for deviceLink objects.
-     * @param ConnectivityConfigurationLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConnectivityConfigurationLinkItemRequestBuilderGetReque_e7da3325|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ConnectivityConfigurationLinkItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ConnectivityConfigurationLinkItemRequestBuilderGetReque_e7da3325 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/connectivity/branches/{branchSite%2Did}/connectivityConfiguration/links/{connectivityConfigurationLink%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class ConnectivityConfigurationLinkItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property links in networkAccess
      * @param ConnectivityConfigurationLink $body The request body
-     * @param ConnectivityConfigurationLinkItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConnectivityConfigurationLinkItemRequestBuilderPatchReq_09334da2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ConnectivityConfigurationLink $body, ?ConnectivityConfigurationLinkItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ConnectivityConfigurationLink $body, ?ConnectivityConfigurationLinkItemRequestBuilderPatchReq_09334da2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

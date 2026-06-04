@@ -31,11 +31,11 @@ class EnableUnlicensedAdminstratorsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Upon enabling, users assigned as administrators via Role Assignment Memberships will no longer require an assigned Intune license. You are limited to 350 unlicensed direct members for each AAD security group in a role assignment, but you can assign multiple AAD security groups to a role if you need to support more than 350 unlicensed administrators. Licensed administrators will continue to function as-is in that transitive memberships apply and are not subject to the 350 member limit.
-     * @param EnableUnlicensedAdminstratorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EnableUnlicensedAdminstratorsRequestBuilderPostRequestC_933e74cf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(?EnableUnlicensedAdminstratorsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?EnableUnlicensedAdminstratorsRequestBuilderPostRequestC_933e74cf $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,10 +45,10 @@ class EnableUnlicensedAdminstratorsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Upon enabling, users assigned as administrators via Role Assignment Memberships will no longer require an assigned Intune license. You are limited to 350 unlicensed direct members for each AAD security group in a role assignment, but you can assign multiple AAD security groups to a role if you need to support more than 350 unlicensed administrators. Licensed administrators will continue to function as-is in that transitive memberships apply and are not subject to the 350 member limit.
-     * @param EnableUnlicensedAdminstratorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EnableUnlicensedAdminstratorsRequestBuilderPostRequestC_933e74cf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?EnableUnlicensedAdminstratorsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?EnableUnlicensedAdminstratorsRequestBuilderPostRequestC_933e74cf $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -35,11 +35,11 @@ class GetOneDriveUsageFileCountsWithPeriodRequestBuilder extends BaseRequestBuil
 
     /**
      * Invoke function getOneDriveUsageFileCounts
-     * @param GetOneDriveUsageFileCountsWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetOneDriveUsageFileCountsWithPeriodRequestBuilderGetRe_1e88a17e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function get(?GetOneDriveUsageFileCountsWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetOneDriveUsageFileCountsWithPeriodRequestBuilderGetRe_1e88a17e $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -51,10 +51,10 @@ class GetOneDriveUsageFileCountsWithPeriodRequestBuilder extends BaseRequestBuil
 
     /**
      * Invoke function getOneDriveUsageFileCounts
-     * @param GetOneDriveUsageFileCountsWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetOneDriveUsageFileCountsWithPeriodRequestBuilderGetRe_1e88a17e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetOneDriveUsageFileCountsWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetOneDriveUsageFileCountsWithPeriodRequestBuilderGetRe_1e88a17e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

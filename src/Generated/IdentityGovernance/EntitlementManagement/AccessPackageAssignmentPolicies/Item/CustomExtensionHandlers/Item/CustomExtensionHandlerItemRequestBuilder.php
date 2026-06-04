@@ -30,7 +30,7 @@ class CustomExtensionHandlerItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/entitlementManagement/accessPackageAssignmentPolicies/{accessPackageAssignmentPolicy%2Did}/customExtensionHandlers/{customExtensionHandler%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/entitlementManagement/accessPackageAssignmentPolicies/{accessPackageAssignmentPolicy%2Did}/customExtensionHandlers/{customExtensionHandler%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,11 +40,11 @@ class CustomExtensionHandlerItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property customExtensionHandlers for identityGovernance
-     * @param CustomExtensionHandlerItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomExtensionHandlerItemRequestBuilderDeleteRequestCo_bfa30dd7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CustomExtensionHandlerItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CustomExtensionHandlerItemRequestBuilderDeleteRequestCo_bfa30dd7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class CustomExtensionHandlerItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property customExtensionHandlers in identityGovernance
      * @param CustomExtensionHandler $body The request body
-     * @param CustomExtensionHandlerItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomExtensionHandlerItemRequestBuilderPatchRequestCon_6156cfc7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomExtensionHandler|null>
      * @throws Exception
     */
-    public function patch(CustomExtensionHandler $body, ?CustomExtensionHandlerItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(CustomExtensionHandler $body, ?CustomExtensionHandlerItemRequestBuilderPatchRequestCon_6156cfc7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class CustomExtensionHandlerItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property customExtensionHandlers for identityGovernance
-     * @param CustomExtensionHandlerItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomExtensionHandlerItemRequestBuilderDeleteRequestCo_bfa30dd7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CustomExtensionHandlerItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CustomExtensionHandlerItemRequestBuilderDeleteRequestCo_bfa30dd7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -106,7 +106,7 @@ class CustomExtensionHandlerItemRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?CustomExtensionHandlerItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/entitlementManagement/accessPackageAssignmentPolicies/{accessPackageAssignmentPolicy%2Did}/customExtensionHandlers/{customExtensionHandler%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -123,10 +123,10 @@ class CustomExtensionHandlerItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property customExtensionHandlers in identityGovernance
      * @param CustomExtensionHandler $body The request body
-     * @param CustomExtensionHandlerItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomExtensionHandlerItemRequestBuilderPatchRequestCon_6156cfc7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CustomExtensionHandler $body, ?CustomExtensionHandlerItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(CustomExtensionHandler $body, ?CustomExtensionHandlerItemRequestBuilderPatchRequestCon_6156cfc7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

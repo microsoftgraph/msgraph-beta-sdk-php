@@ -38,7 +38,7 @@ class WindowsQualityUpdateProfileItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/windowsQualityUpdateProfiles/{windowsQualityUpdateProfile%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/windowsQualityUpdateProfiles/{windowsQualityUpdateProfile%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -48,11 +48,11 @@ class WindowsQualityUpdateProfileItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property windowsQualityUpdateProfiles for deviceManagement
-     * @param WindowsQualityUpdateProfileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsQualityUpdateProfileItemRequestBuilderDeleteRequ_43c0d5a0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?WindowsQualityUpdateProfileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?WindowsQualityUpdateProfileItemRequestBuilderDeleteRequ_43c0d5a0 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class WindowsQualityUpdateProfileItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * A collection of windows quality update profiles
-     * @param WindowsQualityUpdateProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsQualityUpdateProfileItemRequestBuilderGetRequest_daddf878|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsQualityUpdateProfile|null>
      * @throws Exception
     */
-    public function get(?WindowsQualityUpdateProfileItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?WindowsQualityUpdateProfileItemRequestBuilderGetRequest_daddf878 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,11 +77,11 @@ class WindowsQualityUpdateProfileItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property windowsQualityUpdateProfiles in deviceManagement
      * @param WindowsQualityUpdateProfile $body The request body
-     * @param WindowsQualityUpdateProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsQualityUpdateProfileItemRequestBuilderPatchReque_178970ad|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsQualityUpdateProfile|null>
      * @throws Exception
     */
-    public function patch(WindowsQualityUpdateProfile $body, ?WindowsQualityUpdateProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(WindowsQualityUpdateProfile $body, ?WindowsQualityUpdateProfileItemRequestBuilderPatchReque_178970ad $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -91,10 +91,10 @@ class WindowsQualityUpdateProfileItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property windowsQualityUpdateProfiles for deviceManagement
-     * @param WindowsQualityUpdateProfileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsQualityUpdateProfileItemRequestBuilderDeleteRequ_43c0d5a0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?WindowsQualityUpdateProfileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?WindowsQualityUpdateProfileItemRequestBuilderDeleteRequ_43c0d5a0 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -109,12 +109,12 @@ class WindowsQualityUpdateProfileItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * A collection of windows quality update profiles
-     * @param WindowsQualityUpdateProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsQualityUpdateProfileItemRequestBuilderGetRequest_daddf878|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?WindowsQualityUpdateProfileItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?WindowsQualityUpdateProfileItemRequestBuilderGetRequest_daddf878 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/windowsQualityUpdateProfiles/{windowsQualityUpdateProfile%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -131,10 +131,10 @@ class WindowsQualityUpdateProfileItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property windowsQualityUpdateProfiles in deviceManagement
      * @param WindowsQualityUpdateProfile $body The request body
-     * @param WindowsQualityUpdateProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsQualityUpdateProfileItemRequestBuilderPatchReque_178970ad|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(WindowsQualityUpdateProfile $body, ?WindowsQualityUpdateProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(WindowsQualityUpdateProfile $body, ?WindowsQualityUpdateProfileItemRequestBuilderPatchReque_178970ad $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

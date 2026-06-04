@@ -43,7 +43,7 @@ class MutualTlsOauthConfigurationsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/certificateAuthorities/mutualTlsOauthConfigurations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class MutualTlsOauthConfigurationsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Defines the trusted certificate authorities for certificates that can be added to Internet of Things (IoT) devices.
-     * @param MutualTlsOauthConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MutualTlsOauthConfigurationsRequestBuilderGetRequestCon_8bfad8e6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MutualTlsOauthConfigurationCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?MutualTlsOauthConfigurationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MutualTlsOauthConfigurationsRequestBuilderGetRequestCon_8bfad8e6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class MutualTlsOauthConfigurationsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to mutualTlsOauthConfigurations for certificateAuthorities
      * @param MutualTlsOauthConfiguration $body The request body
-     * @param MutualTlsOauthConfigurationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MutualTlsOauthConfigurationsRequestBuilderPostRequestCo_603b6af5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MutualTlsOauthConfiguration|null>
      * @throws Exception
     */
-    public function post(MutualTlsOauthConfiguration $body, ?MutualTlsOauthConfigurationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(MutualTlsOauthConfiguration $body, ?MutualTlsOauthConfigurationsRequestBuilderPostRequestCo_603b6af5 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,12 +82,12 @@ class MutualTlsOauthConfigurationsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Defines the trusted certificate authorities for certificates that can be added to Internet of Things (IoT) devices.
-     * @param MutualTlsOauthConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MutualTlsOauthConfigurationsRequestBuilderGetRequestCon_8bfad8e6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MutualTlsOauthConfigurationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MutualTlsOauthConfigurationsRequestBuilderGetRequestCon_8bfad8e6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/certificateAuthorities/mutualTlsOauthConfigurations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,12 +104,12 @@ class MutualTlsOauthConfigurationsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to mutualTlsOauthConfigurations for certificateAuthorities
      * @param MutualTlsOauthConfiguration $body The request body
-     * @param MutualTlsOauthConfigurationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MutualTlsOauthConfigurationsRequestBuilderPostRequestCo_603b6af5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(MutualTlsOauthConfiguration $body, ?MutualTlsOauthConfigurationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(MutualTlsOauthConfiguration $body, ?MutualTlsOauthConfigurationsRequestBuilderPostRequestCo_603b6af5 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/certificateAuthorities/mutualTlsOauthConfigurations';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

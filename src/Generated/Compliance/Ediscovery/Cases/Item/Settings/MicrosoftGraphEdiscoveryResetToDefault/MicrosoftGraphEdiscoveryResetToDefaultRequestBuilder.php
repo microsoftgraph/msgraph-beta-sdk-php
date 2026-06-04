@@ -31,12 +31,12 @@ class MicrosoftGraphEdiscoveryResetToDefaultRequestBuilder extends BaseRequestBu
 
     /**
      * Reset a caseSettings object to the default values.
-     * @param MicrosoftGraphEdiscoveryResetToDefaultRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphEdiscoveryResetToDefaultRequestBuilderPos_c6106997|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/ediscovery-casesettings-resettodefault?view=graph-rest-beta Find more info here
     */
-    public function post(?MicrosoftGraphEdiscoveryResetToDefaultRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?MicrosoftGraphEdiscoveryResetToDefaultRequestBuilderPos_c6106997 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class MicrosoftGraphEdiscoveryResetToDefaultRequestBuilder extends BaseRequestBu
 
     /**
      * Reset a caseSettings object to the default values.
-     * @param MicrosoftGraphEdiscoveryResetToDefaultRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphEdiscoveryResetToDefaultRequestBuilderPos_c6106997|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?MicrosoftGraphEdiscoveryResetToDefaultRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?MicrosoftGraphEdiscoveryResetToDefaultRequestBuilderPos_c6106997 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

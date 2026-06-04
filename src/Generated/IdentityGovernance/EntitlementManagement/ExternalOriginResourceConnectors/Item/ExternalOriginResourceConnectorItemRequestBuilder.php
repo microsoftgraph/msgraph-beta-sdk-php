@@ -22,7 +22,7 @@ class ExternalOriginResourceConnectorItemRequestBuilder extends BaseRequestBuild
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/entitlementManagement/externalOriginResourceConnectors/{externalOriginResourceConnector%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/entitlementManagement/externalOriginResourceConnectors/{externalOriginResourceConnector%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,12 +32,12 @@ class ExternalOriginResourceConnectorItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Delete an externalOriginResourceConnector object.
-     * @param ExternalOriginResourceConnectorItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ExternalOriginResourceConnectorItemRequestBuilderDelete_e056e15e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/externaloriginresourceconnector-delete?view=graph-rest-beta Find more info here
     */
-    public function delete(?ExternalOriginResourceConnectorItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ExternalOriginResourceConnectorItemRequestBuilderDelete_e056e15e $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,11 +47,11 @@ class ExternalOriginResourceConnectorItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Represents the connectors used to communicate with external resource systems.
-     * @param ExternalOriginResourceConnectorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ExternalOriginResourceConnectorItemRequestBuilderGetReq_e5c32d09|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExternalOriginResourceConnector|null>
      * @throws Exception
     */
-    public function get(?ExternalOriginResourceConnectorItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ExternalOriginResourceConnectorItemRequestBuilderGetReq_e5c32d09 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,12 +62,12 @@ class ExternalOriginResourceConnectorItemRequestBuilder extends BaseRequestBuild
     /**
      * Update the properties of an externalOriginResourceConnector object.
      * @param ExternalOriginResourceConnector $body The request body
-     * @param ExternalOriginResourceConnectorItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ExternalOriginResourceConnectorItemRequestBuilderPatchR_06de5702|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExternalOriginResourceConnector|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/externaloriginresourceconnector-update?view=graph-rest-beta Find more info here
     */
-    public function patch(ExternalOriginResourceConnector $body, ?ExternalOriginResourceConnectorItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ExternalOriginResourceConnector $body, ?ExternalOriginResourceConnectorItemRequestBuilderPatchR_06de5702 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,10 +77,10 @@ class ExternalOriginResourceConnectorItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Delete an externalOriginResourceConnector object.
-     * @param ExternalOriginResourceConnectorItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ExternalOriginResourceConnectorItemRequestBuilderDelete_e056e15e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ExternalOriginResourceConnectorItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ExternalOriginResourceConnectorItemRequestBuilderDelete_e056e15e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -95,12 +95,12 @@ class ExternalOriginResourceConnectorItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Represents the connectors used to communicate with external resource systems.
-     * @param ExternalOriginResourceConnectorItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ExternalOriginResourceConnectorItemRequestBuilderGetReq_e5c32d09|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ExternalOriginResourceConnectorItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ExternalOriginResourceConnectorItemRequestBuilderGetReq_e5c32d09 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/entitlementManagement/externalOriginResourceConnectors/{externalOriginResourceConnector%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -117,10 +117,10 @@ class ExternalOriginResourceConnectorItemRequestBuilder extends BaseRequestBuild
     /**
      * Update the properties of an externalOriginResourceConnector object.
      * @param ExternalOriginResourceConnector $body The request body
-     * @param ExternalOriginResourceConnectorItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ExternalOriginResourceConnectorItemRequestBuilderPatchR_06de5702|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ExternalOriginResourceConnector $body, ?ExternalOriginResourceConnectorItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ExternalOriginResourceConnector $body, ?ExternalOriginResourceConnectorItemRequestBuilderPatchR_06de5702 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

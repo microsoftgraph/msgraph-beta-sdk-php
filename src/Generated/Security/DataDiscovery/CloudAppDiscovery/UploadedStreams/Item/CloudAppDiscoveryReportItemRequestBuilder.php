@@ -7,7 +7,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\CloudAppDiscoveryReport;
-use Microsoft\Graph\Beta\Generated\Security\DataDiscovery\CloudAppDiscovery\UploadedStreams\Item\MicrosoftGraphSecurityAggregatedAppsDetailsWithPeriod\MicrosoftGraphSecurityAggregatedAppsDetailsWithPeriodRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\DataDiscovery\CloudAppDiscovery\UploadedStreams\Item\MicrosoftGraphSecurityAggregatedAppsDetailsWithPeriod\MicrosoftGraphSecurityAggregatedAppsDetailsWithPeriodRe_c8549a32;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -24,7 +24,7 @@ class CloudAppDiscoveryReportItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/security/dataDiscovery/cloudAppDiscovery/uploadedStreams/{cloudAppDiscoveryReport%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/security/dataDiscovery/cloudAppDiscovery/uploadedStreams/{cloudAppDiscoveryReport%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -34,11 +34,11 @@ class CloudAppDiscoveryReportItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property uploadedStreams for security
-     * @param CloudAppDiscoveryReportItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudAppDiscoveryReportItemRequestBuilderDeleteRequestC_9c29be44|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CloudAppDiscoveryReportItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CloudAppDiscoveryReportItemRequestBuilderDeleteRequestC_9c29be44 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -63,20 +63,20 @@ class CloudAppDiscoveryReportItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the aggregatedAppsDetails method.
      * @param DateInterval $period Usage: period={period}
-     * @return MicrosoftGraphSecurityAggregatedAppsDetailsWithPeriodRequestBuilder
+     * @return MicrosoftGraphSecurityAggregatedAppsDetailsWithPeriodRe_c8549a32
     */
-    public function microsoftGraphSecurityAggregatedAppsDetailsWithPeriod(DateInterval $period): MicrosoftGraphSecurityAggregatedAppsDetailsWithPeriodRequestBuilder {
-        return new MicrosoftGraphSecurityAggregatedAppsDetailsWithPeriodRequestBuilder($this->pathParameters, $this->requestAdapter, $period);
+    public function microsoftGraphSecurityAggregatedAppsDetailsWithPeriod(DateInterval $period): MicrosoftGraphSecurityAggregatedAppsDetailsWithPeriodRe_c8549a32 {
+        return new MicrosoftGraphSecurityAggregatedAppsDetailsWithPeriodRe_c8549a32($this->pathParameters, $this->requestAdapter, $period);
     }
 
     /**
      * Update the navigation property uploadedStreams in security
      * @param CloudAppDiscoveryReport $body The request body
-     * @param CloudAppDiscoveryReportItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudAppDiscoveryReportItemRequestBuilderPatchRequestCo_59aa1bbf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudAppDiscoveryReport|null>
      * @throws Exception
     */
-    public function patch(CloudAppDiscoveryReport $body, ?CloudAppDiscoveryReportItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(CloudAppDiscoveryReport $body, ?CloudAppDiscoveryReportItemRequestBuilderPatchRequestCo_59aa1bbf $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -86,10 +86,10 @@ class CloudAppDiscoveryReportItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property uploadedStreams for security
-     * @param CloudAppDiscoveryReportItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudAppDiscoveryReportItemRequestBuilderDeleteRequestC_9c29be44|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CloudAppDiscoveryReportItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CloudAppDiscoveryReportItemRequestBuilderDeleteRequestC_9c29be44 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -109,7 +109,7 @@ class CloudAppDiscoveryReportItemRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?CloudAppDiscoveryReportItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/security/dataDiscovery/cloudAppDiscovery/uploadedStreams/{cloudAppDiscoveryReport%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -126,10 +126,10 @@ class CloudAppDiscoveryReportItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property uploadedStreams in security
      * @param CloudAppDiscoveryReport $body The request body
-     * @param CloudAppDiscoveryReportItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudAppDiscoveryReportItemRequestBuilderPatchRequestCo_59aa1bbf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CloudAppDiscoveryReport $body, ?CloudAppDiscoveryReportItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(CloudAppDiscoveryReport $body, ?CloudAppDiscoveryReportItemRequestBuilderPatchRequestCo_59aa1bbf $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

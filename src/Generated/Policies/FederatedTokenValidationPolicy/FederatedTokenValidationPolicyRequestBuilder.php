@@ -22,7 +22,7 @@ class FederatedTokenValidationPolicyRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/policies/federatedTokenValidationPolicy{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/policies/federatedTokenValidationPolicy');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class FederatedTokenValidationPolicyRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property federatedTokenValidationPolicy for policies
-     * @param FederatedTokenValidationPolicyRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param FederatedTokenValidationPolicyRequestBuilderDeleteReque_f9b93244|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?FederatedTokenValidationPolicyRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?FederatedTokenValidationPolicyRequestBuilderDeleteReque_f9b93244 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,12 +46,12 @@ class FederatedTokenValidationPolicyRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of a federatedTokenValidationPolicy object.
-     * @param FederatedTokenValidationPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param FederatedTokenValidationPolicyRequestBuilderGetRequestC_39298105|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FederatedTokenValidationPolicy|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/federatedtokenvalidationpolicy-get?view=graph-rest-beta Find more info here
     */
-    public function get(?FederatedTokenValidationPolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?FederatedTokenValidationPolicyRequestBuilderGetRequestC_39298105 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,12 +62,12 @@ class FederatedTokenValidationPolicyRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a federatedTokenValidationPolicy object.
      * @param FederatedTokenValidationPolicy $body The request body
-     * @param FederatedTokenValidationPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param FederatedTokenValidationPolicyRequestBuilderPatchReques_29f89e58|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FederatedTokenValidationPolicy|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/federatedtokenvalidationpolicy-update?view=graph-rest-beta Find more info here
     */
-    public function patch(FederatedTokenValidationPolicy $body, ?FederatedTokenValidationPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(FederatedTokenValidationPolicy $body, ?FederatedTokenValidationPolicyRequestBuilderPatchReques_29f89e58 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,10 +77,10 @@ class FederatedTokenValidationPolicyRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property federatedTokenValidationPolicy for policies
-     * @param FederatedTokenValidationPolicyRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param FederatedTokenValidationPolicyRequestBuilderDeleteReque_f9b93244|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?FederatedTokenValidationPolicyRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?FederatedTokenValidationPolicyRequestBuilderDeleteReque_f9b93244 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -95,12 +95,12 @@ class FederatedTokenValidationPolicyRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of a federatedTokenValidationPolicy object.
-     * @param FederatedTokenValidationPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param FederatedTokenValidationPolicyRequestBuilderGetRequestC_39298105|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?FederatedTokenValidationPolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?FederatedTokenValidationPolicyRequestBuilderGetRequestC_39298105 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/policies/federatedTokenValidationPolicy{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -117,10 +117,10 @@ class FederatedTokenValidationPolicyRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a federatedTokenValidationPolicy object.
      * @param FederatedTokenValidationPolicy $body The request body
-     * @param FederatedTokenValidationPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param FederatedTokenValidationPolicyRequestBuilderPatchReques_29f89e58|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(FederatedTokenValidationPolicy $body, ?FederatedTokenValidationPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(FederatedTokenValidationPolicy $body, ?FederatedTokenValidationPolicyRequestBuilderPatchReques_29f89e58 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

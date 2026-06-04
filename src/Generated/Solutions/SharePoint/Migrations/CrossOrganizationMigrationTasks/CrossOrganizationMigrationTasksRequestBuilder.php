@@ -8,9 +8,9 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SharePointMigrationTask;
 use Microsoft\Graph\Beta\Generated\Models\SharePointMigrationTaskCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Solutions\SharePoint\Migrations\CrossOrganizationMigrationTasks\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\SharePoint\Migrations\CrossOrganizationMigrationTasks\GetBySourceGroupMailNicknameWithSourceGroupMailNickname\GetBySourceGroupMailNicknameWithSourceGroupMailNicknameRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\SharePoint\Migrations\CrossOrganizationMigrationTasks\GetBySourceGroupMailNicknameWithSourceGroupMailNickname\GetBySourceGroupMailNicknameWithSourceGroupMailNickname_13802845;
 use Microsoft\Graph\Beta\Generated\Solutions\SharePoint\Migrations\CrossOrganizationMigrationTasks\GetBySourceSiteUrlWithSourceSiteUrl\GetBySourceSiteUrlWithSourceSiteUrlRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\SharePoint\Migrations\CrossOrganizationMigrationTasks\GetBySourceUserPrincipalNameWithSourcePrincipalName\GetBySourceUserPrincipalNameWithSourcePrincipalNameRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\SharePoint\Migrations\CrossOrganizationMigrationTasks\GetBySourceUserPrincipalNameWithSourcePrincipalName\GetBySourceUserPrincipalNameWithSourcePrincipalNameRequ_b72b533c;
 use Microsoft\Graph\Beta\Generated\Solutions\SharePoint\Migrations\CrossOrganizationMigrationTasks\Item\SharePointMigrationTaskItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -46,7 +46,7 @@ class CrossOrganizationMigrationTasksRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/sharePoint/migrations/crossOrganizationMigrationTasks{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -56,11 +56,11 @@ class CrossOrganizationMigrationTasksRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a sharePointMigrationTask that was previously created, using the task ID. The returned sharePointMigrationTask object includes the source and target site URLs, migration status, optional timestamps (startedDateTime and finishedDateTime), and error details about issues during processing.
-     * @param CrossOrganizationMigrationTasksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossOrganizationMigrationTasksRequestBuilderGetRequest_15759a0c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SharePointMigrationTaskCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?CrossOrganizationMigrationTasksRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CrossOrganizationMigrationTasksRequestBuilderGetRequest_15759a0c $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -71,10 +71,10 @@ class CrossOrganizationMigrationTasksRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the getBySourceGroupMailNickname method.
      * @param string $sourceGroupMailNickname Usage: sourceGroupMailNickname='{sourceGroupMailNickname}'
-     * @return GetBySourceGroupMailNicknameWithSourceGroupMailNicknameRequestBuilder
+     * @return GetBySourceGroupMailNicknameWithSourceGroupMailNickname_13802845
     */
-    public function getBySourceGroupMailNicknameWithSourceGroupMailNickname(string $sourceGroupMailNickname): GetBySourceGroupMailNicknameWithSourceGroupMailNicknameRequestBuilder {
-        return new GetBySourceGroupMailNicknameWithSourceGroupMailNicknameRequestBuilder($this->pathParameters, $this->requestAdapter, $sourceGroupMailNickname);
+    public function getBySourceGroupMailNicknameWithSourceGroupMailNickname(string $sourceGroupMailNickname): GetBySourceGroupMailNicknameWithSourceGroupMailNickname_13802845 {
+        return new GetBySourceGroupMailNicknameWithSourceGroupMailNickname_13802845($this->pathParameters, $this->requestAdapter, $sourceGroupMailNickname);
     }
 
     /**
@@ -89,21 +89,21 @@ class CrossOrganizationMigrationTasksRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the getBySourceUserPrincipalName method.
      * @param string $sourcePrincipalName Usage: sourcePrincipalName='{sourcePrincipalName}'
-     * @return GetBySourceUserPrincipalNameWithSourcePrincipalNameRequestBuilder
+     * @return GetBySourceUserPrincipalNameWithSourcePrincipalNameRequ_b72b533c
     */
-    public function getBySourceUserPrincipalNameWithSourcePrincipalName(string $sourcePrincipalName): GetBySourceUserPrincipalNameWithSourcePrincipalNameRequestBuilder {
-        return new GetBySourceUserPrincipalNameWithSourcePrincipalNameRequestBuilder($this->pathParameters, $this->requestAdapter, $sourcePrincipalName);
+    public function getBySourceUserPrincipalNameWithSourcePrincipalName(string $sourcePrincipalName): GetBySourceUserPrincipalNameWithSourcePrincipalNameRequ_b72b533c {
+        return new GetBySourceUserPrincipalNameWithSourcePrincipalNameRequ_b72b533c($this->pathParameters, $this->requestAdapter, $sourcePrincipalName);
     }
 
     /**
      * Create or update a sharePointMigrationTask to migrate a resource from the source organization to the target organization, using the sharePointMigrationTaskParameters. The resource can be a user, a group, or a site. When an existing sharePointMigrationTask is retrieved, it might contain not only the specifics of the source and target organizations and resources, but also the status of the migration and errors encountered during the migration operation. The API calls occur on the source site and only add list items to the my site root web, for example, contoso-my.sharepoint.com. Then, it triggers a multi-geo site move job in the backend to enqueue and orchestrate several tenant workflow jobs, such as backup, restore, and cleanup, supported by TJ infrastructure. The OData type of sharePointResourceMigrationParameters differentiates user migration from site migration, rather than using different subpaths. For a user's OneDrive migration, specify sharePointUserMigrationParameters. If this migration task is a regular SharePoint site migration, specify sharePointSiteMigrationParameters. If this migration task is a group-connected site migration, specify sharePointGroupMigrationParameters.
      * @param SharePointMigrationTask $body The request body
-     * @param CrossOrganizationMigrationTasksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossOrganizationMigrationTasksRequestBuilderPostReques_b9d5ffb0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SharePointMigrationTask|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/sharepointmigrationtask-update?view=graph-rest-beta Find more info here
     */
-    public function post(SharePointMigrationTask $body, ?CrossOrganizationMigrationTasksRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(SharePointMigrationTask $body, ?CrossOrganizationMigrationTasksRequestBuilderPostReques_b9d5ffb0 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -113,12 +113,12 @@ class CrossOrganizationMigrationTasksRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a sharePointMigrationTask that was previously created, using the task ID. The returned sharePointMigrationTask object includes the source and target site URLs, migration status, optional timestamps (startedDateTime and finishedDateTime), and error details about issues during processing.
-     * @param CrossOrganizationMigrationTasksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossOrganizationMigrationTasksRequestBuilderGetRequest_15759a0c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CrossOrganizationMigrationTasksRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CrossOrganizationMigrationTasksRequestBuilderGetRequest_15759a0c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/solutions/sharePoint/migrations/crossOrganizationMigrationTasks{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -135,12 +135,12 @@ class CrossOrganizationMigrationTasksRequestBuilder extends BaseRequestBuilder
     /**
      * Create or update a sharePointMigrationTask to migrate a resource from the source organization to the target organization, using the sharePointMigrationTaskParameters. The resource can be a user, a group, or a site. When an existing sharePointMigrationTask is retrieved, it might contain not only the specifics of the source and target organizations and resources, but also the status of the migration and errors encountered during the migration operation. The API calls occur on the source site and only add list items to the my site root web, for example, contoso-my.sharepoint.com. Then, it triggers a multi-geo site move job in the backend to enqueue and orchestrate several tenant workflow jobs, such as backup, restore, and cleanup, supported by TJ infrastructure. The OData type of sharePointResourceMigrationParameters differentiates user migration from site migration, rather than using different subpaths. For a user's OneDrive migration, specify sharePointUserMigrationParameters. If this migration task is a regular SharePoint site migration, specify sharePointSiteMigrationParameters. If this migration task is a group-connected site migration, specify sharePointGroupMigrationParameters.
      * @param SharePointMigrationTask $body The request body
-     * @param CrossOrganizationMigrationTasksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossOrganizationMigrationTasksRequestBuilderPostReques_b9d5ffb0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(SharePointMigrationTask $body, ?CrossOrganizationMigrationTasksRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(SharePointMigrationTask $body, ?CrossOrganizationMigrationTasksRequestBuilderPostReques_b9d5ffb0 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/solutions/sharePoint/migrations/crossOrganizationMigrationTasks';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

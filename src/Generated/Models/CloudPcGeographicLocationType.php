@@ -21,4 +21,5 @@ class CloudPcGeographicLocationType extends Enum {
     public const US_GOVERNMENT = "usGovernment";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
     public const MEXICO = "mexico";
+    public const AUSTRALIA_NEW_ZEALAND = "australiaNewZealand";
 }

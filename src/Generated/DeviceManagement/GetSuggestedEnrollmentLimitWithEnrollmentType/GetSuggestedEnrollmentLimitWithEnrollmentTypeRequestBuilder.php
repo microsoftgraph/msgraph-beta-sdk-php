@@ -35,11 +35,11 @@ class GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder extends BaseRe
 
     /**
      * Invoke function getSuggestedEnrollmentLimit
-     * @param GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBui_1a46ec96|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SuggestedEnrollmentLimit|null>
      * @throws Exception
     */
-    public function get(?GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBui_1a46ec96 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,10 +49,10 @@ class GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder extends BaseRe
 
     /**
      * Invoke function getSuggestedEnrollmentLimit
-     * @param GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBui_1a46ec96|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBui_1a46ec96 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

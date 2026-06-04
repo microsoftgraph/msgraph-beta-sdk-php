@@ -31,12 +31,12 @@ class GetAllRetainedTargetedMessagesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get all retained targeted messages sent to a specific user in group chats and channels.
-     * @param GetAllRetainedTargetedMessagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetAllRetainedTargetedMessagesRequestBuilderGetRequestC_53fba649|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetAllRetainedTargetedMessagesGetResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/userteamwork-getallretainedtargetedmessages?view=graph-rest-beta Find more info here
     */
-    public function get(?GetAllRetainedTargetedMessagesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetAllRetainedTargetedMessagesRequestBuilderGetRequestC_53fba649 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class GetAllRetainedTargetedMessagesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get all retained targeted messages sent to a specific user in group chats and channels.
-     * @param GetAllRetainedTargetedMessagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetAllRetainedTargetedMessagesRequestBuilderGetRequestC_53fba649|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetAllRetainedTargetedMessagesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetAllRetainedTargetedMessagesRequestBuilderGetRequestC_53fba649 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

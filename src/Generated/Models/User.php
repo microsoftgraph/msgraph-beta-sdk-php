@@ -365,7 +365,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the cloudPcPools property value. The cloudPcPools property
+     * Gets the cloudPcPools property value. The user's Cloud PC pools. Read-only. Nullable.
      * @return array<CloudPcPool>|null
     */
     public function getCloudPcPools(): ?array {
@@ -1119,7 +1119,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the identityGovernance property value. The identityGovernance property
+     * Gets the identityGovernance property value. The identity governance settings for the user, including the approver delegate configuration. Nullable. Returned only on $select. Supports $expand.
      * @return IdentityGovernanceUserSettings|null
     */
     public function getIdentityGovernance(): ?IdentityGovernanceUserSettings {
@@ -1257,7 +1257,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the isResourceAccount property value. Do not use – reserved for future use.
+     * Gets the isResourceAccount property value. Do not use. Reserved for future use.
      * @return bool|null
     */
     public function getIsResourceAccount(): ?bool {
@@ -2759,7 +2759,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the cloudPcPools property value. The cloudPcPools property
+     * Sets the cloudPcPools property value. The user's Cloud PC pools. Read-only. Nullable.
      * @param array<CloudPcPool>|null $value Value to set for the cloudPcPools property.
     */
     public function setCloudPcPools(?array $value): void {
@@ -3079,7 +3079,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the identityGovernance property value. The identityGovernance property
+     * Sets the identityGovernance property value. The identity governance settings for the user, including the approver delegate configuration. Nullable. Returned only on $select. Supports $expand.
      * @param IdentityGovernanceUserSettings|null $value Value to set for the identityGovernance property.
     */
     public function setIdentityGovernance(?IdentityGovernanceUserSettings $value): void {
@@ -3167,7 +3167,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the isResourceAccount property value. Do not use – reserved for future use.
+     * Sets the isResourceAccount property value. Do not use. Reserved for future use.
      * @param bool|null $value Value to set for the isResourceAccount property.
     */
     public function setIsResourceAccount(?bool $value): void {

@@ -32,12 +32,12 @@ class MicrosoftGraphSecurityEvaluateApplicationRequestBuilder extends BaseReques
     /**
      * Compute the sensitivity label that should be applied and return the set of actions that must be taken to correctly label the information. This API is useful when a label should be set manually or explicitly by a user or service, rather than automatically based on file contents. Given contentInfo, which includes existing content metadata key-value pairs, and labelingOptions as an input, the API returns an informationProtectionAction object that contains one of more of the following: 
      * @param EvaluateApplicationPostRequestBody $body The request body
-     * @param MicrosoftGraphSecurityEvaluateApplicationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphSecurityEvaluateApplicationRequestBuilder_14790661|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EvaluateApplicationPostResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/security-sensitivitylabel-evaluateapplication?view=graph-rest-beta Find more info here
     */
-    public function post(EvaluateApplicationPostRequestBody $body, ?MicrosoftGraphSecurityEvaluateApplicationRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(EvaluateApplicationPostRequestBody $body, ?MicrosoftGraphSecurityEvaluateApplicationRequestBuilder_14790661 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class MicrosoftGraphSecurityEvaluateApplicationRequestBuilder extends BaseReques
     /**
      * Compute the sensitivity label that should be applied and return the set of actions that must be taken to correctly label the information. This API is useful when a label should be set manually or explicitly by a user or service, rather than automatically based on file contents. Given contentInfo, which includes existing content metadata key-value pairs, and labelingOptions as an input, the API returns an informationProtectionAction object that contains one of more of the following: 
      * @param EvaluateApplicationPostRequestBody $body The request body
-     * @param MicrosoftGraphSecurityEvaluateApplicationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphSecurityEvaluateApplicationRequestBuilder_14790661|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(EvaluateApplicationPostRequestBody $body, ?MicrosoftGraphSecurityEvaluateApplicationRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(EvaluateApplicationPostRequestBody $body, ?MicrosoftGraphSecurityEvaluateApplicationRequestBuilder_14790661 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

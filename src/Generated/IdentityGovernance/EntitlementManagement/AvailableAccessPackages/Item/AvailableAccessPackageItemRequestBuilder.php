@@ -30,7 +30,7 @@ class AvailableAccessPackageItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/entitlementManagement/availableAccessPackages/{availableAccessPackage%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/entitlementManagement/availableAccessPackages/{availableAccessPackage%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,11 +40,11 @@ class AvailableAccessPackageItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property availableAccessPackages for identityGovernance
-     * @param AvailableAccessPackageItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AvailableAccessPackageItemRequestBuilderDeleteRequestCo_fb5eaf8e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?AvailableAccessPackageItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?AvailableAccessPackageItemRequestBuilderDeleteRequestCo_fb5eaf8e $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class AvailableAccessPackageItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property availableAccessPackages in identityGovernance
      * @param AvailableAccessPackage $body The request body
-     * @param AvailableAccessPackageItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AvailableAccessPackageItemRequestBuilderPatchRequestCon_4bbe8414|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AvailableAccessPackage|null>
      * @throws Exception
     */
-    public function patch(AvailableAccessPackage $body, ?AvailableAccessPackageItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(AvailableAccessPackage $body, ?AvailableAccessPackageItemRequestBuilderPatchRequestCon_4bbe8414 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class AvailableAccessPackageItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property availableAccessPackages for identityGovernance
-     * @param AvailableAccessPackageItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AvailableAccessPackageItemRequestBuilderDeleteRequestCo_fb5eaf8e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?AvailableAccessPackageItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?AvailableAccessPackageItemRequestBuilderDeleteRequestCo_fb5eaf8e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -106,7 +106,7 @@ class AvailableAccessPackageItemRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?AvailableAccessPackageItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/entitlementManagement/availableAccessPackages/{availableAccessPackage%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -123,10 +123,10 @@ class AvailableAccessPackageItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property availableAccessPackages in identityGovernance
      * @param AvailableAccessPackage $body The request body
-     * @param AvailableAccessPackageItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AvailableAccessPackageItemRequestBuilderPatchRequestCon_4bbe8414|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(AvailableAccessPackage $body, ?AvailableAccessPackageItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(AvailableAccessPackage $body, ?AvailableAccessPackageItemRequestBuilderPatchRequestCon_4bbe8414 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

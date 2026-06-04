@@ -31,12 +31,12 @@ class GetCloudPcConnectivityHistoryRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get the connectivity history of a specific Cloud PC.
-     * @param GetCloudPcConnectivityHistoryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetCloudPcConnectivityHistoryRequestBuilderGetRequestCo_8d2d495f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetCloudPcConnectivityHistoryGetResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpc-getcloudpcconnectivityhistory?view=graph-rest-beta Find more info here
     */
-    public function get(?GetCloudPcConnectivityHistoryRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetCloudPcConnectivityHistoryRequestBuilderGetRequestCo_8d2d495f $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class GetCloudPcConnectivityHistoryRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get the connectivity history of a specific Cloud PC.
-     * @param GetCloudPcConnectivityHistoryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetCloudPcConnectivityHistoryRequestBuilderGetRequestCo_8d2d495f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetCloudPcConnectivityHistoryRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetCloudPcConnectivityHistoryRequestBuilderGetRequestCo_8d2d495f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

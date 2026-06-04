@@ -30,7 +30,7 @@ class OutboundSharedUserProfileUserItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/directory/outboundSharedUserProfiles/{outboundSharedUserProfile%2DuserId}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/directory/outboundSharedUserProfiles/{outboundSharedUserProfile%2DuserId}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,11 +40,11 @@ class OutboundSharedUserProfileUserItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property outboundSharedUserProfiles for directory
-     * @param OutboundSharedUserProfileUserItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OutboundSharedUserProfileUserItemRequestBuilderDeleteRe_0a70f1de|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?OutboundSharedUserProfileUserItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?OutboundSharedUserProfileUserItemRequestBuilderDeleteRe_0a70f1de $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,12 +54,12 @@ class OutboundSharedUserProfileUserItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get the details of an outboundSharedUserProfile.
-     * @param OutboundSharedUserProfileUserItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OutboundSharedUserProfileUserItemRequestBuilderGetReque_327d7d20|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OutboundSharedUserProfile|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/outboundshareduserprofile-get?view=graph-rest-beta Find more info here
     */
-    public function get(?OutboundSharedUserProfileUserItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?OutboundSharedUserProfileUserItemRequestBuilderGetReque_327d7d20 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -70,11 +70,11 @@ class OutboundSharedUserProfileUserItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property outboundSharedUserProfiles in directory
      * @param OutboundSharedUserProfile $body The request body
-     * @param OutboundSharedUserProfileUserItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OutboundSharedUserProfileUserItemRequestBuilderPatchReq_f3ab485b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OutboundSharedUserProfile|null>
      * @throws Exception
     */
-    public function patch(OutboundSharedUserProfile $body, ?OutboundSharedUserProfileUserItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(OutboundSharedUserProfile $body, ?OutboundSharedUserProfileUserItemRequestBuilderPatchReq_f3ab485b $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -84,10 +84,10 @@ class OutboundSharedUserProfileUserItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property outboundSharedUserProfiles for directory
-     * @param OutboundSharedUserProfileUserItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OutboundSharedUserProfileUserItemRequestBuilderDeleteRe_0a70f1de|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?OutboundSharedUserProfileUserItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?OutboundSharedUserProfileUserItemRequestBuilderDeleteRe_0a70f1de $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -102,12 +102,12 @@ class OutboundSharedUserProfileUserItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get the details of an outboundSharedUserProfile.
-     * @param OutboundSharedUserProfileUserItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OutboundSharedUserProfileUserItemRequestBuilderGetReque_327d7d20|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?OutboundSharedUserProfileUserItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?OutboundSharedUserProfileUserItemRequestBuilderGetReque_327d7d20 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/directory/outboundSharedUserProfiles/{outboundSharedUserProfile%2DuserId}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -124,10 +124,10 @@ class OutboundSharedUserProfileUserItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property outboundSharedUserProfiles in directory
      * @param OutboundSharedUserProfile $body The request body
-     * @param OutboundSharedUserProfileUserItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OutboundSharedUserProfileUserItemRequestBuilderPatchReq_f3ab485b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(OutboundSharedUserProfile $body, ?OutboundSharedUserProfileUserItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(OutboundSharedUserProfile $body, ?OutboundSharedUserProfileUserItemRequestBuilderPatchReq_f3ab485b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

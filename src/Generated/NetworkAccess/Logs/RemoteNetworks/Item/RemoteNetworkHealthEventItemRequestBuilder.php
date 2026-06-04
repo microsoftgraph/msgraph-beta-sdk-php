@@ -22,7 +22,7 @@ class RemoteNetworkHealthEventItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/networkAccess/logs/remoteNetworks/{remoteNetworkHealthEvent%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/networkAccess/logs/remoteNetworks/{remoteNetworkHealthEvent%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class RemoteNetworkHealthEventItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property remoteNetworks for networkAccess
-     * @param RemoteNetworkHealthEventItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RemoteNetworkHealthEventItemRequestBuilderDeleteRequest_8cf4a985|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?RemoteNetworkHealthEventItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?RemoteNetworkHealthEventItemRequestBuilderDeleteRequest_8cf4a985 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class RemoteNetworkHealthEventItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * A collection of remote network health events.
-     * @param RemoteNetworkHealthEventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RemoteNetworkHealthEventItemRequestBuilderGetRequestCon_21c2604a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RemoteNetworkHealthEvent|null>
      * @throws Exception
     */
-    public function get(?RemoteNetworkHealthEventItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?RemoteNetworkHealthEventItemRequestBuilderGetRequestCon_21c2604a $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class RemoteNetworkHealthEventItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property remoteNetworks in networkAccess
      * @param RemoteNetworkHealthEvent $body The request body
-     * @param RemoteNetworkHealthEventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RemoteNetworkHealthEventItemRequestBuilderPatchRequestC_f18f986a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RemoteNetworkHealthEvent|null>
      * @throws Exception
     */
-    public function patch(RemoteNetworkHealthEvent $body, ?RemoteNetworkHealthEventItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(RemoteNetworkHealthEvent $body, ?RemoteNetworkHealthEventItemRequestBuilderPatchRequestC_f18f986a $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class RemoteNetworkHealthEventItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property remoteNetworks for networkAccess
-     * @param RemoteNetworkHealthEventItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RemoteNetworkHealthEventItemRequestBuilderDeleteRequest_8cf4a985|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?RemoteNetworkHealthEventItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?RemoteNetworkHealthEventItemRequestBuilderDeleteRequest_8cf4a985 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,12 +93,12 @@ class RemoteNetworkHealthEventItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * A collection of remote network health events.
-     * @param RemoteNetworkHealthEventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RemoteNetworkHealthEventItemRequestBuilderGetRequestCon_21c2604a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?RemoteNetworkHealthEventItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?RemoteNetworkHealthEventItemRequestBuilderGetRequestCon_21c2604a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/logs/remoteNetworks/{remoteNetworkHealthEvent%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class RemoteNetworkHealthEventItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property remoteNetworks in networkAccess
      * @param RemoteNetworkHealthEvent $body The request body
-     * @param RemoteNetworkHealthEventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RemoteNetworkHealthEventItemRequestBuilderPatchRequestC_f18f986a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(RemoteNetworkHealthEvent $body, ?RemoteNetworkHealthEventItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(RemoteNetworkHealthEvent $body, ?RemoteNetworkHealthEventItemRequestBuilderPatchRequestC_f18f986a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

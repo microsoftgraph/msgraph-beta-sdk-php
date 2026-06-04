@@ -62,7 +62,7 @@ class DirectorySettingTemplateItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/directorySettingTemplates/{directorySettingTemplate%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/directorySettingTemplates/{directorySettingTemplate%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -72,11 +72,11 @@ class DirectorySettingTemplateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete entity from directorySettingTemplates
-     * @param DirectorySettingTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DirectorySettingTemplateItemRequestBuilderDeleteRequest_0092e49e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DirectorySettingTemplateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DirectorySettingTemplateItemRequestBuilderDeleteRequest_0092e49e $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -86,12 +86,12 @@ class DirectorySettingTemplateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * A directory setting template represents a template of settings from which settings may be created within a tenant. This operation allows retrieval of the properties of the directorySettingTemplate object, including the available settings and their defaults.
-     * @param DirectorySettingTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DirectorySettingTemplateItemRequestBuilderGetRequestCon_54c7bcc8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectorySettingTemplate|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/directorysettingtemplate-get?view=graph-rest-beta Find more info here
     */
-    public function get(?DirectorySettingTemplateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DirectorySettingTemplateItemRequestBuilderGetRequestCon_54c7bcc8 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -102,11 +102,11 @@ class DirectorySettingTemplateItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update entity in directorySettingTemplates
      * @param DirectorySettingTemplate $body The request body
-     * @param DirectorySettingTemplateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DirectorySettingTemplateItemRequestBuilderPatchRequestC_50d61c7c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectorySettingTemplate|null>
      * @throws Exception
     */
-    public function patch(DirectorySettingTemplate $body, ?DirectorySettingTemplateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DirectorySettingTemplate $body, ?DirectorySettingTemplateItemRequestBuilderPatchRequestC_50d61c7c $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -116,10 +116,10 @@ class DirectorySettingTemplateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete entity from directorySettingTemplates
-     * @param DirectorySettingTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DirectorySettingTemplateItemRequestBuilderDeleteRequest_0092e49e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DirectorySettingTemplateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DirectorySettingTemplateItemRequestBuilderDeleteRequest_0092e49e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -134,12 +134,12 @@ class DirectorySettingTemplateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * A directory setting template represents a template of settings from which settings may be created within a tenant. This operation allows retrieval of the properties of the directorySettingTemplate object, including the available settings and their defaults.
-     * @param DirectorySettingTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DirectorySettingTemplateItemRequestBuilderGetRequestCon_54c7bcc8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DirectorySettingTemplateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DirectorySettingTemplateItemRequestBuilderGetRequestCon_54c7bcc8 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/directorySettingTemplates/{directorySettingTemplate%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -156,10 +156,10 @@ class DirectorySettingTemplateItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update entity in directorySettingTemplates
      * @param DirectorySettingTemplate $body The request body
-     * @param DirectorySettingTemplateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DirectorySettingTemplateItemRequestBuilderPatchRequestC_50d61c7c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DirectorySettingTemplate $body, ?DirectorySettingTemplateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DirectorySettingTemplate $body, ?DirectorySettingTemplateItemRequestBuilderPatchRequestC_50d61c7c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

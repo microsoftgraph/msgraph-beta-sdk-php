@@ -35,12 +35,12 @@ class GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilder extends BaseR
 
     /**
      * Get the real-time connection status information, such as signInStatus or daysSinceLastUse, for a Cloud PC.
-     * @param GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBu_3a3dea93|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpcreports-getrealtimeremoteconnectionstatus?view=graph-rest-beta Find more info here
     */
-    public function get(?GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBu_3a3dea93 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -52,10 +52,10 @@ class GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilder extends BaseR
 
     /**
      * Get the real-time connection status information, such as signInStatus or daysSinceLastUse, for a Cloud PC.
-     * @param GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBu_3a3dea93|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetRealTimeRemoteConnectionStatusWithCloudPcIdRequestBu_3a3dea93 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -43,7 +43,7 @@ class MonthlyPrintUsageSummariesByUserRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/reports/monthlyPrintUsageSummariesByUser{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class MonthlyPrintUsageSummariesByUserRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get monthlyPrintUsageSummariesByUser from reports
-     * @param MonthlyPrintUsageSummariesByUserRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MonthlyPrintUsageSummariesByUserRequestBuilderGetReques_0d9e51a8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrintUsageByUserCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?MonthlyPrintUsageSummariesByUserRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MonthlyPrintUsageSummariesByUserRequestBuilderGetReques_0d9e51a8 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class MonthlyPrintUsageSummariesByUserRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to monthlyPrintUsageSummariesByUser for reports
      * @param PrintUsageByUser $body The request body
-     * @param MonthlyPrintUsageSummariesByUserRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MonthlyPrintUsageSummariesByUserRequestBuilderPostReque_c4169449|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrintUsageByUser|null>
      * @throws Exception
     */
-    public function post(PrintUsageByUser $body, ?MonthlyPrintUsageSummariesByUserRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(PrintUsageByUser $body, ?MonthlyPrintUsageSummariesByUserRequestBuilderPostReque_c4169449 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,12 +82,12 @@ class MonthlyPrintUsageSummariesByUserRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get monthlyPrintUsageSummariesByUser from reports
-     * @param MonthlyPrintUsageSummariesByUserRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MonthlyPrintUsageSummariesByUserRequestBuilderGetReques_0d9e51a8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MonthlyPrintUsageSummariesByUserRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MonthlyPrintUsageSummariesByUserRequestBuilderGetReques_0d9e51a8 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/reports/monthlyPrintUsageSummariesByUser{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,12 +104,12 @@ class MonthlyPrintUsageSummariesByUserRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to monthlyPrintUsageSummariesByUser for reports
      * @param PrintUsageByUser $body The request body
-     * @param MonthlyPrintUsageSummariesByUserRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MonthlyPrintUsageSummariesByUserRequestBuilderPostReque_c4169449|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(PrintUsageByUser $body, ?MonthlyPrintUsageSummariesByUserRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(PrintUsageByUser $body, ?MonthlyPrintUsageSummariesByUserRequestBuilderPostReque_c4169449 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/reports/monthlyPrintUsageSummariesByUser';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

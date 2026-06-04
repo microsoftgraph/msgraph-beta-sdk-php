@@ -43,7 +43,7 @@ class ComanagementEligibleDevicesRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/comanagementEligibleDevices{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -68,11 +68,11 @@ class ComanagementEligibleDevicesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to comanagementEligibleDevices for deviceManagement
      * @param ComanagementEligibleDevice $body The request body
-     * @param ComanagementEligibleDevicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ComanagementEligibleDevicesRequestBuilderPostRequestCon_22d5be42|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ComanagementEligibleDevice|null>
      * @throws Exception
     */
-    public function post(ComanagementEligibleDevice $body, ?ComanagementEligibleDevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ComanagementEligibleDevice $body, ?ComanagementEligibleDevicesRequestBuilderPostRequestCon_22d5be42 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -87,7 +87,7 @@ class ComanagementEligibleDevicesRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?ComanagementEligibleDevicesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/comanagementEligibleDevices{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,12 +104,12 @@ class ComanagementEligibleDevicesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to comanagementEligibleDevices for deviceManagement
      * @param ComanagementEligibleDevice $body The request body
-     * @param ComanagementEligibleDevicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ComanagementEligibleDevicesRequestBuilderPostRequestCon_22d5be42|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ComanagementEligibleDevice $body, ?ComanagementEligibleDevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ComanagementEligibleDevice $body, ?ComanagementEligibleDevicesRequestBuilderPostRequestCon_22d5be42 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/comanagementEligibleDevices';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

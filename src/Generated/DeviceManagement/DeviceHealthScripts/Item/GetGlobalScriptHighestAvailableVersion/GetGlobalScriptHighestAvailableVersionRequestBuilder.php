@@ -31,11 +31,11 @@ class GetGlobalScriptHighestAvailableVersionRequestBuilder extends BaseRequestBu
 
     /**
      * Update the Proprietary Device Health Script
-     * @param GetGlobalScriptHighestAvailableVersionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetGlobalScriptHighestAvailableVersionRequestBuilderPos_f39b2a43|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetGlobalScriptHighestAvailableVersionPostResponse|null>
      * @throws Exception
     */
-    public function post(?GetGlobalScriptHighestAvailableVersionRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?GetGlobalScriptHighestAvailableVersionRequestBuilderPos_f39b2a43 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,10 +45,10 @@ class GetGlobalScriptHighestAvailableVersionRequestBuilder extends BaseRequestBu
 
     /**
      * Update the Proprietary Device Health Script
-     * @param GetGlobalScriptHighestAvailableVersionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetGlobalScriptHighestAvailableVersionRequestBuilderPos_f39b2a43|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?GetGlobalScriptHighestAvailableVersionRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?GetGlobalScriptHighestAvailableVersionRequestBuilderPos_f39b2a43 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -70,7 +70,7 @@ class DeviceManagementScriptItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/deviceManagementScripts/{deviceManagementScript%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/deviceManagementScripts/{deviceManagementScript%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -80,11 +80,11 @@ class DeviceManagementScriptItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property deviceManagementScripts for deviceManagement
-     * @param DeviceManagementScriptItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementScriptItemRequestBuilderDeleteRequestCo_b7b589b8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DeviceManagementScriptItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DeviceManagementScriptItemRequestBuilderDeleteRequestCo_b7b589b8 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -109,11 +109,11 @@ class DeviceManagementScriptItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property deviceManagementScripts in deviceManagement
      * @param DeviceManagementScript $body The request body
-     * @param DeviceManagementScriptItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementScriptItemRequestBuilderPatchRequestCon_45f2ec35|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementScript|null>
      * @throws Exception
     */
-    public function patch(DeviceManagementScript $body, ?DeviceManagementScriptItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DeviceManagementScript $body, ?DeviceManagementScriptItemRequestBuilderPatchRequestCon_45f2ec35 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -123,10 +123,10 @@ class DeviceManagementScriptItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property deviceManagementScripts for deviceManagement
-     * @param DeviceManagementScriptItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementScriptItemRequestBuilderDeleteRequestCo_b7b589b8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DeviceManagementScriptItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DeviceManagementScriptItemRequestBuilderDeleteRequestCo_b7b589b8 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -146,7 +146,7 @@ class DeviceManagementScriptItemRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?DeviceManagementScriptItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/deviceManagementScripts/{deviceManagementScript%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -163,10 +163,10 @@ class DeviceManagementScriptItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property deviceManagementScripts in deviceManagement
      * @param DeviceManagementScript $body The request body
-     * @param DeviceManagementScriptItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementScriptItemRequestBuilderPatchRequestCon_45f2ec35|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DeviceManagementScript $body, ?DeviceManagementScriptItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DeviceManagementScript $body, ?DeviceManagementScriptItemRequestBuilderPatchRequestCon_45f2ec35 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

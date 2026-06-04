@@ -33,12 +33,12 @@ class GetRemoteConnectionHistoricalReportsRequestBuilder extends BaseRequestBuil
     /**
      * Get the remote connection history records of a Cloud PC during a given period. This report contains data such as signInDateTime, signOutDateTime, usageInHour, remoteSignInTimeInSec and roundTripTimeInMsP50, and so on. This data is aggregated hourly for a specified time period, such as the last seven days.
      * @param GetRemoteConnectionHistoricalReportsPostRequestBody $body The request body
-     * @param GetRemoteConnectionHistoricalReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetRemoteConnectionHistoricalReportsRequestBuilderPostR_4f51d3f4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpcreports-getremoteconnectionhistoricalreports?view=graph-rest-beta Find more info here
     */
-    public function post(GetRemoteConnectionHistoricalReportsPostRequestBody $body, ?GetRemoteConnectionHistoricalReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetRemoteConnectionHistoricalReportsPostRequestBody $body, ?GetRemoteConnectionHistoricalReportsRequestBuilderPostR_4f51d3f4 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -51,10 +51,10 @@ class GetRemoteConnectionHistoricalReportsRequestBuilder extends BaseRequestBuil
     /**
      * Get the remote connection history records of a Cloud PC during a given period. This report contains data such as signInDateTime, signOutDateTime, usageInHour, remoteSignInTimeInSec and roundTripTimeInMsP50, and so on. This data is aggregated hourly for a specified time period, such as the last seven days.
      * @param GetRemoteConnectionHistoricalReportsPostRequestBody $body The request body
-     * @param GetRemoteConnectionHistoricalReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetRemoteConnectionHistoricalReportsRequestBuilderPostR_4f51d3f4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetRemoteConnectionHistoricalReportsPostRequestBody $body, ?GetRemoteConnectionHistoricalReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetRemoteConnectionHistoricalReportsPostRequestBody $body, ?GetRemoteConnectionHistoricalReportsRequestBuilderPostR_4f51d3f4 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

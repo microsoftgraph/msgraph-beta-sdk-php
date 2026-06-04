@@ -43,7 +43,7 @@ class ManagementTemplateCollectionsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/managementTemplateCollections{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class ManagementTemplateCollectionsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get managementTemplateCollections from tenantRelationships
-     * @param ManagementTemplateCollectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateCollectionsRequestBuilderGetRequestCo_b1936366|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementTemplateCollectionCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?ManagementTemplateCollectionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagementTemplateCollectionsRequestBuilderGetRequestCo_b1936366 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class ManagementTemplateCollectionsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to managementTemplateCollections for tenantRelationships
      * @param ManagementTemplateCollection $body The request body
-     * @param ManagementTemplateCollectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateCollectionsRequestBuilderPostRequestC_40786868|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementTemplateCollection|null>
      * @throws Exception
     */
-    public function post(ManagementTemplateCollection $body, ?ManagementTemplateCollectionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ManagementTemplateCollection $body, ?ManagementTemplateCollectionsRequestBuilderPostRequestC_40786868 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,12 +82,12 @@ class ManagementTemplateCollectionsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get managementTemplateCollections from tenantRelationships
-     * @param ManagementTemplateCollectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateCollectionsRequestBuilderGetRequestCo_b1936366|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagementTemplateCollectionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagementTemplateCollectionsRequestBuilderGetRequestCo_b1936366 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/managementTemplateCollections{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,12 +104,12 @@ class ManagementTemplateCollectionsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to managementTemplateCollections for tenantRelationships
      * @param ManagementTemplateCollection $body The request body
-     * @param ManagementTemplateCollectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateCollectionsRequestBuilderPostRequestC_40786868|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ManagementTemplateCollection $body, ?ManagementTemplateCollectionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ManagementTemplateCollection $body, ?ManagementTemplateCollectionsRequestBuilderPostRequestC_40786868 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/managementTemplateCollections';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

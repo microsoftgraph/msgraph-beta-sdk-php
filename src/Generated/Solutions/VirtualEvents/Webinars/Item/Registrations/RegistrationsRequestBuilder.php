@@ -43,7 +43,7 @@ class RegistrationsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/registrations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -52,7 +52,7 @@ class RegistrationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of all registration records of a webinar.
+     * Get a list of all registration records of a webinar or town hall.
      * @param RegistrationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventRegistrationCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class RegistrationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a registration record for a registrant of a webinar. This method registers the person for the webinar. 
+     * Create a registration record for a registrant of a webinar or town hall. This method registers the person for the webinar or town hall. 
      * @param VirtualEventRegistration $body The request body
      * @param RegistrationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventRegistration|null>
@@ -83,13 +83,13 @@ class RegistrationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of all registration records of a webinar.
+     * Get a list of all registration records of a webinar or town hall.
      * @param RegistrationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
     public function toGetRequestInformation(?RegistrationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/registrations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,14 +104,14 @@ class RegistrationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a registration record for a registrant of a webinar. This method registers the person for the webinar. 
+     * Create a registration record for a registrant of a webinar or town hall. This method registers the person for the webinar or town hall. 
      * @param VirtualEventRegistration $body The request body
      * @param RegistrationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
     public function toPostRequestInformation(VirtualEventRegistration $body, ?RegistrationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/registrations';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

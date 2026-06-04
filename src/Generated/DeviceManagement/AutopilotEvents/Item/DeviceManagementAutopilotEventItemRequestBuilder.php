@@ -22,7 +22,7 @@ class DeviceManagementAutopilotEventItemRequestBuilder extends BaseRequestBuilde
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/autopilotEvents/{deviceManagementAutopilotEvent%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/autopilotEvents/{deviceManagementAutopilotEvent%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class DeviceManagementAutopilotEventItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property autopilotEvents for deviceManagement
-     * @param DeviceManagementAutopilotEventItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementAutopilotEventItemRequestBuilderDeleteR_15fd2841|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DeviceManagementAutopilotEventItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DeviceManagementAutopilotEventItemRequestBuilderDeleteR_15fd2841 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class DeviceManagementAutopilotEventItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * The list of autopilot events for the tenant.
-     * @param DeviceManagementAutopilotEventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementAutopilotEventItemRequestBuilderGetRequ_5a72e96b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementAutopilotEvent|null>
      * @throws Exception
     */
-    public function get(?DeviceManagementAutopilotEventItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DeviceManagementAutopilotEventItemRequestBuilderGetRequ_5a72e96b $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class DeviceManagementAutopilotEventItemRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property autopilotEvents in deviceManagement
      * @param DeviceManagementAutopilotEvent $body The request body
-     * @param DeviceManagementAutopilotEventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementAutopilotEventItemRequestBuilderPatchRe_72a3ea3a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementAutopilotEvent|null>
      * @throws Exception
     */
-    public function patch(DeviceManagementAutopilotEvent $body, ?DeviceManagementAutopilotEventItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DeviceManagementAutopilotEvent $body, ?DeviceManagementAutopilotEventItemRequestBuilderPatchRe_72a3ea3a $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class DeviceManagementAutopilotEventItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property autopilotEvents for deviceManagement
-     * @param DeviceManagementAutopilotEventItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementAutopilotEventItemRequestBuilderDeleteR_15fd2841|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DeviceManagementAutopilotEventItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DeviceManagementAutopilotEventItemRequestBuilderDeleteR_15fd2841 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,12 +93,12 @@ class DeviceManagementAutopilotEventItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * The list of autopilot events for the tenant.
-     * @param DeviceManagementAutopilotEventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementAutopilotEventItemRequestBuilderGetRequ_5a72e96b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DeviceManagementAutopilotEventItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DeviceManagementAutopilotEventItemRequestBuilderGetRequ_5a72e96b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/autopilotEvents/{deviceManagementAutopilotEvent%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class DeviceManagementAutopilotEventItemRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property autopilotEvents in deviceManagement
      * @param DeviceManagementAutopilotEvent $body The request body
-     * @param DeviceManagementAutopilotEventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementAutopilotEventItemRequestBuilderPatchRe_72a3ea3a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DeviceManagementAutopilotEvent $body, ?DeviceManagementAutopilotEventItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DeviceManagementAutopilotEvent $body, ?DeviceManagementAutopilotEventItemRequestBuilderPatchRe_72a3ea3a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

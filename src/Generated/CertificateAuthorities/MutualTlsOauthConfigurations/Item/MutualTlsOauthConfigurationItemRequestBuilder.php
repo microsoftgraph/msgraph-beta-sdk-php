@@ -22,7 +22,7 @@ class MutualTlsOauthConfigurationItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/certificateAuthorities/mutualTlsOauthConfigurations/{mutualTlsOauthConfiguration%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/certificateAuthorities/mutualTlsOauthConfigurations/{mutualTlsOauthConfiguration%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,12 +32,12 @@ class MutualTlsOauthConfigurationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete the specified mutualTlsOauthConfiguration resource. You must first delete the deviceTemplate object that references the ID.
-     * @param MutualTlsOauthConfigurationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MutualTlsOauthConfigurationItemRequestBuilderDeleteRequ_46df2783|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/mutualtlsoauthconfiguration-delete?view=graph-rest-beta Find more info here
     */
-    public function delete(?MutualTlsOauthConfigurationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?MutualTlsOauthConfigurationItemRequestBuilderDeleteRequ_46df2783 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,11 +47,11 @@ class MutualTlsOauthConfigurationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Defines the trusted certificate authorities for certificates that can be added to Internet of Things (IoT) devices.
-     * @param MutualTlsOauthConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MutualTlsOauthConfigurationItemRequestBuilderGetRequest_127ee3a5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MutualTlsOauthConfiguration|null>
      * @throws Exception
     */
-    public function get(?MutualTlsOauthConfigurationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MutualTlsOauthConfigurationItemRequestBuilderGetRequest_127ee3a5 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class MutualTlsOauthConfigurationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property mutualTlsOauthConfigurations in certificateAuthorities
      * @param MutualTlsOauthConfiguration $body The request body
-     * @param MutualTlsOauthConfigurationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MutualTlsOauthConfigurationItemRequestBuilderPatchReque_2d1137a1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MutualTlsOauthConfiguration|null>
      * @throws Exception
     */
-    public function patch(MutualTlsOauthConfiguration $body, ?MutualTlsOauthConfigurationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(MutualTlsOauthConfiguration $body, ?MutualTlsOauthConfigurationItemRequestBuilderPatchReque_2d1137a1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -76,10 +76,10 @@ class MutualTlsOauthConfigurationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete the specified mutualTlsOauthConfiguration resource. You must first delete the deviceTemplate object that references the ID.
-     * @param MutualTlsOauthConfigurationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MutualTlsOauthConfigurationItemRequestBuilderDeleteRequ_46df2783|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?MutualTlsOauthConfigurationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?MutualTlsOauthConfigurationItemRequestBuilderDeleteRequ_46df2783 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -94,12 +94,12 @@ class MutualTlsOauthConfigurationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Defines the trusted certificate authorities for certificates that can be added to Internet of Things (IoT) devices.
-     * @param MutualTlsOauthConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MutualTlsOauthConfigurationItemRequestBuilderGetRequest_127ee3a5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MutualTlsOauthConfigurationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MutualTlsOauthConfigurationItemRequestBuilderGetRequest_127ee3a5 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/certificateAuthorities/mutualTlsOauthConfigurations/{mutualTlsOauthConfiguration%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -116,10 +116,10 @@ class MutualTlsOauthConfigurationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property mutualTlsOauthConfigurations in certificateAuthorities
      * @param MutualTlsOauthConfiguration $body The request body
-     * @param MutualTlsOauthConfigurationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MutualTlsOauthConfigurationItemRequestBuilderPatchReque_2d1137a1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(MutualTlsOauthConfiguration $body, ?MutualTlsOauthConfigurationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(MutualTlsOauthConfiguration $body, ?MutualTlsOauthConfigurationItemRequestBuilderPatchReque_2d1137a1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

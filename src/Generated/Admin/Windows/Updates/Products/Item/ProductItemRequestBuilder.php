@@ -6,7 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\Item\Editions\EditionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\Item\KnownIssues\KnownIssuesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\Item\MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActive\MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActiveRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\Item\MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWi_b9906865\MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWi_9058882d;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\Item\Revisions\RevisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\Product;
@@ -47,7 +47,7 @@ class ProductItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/admin/windows/updates/products/{product%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/admin/windows/updates/products/{product%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -86,10 +86,10 @@ class ProductItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the getKnownIssuesByTimeRange method.
      * @param int $daysInPast Usage: daysInPast={daysInPast}
-     * @return MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActiveRequestBuilder
+     * @return MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWi_9058882d
     */
-    public function microsoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActive(int $daysInPast): MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActiveRequestBuilder {
-        return new MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActiveRequestBuilder($this->pathParameters, $this->requestAdapter, $daysInPast);
+    public function microsoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActive(int $daysInPast): MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWi_9058882d {
+        return new MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWi_9058882d($this->pathParameters, $this->requestAdapter, $daysInPast);
     }
 
     /**
@@ -132,7 +132,7 @@ class ProductItemRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?ProductItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/admin/windows/updates/products/{product%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {

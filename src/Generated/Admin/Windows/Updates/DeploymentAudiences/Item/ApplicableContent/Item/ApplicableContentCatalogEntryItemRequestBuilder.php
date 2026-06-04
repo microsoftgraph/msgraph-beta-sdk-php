@@ -38,7 +38,7 @@ class ApplicableContentCatalogEntryItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/admin/windows/updates/deploymentAudiences/{deploymentAudience%2Did}/applicableContent/{applicableContent%2DcatalogEntryId}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/admin/windows/updates/deploymentAudiences/{deploymentAudience%2Did}/applicableContent/{applicableContent%2DcatalogEntryId}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -48,11 +48,11 @@ class ApplicableContentCatalogEntryItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property applicableContent for admin
-     * @param ApplicableContentCatalogEntryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplicableContentCatalogEntryItemRequestBuilderDeleteRe_5d0c54f1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ApplicableContentCatalogEntryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ApplicableContentCatalogEntryItemRequestBuilderDeleteRe_5d0c54f1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class ApplicableContentCatalogEntryItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Content eligible to deploy to devices in the audience. Not nullable. Read-only.
-     * @param ApplicableContentCatalogEntryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplicableContentCatalogEntryItemRequestBuilderGetReque_060c92af|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApplicableContent|null>
      * @throws Exception
     */
-    public function get(?ApplicableContentCatalogEntryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ApplicableContentCatalogEntryItemRequestBuilderGetReque_060c92af $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,11 +77,11 @@ class ApplicableContentCatalogEntryItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property applicableContent in admin
      * @param ApplicableContent $body The request body
-     * @param ApplicableContentCatalogEntryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplicableContentCatalogEntryItemRequestBuilderPatchReq_5a89ab05|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApplicableContent|null>
      * @throws Exception
     */
-    public function patch(ApplicableContent $body, ?ApplicableContentCatalogEntryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ApplicableContent $body, ?ApplicableContentCatalogEntryItemRequestBuilderPatchReq_5a89ab05 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -91,10 +91,10 @@ class ApplicableContentCatalogEntryItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property applicableContent for admin
-     * @param ApplicableContentCatalogEntryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplicableContentCatalogEntryItemRequestBuilderDeleteRe_5d0c54f1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ApplicableContentCatalogEntryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ApplicableContentCatalogEntryItemRequestBuilderDeleteRe_5d0c54f1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -109,12 +109,12 @@ class ApplicableContentCatalogEntryItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Content eligible to deploy to devices in the audience. Not nullable. Read-only.
-     * @param ApplicableContentCatalogEntryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplicableContentCatalogEntryItemRequestBuilderGetReque_060c92af|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ApplicableContentCatalogEntryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ApplicableContentCatalogEntryItemRequestBuilderGetReque_060c92af $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/admin/windows/updates/deploymentAudiences/{deploymentAudience%2Did}/applicableContent/{applicableContent%2DcatalogEntryId}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -131,10 +131,10 @@ class ApplicableContentCatalogEntryItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property applicableContent in admin
      * @param ApplicableContent $body The request body
-     * @param ApplicableContentCatalogEntryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplicableContentCatalogEntryItemRequestBuilderPatchReq_5a89ab05|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ApplicableContent $body, ?ApplicableContentCatalogEntryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ApplicableContent $body, ?ApplicableContentCatalogEntryItemRequestBuilderPatchReq_5a89ab05 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

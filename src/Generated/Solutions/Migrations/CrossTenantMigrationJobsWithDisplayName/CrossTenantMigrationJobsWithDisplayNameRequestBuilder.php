@@ -7,6 +7,8 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\CrossTenantMigrationJob;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Solutions\Migrations\CrossTenantMigrationJobsWithDisplayName\Cancel\CancelRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\Migrations\CrossTenantMigrationJobsWithDisplayName\Migrate\MigrateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\Migrations\CrossTenantMigrationJobsWithDisplayName\Validate\ValidateRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -25,13 +27,27 @@ class CrossTenantMigrationJobsWithDisplayNameRequestBuilder extends BaseRequestB
     }
     
     /**
+     * Provides operations to call the migrate method.
+    */
+    public function migrate(): MigrateRequestBuilder {
+        return new MigrateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the validate method.
+    */
+    public function validate(): ValidateRequestBuilder {
+        return new ValidateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Instantiates a new CrossTenantMigrationJobsWithDisplayNameRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
      * @param string|null $displayName Alternate key of crossTenantMigrationJob
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $displayName = null) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/migrations/crossTenantMigrationJobs(displayName=\'{displayName}\'){?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/migrations/crossTenantMigrationJobs(displayName=\'{displayName}\')');
         if (is_array($pathParametersOrRawUrl)) {
             $urlTplParams = $pathParametersOrRawUrl;
             $urlTplParams['displayName'] = $displayName;
@@ -43,11 +59,11 @@ class CrossTenantMigrationJobsWithDisplayNameRequestBuilder extends BaseRequestB
 
     /**
      * Delete navigation property crossTenantMigrationJobs for solutions
-     * @param CrossTenantMigrationJobsWithDisplayNameRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossTenantMigrationJobsWithDisplayNameRequestBuilderDe_75711669|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CrossTenantMigrationJobsWithDisplayNameRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CrossTenantMigrationJobsWithDisplayNameRequestBuilderDe_75711669 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -57,12 +73,12 @@ class CrossTenantMigrationJobsWithDisplayNameRequestBuilder extends BaseRequestB
 
     /**
      * Read the properties and relationships of crossTenantMigrationJob object. Includes details of the crossTenantMigrationJob , but not details of the individual crossTenantMigrationTasks of the crossTenantMigrationJob.
-     * @param CrossTenantMigrationJobsWithDisplayNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossTenantMigrationJobsWithDisplayNameRequestBuilderGe_aa4d205c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CrossTenantMigrationJob|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/crosstenantmigrationjob-get?view=graph-rest-beta Find more info here
     */
-    public function get(?CrossTenantMigrationJobsWithDisplayNameRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CrossTenantMigrationJobsWithDisplayNameRequestBuilderGe_aa4d205c $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -73,12 +89,12 @@ class CrossTenantMigrationJobsWithDisplayNameRequestBuilder extends BaseRequestB
     /**
      * Update the completeAfterDateTime of a crossTenantMigrationJob object. Only updates to the completeAfterDateTime are supported. Use this function to change when the crossTenantMigrationJob starts processing. If completeAfterDateTime is set to the past, the crossTenantMigrationJob starts processing.
      * @param CrossTenantMigrationJob $body The request body
-     * @param CrossTenantMigrationJobsWithDisplayNameRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossTenantMigrationJobsWithDisplayNameRequestBuilderPa_f3db2b17|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CrossTenantMigrationJob|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/crosstenantmigrationjob-update?view=graph-rest-beta Find more info here
     */
-    public function patch(CrossTenantMigrationJob $body, ?CrossTenantMigrationJobsWithDisplayNameRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(CrossTenantMigrationJob $body, ?CrossTenantMigrationJobsWithDisplayNameRequestBuilderPa_f3db2b17 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -88,10 +104,10 @@ class CrossTenantMigrationJobsWithDisplayNameRequestBuilder extends BaseRequestB
 
     /**
      * Delete navigation property crossTenantMigrationJobs for solutions
-     * @param CrossTenantMigrationJobsWithDisplayNameRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossTenantMigrationJobsWithDisplayNameRequestBuilderDe_75711669|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CrossTenantMigrationJobsWithDisplayNameRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CrossTenantMigrationJobsWithDisplayNameRequestBuilderDe_75711669 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -106,12 +122,12 @@ class CrossTenantMigrationJobsWithDisplayNameRequestBuilder extends BaseRequestB
 
     /**
      * Read the properties and relationships of crossTenantMigrationJob object. Includes details of the crossTenantMigrationJob , but not details of the individual crossTenantMigrationTasks of the crossTenantMigrationJob.
-     * @param CrossTenantMigrationJobsWithDisplayNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossTenantMigrationJobsWithDisplayNameRequestBuilderGe_aa4d205c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CrossTenantMigrationJobsWithDisplayNameRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CrossTenantMigrationJobsWithDisplayNameRequestBuilderGe_aa4d205c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/solutions/migrations/crossTenantMigrationJobs(displayName=\'{displayName}\'){?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -128,10 +144,10 @@ class CrossTenantMigrationJobsWithDisplayNameRequestBuilder extends BaseRequestB
     /**
      * Update the completeAfterDateTime of a crossTenantMigrationJob object. Only updates to the completeAfterDateTime are supported. Use this function to change when the crossTenantMigrationJob starts processing. If completeAfterDateTime is set to the past, the crossTenantMigrationJob starts processing.
      * @param CrossTenantMigrationJob $body The request body
-     * @param CrossTenantMigrationJobsWithDisplayNameRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossTenantMigrationJobsWithDisplayNameRequestBuilderPa_f3db2b17|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CrossTenantMigrationJob $body, ?CrossTenantMigrationJobsWithDisplayNameRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(CrossTenantMigrationJob $body, ?CrossTenantMigrationJobsWithDisplayNameRequestBuilderPa_f3db2b17 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

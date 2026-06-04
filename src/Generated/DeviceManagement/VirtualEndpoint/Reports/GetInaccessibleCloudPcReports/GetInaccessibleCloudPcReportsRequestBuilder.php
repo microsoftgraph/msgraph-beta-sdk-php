@@ -33,12 +33,12 @@ class GetInaccessibleCloudPcReportsRequestBuilder extends BaseRequestBuilder
     /**
      * Get inaccessible Cloud PCs with details, including the latest health state, failed connection count, failed health check count, and system status. An inaccessible Cloud PC represents a Cloud PC that is in an unavailable state (at least one of the health checks failed) or has consecutive user connections failure.
      * @param GetInaccessibleCloudPcReportsPostRequestBody $body The request body
-     * @param GetInaccessibleCloudPcReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetInaccessibleCloudPcReportsRequestBuilderPostRequestC_38a1731c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpcreports-getinaccessiblecloudpcreports?view=graph-rest-beta Find more info here
     */
-    public function post(GetInaccessibleCloudPcReportsPostRequestBody $body, ?GetInaccessibleCloudPcReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetInaccessibleCloudPcReportsPostRequestBody $body, ?GetInaccessibleCloudPcReportsRequestBuilderPostRequestC_38a1731c $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -51,10 +51,10 @@ class GetInaccessibleCloudPcReportsRequestBuilder extends BaseRequestBuilder
     /**
      * Get inaccessible Cloud PCs with details, including the latest health state, failed connection count, failed health check count, and system status. An inaccessible Cloud PC represents a Cloud PC that is in an unavailable state (at least one of the health checks failed) or has consecutive user connections failure.
      * @param GetInaccessibleCloudPcReportsPostRequestBody $body The request body
-     * @param GetInaccessibleCloudPcReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetInaccessibleCloudPcReportsRequestBuilderPostRequestC_38a1731c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetInaccessibleCloudPcReportsPostRequestBody $body, ?GetInaccessibleCloudPcReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetInaccessibleCloudPcReportsPostRequestBody $body, ?GetInaccessibleCloudPcReportsRequestBuilderPostRequestC_38a1731c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -32,11 +32,11 @@ class CloudCertificationAuthorityLeafCertificateItemRequestBuilder extends BaseR
 
     /**
      * Required OData property to expose leaf certificate API.
-     * @param CloudCertificationAuthorityLeafCertificateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudCertificationAuthorityLeafCertificateItemRequestBu_57bd12c6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudCertificationAuthorityLeafCertificate|null>
      * @throws Exception
     */
-    public function get(?CloudCertificationAuthorityLeafCertificateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CloudCertificationAuthorityLeafCertificateItemRequestBu_57bd12c6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class CloudCertificationAuthorityLeafCertificateItemRequestBuilder extends BaseR
 
     /**
      * Required OData property to expose leaf certificate API.
-     * @param CloudCertificationAuthorityLeafCertificateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudCertificationAuthorityLeafCertificateItemRequestBu_57bd12c6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CloudCertificationAuthorityLeafCertificateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CloudCertificationAuthorityLeafCertificateItemRequestBu_57bd12c6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

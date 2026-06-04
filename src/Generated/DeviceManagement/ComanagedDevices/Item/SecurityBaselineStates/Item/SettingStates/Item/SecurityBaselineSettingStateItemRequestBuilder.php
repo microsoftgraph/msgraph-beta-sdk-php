@@ -22,7 +22,7 @@ class SecurityBaselineSettingStateItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/comanagedDevices/{managedDevice%2Did}/securityBaselineStates/{securityBaselineState%2Did}/settingStates/{securityBaselineSettingState%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/comanagedDevices/{managedDevice%2Did}/securityBaselineStates/{securityBaselineState%2Did}/settingStates/{securityBaselineSettingState%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class SecurityBaselineSettingStateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property settingStates for deviceManagement
-     * @param SecurityBaselineSettingStateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SecurityBaselineSettingStateItemRequestBuilderDeleteReq_d94f062c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?SecurityBaselineSettingStateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?SecurityBaselineSettingStateItemRequestBuilderDeleteReq_d94f062c $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class SecurityBaselineSettingStateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * The security baseline state for different settings for a device
-     * @param SecurityBaselineSettingStateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SecurityBaselineSettingStateItemRequestBuilderGetReques_2fd40eca|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SecurityBaselineSettingState|null>
      * @throws Exception
     */
-    public function get(?SecurityBaselineSettingStateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?SecurityBaselineSettingStateItemRequestBuilderGetReques_2fd40eca $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class SecurityBaselineSettingStateItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property settingStates in deviceManagement
      * @param SecurityBaselineSettingState $body The request body
-     * @param SecurityBaselineSettingStateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SecurityBaselineSettingStateItemRequestBuilderPatchRequ_fad69b8e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SecurityBaselineSettingState|null>
      * @throws Exception
     */
-    public function patch(SecurityBaselineSettingState $body, ?SecurityBaselineSettingStateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(SecurityBaselineSettingState $body, ?SecurityBaselineSettingStateItemRequestBuilderPatchRequ_fad69b8e $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class SecurityBaselineSettingStateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property settingStates for deviceManagement
-     * @param SecurityBaselineSettingStateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SecurityBaselineSettingStateItemRequestBuilderDeleteReq_d94f062c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?SecurityBaselineSettingStateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?SecurityBaselineSettingStateItemRequestBuilderDeleteReq_d94f062c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,12 +93,12 @@ class SecurityBaselineSettingStateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * The security baseline state for different settings for a device
-     * @param SecurityBaselineSettingStateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SecurityBaselineSettingStateItemRequestBuilderGetReques_2fd40eca|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?SecurityBaselineSettingStateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?SecurityBaselineSettingStateItemRequestBuilderGetReques_2fd40eca $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/comanagedDevices/{managedDevice%2Did}/securityBaselineStates/{securityBaselineState%2Did}/settingStates/{securityBaselineSettingState%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class SecurityBaselineSettingStateItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property settingStates in deviceManagement
      * @param SecurityBaselineSettingState $body The request body
-     * @param SecurityBaselineSettingStateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SecurityBaselineSettingStateItemRequestBuilderPatchRequ_fad69b8e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(SecurityBaselineSettingState $body, ?SecurityBaselineSettingStateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(SecurityBaselineSettingState $body, ?SecurityBaselineSettingStateItemRequestBuilderPatchRequ_fad69b8e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

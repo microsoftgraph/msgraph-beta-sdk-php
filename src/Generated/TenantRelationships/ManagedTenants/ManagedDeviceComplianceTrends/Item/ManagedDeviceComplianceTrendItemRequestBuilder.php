@@ -22,7 +22,7 @@ class ManagedDeviceComplianceTrendItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/managedDeviceComplianceTrends/{managedDeviceComplianceTrend%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/managedDeviceComplianceTrends/{managedDeviceComplianceTrend%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class ManagedDeviceComplianceTrendItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property managedDeviceComplianceTrends for tenantRelationships
-     * @param ManagedDeviceComplianceTrendItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceComplianceTrendItemRequestBuilderDeleteReq_db3135f3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ManagedDeviceComplianceTrendItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ManagedDeviceComplianceTrendItemRequestBuilderDeleteReq_db3135f3 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,12 +46,12 @@ class ManagedDeviceComplianceTrendItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of a managedDeviceComplianceTrend object.
-     * @param ManagedDeviceComplianceTrendItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceComplianceTrendItemRequestBuilderGetReques_a3204825|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedDeviceComplianceTrend|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/managedtenants-manageddevicecompliancetrend-get?view=graph-rest-beta Find more info here
     */
-    public function get(?ManagedDeviceComplianceTrendItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagedDeviceComplianceTrendItemRequestBuilderGetReques_a3204825 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class ManagedDeviceComplianceTrendItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property managedDeviceComplianceTrends in tenantRelationships
      * @param ManagedDeviceComplianceTrend $body The request body
-     * @param ManagedDeviceComplianceTrendItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceComplianceTrendItemRequestBuilderPatchRequ_6947e388|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedDeviceComplianceTrend|null>
      * @throws Exception
     */
-    public function patch(ManagedDeviceComplianceTrend $body, ?ManagedDeviceComplianceTrendItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ManagedDeviceComplianceTrend $body, ?ManagedDeviceComplianceTrendItemRequestBuilderPatchRequ_6947e388 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -76,10 +76,10 @@ class ManagedDeviceComplianceTrendItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property managedDeviceComplianceTrends for tenantRelationships
-     * @param ManagedDeviceComplianceTrendItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceComplianceTrendItemRequestBuilderDeleteReq_db3135f3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ManagedDeviceComplianceTrendItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ManagedDeviceComplianceTrendItemRequestBuilderDeleteReq_db3135f3 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -94,12 +94,12 @@ class ManagedDeviceComplianceTrendItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of a managedDeviceComplianceTrend object.
-     * @param ManagedDeviceComplianceTrendItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceComplianceTrendItemRequestBuilderGetReques_a3204825|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagedDeviceComplianceTrendItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagedDeviceComplianceTrendItemRequestBuilderGetReques_a3204825 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/managedDeviceComplianceTrends/{managedDeviceComplianceTrend%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -116,10 +116,10 @@ class ManagedDeviceComplianceTrendItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property managedDeviceComplianceTrends in tenantRelationships
      * @param ManagedDeviceComplianceTrend $body The request body
-     * @param ManagedDeviceComplianceTrendItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceComplianceTrendItemRequestBuilderPatchRequ_6947e388|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ManagedDeviceComplianceTrend $body, ?ManagedDeviceComplianceTrendItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ManagedDeviceComplianceTrend $body, ?ManagedDeviceComplianceTrendItemRequestBuilderPatchRequ_6947e388 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

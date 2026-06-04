@@ -30,7 +30,7 @@ class SharePointMigrationTaskItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/sharePoint/migrations/crossOrganizationMigrationTasks/{sharePointMigrationTask%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/sharePoint/migrations/crossOrganizationMigrationTasks/{sharePointMigrationTask%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,11 +40,11 @@ class SharePointMigrationTaskItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property crossOrganizationMigrationTasks for solutions
-     * @param SharePointMigrationTaskItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharePointMigrationTaskItemRequestBuilderDeleteRequestC_88862751|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?SharePointMigrationTaskItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?SharePointMigrationTaskItemRequestBuilderDeleteRequestC_88862751 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -70,11 +70,11 @@ class SharePointMigrationTaskItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property crossOrganizationMigrationTasks in solutions
      * @param SharePointMigrationTask $body The request body
-     * @param SharePointMigrationTaskItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharePointMigrationTaskItemRequestBuilderPatchRequestCo_91db89e3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SharePointMigrationTask|null>
      * @throws Exception
     */
-    public function patch(SharePointMigrationTask $body, ?SharePointMigrationTaskItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(SharePointMigrationTask $body, ?SharePointMigrationTaskItemRequestBuilderPatchRequestCo_91db89e3 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -84,10 +84,10 @@ class SharePointMigrationTaskItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property crossOrganizationMigrationTasks for solutions
-     * @param SharePointMigrationTaskItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharePointMigrationTaskItemRequestBuilderDeleteRequestC_88862751|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?SharePointMigrationTaskItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?SharePointMigrationTaskItemRequestBuilderDeleteRequestC_88862751 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -107,7 +107,7 @@ class SharePointMigrationTaskItemRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?SharePointMigrationTaskItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/solutions/sharePoint/migrations/crossOrganizationMigrationTasks/{sharePointMigrationTask%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -124,10 +124,10 @@ class SharePointMigrationTaskItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property crossOrganizationMigrationTasks in solutions
      * @param SharePointMigrationTask $body The request body
-     * @param SharePointMigrationTaskItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharePointMigrationTaskItemRequestBuilderPatchRequestCo_91db89e3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(SharePointMigrationTask $body, ?SharePointMigrationTaskItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(SharePointMigrationTask $body, ?SharePointMigrationTaskItemRequestBuilderPatchRequestCo_91db89e3 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

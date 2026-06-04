@@ -31,11 +31,11 @@ class GenerateEncryptionPublicKeyRequestBuilder extends BaseRequestBuilder
 
     /**
      * Generate a public key to use to encrypt the Apple device enrollment program token
-     * @param GenerateEncryptionPublicKeyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GenerateEncryptionPublicKeyRequestBuilderPostRequestCon_d0b2b57f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GenerateEncryptionPublicKeyPostResponse|null>
      * @throws Exception
     */
-    public function post(?GenerateEncryptionPublicKeyRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?GenerateEncryptionPublicKeyRequestBuilderPostRequestCon_d0b2b57f $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,10 +45,10 @@ class GenerateEncryptionPublicKeyRequestBuilder extends BaseRequestBuilder
 
     /**
      * Generate a public key to use to encrypt the Apple device enrollment program token
-     * @param GenerateEncryptionPublicKeyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GenerateEncryptionPublicKeyRequestBuilderPostRequestCon_d0b2b57f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?GenerateEncryptionPublicKeyRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?GenerateEncryptionPublicKeyRequestBuilderPostRequestCon_d0b2b57f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -22,7 +22,7 @@ class TeamworkDeviceOperationItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/teamwork/devices/{teamworkDevice%2Did}/operations/{teamworkDeviceOperation%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/teamwork/devices/{teamworkDevice%2Did}/operations/{teamworkDeviceOperation%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class TeamworkDeviceOperationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property operations for teamwork
-     * @param TeamworkDeviceOperationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TeamworkDeviceOperationItemRequestBuilderDeleteRequestC_c63a02d1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?TeamworkDeviceOperationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?TeamworkDeviceOperationItemRequestBuilderDeleteRequestC_c63a02d1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class TeamworkDeviceOperationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property operations in teamwork
      * @param TeamworkDeviceOperation $body The request body
-     * @param TeamworkDeviceOperationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TeamworkDeviceOperationItemRequestBuilderPatchRequestCo_946aff02|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkDeviceOperation|null>
      * @throws Exception
     */
-    public function patch(TeamworkDeviceOperation $body, ?TeamworkDeviceOperationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(TeamworkDeviceOperation $body, ?TeamworkDeviceOperationItemRequestBuilderPatchRequestCo_946aff02 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -76,10 +76,10 @@ class TeamworkDeviceOperationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property operations for teamwork
-     * @param TeamworkDeviceOperationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TeamworkDeviceOperationItemRequestBuilderDeleteRequestC_c63a02d1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?TeamworkDeviceOperationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?TeamworkDeviceOperationItemRequestBuilderDeleteRequestC_c63a02d1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -99,7 +99,7 @@ class TeamworkDeviceOperationItemRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?TeamworkDeviceOperationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/teamwork/devices/{teamworkDevice%2Did}/operations/{teamworkDeviceOperation%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -116,10 +116,10 @@ class TeamworkDeviceOperationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property operations in teamwork
      * @param TeamworkDeviceOperation $body The request body
-     * @param TeamworkDeviceOperationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TeamworkDeviceOperationItemRequestBuilderPatchRequestCo_946aff02|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(TeamworkDeviceOperation $body, ?TeamworkDeviceOperationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(TeamworkDeviceOperation $body, ?TeamworkDeviceOperationItemRequestBuilderPatchRequestCo_946aff02 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

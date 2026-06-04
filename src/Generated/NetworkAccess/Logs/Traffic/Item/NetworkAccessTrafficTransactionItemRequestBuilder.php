@@ -38,7 +38,7 @@ class NetworkAccessTrafficTransactionItemRequestBuilder extends BaseRequestBuild
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/networkAccess/logs/traffic/{networkAccessTraffic%2DtransactionId}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/networkAccess/logs/traffic/{networkAccessTraffic%2DtransactionId}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -48,11 +48,11 @@ class NetworkAccessTrafficTransactionItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Delete navigation property traffic for networkAccess
-     * @param NetworkAccessTrafficTransactionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param NetworkAccessTrafficTransactionItemRequestBuilderDelete_11f7cd17|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?NetworkAccessTrafficTransactionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?NetworkAccessTrafficTransactionItemRequestBuilderDelete_11f7cd17 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class NetworkAccessTrafficTransactionItemRequestBuilder extends BaseRequestBuild
 
     /**
      * A network access traffic log entry that contains comprehensive information about network traffic events.
-     * @param NetworkAccessTrafficTransactionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param NetworkAccessTrafficTransactionItemRequestBuilderGetReq_6cad4687|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<NetworkAccessTraffic|null>
      * @throws Exception
     */
-    public function get(?NetworkAccessTrafficTransactionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?NetworkAccessTrafficTransactionItemRequestBuilderGetReq_6cad4687 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,11 +77,11 @@ class NetworkAccessTrafficTransactionItemRequestBuilder extends BaseRequestBuild
     /**
      * Update the navigation property traffic in networkAccess
      * @param NetworkAccessTraffic $body The request body
-     * @param NetworkAccessTrafficTransactionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param NetworkAccessTrafficTransactionItemRequestBuilderPatchR_2775e031|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<NetworkAccessTraffic|null>
      * @throws Exception
     */
-    public function patch(NetworkAccessTraffic $body, ?NetworkAccessTrafficTransactionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(NetworkAccessTraffic $body, ?NetworkAccessTrafficTransactionItemRequestBuilderPatchR_2775e031 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -91,10 +91,10 @@ class NetworkAccessTrafficTransactionItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Delete navigation property traffic for networkAccess
-     * @param NetworkAccessTrafficTransactionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param NetworkAccessTrafficTransactionItemRequestBuilderDelete_11f7cd17|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?NetworkAccessTrafficTransactionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?NetworkAccessTrafficTransactionItemRequestBuilderDelete_11f7cd17 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -109,12 +109,12 @@ class NetworkAccessTrafficTransactionItemRequestBuilder extends BaseRequestBuild
 
     /**
      * A network access traffic log entry that contains comprehensive information about network traffic events.
-     * @param NetworkAccessTrafficTransactionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param NetworkAccessTrafficTransactionItemRequestBuilderGetReq_6cad4687|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?NetworkAccessTrafficTransactionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?NetworkAccessTrafficTransactionItemRequestBuilderGetReq_6cad4687 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/logs/traffic/{networkAccessTraffic%2DtransactionId}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -131,10 +131,10 @@ class NetworkAccessTrafficTransactionItemRequestBuilder extends BaseRequestBuild
     /**
      * Update the navigation property traffic in networkAccess
      * @param NetworkAccessTraffic $body The request body
-     * @param NetworkAccessTrafficTransactionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param NetworkAccessTrafficTransactionItemRequestBuilderPatchR_2775e031|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(NetworkAccessTraffic $body, ?NetworkAccessTrafficTransactionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(NetworkAccessTraffic $body, ?NetworkAccessTrafficTransactionItemRequestBuilderPatchR_2775e031 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

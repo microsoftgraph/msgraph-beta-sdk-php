@@ -32,12 +32,12 @@ class DeleteTiIndicatorsByExternalIdRequestBuilder extends BaseRequestBuilder
     /**
      * Delete multiple threat intelligence (TI) indicators in one request instead of multiple requests, when the request contains external IDs instead of IDs.
      * @param DeleteTiIndicatorsByExternalIdPostRequestBody $body The request body
-     * @param DeleteTiIndicatorsByExternalIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeleteTiIndicatorsByExternalIdRequestBuilderPostRequest_fde1bafa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeleteTiIndicatorsByExternalIdPostResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/tiindicator-deletetiindicatorsbyexternalid?view=graph-rest-beta Find more info here
     */
-    public function post(DeleteTiIndicatorsByExternalIdPostRequestBody $body, ?DeleteTiIndicatorsByExternalIdRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(DeleteTiIndicatorsByExternalIdPostRequestBody $body, ?DeleteTiIndicatorsByExternalIdRequestBuilderPostRequest_fde1bafa $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class DeleteTiIndicatorsByExternalIdRequestBuilder extends BaseRequestBuilder
     /**
      * Delete multiple threat intelligence (TI) indicators in one request instead of multiple requests, when the request contains external IDs instead of IDs.
      * @param DeleteTiIndicatorsByExternalIdPostRequestBody $body The request body
-     * @param DeleteTiIndicatorsByExternalIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeleteTiIndicatorsByExternalIdRequestBuilderPostRequest_fde1bafa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(DeleteTiIndicatorsByExternalIdPostRequestBody $body, ?DeleteTiIndicatorsByExternalIdRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(DeleteTiIndicatorsByExternalIdPostRequestBody $body, ?DeleteTiIndicatorsByExternalIdRequestBuilderPostRequest_fde1bafa $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

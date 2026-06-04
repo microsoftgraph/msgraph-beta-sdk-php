@@ -22,7 +22,7 @@ class SymantecCodeSigningCertificateRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceAppManagement/symantecCodeSigningCertificate{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceAppManagement/symantecCodeSigningCertificate');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class SymantecCodeSigningCertificateRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property symantecCodeSigningCertificate for deviceAppManagement
-     * @param SymantecCodeSigningCertificateRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SymantecCodeSigningCertificateRequestBuilderDeleteReque_badb4509|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?SymantecCodeSigningCertificateRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?SymantecCodeSigningCertificateRequestBuilderDeleteReque_badb4509 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class SymantecCodeSigningCertificateRequestBuilder extends BaseRequestBuilder
 
     /**
      * The WinPhone Symantec Code Signing Certificate.
-     * @param SymantecCodeSigningCertificateRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SymantecCodeSigningCertificateRequestBuilderGetRequestC_0de3238e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SymantecCodeSigningCertificate|null>
      * @throws Exception
     */
-    public function get(?SymantecCodeSigningCertificateRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?SymantecCodeSigningCertificateRequestBuilderGetRequestC_0de3238e $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class SymantecCodeSigningCertificateRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property symantecCodeSigningCertificate in deviceAppManagement
      * @param SymantecCodeSigningCertificate $body The request body
-     * @param SymantecCodeSigningCertificateRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SymantecCodeSigningCertificateRequestBuilderPatchReques_2c70252a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SymantecCodeSigningCertificate|null>
      * @throws Exception
     */
-    public function patch(SymantecCodeSigningCertificate $body, ?SymantecCodeSigningCertificateRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(SymantecCodeSigningCertificate $body, ?SymantecCodeSigningCertificateRequestBuilderPatchReques_2c70252a $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class SymantecCodeSigningCertificateRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property symantecCodeSigningCertificate for deviceAppManagement
-     * @param SymantecCodeSigningCertificateRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SymantecCodeSigningCertificateRequestBuilderDeleteReque_badb4509|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?SymantecCodeSigningCertificateRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?SymantecCodeSigningCertificateRequestBuilderDeleteReque_badb4509 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,12 +93,12 @@ class SymantecCodeSigningCertificateRequestBuilder extends BaseRequestBuilder
 
     /**
      * The WinPhone Symantec Code Signing Certificate.
-     * @param SymantecCodeSigningCertificateRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SymantecCodeSigningCertificateRequestBuilderGetRequestC_0de3238e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?SymantecCodeSigningCertificateRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?SymantecCodeSigningCertificateRequestBuilderGetRequestC_0de3238e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceAppManagement/symantecCodeSigningCertificate{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class SymantecCodeSigningCertificateRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property symantecCodeSigningCertificate in deviceAppManagement
      * @param SymantecCodeSigningCertificate $body The request body
-     * @param SymantecCodeSigningCertificateRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SymantecCodeSigningCertificateRequestBuilderPatchReques_2c70252a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(SymantecCodeSigningCertificate $body, ?SymantecCodeSigningCertificateRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(SymantecCodeSigningCertificate $body, ?SymantecCodeSigningCertificateRequestBuilderPatchReques_2c70252a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

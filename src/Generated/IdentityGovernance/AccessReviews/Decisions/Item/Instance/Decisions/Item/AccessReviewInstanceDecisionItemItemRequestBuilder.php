@@ -30,7 +30,7 @@ class AccessReviewInstanceDecisionItemItemRequestBuilder extends BaseRequestBuil
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/accessReviews/decisions/{accessReviewInstanceDecisionItem%2Did}/instance/decisions/{accessReviewInstanceDecisionItem%2Did1}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/identityGovernance/accessReviews/decisions/{accessReviewInstanceDecisionItem%2Did}/instance/decisions/{accessReviewInstanceDecisionItem%2Did1}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,11 +40,11 @@ class AccessReviewInstanceDecisionItemItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Delete navigation property decisions for identityGovernance
-     * @param AccessReviewInstanceDecisionItemItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessReviewInstanceDecisionItemItemRequestBuilderDelet_9912c74d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?AccessReviewInstanceDecisionItemItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?AccessReviewInstanceDecisionItemItemRequestBuilderDelet_9912c74d $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,11 +54,11 @@ class AccessReviewInstanceDecisionItemItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
-     * @param AccessReviewInstanceDecisionItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessReviewInstanceDecisionItemItemRequestBuilderGetRe_6d4f61fd|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessReviewInstanceDecisionItem|null>
      * @throws Exception
     */
-    public function get(?AccessReviewInstanceDecisionItemItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AccessReviewInstanceDecisionItemItemRequestBuilderGetRe_6d4f61fd $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class AccessReviewInstanceDecisionItemItemRequestBuilder extends BaseRequestBuil
     /**
      * Update the navigation property decisions in identityGovernance
      * @param AccessReviewInstanceDecisionItem $body The request body
-     * @param AccessReviewInstanceDecisionItemItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessReviewInstanceDecisionItemItemRequestBuilderPatch_ba1f9a23|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessReviewInstanceDecisionItem|null>
      * @throws Exception
     */
-    public function patch(AccessReviewInstanceDecisionItem $body, ?AccessReviewInstanceDecisionItemItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(AccessReviewInstanceDecisionItem $body, ?AccessReviewInstanceDecisionItemItemRequestBuilderPatch_ba1f9a23 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class AccessReviewInstanceDecisionItemItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Delete navigation property decisions for identityGovernance
-     * @param AccessReviewInstanceDecisionItemItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessReviewInstanceDecisionItemItemRequestBuilderDelet_9912c74d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?AccessReviewInstanceDecisionItemItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?AccessReviewInstanceDecisionItemItemRequestBuilderDelet_9912c74d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -101,12 +101,12 @@ class AccessReviewInstanceDecisionItemItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
-     * @param AccessReviewInstanceDecisionItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessReviewInstanceDecisionItemItemRequestBuilderGetRe_6d4f61fd|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AccessReviewInstanceDecisionItemItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AccessReviewInstanceDecisionItemItemRequestBuilderGetRe_6d4f61fd $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/identityGovernance/accessReviews/decisions/{accessReviewInstanceDecisionItem%2Did}/instance/decisions/{accessReviewInstanceDecisionItem%2Did1}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -123,10 +123,10 @@ class AccessReviewInstanceDecisionItemItemRequestBuilder extends BaseRequestBuil
     /**
      * Update the navigation property decisions in identityGovernance
      * @param AccessReviewInstanceDecisionItem $body The request body
-     * @param AccessReviewInstanceDecisionItemItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessReviewInstanceDecisionItemItemRequestBuilderPatch_ba1f9a23|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(AccessReviewInstanceDecisionItem $body, ?AccessReviewInstanceDecisionItemItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(AccessReviewInstanceDecisionItem $body, ?AccessReviewInstanceDecisionItemItemRequestBuilderPatch_ba1f9a23 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

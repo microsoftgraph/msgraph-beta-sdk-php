@@ -43,7 +43,7 @@ class EmbeddedSIMActivationCodePoolsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/embeddedSIMActivationCodePools{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class EmbeddedSIMActivationCodePoolsRequestBuilder extends BaseRequestBuilder
 
     /**
      * The embedded SIM activation code pools created by this account.
-     * @param EmbeddedSIMActivationCodePoolsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmbeddedSIMActivationCodePoolsRequestBuilderGetRequestC_99e67dae|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EmbeddedSIMActivationCodePoolCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?EmbeddedSIMActivationCodePoolsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?EmbeddedSIMActivationCodePoolsRequestBuilderGetRequestC_99e67dae $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class EmbeddedSIMActivationCodePoolsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to embeddedSIMActivationCodePools for deviceManagement
      * @param EmbeddedSIMActivationCodePool $body The request body
-     * @param EmbeddedSIMActivationCodePoolsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmbeddedSIMActivationCodePoolsRequestBuilderPostRequest_c1bd317a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EmbeddedSIMActivationCodePool|null>
      * @throws Exception
     */
-    public function post(EmbeddedSIMActivationCodePool $body, ?EmbeddedSIMActivationCodePoolsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(EmbeddedSIMActivationCodePool $body, ?EmbeddedSIMActivationCodePoolsRequestBuilderPostRequest_c1bd317a $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,12 +82,12 @@ class EmbeddedSIMActivationCodePoolsRequestBuilder extends BaseRequestBuilder
 
     /**
      * The embedded SIM activation code pools created by this account.
-     * @param EmbeddedSIMActivationCodePoolsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmbeddedSIMActivationCodePoolsRequestBuilderGetRequestC_99e67dae|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?EmbeddedSIMActivationCodePoolsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?EmbeddedSIMActivationCodePoolsRequestBuilderGetRequestC_99e67dae $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/embeddedSIMActivationCodePools{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,12 +104,12 @@ class EmbeddedSIMActivationCodePoolsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to embeddedSIMActivationCodePools for deviceManagement
      * @param EmbeddedSIMActivationCodePool $body The request body
-     * @param EmbeddedSIMActivationCodePoolsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmbeddedSIMActivationCodePoolsRequestBuilderPostRequest_c1bd317a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(EmbeddedSIMActivationCodePool $body, ?EmbeddedSIMActivationCodePoolsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(EmbeddedSIMActivationCodePool $body, ?EmbeddedSIMActivationCodePoolsRequestBuilderPostRequest_c1bd317a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/embeddedSIMActivationCodePools';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

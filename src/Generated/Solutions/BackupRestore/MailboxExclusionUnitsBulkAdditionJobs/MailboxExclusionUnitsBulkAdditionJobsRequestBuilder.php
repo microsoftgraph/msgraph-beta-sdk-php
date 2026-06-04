@@ -43,7 +43,7 @@ class MailboxExclusionUnitsBulkAdditionJobsRequestBuilder extends BaseRequestBui
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/solutions/backupRestore/mailboxExclusionUnitsBulkAdditionJobs{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -52,12 +52,12 @@ class MailboxExclusionUnitsBulkAdditionJobsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Get mailboxExclusionUnitsBulkAdditionJobs from solutions
-     * @param MailboxExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * The list of bulk addition jobs for mailbox exclusion units in the tenant.
+     * @param MailboxExclusionUnitsBulkAdditionJobsRequestBuilderGetR_995e860b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MailboxExclusionUnitsBulkAdditionJobCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?MailboxExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MailboxExclusionUnitsBulkAdditionJobsRequestBuilderGetR_995e860b $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class MailboxExclusionUnitsBulkAdditionJobsRequestBuilder extends BaseRequestBui
     /**
      * Create new navigation property to mailboxExclusionUnitsBulkAdditionJobs for solutions
      * @param MailboxExclusionUnitsBulkAdditionJob $body The request body
-     * @param MailboxExclusionUnitsBulkAdditionJobsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MailboxExclusionUnitsBulkAdditionJobsRequestBuilderPost_d1284970|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MailboxExclusionUnitsBulkAdditionJob|null>
      * @throws Exception
     */
-    public function post(MailboxExclusionUnitsBulkAdditionJob $body, ?MailboxExclusionUnitsBulkAdditionJobsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(MailboxExclusionUnitsBulkAdditionJob $body, ?MailboxExclusionUnitsBulkAdditionJobsRequestBuilderPost_d1284970 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -81,13 +81,13 @@ class MailboxExclusionUnitsBulkAdditionJobsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Get mailboxExclusionUnitsBulkAdditionJobs from solutions
-     * @param MailboxExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * The list of bulk addition jobs for mailbox exclusion units in the tenant.
+     * @param MailboxExclusionUnitsBulkAdditionJobsRequestBuilderGetR_995e860b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MailboxExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MailboxExclusionUnitsBulkAdditionJobsRequestBuilderGetR_995e860b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/solutions/backupRestore/mailboxExclusionUnitsBulkAdditionJobs{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,12 +104,12 @@ class MailboxExclusionUnitsBulkAdditionJobsRequestBuilder extends BaseRequestBui
     /**
      * Create new navigation property to mailboxExclusionUnitsBulkAdditionJobs for solutions
      * @param MailboxExclusionUnitsBulkAdditionJob $body The request body
-     * @param MailboxExclusionUnitsBulkAdditionJobsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MailboxExclusionUnitsBulkAdditionJobsRequestBuilderPost_d1284970|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(MailboxExclusionUnitsBulkAdditionJob $body, ?MailboxExclusionUnitsBulkAdditionJobsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(MailboxExclusionUnitsBulkAdditionJob $body, ?MailboxExclusionUnitsBulkAdditionJobsRequestBuilderPost_d1284970 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/solutions/backupRestore/mailboxExclusionUnitsBulkAdditionJobs';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

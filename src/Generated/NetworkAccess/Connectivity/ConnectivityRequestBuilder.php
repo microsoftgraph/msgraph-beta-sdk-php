@@ -7,7 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\Networkaccess\Connectivity;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\Branches\BranchesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\MicrosoftGraphNetworkaccessGetWebCategoryByUrlWithUrl\MicrosoftGraphNetworkaccessGetWebCategoryByUrlWithUrlRequestBuilder;
+use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\MicrosoftGraphNetworkaccessGetWebCategoryByUrlWithUrl\MicrosoftGraphNetworkaccessGetWebCategoryByUrlWithUrlRe_f0168678;
 use Microsoft\Graph\Beta\Generated\NetworkAccess\Connectivity\RemoteNetworks\RemoteNetworksRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -39,7 +39,7 @@ class ConnectivityRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/networkAccess/connectivity{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/networkAccess/connectivity');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -78,10 +78,10 @@ class ConnectivityRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the getWebCategoryByUrl method.
      * @param string $url Usage: url='{url}'
-     * @return MicrosoftGraphNetworkaccessGetWebCategoryByUrlWithUrlRequestBuilder
+     * @return MicrosoftGraphNetworkaccessGetWebCategoryByUrlWithUrlRe_f0168678
     */
-    public function microsoftGraphNetworkaccessGetWebCategoryByUrlWithUrl(string $url): MicrosoftGraphNetworkaccessGetWebCategoryByUrlWithUrlRequestBuilder {
-        return new MicrosoftGraphNetworkaccessGetWebCategoryByUrlWithUrlRequestBuilder($this->pathParameters, $this->requestAdapter, $url);
+    public function microsoftGraphNetworkaccessGetWebCategoryByUrlWithUrl(string $url): MicrosoftGraphNetworkaccessGetWebCategoryByUrlWithUrlRe_f0168678 {
+        return new MicrosoftGraphNetworkaccessGetWebCategoryByUrlWithUrlRe_f0168678($this->pathParameters, $this->requestAdapter, $url);
     }
 
     /**
@@ -124,7 +124,7 @@ class ConnectivityRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?ConnectivityRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/networkAccess/connectivity{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {

@@ -22,7 +22,7 @@ class ManagedDeviceMobileAppConfigurationStateItemRequestBuilder extends BaseReq
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/managedDeviceMobileAppConfigurationStates/{managedDeviceMobileAppConfigurationState%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/managedDeviceMobileAppConfigurationStates/{managedDeviceMobileAppConfigurationState%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class ManagedDeviceMobileAppConfigurationStateItemRequestBuilder extends BaseReq
 
     /**
      * Delete navigation property managedDeviceMobileAppConfigurationStates for deviceManagement
-     * @param ManagedDeviceMobileAppConfigurationStateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceMobileAppConfigurationStateItemRequestBuil_9f8a87b6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ManagedDeviceMobileAppConfigurationStateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ManagedDeviceMobileAppConfigurationStateItemRequestBuil_9f8a87b6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class ManagedDeviceMobileAppConfigurationStateItemRequestBuilder extends BaseReq
 
     /**
      * Managed device mobile app configuration states for this device.
-     * @param ManagedDeviceMobileAppConfigurationStateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceMobileAppConfigurationStateItemRequestBuil_aa4f219e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedDeviceMobileAppConfigurationState|null>
      * @throws Exception
     */
-    public function get(?ManagedDeviceMobileAppConfigurationStateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagedDeviceMobileAppConfigurationStateItemRequestBuil_aa4f219e $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class ManagedDeviceMobileAppConfigurationStateItemRequestBuilder extends BaseReq
     /**
      * Update the navigation property managedDeviceMobileAppConfigurationStates in deviceManagement
      * @param ManagedDeviceMobileAppConfigurationState $body The request body
-     * @param ManagedDeviceMobileAppConfigurationStateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceMobileAppConfigurationStateItemRequestBuil_dfac1656|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedDeviceMobileAppConfigurationState|null>
      * @throws Exception
     */
-    public function patch(ManagedDeviceMobileAppConfigurationState $body, ?ManagedDeviceMobileAppConfigurationStateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ManagedDeviceMobileAppConfigurationState $body, ?ManagedDeviceMobileAppConfigurationStateItemRequestBuil_dfac1656 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class ManagedDeviceMobileAppConfigurationStateItemRequestBuilder extends BaseReq
 
     /**
      * Delete navigation property managedDeviceMobileAppConfigurationStates for deviceManagement
-     * @param ManagedDeviceMobileAppConfigurationStateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceMobileAppConfigurationStateItemRequestBuil_9f8a87b6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ManagedDeviceMobileAppConfigurationStateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ManagedDeviceMobileAppConfigurationStateItemRequestBuil_9f8a87b6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,12 +93,12 @@ class ManagedDeviceMobileAppConfigurationStateItemRequestBuilder extends BaseReq
 
     /**
      * Managed device mobile app configuration states for this device.
-     * @param ManagedDeviceMobileAppConfigurationStateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceMobileAppConfigurationStateItemRequestBuil_aa4f219e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagedDeviceMobileAppConfigurationStateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagedDeviceMobileAppConfigurationStateItemRequestBuil_aa4f219e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/managedDeviceMobileAppConfigurationStates/{managedDeviceMobileAppConfigurationState%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class ManagedDeviceMobileAppConfigurationStateItemRequestBuilder extends BaseReq
     /**
      * Update the navigation property managedDeviceMobileAppConfigurationStates in deviceManagement
      * @param ManagedDeviceMobileAppConfigurationState $body The request body
-     * @param ManagedDeviceMobileAppConfigurationStateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedDeviceMobileAppConfigurationStateItemRequestBuil_dfac1656|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ManagedDeviceMobileAppConfigurationState $body, ?ManagedDeviceMobileAppConfigurationStateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ManagedDeviceMobileAppConfigurationState $body, ?ManagedDeviceMobileAppConfigurationStateItemRequestBuil_dfac1656 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

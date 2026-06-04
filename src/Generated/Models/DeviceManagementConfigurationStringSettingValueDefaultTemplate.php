@@ -38,7 +38,7 @@ class DeviceManagementConfigurationStringSettingValueDefaultTemplate implements 
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
-                case '#microsoft.graph.deviceManagementConfigurationStringSettingValueConstantDefaultTemplate': return new DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate();
+                case '#microsoft.graph.deviceManagementConfigurationStringSettingValueConstantDefaultTemplate': return new DeviceManagementConfigurationStringSettingValueConstant_0156a72d();
             }
         }
         return new DeviceManagementConfigurationStringSettingValueDefaultTemplate();

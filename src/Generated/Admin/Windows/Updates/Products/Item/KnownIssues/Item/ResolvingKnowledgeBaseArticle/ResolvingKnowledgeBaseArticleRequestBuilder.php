@@ -22,7 +22,7 @@ class ResolvingKnowledgeBaseArticleRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/admin/windows/updates/products/{product%2Did}/knownIssues/{knownIssue%2Did}/resolvingKnowledgeBaseArticle{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/admin/windows/updates/products/{product%2Did}/knownIssues/{knownIssue%2Did}/resolvingKnowledgeBaseArticle');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class ResolvingKnowledgeBaseArticleRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property resolvingKnowledgeBaseArticle for admin
-     * @param ResolvingKnowledgeBaseArticleRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ResolvingKnowledgeBaseArticleRequestBuilderDeleteReques_8f738b58|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ResolvingKnowledgeBaseArticleRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ResolvingKnowledgeBaseArticleRequestBuilderDeleteReques_8f738b58 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class ResolvingKnowledgeBaseArticleRequestBuilder extends BaseRequestBuilder
 
     /**
      * Knowledge base article associated with the release when the known issue was resolved or mitigated.
-     * @param ResolvingKnowledgeBaseArticleRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ResolvingKnowledgeBaseArticleRequestBuilderGetRequestCo_0b2bb748|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<KnowledgeBaseArticle|null>
      * @throws Exception
     */
-    public function get(?ResolvingKnowledgeBaseArticleRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ResolvingKnowledgeBaseArticleRequestBuilderGetRequestCo_0b2bb748 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class ResolvingKnowledgeBaseArticleRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property resolvingKnowledgeBaseArticle in admin
      * @param KnowledgeBaseArticle $body The request body
-     * @param ResolvingKnowledgeBaseArticleRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ResolvingKnowledgeBaseArticleRequestBuilderPatchRequest_4c647efb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<KnowledgeBaseArticle|null>
      * @throws Exception
     */
-    public function patch(KnowledgeBaseArticle $body, ?ResolvingKnowledgeBaseArticleRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(KnowledgeBaseArticle $body, ?ResolvingKnowledgeBaseArticleRequestBuilderPatchRequest_4c647efb $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class ResolvingKnowledgeBaseArticleRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property resolvingKnowledgeBaseArticle for admin
-     * @param ResolvingKnowledgeBaseArticleRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ResolvingKnowledgeBaseArticleRequestBuilderDeleteReques_8f738b58|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ResolvingKnowledgeBaseArticleRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ResolvingKnowledgeBaseArticleRequestBuilderDeleteReques_8f738b58 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,12 +93,12 @@ class ResolvingKnowledgeBaseArticleRequestBuilder extends BaseRequestBuilder
 
     /**
      * Knowledge base article associated with the release when the known issue was resolved or mitigated.
-     * @param ResolvingKnowledgeBaseArticleRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ResolvingKnowledgeBaseArticleRequestBuilderGetRequestCo_0b2bb748|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ResolvingKnowledgeBaseArticleRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ResolvingKnowledgeBaseArticleRequestBuilderGetRequestCo_0b2bb748 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/admin/windows/updates/products/{product%2Did}/knownIssues/{knownIssue%2Did}/resolvingKnowledgeBaseArticle{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class ResolvingKnowledgeBaseArticleRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property resolvingKnowledgeBaseArticle in admin
      * @param KnowledgeBaseArticle $body The request body
-     * @param ResolvingKnowledgeBaseArticleRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ResolvingKnowledgeBaseArticleRequestBuilderPatchRequest_4c647efb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(KnowledgeBaseArticle $body, ?ResolvingKnowledgeBaseArticleRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(KnowledgeBaseArticle $body, ?ResolvingKnowledgeBaseArticleRequestBuilderPatchRequest_4c647efb $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

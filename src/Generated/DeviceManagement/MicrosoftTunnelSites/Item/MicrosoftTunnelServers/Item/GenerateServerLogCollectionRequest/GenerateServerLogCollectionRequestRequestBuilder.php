@@ -33,11 +33,11 @@ class GenerateServerLogCollectionRequestRequestBuilder extends BaseRequestBuilde
     /**
      * Invoke action generateServerLogCollectionRequest
      * @param GenerateServerLogCollectionRequestPostRequestBody $body The request body
-     * @param GenerateServerLogCollectionRequestRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GenerateServerLogCollectionRequestRequestBuilderPostReq_5aac72e2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MicrosoftTunnelServerLogCollectionResponse|null>
      * @throws Exception
     */
-    public function post(GenerateServerLogCollectionRequestPostRequestBody $body, ?GenerateServerLogCollectionRequestRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GenerateServerLogCollectionRequestPostRequestBody $body, ?GenerateServerLogCollectionRequestRequestBuilderPostReq_5aac72e2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class GenerateServerLogCollectionRequestRequestBuilder extends BaseRequestBuilde
     /**
      * Invoke action generateServerLogCollectionRequest
      * @param GenerateServerLogCollectionRequestPostRequestBody $body The request body
-     * @param GenerateServerLogCollectionRequestRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GenerateServerLogCollectionRequestRequestBuilderPostReq_5aac72e2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GenerateServerLogCollectionRequestPostRequestBody $body, ?GenerateServerLogCollectionRequestRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GenerateServerLogCollectionRequestPostRequestBody $body, ?GenerateServerLogCollectionRequestRequestBuilderPostReq_5aac72e2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -30,7 +30,7 @@ class DeviceHealthScriptDeviceStateItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/deviceHealthScripts/{deviceHealthScript%2Did}/deviceRunStates/{deviceHealthScriptDeviceState%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/deviceHealthScripts/{deviceHealthScript%2Did}/deviceRunStates/{deviceHealthScriptDeviceState%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -40,11 +40,11 @@ class DeviceHealthScriptDeviceStateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property deviceRunStates for deviceManagement
-     * @param DeviceHealthScriptDeviceStateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceHealthScriptDeviceStateItemRequestBuilderDeleteRe_f2bdadfd|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DeviceHealthScriptDeviceStateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DeviceHealthScriptDeviceStateItemRequestBuilderDeleteRe_f2bdadfd $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,11 +54,11 @@ class DeviceHealthScriptDeviceStateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * List of run states for the device health script across all devices
-     * @param DeviceHealthScriptDeviceStateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceHealthScriptDeviceStateItemRequestBuilderGetReque_3ebbee6c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceHealthScriptDeviceState|null>
      * @throws Exception
     */
-    public function get(?DeviceHealthScriptDeviceStateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DeviceHealthScriptDeviceStateItemRequestBuilderGetReque_3ebbee6c $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class DeviceHealthScriptDeviceStateItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property deviceRunStates in deviceManagement
      * @param DeviceHealthScriptDeviceState $body The request body
-     * @param DeviceHealthScriptDeviceStateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceHealthScriptDeviceStateItemRequestBuilderPatchReq_23b09187|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceHealthScriptDeviceState|null>
      * @throws Exception
     */
-    public function patch(DeviceHealthScriptDeviceState $body, ?DeviceHealthScriptDeviceStateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DeviceHealthScriptDeviceState $body, ?DeviceHealthScriptDeviceStateItemRequestBuilderPatchReq_23b09187 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class DeviceHealthScriptDeviceStateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property deviceRunStates for deviceManagement
-     * @param DeviceHealthScriptDeviceStateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceHealthScriptDeviceStateItemRequestBuilderDeleteRe_f2bdadfd|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DeviceHealthScriptDeviceStateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DeviceHealthScriptDeviceStateItemRequestBuilderDeleteRe_f2bdadfd $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -101,12 +101,12 @@ class DeviceHealthScriptDeviceStateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * List of run states for the device health script across all devices
-     * @param DeviceHealthScriptDeviceStateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceHealthScriptDeviceStateItemRequestBuilderGetReque_3ebbee6c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DeviceHealthScriptDeviceStateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DeviceHealthScriptDeviceStateItemRequestBuilderGetReque_3ebbee6c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/deviceHealthScripts/{deviceHealthScript%2Did}/deviceRunStates/{deviceHealthScriptDeviceState%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -123,10 +123,10 @@ class DeviceHealthScriptDeviceStateItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property deviceRunStates in deviceManagement
      * @param DeviceHealthScriptDeviceState $body The request body
-     * @param DeviceHealthScriptDeviceStateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceHealthScriptDeviceStateItemRequestBuilderPatchReq_23b09187|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DeviceHealthScriptDeviceState $body, ?DeviceHealthScriptDeviceStateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DeviceHealthScriptDeviceState $body, ?DeviceHealthScriptDeviceStateItemRequestBuilderPatchReq_23b09187 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

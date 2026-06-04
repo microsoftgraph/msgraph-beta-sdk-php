@@ -22,7 +22,7 @@ class GroupPolicyConfigurationAssignmentItemRequestBuilder extends BaseRequestBu
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/groupPolicyConfigurations/{groupPolicyConfiguration%2Did}/assignments/{groupPolicyConfigurationAssignment%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement/groupPolicyConfigurations/{groupPolicyConfiguration%2Did}/assignments/{groupPolicyConfigurationAssignment%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,11 +32,11 @@ class GroupPolicyConfigurationAssignmentItemRequestBuilder extends BaseRequestBu
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param GroupPolicyConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyConfigurationAssignmentItemRequestBuilderDel_e35aece2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?GroupPolicyConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?GroupPolicyConfigurationAssignmentItemRequestBuilderDel_e35aece2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class GroupPolicyConfigurationAssignmentItemRequestBuilder extends BaseRequestBu
 
     /**
      * The list of group assignments for the configuration.
-     * @param GroupPolicyConfigurationAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyConfigurationAssignmentItemRequestBuilderGet_63bca4f5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GroupPolicyConfigurationAssignment|null>
      * @throws Exception
     */
-    public function get(?GroupPolicyConfigurationAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GroupPolicyConfigurationAssignmentItemRequestBuilderGet_63bca4f5 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class GroupPolicyConfigurationAssignmentItemRequestBuilder extends BaseRequestBu
     /**
      * Update the navigation property assignments in deviceManagement
      * @param GroupPolicyConfigurationAssignment $body The request body
-     * @param GroupPolicyConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyConfigurationAssignmentItemRequestBuilderPat_b30ae5de|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GroupPolicyConfigurationAssignment|null>
      * @throws Exception
     */
-    public function patch(GroupPolicyConfigurationAssignment $body, ?GroupPolicyConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(GroupPolicyConfigurationAssignment $body, ?GroupPolicyConfigurationAssignmentItemRequestBuilderPat_b30ae5de $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class GroupPolicyConfigurationAssignmentItemRequestBuilder extends BaseRequestBu
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param GroupPolicyConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyConfigurationAssignmentItemRequestBuilderDel_e35aece2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?GroupPolicyConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?GroupPolicyConfigurationAssignmentItemRequestBuilderDel_e35aece2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,12 +93,12 @@ class GroupPolicyConfigurationAssignmentItemRequestBuilder extends BaseRequestBu
 
     /**
      * The list of group assignments for the configuration.
-     * @param GroupPolicyConfigurationAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyConfigurationAssignmentItemRequestBuilderGet_63bca4f5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GroupPolicyConfigurationAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GroupPolicyConfigurationAssignmentItemRequestBuilderGet_63bca4f5 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement/groupPolicyConfigurations/{groupPolicyConfiguration%2Did}/assignments/{groupPolicyConfigurationAssignment%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -115,10 +115,10 @@ class GroupPolicyConfigurationAssignmentItemRequestBuilder extends BaseRequestBu
     /**
      * Update the navigation property assignments in deviceManagement
      * @param GroupPolicyConfigurationAssignment $body The request body
-     * @param GroupPolicyConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyConfigurationAssignmentItemRequestBuilderPat_b30ae5de|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(GroupPolicyConfigurationAssignment $body, ?GroupPolicyConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(GroupPolicyConfigurationAssignment $body, ?GroupPolicyConfigurationAssignmentItemRequestBuilderPat_b30ae5de $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

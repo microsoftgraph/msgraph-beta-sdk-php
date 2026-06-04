@@ -22,7 +22,7 @@ class PendingExternalUserProfileItemRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/directory/pendingExternalUserProfiles/{pendingExternalUserProfile%2Did}{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/directory/pendingExternalUserProfiles/{pendingExternalUserProfile%2Did}');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -32,12 +32,12 @@ class PendingExternalUserProfileItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete a pendingExternalUserProfile object. Note: To permanently delete the pendingExternalUserProfile, follow permanently delete an item. To restore a pendingExternalUserProfile, follow restore a deleted item.
-     * @param PendingExternalUserProfileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PendingExternalUserProfileItemRequestBuilderDeleteReque_5fce4f0d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/directory-delete-pendingexternaluserprofiles?view=graph-rest-beta Find more info here
     */
-    public function delete(?PendingExternalUserProfileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?PendingExternalUserProfileItemRequestBuilderDeleteReque_5fce4f0d $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,12 +47,12 @@ class PendingExternalUserProfileItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Retrieve the properties of a specific pendingExternalUserProfile.
-     * @param PendingExternalUserProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PendingExternalUserProfileItemRequestBuilderGetRequestC_af68a32e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PendingExternalUserProfile|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/pendingexternaluserprofile-get?view=graph-rest-beta Find more info here
     */
-    public function get(?PendingExternalUserProfileItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?PendingExternalUserProfileItemRequestBuilderGetRequestC_af68a32e $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -63,12 +63,12 @@ class PendingExternalUserProfileItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a pendingExternalUserProfile object.
      * @param PendingExternalUserProfile $body The request body
-     * @param PendingExternalUserProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PendingExternalUserProfileItemRequestBuilderPatchReques_dd539c5d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PendingExternalUserProfile|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/pendingexternaluserprofile-update?view=graph-rest-beta Find more info here
     */
-    public function patch(PendingExternalUserProfile $body, ?PendingExternalUserProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(PendingExternalUserProfile $body, ?PendingExternalUserProfileItemRequestBuilderPatchReques_dd539c5d $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -78,10 +78,10 @@ class PendingExternalUserProfileItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete a pendingExternalUserProfile object. Note: To permanently delete the pendingExternalUserProfile, follow permanently delete an item. To restore a pendingExternalUserProfile, follow restore a deleted item.
-     * @param PendingExternalUserProfileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PendingExternalUserProfileItemRequestBuilderDeleteReque_5fce4f0d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?PendingExternalUserProfileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?PendingExternalUserProfileItemRequestBuilderDeleteReque_5fce4f0d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -96,12 +96,12 @@ class PendingExternalUserProfileItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Retrieve the properties of a specific pendingExternalUserProfile.
-     * @param PendingExternalUserProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PendingExternalUserProfileItemRequestBuilderGetRequestC_af68a32e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?PendingExternalUserProfileItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?PendingExternalUserProfileItemRequestBuilderGetRequestC_af68a32e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/directory/pendingExternalUserProfiles/{pendingExternalUserProfile%2Did}{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -118,10 +118,10 @@ class PendingExternalUserProfileItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a pendingExternalUserProfile object.
      * @param PendingExternalUserProfile $body The request body
-     * @param PendingExternalUserProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PendingExternalUserProfileItemRequestBuilderPatchReques_dd539c5d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(PendingExternalUserProfile $body, ?PendingExternalUserProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(PendingExternalUserProfile $body, ?PendingExternalUserProfileItemRequestBuilderPatchReques_dd539c5d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

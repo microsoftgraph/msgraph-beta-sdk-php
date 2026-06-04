@@ -22,7 +22,7 @@ class DataCollectionInfoRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/external/authorizationSystems/{authorizationSystem%2Did}/dataCollectionInfo{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '{+baseurl}/external/authorizationSystems/{authorizationSystem%2Did}/dataCollectionInfo');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -98,7 +98,7 @@ class DataCollectionInfoRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?DataCollectionInfoRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/external/authorizationSystems/{authorizationSystem%2Did}/dataCollectionInfo{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {

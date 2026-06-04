@@ -49,7 +49,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationConflictS
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationDeviceStateSummaries\DeviceConfigurationDeviceStateSummariesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationRestrictedAppsViolations\DeviceConfigurationRestrictedAppsViolationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\DeviceConfigurationsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationsAllManagedDeviceCertificateStates\DeviceConfigurationsAllManagedDeviceCertificateStatesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationsAllManagedDeviceCertificateStates\DeviceConfigurationsAllManagedDeviceCertificateStatesRe_d8a714a9;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurationUserStateSummaries\DeviceConfigurationUserStateSummariesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceCustomAttributeShellScripts\DeviceCustomAttributeShellScriptsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceEnrollmentConfigurations\DeviceEnrollmentConfigurationsRequestBuilder;
@@ -135,25 +135,25 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\TenantAttachRBAC\TenantAttac
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\TermsAndConditionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TroubleshootingEvents\TroubleshootingEventsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAnomaly\UserExperienceAnalyticsAnomalyRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAnomalyCorrelationGroupOverview\UserExperienceAnalyticsAnomalyCorrelationGroupOverviewRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAnomalyCorrelationGroupOverview\UserExperienceAnalyticsAnomalyCorrelationGroupOverviewR_71683ae6;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAnomalyDevice\UserExperienceAnalyticsAnomalyDeviceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformance\UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion\UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails\UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId\UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion\UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthDeviceModelPerformance\UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformance\UserExperienceAnalyticsAppHealthApplicationPerformanceR_639a6000;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformanceB_2c7136c4\UserExperienceAnalyticsAppHealthApplicationPerformanceB_70be83d2;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformanceB_3fa78c7f\UserExperienceAnalyticsAppHealthApplicationPerformanceB_b0ce4c31;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformanceB_764bd61c\UserExperienceAnalyticsAppHealthApplicationPerformanceB_899202bd;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformanceB_76e0e2cf\UserExperienceAnalyticsAppHealthApplicationPerformanceB_73937166;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthDeviceModelPerformance\UserExperienceAnalyticsAppHealthDeviceModelPerformanceR_4dcbff66;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthDevicePerformance\UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthDevicePerformanceDetails\UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthOSVersionPerformance\UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthDevicePerformanceDetails\UserExperienceAnalyticsAppHealthDevicePerformanceDetail_4ca850b6;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthOSVersionPerformance\UserExperienceAnalyticsAppHealthOSVersionPerformanceReq_fdb3de6d;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthOverview\UserExperienceAnalyticsAppHealthOverviewRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBaselines\UserExperienceAnalyticsBaselinesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBatteryHealthAppImpact\UserExperienceAnalyticsBatteryHealthAppImpactRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBatteryHealthCapacityDetails\UserExperienceAnalyticsBatteryHealthCapacityDetailsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBatteryHealthDeviceAppImpact\UserExperienceAnalyticsBatteryHealthDeviceAppImpactRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBatteryHealthDevicePerformance\UserExperienceAnalyticsBatteryHealthDevicePerformanceRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory\UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBatteryHealthModelPerformance\UserExperienceAnalyticsBatteryHealthModelPerformanceRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBatteryHealthCapacityDetails\UserExperienceAnalyticsBatteryHealthCapacityDetailsRequ_64948acf;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBatteryHealthDeviceAppImpact\UserExperienceAnalyticsBatteryHealthDeviceAppImpactRequ_fbd82418;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBatteryHealthDevicePerformance\UserExperienceAnalyticsBatteryHealthDevicePerformanceRe_cfe5ecff;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory\UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistor_0792f10d;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBatteryHealthModelPerformance\UserExperienceAnalyticsBatteryHealthModelPerformanceReq_280ce9aa;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBatteryHealthOsPerformance\UserExperienceAnalyticsBatteryHealthOsPerformanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsBatteryHealthRuntimeDetails\UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsCategories\UserExperienceAnalyticsCategoriesRequestBuilder;
@@ -164,7 +164,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDevic
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceScores\UserExperienceAnalyticsDeviceScoresRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceStartupHistory\UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceStartupProcesses\UserExperienceAnalyticsDeviceStartupProcessesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceStartupProcessPerformance\UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceStartupProcessPerformance\UserExperienceAnalyticsDeviceStartupProcessPerformanceR_4c8ce676;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDevicesWithoutCloudIdentity\UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDeviceTimelineEvent\UserExperienceAnalyticsDeviceTimelineEventRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsImpactingProcess\UserExperienceAnalyticsImpactingProcessRequestBuilder;
@@ -176,10 +176,10 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsRemot
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsResourcePerformance\UserExperienceAnalyticsResourcePerformanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsScoreHistory\UserExperienceAnalyticsScoreHistoryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsSummarizedDeviceScopes\UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsSummarizeWorkFromAnywhereDevices\UserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric\UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsSummarizeWorkFromAnywhereDevices\UserExperienceAnalyticsSummarizeWorkFromAnywhereDevices_2417dbae;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric\UserExperienceAnalyticsWorkFromAnywhereHardwareReadines_08ab2d74;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereMetrics\UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereModelPerformance\UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereModelPerformance\UserExperienceAnalyticsWorkFromAnywhereModelPerformance_95ddf1fd;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserPfxCertificates\UserPfxCertificatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VerifyWindowsEnrollmentAutoDiscoveryWithDomainName\VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\VirtualEndpointRequestBuilder;
@@ -189,7 +189,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsAutopilotSettings\Win
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsDriverUpdateProfiles\WindowsDriverUpdateProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsFeatureUpdateProfiles\WindowsFeatureUpdateProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsInformationProtectionAppLearningSummaries\WindowsInformationProtectionAppLearningSummariesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsInformationProtectionNetworkLearningSummaries\WindowsInformationProtectionNetworkLearningSummariesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsInformationProtectionNetworkLearningSummaries\WindowsInformationProtectionNetworkLearningSummariesReq_49622581;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsMalwareInformation\WindowsMalwareInformationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdatePolicies\WindowsQualityUpdatePoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdateProfiles\WindowsQualityUpdateProfilesRequestBuilder;
@@ -527,8 +527,8 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to manage the deviceConfigurationsAllManagedDeviceCertificateStates property of the microsoft.graph.deviceManagement entity.
     */
-    public function deviceConfigurationsAllManagedDeviceCertificateStates(): DeviceConfigurationsAllManagedDeviceCertificateStatesRequestBuilder {
-        return new DeviceConfigurationsAllManagedDeviceCertificateStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function deviceConfigurationsAllManagedDeviceCertificateStates(): DeviceConfigurationsAllManagedDeviceCertificateStatesRe_d8a714a9 {
+        return new DeviceConfigurationsAllManagedDeviceCertificateStatesRe_d8a714a9($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -1087,8 +1087,8 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to manage the userExperienceAnalyticsAnomalyCorrelationGroupOverview property of the microsoft.graph.deviceManagement entity.
     */
-    public function userExperienceAnalyticsAnomalyCorrelationGroupOverview(): UserExperienceAnalyticsAnomalyCorrelationGroupOverviewRequestBuilder {
-        return new UserExperienceAnalyticsAnomalyCorrelationGroupOverviewRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function userExperienceAnalyticsAnomalyCorrelationGroupOverview(): UserExperienceAnalyticsAnomalyCorrelationGroupOverviewR_71683ae6 {
+        return new UserExperienceAnalyticsAnomalyCorrelationGroupOverviewR_71683ae6($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -1101,43 +1101,43 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformance property of the microsoft.graph.deviceManagement entity.
     */
-    public function userExperienceAnalyticsAppHealthApplicationPerformance(): UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder {
-        return new UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function userExperienceAnalyticsAppHealthApplicationPerformance(): UserExperienceAnalyticsAppHealthApplicationPerformanceR_639a6000 {
+        return new UserExperienceAnalyticsAppHealthApplicationPerformanceR_639a6000($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion property of the microsoft.graph.deviceManagement entity.
     */
-    public function userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion(): UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionRequestBuilder {
-        return new UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion(): UserExperienceAnalyticsAppHealthApplicationPerformanceB_70be83d2 {
+        return new UserExperienceAnalyticsAppHealthApplicationPerformanceB_70be83d2($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails property of the microsoft.graph.deviceManagement entity.
     */
-    public function userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails(): UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsRequestBuilder {
-        return new UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails(): UserExperienceAnalyticsAppHealthApplicationPerformanceB_73937166 {
+        return new UserExperienceAnalyticsAppHealthApplicationPerformanceB_73937166($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId property of the microsoft.graph.deviceManagement entity.
     */
-    public function userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId(): UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceIdRequestBuilder {
-        return new UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceIdRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId(): UserExperienceAnalyticsAppHealthApplicationPerformanceB_b0ce4c31 {
+        return new UserExperienceAnalyticsAppHealthApplicationPerformanceB_b0ce4c31($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion property of the microsoft.graph.deviceManagement entity.
     */
-    public function userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion(): UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilder {
-        return new UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion(): UserExperienceAnalyticsAppHealthApplicationPerformanceB_899202bd {
+        return new UserExperienceAnalyticsAppHealthApplicationPerformanceB_899202bd($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to manage the userExperienceAnalyticsAppHealthDeviceModelPerformance property of the microsoft.graph.deviceManagement entity.
     */
-    public function userExperienceAnalyticsAppHealthDeviceModelPerformance(): UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequestBuilder {
-        return new UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function userExperienceAnalyticsAppHealthDeviceModelPerformance(): UserExperienceAnalyticsAppHealthDeviceModelPerformanceR_4dcbff66 {
+        return new UserExperienceAnalyticsAppHealthDeviceModelPerformanceR_4dcbff66($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -1150,15 +1150,15 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to manage the userExperienceAnalyticsAppHealthDevicePerformanceDetails property of the microsoft.graph.deviceManagement entity.
     */
-    public function userExperienceAnalyticsAppHealthDevicePerformanceDetails(): UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder {
-        return new UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function userExperienceAnalyticsAppHealthDevicePerformanceDetails(): UserExperienceAnalyticsAppHealthDevicePerformanceDetail_4ca850b6 {
+        return new UserExperienceAnalyticsAppHealthDevicePerformanceDetail_4ca850b6($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to manage the userExperienceAnalyticsAppHealthOSVersionPerformance property of the microsoft.graph.deviceManagement entity.
     */
-    public function userExperienceAnalyticsAppHealthOSVersionPerformance(): UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder {
-        return new UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function userExperienceAnalyticsAppHealthOSVersionPerformance(): UserExperienceAnalyticsAppHealthOSVersionPerformanceReq_fdb3de6d {
+        return new UserExperienceAnalyticsAppHealthOSVersionPerformanceReq_fdb3de6d($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -1185,36 +1185,36 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to manage the userExperienceAnalyticsBatteryHealthCapacityDetails property of the microsoft.graph.deviceManagement entity.
     */
-    public function userExperienceAnalyticsBatteryHealthCapacityDetails(): UserExperienceAnalyticsBatteryHealthCapacityDetailsRequestBuilder {
-        return new UserExperienceAnalyticsBatteryHealthCapacityDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function userExperienceAnalyticsBatteryHealthCapacityDetails(): UserExperienceAnalyticsBatteryHealthCapacityDetailsRequ_64948acf {
+        return new UserExperienceAnalyticsBatteryHealthCapacityDetailsRequ_64948acf($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to manage the userExperienceAnalyticsBatteryHealthDeviceAppImpact property of the microsoft.graph.deviceManagement entity.
     */
-    public function userExperienceAnalyticsBatteryHealthDeviceAppImpact(): UserExperienceAnalyticsBatteryHealthDeviceAppImpactRequestBuilder {
-        return new UserExperienceAnalyticsBatteryHealthDeviceAppImpactRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function userExperienceAnalyticsBatteryHealthDeviceAppImpact(): UserExperienceAnalyticsBatteryHealthDeviceAppImpactRequ_fbd82418 {
+        return new UserExperienceAnalyticsBatteryHealthDeviceAppImpactRequ_fbd82418($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to manage the userExperienceAnalyticsBatteryHealthDevicePerformance property of the microsoft.graph.deviceManagement entity.
     */
-    public function userExperienceAnalyticsBatteryHealthDevicePerformance(): UserExperienceAnalyticsBatteryHealthDevicePerformanceRequestBuilder {
-        return new UserExperienceAnalyticsBatteryHealthDevicePerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function userExperienceAnalyticsBatteryHealthDevicePerformance(): UserExperienceAnalyticsBatteryHealthDevicePerformanceRe_cfe5ecff {
+        return new UserExperienceAnalyticsBatteryHealthDevicePerformanceRe_cfe5ecff($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to manage the userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory property of the microsoft.graph.deviceManagement entity.
     */
-    public function userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory(): UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryRequestBuilder {
-        return new UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory(): UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistor_0792f10d {
+        return new UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistor_0792f10d($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to manage the userExperienceAnalyticsBatteryHealthModelPerformance property of the microsoft.graph.deviceManagement entity.
     */
-    public function userExperienceAnalyticsBatteryHealthModelPerformance(): UserExperienceAnalyticsBatteryHealthModelPerformanceRequestBuilder {
-        return new UserExperienceAnalyticsBatteryHealthModelPerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function userExperienceAnalyticsBatteryHealthModelPerformance(): UserExperienceAnalyticsBatteryHealthModelPerformanceReq_280ce9aa {
+        return new UserExperienceAnalyticsBatteryHealthModelPerformanceReq_280ce9aa($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -1290,8 +1290,8 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to manage the userExperienceAnalyticsDeviceStartupProcessPerformance property of the microsoft.graph.deviceManagement entity.
     */
-    public function userExperienceAnalyticsDeviceStartupProcessPerformance(): UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder {
-        return new UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function userExperienceAnalyticsDeviceStartupProcessPerformance(): UserExperienceAnalyticsDeviceStartupProcessPerformanceR_4c8ce676 {
+        return new UserExperienceAnalyticsDeviceStartupProcessPerformanceR_4c8ce676($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -1374,15 +1374,15 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the userExperienceAnalyticsSummarizeWorkFromAnywhereDevices method.
     */
-    public function userExperienceAnalyticsSummarizeWorkFromAnywhereDevices(): UserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder {
-        return new UserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function userExperienceAnalyticsSummarizeWorkFromAnywhereDevices(): UserExperienceAnalyticsSummarizeWorkFromAnywhereDevices_2417dbae {
+        return new UserExperienceAnalyticsSummarizeWorkFromAnywhereDevices_2417dbae($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric property of the microsoft.graph.deviceManagement entity.
     */
-    public function userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric(): UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilder {
-        return new UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric(): UserExperienceAnalyticsWorkFromAnywhereHardwareReadines_08ab2d74 {
+        return new UserExperienceAnalyticsWorkFromAnywhereHardwareReadines_08ab2d74($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -1395,8 +1395,8 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereModelPerformance property of the microsoft.graph.deviceManagement entity.
     */
-    public function userExperienceAnalyticsWorkFromAnywhereModelPerformance(): UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder {
-        return new UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function userExperienceAnalyticsWorkFromAnywhereModelPerformance(): UserExperienceAnalyticsWorkFromAnywhereModelPerformance_95ddf1fd {
+        return new UserExperienceAnalyticsWorkFromAnywhereModelPerformance_95ddf1fd($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -1458,8 +1458,8 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to manage the windowsInformationProtectionNetworkLearningSummaries property of the microsoft.graph.deviceManagement entity.
     */
-    public function windowsInformationProtectionNetworkLearningSummaries(): WindowsInformationProtectionNetworkLearningSummariesRequestBuilder {
-        return new WindowsInformationProtectionNetworkLearningSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function windowsInformationProtectionNetworkLearningSummaries(): WindowsInformationProtectionNetworkLearningSummariesReq_49622581 {
+        return new WindowsInformationProtectionNetworkLearningSummariesReq_49622581($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -1517,7 +1517,7 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/deviceManagement{?%24expand,%24select}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -1615,7 +1615,7 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     */
     public function toGetRequestInformation(?DeviceManagementRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement{?%24expand,%24select}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -1637,7 +1637,7 @@ class DeviceManagementRequestBuilder extends BaseRequestBuilder
     */
     public function toPatchRequestInformation(DeviceManagement $body, ?DeviceManagementRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/deviceManagement';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
         if ($requestConfiguration !== null) {

@@ -51,7 +51,7 @@ class ManagementActionTenantDeploymentStatusesRequestBuilder extends BaseRequest
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/managementActionTenantDeploymentStatuses{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -61,12 +61,12 @@ class ManagementActionTenantDeploymentStatusesRequestBuilder extends BaseRequest
 
     /**
      * Get a list of the managementActionTenantDeploymentStatus objects and their properties.
-     * @param ManagementActionTenantDeploymentStatusesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementActionTenantDeploymentStatusesRequestBuilderG_20350c75|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementActionTenantDeploymentStatusCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-managementactiontenantdeploymentstatuses?view=graph-rest-beta Find more info here
     */
-    public function get(?ManagementActionTenantDeploymentStatusesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagementActionTenantDeploymentStatusesRequestBuilderG_20350c75 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,11 +77,11 @@ class ManagementActionTenantDeploymentStatusesRequestBuilder extends BaseRequest
     /**
      * Create new navigation property to managementActionTenantDeploymentStatuses for tenantRelationships
      * @param ManagementActionTenantDeploymentStatus $body The request body
-     * @param ManagementActionTenantDeploymentStatusesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementActionTenantDeploymentStatusesRequestBuilderP_6447b0bb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementActionTenantDeploymentStatus|null>
      * @throws Exception
     */
-    public function post(ManagementActionTenantDeploymentStatus $body, ?ManagementActionTenantDeploymentStatusesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ManagementActionTenantDeploymentStatus $body, ?ManagementActionTenantDeploymentStatusesRequestBuilderP_6447b0bb $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -91,12 +91,12 @@ class ManagementActionTenantDeploymentStatusesRequestBuilder extends BaseRequest
 
     /**
      * Get a list of the managementActionTenantDeploymentStatus objects and their properties.
-     * @param ManagementActionTenantDeploymentStatusesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementActionTenantDeploymentStatusesRequestBuilderG_20350c75|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagementActionTenantDeploymentStatusesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagementActionTenantDeploymentStatusesRequestBuilderG_20350c75 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/managementActionTenantDeploymentStatuses{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -113,12 +113,12 @@ class ManagementActionTenantDeploymentStatusesRequestBuilder extends BaseRequest
     /**
      * Create new navigation property to managementActionTenantDeploymentStatuses for tenantRelationships
      * @param ManagementActionTenantDeploymentStatus $body The request body
-     * @param ManagementActionTenantDeploymentStatusesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementActionTenantDeploymentStatusesRequestBuilderP_6447b0bb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ManagementActionTenantDeploymentStatus $body, ?ManagementActionTenantDeploymentStatusesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ManagementActionTenantDeploymentStatus $body, ?ManagementActionTenantDeploymentStatusesRequestBuilderP_6447b0bb $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/managementActionTenantDeploymentStatuses';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

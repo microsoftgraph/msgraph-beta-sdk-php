@@ -43,7 +43,7 @@ class ManagementTemplateCollectionTenantSummariesRequestBuilder extends BaseRequ
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/managementTemplateCollectionTenantSummaries{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class ManagementTemplateCollectionTenantSummariesRequestBuilder extends BaseRequ
 
     /**
      * Get managementTemplateCollectionTenantSummaries from tenantRelationships
-     * @param ManagementTemplateCollectionTenantSummariesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateCollectionTenantSummariesRequestBuild_436bcaec|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementTemplateCollectionTenantSummaryCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?ManagementTemplateCollectionTenantSummariesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagementTemplateCollectionTenantSummariesRequestBuild_436bcaec $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class ManagementTemplateCollectionTenantSummariesRequestBuilder extends BaseRequ
     /**
      * Create new navigation property to managementTemplateCollectionTenantSummaries for tenantRelationships
      * @param ManagementTemplateCollectionTenantSummary $body The request body
-     * @param ManagementTemplateCollectionTenantSummariesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateCollectionTenantSummariesRequestBuild_281215f1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementTemplateCollectionTenantSummary|null>
      * @throws Exception
     */
-    public function post(ManagementTemplateCollectionTenantSummary $body, ?ManagementTemplateCollectionTenantSummariesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ManagementTemplateCollectionTenantSummary $body, ?ManagementTemplateCollectionTenantSummariesRequestBuild_281215f1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,12 +82,12 @@ class ManagementTemplateCollectionTenantSummariesRequestBuilder extends BaseRequ
 
     /**
      * Get managementTemplateCollectionTenantSummaries from tenantRelationships
-     * @param ManagementTemplateCollectionTenantSummariesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateCollectionTenantSummariesRequestBuild_436bcaec|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagementTemplateCollectionTenantSummariesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagementTemplateCollectionTenantSummariesRequestBuild_436bcaec $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/managementTemplateCollectionTenantSummaries{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,12 +104,12 @@ class ManagementTemplateCollectionTenantSummariesRequestBuilder extends BaseRequ
     /**
      * Create new navigation property to managementTemplateCollectionTenantSummaries for tenantRelationships
      * @param ManagementTemplateCollectionTenantSummary $body The request body
-     * @param ManagementTemplateCollectionTenantSummariesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateCollectionTenantSummariesRequestBuild_281215f1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ManagementTemplateCollectionTenantSummary $body, ?ManagementTemplateCollectionTenantSummariesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ManagementTemplateCollectionTenantSummary $body, ?ManagementTemplateCollectionTenantSummariesRequestBuild_281215f1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/managementTemplateCollectionTenantSummaries';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {

@@ -43,7 +43,7 @@ class ManagementTemplateStepVersionsRequestBuilder extends BaseRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/tenantRelationships/managedTenants/managementTemplateStepVersions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}');
+        parent::__construct($requestAdapter, [], '');
         if (is_array($pathParametersOrRawUrl)) {
             $this->pathParameters = $pathParametersOrRawUrl;
         } else {
@@ -53,11 +53,11 @@ class ManagementTemplateStepVersionsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get managementTemplateStepVersions from tenantRelationships
-     * @param ManagementTemplateStepVersionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepVersionsRequestBuilderGetRequestC_9b5f21d0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementTemplateStepVersionCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?ManagementTemplateStepVersionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagementTemplateStepVersionsRequestBuilderGetRequestC_9b5f21d0 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class ManagementTemplateStepVersionsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to managementTemplateStepVersions for tenantRelationships
      * @param ManagementTemplateStepVersion $body The request body
-     * @param ManagementTemplateStepVersionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepVersionsRequestBuilderPostRequest_b86bf75e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementTemplateStepVersion|null>
      * @throws Exception
     */
-    public function post(ManagementTemplateStepVersion $body, ?ManagementTemplateStepVersionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ManagementTemplateStepVersion $body, ?ManagementTemplateStepVersionsRequestBuilderPostRequest_b86bf75e $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,12 +82,12 @@ class ManagementTemplateStepVersionsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get managementTemplateStepVersions from tenantRelationships
-     * @param ManagementTemplateStepVersionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepVersionsRequestBuilderGetRequestC_9b5f21d0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagementTemplateStepVersionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagementTemplateStepVersionsRequestBuilderGetRequestC_9b5f21d0 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/managementTemplateStepVersions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
         if ($requestConfiguration !== null) {
@@ -104,12 +104,12 @@ class ManagementTemplateStepVersionsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to managementTemplateStepVersions for tenantRelationships
      * @param ManagementTemplateStepVersion $body The request body
-     * @param ManagementTemplateStepVersionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepVersionsRequestBuilderPostRequest_b86bf75e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ManagementTemplateStepVersion $body, ?ManagementTemplateStepVersionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ManagementTemplateStepVersion $body, ?ManagementTemplateStepVersionsRequestBuilderPostRequest_b86bf75e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants/managementTemplateStepVersions';
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::POST;
         if ($requestConfiguration !== null) {
