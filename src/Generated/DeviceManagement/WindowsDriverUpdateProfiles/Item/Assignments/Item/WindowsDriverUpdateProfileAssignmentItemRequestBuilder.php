@@ -32,11 +32,11 @@ class WindowsDriverUpdateProfileAssignmentItemRequestBuilder extends BaseRequest
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param WindowsDriverUpdateProfileAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsDriverUpdateProfileAssignmentItemRequestBuilderD_5c899b04|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?WindowsDriverUpdateProfileAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?WindowsDriverUpdateProfileAssignmentItemRequestBuilderD_5c899b04 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class WindowsDriverUpdateProfileAssignmentItemRequestBuilder extends BaseRequest
 
     /**
      * The list of group assignments of the profile.
-     * @param WindowsDriverUpdateProfileAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsDriverUpdateProfileAssignmentItemRequestBuilderG_0830edb9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsDriverUpdateProfileAssignment|null>
      * @throws Exception
     */
-    public function get(?WindowsDriverUpdateProfileAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?WindowsDriverUpdateProfileAssignmentItemRequestBuilderG_0830edb9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class WindowsDriverUpdateProfileAssignmentItemRequestBuilder extends BaseRequest
     /**
      * Update the navigation property assignments in deviceManagement
      * @param WindowsDriverUpdateProfileAssignment $body The request body
-     * @param WindowsDriverUpdateProfileAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsDriverUpdateProfileAssignmentItemRequestBuilderP_f51c3bc4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsDriverUpdateProfileAssignment|null>
      * @throws Exception
     */
-    public function patch(WindowsDriverUpdateProfileAssignment $body, ?WindowsDriverUpdateProfileAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(WindowsDriverUpdateProfileAssignment $body, ?WindowsDriverUpdateProfileAssignmentItemRequestBuilderP_f51c3bc4 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class WindowsDriverUpdateProfileAssignmentItemRequestBuilder extends BaseRequest
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param WindowsDriverUpdateProfileAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsDriverUpdateProfileAssignmentItemRequestBuilderD_5c899b04|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?WindowsDriverUpdateProfileAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?WindowsDriverUpdateProfileAssignmentItemRequestBuilderD_5c899b04 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class WindowsDriverUpdateProfileAssignmentItemRequestBuilder extends BaseRequest
 
     /**
      * The list of group assignments of the profile.
-     * @param WindowsDriverUpdateProfileAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsDriverUpdateProfileAssignmentItemRequestBuilderG_0830edb9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?WindowsDriverUpdateProfileAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?WindowsDriverUpdateProfileAssignmentItemRequestBuilderG_0830edb9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class WindowsDriverUpdateProfileAssignmentItemRequestBuilder extends BaseRequest
     /**
      * Update the navigation property assignments in deviceManagement
      * @param WindowsDriverUpdateProfileAssignment $body The request body
-     * @param WindowsDriverUpdateProfileAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsDriverUpdateProfileAssignmentItemRequestBuilderP_f51c3bc4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(WindowsDriverUpdateProfileAssignment $body, ?WindowsDriverUpdateProfileAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(WindowsDriverUpdateProfileAssignment $body, ?WindowsDriverUpdateProfileAssignmentItemRequestBuilderP_f51c3bc4 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

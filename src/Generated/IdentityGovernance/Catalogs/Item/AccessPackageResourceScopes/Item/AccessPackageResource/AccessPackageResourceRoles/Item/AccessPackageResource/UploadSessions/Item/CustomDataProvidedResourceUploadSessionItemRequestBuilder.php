@@ -48,11 +48,11 @@ class CustomDataProvidedResourceUploadSessionItemRequestBuilder extends BaseRequ
 
     /**
      * Delete navigation property uploadSessions for identityGovernance
-     * @param CustomDataProvidedResourceUploadSessionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomDataProvidedResourceUploadSessionItemRequestBuild_4ddaf737|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CustomDataProvidedResourceUploadSessionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CustomDataProvidedResourceUploadSessionItemRequestBuild_4ddaf737 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class CustomDataProvidedResourceUploadSessionItemRequestBuilder extends BaseRequ
 
     /**
      * Get uploadSessions from identityGovernance
-     * @param CustomDataProvidedResourceUploadSessionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomDataProvidedResourceUploadSessionItemRequestBuild_507ed692|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomDataProvidedResourceUploadSession|null>
      * @throws Exception
     */
-    public function get(?CustomDataProvidedResourceUploadSessionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CustomDataProvidedResourceUploadSessionItemRequestBuild_507ed692 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,11 +77,11 @@ class CustomDataProvidedResourceUploadSessionItemRequestBuilder extends BaseRequ
     /**
      * Update the navigation property uploadSessions in identityGovernance
      * @param CustomDataProvidedResourceUploadSession $body The request body
-     * @param CustomDataProvidedResourceUploadSessionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomDataProvidedResourceUploadSessionItemRequestBuild_74773cc8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomDataProvidedResourceUploadSession|null>
      * @throws Exception
     */
-    public function patch(CustomDataProvidedResourceUploadSession $body, ?CustomDataProvidedResourceUploadSessionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(CustomDataProvidedResourceUploadSession $body, ?CustomDataProvidedResourceUploadSessionItemRequestBuild_74773cc8 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -91,10 +91,10 @@ class CustomDataProvidedResourceUploadSessionItemRequestBuilder extends BaseRequ
 
     /**
      * Delete navigation property uploadSessions for identityGovernance
-     * @param CustomDataProvidedResourceUploadSessionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomDataProvidedResourceUploadSessionItemRequestBuild_4ddaf737|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CustomDataProvidedResourceUploadSessionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CustomDataProvidedResourceUploadSessionItemRequestBuild_4ddaf737 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -109,10 +109,10 @@ class CustomDataProvidedResourceUploadSessionItemRequestBuilder extends BaseRequ
 
     /**
      * Get uploadSessions from identityGovernance
-     * @param CustomDataProvidedResourceUploadSessionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomDataProvidedResourceUploadSessionItemRequestBuild_507ed692|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CustomDataProvidedResourceUploadSessionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CustomDataProvidedResourceUploadSessionItemRequestBuild_507ed692 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -131,10 +131,10 @@ class CustomDataProvidedResourceUploadSessionItemRequestBuilder extends BaseRequ
     /**
      * Update the navigation property uploadSessions in identityGovernance
      * @param CustomDataProvidedResourceUploadSession $body The request body
-     * @param CustomDataProvidedResourceUploadSessionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomDataProvidedResourceUploadSessionItemRequestBuild_74773cc8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CustomDataProvidedResourceUploadSession $body, ?CustomDataProvidedResourceUploadSessionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(CustomDataProvidedResourceUploadSession $body, ?CustomDataProvidedResourceUploadSessionItemRequestBuild_74773cc8 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

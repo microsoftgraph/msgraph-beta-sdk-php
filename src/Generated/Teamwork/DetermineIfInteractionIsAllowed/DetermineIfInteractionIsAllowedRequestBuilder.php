@@ -32,12 +32,12 @@ class DetermineIfInteractionIsAllowedRequestBuilder extends BaseRequestBuilder
     /**
      * Determine if a specified Microsoft Teams interaction is allowed between the signed-in user and specified users.
      * @param DetermineIfInteractionIsAllowedPostRequestBody $body The request body
-     * @param DetermineIfInteractionIsAllowedRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DetermineIfInteractionIsAllowedRequestBuilderPostReques_478b7e16|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DetermineIfInteractionIsAllowedPostResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/teamwork-determineifinteractionisallowed?view=graph-rest-beta Find more info here
     */
-    public function post(DetermineIfInteractionIsAllowedPostRequestBody $body, ?DetermineIfInteractionIsAllowedRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(DetermineIfInteractionIsAllowedPostRequestBody $body, ?DetermineIfInteractionIsAllowedRequestBuilderPostReques_478b7e16 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class DetermineIfInteractionIsAllowedRequestBuilder extends BaseRequestBuilder
     /**
      * Determine if a specified Microsoft Teams interaction is allowed between the signed-in user and specified users.
      * @param DetermineIfInteractionIsAllowedPostRequestBody $body The request body
-     * @param DetermineIfInteractionIsAllowedRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DetermineIfInteractionIsAllowedRequestBuilderPostReques_478b7e16|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(DetermineIfInteractionIsAllowedPostRequestBody $body, ?DetermineIfInteractionIsAllowedRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(DetermineIfInteractionIsAllowedPostRequestBody $body, ?DetermineIfInteractionIsAllowedRequestBuilderPostReques_478b7e16 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

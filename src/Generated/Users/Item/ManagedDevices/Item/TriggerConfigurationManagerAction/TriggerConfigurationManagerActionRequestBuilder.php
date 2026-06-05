@@ -32,11 +32,11 @@ class TriggerConfigurationManagerActionRequestBuilder extends BaseRequestBuilder
     /**
      * Trigger action on ConfigurationManager client
      * @param TriggerConfigurationManagerActionPostRequestBody $body The request body
-     * @param TriggerConfigurationManagerActionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TriggerConfigurationManagerActionRequestBuilderPostRequ_b0edb45a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(TriggerConfigurationManagerActionPostRequestBody $body, ?TriggerConfigurationManagerActionRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(TriggerConfigurationManagerActionPostRequestBody $body, ?TriggerConfigurationManagerActionRequestBuilderPostRequ_b0edb45a $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,10 +47,10 @@ class TriggerConfigurationManagerActionRequestBuilder extends BaseRequestBuilder
     /**
      * Trigger action on ConfigurationManager client
      * @param TriggerConfigurationManagerActionPostRequestBody $body The request body
-     * @param TriggerConfigurationManagerActionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TriggerConfigurationManagerActionRequestBuilderPostRequ_b0edb45a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(TriggerConfigurationManagerActionPostRequestBody $body, ?TriggerConfigurationManagerActionRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(TriggerConfigurationManagerActionPostRequestBody $body, ?TriggerConfigurationManagerActionRequestBuilderPostRequ_b0edb45a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

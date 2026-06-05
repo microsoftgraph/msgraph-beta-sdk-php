@@ -32,11 +32,11 @@ class ManagedAppLogCollectionRequestItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property managedAppLogCollectionRequests for users
-     * @param ManagedAppLogCollectionRequestItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedAppLogCollectionRequestItemRequestBuilderDeleteR_9bf11431|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ManagedAppLogCollectionRequestItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ManagedAppLogCollectionRequestItemRequestBuilderDeleteR_9bf11431 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class ManagedAppLogCollectionRequestItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Zero or more log collection requests triggered for the user.
-     * @param ManagedAppLogCollectionRequestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedAppLogCollectionRequestItemRequestBuilderGetRequ_fb344b89|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedAppLogCollectionRequest|null>
      * @throws Exception
     */
-    public function get(?ManagedAppLogCollectionRequestItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagedAppLogCollectionRequestItemRequestBuilderGetRequ_fb344b89 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class ManagedAppLogCollectionRequestItemRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property managedAppLogCollectionRequests in users
      * @param ManagedAppLogCollectionRequest $body The request body
-     * @param ManagedAppLogCollectionRequestItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedAppLogCollectionRequestItemRequestBuilderPatchRe_e1c968bf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedAppLogCollectionRequest|null>
      * @throws Exception
     */
-    public function patch(ManagedAppLogCollectionRequest $body, ?ManagedAppLogCollectionRequestItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ManagedAppLogCollectionRequest $body, ?ManagedAppLogCollectionRequestItemRequestBuilderPatchRe_e1c968bf $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class ManagedAppLogCollectionRequestItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property managedAppLogCollectionRequests for users
-     * @param ManagedAppLogCollectionRequestItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedAppLogCollectionRequestItemRequestBuilderDeleteR_9bf11431|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ManagedAppLogCollectionRequestItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ManagedAppLogCollectionRequestItemRequestBuilderDeleteR_9bf11431 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class ManagedAppLogCollectionRequestItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Zero or more log collection requests triggered for the user.
-     * @param ManagedAppLogCollectionRequestItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedAppLogCollectionRequestItemRequestBuilderGetRequ_fb344b89|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagedAppLogCollectionRequestItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagedAppLogCollectionRequestItemRequestBuilderGetRequ_fb344b89 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class ManagedAppLogCollectionRequestItemRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property managedAppLogCollectionRequests in users
      * @param ManagedAppLogCollectionRequest $body The request body
-     * @param ManagedAppLogCollectionRequestItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedAppLogCollectionRequestItemRequestBuilderPatchRe_e1c968bf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ManagedAppLogCollectionRequest $body, ?ManagedAppLogCollectionRequestItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ManagedAppLogCollectionRequest $body, ?ManagedAppLogCollectionRequestItemRequestBuilderPatchRe_e1c968bf $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

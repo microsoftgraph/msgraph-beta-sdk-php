@@ -32,11 +32,11 @@ class AssignResourceAccountToDeviceRequestBuilder extends BaseRequestBuilder
     /**
      * Assigns resource account to Autopilot devices.
      * @param AssignResourceAccountToDevicePostRequestBody $body The request body
-     * @param AssignResourceAccountToDeviceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AssignResourceAccountToDeviceRequestBuilderPostRequestC_a48bb9cf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(AssignResourceAccountToDevicePostRequestBody $body, ?AssignResourceAccountToDeviceRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AssignResourceAccountToDevicePostRequestBody $body, ?AssignResourceAccountToDeviceRequestBuilderPostRequestC_a48bb9cf $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,10 +47,10 @@ class AssignResourceAccountToDeviceRequestBuilder extends BaseRequestBuilder
     /**
      * Assigns resource account to Autopilot devices.
      * @param AssignResourceAccountToDevicePostRequestBody $body The request body
-     * @param AssignResourceAccountToDeviceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AssignResourceAccountToDeviceRequestBuilderPostRequestC_a48bb9cf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AssignResourceAccountToDevicePostRequestBody $body, ?AssignResourceAccountToDeviceRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AssignResourceAccountToDevicePostRequestBody $body, ?AssignResourceAccountToDeviceRequestBuilderPostRequestC_a48bb9cf $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

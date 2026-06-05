@@ -32,11 +32,11 @@ class GenerativeAIInsightTransactionItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property generativeAIInsights for networkAccess
-     * @param GenerativeAIInsightTransactionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GenerativeAIInsightTransactionItemRequestBuilderDeleteR_c1954abd|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?GenerativeAIInsightTransactionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?GenerativeAIInsightTransactionItemRequestBuilderDeleteR_c1954abd $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class GenerativeAIInsightTransactionItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Get generativeAIInsights from networkAccess
-     * @param GenerativeAIInsightTransactionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GenerativeAIInsightTransactionItemRequestBuilderGetRequ_49524f4d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GenerativeAIInsight|null>
      * @throws Exception
     */
-    public function get(?GenerativeAIInsightTransactionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GenerativeAIInsightTransactionItemRequestBuilderGetRequ_49524f4d $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class GenerativeAIInsightTransactionItemRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property generativeAIInsights in networkAccess
      * @param GenerativeAIInsight $body The request body
-     * @param GenerativeAIInsightTransactionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GenerativeAIInsightTransactionItemRequestBuilderPatchRe_d6dab3c1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GenerativeAIInsight|null>
      * @throws Exception
     */
-    public function patch(GenerativeAIInsight $body, ?GenerativeAIInsightTransactionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(GenerativeAIInsight $body, ?GenerativeAIInsightTransactionItemRequestBuilderPatchRe_d6dab3c1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class GenerativeAIInsightTransactionItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property generativeAIInsights for networkAccess
-     * @param GenerativeAIInsightTransactionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GenerativeAIInsightTransactionItemRequestBuilderDeleteR_c1954abd|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?GenerativeAIInsightTransactionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?GenerativeAIInsightTransactionItemRequestBuilderDeleteR_c1954abd $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class GenerativeAIInsightTransactionItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Get generativeAIInsights from networkAccess
-     * @param GenerativeAIInsightTransactionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GenerativeAIInsightTransactionItemRequestBuilderGetRequ_49524f4d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GenerativeAIInsightTransactionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GenerativeAIInsightTransactionItemRequestBuilderGetRequ_49524f4d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class GenerativeAIInsightTransactionItemRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property generativeAIInsights in networkAccess
      * @param GenerativeAIInsight $body The request body
-     * @param GenerativeAIInsightTransactionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GenerativeAIInsightTransactionItemRequestBuilderPatchRe_d6dab3c1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(GenerativeAIInsight $body, ?GenerativeAIInsightTransactionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(GenerativeAIInsight $body, ?GenerativeAIInsightTransactionItemRequestBuilderPatchRe_d6dab3c1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

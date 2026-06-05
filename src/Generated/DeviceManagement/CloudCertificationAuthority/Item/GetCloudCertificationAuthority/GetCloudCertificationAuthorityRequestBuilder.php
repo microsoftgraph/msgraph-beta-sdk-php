@@ -32,11 +32,11 @@ class GetCloudCertificationAuthorityRequestBuilder extends BaseRequestBuilder
 
     /**
      * Invoke action getCloudCertificationAuthority
-     * @param GetCloudCertificationAuthorityRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetCloudCertificationAuthorityRequestBuilderPostRequest_fd97d15b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudCertificationAuthority|null>
      * @throws Exception
     */
-    public function post(?GetCloudCertificationAuthorityRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?GetCloudCertificationAuthorityRequestBuilderPostRequest_fd97d15b $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class GetCloudCertificationAuthorityRequestBuilder extends BaseRequestBuilder
 
     /**
      * Invoke action getCloudCertificationAuthority
-     * @param GetCloudCertificationAuthorityRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetCloudCertificationAuthorityRequestBuilderPostRequest_fd97d15b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?GetCloudCertificationAuthorityRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?GetCloudCertificationAuthorityRequestBuilderPostRequest_fd97d15b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

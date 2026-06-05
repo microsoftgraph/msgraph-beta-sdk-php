@@ -98,7 +98,7 @@ class IdentityContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the sensorMigration property value. The sensorMigration property
+     * Gets the sensorMigration property value. Represents Microsoft Defender for Identity sensors that can be migrated to the unified security portal.
      * @return array<SensorMigration>|null
     */
     public function getSensorMigration(): ?array {
@@ -185,7 +185,7 @@ class IdentityContainer extends Entity implements Parsable
     }
 
     /**
-     * Sets the sensorMigration property value. The sensorMigration property
+     * Sets the sensorMigration property value. Represents Microsoft Defender for Identity sensors that can be migrated to the unified security portal.
      * @param array<SensorMigration>|null $value Value to set for the sensorMigration property.
     */
     public function setSensorMigration(?array $value): void {

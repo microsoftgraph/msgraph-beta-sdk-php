@@ -40,11 +40,11 @@ class DeviceManagementExchangeOnPremisesPolicyItemRequestBuilder extends BaseReq
 
     /**
      * Delete navigation property exchangeOnPremisesPolicies for deviceManagement
-     * @param DeviceManagementExchangeOnPremisesPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementExchangeOnPremisesPolicyItemRequestBuil_a2441f65|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DeviceManagementExchangeOnPremisesPolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DeviceManagementExchangeOnPremisesPolicyItemRequestBuil_a2441f65 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,11 +54,11 @@ class DeviceManagementExchangeOnPremisesPolicyItemRequestBuilder extends BaseReq
 
     /**
      * The list of Exchange On Premisis policies configured by the tenant.
-     * @param DeviceManagementExchangeOnPremisesPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementExchangeOnPremisesPolicyItemRequestBuil_e6be312b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementExchangeOnPremisesPolicy|null>
      * @throws Exception
     */
-    public function get(?DeviceManagementExchangeOnPremisesPolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DeviceManagementExchangeOnPremisesPolicyItemRequestBuil_e6be312b $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class DeviceManagementExchangeOnPremisesPolicyItemRequestBuilder extends BaseReq
     /**
      * Update the navigation property exchangeOnPremisesPolicies in deviceManagement
      * @param DeviceManagementExchangeOnPremisesPolicy $body The request body
-     * @param DeviceManagementExchangeOnPremisesPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementExchangeOnPremisesPolicyItemRequestBuil_48021c2f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementExchangeOnPremisesPolicy|null>
      * @throws Exception
     */
-    public function patch(DeviceManagementExchangeOnPremisesPolicy $body, ?DeviceManagementExchangeOnPremisesPolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DeviceManagementExchangeOnPremisesPolicy $body, ?DeviceManagementExchangeOnPremisesPolicyItemRequestBuil_48021c2f $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class DeviceManagementExchangeOnPremisesPolicyItemRequestBuilder extends BaseReq
 
     /**
      * Delete navigation property exchangeOnPremisesPolicies for deviceManagement
-     * @param DeviceManagementExchangeOnPremisesPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementExchangeOnPremisesPolicyItemRequestBuil_a2441f65|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DeviceManagementExchangeOnPremisesPolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DeviceManagementExchangeOnPremisesPolicyItemRequestBuil_a2441f65 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -101,10 +101,10 @@ class DeviceManagementExchangeOnPremisesPolicyItemRequestBuilder extends BaseReq
 
     /**
      * The list of Exchange On Premisis policies configured by the tenant.
-     * @param DeviceManagementExchangeOnPremisesPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementExchangeOnPremisesPolicyItemRequestBuil_e6be312b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DeviceManagementExchangeOnPremisesPolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DeviceManagementExchangeOnPremisesPolicyItemRequestBuil_e6be312b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -123,10 +123,10 @@ class DeviceManagementExchangeOnPremisesPolicyItemRequestBuilder extends BaseReq
     /**
      * Update the navigation property exchangeOnPremisesPolicies in deviceManagement
      * @param DeviceManagementExchangeOnPremisesPolicy $body The request body
-     * @param DeviceManagementExchangeOnPremisesPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementExchangeOnPremisesPolicyItemRequestBuil_48021c2f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DeviceManagementExchangeOnPremisesPolicy $body, ?DeviceManagementExchangeOnPremisesPolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DeviceManagementExchangeOnPremisesPolicy $body, ?DeviceManagementExchangeOnPremisesPolicyItemRequestBuil_48021c2f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -34,12 +34,12 @@ class GetStorageAccountsWithSubscriptionIdRequestBuilder extends BaseRequestBuil
 
     /**
      * List all storage accounts cloudPcForensicStorageAccount that can be used to store a snapshot or snapshots of a Cloud PC for forensic analysis.
-     * @param GetStorageAccountsWithSubscriptionIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetStorageAccountsWithSubscriptionIdRequestBuilderGetRe_33cc3873|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetStorageAccountsWithSubscriptionIdGetResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpcsnapshot-getstorageaccounts?view=graph-rest-beta Find more info here
     */
-    public function get(?GetStorageAccountsWithSubscriptionIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetStorageAccountsWithSubscriptionIdRequestBuilderGetRe_33cc3873 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,10 +49,10 @@ class GetStorageAccountsWithSubscriptionIdRequestBuilder extends BaseRequestBuil
 
     /**
      * List all storage accounts cloudPcForensicStorageAccount that can be used to store a snapshot or snapshots of a Cloud PC for forensic analysis.
-     * @param GetStorageAccountsWithSubscriptionIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetStorageAccountsWithSubscriptionIdRequestBuilderGetRe_33cc3873|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetStorageAccountsWithSubscriptionIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetStorageAccountsWithSubscriptionIdRequestBuilderGetRe_33cc3873 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

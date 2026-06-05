@@ -109,6 +109,7 @@ class ProtectionUnitBase extends Entity implements Parsable
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'offboardRequestedDateTime' => fn(ParseNode $n) => $o->setOffboardRequestedDateTime($n->getDateTimeValue()),
+            'pendingRetentionPeriodChange' => fn(ParseNode $n) => $o->setPendingRetentionPeriodChange($n->getObjectValue([RetentionPeriodChange::class, 'createFromDiscriminatorValue'])),
             'policyId' => fn(ParseNode $n) => $o->setPolicyId($n->getStringValue()),
             'protectionSources' => fn(ParseNode $n) => $o->setProtectionSources($n->getEnumValue(ProtectionSource::class)),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(ProtectionUnitStatus::class)),
@@ -149,6 +150,18 @@ class ProtectionUnitBase extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'offboardRequestedDateTime'");
+    }
+
+    /**
+     * Gets the pendingRetentionPeriodChange property value. The pendingRetentionPeriodChange property
+     * @return RetentionPeriodChange|null
+    */
+    public function getPendingRetentionPeriodChange(): ?RetentionPeriodChange {
+        $val = $this->getBackingStore()->get('pendingRetentionPeriodChange');
+        if (is_null($val) || $val instanceof RetentionPeriodChange) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'pendingRetentionPeriodChange'");
     }
 
     /**
@@ -268,6 +281,14 @@ class ProtectionUnitBase extends Entity implements Parsable
     */
     public function setOffboardRequestedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('offboardRequestedDateTime', $value);
+    }
+
+    /**
+     * Sets the pendingRetentionPeriodChange property value. The pendingRetentionPeriodChange property
+     * @param RetentionPeriodChange|null $value Value to set for the pendingRetentionPeriodChange property.
+    */
+    public function setPendingRetentionPeriodChange(?RetentionPeriodChange $value): void {
+        $this->getBackingStore()->set('pendingRetentionPeriodChange', $value);
     }
 
     /**

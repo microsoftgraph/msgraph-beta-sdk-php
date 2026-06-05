@@ -32,11 +32,11 @@ class OriginatingKnowledgeBaseArticleRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property originatingKnowledgeBaseArticle for admin
-     * @param OriginatingKnowledgeBaseArticleRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OriginatingKnowledgeBaseArticleRequestBuilderDeleteRequ_978be003|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?OriginatingKnowledgeBaseArticleRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?OriginatingKnowledgeBaseArticleRequestBuilderDeleteRequ_978be003 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class OriginatingKnowledgeBaseArticleRequestBuilder extends BaseRequestBuilder
 
     /**
      * Knowledge base article associated with the release when the known issue was first reported.
-     * @param OriginatingKnowledgeBaseArticleRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OriginatingKnowledgeBaseArticleRequestBuilderGetRequest_53e9ca77|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<KnowledgeBaseArticle|null>
      * @throws Exception
     */
-    public function get(?OriginatingKnowledgeBaseArticleRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?OriginatingKnowledgeBaseArticleRequestBuilderGetRequest_53e9ca77 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class OriginatingKnowledgeBaseArticleRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property originatingKnowledgeBaseArticle in admin
      * @param KnowledgeBaseArticle $body The request body
-     * @param OriginatingKnowledgeBaseArticleRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OriginatingKnowledgeBaseArticleRequestBuilderPatchReque_3e289c26|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<KnowledgeBaseArticle|null>
      * @throws Exception
     */
-    public function patch(KnowledgeBaseArticle $body, ?OriginatingKnowledgeBaseArticleRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(KnowledgeBaseArticle $body, ?OriginatingKnowledgeBaseArticleRequestBuilderPatchReque_3e289c26 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class OriginatingKnowledgeBaseArticleRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property originatingKnowledgeBaseArticle for admin
-     * @param OriginatingKnowledgeBaseArticleRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OriginatingKnowledgeBaseArticleRequestBuilderDeleteRequ_978be003|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?OriginatingKnowledgeBaseArticleRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?OriginatingKnowledgeBaseArticleRequestBuilderDeleteRequ_978be003 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class OriginatingKnowledgeBaseArticleRequestBuilder extends BaseRequestBuilder
 
     /**
      * Knowledge base article associated with the release when the known issue was first reported.
-     * @param OriginatingKnowledgeBaseArticleRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OriginatingKnowledgeBaseArticleRequestBuilderGetRequest_53e9ca77|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?OriginatingKnowledgeBaseArticleRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?OriginatingKnowledgeBaseArticleRequestBuilderGetRequest_53e9ca77 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class OriginatingKnowledgeBaseArticleRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property originatingKnowledgeBaseArticle in admin
      * @param KnowledgeBaseArticle $body The request body
-     * @param OriginatingKnowledgeBaseArticleRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OriginatingKnowledgeBaseArticleRequestBuilderPatchReque_3e289c26|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(KnowledgeBaseArticle $body, ?OriginatingKnowledgeBaseArticleRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(KnowledgeBaseArticle $body, ?OriginatingKnowledgeBaseArticleRequestBuilderPatchReque_3e289c26 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

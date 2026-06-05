@@ -64,11 +64,11 @@ class UnifiedRoleManagementAlertItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property alerts for identityGovernance
-     * @param UnifiedRoleManagementAlertItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnifiedRoleManagementAlertItemRequestBuilderDeleteReque_ee326e46|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?UnifiedRoleManagementAlertItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?UnifiedRoleManagementAlertItemRequestBuilderDeleteReque_ee326e46 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -78,11 +78,11 @@ class UnifiedRoleManagementAlertItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Represents the alert entity.
-     * @param UnifiedRoleManagementAlertItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnifiedRoleManagementAlertItemRequestBuilderGetRequestC_6cb152af|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnifiedRoleManagementAlert|null>
      * @throws Exception
     */
-    public function get(?UnifiedRoleManagementAlertItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UnifiedRoleManagementAlertItemRequestBuilderGetRequestC_6cb152af $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -93,11 +93,11 @@ class UnifiedRoleManagementAlertItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property alerts in identityGovernance
      * @param UnifiedRoleManagementAlert $body The request body
-     * @param UnifiedRoleManagementAlertItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnifiedRoleManagementAlertItemRequestBuilderPatchReques_04510012|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnifiedRoleManagementAlert|null>
      * @throws Exception
     */
-    public function patch(UnifiedRoleManagementAlert $body, ?UnifiedRoleManagementAlertItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(UnifiedRoleManagementAlert $body, ?UnifiedRoleManagementAlertItemRequestBuilderPatchReques_04510012 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -107,10 +107,10 @@ class UnifiedRoleManagementAlertItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property alerts for identityGovernance
-     * @param UnifiedRoleManagementAlertItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnifiedRoleManagementAlertItemRequestBuilderDeleteReque_ee326e46|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?UnifiedRoleManagementAlertItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?UnifiedRoleManagementAlertItemRequestBuilderDeleteReque_ee326e46 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -125,10 +125,10 @@ class UnifiedRoleManagementAlertItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Represents the alert entity.
-     * @param UnifiedRoleManagementAlertItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnifiedRoleManagementAlertItemRequestBuilderGetRequestC_6cb152af|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UnifiedRoleManagementAlertItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UnifiedRoleManagementAlertItemRequestBuilderGetRequestC_6cb152af $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -147,10 +147,10 @@ class UnifiedRoleManagementAlertItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property alerts in identityGovernance
      * @param UnifiedRoleManagementAlert $body The request body
-     * @param UnifiedRoleManagementAlertItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnifiedRoleManagementAlertItemRequestBuilderPatchReques_04510012|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(UnifiedRoleManagementAlert $body, ?UnifiedRoleManagementAlertItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(UnifiedRoleManagementAlert $body, ?UnifiedRoleManagementAlertItemRequestBuilderPatchReques_04510012 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

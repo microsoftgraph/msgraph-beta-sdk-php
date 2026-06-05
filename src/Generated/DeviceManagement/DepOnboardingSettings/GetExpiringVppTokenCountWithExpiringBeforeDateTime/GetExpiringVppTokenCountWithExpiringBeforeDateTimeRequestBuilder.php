@@ -34,11 +34,11 @@ class GetExpiringVppTokenCountWithExpiringBeforeDateTimeRequestBuilder extends B
 
     /**
      * Invoke function getExpiringVppTokenCount
-     * @param GetExpiringVppTokenCountWithExpiringBeforeDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetExpiringVppTokenCountWithExpiringBeforeDateTimeReque_0140ba3c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetExpiringVppTokenCountWithExpiringBeforeDateTimeGetResponse|null>
      * @throws Exception
     */
-    public function get(?GetExpiringVppTokenCountWithExpiringBeforeDateTimeRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetExpiringVppTokenCountWithExpiringBeforeDateTimeReque_0140ba3c $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class GetExpiringVppTokenCountWithExpiringBeforeDateTimeRequestBuilder extends B
 
     /**
      * Invoke function getExpiringVppTokenCount
-     * @param GetExpiringVppTokenCountWithExpiringBeforeDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetExpiringVppTokenCountWithExpiringBeforeDateTimeReque_0140ba3c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetExpiringVppTokenCountWithExpiringBeforeDateTimeRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetExpiringVppTokenCountWithExpiringBeforeDateTimeReque_0140ba3c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

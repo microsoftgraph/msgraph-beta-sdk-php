@@ -32,11 +32,11 @@ class CloudPcFrontLineServicePlanItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property frontLineServicePlans for deviceManagement
-     * @param CloudPcFrontLineServicePlanItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcFrontLineServicePlanItemRequestBuilderDeleteRequ_cd6578c0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CloudPcFrontLineServicePlanItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CloudPcFrontLineServicePlanItemRequestBuilderDeleteRequ_cd6578c0 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,12 +46,12 @@ class CloudPcFrontLineServicePlanItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get the properties and relationships of a cloudPcFrontLineServicePlan object.
-     * @param CloudPcFrontLineServicePlanItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcFrontLineServicePlanItemRequestBuilderGetRequest_4ca9bb24|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcFrontLineServicePlan|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpcfrontlineserviceplan-get?view=graph-rest-beta Find more info here
     */
-    public function get(?CloudPcFrontLineServicePlanItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CloudPcFrontLineServicePlanItemRequestBuilderGetRequest_4ca9bb24 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class CloudPcFrontLineServicePlanItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property frontLineServicePlans in deviceManagement
      * @param CloudPcFrontLineServicePlan $body The request body
-     * @param CloudPcFrontLineServicePlanItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcFrontLineServicePlanItemRequestBuilderPatchReque_4c2748e1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcFrontLineServicePlan|null>
      * @throws Exception
     */
-    public function patch(CloudPcFrontLineServicePlan $body, ?CloudPcFrontLineServicePlanItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(CloudPcFrontLineServicePlan $body, ?CloudPcFrontLineServicePlanItemRequestBuilderPatchReque_4c2748e1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -76,10 +76,10 @@ class CloudPcFrontLineServicePlanItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property frontLineServicePlans for deviceManagement
-     * @param CloudPcFrontLineServicePlanItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcFrontLineServicePlanItemRequestBuilderDeleteRequ_cd6578c0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CloudPcFrontLineServicePlanItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CloudPcFrontLineServicePlanItemRequestBuilderDeleteRequ_cd6578c0 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -94,10 +94,10 @@ class CloudPcFrontLineServicePlanItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get the properties and relationships of a cloudPcFrontLineServicePlan object.
-     * @param CloudPcFrontLineServicePlanItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcFrontLineServicePlanItemRequestBuilderGetRequest_4ca9bb24|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CloudPcFrontLineServicePlanItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CloudPcFrontLineServicePlanItemRequestBuilderGetRequest_4ca9bb24 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -116,10 +116,10 @@ class CloudPcFrontLineServicePlanItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property frontLineServicePlans in deviceManagement
      * @param CloudPcFrontLineServicePlan $body The request body
-     * @param CloudPcFrontLineServicePlanItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcFrontLineServicePlanItemRequestBuilderPatchReque_4c2748e1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CloudPcFrontLineServicePlan $body, ?CloudPcFrontLineServicePlanItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(CloudPcFrontLineServicePlan $body, ?CloudPcFrontLineServicePlanItemRequestBuilderPatchReque_4c2748e1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

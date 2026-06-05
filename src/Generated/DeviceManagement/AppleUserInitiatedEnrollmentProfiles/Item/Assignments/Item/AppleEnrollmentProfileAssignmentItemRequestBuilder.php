@@ -32,11 +32,11 @@ class AppleEnrollmentProfileAssignmentItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param AppleEnrollmentProfileAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppleEnrollmentProfileAssignmentItemRequestBuilderDelet_4e006d75|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?AppleEnrollmentProfileAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?AppleEnrollmentProfileAssignmentItemRequestBuilderDelet_4e006d75 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class AppleEnrollmentProfileAssignmentItemRequestBuilder extends BaseRequestBuil
 
     /**
      * The list of assignments for this profile.
-     * @param AppleEnrollmentProfileAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppleEnrollmentProfileAssignmentItemRequestBuilderGetRe_26ee57b4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AppleEnrollmentProfileAssignment|null>
      * @throws Exception
     */
-    public function get(?AppleEnrollmentProfileAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AppleEnrollmentProfileAssignmentItemRequestBuilderGetRe_26ee57b4 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class AppleEnrollmentProfileAssignmentItemRequestBuilder extends BaseRequestBuil
     /**
      * Update the navigation property assignments in deviceManagement
      * @param AppleEnrollmentProfileAssignment $body The request body
-     * @param AppleEnrollmentProfileAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppleEnrollmentProfileAssignmentItemRequestBuilderPatch_9afce9fb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AppleEnrollmentProfileAssignment|null>
      * @throws Exception
     */
-    public function patch(AppleEnrollmentProfileAssignment $body, ?AppleEnrollmentProfileAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(AppleEnrollmentProfileAssignment $body, ?AppleEnrollmentProfileAssignmentItemRequestBuilderPatch_9afce9fb $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class AppleEnrollmentProfileAssignmentItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param AppleEnrollmentProfileAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppleEnrollmentProfileAssignmentItemRequestBuilderDelet_4e006d75|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?AppleEnrollmentProfileAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?AppleEnrollmentProfileAssignmentItemRequestBuilderDelet_4e006d75 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class AppleEnrollmentProfileAssignmentItemRequestBuilder extends BaseRequestBuil
 
     /**
      * The list of assignments for this profile.
-     * @param AppleEnrollmentProfileAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppleEnrollmentProfileAssignmentItemRequestBuilderGetRe_26ee57b4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AppleEnrollmentProfileAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AppleEnrollmentProfileAssignmentItemRequestBuilderGetRe_26ee57b4 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class AppleEnrollmentProfileAssignmentItemRequestBuilder extends BaseRequestBuil
     /**
      * Update the navigation property assignments in deviceManagement
      * @param AppleEnrollmentProfileAssignment $body The request body
-     * @param AppleEnrollmentProfileAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppleEnrollmentProfileAssignmentItemRequestBuilderPatch_9afce9fb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(AppleEnrollmentProfileAssignment $body, ?AppleEnrollmentProfileAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(AppleEnrollmentProfileAssignment $body, ?AppleEnrollmentProfileAssignmentItemRequestBuilderPatch_9afce9fb $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

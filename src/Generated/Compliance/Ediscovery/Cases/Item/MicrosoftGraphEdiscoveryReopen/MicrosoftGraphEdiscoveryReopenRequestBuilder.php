@@ -31,12 +31,12 @@ class MicrosoftGraphEdiscoveryReopenRequestBuilder extends BaseRequestBuilder
 
     /**
      * Reopen an eDiscovery case that was closed. For details, see Reopen a closed case.
-     * @param MicrosoftGraphEdiscoveryReopenRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphEdiscoveryReopenRequestBuilderPostRequest_a31cd152|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/ediscovery-case-reopen?view=graph-rest-beta Find more info here
     */
-    public function post(?MicrosoftGraphEdiscoveryReopenRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?MicrosoftGraphEdiscoveryReopenRequestBuilderPostRequest_a31cd152 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class MicrosoftGraphEdiscoveryReopenRequestBuilder extends BaseRequestBuilder
 
     /**
      * Reopen an eDiscovery case that was closed. For details, see Reopen a closed case.
-     * @param MicrosoftGraphEdiscoveryReopenRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphEdiscoveryReopenRequestBuilderPostRequest_a31cd152|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?MicrosoftGraphEdiscoveryReopenRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?MicrosoftGraphEdiscoveryReopenRequestBuilderPostRequest_a31cd152 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

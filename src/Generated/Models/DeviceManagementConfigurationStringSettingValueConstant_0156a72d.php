@@ -1,0 +1,71 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Models;
+
+use Microsoft\Kiota\Abstractions\Serialization\Parsable;
+use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
+use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+
+/**
+ * String Setting Value Constant Default Template Original name: deviceManagementConfigurationStringSettingValueConstantDefaultTemplate
+*/
+class DeviceManagementConfigurationStringSettingValueConstant_0156a72d extends DeviceManagementConfigurationStringSettingValueDefaultTemplate implements Parsable 
+{
+    /**
+     * Instantiates a new DeviceManagementConfigurationStringSettingValueConstant_0156a72d and sets the default values.
+    */
+    public function __construct() {
+        parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationStringSettingValueConstantDefaultTemplate');
+    }
+
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
+     * @return DeviceManagementConfigurationStringSettingValueConstant_0156a72d
+    */
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationStringSettingValueConstant_0156a72d {
+        return new DeviceManagementConfigurationStringSettingValueConstant_0156a72d();
+    }
+
+    /**
+     * Gets the constantValue property value. Default Constant Value
+     * @return string|null
+    */
+    public function getConstantValue(): ?string {
+        $val = $this->getBackingStore()->get('constantValue');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'constantValue'");
+    }
+
+    /**
+     * The deserialization information for the current model
+     * @return array<string, callable(ParseNode): void>
+    */
+    public function getFieldDeserializers(): array {
+        $o = $this;
+        return array_merge(parent::getFieldDeserializers(), [
+            'constantValue' => fn(ParseNode $n) => $o->setConstantValue($n->getStringValue()),
+        ]);
+    }
+
+    /**
+     * Serializes information the current object
+     * @param SerializationWriter $writer Serialization writer to use to serialize this model
+    */
+    public function serialize(SerializationWriter $writer): void {
+        parent::serialize($writer);
+        $writer->writeStringValue('constantValue', $this->getConstantValue());
+    }
+
+    /**
+     * Sets the constantValue property value. Default Constant Value
+     * @param string|null $value Value to set for the constantValue property.
+    */
+    public function setConstantValue(?string $value): void {
+        $this->getBackingStore()->set('constantValue', $value);
+    }
+
+}

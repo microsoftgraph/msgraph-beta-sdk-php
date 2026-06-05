@@ -32,11 +32,11 @@ class CloudPcManagedLicenseItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property managedLicenses for deviceManagement
-     * @param CloudPcManagedLicenseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcManagedLicenseItemRequestBuilderDeleteRequestCon_8351115f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CloudPcManagedLicenseItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CloudPcManagedLicenseItemRequestBuilderDeleteRequestCon_8351115f $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class CloudPcManagedLicenseItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property managedLicenses for deviceManagement
-     * @param CloudPcManagedLicenseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcManagedLicenseItemRequestBuilderDeleteRequestCon_8351115f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CloudPcManagedLicenseItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CloudPcManagedLicenseItemRequestBuilderDeleteRequestCon_8351115f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

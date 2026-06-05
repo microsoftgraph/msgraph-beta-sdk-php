@@ -34,11 +34,11 @@ class GetOffice365GroupsActivityCountsWithPeriodRequestBuilder extends BaseReque
 
     /**
      * Invoke function getOffice365GroupsActivityCounts
-     * @param GetOffice365GroupsActivityCountsWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetOffice365GroupsActivityCountsWithPeriodRequestBuilde_267553af|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetOffice365GroupsActivityCountsWithPeriodGetResponse|null>
      * @throws Exception
     */
-    public function get(?GetOffice365GroupsActivityCountsWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetOffice365GroupsActivityCountsWithPeriodRequestBuilde_267553af $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class GetOffice365GroupsActivityCountsWithPeriodRequestBuilder extends BaseReque
 
     /**
      * Invoke function getOffice365GroupsActivityCounts
-     * @param GetOffice365GroupsActivityCountsWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetOffice365GroupsActivityCountsWithPeriodRequestBuilde_267553af|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetOffice365GroupsActivityCountsWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetOffice365GroupsActivityCountsWithPeriodRequestBuilde_267553af $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

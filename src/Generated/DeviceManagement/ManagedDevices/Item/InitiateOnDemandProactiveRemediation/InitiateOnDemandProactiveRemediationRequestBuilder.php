@@ -32,11 +32,11 @@ class InitiateOnDemandProactiveRemediationRequestBuilder extends BaseRequestBuil
     /**
      * Perform On Demand Proactive Remediation
      * @param InitiateOnDemandProactiveRemediationPostRequestBody $body The request body
-     * @param InitiateOnDemandProactiveRemediationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param InitiateOnDemandProactiveRemediationRequestBuilderPostR_223ab5bc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(InitiateOnDemandProactiveRemediationPostRequestBody $body, ?InitiateOnDemandProactiveRemediationRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(InitiateOnDemandProactiveRemediationPostRequestBody $body, ?InitiateOnDemandProactiveRemediationRequestBuilderPostR_223ab5bc $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,10 +47,10 @@ class InitiateOnDemandProactiveRemediationRequestBuilder extends BaseRequestBuil
     /**
      * Perform On Demand Proactive Remediation
      * @param InitiateOnDemandProactiveRemediationPostRequestBody $body The request body
-     * @param InitiateOnDemandProactiveRemediationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param InitiateOnDemandProactiveRemediationRequestBuilderPostR_223ab5bc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(InitiateOnDemandProactiveRemediationPostRequestBody $body, ?InitiateOnDemandProactiveRemediationRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(InitiateOnDemandProactiveRemediationPostRequestBody $body, ?InitiateOnDemandProactiveRemediationRequestBuilderPostR_223ab5bc $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

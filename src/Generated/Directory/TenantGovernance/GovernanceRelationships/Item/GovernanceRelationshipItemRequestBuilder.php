@@ -32,11 +32,11 @@ class GovernanceRelationshipItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property governanceRelationships for directory
-     * @param GovernanceRelationshipItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernanceRelationshipItemRequestBuilderDeleteRequestCo_24314ef3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?GovernanceRelationshipItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?GovernanceRelationshipItemRequestBuilderDeleteRequestCo_24314ef3 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,12 +62,12 @@ class GovernanceRelationshipItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the status property of a governanceRelationship to initiate the termination process. There are two models for termination:1) Initiated by the governing tenant: After the governing tenant updates the status to terminationRequestedByGoverningTenant, the governed tenant may subsequently update the status to terminated.1) Directly terminated by the governed tenant: The governed tenant updates the status to terminated to immediately terminate the relationship. When the governed tenant updates the status to terminated in either model, the resources that were provisioned in the governed tenant upon relationship creation are deleted.
      * @param GovernanceRelationship $body The request body
-     * @param GovernanceRelationshipItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernanceRelationshipItemRequestBuilderPatchRequestCon_13a4425f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GovernanceRelationship|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/tenantgovernanceservices-governancerelationship-update?view=graph-rest-beta Find more info here
     */
-    public function patch(GovernanceRelationship $body, ?GovernanceRelationshipItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(GovernanceRelationship $body, ?GovernanceRelationshipItemRequestBuilderPatchRequestCon_13a4425f $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,10 +77,10 @@ class GovernanceRelationshipItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property governanceRelationships for directory
-     * @param GovernanceRelationshipItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernanceRelationshipItemRequestBuilderDeleteRequestCo_24314ef3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?GovernanceRelationshipItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?GovernanceRelationshipItemRequestBuilderDeleteRequestCo_24314ef3 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -117,10 +117,10 @@ class GovernanceRelationshipItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the status property of a governanceRelationship to initiate the termination process. There are two models for termination:1) Initiated by the governing tenant: After the governing tenant updates the status to terminationRequestedByGoverningTenant, the governed tenant may subsequently update the status to terminated.1) Directly terminated by the governed tenant: The governed tenant updates the status to terminated to immediately terminate the relationship. When the governed tenant updates the status to terminated in either model, the resources that were provisioned in the governed tenant upon relationship creation are deleted.
      * @param GovernanceRelationship $body The request body
-     * @param GovernanceRelationshipItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernanceRelationshipItemRequestBuilderPatchRequestCon_13a4425f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(GovernanceRelationship $body, ?GovernanceRelationshipItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(GovernanceRelationship $body, ?GovernanceRelationshipItemRequestBuilderPatchRequestCon_13a4425f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

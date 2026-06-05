@@ -53,12 +53,12 @@ class ApplicationSignInDetailedSummaryRequestBuilder extends BaseRequestBuilder
 
     /**
      * Retrieve the applicationSignInDetailedSummary objects.
-     * @param ApplicationSignInDetailedSummaryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplicationSignInDetailedSummaryRequestBuilderGetReques_927f1cf8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApplicationSignInDetailedSummaryCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/reportroot-list-applicationsignindetailedsummary?view=graph-rest-beta Find more info here
     */
-    public function get(?ApplicationSignInDetailedSummaryRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ApplicationSignInDetailedSummaryRequestBuilderGetReques_927f1cf8 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class ApplicationSignInDetailedSummaryRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to applicationSignInDetailedSummary for reports
      * @param ApplicationSignInDetailedSummary $body The request body
-     * @param ApplicationSignInDetailedSummaryRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplicationSignInDetailedSummaryRequestBuilderPostReque_90aa78c6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApplicationSignInDetailedSummary|null>
      * @throws Exception
     */
-    public function post(ApplicationSignInDetailedSummary $body, ?ApplicationSignInDetailedSummaryRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ApplicationSignInDetailedSummary $body, ?ApplicationSignInDetailedSummaryRequestBuilderPostReque_90aa78c6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class ApplicationSignInDetailedSummaryRequestBuilder extends BaseRequestBuilder
 
     /**
      * Retrieve the applicationSignInDetailedSummary objects.
-     * @param ApplicationSignInDetailedSummaryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplicationSignInDetailedSummaryRequestBuilderGetReques_927f1cf8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ApplicationSignInDetailedSummaryRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ApplicationSignInDetailedSummaryRequestBuilderGetReques_927f1cf8 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -105,10 +105,10 @@ class ApplicationSignInDetailedSummaryRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to applicationSignInDetailedSummary for reports
      * @param ApplicationSignInDetailedSummary $body The request body
-     * @param ApplicationSignInDetailedSummaryRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplicationSignInDetailedSummaryRequestBuilderPostReque_90aa78c6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ApplicationSignInDetailedSummary $body, ?ApplicationSignInDetailedSummaryRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ApplicationSignInDetailedSummary $body, ?ApplicationSignInDetailedSummaryRequestBuilderPostReque_90aa78c6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

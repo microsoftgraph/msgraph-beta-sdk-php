@@ -58,7 +58,7 @@ class GranularRestoreArtifactBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the destinationType property value. The destinationType property
+     * Gets the destinationType property value. The restoration destination. The possible values are: new, inPlace, unknownFutureValue.
      * @return DestinationType|null
     */
     public function getDestinationType(): ?DestinationType {
@@ -114,7 +114,7 @@ class GranularRestoreArtifactBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the restoredItemWebUrl property value. The web url of the restord artifact.
+     * Gets the restoredItemWebUrl property value. The web url of the restored artifact.
      * @return string|null
     */
     public function getRestoredItemWebUrl(): ?string {
@@ -208,7 +208,7 @@ class GranularRestoreArtifactBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the destinationType property value. The destinationType property
+     * Sets the destinationType property value. The restoration destination. The possible values are: new, inPlace, unknownFutureValue.
      * @param DestinationType|null $value Value to set for the destinationType property.
     */
     public function setDestinationType(?DestinationType $value): void {
@@ -232,7 +232,7 @@ class GranularRestoreArtifactBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the restoredItemWebUrl property value. The web url of the restord artifact.
+     * Sets the restoredItemWebUrl property value. The web url of the restored artifact.
      * @param string|null $value Value to set for the restoredItemWebUrl property.
     */
     public function setRestoredItemWebUrl(?string $value): void {

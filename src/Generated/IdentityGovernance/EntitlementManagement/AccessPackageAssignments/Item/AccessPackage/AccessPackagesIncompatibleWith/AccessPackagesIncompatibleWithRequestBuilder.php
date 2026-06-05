@@ -52,11 +52,11 @@ class AccessPackagesIncompatibleWithRequestBuilder extends BaseRequestBuilder
 
     /**
      * The access packages that are incompatible with this package. Read-only.
-     * @param AccessPackagesIncompatibleWithRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackagesIncompatibleWithRequestBuilderGetRequestC_49b096d2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?AccessPackagesIncompatibleWithRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AccessPackagesIncompatibleWithRequestBuilderGetRequestC_49b096d2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -66,10 +66,10 @@ class AccessPackagesIncompatibleWithRequestBuilder extends BaseRequestBuilder
 
     /**
      * The access packages that are incompatible with this package. Read-only.
-     * @param AccessPackagesIncompatibleWithRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackagesIncompatibleWithRequestBuilderGetRequestC_49b096d2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AccessPackagesIncompatibleWithRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AccessPackagesIncompatibleWithRequestBuilderGetRequestC_49b096d2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

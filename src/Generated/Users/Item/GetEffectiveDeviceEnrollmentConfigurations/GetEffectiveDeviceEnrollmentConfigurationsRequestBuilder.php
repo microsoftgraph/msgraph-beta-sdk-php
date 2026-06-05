@@ -31,11 +31,11 @@ class GetEffectiveDeviceEnrollmentConfigurationsRequestBuilder extends BaseReque
 
     /**
      * Invoke function getEffectiveDeviceEnrollmentConfigurations
-     * @param GetEffectiveDeviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetEffectiveDeviceEnrollmentConfigurationsRequestBuilde_91cad678|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetEffectiveDeviceEnrollmentConfigurationsGetResponse|null>
      * @throws Exception
     */
-    public function get(?GetEffectiveDeviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetEffectiveDeviceEnrollmentConfigurationsRequestBuilde_91cad678 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,10 +45,10 @@ class GetEffectiveDeviceEnrollmentConfigurationsRequestBuilder extends BaseReque
 
     /**
      * Invoke function getEffectiveDeviceEnrollmentConfigurations
-     * @param GetEffectiveDeviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetEffectiveDeviceEnrollmentConfigurationsRequestBuilde_91cad678|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetEffectiveDeviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetEffectiveDeviceEnrollmentConfigurationsRequestBuilde_91cad678 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

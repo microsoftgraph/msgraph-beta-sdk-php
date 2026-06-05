@@ -33,11 +33,11 @@ class RetrieveWin32CatalogAppsUpdateReportRequestBuilder extends BaseRequestBuil
     /**
      * Invoke action retrieveWin32CatalogAppsUpdateReport
      * @param RetrieveWin32CatalogAppsUpdateReportPostRequestBody $body The request body
-     * @param RetrieveWin32CatalogAppsUpdateReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveWin32CatalogAppsUpdateReportRequestBuilderPostR_41631065|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(RetrieveWin32CatalogAppsUpdateReportPostRequestBody $body, ?RetrieveWin32CatalogAppsUpdateReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(RetrieveWin32CatalogAppsUpdateReportPostRequestBody $body, ?RetrieveWin32CatalogAppsUpdateReportRequestBuilderPostR_41631065 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class RetrieveWin32CatalogAppsUpdateReportRequestBuilder extends BaseRequestBuil
     /**
      * Invoke action retrieveWin32CatalogAppsUpdateReport
      * @param RetrieveWin32CatalogAppsUpdateReportPostRequestBody $body The request body
-     * @param RetrieveWin32CatalogAppsUpdateReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveWin32CatalogAppsUpdateReportRequestBuilderPostR_41631065|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(RetrieveWin32CatalogAppsUpdateReportPostRequestBody $body, ?RetrieveWin32CatalogAppsUpdateReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(RetrieveWin32CatalogAppsUpdateReportPostRequestBody $body, ?RetrieveWin32CatalogAppsUpdateReportRequestBuilderPostR_41631065 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

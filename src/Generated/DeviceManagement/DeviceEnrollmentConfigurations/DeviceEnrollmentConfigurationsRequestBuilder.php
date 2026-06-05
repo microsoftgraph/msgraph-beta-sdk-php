@@ -69,11 +69,11 @@ class DeviceEnrollmentConfigurationsRequestBuilder extends BaseRequestBuilder
 
     /**
      * The list of device enrollment configurations
-     * @param DeviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceEnrollmentConfigurationsRequestBuilderGetRequestC_e24c437a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceEnrollmentConfigurationCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?DeviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DeviceEnrollmentConfigurationsRequestBuilderGetRequestC_e24c437a $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -84,11 +84,11 @@ class DeviceEnrollmentConfigurationsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to deviceEnrollmentConfigurations for deviceManagement
      * @param DeviceEnrollmentConfiguration $body The request body
-     * @param DeviceEnrollmentConfigurationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceEnrollmentConfigurationsRequestBuilderPostRequest_967e37aa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceEnrollmentConfiguration|null>
      * @throws Exception
     */
-    public function post(DeviceEnrollmentConfiguration $body, ?DeviceEnrollmentConfigurationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(DeviceEnrollmentConfiguration $body, ?DeviceEnrollmentConfigurationsRequestBuilderPostRequest_967e37aa $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -98,10 +98,10 @@ class DeviceEnrollmentConfigurationsRequestBuilder extends BaseRequestBuilder
 
     /**
      * The list of device enrollment configurations
-     * @param DeviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceEnrollmentConfigurationsRequestBuilderGetRequestC_e24c437a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DeviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DeviceEnrollmentConfigurationsRequestBuilderGetRequestC_e24c437a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -120,10 +120,10 @@ class DeviceEnrollmentConfigurationsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to deviceEnrollmentConfigurations for deviceManagement
      * @param DeviceEnrollmentConfiguration $body The request body
-     * @param DeviceEnrollmentConfigurationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceEnrollmentConfigurationsRequestBuilderPostRequest_967e37aa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(DeviceEnrollmentConfiguration $body, ?DeviceEnrollmentConfigurationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(DeviceEnrollmentConfiguration $body, ?DeviceEnrollmentConfigurationsRequestBuilderPostRequest_967e37aa $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

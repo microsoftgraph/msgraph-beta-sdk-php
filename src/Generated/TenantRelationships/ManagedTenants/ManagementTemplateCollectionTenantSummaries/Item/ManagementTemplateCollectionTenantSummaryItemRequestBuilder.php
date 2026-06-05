@@ -32,11 +32,11 @@ class ManagementTemplateCollectionTenantSummaryItemRequestBuilder extends BaseRe
 
     /**
      * Delete navigation property managementTemplateCollectionTenantSummaries for tenantRelationships
-     * @param ManagementTemplateCollectionTenantSummaryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateCollectionTenantSummaryItemRequestBui_e052fd3d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ManagementTemplateCollectionTenantSummaryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ManagementTemplateCollectionTenantSummaryItemRequestBui_e052fd3d $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class ManagementTemplateCollectionTenantSummaryItemRequestBuilder extends BaseRe
 
     /**
      * Get managementTemplateCollectionTenantSummaries from tenantRelationships
-     * @param ManagementTemplateCollectionTenantSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateCollectionTenantSummaryItemRequestBui_fdc32008|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementTemplateCollectionTenantSummary|null>
      * @throws Exception
     */
-    public function get(?ManagementTemplateCollectionTenantSummaryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagementTemplateCollectionTenantSummaryItemRequestBui_fdc32008 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class ManagementTemplateCollectionTenantSummaryItemRequestBuilder extends BaseRe
     /**
      * Update the navigation property managementTemplateCollectionTenantSummaries in tenantRelationships
      * @param ManagementTemplateCollectionTenantSummary $body The request body
-     * @param ManagementTemplateCollectionTenantSummaryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateCollectionTenantSummaryItemRequestBui_f79b5302|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementTemplateCollectionTenantSummary|null>
      * @throws Exception
     */
-    public function patch(ManagementTemplateCollectionTenantSummary $body, ?ManagementTemplateCollectionTenantSummaryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ManagementTemplateCollectionTenantSummary $body, ?ManagementTemplateCollectionTenantSummaryItemRequestBui_f79b5302 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class ManagementTemplateCollectionTenantSummaryItemRequestBuilder extends BaseRe
 
     /**
      * Delete navigation property managementTemplateCollectionTenantSummaries for tenantRelationships
-     * @param ManagementTemplateCollectionTenantSummaryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateCollectionTenantSummaryItemRequestBui_e052fd3d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ManagementTemplateCollectionTenantSummaryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ManagementTemplateCollectionTenantSummaryItemRequestBui_e052fd3d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class ManagementTemplateCollectionTenantSummaryItemRequestBuilder extends BaseRe
 
     /**
      * Get managementTemplateCollectionTenantSummaries from tenantRelationships
-     * @param ManagementTemplateCollectionTenantSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateCollectionTenantSummaryItemRequestBui_fdc32008|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagementTemplateCollectionTenantSummaryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagementTemplateCollectionTenantSummaryItemRequestBui_fdc32008 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class ManagementTemplateCollectionTenantSummaryItemRequestBuilder extends BaseRe
     /**
      * Update the navigation property managementTemplateCollectionTenantSummaries in tenantRelationships
      * @param ManagementTemplateCollectionTenantSummary $body The request body
-     * @param ManagementTemplateCollectionTenantSummaryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateCollectionTenantSummaryItemRequestBui_f79b5302|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ManagementTemplateCollectionTenantSummary $body, ?ManagementTemplateCollectionTenantSummaryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ManagementTemplateCollectionTenantSummary $body, ?ManagementTemplateCollectionTenantSummaryItemRequestBui_f79b5302 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -61,11 +61,11 @@ class IosLobAppProvisioningConfigurationsRequestBuilder extends BaseRequestBuild
 
     /**
      * The IOS Lob App Provisioning Configurations.
-     * @param IosLobAppProvisioningConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IosLobAppProvisioningConfigurationsRequestBuilderGetReq_15b968f0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IosLobAppProvisioningConfigurationCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?IosLobAppProvisioningConfigurationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?IosLobAppProvisioningConfigurationsRequestBuilderGetReq_15b968f0 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -76,11 +76,11 @@ class IosLobAppProvisioningConfigurationsRequestBuilder extends BaseRequestBuild
     /**
      * Create new navigation property to iosLobAppProvisioningConfigurations for deviceAppManagement
      * @param IosLobAppProvisioningConfiguration $body The request body
-     * @param IosLobAppProvisioningConfigurationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IosLobAppProvisioningConfigurationsRequestBuilderPostRe_a7d1188d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IosLobAppProvisioningConfiguration|null>
      * @throws Exception
     */
-    public function post(IosLobAppProvisioningConfiguration $body, ?IosLobAppProvisioningConfigurationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(IosLobAppProvisioningConfiguration $body, ?IosLobAppProvisioningConfigurationsRequestBuilderPostRe_a7d1188d $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -90,10 +90,10 @@ class IosLobAppProvisioningConfigurationsRequestBuilder extends BaseRequestBuild
 
     /**
      * The IOS Lob App Provisioning Configurations.
-     * @param IosLobAppProvisioningConfigurationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IosLobAppProvisioningConfigurationsRequestBuilderGetReq_15b968f0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?IosLobAppProvisioningConfigurationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?IosLobAppProvisioningConfigurationsRequestBuilderGetReq_15b968f0 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -112,10 +112,10 @@ class IosLobAppProvisioningConfigurationsRequestBuilder extends BaseRequestBuild
     /**
      * Create new navigation property to iosLobAppProvisioningConfigurations for deviceAppManagement
      * @param IosLobAppProvisioningConfiguration $body The request body
-     * @param IosLobAppProvisioningConfigurationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IosLobAppProvisioningConfigurationsRequestBuilderPostRe_a7d1188d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(IosLobAppProvisioningConfiguration $body, ?IosLobAppProvisioningConfigurationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(IosLobAppProvisioningConfiguration $body, ?IosLobAppProvisioningConfigurationsRequestBuilderPostRe_a7d1188d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

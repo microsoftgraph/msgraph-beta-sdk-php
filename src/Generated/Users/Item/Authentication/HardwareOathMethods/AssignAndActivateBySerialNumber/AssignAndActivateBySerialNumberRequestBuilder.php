@@ -32,12 +32,12 @@ class AssignAndActivateBySerialNumberRequestBuilder extends BaseRequestBuilder
     /**
      * Assign and activate a hardware token at the same time by hardware token serial number.
      * @param AssignAndActivateBySerialNumberPostRequestBody $body The request body
-     * @param AssignAndActivateBySerialNumberRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AssignAndActivateBySerialNumberRequestBuilderPostReques_40ecafe3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/hardwareoathauthenticationmethod-assignandactivatebyserialnumber?view=graph-rest-beta Find more info here
     */
-    public function post(AssignAndActivateBySerialNumberPostRequestBody $body, ?AssignAndActivateBySerialNumberRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AssignAndActivateBySerialNumberPostRequestBody $body, ?AssignAndActivateBySerialNumberRequestBuilderPostReques_40ecafe3 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class AssignAndActivateBySerialNumberRequestBuilder extends BaseRequestBuilder
     /**
      * Assign and activate a hardware token at the same time by hardware token serial number.
      * @param AssignAndActivateBySerialNumberPostRequestBody $body The request body
-     * @param AssignAndActivateBySerialNumberRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AssignAndActivateBySerialNumberRequestBuilderPostReques_40ecafe3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AssignAndActivateBySerialNumberPostRequestBody $body, ?AssignAndActivateBySerialNumberRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AssignAndActivateBySerialNumberPostRequestBody $body, ?AssignAndActivateBySerialNumberRequestBuilderPostReques_40ecafe3 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

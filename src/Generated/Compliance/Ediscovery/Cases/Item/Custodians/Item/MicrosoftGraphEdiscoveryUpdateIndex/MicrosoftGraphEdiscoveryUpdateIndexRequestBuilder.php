@@ -31,11 +31,11 @@ class MicrosoftGraphEdiscoveryUpdateIndexRequestBuilder extends BaseRequestBuild
 
     /**
      * Invoke action updateIndex
-     * @param MicrosoftGraphEdiscoveryUpdateIndexRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphEdiscoveryUpdateIndexRequestBuilderPostRe_cbebe95e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(?MicrosoftGraphEdiscoveryUpdateIndexRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?MicrosoftGraphEdiscoveryUpdateIndexRequestBuilderPostRe_cbebe95e $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,10 +45,10 @@ class MicrosoftGraphEdiscoveryUpdateIndexRequestBuilder extends BaseRequestBuild
 
     /**
      * Invoke action updateIndex
-     * @param MicrosoftGraphEdiscoveryUpdateIndexRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphEdiscoveryUpdateIndexRequestBuilderPostRe_cbebe95e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?MicrosoftGraphEdiscoveryUpdateIndexRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?MicrosoftGraphEdiscoveryUpdateIndexRequestBuilderPostRe_cbebe95e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

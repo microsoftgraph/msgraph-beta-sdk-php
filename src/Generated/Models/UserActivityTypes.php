@@ -10,5 +10,6 @@ class UserActivityTypes extends Enum {
     public const UPLOAD_FILE = "uploadFile";
     public const DOWNLOAD_TEXT = "downloadText";
     public const DOWNLOAD_FILE = "downloadFile";
+    public const COPY_TO_CLIPBOARD = "copyToClipboard";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

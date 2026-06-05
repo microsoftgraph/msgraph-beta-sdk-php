@@ -53,7 +53,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the autopatch property value. Indicates the Windows Autopatch settings for Cloud PCs using this provisioning policy. The settings take effect when the tenant enrolls in Autopatch and the managedType of the microsoftManagedDesktop property is set as starterManaged. Supports $select.
+     * Gets the autopatch property value. Indicates the Windows Autopatch settings for Cloud PCs using this provisioning policy. The settings take effect when the tenant enrolls in Autopatch and the managedType of the microsoftManagedDesktop property is set as starterManaged. When you create or update a provisioning policy with autopatch, you must use a delegated token and the signed-in user must have the Intune Administrator role. Supports $select.
      * @return CloudPcProvisioningPolicyAutopatch|null
     */
     public function getAutopatch(): ?CloudPcProvisioningPolicyAutopatch {
@@ -65,7 +65,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the autopilotConfiguration property value. The specific settings for Windows Autopilot that enable Windows 365 customers to experience it on Cloud PC. Supports $select.
+     * Gets the autopilotConfiguration property value. The specific settings for Windows Autopilot that enable Windows 365 customers to experience it on Cloud PC. When you create or update a provisioning policy with autopilotConfiguration, use the required Microsoft Graph permissions listed on the corresponding create and update API pages. In delegated scenarios, the signed-in user must also have the Microsoft.Intune/DeviceConfigurations/Assign Intune RBAC permission. Supports $select.
      * @return CloudPcAutopilotConfiguration|null
     */
     public function getAutopilotConfiguration(): ?CloudPcAutopilotConfiguration {
@@ -339,7 +339,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the scopeIds property value. The scopeIds property
+     * Gets the scopeIds property value. The list of scope tag IDs for this resource. Read-only.
      * @return array<string>|null
     */
     public function getScopeIds(): ?array {
@@ -452,7 +452,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the autopatch property value. Indicates the Windows Autopatch settings for Cloud PCs using this provisioning policy. The settings take effect when the tenant enrolls in Autopatch and the managedType of the microsoftManagedDesktop property is set as starterManaged. Supports $select.
+     * Sets the autopatch property value. Indicates the Windows Autopatch settings for Cloud PCs using this provisioning policy. The settings take effect when the tenant enrolls in Autopatch and the managedType of the microsoftManagedDesktop property is set as starterManaged. When you create or update a provisioning policy with autopatch, you must use a delegated token and the signed-in user must have the Intune Administrator role. Supports $select.
      * @param CloudPcProvisioningPolicyAutopatch|null $value Value to set for the autopatch property.
     */
     public function setAutopatch(?CloudPcProvisioningPolicyAutopatch $value): void {
@@ -460,7 +460,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the autopilotConfiguration property value. The specific settings for Windows Autopilot that enable Windows 365 customers to experience it on Cloud PC. Supports $select.
+     * Sets the autopilotConfiguration property value. The specific settings for Windows Autopilot that enable Windows 365 customers to experience it on Cloud PC. When you create or update a provisioning policy with autopilotConfiguration, use the required Microsoft Graph permissions listed on the corresponding create and update API pages. In delegated scenarios, the signed-in user must also have the Microsoft.Intune/DeviceConfigurations/Assign Intune RBAC permission. Supports $select.
      * @param CloudPcAutopilotConfiguration|null $value Value to set for the autopilotConfiguration property.
     */
     public function setAutopilotConfiguration(?CloudPcAutopilotConfiguration $value): void {
@@ -612,7 +612,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the scopeIds property value. The scopeIds property
+     * Sets the scopeIds property value. The list of scope tag IDs for this resource. Read-only.
      * @param array<string>|null $value Value to set for the scopeIds property.
     */
     public function setScopeIds(?array $value): void {

@@ -68,11 +68,11 @@ class AccessPackageResourceScopesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to accessPackageResourceScopes for identityGovernance
      * @param AccessPackageResourceScope $body The request body
-     * @param AccessPackageResourceScopesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageResourceScopesRequestBuilderPostRequestCon_39d7becb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageResourceScope|null>
      * @throws Exception
     */
-    public function post(AccessPackageResourceScope $body, ?AccessPackageResourceScopesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AccessPackageResourceScope $body, ?AccessPackageResourceScopesRequestBuilderPostRequestCon_39d7becb $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -104,10 +104,10 @@ class AccessPackageResourceScopesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to accessPackageResourceScopes for identityGovernance
      * @param AccessPackageResourceScope $body The request body
-     * @param AccessPackageResourceScopesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageResourceScopesRequestBuilderPostRequestCon_39d7becb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AccessPackageResourceScope $body, ?AccessPackageResourceScopesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AccessPackageResourceScope $body, ?AccessPackageResourceScopesRequestBuilderPostRequestCon_39d7becb $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -34,11 +34,11 @@ class GetRoleScopeTagsByIdsWithIdsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Invoke function getRoleScopeTagsByIds
-     * @param GetRoleScopeTagsByIdsWithIdsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetRoleScopeTagsByIdsWithIdsRequestBuilderGetRequestCon_dcf525db|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetRoleScopeTagsByIdsWithIdsGetResponse|null>
      * @throws Exception
     */
-    public function get(?GetRoleScopeTagsByIdsWithIdsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetRoleScopeTagsByIdsWithIdsRequestBuilderGetRequestCon_dcf525db $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class GetRoleScopeTagsByIdsWithIdsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Invoke function getRoleScopeTagsByIds
-     * @param GetRoleScopeTagsByIdsWithIdsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetRoleScopeTagsByIdsWithIdsRequestBuilderGetRequestCon_dcf525db|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetRoleScopeTagsByIdsWithIdsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetRoleScopeTagsByIdsWithIdsRequestBuilderGetRequestCon_dcf525db $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

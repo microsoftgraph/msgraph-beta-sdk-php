@@ -31,14 +31,14 @@ class RetrieveCloudPcTroubleshootReportsRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Get troubleshooting reports for Cloud PCs. You can get a regional troubleshooting report, a report with troubleshooting details, a report with troubleshooting trends, or a report on the number of troubleshooting issues.
+     * Get Cloud PC troubleshooting reports. You can get tenant-level reports, configuration reports, user and device reports, and view data table reports. For the report types grouped by scope, including the mandatory filter parameters and response columns per reportName, see Cloud PC troubleshoot report types.
      * @param RetrieveCloudPcTroubleshootReportsPostRequestBody $body The request body
-     * @param RetrieveCloudPcTroubleshootReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveCloudPcTroubleshootReportsRequestBuilderPostReq_cda92d22|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpcreports-retrievecloudpctroubleshootreports?view=graph-rest-beta Find more info here
     */
-    public function post(RetrieveCloudPcTroubleshootReportsPostRequestBody $body, ?RetrieveCloudPcTroubleshootReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(RetrieveCloudPcTroubleshootReportsPostRequestBody $body, ?RetrieveCloudPcTroubleshootReportsRequestBuilderPostReq_cda92d22 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,12 +49,12 @@ class RetrieveCloudPcTroubleshootReportsRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Get troubleshooting reports for Cloud PCs. You can get a regional troubleshooting report, a report with troubleshooting details, a report with troubleshooting trends, or a report on the number of troubleshooting issues.
+     * Get Cloud PC troubleshooting reports. You can get tenant-level reports, configuration reports, user and device reports, and view data table reports. For the report types grouped by scope, including the mandatory filter parameters and response columns per reportName, see Cloud PC troubleshoot report types.
      * @param RetrieveCloudPcTroubleshootReportsPostRequestBody $body The request body
-     * @param RetrieveCloudPcTroubleshootReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveCloudPcTroubleshootReportsRequestBuilderPostReq_cda92d22|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(RetrieveCloudPcTroubleshootReportsPostRequestBody $body, ?RetrieveCloudPcTroubleshootReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(RetrieveCloudPcTroubleshootReportsPostRequestBody $body, ?RetrieveCloudPcTroubleshootReportsRequestBuilderPostReq_cda92d22 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

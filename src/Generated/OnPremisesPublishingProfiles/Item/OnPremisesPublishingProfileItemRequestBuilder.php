@@ -88,11 +88,11 @@ class OnPremisesPublishingProfileItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete entity from onPremisesPublishingProfiles
-     * @param OnPremisesPublishingProfileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnPremisesPublishingProfileItemRequestBuilderDeleteRequ_c9b45845|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?OnPremisesPublishingProfileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?OnPremisesPublishingProfileItemRequestBuilderDeleteRequ_c9b45845 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -102,11 +102,11 @@ class OnPremisesPublishingProfileItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get entity from onPremisesPublishingProfiles by key
-     * @param OnPremisesPublishingProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnPremisesPublishingProfileItemRequestBuilderGetRequest_f11388c0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnPremisesPublishingProfile|null>
      * @throws Exception
     */
-    public function get(?OnPremisesPublishingProfileItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?OnPremisesPublishingProfileItemRequestBuilderGetRequest_f11388c0 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -117,11 +117,11 @@ class OnPremisesPublishingProfileItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update entity in onPremisesPublishingProfiles
      * @param OnPremisesPublishingProfile $body The request body
-     * @param OnPremisesPublishingProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnPremisesPublishingProfileItemRequestBuilderPatchReque_8cc1146c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnPremisesPublishingProfile|null>
      * @throws Exception
     */
-    public function patch(OnPremisesPublishingProfile $body, ?OnPremisesPublishingProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(OnPremisesPublishingProfile $body, ?OnPremisesPublishingProfileItemRequestBuilderPatchReque_8cc1146c $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -131,10 +131,10 @@ class OnPremisesPublishingProfileItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete entity from onPremisesPublishingProfiles
-     * @param OnPremisesPublishingProfileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnPremisesPublishingProfileItemRequestBuilderDeleteRequ_c9b45845|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?OnPremisesPublishingProfileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?OnPremisesPublishingProfileItemRequestBuilderDeleteRequ_c9b45845 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -149,10 +149,10 @@ class OnPremisesPublishingProfileItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get entity from onPremisesPublishingProfiles by key
-     * @param OnPremisesPublishingProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnPremisesPublishingProfileItemRequestBuilderGetRequest_f11388c0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?OnPremisesPublishingProfileItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?OnPremisesPublishingProfileItemRequestBuilderGetRequest_f11388c0 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -171,10 +171,10 @@ class OnPremisesPublishingProfileItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update entity in onPremisesPublishingProfiles
      * @param OnPremisesPublishingProfile $body The request body
-     * @param OnPremisesPublishingProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnPremisesPublishingProfileItemRequestBuilderPatchReque_8cc1146c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(OnPremisesPublishingProfile $body, ?OnPremisesPublishingProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(OnPremisesPublishingProfile $body, ?OnPremisesPublishingProfileItemRequestBuilderPatchReque_8cc1146c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

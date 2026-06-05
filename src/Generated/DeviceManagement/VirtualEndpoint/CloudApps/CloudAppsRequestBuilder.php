@@ -8,7 +8,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudApps\Co
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudApps\Item\CloudPcCloudAppItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudApps\Publish\PublishRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudApps\Reset\ResetRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudApps\RetrieveDiscoveredAppsWithSourceIdprovisioningPolicyIdProvisioningPolicyId\RetrieveDiscoveredAppsWithSourceIdprovisioningPolicyIdProvisioningPolicyIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudApps\RetrieveDiscoveredAppsWithSourceIdprovisioningPolicyIdP_af50b6dd\RetrieveDiscoveredAppsWithSourceIdprovisioningPolicyIdP_a860eb40;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudApps\Unpublish\UnpublishRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcCloudApp;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcCloudAppCollectionResponse;
@@ -92,11 +92,12 @@ class CloudAppsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to cloudApps for deviceManagement
+     * Create a new cloudPcCloudApp object.
      * @param CloudPcCloudApp $body The request body
      * @param CloudAppsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcCloudApp|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualendpoint-post-cloudapps?view=graph-rest-beta Find more info here
     */
     public function post(CloudPcCloudApp $body, ?CloudAppsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -109,10 +110,10 @@ class CloudAppsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the retrieveDiscoveredApps method.
      * @param string $sourceId Usage: sourceId='{sourceId}'
-     * @return RetrieveDiscoveredAppsWithSourceIdprovisioningPolicyIdProvisioningPolicyIdRequestBuilder
+     * @return RetrieveDiscoveredAppsWithSourceIdprovisioningPolicyIdP_a860eb40
     */
-    public function retrieveDiscoveredAppsWithSourceIdprovisioningPolicyIdProvisioningPolicyId(string $sourceId): RetrieveDiscoveredAppsWithSourceIdprovisioningPolicyIdProvisioningPolicyIdRequestBuilder {
-        return new RetrieveDiscoveredAppsWithSourceIdprovisioningPolicyIdProvisioningPolicyIdRequestBuilder($this->pathParameters, $this->requestAdapter, $sourceId);
+    public function retrieveDiscoveredAppsWithSourceIdprovisioningPolicyIdProvisioningPolicyId(string $sourceId): RetrieveDiscoveredAppsWithSourceIdprovisioningPolicyIdP_a860eb40 {
+        return new RetrieveDiscoveredAppsWithSourceIdprovisioningPolicyIdP_a860eb40($this->pathParameters, $this->requestAdapter, $sourceId);
     }
 
     /**
@@ -137,7 +138,7 @@ class CloudAppsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to cloudApps for deviceManagement
+     * Create a new cloudPcCloudApp object.
      * @param CloudPcCloudApp $body The request body
      * @param CloudAppsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

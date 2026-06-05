@@ -52,11 +52,11 @@ class CloudCertificationAuthorityLeafCertificateRequestBuilder extends BaseReque
 
     /**
      * Required OData property to expose leaf certificate API.
-     * @param CloudCertificationAuthorityLeafCertificateRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudCertificationAuthorityLeafCertificateRequestBuilde_716045c9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudCertificationAuthorityLeafCertificateCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?CloudCertificationAuthorityLeafCertificateRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CloudCertificationAuthorityLeafCertificateRequestBuilde_716045c9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -66,10 +66,10 @@ class CloudCertificationAuthorityLeafCertificateRequestBuilder extends BaseReque
 
     /**
      * Required OData property to expose leaf certificate API.
-     * @param CloudCertificationAuthorityLeafCertificateRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudCertificationAuthorityLeafCertificateRequestBuilde_716045c9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CloudCertificationAuthorityLeafCertificateRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CloudCertificationAuthorityLeafCertificateRequestBuilde_716045c9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -5,10 +5,10 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\WdacSupplementalPol
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WdacSupplementalPolicies\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WdacSupplementalPolicies\Item\WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WdacSupplementalPolicies\Item\WindowsDefenderApplicationControlSupplementalPolicyItem_56d8edc3;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsDefenderApplicationControlSupplementalPolicy;
-use Microsoft\Graph\Beta\Generated\Models\WindowsDefenderApplicationControlSupplementalPolicyCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\WindowsDefenderApplicationControlSupplementalPolicyColl_9eaa1c04;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -29,12 +29,12 @@ class WdacSupplementalPoliciesRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to manage the wdacSupplementalPolicies property of the microsoft.graph.deviceAppManagement entity.
      * @param string $windowsDefenderApplicationControlSupplementalPolicyId The unique identifier of windowsDefenderApplicationControlSupplementalPolicy
-     * @return WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder
+     * @return WindowsDefenderApplicationControlSupplementalPolicyItem_56d8edc3
     */
-    public function byWindowsDefenderApplicationControlSupplementalPolicyId(string $windowsDefenderApplicationControlSupplementalPolicyId): WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder {
+    public function byWindowsDefenderApplicationControlSupplementalPolicyId(string $windowsDefenderApplicationControlSupplementalPolicyId): WindowsDefenderApplicationControlSupplementalPolicyItem_56d8edc3 {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['windowsDefenderApplicationControlSupplementalPolicy%2Did'] = $windowsDefenderApplicationControlSupplementalPolicyId;
-        return new WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new WindowsDefenderApplicationControlSupplementalPolicyItem_56d8edc3($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -54,7 +54,7 @@ class WdacSupplementalPoliciesRequestBuilder extends BaseRequestBuilder
     /**
      * The collection of Windows Defender Application Control Supplemental Policies.
      * @param WdacSupplementalPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<WindowsDefenderApplicationControlSupplementalPolicyCollectionResponse|null>
+     * @return Promise<WindowsDefenderApplicationControlSupplementalPolicyColl_9eaa1c04|null>
      * @throws Exception
     */
     public function get(?WdacSupplementalPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
@@ -62,7 +62,7 @@ class WdacSupplementalPoliciesRequestBuilder extends BaseRequestBuilder
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        return $this->requestAdapter->sendAsync($requestInfo, [WindowsDefenderApplicationControlSupplementalPolicyCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+        return $this->requestAdapter->sendAsync($requestInfo, [WindowsDefenderApplicationControlSupplementalPolicyColl_9eaa1c04::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**

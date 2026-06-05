@@ -53,11 +53,11 @@ class DeviceConfigurationConflictSummaryRequestBuilder extends BaseRequestBuilde
 
     /**
      * Summary of policies in conflict state for this account.
-     * @param DeviceConfigurationConflictSummaryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceConfigurationConflictSummaryRequestBuilderGetRequ_952664d5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceConfigurationConflictSummaryCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?DeviceConfigurationConflictSummaryRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DeviceConfigurationConflictSummaryRequestBuilderGetRequ_952664d5 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class DeviceConfigurationConflictSummaryRequestBuilder extends BaseRequestBuilde
     /**
      * Create new navigation property to deviceConfigurationConflictSummary for deviceManagement
      * @param DeviceConfigurationConflictSummary $body The request body
-     * @param DeviceConfigurationConflictSummaryRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceConfigurationConflictSummaryRequestBuilderPostReq_0246e8a6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceConfigurationConflictSummary|null>
      * @throws Exception
     */
-    public function post(DeviceConfigurationConflictSummary $body, ?DeviceConfigurationConflictSummaryRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(DeviceConfigurationConflictSummary $body, ?DeviceConfigurationConflictSummaryRequestBuilderPostReq_0246e8a6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class DeviceConfigurationConflictSummaryRequestBuilder extends BaseRequestBuilde
 
     /**
      * Summary of policies in conflict state for this account.
-     * @param DeviceConfigurationConflictSummaryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceConfigurationConflictSummaryRequestBuilderGetRequ_952664d5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DeviceConfigurationConflictSummaryRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DeviceConfigurationConflictSummaryRequestBuilderGetRequ_952664d5 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class DeviceConfigurationConflictSummaryRequestBuilder extends BaseRequestBuilde
     /**
      * Create new navigation property to deviceConfigurationConflictSummary for deviceManagement
      * @param DeviceConfigurationConflictSummary $body The request body
-     * @param DeviceConfigurationConflictSummaryRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceConfigurationConflictSummaryRequestBuilderPostReq_0246e8a6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(DeviceConfigurationConflictSummary $body, ?DeviceConfigurationConflictSummaryRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(DeviceConfigurationConflictSummary $body, ?DeviceConfigurationConflictSummaryRequestBuilderPostReq_0246e8a6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

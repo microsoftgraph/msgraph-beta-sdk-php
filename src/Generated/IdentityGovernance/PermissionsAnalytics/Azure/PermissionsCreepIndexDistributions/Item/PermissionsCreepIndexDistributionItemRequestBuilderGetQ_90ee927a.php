@@ -1,0 +1,34 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\PermissionsAnalytics\Azure\PermissionsCreepIndexDistributions\Item;
+
+use Microsoft\Kiota\Abstractions\QueryParameter;
+
+/**
+ * Represents the Permissions Creep Index (PCI) for the authorization system. PCI distribution chart shows the classification of human and nonhuman identities based on the PCI score in three buckets (low, medium, high). Original name: PermissionsCreepIndexDistributionItemRequestBuilderGetQueryParameters
+*/
+class PermissionsCreepIndexDistributionItemRequestBuilderGetQ_90ee927a 
+{
+    /**
+     * @QueryParameter("%24expand")
+     * @var array<string>|null $expand Expand related entities
+    */
+    public ?array $expand = null;
+    
+    /**
+     * @QueryParameter("%24select")
+     * @var array<string>|null $select Select properties to be returned
+    */
+    public ?array $select = null;
+    
+    /**
+     * Instantiates a new PermissionsCreepIndexDistributionItemRequestBuilderGetQ_90ee927a and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
+}

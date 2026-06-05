@@ -24,6 +24,7 @@ use Microsoft\Graph\Beta\Generated\Security\IncidentTasks\IncidentTasksRequestBu
 use Microsoft\Graph\Beta\Generated\Security\InformationProtection\InformationProtectionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\IpSecurityProfiles\IpSecurityProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Labels\LabelsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\MicrosoftGraphSecurityGetHuntingSchema\MicrosoftGraphSecurityGetHuntingSchemaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\MicrosoftGraphSecurityRunHuntingQuery\MicrosoftGraphSecurityRunHuntingQueryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Partner\PartnerRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ProviderTenantSettings\ProviderTenantSettingsRequestBuilder;
@@ -174,6 +175,13 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     */
     public function labels(): LabelsRequestBuilder {
         return new LabelsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getHuntingSchema method.
+    */
+    public function microsoftGraphSecurityGetHuntingSchema(): MicrosoftGraphSecurityGetHuntingSchemaRequestBuilder {
+        return new MicrosoftGraphSecurityGetHuntingSchemaRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

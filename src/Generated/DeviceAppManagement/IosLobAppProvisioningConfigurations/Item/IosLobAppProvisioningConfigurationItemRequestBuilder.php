@@ -72,11 +72,11 @@ class IosLobAppProvisioningConfigurationItemRequestBuilder extends BaseRequestBu
 
     /**
      * Delete navigation property iosLobAppProvisioningConfigurations for deviceAppManagement
-     * @param IosLobAppProvisioningConfigurationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IosLobAppProvisioningConfigurationItemRequestBuilderDel_6945aad2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?IosLobAppProvisioningConfigurationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?IosLobAppProvisioningConfigurationItemRequestBuilderDel_6945aad2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -86,11 +86,11 @@ class IosLobAppProvisioningConfigurationItemRequestBuilder extends BaseRequestBu
 
     /**
      * The IOS Lob App Provisioning Configurations.
-     * @param IosLobAppProvisioningConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IosLobAppProvisioningConfigurationItemRequestBuilderGet_30dd614c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IosLobAppProvisioningConfiguration|null>
      * @throws Exception
     */
-    public function get(?IosLobAppProvisioningConfigurationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?IosLobAppProvisioningConfigurationItemRequestBuilderGet_30dd614c $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -101,11 +101,11 @@ class IosLobAppProvisioningConfigurationItemRequestBuilder extends BaseRequestBu
     /**
      * Update the navigation property iosLobAppProvisioningConfigurations in deviceAppManagement
      * @param IosLobAppProvisioningConfiguration $body The request body
-     * @param IosLobAppProvisioningConfigurationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IosLobAppProvisioningConfigurationItemRequestBuilderPat_0ee46217|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IosLobAppProvisioningConfiguration|null>
      * @throws Exception
     */
-    public function patch(IosLobAppProvisioningConfiguration $body, ?IosLobAppProvisioningConfigurationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(IosLobAppProvisioningConfiguration $body, ?IosLobAppProvisioningConfigurationItemRequestBuilderPat_0ee46217 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -115,10 +115,10 @@ class IosLobAppProvisioningConfigurationItemRequestBuilder extends BaseRequestBu
 
     /**
      * Delete navigation property iosLobAppProvisioningConfigurations for deviceAppManagement
-     * @param IosLobAppProvisioningConfigurationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IosLobAppProvisioningConfigurationItemRequestBuilderDel_6945aad2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?IosLobAppProvisioningConfigurationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?IosLobAppProvisioningConfigurationItemRequestBuilderDel_6945aad2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -133,10 +133,10 @@ class IosLobAppProvisioningConfigurationItemRequestBuilder extends BaseRequestBu
 
     /**
      * The IOS Lob App Provisioning Configurations.
-     * @param IosLobAppProvisioningConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IosLobAppProvisioningConfigurationItemRequestBuilderGet_30dd614c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?IosLobAppProvisioningConfigurationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?IosLobAppProvisioningConfigurationItemRequestBuilderGet_30dd614c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -155,10 +155,10 @@ class IosLobAppProvisioningConfigurationItemRequestBuilder extends BaseRequestBu
     /**
      * Update the navigation property iosLobAppProvisioningConfigurations in deviceAppManagement
      * @param IosLobAppProvisioningConfiguration $body The request body
-     * @param IosLobAppProvisioningConfigurationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IosLobAppProvisioningConfigurationItemRequestBuilderPat_0ee46217|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(IosLobAppProvisioningConfiguration $body, ?IosLobAppProvisioningConfigurationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(IosLobAppProvisioningConfiguration $body, ?IosLobAppProvisioningConfigurationItemRequestBuilderPat_0ee46217 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -33,11 +33,11 @@ class GetDeviceStatusSummaryByCompliacePolicyReportRequestBuilder extends BaseRe
     /**
      * Invoke action getDeviceStatusSummaryByCompliacePolicyReport
      * @param GetDeviceStatusSummaryByCompliacePolicyReportPostRequestBody $body The request body
-     * @param GetDeviceStatusSummaryByCompliacePolicyReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetDeviceStatusSummaryByCompliacePolicyReportRequestBui_863400e6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(GetDeviceStatusSummaryByCompliacePolicyReportPostRequestBody $body, ?GetDeviceStatusSummaryByCompliacePolicyReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetDeviceStatusSummaryByCompliacePolicyReportPostRequestBody $body, ?GetDeviceStatusSummaryByCompliacePolicyReportRequestBui_863400e6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class GetDeviceStatusSummaryByCompliacePolicyReportRequestBuilder extends BaseRe
     /**
      * Invoke action getDeviceStatusSummaryByCompliacePolicyReport
      * @param GetDeviceStatusSummaryByCompliacePolicyReportPostRequestBody $body The request body
-     * @param GetDeviceStatusSummaryByCompliacePolicyReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetDeviceStatusSummaryByCompliacePolicyReportRequestBui_863400e6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetDeviceStatusSummaryByCompliacePolicyReportPostRequestBody $body, ?GetDeviceStatusSummaryByCompliacePolicyReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetDeviceStatusSummaryByCompliacePolicyReportPostRequestBody $body, ?GetDeviceStatusSummaryByCompliacePolicyReportRequestBui_863400e6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

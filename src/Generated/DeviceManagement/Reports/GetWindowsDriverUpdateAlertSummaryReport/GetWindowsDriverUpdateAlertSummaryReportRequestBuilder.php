@@ -33,11 +33,11 @@ class GetWindowsDriverUpdateAlertSummaryReportRequestBuilder extends BaseRequest
     /**
      * Invoke action getWindowsDriverUpdateAlertSummaryReport
      * @param GetWindowsDriverUpdateAlertSummaryReportPostRequestBody $body The request body
-     * @param GetWindowsDriverUpdateAlertSummaryReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetWindowsDriverUpdateAlertSummaryReportRequestBuilderP_cd00e7d4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(GetWindowsDriverUpdateAlertSummaryReportPostRequestBody $body, ?GetWindowsDriverUpdateAlertSummaryReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetWindowsDriverUpdateAlertSummaryReportPostRequestBody $body, ?GetWindowsDriverUpdateAlertSummaryReportRequestBuilderP_cd00e7d4 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class GetWindowsDriverUpdateAlertSummaryReportRequestBuilder extends BaseRequest
     /**
      * Invoke action getWindowsDriverUpdateAlertSummaryReport
      * @param GetWindowsDriverUpdateAlertSummaryReportPostRequestBody $body The request body
-     * @param GetWindowsDriverUpdateAlertSummaryReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetWindowsDriverUpdateAlertSummaryReportRequestBuilderP_cd00e7d4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetWindowsDriverUpdateAlertSummaryReportPostRequestBody $body, ?GetWindowsDriverUpdateAlertSummaryReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetWindowsDriverUpdateAlertSummaryReportPostRequestBody $body, ?GetWindowsDriverUpdateAlertSummaryReportRequestBuilderP_cd00e7d4 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

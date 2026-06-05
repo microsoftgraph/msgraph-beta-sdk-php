@@ -32,12 +32,12 @@ class MultiTenantOrganizationMemberItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Remove a tenant from a multitenant organization. A tenant can be removed in the following scenarios: To allow for asynchronous processing, you must wait for up to 2 hours before removal of a tenant is completed.
-     * @param MultiTenantOrganizationMemberItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MultiTenantOrganizationMemberItemRequestBuilderDeleteRe_fe10630e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/multitenantorganization-delete-tenants?view=graph-rest-beta Find more info here
     */
-    public function delete(?MultiTenantOrganizationMemberItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?MultiTenantOrganizationMemberItemRequestBuilderDeleteRe_fe10630e $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,12 +47,12 @@ class MultiTenantOrganizationMemberItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a tenant and its properties in the multi-tenant organization.
-     * @param MultiTenantOrganizationMemberItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MultiTenantOrganizationMemberItemRequestBuilderGetReque_406d0ba2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MultiTenantOrganizationMember|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/multitenantorganizationmember-get?view=graph-rest-beta Find more info here
     */
-    public function get(?MultiTenantOrganizationMemberItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MultiTenantOrganizationMemberItemRequestBuilderGetReque_406d0ba2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -63,11 +63,11 @@ class MultiTenantOrganizationMemberItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property tenants in tenantRelationships
      * @param MultiTenantOrganizationMember $body The request body
-     * @param MultiTenantOrganizationMemberItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MultiTenantOrganizationMemberItemRequestBuilderPatchReq_dde78b35|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MultiTenantOrganizationMember|null>
      * @throws Exception
     */
-    public function patch(MultiTenantOrganizationMember $body, ?MultiTenantOrganizationMemberItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(MultiTenantOrganizationMember $body, ?MultiTenantOrganizationMemberItemRequestBuilderPatchReq_dde78b35 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,10 +77,10 @@ class MultiTenantOrganizationMemberItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Remove a tenant from a multitenant organization. A tenant can be removed in the following scenarios: To allow for asynchronous processing, you must wait for up to 2 hours before removal of a tenant is completed.
-     * @param MultiTenantOrganizationMemberItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MultiTenantOrganizationMemberItemRequestBuilderDeleteRe_fe10630e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?MultiTenantOrganizationMemberItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?MultiTenantOrganizationMemberItemRequestBuilderDeleteRe_fe10630e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -95,10 +95,10 @@ class MultiTenantOrganizationMemberItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a tenant and its properties in the multi-tenant organization.
-     * @param MultiTenantOrganizationMemberItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MultiTenantOrganizationMemberItemRequestBuilderGetReque_406d0ba2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MultiTenantOrganizationMemberItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MultiTenantOrganizationMemberItemRequestBuilderGetReque_406d0ba2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -117,10 +117,10 @@ class MultiTenantOrganizationMemberItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property tenants in tenantRelationships
      * @param MultiTenantOrganizationMember $body The request body
-     * @param MultiTenantOrganizationMemberItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MultiTenantOrganizationMemberItemRequestBuilderPatchReq_dde78b35|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(MultiTenantOrganizationMember $body, ?MultiTenantOrganizationMemberItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(MultiTenantOrganizationMember $body, ?MultiTenantOrganizationMemberItemRequestBuilderPatchReq_dde78b35 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

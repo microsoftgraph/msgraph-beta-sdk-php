@@ -32,11 +32,11 @@ class RetrieveMacOSManagedDeviceLocalAdminAccountDetailRequestBuilder extends Ba
 
     /**
      * Invoke function retrieveMacOSManagedDeviceLocalAdminAccountDetail
-     * @param RetrieveMacOSManagedDeviceLocalAdminAccountDetailRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveMacOSManagedDeviceLocalAdminAccountDetailReques_d5c0a510|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MacOSManagedDeviceLocalAdminAccountDetail|null>
      * @throws Exception
     */
-    public function get(?RetrieveMacOSManagedDeviceLocalAdminAccountDetailRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?RetrieveMacOSManagedDeviceLocalAdminAccountDetailReques_d5c0a510 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class RetrieveMacOSManagedDeviceLocalAdminAccountDetailRequestBuilder extends Ba
 
     /**
      * Invoke function retrieveMacOSManagedDeviceLocalAdminAccountDetail
-     * @param RetrieveMacOSManagedDeviceLocalAdminAccountDetailRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveMacOSManagedDeviceLocalAdminAccountDetailReques_d5c0a510|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?RetrieveMacOSManagedDeviceLocalAdminAccountDetailRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?RetrieveMacOSManagedDeviceLocalAdminAccountDetailReques_d5c0a510 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

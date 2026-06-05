@@ -32,11 +32,11 @@ class PrivilegedOperationEventItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete entity from privilegedOperationEvents
-     * @param PrivilegedOperationEventItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegedOperationEventItemRequestBuilderDeleteRequest_3bbd4d5b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?PrivilegedOperationEventItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?PrivilegedOperationEventItemRequestBuilderDeleteRequest_3bbd4d5b $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class PrivilegedOperationEventItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get entity from privilegedOperationEvents by key
-     * @param PrivilegedOperationEventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegedOperationEventItemRequestBuilderGetRequestCon_7f60de01|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrivilegedOperationEvent|null>
      * @throws Exception
     */
-    public function get(?PrivilegedOperationEventItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?PrivilegedOperationEventItemRequestBuilderGetRequestCon_7f60de01 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class PrivilegedOperationEventItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update entity in privilegedOperationEvents
      * @param PrivilegedOperationEvent $body The request body
-     * @param PrivilegedOperationEventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegedOperationEventItemRequestBuilderPatchRequestC_fd5cfd09|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrivilegedOperationEvent|null>
      * @throws Exception
     */
-    public function patch(PrivilegedOperationEvent $body, ?PrivilegedOperationEventItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(PrivilegedOperationEvent $body, ?PrivilegedOperationEventItemRequestBuilderPatchRequestC_fd5cfd09 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class PrivilegedOperationEventItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete entity from privilegedOperationEvents
-     * @param PrivilegedOperationEventItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegedOperationEventItemRequestBuilderDeleteRequest_3bbd4d5b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?PrivilegedOperationEventItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?PrivilegedOperationEventItemRequestBuilderDeleteRequest_3bbd4d5b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class PrivilegedOperationEventItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get entity from privilegedOperationEvents by key
-     * @param PrivilegedOperationEventItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegedOperationEventItemRequestBuilderGetRequestCon_7f60de01|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?PrivilegedOperationEventItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?PrivilegedOperationEventItemRequestBuilderGetRequestCon_7f60de01 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class PrivilegedOperationEventItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update entity in privilegedOperationEvents
      * @param PrivilegedOperationEvent $body The request body
-     * @param PrivilegedOperationEventItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegedOperationEventItemRequestBuilderPatchRequestC_fd5cfd09|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(PrivilegedOperationEvent $body, ?PrivilegedOperationEventItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(PrivilegedOperationEvent $body, ?PrivilegedOperationEventItemRequestBuilderPatchRequestC_fd5cfd09 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -53,12 +53,12 @@ class TenantsCustomizedInformationRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a list of the tenantCustomizedInformation objects and their properties.
-     * @param TenantsCustomizedInformationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TenantsCustomizedInformationRequestBuilderGetRequestCon_7a1479b5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantCustomizedInformationCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-tenantscustomizedinformation?view=graph-rest-beta Find more info here
     */
-    public function get(?TenantsCustomizedInformationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?TenantsCustomizedInformationRequestBuilderGetRequestCon_7a1479b5 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class TenantsCustomizedInformationRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to tenantsCustomizedInformation for tenantRelationships
      * @param TenantCustomizedInformation $body The request body
-     * @param TenantsCustomizedInformationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TenantsCustomizedInformationRequestBuilderPostRequestCo_bd11163b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantCustomizedInformation|null>
      * @throws Exception
     */
-    public function post(TenantCustomizedInformation $body, ?TenantsCustomizedInformationRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(TenantCustomizedInformation $body, ?TenantsCustomizedInformationRequestBuilderPostRequestCo_bd11163b $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class TenantsCustomizedInformationRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a list of the tenantCustomizedInformation objects and their properties.
-     * @param TenantsCustomizedInformationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TenantsCustomizedInformationRequestBuilderGetRequestCon_7a1479b5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?TenantsCustomizedInformationRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?TenantsCustomizedInformationRequestBuilderGetRequestCon_7a1479b5 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -105,10 +105,10 @@ class TenantsCustomizedInformationRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to tenantsCustomizedInformation for tenantRelationships
      * @param TenantCustomizedInformation $body The request body
-     * @param TenantsCustomizedInformationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TenantsCustomizedInformationRequestBuilderPostRequestCo_bd11163b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(TenantCustomizedInformation $body, ?TenantsCustomizedInformationRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(TenantCustomizedInformation $body, ?TenantsCustomizedInformationRequestBuilderPostRequestCo_bd11163b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

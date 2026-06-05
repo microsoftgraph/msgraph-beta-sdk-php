@@ -69,12 +69,12 @@ class PendingExternalUserProfilesRequestBuilder extends BaseRequestBuilder
     /**
      * Create a new pendingExternalUserProfile object.
      * @param PendingExternalUserProfile $body The request body
-     * @param PendingExternalUserProfilesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PendingExternalUserProfilesRequestBuilderPostRequestCon_e8a036cd|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PendingExternalUserProfile|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/directory-post-pendingexternaluserprofile?view=graph-rest-beta Find more info here
     */
-    public function post(PendingExternalUserProfile $body, ?PendingExternalUserProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(PendingExternalUserProfile $body, ?PendingExternalUserProfilesRequestBuilderPostRequestCon_e8a036cd $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -106,10 +106,10 @@ class PendingExternalUserProfilesRequestBuilder extends BaseRequestBuilder
     /**
      * Create a new pendingExternalUserProfile object.
      * @param PendingExternalUserProfile $body The request body
-     * @param PendingExternalUserProfilesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PendingExternalUserProfilesRequestBuilderPostRequestCon_e8a036cd|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(PendingExternalUserProfile $body, ?PendingExternalUserProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(PendingExternalUserProfile $body, ?PendingExternalUserProfilesRequestBuilderPostRequestCon_e8a036cd $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

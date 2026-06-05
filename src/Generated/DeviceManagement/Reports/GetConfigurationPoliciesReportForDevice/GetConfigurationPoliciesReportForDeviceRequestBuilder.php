@@ -33,11 +33,11 @@ class GetConfigurationPoliciesReportForDeviceRequestBuilder extends BaseRequestB
     /**
      * Invoke action getConfigurationPoliciesReportForDevice
      * @param GetConfigurationPoliciesReportForDevicePostRequestBody $body The request body
-     * @param GetConfigurationPoliciesReportForDeviceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetConfigurationPoliciesReportForDeviceRequestBuilderPo_d53427d5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(GetConfigurationPoliciesReportForDevicePostRequestBody $body, ?GetConfigurationPoliciesReportForDeviceRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetConfigurationPoliciesReportForDevicePostRequestBody $body, ?GetConfigurationPoliciesReportForDeviceRequestBuilderPo_d53427d5 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class GetConfigurationPoliciesReportForDeviceRequestBuilder extends BaseRequestB
     /**
      * Invoke action getConfigurationPoliciesReportForDevice
      * @param GetConfigurationPoliciesReportForDevicePostRequestBody $body The request body
-     * @param GetConfigurationPoliciesReportForDeviceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetConfigurationPoliciesReportForDeviceRequestBuilderPo_d53427d5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetConfigurationPoliciesReportForDevicePostRequestBody $body, ?GetConfigurationPoliciesReportForDeviceRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetConfigurationPoliciesReportForDevicePostRequestBody $body, ?GetConfigurationPoliciesReportForDeviceRequestBuilderPo_d53427d5 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

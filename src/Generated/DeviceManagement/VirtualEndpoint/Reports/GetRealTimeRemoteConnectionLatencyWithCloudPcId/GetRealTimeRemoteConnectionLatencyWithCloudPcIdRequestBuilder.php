@@ -35,12 +35,12 @@ class GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilder extends Base
 
     /**
      * Get the real-time connection latency information for a Cloud PC.
-     * @param GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestB_a24b3f25|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpcreports-getrealtimeremoteconnectionlatency?view=graph-rest-beta Find more info here
     */
-    public function get(?GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestB_a24b3f25 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -52,10 +52,10 @@ class GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilder extends Base
 
     /**
      * Get the real-time connection latency information for a Cloud PC.
-     * @param GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestB_a24b3f25|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestB_a24b3f25 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

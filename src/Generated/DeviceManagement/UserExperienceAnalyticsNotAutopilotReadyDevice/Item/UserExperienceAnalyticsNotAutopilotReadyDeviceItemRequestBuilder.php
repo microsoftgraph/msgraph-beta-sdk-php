@@ -32,11 +32,11 @@ class UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilder extends B
 
     /**
      * Delete navigation property userExperienceAnalyticsNotAutopilotReadyDevice for deviceManagement
-     * @param UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsNotAutopilotReadyDeviceItemReque_5c8cc503|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?UserExperienceAnalyticsNotAutopilotReadyDeviceItemReque_5c8cc503 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilder extends B
 
     /**
      * User experience analytics devices not Windows Autopilot ready.
-     * @param UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsNotAutopilotReadyDeviceItemReque_27af0e84|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsNotAutopilotReadyDevice|null>
      * @throws Exception
     */
-    public function get(?UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserExperienceAnalyticsNotAutopilotReadyDeviceItemReque_27af0e84 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilder extends B
     /**
      * Update the navigation property userExperienceAnalyticsNotAutopilotReadyDevice in deviceManagement
      * @param UserExperienceAnalyticsNotAutopilotReadyDevice $body The request body
-     * @param UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsNotAutopilotReadyDeviceItemReque_9d06d43c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsNotAutopilotReadyDevice|null>
      * @throws Exception
     */
-    public function patch(UserExperienceAnalyticsNotAutopilotReadyDevice $body, ?UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(UserExperienceAnalyticsNotAutopilotReadyDevice $body, ?UserExperienceAnalyticsNotAutopilotReadyDeviceItemReque_9d06d43c $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilder extends B
 
     /**
      * Delete navigation property userExperienceAnalyticsNotAutopilotReadyDevice for deviceManagement
-     * @param UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsNotAutopilotReadyDeviceItemReque_5c8cc503|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?UserExperienceAnalyticsNotAutopilotReadyDeviceItemReque_5c8cc503 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilder extends B
 
     /**
      * User experience analytics devices not Windows Autopilot ready.
-     * @param UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsNotAutopilotReadyDeviceItemReque_27af0e84|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UserExperienceAnalyticsNotAutopilotReadyDeviceItemReque_27af0e84 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilder extends B
     /**
      * Update the navigation property userExperienceAnalyticsNotAutopilotReadyDevice in deviceManagement
      * @param UserExperienceAnalyticsNotAutopilotReadyDevice $body The request body
-     * @param UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsNotAutopilotReadyDeviceItemReque_9d06d43c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(UserExperienceAnalyticsNotAutopilotReadyDevice $body, ?UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(UserExperienceAnalyticsNotAutopilotReadyDevice $body, ?UserExperienceAnalyticsNotAutopilotReadyDeviceItemReque_9d06d43c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

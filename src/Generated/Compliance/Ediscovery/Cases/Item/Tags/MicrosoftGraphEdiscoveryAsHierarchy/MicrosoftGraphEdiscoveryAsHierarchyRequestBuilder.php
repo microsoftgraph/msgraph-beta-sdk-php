@@ -31,11 +31,11 @@ class MicrosoftGraphEdiscoveryAsHierarchyRequestBuilder extends BaseRequestBuild
 
     /**
      * Return a list of tag objects in hierarchial form
-     * @param MicrosoftGraphEdiscoveryAsHierarchyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphEdiscoveryAsHierarchyRequestBuilderGetReq_4ee6c20b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AsHierarchyGetResponse|null>
      * @throws Exception
     */
-    public function get(?MicrosoftGraphEdiscoveryAsHierarchyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MicrosoftGraphEdiscoveryAsHierarchyRequestBuilderGetReq_4ee6c20b $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,10 +45,10 @@ class MicrosoftGraphEdiscoveryAsHierarchyRequestBuilder extends BaseRequestBuild
 
     /**
      * Return a list of tag objects in hierarchial form
-     * @param MicrosoftGraphEdiscoveryAsHierarchyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphEdiscoveryAsHierarchyRequestBuilderGetReq_4ee6c20b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MicrosoftGraphEdiscoveryAsHierarchyRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MicrosoftGraphEdiscoveryAsHierarchyRequestBuilderGetReq_4ee6c20b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

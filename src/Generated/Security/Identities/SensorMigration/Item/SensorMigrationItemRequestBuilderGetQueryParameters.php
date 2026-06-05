@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Identities\SensorMigration\Ite
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get sensorMigration from security
+ * Represents Microsoft Defender for Identity sensors that can be migrated to the unified security portal.
 */
 class SensorMigrationItemRequestBuilderGetQueryParameters 
 {

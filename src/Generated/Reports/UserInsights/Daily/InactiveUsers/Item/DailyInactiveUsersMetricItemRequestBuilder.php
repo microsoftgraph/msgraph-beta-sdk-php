@@ -32,11 +32,11 @@ class DailyInactiveUsersMetricItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get inactiveUsers from reports
-     * @param DailyInactiveUsersMetricItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DailyInactiveUsersMetricItemRequestBuilderGetRequestCon_a4c919f5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DailyInactiveUsersMetric|null>
      * @throws Exception
     */
-    public function get(?DailyInactiveUsersMetricItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DailyInactiveUsersMetricItemRequestBuilderGetRequestCon_a4c919f5 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class DailyInactiveUsersMetricItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get inactiveUsers from reports
-     * @param DailyInactiveUsersMetricItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DailyInactiveUsersMetricItemRequestBuilderGetRequestCon_a4c919f5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DailyInactiveUsersMetricItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DailyInactiveUsersMetricItemRequestBuilderGetRequestCon_a4c919f5 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -40,11 +40,11 @@ class ConnectivityConfigurationRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property connectivityConfiguration for networkAccess
-     * @param ConnectivityConfigurationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConnectivityConfigurationRequestBuilderDeleteRequestCon_469a58c3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ConnectivityConfigurationRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ConnectivityConfigurationRequestBuilderDeleteRequestCon_469a58c3 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class ConnectivityConfigurationRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property connectivityConfiguration for networkAccess
-     * @param ConnectivityConfigurationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConnectivityConfigurationRequestBuilderDeleteRequestCon_469a58c3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ConnectivityConfigurationRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ConnectivityConfigurationRequestBuilderDeleteRequestCon_469a58c3 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -35,11 +35,11 @@ class GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder extends Ba
 
     /**
      * Invoke function getMailboxUsageQuotaStatusMailboxCounts
-     * @param GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetMailboxUsageQuotaStatusMailboxCountsWithPeriodReques_95914293|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function get(?GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetMailboxUsageQuotaStatusMailboxCountsWithPeriodReques_95914293 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -51,10 +51,10 @@ class GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder extends Ba
 
     /**
      * Invoke function getMailboxUsageQuotaStatusMailboxCounts
-     * @param GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetMailboxUsageQuotaStatusMailboxCountsWithPeriodReques_95914293|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetMailboxUsageQuotaStatusMailboxCountsWithPeriodReques_95914293 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

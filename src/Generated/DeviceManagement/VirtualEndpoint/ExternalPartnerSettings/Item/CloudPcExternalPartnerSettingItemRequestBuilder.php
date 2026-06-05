@@ -32,11 +32,11 @@ class CloudPcExternalPartnerSettingItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property externalPartnerSettings for deviceManagement
-     * @param CloudPcExternalPartnerSettingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcExternalPartnerSettingItemRequestBuilderDeleteRe_3863e4c2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CloudPcExternalPartnerSettingItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CloudPcExternalPartnerSettingItemRequestBuilderDeleteRe_3863e4c2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,12 +46,12 @@ class CloudPcExternalPartnerSettingItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of a cloudPcExternalPartnerSetting object.
-     * @param CloudPcExternalPartnerSettingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcExternalPartnerSettingItemRequestBuilderGetReque_3794a56b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcExternalPartnerSetting|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpcexternalpartnersetting-get?view=graph-rest-beta Find more info here
     */
-    public function get(?CloudPcExternalPartnerSettingItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CloudPcExternalPartnerSettingItemRequestBuilderGetReque_3794a56b $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,12 +62,12 @@ class CloudPcExternalPartnerSettingItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a cloudPcExternalPartnerSetting object.
      * @param CloudPcExternalPartnerSetting $body The request body
-     * @param CloudPcExternalPartnerSettingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcExternalPartnerSettingItemRequestBuilderPatchReq_135384c9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcExternalPartnerSetting|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpcexternalpartnersetting-update?view=graph-rest-beta Find more info here
     */
-    public function patch(CloudPcExternalPartnerSetting $body, ?CloudPcExternalPartnerSettingItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(CloudPcExternalPartnerSetting $body, ?CloudPcExternalPartnerSettingItemRequestBuilderPatchReq_135384c9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,10 +77,10 @@ class CloudPcExternalPartnerSettingItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property externalPartnerSettings for deviceManagement
-     * @param CloudPcExternalPartnerSettingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcExternalPartnerSettingItemRequestBuilderDeleteRe_3863e4c2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CloudPcExternalPartnerSettingItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CloudPcExternalPartnerSettingItemRequestBuilderDeleteRe_3863e4c2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -95,10 +95,10 @@ class CloudPcExternalPartnerSettingItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of a cloudPcExternalPartnerSetting object.
-     * @param CloudPcExternalPartnerSettingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcExternalPartnerSettingItemRequestBuilderGetReque_3794a56b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CloudPcExternalPartnerSettingItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CloudPcExternalPartnerSettingItemRequestBuilderGetReque_3794a56b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -117,10 +117,10 @@ class CloudPcExternalPartnerSettingItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a cloudPcExternalPartnerSetting object.
      * @param CloudPcExternalPartnerSetting $body The request body
-     * @param CloudPcExternalPartnerSettingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcExternalPartnerSettingItemRequestBuilderPatchReq_135384c9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CloudPcExternalPartnerSetting $body, ?CloudPcExternalPartnerSettingItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(CloudPcExternalPartnerSetting $body, ?CloudPcExternalPartnerSettingItemRequestBuilderPatchReq_135384c9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
