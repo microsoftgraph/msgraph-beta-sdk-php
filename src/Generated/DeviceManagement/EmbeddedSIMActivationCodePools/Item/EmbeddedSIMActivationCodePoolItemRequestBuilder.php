@@ -56,11 +56,11 @@ class EmbeddedSIMActivationCodePoolItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property embeddedSIMActivationCodePools for deviceManagement
-     * @param EmbeddedSIMActivationCodePoolItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmbeddedSIMActivationCodePoolItemRequestBuilderDeleteRe_538e0d60|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?EmbeddedSIMActivationCodePoolItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?EmbeddedSIMActivationCodePoolItemRequestBuilderDeleteRe_538e0d60 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -70,11 +70,11 @@ class EmbeddedSIMActivationCodePoolItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * The embedded SIM activation code pools created by this account.
-     * @param EmbeddedSIMActivationCodePoolItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmbeddedSIMActivationCodePoolItemRequestBuilderGetReque_4c47648e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EmbeddedSIMActivationCodePool|null>
      * @throws Exception
     */
-    public function get(?EmbeddedSIMActivationCodePoolItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?EmbeddedSIMActivationCodePoolItemRequestBuilderGetReque_4c47648e $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -85,11 +85,11 @@ class EmbeddedSIMActivationCodePoolItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property embeddedSIMActivationCodePools in deviceManagement
      * @param EmbeddedSIMActivationCodePool $body The request body
-     * @param EmbeddedSIMActivationCodePoolItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmbeddedSIMActivationCodePoolItemRequestBuilderPatchReq_64dc02d0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EmbeddedSIMActivationCodePool|null>
      * @throws Exception
     */
-    public function patch(EmbeddedSIMActivationCodePool $body, ?EmbeddedSIMActivationCodePoolItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(EmbeddedSIMActivationCodePool $body, ?EmbeddedSIMActivationCodePoolItemRequestBuilderPatchReq_64dc02d0 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -99,10 +99,10 @@ class EmbeddedSIMActivationCodePoolItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property embeddedSIMActivationCodePools for deviceManagement
-     * @param EmbeddedSIMActivationCodePoolItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmbeddedSIMActivationCodePoolItemRequestBuilderDeleteRe_538e0d60|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?EmbeddedSIMActivationCodePoolItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?EmbeddedSIMActivationCodePoolItemRequestBuilderDeleteRe_538e0d60 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -117,10 +117,10 @@ class EmbeddedSIMActivationCodePoolItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * The embedded SIM activation code pools created by this account.
-     * @param EmbeddedSIMActivationCodePoolItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmbeddedSIMActivationCodePoolItemRequestBuilderGetReque_4c47648e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?EmbeddedSIMActivationCodePoolItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?EmbeddedSIMActivationCodePoolItemRequestBuilderGetReque_4c47648e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -139,10 +139,10 @@ class EmbeddedSIMActivationCodePoolItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property embeddedSIMActivationCodePools in deviceManagement
      * @param EmbeddedSIMActivationCodePool $body The request body
-     * @param EmbeddedSIMActivationCodePoolItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmbeddedSIMActivationCodePoolItemRequestBuilderPatchReq_64dc02d0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(EmbeddedSIMActivationCodePool $body, ?EmbeddedSIMActivationCodePoolItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(EmbeddedSIMActivationCodePool $body, ?EmbeddedSIMActivationCodePoolItemRequestBuilderPatchReq_64dc02d0 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

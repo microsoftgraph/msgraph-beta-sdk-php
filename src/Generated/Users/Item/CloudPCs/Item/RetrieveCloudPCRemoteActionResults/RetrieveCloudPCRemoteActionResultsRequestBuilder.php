@@ -31,12 +31,12 @@ class RetrieveCloudPCRemoteActionResultsRequestBuilder extends BaseRequestBuilde
 
     /**
      * Retrieve remote action results and check the status of a specific remote action performed on the associated Cloud PC device.
-     * @param RetrieveCloudPCRemoteActionResultsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveCloudPCRemoteActionResultsRequestBuilderGetRequ_546d8e3e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RetrieveCloudPCRemoteActionResultsGetResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpc-retrievecloudpcremoteactionresults?view=graph-rest-beta Find more info here
     */
-    public function get(?RetrieveCloudPCRemoteActionResultsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?RetrieveCloudPCRemoteActionResultsRequestBuilderGetRequ_546d8e3e $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class RetrieveCloudPCRemoteActionResultsRequestBuilder extends BaseRequestBuilde
 
     /**
      * Retrieve remote action results and check the status of a specific remote action performed on the associated Cloud PC device.
-     * @param RetrieveCloudPCRemoteActionResultsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveCloudPCRemoteActionResultsRequestBuilderGetRequ_546d8e3e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?RetrieveCloudPCRemoteActionResultsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?RetrieveCloudPCRemoteActionResultsRequestBuilderGetRequ_546d8e3e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -53,12 +53,12 @@ class MobileDeviceManagementPoliciesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a list of the mobilityManagementPolicy objects and their properties.
-     * @param MobileDeviceManagementPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileDeviceManagementPoliciesRequestBuilderGetRequestC_72a10982|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MobileDeviceManagementPolicyCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/mobiledevicemanagementpolicies-list?view=graph-rest-beta Find more info here
     */
-    public function get(?MobileDeviceManagementPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MobileDeviceManagementPoliciesRequestBuilderGetRequestC_72a10982 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class MobileDeviceManagementPoliciesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to mobileDeviceManagementPolicies for policies
      * @param MobileDeviceManagementPolicy $body The request body
-     * @param MobileDeviceManagementPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileDeviceManagementPoliciesRequestBuilderPostRequest_b855d0e6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MobileDeviceManagementPolicy|null>
      * @throws Exception
     */
-    public function post(MobileDeviceManagementPolicy $body, ?MobileDeviceManagementPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(MobileDeviceManagementPolicy $body, ?MobileDeviceManagementPoliciesRequestBuilderPostRequest_b855d0e6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class MobileDeviceManagementPoliciesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a list of the mobilityManagementPolicy objects and their properties.
-     * @param MobileDeviceManagementPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileDeviceManagementPoliciesRequestBuilderGetRequestC_72a10982|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MobileDeviceManagementPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MobileDeviceManagementPoliciesRequestBuilderGetRequestC_72a10982 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -105,10 +105,10 @@ class MobileDeviceManagementPoliciesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to mobileDeviceManagementPolicies for policies
      * @param MobileDeviceManagementPolicy $body The request body
-     * @param MobileDeviceManagementPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileDeviceManagementPoliciesRequestBuilderPostRequest_b855d0e6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(MobileDeviceManagementPolicy $body, ?MobileDeviceManagementPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(MobileDeviceManagementPolicy $body, ?MobileDeviceManagementPoliciesRequestBuilderPostRequest_b855d0e6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

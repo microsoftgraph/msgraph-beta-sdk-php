@@ -31,11 +31,11 @@ class GetAllManagedDeviceWindowsOSImagesRequestBuilder extends BaseRequestBuilde
 
     /**
      * Invoke function getAllManagedDeviceWindowsOSImages
-     * @param GetAllManagedDeviceWindowsOSImagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetAllManagedDeviceWindowsOSImagesRequestBuilderGetRequ_5673dde7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetAllManagedDeviceWindowsOSImagesGetResponse|null>
      * @throws Exception
     */
-    public function get(?GetAllManagedDeviceWindowsOSImagesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetAllManagedDeviceWindowsOSImagesRequestBuilderGetRequ_5673dde7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,10 +45,10 @@ class GetAllManagedDeviceWindowsOSImagesRequestBuilder extends BaseRequestBuilde
 
     /**
      * Invoke function getAllManagedDeviceWindowsOSImages
-     * @param GetAllManagedDeviceWindowsOSImagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetAllManagedDeviceWindowsOSImagesRequestBuilderGetRequ_5673dde7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetAllManagedDeviceWindowsOSImagesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetAllManagedDeviceWindowsOSImagesRequestBuilderGetRequ_5673dde7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

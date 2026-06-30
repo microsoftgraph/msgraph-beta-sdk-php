@@ -58,7 +58,7 @@ class GranularRestoreArtifactBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the destinationType property value. The destinationType property
+     * Gets the destinationType property value. The restoration destination. The possible values are: new, inPlace, unknownFutureValue.
      * @return DestinationType|null
     */
     public function getDestinationType(): ?DestinationType {
@@ -67,6 +67,18 @@ class GranularRestoreArtifactBase extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'destinationType'");
+    }
+
+    /**
+     * Gets the error property value. Contains error details if the restoration fails or completes with an error.
+     * @return PublicError|null
+    */
+    public function getError(): ?PublicError {
+        $val = $this->getBackingStore()->get('error');
+        if (is_null($val) || $val instanceof PublicError) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'error'");
     }
 
     /**
@@ -79,6 +91,7 @@ class GranularRestoreArtifactBase extends Entity implements Parsable
             'browseSessionId' => fn(ParseNode $n) => $o->setBrowseSessionId($n->getStringValue()),
             'completionDateTime' => fn(ParseNode $n) => $o->setCompletionDateTime($n->getDateTimeValue()),
             'destinationType' => fn(ParseNode $n) => $o->setDestinationType($n->getEnumValue(DestinationType::class)),
+            'error' => fn(ParseNode $n) => $o->setError($n->getObjectValue([PublicError::class, 'createFromDiscriminatorValue'])),
             'restoredItemKey' => fn(ParseNode $n) => $o->setRestoredItemKey($n->getStringValue()),
             'restoredItemPath' => fn(ParseNode $n) => $o->setRestoredItemPath($n->getStringValue()),
             'restoredItemWebUrl' => fn(ParseNode $n) => $o->setRestoredItemWebUrl($n->getStringValue()),
@@ -114,7 +127,7 @@ class GranularRestoreArtifactBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the restoredItemWebUrl property value. The web url of the restord artifact.
+     * Gets the restoredItemWebUrl property value. The web url of the restored artifact.
      * @return string|null
     */
     public function getRestoredItemWebUrl(): ?string {
@@ -182,6 +195,7 @@ class GranularRestoreArtifactBase extends Entity implements Parsable
         $writer->writeStringValue('browseSessionId', $this->getBrowseSessionId());
         $writer->writeDateTimeValue('completionDateTime', $this->getCompletionDateTime());
         $writer->writeEnumValue('destinationType', $this->getDestinationType());
+        $writer->writeObjectValue('error', $this->getError());
         $writer->writeStringValue('restoredItemKey', $this->getRestoredItemKey());
         $writer->writeStringValue('restoredItemPath', $this->getRestoredItemPath());
         $writer->writeStringValue('restoredItemWebUrl', $this->getRestoredItemWebUrl());
@@ -208,11 +222,19 @@ class GranularRestoreArtifactBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the destinationType property value. The destinationType property
+     * Sets the destinationType property value. The restoration destination. The possible values are: new, inPlace, unknownFutureValue.
      * @param DestinationType|null $value Value to set for the destinationType property.
     */
     public function setDestinationType(?DestinationType $value): void {
         $this->getBackingStore()->set('destinationType', $value);
+    }
+
+    /**
+     * Sets the error property value. Contains error details if the restoration fails or completes with an error.
+     * @param PublicError|null $value Value to set for the error property.
+    */
+    public function setError(?PublicError $value): void {
+        $this->getBackingStore()->set('error', $value);
     }
 
     /**
@@ -232,7 +254,7 @@ class GranularRestoreArtifactBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the restoredItemWebUrl property value. The web url of the restord artifact.
+     * Sets the restoredItemWebUrl property value. The web url of the restored artifact.
      * @param string|null $value Value to set for the restoredItemWebUrl property.
     */
     public function setRestoredItemWebUrl(?string $value): void {

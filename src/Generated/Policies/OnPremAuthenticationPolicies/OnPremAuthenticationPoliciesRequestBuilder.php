@@ -53,12 +53,12 @@ class OnPremAuthenticationPoliciesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a list of the onPremAuthenticationPolicy objects and their properties.
-     * @param OnPremAuthenticationPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnPremAuthenticationPoliciesRequestBuilderGetRequestCon_efad74d1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnPremAuthenticationPolicyCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/policyroot-list-onpremauthenticationpolicies?view=graph-rest-beta Find more info here
     */
-    public function get(?OnPremAuthenticationPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?OnPremAuthenticationPoliciesRequestBuilderGetRequestCon_efad74d1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,12 +69,12 @@ class OnPremAuthenticationPoliciesRequestBuilder extends BaseRequestBuilder
     /**
      * Create a new onPremAuthenticationPolicy object.
      * @param OnPremAuthenticationPolicy $body The request body
-     * @param OnPremAuthenticationPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnPremAuthenticationPoliciesRequestBuilderPostRequestCo_02f5b370|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnPremAuthenticationPolicy|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/policyroot-post-onpremauthenticationpolicies?view=graph-rest-beta Find more info here
     */
-    public function post(OnPremAuthenticationPolicy $body, ?OnPremAuthenticationPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(OnPremAuthenticationPolicy $body, ?OnPremAuthenticationPoliciesRequestBuilderPostRequestCo_02f5b370 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -84,10 +84,10 @@ class OnPremAuthenticationPoliciesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a list of the onPremAuthenticationPolicy objects and their properties.
-     * @param OnPremAuthenticationPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnPremAuthenticationPoliciesRequestBuilderGetRequestCon_efad74d1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?OnPremAuthenticationPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?OnPremAuthenticationPoliciesRequestBuilderGetRequestCon_efad74d1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -106,10 +106,10 @@ class OnPremAuthenticationPoliciesRequestBuilder extends BaseRequestBuilder
     /**
      * Create a new onPremAuthenticationPolicy object.
      * @param OnPremAuthenticationPolicy $body The request body
-     * @param OnPremAuthenticationPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnPremAuthenticationPoliciesRequestBuilderPostRequestCo_02f5b370|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(OnPremAuthenticationPolicy $body, ?OnPremAuthenticationPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(OnPremAuthenticationPolicy $body, ?OnPremAuthenticationPoliciesRequestBuilderPostRequestCo_02f5b370 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -56,11 +56,11 @@ class ManagementTemplateStepVersionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property managementTemplateStepVersions for tenantRelationships
-     * @param ManagementTemplateStepVersionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepVersionItemRequestBuilderDeleteRe_02a2c8a3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ManagementTemplateStepVersionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ManagementTemplateStepVersionItemRequestBuilderDeleteRe_02a2c8a3 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -70,11 +70,11 @@ class ManagementTemplateStepVersionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get managementTemplateStepVersions from tenantRelationships
-     * @param ManagementTemplateStepVersionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepVersionItemRequestBuilderGetReque_f1c5a1bc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementTemplateStepVersion|null>
      * @throws Exception
     */
-    public function get(?ManagementTemplateStepVersionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagementTemplateStepVersionItemRequestBuilderGetReque_f1c5a1bc $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -85,11 +85,11 @@ class ManagementTemplateStepVersionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property managementTemplateStepVersions in tenantRelationships
      * @param ManagementTemplateStepVersion $body The request body
-     * @param ManagementTemplateStepVersionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepVersionItemRequestBuilderPatchReq_d591196d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementTemplateStepVersion|null>
      * @throws Exception
     */
-    public function patch(ManagementTemplateStepVersion $body, ?ManagementTemplateStepVersionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ManagementTemplateStepVersion $body, ?ManagementTemplateStepVersionItemRequestBuilderPatchReq_d591196d $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -99,10 +99,10 @@ class ManagementTemplateStepVersionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property managementTemplateStepVersions for tenantRelationships
-     * @param ManagementTemplateStepVersionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepVersionItemRequestBuilderDeleteRe_02a2c8a3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ManagementTemplateStepVersionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ManagementTemplateStepVersionItemRequestBuilderDeleteRe_02a2c8a3 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -117,10 +117,10 @@ class ManagementTemplateStepVersionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get managementTemplateStepVersions from tenantRelationships
-     * @param ManagementTemplateStepVersionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepVersionItemRequestBuilderGetReque_f1c5a1bc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagementTemplateStepVersionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagementTemplateStepVersionItemRequestBuilderGetReque_f1c5a1bc $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -139,10 +139,10 @@ class ManagementTemplateStepVersionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property managementTemplateStepVersions in tenantRelationships
      * @param ManagementTemplateStepVersion $body The request body
-     * @param ManagementTemplateStepVersionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepVersionItemRequestBuilderPatchReq_d591196d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ManagementTemplateStepVersion $body, ?ManagementTemplateStepVersionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ManagementTemplateStepVersion $body, ?ManagementTemplateStepVersionItemRequestBuilderPatchReq_d591196d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

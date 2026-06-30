@@ -32,11 +32,11 @@ class DirectoryRoleAccessReviewPolicyRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property directoryRoleAccessReviewPolicy for policies
-     * @param DirectoryRoleAccessReviewPolicyRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DirectoryRoleAccessReviewPolicyRequestBuilderDeleteRequ_d7ef0ef7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DirectoryRoleAccessReviewPolicyRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DirectoryRoleAccessReviewPolicyRequestBuilderDeleteRequ_d7ef0ef7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class DirectoryRoleAccessReviewPolicyRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get directoryRoleAccessReviewPolicy from policies
-     * @param DirectoryRoleAccessReviewPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DirectoryRoleAccessReviewPolicyRequestBuilderGetRequest_511c6e75|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectoryRoleAccessReviewPolicy|null>
      * @throws Exception
     */
-    public function get(?DirectoryRoleAccessReviewPolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DirectoryRoleAccessReviewPolicyRequestBuilderGetRequest_511c6e75 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class DirectoryRoleAccessReviewPolicyRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property directoryRoleAccessReviewPolicy in policies
      * @param DirectoryRoleAccessReviewPolicy $body The request body
-     * @param DirectoryRoleAccessReviewPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DirectoryRoleAccessReviewPolicyRequestBuilderPatchReque_b9d43f46|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DirectoryRoleAccessReviewPolicy|null>
      * @throws Exception
     */
-    public function patch(DirectoryRoleAccessReviewPolicy $body, ?DirectoryRoleAccessReviewPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DirectoryRoleAccessReviewPolicy $body, ?DirectoryRoleAccessReviewPolicyRequestBuilderPatchReque_b9d43f46 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class DirectoryRoleAccessReviewPolicyRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property directoryRoleAccessReviewPolicy for policies
-     * @param DirectoryRoleAccessReviewPolicyRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DirectoryRoleAccessReviewPolicyRequestBuilderDeleteRequ_d7ef0ef7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DirectoryRoleAccessReviewPolicyRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DirectoryRoleAccessReviewPolicyRequestBuilderDeleteRequ_d7ef0ef7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class DirectoryRoleAccessReviewPolicyRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get directoryRoleAccessReviewPolicy from policies
-     * @param DirectoryRoleAccessReviewPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DirectoryRoleAccessReviewPolicyRequestBuilderGetRequest_511c6e75|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DirectoryRoleAccessReviewPolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DirectoryRoleAccessReviewPolicyRequestBuilderGetRequest_511c6e75 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class DirectoryRoleAccessReviewPolicyRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property directoryRoleAccessReviewPolicy in policies
      * @param DirectoryRoleAccessReviewPolicy $body The request body
-     * @param DirectoryRoleAccessReviewPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DirectoryRoleAccessReviewPolicyRequestBuilderPatchReque_b9d43f46|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DirectoryRoleAccessReviewPolicy $body, ?DirectoryRoleAccessReviewPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DirectoryRoleAccessReviewPolicy $body, ?DirectoryRoleAccessReviewPolicyRequestBuilderPatchReque_b9d43f46 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

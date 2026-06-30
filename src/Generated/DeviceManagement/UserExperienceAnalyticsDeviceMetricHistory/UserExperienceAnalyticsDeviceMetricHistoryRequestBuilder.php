@@ -53,11 +53,11 @@ class UserExperienceAnalyticsDeviceMetricHistoryRequestBuilder extends BaseReque
 
     /**
      * User experience analytics device metric history. The report will be retired on December 31, 2024. You can start using the Cloud PC connection quality report now via https://learn.microsoft.com/windows-365/enterprise/report-cloud-pc-connection-quality.
-     * @param UserExperienceAnalyticsDeviceMetricHistoryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceMetricHistoryRequestBuilde_bf741755|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsMetricHistoryCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?UserExperienceAnalyticsDeviceMetricHistoryRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserExperienceAnalyticsDeviceMetricHistoryRequestBuilde_bf741755 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class UserExperienceAnalyticsDeviceMetricHistoryRequestBuilder extends BaseReque
     /**
      * Create new navigation property to userExperienceAnalyticsDeviceMetricHistory for deviceManagement
      * @param UserExperienceAnalyticsMetricHistory $body The request body
-     * @param UserExperienceAnalyticsDeviceMetricHistoryRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceMetricHistoryRequestBuilde_ef193430|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsMetricHistory|null>
      * @throws Exception
     */
-    public function post(UserExperienceAnalyticsMetricHistory $body, ?UserExperienceAnalyticsDeviceMetricHistoryRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(UserExperienceAnalyticsMetricHistory $body, ?UserExperienceAnalyticsDeviceMetricHistoryRequestBuilde_ef193430 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class UserExperienceAnalyticsDeviceMetricHistoryRequestBuilder extends BaseReque
 
     /**
      * User experience analytics device metric history. The report will be retired on December 31, 2024. You can start using the Cloud PC connection quality report now via https://learn.microsoft.com/windows-365/enterprise/report-cloud-pc-connection-quality.
-     * @param UserExperienceAnalyticsDeviceMetricHistoryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceMetricHistoryRequestBuilde_bf741755|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UserExperienceAnalyticsDeviceMetricHistoryRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UserExperienceAnalyticsDeviceMetricHistoryRequestBuilde_bf741755 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class UserExperienceAnalyticsDeviceMetricHistoryRequestBuilder extends BaseReque
     /**
      * Create new navigation property to userExperienceAnalyticsDeviceMetricHistory for deviceManagement
      * @param UserExperienceAnalyticsMetricHistory $body The request body
-     * @param UserExperienceAnalyticsDeviceMetricHistoryRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceMetricHistoryRequestBuilde_ef193430|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(UserExperienceAnalyticsMetricHistory $body, ?UserExperienceAnalyticsDeviceMetricHistoryRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(UserExperienceAnalyticsMetricHistory $body, ?UserExperienceAnalyticsDeviceMetricHistoryRequestBuilde_ef193430 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

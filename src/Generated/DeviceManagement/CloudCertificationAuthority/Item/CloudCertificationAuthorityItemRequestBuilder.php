@@ -19,8 +19,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\RevokeCloudCertificationAuthorityCertificate\RevokeCloudCertificationAuthorityCertificateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\RevokeLeafCertificate\RevokeLeafCertificateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\RevokeLeafCertificateBySerialNumber\RevokeLeafCertificateBySerialNumberRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\SearchCloudCertificationAuthorityLeafCertificateBySerialNumber\SearchCloudCertificationAuthorityLeafCertificateBySerialNumberRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\UploadExternallySignedCertificationAuthorityCertificate\UploadExternallySignedCertificationAuthorityCertificateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\SearchCloudCertificationAuthorityLeafCertificateBySerialNumber\SearchCloudCertificationAuthorityLeafCertificateBySeria_1a22156b;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\UploadExternallySignedCertificationAuthorityCertificate\UploadExternallySignedCertificationAuthorityCertificate_fa0c0209;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\CloudCertificationAuthority\Item\Versions\VersionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudCertificationAuthority;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -142,15 +142,15 @@ class CloudCertificationAuthorityItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the searchCloudCertificationAuthorityLeafCertificateBySerialNumber method.
     */
-    public function searchCloudCertificationAuthorityLeafCertificateBySerialNumber(): SearchCloudCertificationAuthorityLeafCertificateBySerialNumberRequestBuilder {
-        return new SearchCloudCertificationAuthorityLeafCertificateBySerialNumberRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function searchCloudCertificationAuthorityLeafCertificateBySerialNumber(): SearchCloudCertificationAuthorityLeafCertificateBySeria_1a22156b {
+        return new SearchCloudCertificationAuthorityLeafCertificateBySeria_1a22156b($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the uploadExternallySignedCertificationAuthorityCertificate method.
     */
-    public function uploadExternallySignedCertificationAuthorityCertificate(): UploadExternallySignedCertificationAuthorityCertificateRequestBuilder {
-        return new UploadExternallySignedCertificationAuthorityCertificateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function uploadExternallySignedCertificationAuthorityCertificate(): UploadExternallySignedCertificationAuthorityCertificate_fa0c0209 {
+        return new UploadExternallySignedCertificationAuthorityCertificate_fa0c0209($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -176,11 +176,11 @@ class CloudCertificationAuthorityItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property cloudCertificationAuthority for deviceManagement
-     * @param CloudCertificationAuthorityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudCertificationAuthorityItemRequestBuilderDeleteRequ_59d173c6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CloudCertificationAuthorityItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CloudCertificationAuthorityItemRequestBuilderDeleteRequ_59d173c6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -190,11 +190,11 @@ class CloudCertificationAuthorityItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Collection of CloudCertificationAuthority records associated with account.
-     * @param CloudCertificationAuthorityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudCertificationAuthorityItemRequestBuilderGetRequest_4b9418b3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudCertificationAuthority|null>
      * @throws Exception
     */
-    public function get(?CloudCertificationAuthorityItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CloudCertificationAuthorityItemRequestBuilderGetRequest_4b9418b3 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -205,11 +205,11 @@ class CloudCertificationAuthorityItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property cloudCertificationAuthority in deviceManagement
      * @param CloudCertificationAuthority $body The request body
-     * @param CloudCertificationAuthorityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudCertificationAuthorityItemRequestBuilderPatchReque_015a4f26|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudCertificationAuthority|null>
      * @throws Exception
     */
-    public function patch(CloudCertificationAuthority $body, ?CloudCertificationAuthorityItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(CloudCertificationAuthority $body, ?CloudCertificationAuthorityItemRequestBuilderPatchReque_015a4f26 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -219,10 +219,10 @@ class CloudCertificationAuthorityItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property cloudCertificationAuthority for deviceManagement
-     * @param CloudCertificationAuthorityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudCertificationAuthorityItemRequestBuilderDeleteRequ_59d173c6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CloudCertificationAuthorityItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CloudCertificationAuthorityItemRequestBuilderDeleteRequ_59d173c6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -237,10 +237,10 @@ class CloudCertificationAuthorityItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Collection of CloudCertificationAuthority records associated with account.
-     * @param CloudCertificationAuthorityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudCertificationAuthorityItemRequestBuilderGetRequest_4b9418b3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CloudCertificationAuthorityItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CloudCertificationAuthorityItemRequestBuilderGetRequest_4b9418b3 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -259,10 +259,10 @@ class CloudCertificationAuthorityItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property cloudCertificationAuthority in deviceManagement
      * @param CloudCertificationAuthority $body The request body
-     * @param CloudCertificationAuthorityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudCertificationAuthorityItemRequestBuilderPatchReque_015a4f26|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CloudCertificationAuthority $body, ?CloudCertificationAuthorityItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(CloudCertificationAuthority $body, ?CloudCertificationAuthorityItemRequestBuilderPatchReque_015a4f26 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

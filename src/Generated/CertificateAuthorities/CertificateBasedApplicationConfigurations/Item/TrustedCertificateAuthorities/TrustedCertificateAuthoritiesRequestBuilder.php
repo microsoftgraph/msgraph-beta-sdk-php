@@ -53,11 +53,11 @@ class TrustedCertificateAuthoritiesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Collection of trusted certificate authorities.
-     * @param TrustedCertificateAuthoritiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TrustedCertificateAuthoritiesRequestBuilderGetRequestCo_9f238bf1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CertificateAuthorityAsEntityCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?TrustedCertificateAuthoritiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?TrustedCertificateAuthoritiesRequestBuilderGetRequestCo_9f238bf1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class TrustedCertificateAuthoritiesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to trustedCertificateAuthorities for certificateAuthorities
      * @param CertificateAuthorityAsEntity $body The request body
-     * @param TrustedCertificateAuthoritiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TrustedCertificateAuthoritiesRequestBuilderPostRequestC_5d6143b1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CertificateAuthorityAsEntity|null>
      * @throws Exception
     */
-    public function post(CertificateAuthorityAsEntity $body, ?TrustedCertificateAuthoritiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(CertificateAuthorityAsEntity $body, ?TrustedCertificateAuthoritiesRequestBuilderPostRequestC_5d6143b1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class TrustedCertificateAuthoritiesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Collection of trusted certificate authorities.
-     * @param TrustedCertificateAuthoritiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TrustedCertificateAuthoritiesRequestBuilderGetRequestCo_9f238bf1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?TrustedCertificateAuthoritiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?TrustedCertificateAuthoritiesRequestBuilderGetRequestCo_9f238bf1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class TrustedCertificateAuthoritiesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to trustedCertificateAuthorities for certificateAuthorities
      * @param CertificateAuthorityAsEntity $body The request body
-     * @param TrustedCertificateAuthoritiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TrustedCertificateAuthoritiesRequestBuilderPostRequestC_5d6143b1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(CertificateAuthorityAsEntity $body, ?TrustedCertificateAuthoritiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(CertificateAuthorityAsEntity $body, ?TrustedCertificateAuthoritiesRequestBuilderPostRequestC_5d6143b1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

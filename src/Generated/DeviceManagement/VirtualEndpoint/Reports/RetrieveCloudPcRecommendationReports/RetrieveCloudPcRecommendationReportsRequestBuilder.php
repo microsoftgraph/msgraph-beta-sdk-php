@@ -33,11 +33,11 @@ class RetrieveCloudPcRecommendationReportsRequestBuilder extends BaseRequestBuil
     /**
      * Invoke action retrieveCloudPcRecommendationReports
      * @param RetrieveCloudPcRecommendationReportsPostRequestBody $body The request body
-     * @param RetrieveCloudPcRecommendationReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveCloudPcRecommendationReportsRequestBuilderPostR_8bdb680c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(RetrieveCloudPcRecommendationReportsPostRequestBody $body, ?RetrieveCloudPcRecommendationReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(RetrieveCloudPcRecommendationReportsPostRequestBody $body, ?RetrieveCloudPcRecommendationReportsRequestBuilderPostR_8bdb680c $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class RetrieveCloudPcRecommendationReportsRequestBuilder extends BaseRequestBuil
     /**
      * Invoke action retrieveCloudPcRecommendationReports
      * @param RetrieveCloudPcRecommendationReportsPostRequestBody $body The request body
-     * @param RetrieveCloudPcRecommendationReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveCloudPcRecommendationReportsRequestBuilderPostR_8bdb680c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(RetrieveCloudPcRecommendationReportsPostRequestBody $body, ?RetrieveCloudPcRecommendationReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(RetrieveCloudPcRecommendationReportsPostRequestBody $body, ?RetrieveCloudPcRecommendationReportsRequestBuilderPostR_8bdb680c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

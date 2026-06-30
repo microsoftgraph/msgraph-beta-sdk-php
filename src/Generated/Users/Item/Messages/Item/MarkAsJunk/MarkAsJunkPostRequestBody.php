@@ -23,6 +23,7 @@ class MarkAsJunkPostRequestBody implements AdditionalDataHolder, BackedModel, Pa
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
+        $this->setMoveToJunk(false);
     }
 
     /**

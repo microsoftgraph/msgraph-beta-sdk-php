@@ -33,12 +33,12 @@ class GetRawRemoteConnectionReportsRequestBuilder extends BaseRequestBuilder
     /**
      * Get the raw real-time remote connection report for a Cloud PC without any calculation, such as roundTripTime or available bandwidth, which are aggregated hourly from the raw event data.
      * @param GetRawRemoteConnectionReportsPostRequestBody $body The request body
-     * @param GetRawRemoteConnectionReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetRawRemoteConnectionReportsRequestBuilderPostRequestC_34e024a3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpcreports-getrawremoteconnectionreports?view=graph-rest-beta Find more info here
     */
-    public function post(GetRawRemoteConnectionReportsPostRequestBody $body, ?GetRawRemoteConnectionReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetRawRemoteConnectionReportsPostRequestBody $body, ?GetRawRemoteConnectionReportsRequestBuilderPostRequestC_34e024a3 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -51,10 +51,10 @@ class GetRawRemoteConnectionReportsRequestBuilder extends BaseRequestBuilder
     /**
      * Get the raw real-time remote connection report for a Cloud PC without any calculation, such as roundTripTime or available bandwidth, which are aggregated hourly from the raw event data.
      * @param GetRawRemoteConnectionReportsPostRequestBody $body The request body
-     * @param GetRawRemoteConnectionReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetRawRemoteConnectionReportsRequestBuilderPostRequestC_34e024a3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetRawRemoteConnectionReportsPostRequestBody $body, ?GetRawRemoteConnectionReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetRawRemoteConnectionReportsPostRequestBody $body, ?GetRawRemoteConnectionReportsRequestBuilderPostRequestC_34e024a3 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

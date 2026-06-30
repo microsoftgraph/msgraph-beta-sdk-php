@@ -32,12 +32,12 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete a sourceSystemDefinition object.
-     * @param SourceSystemDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SourceSystemDefinitionItemRequestBuilderDeleteRequestCo_dcd6ceba|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/industrydata-sourcesystemdefinition-delete?view=graph-rest-beta Find more info here
     */
-    public function delete(?SourceSystemDefinitionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?SourceSystemDefinitionItemRequestBuilderDeleteRequestCo_dcd6ceba $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -63,12 +63,12 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a sourceSystemDefinition object.
      * @param SourceSystemDefinition $body The request body
-     * @param SourceSystemDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SourceSystemDefinitionItemRequestBuilderPatchRequestCon_0db6a19e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SourceSystemDefinition|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/industrydata-sourcesystemdefinition-update?view=graph-rest-beta Find more info here
     */
-    public function patch(SourceSystemDefinition $body, ?SourceSystemDefinitionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(SourceSystemDefinition $body, ?SourceSystemDefinitionItemRequestBuilderPatchRequestCon_0db6a19e $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -78,10 +78,10 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete a sourceSystemDefinition object.
-     * @param SourceSystemDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SourceSystemDefinitionItemRequestBuilderDeleteRequestCo_dcd6ceba|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?SourceSystemDefinitionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?SourceSystemDefinitionItemRequestBuilderDeleteRequestCo_dcd6ceba $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -118,10 +118,10 @@ class SourceSystemDefinitionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a sourceSystemDefinition object.
      * @param SourceSystemDefinition $body The request body
-     * @param SourceSystemDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SourceSystemDefinitionItemRequestBuilderPatchRequestCon_0db6a19e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(SourceSystemDefinition $body, ?SourceSystemDefinitionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(SourceSystemDefinition $body, ?SourceSystemDefinitionItemRequestBuilderPatchRequestCon_0db6a19e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

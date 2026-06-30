@@ -32,12 +32,12 @@ class MicrosoftGraphSecurityUpdateIndexRequestBuilder extends BaseRequestBuilder
     /**
      * Trigger an indexOperation
      * @param UpdateIndexPostRequestBody $body The request body
-     * @param MicrosoftGraphSecurityUpdateIndexRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphSecurityUpdateIndexRequestBuilderPostRequ_e7b9aa81|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-updateindex?view=graph-rest-beta Find more info here
     */
-    public function post(UpdateIndexPostRequestBody $body, ?MicrosoftGraphSecurityUpdateIndexRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(UpdateIndexPostRequestBody $body, ?MicrosoftGraphSecurityUpdateIndexRequestBuilderPostRequ_e7b9aa81 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class MicrosoftGraphSecurityUpdateIndexRequestBuilder extends BaseRequestBuilder
     /**
      * Trigger an indexOperation
      * @param UpdateIndexPostRequestBody $body The request body
-     * @param MicrosoftGraphSecurityUpdateIndexRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphSecurityUpdateIndexRequestBuilderPostRequ_e7b9aa81|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(UpdateIndexPostRequestBody $body, ?MicrosoftGraphSecurityUpdateIndexRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(UpdateIndexPostRequestBody $body, ?MicrosoftGraphSecurityUpdateIndexRequestBuilderPostRequ_e7b9aa81 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

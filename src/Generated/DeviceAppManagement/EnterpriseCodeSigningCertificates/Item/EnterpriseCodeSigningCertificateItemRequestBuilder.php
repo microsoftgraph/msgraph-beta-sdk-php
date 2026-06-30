@@ -32,11 +32,11 @@ class EnterpriseCodeSigningCertificateItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Delete navigation property enterpriseCodeSigningCertificates for deviceAppManagement
-     * @param EnterpriseCodeSigningCertificateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EnterpriseCodeSigningCertificateItemRequestBuilderDelet_876065ad|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?EnterpriseCodeSigningCertificateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?EnterpriseCodeSigningCertificateItemRequestBuilderDelet_876065ad $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class EnterpriseCodeSigningCertificateItemRequestBuilder extends BaseRequestBuil
 
     /**
      * The Windows Enterprise Code Signing Certificate.
-     * @param EnterpriseCodeSigningCertificateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EnterpriseCodeSigningCertificateItemRequestBuilderGetRe_959b60f6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EnterpriseCodeSigningCertificate|null>
      * @throws Exception
     */
-    public function get(?EnterpriseCodeSigningCertificateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?EnterpriseCodeSigningCertificateItemRequestBuilderGetRe_959b60f6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class EnterpriseCodeSigningCertificateItemRequestBuilder extends BaseRequestBuil
     /**
      * Update the navigation property enterpriseCodeSigningCertificates in deviceAppManagement
      * @param EnterpriseCodeSigningCertificate $body The request body
-     * @param EnterpriseCodeSigningCertificateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EnterpriseCodeSigningCertificateItemRequestBuilderPatch_901b8482|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EnterpriseCodeSigningCertificate|null>
      * @throws Exception
     */
-    public function patch(EnterpriseCodeSigningCertificate $body, ?EnterpriseCodeSigningCertificateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(EnterpriseCodeSigningCertificate $body, ?EnterpriseCodeSigningCertificateItemRequestBuilderPatch_901b8482 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class EnterpriseCodeSigningCertificateItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Delete navigation property enterpriseCodeSigningCertificates for deviceAppManagement
-     * @param EnterpriseCodeSigningCertificateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EnterpriseCodeSigningCertificateItemRequestBuilderDelet_876065ad|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?EnterpriseCodeSigningCertificateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?EnterpriseCodeSigningCertificateItemRequestBuilderDelet_876065ad $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class EnterpriseCodeSigningCertificateItemRequestBuilder extends BaseRequestBuil
 
     /**
      * The Windows Enterprise Code Signing Certificate.
-     * @param EnterpriseCodeSigningCertificateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EnterpriseCodeSigningCertificateItemRequestBuilderGetRe_959b60f6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?EnterpriseCodeSigningCertificateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?EnterpriseCodeSigningCertificateItemRequestBuilderGetRe_959b60f6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class EnterpriseCodeSigningCertificateItemRequestBuilder extends BaseRequestBuil
     /**
      * Update the navigation property enterpriseCodeSigningCertificates in deviceAppManagement
      * @param EnterpriseCodeSigningCertificate $body The request body
-     * @param EnterpriseCodeSigningCertificateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EnterpriseCodeSigningCertificateItemRequestBuilderPatch_901b8482|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(EnterpriseCodeSigningCertificate $body, ?EnterpriseCodeSigningCertificateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(EnterpriseCodeSigningCertificate $body, ?EnterpriseCodeSigningCertificateItemRequestBuilderPatch_901b8482 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

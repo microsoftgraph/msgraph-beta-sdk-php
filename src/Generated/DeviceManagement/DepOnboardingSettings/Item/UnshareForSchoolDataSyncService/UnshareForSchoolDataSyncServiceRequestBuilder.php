@@ -31,11 +31,11 @@ class UnshareForSchoolDataSyncServiceRequestBuilder extends BaseRequestBuilder
 
     /**
      * Invoke action unshareForSchoolDataSyncService
-     * @param UnshareForSchoolDataSyncServiceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnshareForSchoolDataSyncServiceRequestBuilderPostReques_54a4e5f9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(?UnshareForSchoolDataSyncServiceRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?UnshareForSchoolDataSyncServiceRequestBuilderPostReques_54a4e5f9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,10 +45,10 @@ class UnshareForSchoolDataSyncServiceRequestBuilder extends BaseRequestBuilder
 
     /**
      * Invoke action unshareForSchoolDataSyncService
-     * @param UnshareForSchoolDataSyncServiceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnshareForSchoolDataSyncServiceRequestBuilderPostReques_54a4e5f9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?UnshareForSchoolDataSyncServiceRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?UnshareForSchoolDataSyncServiceRequestBuilderPostReques_54a4e5f9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -40,12 +40,12 @@ class ThreatIntelligencePolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete a threatIntelligencePolicy object.
-     * @param ThreatIntelligencePolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ThreatIntelligencePolicyItemRequestBuilderDeleteRequest_26d33d30|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/networkaccess-networkaccessroot-delete-threatintelligencepolicies?view=graph-rest-beta Find more info here
     */
-    public function delete(?ThreatIntelligencePolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ThreatIntelligencePolicyItemRequestBuilderDeleteRequest_26d33d30 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -55,12 +55,12 @@ class ThreatIntelligencePolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of a threatIntelligencePolicy object.
-     * @param ThreatIntelligencePolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ThreatIntelligencePolicyItemRequestBuilderGetRequestCon_2330e56f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ThreatIntelligencePolicy|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/networkaccess-threatintelligencepolicy-get?view=graph-rest-beta Find more info here
     */
-    public function get(?ThreatIntelligencePolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ThreatIntelligencePolicyItemRequestBuilderGetRequestCon_2330e56f $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -71,12 +71,12 @@ class ThreatIntelligencePolicyItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a threatIntelligencePolicy object.
      * @param ThreatIntelligencePolicy $body The request body
-     * @param ThreatIntelligencePolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ThreatIntelligencePolicyItemRequestBuilderPatchRequestC_bddac9f7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ThreatIntelligencePolicy|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/networkaccess-threatintelligencepolicy-update?view=graph-rest-beta Find more info here
     */
-    public function patch(ThreatIntelligencePolicy $body, ?ThreatIntelligencePolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ThreatIntelligencePolicy $body, ?ThreatIntelligencePolicyItemRequestBuilderPatchRequestC_bddac9f7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -86,10 +86,10 @@ class ThreatIntelligencePolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete a threatIntelligencePolicy object.
-     * @param ThreatIntelligencePolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ThreatIntelligencePolicyItemRequestBuilderDeleteRequest_26d33d30|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ThreatIntelligencePolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ThreatIntelligencePolicyItemRequestBuilderDeleteRequest_26d33d30 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class ThreatIntelligencePolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of a threatIntelligencePolicy object.
-     * @param ThreatIntelligencePolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ThreatIntelligencePolicyItemRequestBuilderGetRequestCon_2330e56f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ThreatIntelligencePolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ThreatIntelligencePolicyItemRequestBuilderGetRequestCon_2330e56f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -126,10 +126,10 @@ class ThreatIntelligencePolicyItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a threatIntelligencePolicy object.
      * @param ThreatIntelligencePolicy $body The request body
-     * @param ThreatIntelligencePolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ThreatIntelligencePolicyItemRequestBuilderPatchRequestC_bddac9f7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ThreatIntelligencePolicy $body, ?ThreatIntelligencePolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ThreatIntelligencePolicy $body, ?ThreatIntelligencePolicyItemRequestBuilderPatchRequestC_bddac9f7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

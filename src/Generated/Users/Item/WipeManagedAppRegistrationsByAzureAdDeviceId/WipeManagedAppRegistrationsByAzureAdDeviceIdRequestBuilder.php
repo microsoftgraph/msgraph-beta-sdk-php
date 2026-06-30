@@ -32,11 +32,11 @@ class WipeManagedAppRegistrationsByAzureAdDeviceIdRequestBuilder extends BaseReq
     /**
      * Issues a wipe operation on an app registration with specified aad device Id.
      * @param WipeManagedAppRegistrationsByAzureAdDeviceIdPostRequestBody $body The request body
-     * @param WipeManagedAppRegistrationsByAzureAdDeviceIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WipeManagedAppRegistrationsByAzureAdDeviceIdRequestBuil_b5cf0385|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(WipeManagedAppRegistrationsByAzureAdDeviceIdPostRequestBody $body, ?WipeManagedAppRegistrationsByAzureAdDeviceIdRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(WipeManagedAppRegistrationsByAzureAdDeviceIdPostRequestBody $body, ?WipeManagedAppRegistrationsByAzureAdDeviceIdRequestBuil_b5cf0385 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,10 +47,10 @@ class WipeManagedAppRegistrationsByAzureAdDeviceIdRequestBuilder extends BaseReq
     /**
      * Issues a wipe operation on an app registration with specified aad device Id.
      * @param WipeManagedAppRegistrationsByAzureAdDeviceIdPostRequestBody $body The request body
-     * @param WipeManagedAppRegistrationsByAzureAdDeviceIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WipeManagedAppRegistrationsByAzureAdDeviceIdRequestBuil_b5cf0385|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(WipeManagedAppRegistrationsByAzureAdDeviceIdPostRequestBody $body, ?WipeManagedAppRegistrationsByAzureAdDeviceIdRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(WipeManagedAppRegistrationsByAzureAdDeviceIdPostRequestBody $body, ?WipeManagedAppRegistrationsByAzureAdDeviceIdRequestBuil_b5cf0385 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -53,12 +53,12 @@ class ExternalOriginResourceConnectorsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a list of externalOriginResourceConnector objects and their properties.
-     * @param ExternalOriginResourceConnectorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ExternalOriginResourceConnectorsRequestBuilderGetReques_2620d290|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExternalOriginResourceConnectorCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/entitlementmanagement-list-externaloriginresourceconnectors?view=graph-rest-beta Find more info here
     */
-    public function get(?ExternalOriginResourceConnectorsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ExternalOriginResourceConnectorsRequestBuilderGetReques_2620d290 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,12 +69,12 @@ class ExternalOriginResourceConnectorsRequestBuilder extends BaseRequestBuilder
     /**
      * Creates a new externalOriginResourceConnector object.
      * @param ExternalOriginResourceConnector $body The request body
-     * @param ExternalOriginResourceConnectorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ExternalOriginResourceConnectorsRequestBuilderPostReque_d8df8208|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExternalOriginResourceConnector|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/entitlementmanagement-post-externaloriginresourceconnectors?view=graph-rest-beta Find more info here
     */
-    public function post(ExternalOriginResourceConnector $body, ?ExternalOriginResourceConnectorsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ExternalOriginResourceConnector $body, ?ExternalOriginResourceConnectorsRequestBuilderPostReque_d8df8208 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -84,10 +84,10 @@ class ExternalOriginResourceConnectorsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a list of externalOriginResourceConnector objects and their properties.
-     * @param ExternalOriginResourceConnectorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ExternalOriginResourceConnectorsRequestBuilderGetReques_2620d290|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ExternalOriginResourceConnectorsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ExternalOriginResourceConnectorsRequestBuilderGetReques_2620d290 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -106,10 +106,10 @@ class ExternalOriginResourceConnectorsRequestBuilder extends BaseRequestBuilder
     /**
      * Creates a new externalOriginResourceConnector object.
      * @param ExternalOriginResourceConnector $body The request body
-     * @param ExternalOriginResourceConnectorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ExternalOriginResourceConnectorsRequestBuilderPostReque_d8df8208|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ExternalOriginResourceConnector $body, ?ExternalOriginResourceConnectorsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ExternalOriginResourceConnector $body, ?ExternalOriginResourceConnectorsRequestBuilderPostReque_d8df8208 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

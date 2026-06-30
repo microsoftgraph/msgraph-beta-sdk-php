@@ -33,11 +33,11 @@ class RetrieveSecurityTaskAppsReportRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action retrieveSecurityTaskAppsReport
      * @param RetrieveSecurityTaskAppsReportPostRequestBody $body The request body
-     * @param RetrieveSecurityTaskAppsReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveSecurityTaskAppsReportRequestBuilderPostRequest_bc48e947|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(RetrieveSecurityTaskAppsReportPostRequestBody $body, ?RetrieveSecurityTaskAppsReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(RetrieveSecurityTaskAppsReportPostRequestBody $body, ?RetrieveSecurityTaskAppsReportRequestBuilderPostRequest_bc48e947 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class RetrieveSecurityTaskAppsReportRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action retrieveSecurityTaskAppsReport
      * @param RetrieveSecurityTaskAppsReportPostRequestBody $body The request body
-     * @param RetrieveSecurityTaskAppsReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveSecurityTaskAppsReportRequestBuilderPostRequest_bc48e947|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(RetrieveSecurityTaskAppsReportPostRequestBody $body, ?RetrieveSecurityTaskAppsReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(RetrieveSecurityTaskAppsReportPostRequestBody $body, ?RetrieveSecurityTaskAppsReportRequestBuilderPostRequest_bc48e947 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

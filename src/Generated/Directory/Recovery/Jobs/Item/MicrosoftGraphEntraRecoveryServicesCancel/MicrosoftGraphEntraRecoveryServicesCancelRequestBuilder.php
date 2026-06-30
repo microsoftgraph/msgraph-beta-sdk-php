@@ -31,12 +31,12 @@ class MicrosoftGraphEntraRecoveryServicesCancelRequestBuilder extends BaseReques
 
     /**
      * Cancel a running recoveryJobBase object (either a preview or recovery job). The job must be in a non-terminal state (initialized, calculating, loadingData, or running). After cancellation, the job status changes to abandoned.
-     * @param MicrosoftGraphEntraRecoveryServicesCancelRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphEntraRecoveryServicesCancelRequestBuilder_adc8ee40|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/entrarecoveryservices-recoveryjobbase-cancel?view=graph-rest-beta Find more info here
     */
-    public function post(?MicrosoftGraphEntraRecoveryServicesCancelRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?MicrosoftGraphEntraRecoveryServicesCancelRequestBuilder_adc8ee40 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class MicrosoftGraphEntraRecoveryServicesCancelRequestBuilder extends BaseReques
 
     /**
      * Cancel a running recoveryJobBase object (either a preview or recovery job). The job must be in a non-terminal state (initialized, calculating, loadingData, or running). After cancellation, the job status changes to abandoned.
-     * @param MicrosoftGraphEntraRecoveryServicesCancelRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphEntraRecoveryServicesCancelRequestBuilder_adc8ee40|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?MicrosoftGraphEntraRecoveryServicesCancelRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?MicrosoftGraphEntraRecoveryServicesCancelRequestBuilder_adc8ee40 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

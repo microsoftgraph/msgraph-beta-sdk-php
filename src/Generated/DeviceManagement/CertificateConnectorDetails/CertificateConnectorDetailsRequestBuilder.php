@@ -68,11 +68,11 @@ class CertificateConnectorDetailsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to certificateConnectorDetails for deviceManagement
      * @param CertificateConnectorDetails $body The request body
-     * @param CertificateConnectorDetailsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CertificateConnectorDetailsRequestBuilderPostRequestCon_0f297d98|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CertificateConnectorDetails|null>
      * @throws Exception
     */
-    public function post(CertificateConnectorDetails $body, ?CertificateConnectorDetailsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(CertificateConnectorDetails $body, ?CertificateConnectorDetailsRequestBuilderPostRequestCon_0f297d98 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -104,10 +104,10 @@ class CertificateConnectorDetailsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to certificateConnectorDetails for deviceManagement
      * @param CertificateConnectorDetails $body The request body
-     * @param CertificateConnectorDetailsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CertificateConnectorDetailsRequestBuilderPostRequestCon_0f297d98|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(CertificateConnectorDetails $body, ?CertificateConnectorDetailsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(CertificateConnectorDetails $body, ?CertificateConnectorDetailsRequestBuilderPostRequestCon_0f297d98 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

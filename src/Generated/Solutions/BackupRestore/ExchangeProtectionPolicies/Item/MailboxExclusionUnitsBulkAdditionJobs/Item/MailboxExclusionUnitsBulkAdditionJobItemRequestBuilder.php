@@ -31,12 +31,13 @@ class MailboxExclusionUnitsBulkAdditionJobItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Get mailboxExclusionUnitsBulkAdditionJobs from solutions
-     * @param MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * Get a mailbox exclusion units bulk addition job associated with an Exchange protection policy.
+     * @param MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderG_0df77069|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MailboxExclusionUnitsBulkAdditionJob|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/mailboxexclusionunitsbulkadditionjob-get?view=graph-rest-beta Find more info here
     */
-    public function get(?MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderG_0df77069 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,11 +46,11 @@ class MailboxExclusionUnitsBulkAdditionJobItemRequestBuilder extends BaseRequest
     }
 
     /**
-     * Get mailboxExclusionUnitsBulkAdditionJobs from solutions
-     * @param MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * Get a mailbox exclusion units bulk addition job associated with an Exchange protection policy.
+     * @param MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderG_0df77069|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderG_0df77069 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

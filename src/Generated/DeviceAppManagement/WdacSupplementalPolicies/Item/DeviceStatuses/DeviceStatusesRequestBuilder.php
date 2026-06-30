@@ -5,10 +5,10 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\WdacSupplementalPol
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WdacSupplementalPolicies\Item\DeviceStatuses\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WdacSupplementalPolicies\Item\DeviceStatuses\Item\WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\WdacSupplementalPolicies\Item\DeviceStatuses\Item\WindowsDefenderApplicationControlSupplementalPolicyDepl_051f2aac;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus;
-use Microsoft\Graph\Beta\Generated\Models\WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\WindowsDefenderApplicationControlSupplementalPolicyDepl_971c2b7c;
+use Microsoft\Graph\Beta\Generated\Models\WindowsDefenderApplicationControlSupplementalPolicyDepl_cf10f8b0;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -29,12 +29,12 @@ class DeviceStatusesRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to manage the deviceStatuses property of the microsoft.graph.windowsDefenderApplicationControlSupplementalPolicy entity.
      * @param string $windowsDefenderApplicationControlSupplementalPolicyDeploymentStatusId The unique identifier of windowsDefenderApplicationControlSupplementalPolicyDeploymentStatus
-     * @return WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusItemRequestBuilder
+     * @return WindowsDefenderApplicationControlSupplementalPolicyDepl_051f2aac
     */
-    public function byWindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusId(string $windowsDefenderApplicationControlSupplementalPolicyDeploymentStatusId): WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusItemRequestBuilder {
+    public function byWindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusId(string $windowsDefenderApplicationControlSupplementalPolicyDeploymentStatusId): WindowsDefenderApplicationControlSupplementalPolicyDepl_051f2aac {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['windowsDefenderApplicationControlSupplementalPolicyDeploymentStatus%2Did'] = $windowsDefenderApplicationControlSupplementalPolicyDeploymentStatusId;
-        return new WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new WindowsDefenderApplicationControlSupplementalPolicyDepl_051f2aac($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -54,7 +54,7 @@ class DeviceStatusesRequestBuilder extends BaseRequestBuilder
     /**
      * The list of device deployment states for this WindowsDefenderApplicationControl supplemental policy.
      * @param DeviceStatusesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusCollectionResponse|null>
+     * @return Promise<WindowsDefenderApplicationControlSupplementalPolicyDepl_971c2b7c|null>
      * @throws Exception
     */
     public function get(?DeviceStatusesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
@@ -62,22 +62,22 @@ class DeviceStatusesRequestBuilder extends BaseRequestBuilder
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        return $this->requestAdapter->sendAsync($requestInfo, [WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+        return $this->requestAdapter->sendAsync($requestInfo, [WindowsDefenderApplicationControlSupplementalPolicyDepl_971c2b7c::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
      * Create new navigation property to deviceStatuses for deviceAppManagement
-     * @param WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus $body The request body
+     * @param WindowsDefenderApplicationControlSupplementalPolicyDepl_cf10f8b0 $body The request body
      * @param DeviceStatusesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus|null>
+     * @return Promise<WindowsDefenderApplicationControlSupplementalPolicyDepl_cf10f8b0|null>
      * @throws Exception
     */
-    public function post(WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus $body, ?DeviceStatusesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(WindowsDefenderApplicationControlSupplementalPolicyDepl_cf10f8b0 $body, ?DeviceStatusesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        return $this->requestAdapter->sendAsync($requestInfo, [WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus::class, 'createFromDiscriminatorValue'], $errorMappings);
+        return $this->requestAdapter->sendAsync($requestInfo, [WindowsDefenderApplicationControlSupplementalPolicyDepl_cf10f8b0::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
@@ -103,11 +103,11 @@ class DeviceStatusesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Create new navigation property to deviceStatuses for deviceAppManagement
-     * @param WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus $body The request body
+     * @param WindowsDefenderApplicationControlSupplementalPolicyDepl_cf10f8b0 $body The request body
      * @param DeviceStatusesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus $body, ?DeviceStatusesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(WindowsDefenderApplicationControlSupplementalPolicyDepl_cf10f8b0 $body, ?DeviceStatusesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

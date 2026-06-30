@@ -32,11 +32,11 @@ class UserCredentialUsageDetailsItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property userCredentialUsageDetails for reports
-     * @param UserCredentialUsageDetailsItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserCredentialUsageDetailsItemRequestBuilderDeleteReque_5df9a485|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?UserCredentialUsageDetailsItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?UserCredentialUsageDetailsItemRequestBuilderDeleteReque_5df9a485 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class UserCredentialUsageDetailsItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Represents the self-service password reset (SSPR) usage for a given tenant.
-     * @param UserCredentialUsageDetailsItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserCredentialUsageDetailsItemRequestBuilderGetRequestC_7f8cd962|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserCredentialUsageDetails|null>
      * @throws Exception
     */
-    public function get(?UserCredentialUsageDetailsItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserCredentialUsageDetailsItemRequestBuilderGetRequestC_7f8cd962 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class UserCredentialUsageDetailsItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property userCredentialUsageDetails in reports
      * @param UserCredentialUsageDetails $body The request body
-     * @param UserCredentialUsageDetailsItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserCredentialUsageDetailsItemRequestBuilderPatchReques_5989efe0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserCredentialUsageDetails|null>
      * @throws Exception
     */
-    public function patch(UserCredentialUsageDetails $body, ?UserCredentialUsageDetailsItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(UserCredentialUsageDetails $body, ?UserCredentialUsageDetailsItemRequestBuilderPatchReques_5989efe0 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class UserCredentialUsageDetailsItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property userCredentialUsageDetails for reports
-     * @param UserCredentialUsageDetailsItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserCredentialUsageDetailsItemRequestBuilderDeleteReque_5df9a485|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?UserCredentialUsageDetailsItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?UserCredentialUsageDetailsItemRequestBuilderDeleteReque_5df9a485 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class UserCredentialUsageDetailsItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Represents the self-service password reset (SSPR) usage for a given tenant.
-     * @param UserCredentialUsageDetailsItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserCredentialUsageDetailsItemRequestBuilderGetRequestC_7f8cd962|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UserCredentialUsageDetailsItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UserCredentialUsageDetailsItemRequestBuilderGetRequestC_7f8cd962 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class UserCredentialUsageDetailsItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property userCredentialUsageDetails in reports
      * @param UserCredentialUsageDetails $body The request body
-     * @param UserCredentialUsageDetailsItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserCredentialUsageDetailsItemRequestBuilderPatchReques_5989efe0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(UserCredentialUsageDetails $body, ?UserCredentialUsageDetailsItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(UserCredentialUsageDetails $body, ?UserCredentialUsageDetailsItemRequestBuilderPatchReques_5989efe0 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -45,7 +45,7 @@ class SiteExclusionUnitsBulkAdditionJob extends ExclusionUnitBulkAdditionJob imp
     }
 
     /**
-     * Gets the siteWebUrls property value. The siteWebUrls property
+     * Gets the siteWebUrls property value. The URLs of SharePoint sites to be added as exclusion units to the protection policy.
      * @return array<string>|null
     */
     public function getSiteWebUrls(): ?array {
@@ -68,7 +68,7 @@ class SiteExclusionUnitsBulkAdditionJob extends ExclusionUnitBulkAdditionJob imp
     }
 
     /**
-     * Sets the siteWebUrls property value. The siteWebUrls property
+     * Sets the siteWebUrls property value. The URLs of SharePoint sites to be added as exclusion units to the protection policy.
      * @param array<string>|null $value Value to set for the siteWebUrls property.
     */
     public function setSiteWebUrls(?array $value): void {

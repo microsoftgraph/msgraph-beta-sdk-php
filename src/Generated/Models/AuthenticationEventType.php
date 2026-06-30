@@ -11,4 +11,5 @@ class AuthenticationEventType extends Enum {
     public const ATTRIBUTE_COLLECTION_START = "attributeCollectionStart";
     public const ATTRIBUTE_COLLECTION_SUBMIT = "attributeCollectionSubmit";
     public const EMAIL_OTP_SEND = "emailOtpSend";
+    public const PASSWORD_SUBMIT = "passwordSubmit";
 }

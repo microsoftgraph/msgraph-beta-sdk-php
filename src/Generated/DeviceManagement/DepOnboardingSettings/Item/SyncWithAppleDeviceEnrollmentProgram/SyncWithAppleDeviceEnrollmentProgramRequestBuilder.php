@@ -31,11 +31,11 @@ class SyncWithAppleDeviceEnrollmentProgramRequestBuilder extends BaseRequestBuil
 
     /**
      * Synchronizes between Apple Device Enrollment Program and Intune
-     * @param SyncWithAppleDeviceEnrollmentProgramRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SyncWithAppleDeviceEnrollmentProgramRequestBuilderPostR_9bc5d5b4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(?SyncWithAppleDeviceEnrollmentProgramRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?SyncWithAppleDeviceEnrollmentProgramRequestBuilderPostR_9bc5d5b4 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,10 +45,10 @@ class SyncWithAppleDeviceEnrollmentProgramRequestBuilder extends BaseRequestBuil
 
     /**
      * Synchronizes between Apple Device Enrollment Program and Intune
-     * @param SyncWithAppleDeviceEnrollmentProgramRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SyncWithAppleDeviceEnrollmentProgramRequestBuilderPostR_9bc5d5b4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?SyncWithAppleDeviceEnrollmentProgramRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?SyncWithAppleDeviceEnrollmentProgramRequestBuilderPostR_9bc5d5b4 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

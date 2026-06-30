@@ -11,7 +11,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\DownloadPower
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\ExecuteAction\ExecuteActionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\Item\ManagedDeviceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\MoveDevicesToOU\MoveDevicesToOURequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\RetrievePowerliftAppDiagnosticsDetailsWithUserPrincipalName\RetrievePowerliftAppDiagnosticsDetailsWithUserPrincipalNameRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ManagedDevices\RetrievePowerliftAppDiagnosticsDetailsWithUserPrincipalName\RetrievePowerliftAppDiagnosticsDetailsWithUserPrincipal_0731775c;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDevice;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDeviceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -126,10 +126,10 @@ class ManagedDevicesRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the retrievePowerliftAppDiagnosticsDetails method.
      * @param string $userPrincipalName Usage: userPrincipalName='{userPrincipalName}'
-     * @return RetrievePowerliftAppDiagnosticsDetailsWithUserPrincipalNameRequestBuilder
+     * @return RetrievePowerliftAppDiagnosticsDetailsWithUserPrincipal_0731775c
     */
-    public function retrievePowerliftAppDiagnosticsDetailsWithUserPrincipalName(string $userPrincipalName): RetrievePowerliftAppDiagnosticsDetailsWithUserPrincipalNameRequestBuilder {
-        return new RetrievePowerliftAppDiagnosticsDetailsWithUserPrincipalNameRequestBuilder($this->pathParameters, $this->requestAdapter, $userPrincipalName);
+    public function retrievePowerliftAppDiagnosticsDetailsWithUserPrincipalName(string $userPrincipalName): RetrievePowerliftAppDiagnosticsDetailsWithUserPrincipal_0731775c {
+        return new RetrievePowerliftAppDiagnosticsDetailsWithUserPrincipal_0731775c($this->pathParameters, $this->requestAdapter, $userPrincipalName);
     }
 
     /**

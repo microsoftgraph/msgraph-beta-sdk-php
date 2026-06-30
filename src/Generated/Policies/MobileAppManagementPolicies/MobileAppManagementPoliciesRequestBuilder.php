@@ -69,11 +69,11 @@ class MobileAppManagementPoliciesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to mobileAppManagementPolicies for policies
      * @param MobileAppManagementPolicy $body The request body
-     * @param MobileAppManagementPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppManagementPoliciesRequestBuilderPostRequestCon_654c1288|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MobileAppManagementPolicy|null>
      * @throws Exception
     */
-    public function post(MobileAppManagementPolicy $body, ?MobileAppManagementPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(MobileAppManagementPolicy $body, ?MobileAppManagementPoliciesRequestBuilderPostRequestCon_654c1288 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -105,10 +105,10 @@ class MobileAppManagementPoliciesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to mobileAppManagementPolicies for policies
      * @param MobileAppManagementPolicy $body The request body
-     * @param MobileAppManagementPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppManagementPoliciesRequestBuilderPostRequestCon_654c1288|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(MobileAppManagementPolicy $body, ?MobileAppManagementPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(MobileAppManagementPolicy $body, ?MobileAppManagementPoliciesRequestBuilderPostRequestCon_654c1288 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

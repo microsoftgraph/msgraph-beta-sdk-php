@@ -52,11 +52,11 @@ class PermissionGrantPreApprovalPoliciesRequestBuilder extends BaseRequestBuilde
 
     /**
      * Retrieve the permissionGrantPreApprovalPolicy object for the servicePrincipal.
-     * @param PermissionGrantPreApprovalPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionGrantPreApprovalPoliciesRequestBuilderGetRequ_4cfdb3a7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PermissionGrantPreApprovalPolicyCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?PermissionGrantPreApprovalPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?PermissionGrantPreApprovalPoliciesRequestBuilderGetRequ_4cfdb3a7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -66,10 +66,10 @@ class PermissionGrantPreApprovalPoliciesRequestBuilder extends BaseRequestBuilde
 
     /**
      * Retrieve the permissionGrantPreApprovalPolicy object for the servicePrincipal.
-     * @param PermissionGrantPreApprovalPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionGrantPreApprovalPoliciesRequestBuilderGetRequ_4cfdb3a7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?PermissionGrantPreApprovalPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?PermissionGrantPreApprovalPoliciesRequestBuilderGetRequ_4cfdb3a7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

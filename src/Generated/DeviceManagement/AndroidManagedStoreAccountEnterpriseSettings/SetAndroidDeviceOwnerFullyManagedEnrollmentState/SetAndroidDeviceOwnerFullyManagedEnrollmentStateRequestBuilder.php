@@ -32,11 +32,11 @@ class SetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestBuilder extends Bas
     /**
      * Sets the AndroidManagedStoreAccountEnterpriseSettings AndroidDeviceOwnerFullyManagedEnrollmentEnabled to the given value.
      * @param SetAndroidDeviceOwnerFullyManagedEnrollmentStatePostRequestBody $body The request body
-     * @param SetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SetAndroidDeviceOwnerFullyManagedEnrollmentStateRequest_6d70fa9c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(SetAndroidDeviceOwnerFullyManagedEnrollmentStatePostRequestBody $body, ?SetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(SetAndroidDeviceOwnerFullyManagedEnrollmentStatePostRequestBody $body, ?SetAndroidDeviceOwnerFullyManagedEnrollmentStateRequest_6d70fa9c $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,10 +47,10 @@ class SetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestBuilder extends Bas
     /**
      * Sets the AndroidManagedStoreAccountEnterpriseSettings AndroidDeviceOwnerFullyManagedEnrollmentEnabled to the given value.
      * @param SetAndroidDeviceOwnerFullyManagedEnrollmentStatePostRequestBody $body The request body
-     * @param SetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SetAndroidDeviceOwnerFullyManagedEnrollmentStateRequest_6d70fa9c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(SetAndroidDeviceOwnerFullyManagedEnrollmentStatePostRequestBody $body, ?SetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(SetAndroidDeviceOwnerFullyManagedEnrollmentStatePostRequestBody $body, ?SetAndroidDeviceOwnerFullyManagedEnrollmentStateRequest_6d70fa9c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

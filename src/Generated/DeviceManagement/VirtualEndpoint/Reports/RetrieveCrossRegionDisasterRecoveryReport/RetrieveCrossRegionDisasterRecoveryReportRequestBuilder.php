@@ -33,12 +33,12 @@ class RetrieveCrossRegionDisasterRecoveryReportRequestBuilder extends BaseReques
     /**
      * Retrieve the Windows 365 cross-region disaster recovery report, including cloudPcId, userId, deviceId, cloudPCDeviceDisplayName, userPrincipalName, enabledDRType, disasterRecoveryStatus, licenseType, drHealthStatus, currentRestorePointDateTime, backupCloudPcStatus, and activationExpirationDateTime.
      * @param RetrieveCrossRegionDisasterRecoveryReportPostRequestBody $body The request body
-     * @param RetrieveCrossRegionDisasterRecoveryReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveCrossRegionDisasterRecoveryReportRequestBuilder_0957c5fa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpcreports-retrievecrossregiondisasterrecoveryreport?view=graph-rest-beta Find more info here
     */
-    public function post(RetrieveCrossRegionDisasterRecoveryReportPostRequestBody $body, ?RetrieveCrossRegionDisasterRecoveryReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(RetrieveCrossRegionDisasterRecoveryReportPostRequestBody $body, ?RetrieveCrossRegionDisasterRecoveryReportRequestBuilder_0957c5fa $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -51,10 +51,10 @@ class RetrieveCrossRegionDisasterRecoveryReportRequestBuilder extends BaseReques
     /**
      * Retrieve the Windows 365 cross-region disaster recovery report, including cloudPcId, userId, deviceId, cloudPCDeviceDisplayName, userPrincipalName, enabledDRType, disasterRecoveryStatus, licenseType, drHealthStatus, currentRestorePointDateTime, backupCloudPcStatus, and activationExpirationDateTime.
      * @param RetrieveCrossRegionDisasterRecoveryReportPostRequestBody $body The request body
-     * @param RetrieveCrossRegionDisasterRecoveryReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveCrossRegionDisasterRecoveryReportRequestBuilder_0957c5fa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(RetrieveCrossRegionDisasterRecoveryReportPostRequestBody $body, ?RetrieveCrossRegionDisasterRecoveryReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(RetrieveCrossRegionDisasterRecoveryReportPostRequestBody $body, ?RetrieveCrossRegionDisasterRecoveryReportRequestBuilder_0957c5fa $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

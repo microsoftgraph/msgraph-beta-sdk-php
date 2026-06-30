@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\CloudPcPools\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get cloudPcPools from users
+ * The user's Cloud PC pools. Read-only. Nullable.
 */
 class CloudPcPoolItemRequestBuilderGetQueryParameters 
 {

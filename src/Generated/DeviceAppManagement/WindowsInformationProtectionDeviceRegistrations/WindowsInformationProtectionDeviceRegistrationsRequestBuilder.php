@@ -53,11 +53,11 @@ class WindowsInformationProtectionDeviceRegistrationsRequestBuilder extends Base
 
     /**
      * Windows information protection device registrations that are not MDM enrolled.
-     * @param WindowsInformationProtectionDeviceRegistrationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsInformationProtectionDeviceRegistrationsRequestB_461aa062|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsInformationProtectionDeviceRegistrationCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?WindowsInformationProtectionDeviceRegistrationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?WindowsInformationProtectionDeviceRegistrationsRequestB_461aa062 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class WindowsInformationProtectionDeviceRegistrationsRequestBuilder extends Base
     /**
      * Create new navigation property to windowsInformationProtectionDeviceRegistrations for deviceAppManagement
      * @param WindowsInformationProtectionDeviceRegistration $body The request body
-     * @param WindowsInformationProtectionDeviceRegistrationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsInformationProtectionDeviceRegistrationsRequestB_843dbefa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsInformationProtectionDeviceRegistration|null>
      * @throws Exception
     */
-    public function post(WindowsInformationProtectionDeviceRegistration $body, ?WindowsInformationProtectionDeviceRegistrationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(WindowsInformationProtectionDeviceRegistration $body, ?WindowsInformationProtectionDeviceRegistrationsRequestB_843dbefa $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class WindowsInformationProtectionDeviceRegistrationsRequestBuilder extends Base
 
     /**
      * Windows information protection device registrations that are not MDM enrolled.
-     * @param WindowsInformationProtectionDeviceRegistrationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsInformationProtectionDeviceRegistrationsRequestB_461aa062|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?WindowsInformationProtectionDeviceRegistrationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?WindowsInformationProtectionDeviceRegistrationsRequestB_461aa062 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class WindowsInformationProtectionDeviceRegistrationsRequestBuilder extends Base
     /**
      * Create new navigation property to windowsInformationProtectionDeviceRegistrations for deviceAppManagement
      * @param WindowsInformationProtectionDeviceRegistration $body The request body
-     * @param WindowsInformationProtectionDeviceRegistrationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsInformationProtectionDeviceRegistrationsRequestB_843dbefa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(WindowsInformationProtectionDeviceRegistration $body, ?WindowsInformationProtectionDeviceRegistrationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(WindowsInformationProtectionDeviceRegistration $body, ?WindowsInformationProtectionDeviceRegistrationsRequestB_843dbefa $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

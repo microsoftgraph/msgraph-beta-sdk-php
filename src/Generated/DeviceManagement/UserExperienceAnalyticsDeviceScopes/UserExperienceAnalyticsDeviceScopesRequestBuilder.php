@@ -53,11 +53,11 @@ class UserExperienceAnalyticsDeviceScopesRequestBuilder extends BaseRequestBuild
 
     /**
      * The user experience analytics device scope entity contains device scope configuration use to apply filtering on the endpoint analytics reports.
-     * @param UserExperienceAnalyticsDeviceScopesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceScopesRequestBuilderGetReq_755c126a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsDeviceScopeCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?UserExperienceAnalyticsDeviceScopesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserExperienceAnalyticsDeviceScopesRequestBuilderGetReq_755c126a $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class UserExperienceAnalyticsDeviceScopesRequestBuilder extends BaseRequestBuild
     /**
      * Create new navigation property to userExperienceAnalyticsDeviceScopes for deviceManagement
      * @param UserExperienceAnalyticsDeviceScope $body The request body
-     * @param UserExperienceAnalyticsDeviceScopesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceScopesRequestBuilderPostRe_6ba9232b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsDeviceScope|null>
      * @throws Exception
     */
-    public function post(UserExperienceAnalyticsDeviceScope $body, ?UserExperienceAnalyticsDeviceScopesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(UserExperienceAnalyticsDeviceScope $body, ?UserExperienceAnalyticsDeviceScopesRequestBuilderPostRe_6ba9232b $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class UserExperienceAnalyticsDeviceScopesRequestBuilder extends BaseRequestBuild
 
     /**
      * The user experience analytics device scope entity contains device scope configuration use to apply filtering on the endpoint analytics reports.
-     * @param UserExperienceAnalyticsDeviceScopesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceScopesRequestBuilderGetReq_755c126a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UserExperienceAnalyticsDeviceScopesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UserExperienceAnalyticsDeviceScopesRequestBuilderGetReq_755c126a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class UserExperienceAnalyticsDeviceScopesRequestBuilder extends BaseRequestBuild
     /**
      * Create new navigation property to userExperienceAnalyticsDeviceScopes for deviceManagement
      * @param UserExperienceAnalyticsDeviceScope $body The request body
-     * @param UserExperienceAnalyticsDeviceScopesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDeviceScopesRequestBuilderPostRe_6ba9232b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(UserExperienceAnalyticsDeviceScope $body, ?UserExperienceAnalyticsDeviceScopesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(UserExperienceAnalyticsDeviceScope $body, ?UserExperienceAnalyticsDeviceScopesRequestBuilderPostRe_6ba9232b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

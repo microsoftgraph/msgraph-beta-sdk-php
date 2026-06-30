@@ -31,11 +31,11 @@ class UnassignResourceAccountFromDeviceRequestBuilder extends BaseRequestBuilder
 
     /**
      * Unassigns the resource account from an Autopilot device.
-     * @param UnassignResourceAccountFromDeviceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnassignResourceAccountFromDeviceRequestBuilderPostRequ_18a06690|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(?UnassignResourceAccountFromDeviceRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?UnassignResourceAccountFromDeviceRequestBuilderPostRequ_18a06690 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,10 +45,10 @@ class UnassignResourceAccountFromDeviceRequestBuilder extends BaseRequestBuilder
 
     /**
      * Unassigns the resource account from an Autopilot device.
-     * @param UnassignResourceAccountFromDeviceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnassignResourceAccountFromDeviceRequestBuilderPostRequ_18a06690|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?UnassignResourceAccountFromDeviceRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?UnassignResourceAccountFromDeviceRequestBuilderPostRequ_18a06690 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

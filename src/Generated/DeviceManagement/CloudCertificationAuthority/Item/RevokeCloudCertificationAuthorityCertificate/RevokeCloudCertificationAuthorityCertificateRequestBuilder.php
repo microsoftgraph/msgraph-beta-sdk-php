@@ -33,11 +33,11 @@ class RevokeCloudCertificationAuthorityCertificateRequestBuilder extends BaseReq
     /**
      * Invoke action revokeCloudCertificationAuthorityCertificate
      * @param RevokeCloudCertificationAuthorityCertificatePostRequestBody $body The request body
-     * @param RevokeCloudCertificationAuthorityCertificateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RevokeCloudCertificationAuthorityCertificateRequestBuil_153ee77f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudCertificationAuthority|null>
      * @throws Exception
     */
-    public function post(RevokeCloudCertificationAuthorityCertificatePostRequestBody $body, ?RevokeCloudCertificationAuthorityCertificateRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(RevokeCloudCertificationAuthorityCertificatePostRequestBody $body, ?RevokeCloudCertificationAuthorityCertificateRequestBuil_153ee77f $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class RevokeCloudCertificationAuthorityCertificateRequestBuilder extends BaseReq
     /**
      * Invoke action revokeCloudCertificationAuthorityCertificate
      * @param RevokeCloudCertificationAuthorityCertificatePostRequestBody $body The request body
-     * @param RevokeCloudCertificationAuthorityCertificateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RevokeCloudCertificationAuthorityCertificateRequestBuil_153ee77f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(RevokeCloudCertificationAuthorityCertificatePostRequestBody $body, ?RevokeCloudCertificationAuthorityCertificateRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(RevokeCloudCertificationAuthorityCertificatePostRequestBody $body, ?RevokeCloudCertificationAuthorityCertificateRequestBuil_153ee77f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

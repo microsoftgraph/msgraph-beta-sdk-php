@@ -32,11 +32,11 @@ class VirtualEventRegistrationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get registrations from solutions
-     * @param VirtualEventRegistrationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param VirtualEventRegistrationItemRequestBuilderGetRequestCon_8494d062|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventRegistration|null>
      * @throws Exception
     */
-    public function get(?VirtualEventRegistrationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?VirtualEventRegistrationItemRequestBuilderGetRequestCon_8494d062 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class VirtualEventRegistrationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get registrations from solutions
-     * @param VirtualEventRegistrationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param VirtualEventRegistrationItemRequestBuilderGetRequestCon_8494d062|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?VirtualEventRegistrationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?VirtualEventRegistrationItemRequestBuilderGetRequestCon_8494d062 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

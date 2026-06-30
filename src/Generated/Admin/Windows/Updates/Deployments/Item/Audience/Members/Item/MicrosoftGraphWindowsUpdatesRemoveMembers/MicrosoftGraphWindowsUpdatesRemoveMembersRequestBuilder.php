@@ -32,12 +32,12 @@ class MicrosoftGraphWindowsUpdatesRemoveMembersRequestBuilder extends BaseReques
     /**
      * Remove members from an updatableAssetGroup. You can also use the method removeMembersById to remove members.
      * @param RemoveMembersPostRequestBody $body The request body
-     * @param MicrosoftGraphWindowsUpdatesRemoveMembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphWindowsUpdatesRemoveMembersRequestBuilder_6c836168|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/windowsupdates-updatableassetgroup-removemembers?view=graph-rest-beta Find more info here
     */
-    public function post(RemoveMembersPostRequestBody $body, ?MicrosoftGraphWindowsUpdatesRemoveMembersRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(RemoveMembersPostRequestBody $body, ?MicrosoftGraphWindowsUpdatesRemoveMembersRequestBuilder_6c836168 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class MicrosoftGraphWindowsUpdatesRemoveMembersRequestBuilder extends BaseReques
     /**
      * Remove members from an updatableAssetGroup. You can also use the method removeMembersById to remove members.
      * @param RemoveMembersPostRequestBody $body The request body
-     * @param MicrosoftGraphWindowsUpdatesRemoveMembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphWindowsUpdatesRemoveMembersRequestBuilder_6c836168|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(RemoveMembersPostRequestBody $body, ?MicrosoftGraphWindowsUpdatesRemoveMembersRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(RemoveMembersPostRequestBody $body, ?MicrosoftGraphWindowsUpdatesRemoveMembersRequestBuilder_6c836168 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -7,9 +7,10 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\AllMembers\AllMembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Archive\ArchiveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\CompleteMigration\CompleteMigrationRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName\DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrinc_09968052\DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrinc_40d13b0e;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\EnabledApps\EnabledAppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\FilesFolder\FilesFolderRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\JoinedUsers\JoinedUsersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Members\MembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Messages\MessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Planner\PlannerRequestBuilder;
@@ -55,8 +56,8 @@ class PrimaryChannelRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the doesUserHaveAccess method.
     */
-    public function doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName(): DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder {
-        return new DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName(): DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrinc_40d13b0e {
+        return new DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrinc_40d13b0e($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -71,6 +72,13 @@ class PrimaryChannelRequestBuilder extends BaseRequestBuilder
     */
     public function filesFolder(): FilesFolderRequestBuilder {
         return new FilesFolderRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the joinedUsers property of the microsoft.graph.channel entity.
+    */
+    public function joinedUsers(): JoinedUsersRequestBuilder {
+        return new JoinedUsersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

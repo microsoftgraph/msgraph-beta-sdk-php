@@ -32,11 +32,11 @@ class IntuneBrandingProfileAssignmentItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param IntuneBrandingProfileAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IntuneBrandingProfileAssignmentItemRequestBuilderDelete_fba6fd20|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?IntuneBrandingProfileAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?IntuneBrandingProfileAssignmentItemRequestBuilderDelete_fba6fd20 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class IntuneBrandingProfileAssignmentItemRequestBuilder extends BaseRequestBuild
 
     /**
      * The list of group assignments for the branding profile
-     * @param IntuneBrandingProfileAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IntuneBrandingProfileAssignmentItemRequestBuilderGetReq_ef7b630a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IntuneBrandingProfileAssignment|null>
      * @throws Exception
     */
-    public function get(?IntuneBrandingProfileAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?IntuneBrandingProfileAssignmentItemRequestBuilderGetReq_ef7b630a $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class IntuneBrandingProfileAssignmentItemRequestBuilder extends BaseRequestBuild
     /**
      * Update the navigation property assignments in deviceManagement
      * @param IntuneBrandingProfileAssignment $body The request body
-     * @param IntuneBrandingProfileAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IntuneBrandingProfileAssignmentItemRequestBuilderPatchR_4391b100|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IntuneBrandingProfileAssignment|null>
      * @throws Exception
     */
-    public function patch(IntuneBrandingProfileAssignment $body, ?IntuneBrandingProfileAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(IntuneBrandingProfileAssignment $body, ?IntuneBrandingProfileAssignmentItemRequestBuilderPatchR_4391b100 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class IntuneBrandingProfileAssignmentItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param IntuneBrandingProfileAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IntuneBrandingProfileAssignmentItemRequestBuilderDelete_fba6fd20|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?IntuneBrandingProfileAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?IntuneBrandingProfileAssignmentItemRequestBuilderDelete_fba6fd20 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class IntuneBrandingProfileAssignmentItemRequestBuilder extends BaseRequestBuild
 
     /**
      * The list of group assignments for the branding profile
-     * @param IntuneBrandingProfileAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IntuneBrandingProfileAssignmentItemRequestBuilderGetReq_ef7b630a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?IntuneBrandingProfileAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?IntuneBrandingProfileAssignmentItemRequestBuilderGetReq_ef7b630a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class IntuneBrandingProfileAssignmentItemRequestBuilder extends BaseRequestBuild
     /**
      * Update the navigation property assignments in deviceManagement
      * @param IntuneBrandingProfileAssignment $body The request body
-     * @param IntuneBrandingProfileAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IntuneBrandingProfileAssignmentItemRequestBuilderPatchR_4391b100|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(IntuneBrandingProfileAssignment $body, ?IntuneBrandingProfileAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(IntuneBrandingProfileAssignment $body, ?IntuneBrandingProfileAssignmentItemRequestBuilderPatchR_4391b100 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

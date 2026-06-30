@@ -64,11 +64,11 @@ class AccessPackageAssignmentPolicyRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property accessPackageAssignmentPolicy for identityGovernance
-     * @param AccessPackageAssignmentPolicyRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageAssignmentPolicyRequestBuilderDeleteReques_81fc940c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?AccessPackageAssignmentPolicyRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?AccessPackageAssignmentPolicyRequestBuilderDeleteReques_81fc940c $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -78,11 +78,11 @@ class AccessPackageAssignmentPolicyRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read-only. Nullable. Supports $filter (eq) on the id property
-     * @param AccessPackageAssignmentPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageAssignmentPolicyRequestBuilderGetRequestCo_69d854fa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageAssignmentPolicy|null>
      * @throws Exception
     */
-    public function get(?AccessPackageAssignmentPolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AccessPackageAssignmentPolicyRequestBuilderGetRequestCo_69d854fa $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -93,11 +93,11 @@ class AccessPackageAssignmentPolicyRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property accessPackageAssignmentPolicy in identityGovernance
      * @param AccessPackageAssignmentPolicy $body The request body
-     * @param AccessPackageAssignmentPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageAssignmentPolicyRequestBuilderPatchRequest_e8403c1e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageAssignmentPolicy|null>
      * @throws Exception
     */
-    public function patch(AccessPackageAssignmentPolicy $body, ?AccessPackageAssignmentPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(AccessPackageAssignmentPolicy $body, ?AccessPackageAssignmentPolicyRequestBuilderPatchRequest_e8403c1e $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -107,10 +107,10 @@ class AccessPackageAssignmentPolicyRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property accessPackageAssignmentPolicy for identityGovernance
-     * @param AccessPackageAssignmentPolicyRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageAssignmentPolicyRequestBuilderDeleteReques_81fc940c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?AccessPackageAssignmentPolicyRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?AccessPackageAssignmentPolicyRequestBuilderDeleteReques_81fc940c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -125,10 +125,10 @@ class AccessPackageAssignmentPolicyRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read-only. Nullable. Supports $filter (eq) on the id property
-     * @param AccessPackageAssignmentPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageAssignmentPolicyRequestBuilderGetRequestCo_69d854fa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AccessPackageAssignmentPolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AccessPackageAssignmentPolicyRequestBuilderGetRequestCo_69d854fa $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -147,10 +147,10 @@ class AccessPackageAssignmentPolicyRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property accessPackageAssignmentPolicy in identityGovernance
      * @param AccessPackageAssignmentPolicy $body The request body
-     * @param AccessPackageAssignmentPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageAssignmentPolicyRequestBuilderPatchRequest_e8403c1e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(AccessPackageAssignmentPolicy $body, ?AccessPackageAssignmentPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(AccessPackageAssignmentPolicy $body, ?AccessPackageAssignmentPolicyRequestBuilderPatchRequest_e8403c1e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

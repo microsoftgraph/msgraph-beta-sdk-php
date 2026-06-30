@@ -35,11 +35,11 @@ class GetTeamsUserActivityTotalCountsWithPeriodRequestBuilder extends BaseReques
 
     /**
      * Invoke function getTeamsUserActivityTotalCounts
-     * @param GetTeamsUserActivityTotalCountsWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetTeamsUserActivityTotalCountsWithPeriodRequestBuilder_91358737|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function get(?GetTeamsUserActivityTotalCountsWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetTeamsUserActivityTotalCountsWithPeriodRequestBuilder_91358737 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -51,10 +51,10 @@ class GetTeamsUserActivityTotalCountsWithPeriodRequestBuilder extends BaseReques
 
     /**
      * Invoke function getTeamsUserActivityTotalCounts
-     * @param GetTeamsUserActivityTotalCountsWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetTeamsUserActivityTotalCountsWithPeriodRequestBuilder_91358737|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetTeamsUserActivityTotalCountsWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetTeamsUserActivityTotalCountsWithPeriodRequestBuilder_91358737 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

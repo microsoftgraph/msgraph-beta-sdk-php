@@ -52,11 +52,11 @@ class WindowsInformationProtectionDeviceRegistrationsRequestBuilder extends Base
 
     /**
      * Zero or more WIP device registrations that belong to the user.
-     * @param WindowsInformationProtectionDeviceRegistrationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsInformationProtectionDeviceRegistrationsRequestB_461aa062|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsInformationProtectionDeviceRegistrationCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?WindowsInformationProtectionDeviceRegistrationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?WindowsInformationProtectionDeviceRegistrationsRequestB_461aa062 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -66,10 +66,10 @@ class WindowsInformationProtectionDeviceRegistrationsRequestBuilder extends Base
 
     /**
      * Zero or more WIP device registrations that belong to the user.
-     * @param WindowsInformationProtectionDeviceRegistrationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsInformationProtectionDeviceRegistrationsRequestB_461aa062|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?WindowsInformationProtectionDeviceRegistrationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?WindowsInformationProtectionDeviceRegistrationsRequestB_461aa062 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

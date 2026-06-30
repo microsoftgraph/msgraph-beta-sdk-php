@@ -6,8 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\Item\ProductItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogID\MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogIDRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumber\MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumberRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogID\MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogI_bdd48f50;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumber\MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumberR_249282ba;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\Product;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\ProductCollectionResponse;
@@ -70,19 +70,19 @@ class ProductsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the findByCatalogId method.
      * @param string $catalogID Usage: catalogID='{catalogID}'
-     * @return MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogIDRequestBuilder
+     * @return MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogI_bdd48f50
     */
-    public function microsoftGraphWindowsUpdatesFindByCatalogIdWithCatalogID(string $catalogID): MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogIDRequestBuilder {
-        return new MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogIDRequestBuilder($this->pathParameters, $this->requestAdapter, $catalogID);
+    public function microsoftGraphWindowsUpdatesFindByCatalogIdWithCatalogID(string $catalogID): MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogI_bdd48f50 {
+        return new MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogI_bdd48f50($this->pathParameters, $this->requestAdapter, $catalogID);
     }
 
     /**
      * Provides operations to call the findByKbNumber method.
      * @param int $kbNumber Usage: kbNumber={kbNumber}
-     * @return MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumberRequestBuilder
+     * @return MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumberR_249282ba
     */
-    public function microsoftGraphWindowsUpdatesFindByKbNumberWithKbNumber(int $kbNumber): MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumberRequestBuilder {
-        return new MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumberRequestBuilder($this->pathParameters, $this->requestAdapter, $kbNumber);
+    public function microsoftGraphWindowsUpdatesFindByKbNumberWithKbNumber(int $kbNumber): MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumberR_249282ba {
+        return new MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumberR_249282ba($this->pathParameters, $this->requestAdapter, $kbNumber);
     }
 
     /**

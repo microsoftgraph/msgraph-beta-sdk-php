@@ -4,7 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\DataClassification\SensitivityLabels;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DataClassification\SensitivityLabels\ComputeInheritanceWithLabelIdsWithLocaleWithContentFormats\ComputeInheritanceWithLabelIdsWithLocaleWithContentFormatsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DataClassification\SensitivityLabels\ComputeInheritanceWithLabelIdsWithLocaleWithContentFormats\ComputeInheritanceWithLabelIdsWithLocaleWithContentForm_2b72dc93;
 use Microsoft\Graph\Beta\Generated\DataClassification\SensitivityLabels\ComputeRightsAndInheritance\ComputeRightsAndInheritanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\SensitivityLabels\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\SensitivityLabels\Evaluate\EvaluateRequestBuilder;
@@ -59,10 +59,10 @@ class SensitivityLabelsRequestBuilder extends BaseRequestBuilder
      * @param string $contentFormats Usage: contentFormats={contentFormats}
      * @param string $labelIds Usage: labelIds={labelIds}
      * @param string $locale Usage: locale='{locale}'
-     * @return ComputeInheritanceWithLabelIdsWithLocaleWithContentFormatsRequestBuilder
+     * @return ComputeInheritanceWithLabelIdsWithLocaleWithContentForm_2b72dc93
     */
-    public function computeInheritanceWithLabelIdsWithLocaleWithContentFormats(string $contentFormats, string $labelIds, string $locale): ComputeInheritanceWithLabelIdsWithLocaleWithContentFormatsRequestBuilder {
-        return new ComputeInheritanceWithLabelIdsWithLocaleWithContentFormatsRequestBuilder($this->pathParameters, $this->requestAdapter, $contentFormats, $labelIds, $locale);
+    public function computeInheritanceWithLabelIdsWithLocaleWithContentFormats(string $contentFormats, string $labelIds, string $locale): ComputeInheritanceWithLabelIdsWithLocaleWithContentForm_2b72dc93 {
+        return new ComputeInheritanceWithLabelIdsWithLocaleWithContentForm_2b72dc93($this->pathParameters, $this->requestAdapter, $contentFormats, $labelIds, $locale);
     }
 
     /**

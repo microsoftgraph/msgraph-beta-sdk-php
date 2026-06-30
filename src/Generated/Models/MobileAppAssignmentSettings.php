@@ -40,9 +40,12 @@ class MobileAppAssignmentSettings implements AdditionalDataHolder, BackedModel, 
             switch ($mappingValue) {
                 case '#microsoft.graph.androidManagedStoreAppAssignmentSettings': return new AndroidManagedStoreAppAssignmentSettings();
                 case '#microsoft.graph.iosDdmLobAppAssignmentSettings': return new IosDdmLobAppAssignmentSettings();
+                case '#microsoft.graph.iosDdmStoreAppAssignmentSettings': return new IosDdmStoreAppAssignmentSettings();
+                case '#microsoft.graph.iosDdmVppAppAssignmentSettings': return new IosDdmVppAppAssignmentSettings();
                 case '#microsoft.graph.iosLobAppAssignmentSettings': return new IosLobAppAssignmentSettings();
                 case '#microsoft.graph.iosStoreAppAssignmentSettings': return new IosStoreAppAssignmentSettings();
                 case '#microsoft.graph.iosVppAppAssignmentSettings': return new IosVppAppAssignmentSettings();
+                case '#microsoft.graph.macOsDdmVppAppAssignmentSettings': return new MacOsDdmVppAppAssignmentSettings();
                 case '#microsoft.graph.macOsLobAppAssignmentSettings': return new MacOsLobAppAssignmentSettings();
                 case '#microsoft.graph.macOsVppAppAssignmentSettings': return new MacOsVppAppAssignmentSettings();
                 case '#microsoft.graph.microsoftStoreForBusinessAppAssignmentSettings': return new MicrosoftStoreForBusinessAppAssignmentSettings();

@@ -32,11 +32,11 @@ class PrivilegedRoleAssignmentItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get assignments from privilegedRoleAssignmentRequests
-     * @param PrivilegedRoleAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegedRoleAssignmentItemRequestBuilderGetRequestCon_0edf99a9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrivilegedRoleAssignment|null>
      * @throws Exception
     */
-    public function get(?PrivilegedRoleAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?PrivilegedRoleAssignmentItemRequestBuilderGetRequestCon_0edf99a9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class PrivilegedRoleAssignmentItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get assignments from privilegedRoleAssignmentRequests
-     * @param PrivilegedRoleAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegedRoleAssignmentItemRequestBuilderGetRequestCon_0edf99a9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?PrivilegedRoleAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?PrivilegedRoleAssignmentItemRequestBuilderGetRequestCon_0edf99a9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

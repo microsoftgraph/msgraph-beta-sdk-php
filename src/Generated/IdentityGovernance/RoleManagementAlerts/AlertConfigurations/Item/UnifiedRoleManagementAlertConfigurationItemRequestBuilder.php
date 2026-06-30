@@ -40,11 +40,11 @@ class UnifiedRoleManagementAlertConfigurationItemRequestBuilder extends BaseRequ
 
     /**
      * Delete navigation property alertConfigurations for identityGovernance
-     * @param UnifiedRoleManagementAlertConfigurationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnifiedRoleManagementAlertConfigurationItemRequestBuild_f7be4331|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?UnifiedRoleManagementAlertConfigurationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?UnifiedRoleManagementAlertConfigurationItemRequestBuild_f7be4331 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,11 +54,11 @@ class UnifiedRoleManagementAlertConfigurationItemRequestBuilder extends BaseRequ
 
     /**
      * The various configurations of an alert for Microsoft Entra roles. The configurations are predefined and can't be created or deleted, but some of the configurations can be modified.
-     * @param UnifiedRoleManagementAlertConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnifiedRoleManagementAlertConfigurationItemRequestBuild_28410258|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnifiedRoleManagementAlertConfiguration|null>
      * @throws Exception
     */
-    public function get(?UnifiedRoleManagementAlertConfigurationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UnifiedRoleManagementAlertConfigurationItemRequestBuild_28410258 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class UnifiedRoleManagementAlertConfigurationItemRequestBuilder extends BaseRequ
     /**
      * Update the navigation property alertConfigurations in identityGovernance
      * @param UnifiedRoleManagementAlertConfiguration $body The request body
-     * @param UnifiedRoleManagementAlertConfigurationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnifiedRoleManagementAlertConfigurationItemRequestBuild_d6ffe863|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UnifiedRoleManagementAlertConfiguration|null>
      * @throws Exception
     */
-    public function patch(UnifiedRoleManagementAlertConfiguration $body, ?UnifiedRoleManagementAlertConfigurationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(UnifiedRoleManagementAlertConfiguration $body, ?UnifiedRoleManagementAlertConfigurationItemRequestBuild_d6ffe863 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class UnifiedRoleManagementAlertConfigurationItemRequestBuilder extends BaseRequ
 
     /**
      * Delete navigation property alertConfigurations for identityGovernance
-     * @param UnifiedRoleManagementAlertConfigurationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnifiedRoleManagementAlertConfigurationItemRequestBuild_f7be4331|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?UnifiedRoleManagementAlertConfigurationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?UnifiedRoleManagementAlertConfigurationItemRequestBuild_f7be4331 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -101,10 +101,10 @@ class UnifiedRoleManagementAlertConfigurationItemRequestBuilder extends BaseRequ
 
     /**
      * The various configurations of an alert for Microsoft Entra roles. The configurations are predefined and can't be created or deleted, but some of the configurations can be modified.
-     * @param UnifiedRoleManagementAlertConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnifiedRoleManagementAlertConfigurationItemRequestBuild_28410258|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UnifiedRoleManagementAlertConfigurationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UnifiedRoleManagementAlertConfigurationItemRequestBuild_28410258 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -123,10 +123,10 @@ class UnifiedRoleManagementAlertConfigurationItemRequestBuilder extends BaseRequ
     /**
      * Update the navigation property alertConfigurations in identityGovernance
      * @param UnifiedRoleManagementAlertConfiguration $body The request body
-     * @param UnifiedRoleManagementAlertConfigurationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UnifiedRoleManagementAlertConfigurationItemRequestBuild_d6ffe863|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(UnifiedRoleManagementAlertConfiguration $body, ?UnifiedRoleManagementAlertConfigurationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(UnifiedRoleManagementAlertConfiguration $body, ?UnifiedRoleManagementAlertConfigurationItemRequestBuild_d6ffe863 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

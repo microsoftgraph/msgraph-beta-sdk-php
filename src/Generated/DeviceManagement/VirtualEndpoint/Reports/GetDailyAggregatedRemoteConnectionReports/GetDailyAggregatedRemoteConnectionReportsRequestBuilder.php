@@ -33,12 +33,12 @@ class GetDailyAggregatedRemoteConnectionReportsRequestBuilder extends BaseReques
     /**
      * Get the daily aggregated remote connection reports, such as round trip time, available bandwidth, and so on, in a given period.
      * @param GetDailyAggregatedRemoteConnectionReportsPostRequestBody $body The request body
-     * @param GetDailyAggregatedRemoteConnectionReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetDailyAggregatedRemoteConnectionReportsRequestBuilder_b546614c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpcreports-getdailyaggregatedremoteconnectionreports?view=graph-rest-beta Find more info here
     */
-    public function post(GetDailyAggregatedRemoteConnectionReportsPostRequestBody $body, ?GetDailyAggregatedRemoteConnectionReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetDailyAggregatedRemoteConnectionReportsPostRequestBody $body, ?GetDailyAggregatedRemoteConnectionReportsRequestBuilder_b546614c $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -51,10 +51,10 @@ class GetDailyAggregatedRemoteConnectionReportsRequestBuilder extends BaseReques
     /**
      * Get the daily aggregated remote connection reports, such as round trip time, available bandwidth, and so on, in a given period.
      * @param GetDailyAggregatedRemoteConnectionReportsPostRequestBody $body The request body
-     * @param GetDailyAggregatedRemoteConnectionReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetDailyAggregatedRemoteConnectionReportsRequestBuilder_b546614c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetDailyAggregatedRemoteConnectionReportsPostRequestBody $body, ?GetDailyAggregatedRemoteConnectionReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetDailyAggregatedRemoteConnectionReportsPostRequestBody $body, ?GetDailyAggregatedRemoteConnectionReportsRequestBuilder_b546614c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

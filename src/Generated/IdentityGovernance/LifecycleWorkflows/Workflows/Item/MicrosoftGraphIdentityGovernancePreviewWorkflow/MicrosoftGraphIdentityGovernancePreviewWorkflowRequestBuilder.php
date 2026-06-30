@@ -32,12 +32,12 @@ class MicrosoftGraphIdentityGovernancePreviewWorkflowRequestBuilder extends Base
     /**
      * Run a workflow in preview mode for selected directory objects without affecting production users. This action triggers workflow processing in preview mode, and results can be retrieved using the List userProcessingResults operation with $filter=workflowExecutionType eq 'previewMode'.
      * @param PreviewWorkflowPostRequestBody $body The request body
-     * @param MicrosoftGraphIdentityGovernancePreviewWorkflowRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphIdentityGovernancePreviewWorkflowRequestB_c17c9f0e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/identitygovernance-workflow-previewworkflow?view=graph-rest-beta Find more info here
     */
-    public function post(PreviewWorkflowPostRequestBody $body, ?MicrosoftGraphIdentityGovernancePreviewWorkflowRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(PreviewWorkflowPostRequestBody $body, ?MicrosoftGraphIdentityGovernancePreviewWorkflowRequestB_c17c9f0e $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class MicrosoftGraphIdentityGovernancePreviewWorkflowRequestBuilder extends Base
     /**
      * Run a workflow in preview mode for selected directory objects without affecting production users. This action triggers workflow processing in preview mode, and results can be retrieved using the List userProcessingResults operation with $filter=workflowExecutionType eq 'previewMode'.
      * @param PreviewWorkflowPostRequestBody $body The request body
-     * @param MicrosoftGraphIdentityGovernancePreviewWorkflowRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphIdentityGovernancePreviewWorkflowRequestB_c17c9f0e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(PreviewWorkflowPostRequestBody $body, ?MicrosoftGraphIdentityGovernancePreviewWorkflowRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(PreviewWorkflowPostRequestBody $body, ?MicrosoftGraphIdentityGovernancePreviewWorkflowRequestB_c17c9f0e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -33,11 +33,11 @@ class CreateServerLogCollectionRequestRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action createServerLogCollectionRequest
      * @param CreateServerLogCollectionRequestPostRequestBody $body The request body
-     * @param CreateServerLogCollectionRequestRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CreateServerLogCollectionRequestRequestBuilderPostReque_0c5f51cc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MicrosoftTunnelServerLogCollectionResponse|null>
      * @throws Exception
     */
-    public function post(CreateServerLogCollectionRequestPostRequestBody $body, ?CreateServerLogCollectionRequestRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(CreateServerLogCollectionRequestPostRequestBody $body, ?CreateServerLogCollectionRequestRequestBuilderPostReque_0c5f51cc $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class CreateServerLogCollectionRequestRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action createServerLogCollectionRequest
      * @param CreateServerLogCollectionRequestPostRequestBody $body The request body
-     * @param CreateServerLogCollectionRequestRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CreateServerLogCollectionRequestRequestBuilderPostReque_0c5f51cc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(CreateServerLogCollectionRequestPostRequestBody $body, ?CreateServerLogCollectionRequestRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(CreateServerLogCollectionRequestPostRequestBody $body, ?CreateServerLogCollectionRequestRequestBuilderPostReque_0c5f51cc $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -33,12 +33,12 @@ class RetrieveCloudPcClientAppUsageReportRequestBuilder extends BaseRequestBuild
     /**
      * Retrieve related reports on Cloud PC usage, including the client application used by users to sign in to the Cloud PC device. The Remote Desktop client standalone installer (MSI) for Windows will reach end of support on March 27, 2026. Before that date, IT administrators should migrate users to Windows App to ensure continued access to remote resources through Azure Virtual Desktop, Windows 365, and Microsoft Dev Box. Learn more about preparing for the Remote Desktop Client for Windows end of support. This API enables IT administrators to check the migration status by confirming whether users are still using the legacy Remote Desktop client and identifying their last sign-in dates, thereby helping monitor progress and ensure compliance with migration requirements.
      * @param RetrieveCloudPcClientAppUsageReportPostRequestBody $body The request body
-     * @param RetrieveCloudPcClientAppUsageReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveCloudPcClientAppUsageReportRequestBuilderPostRe_e0165941|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpcreport-retrievecloudpcclientappusagereport?view=graph-rest-beta Find more info here
     */
-    public function post(RetrieveCloudPcClientAppUsageReportPostRequestBody $body, ?RetrieveCloudPcClientAppUsageReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(RetrieveCloudPcClientAppUsageReportPostRequestBody $body, ?RetrieveCloudPcClientAppUsageReportRequestBuilderPostRe_e0165941 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -51,10 +51,10 @@ class RetrieveCloudPcClientAppUsageReportRequestBuilder extends BaseRequestBuild
     /**
      * Retrieve related reports on Cloud PC usage, including the client application used by users to sign in to the Cloud PC device. The Remote Desktop client standalone installer (MSI) for Windows will reach end of support on March 27, 2026. Before that date, IT administrators should migrate users to Windows App to ensure continued access to remote resources through Azure Virtual Desktop, Windows 365, and Microsoft Dev Box. Learn more about preparing for the Remote Desktop Client for Windows end of support. This API enables IT administrators to check the migration status by confirming whether users are still using the legacy Remote Desktop client and identifying their last sign-in dates, thereby helping monitor progress and ensure compliance with migration requirements.
      * @param RetrieveCloudPcClientAppUsageReportPostRequestBody $body The request body
-     * @param RetrieveCloudPcClientAppUsageReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveCloudPcClientAppUsageReportRequestBuilderPostRe_e0165941|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(RetrieveCloudPcClientAppUsageReportPostRequestBody $body, ?RetrieveCloudPcClientAppUsageReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(RetrieveCloudPcClientAppUsageReportPostRequestBody $body, ?RetrieveCloudPcClientAppUsageReportRequestBuilderPostRe_e0165941 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -53,11 +53,11 @@ class EnterpriseCodeSigningCertificatesRequestBuilder extends BaseRequestBuilder
 
     /**
      * The Windows Enterprise Code Signing Certificate.
-     * @param EnterpriseCodeSigningCertificatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EnterpriseCodeSigningCertificatesRequestBuilderGetReque_f2a96a19|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EnterpriseCodeSigningCertificateCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?EnterpriseCodeSigningCertificatesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?EnterpriseCodeSigningCertificatesRequestBuilderGetReque_f2a96a19 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class EnterpriseCodeSigningCertificatesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to enterpriseCodeSigningCertificates for deviceAppManagement
      * @param EnterpriseCodeSigningCertificate $body The request body
-     * @param EnterpriseCodeSigningCertificatesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EnterpriseCodeSigningCertificatesRequestBuilderPostRequ_bcf9f757|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EnterpriseCodeSigningCertificate|null>
      * @throws Exception
     */
-    public function post(EnterpriseCodeSigningCertificate $body, ?EnterpriseCodeSigningCertificatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(EnterpriseCodeSigningCertificate $body, ?EnterpriseCodeSigningCertificatesRequestBuilderPostRequ_bcf9f757 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class EnterpriseCodeSigningCertificatesRequestBuilder extends BaseRequestBuilder
 
     /**
      * The Windows Enterprise Code Signing Certificate.
-     * @param EnterpriseCodeSigningCertificatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EnterpriseCodeSigningCertificatesRequestBuilderGetReque_f2a96a19|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?EnterpriseCodeSigningCertificatesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?EnterpriseCodeSigningCertificatesRequestBuilderGetReque_f2a96a19 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class EnterpriseCodeSigningCertificatesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to enterpriseCodeSigningCertificates for deviceAppManagement
      * @param EnterpriseCodeSigningCertificate $body The request body
-     * @param EnterpriseCodeSigningCertificatesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EnterpriseCodeSigningCertificatesRequestBuilderPostRequ_bcf9f757|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(EnterpriseCodeSigningCertificate $body, ?EnterpriseCodeSigningCertificatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(EnterpriseCodeSigningCertificate $body, ?EnterpriseCodeSigningCertificatesRequestBuilderPostRequ_bcf9f757 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

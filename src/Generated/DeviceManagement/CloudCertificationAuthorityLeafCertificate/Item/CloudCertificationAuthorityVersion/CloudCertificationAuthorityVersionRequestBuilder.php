@@ -32,11 +32,11 @@ class CloudCertificationAuthorityVersionRequestBuilder extends BaseRequestBuilde
 
     /**
      * The certification authority version that issued this leaf certificate. Read-only.
-     * @param CloudCertificationAuthorityVersionRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudCertificationAuthorityVersionRequestBuilderGetRequ_48104304|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudCertificationAuthorityVersion|null>
      * @throws Exception
     */
-    public function get(?CloudCertificationAuthorityVersionRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CloudCertificationAuthorityVersionRequestBuilderGetRequ_48104304 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class CloudCertificationAuthorityVersionRequestBuilder extends BaseRequestBuilde
 
     /**
      * The certification authority version that issued this leaf certificate. Read-only.
-     * @param CloudCertificationAuthorityVersionRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudCertificationAuthorityVersionRequestBuilderGetRequ_48104304|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CloudCertificationAuthorityVersionRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CloudCertificationAuthorityVersionRequestBuilderGetRequ_48104304 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -40,11 +40,11 @@ class MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilder extends BaseRequ
 
     /**
      * Get the item of type microsoft.graph.ediscovery.caseOperation as microsoft.graph.ediscovery.caseExportOperation
-     * @param MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphEdiscoveryCaseExportOperationRequestBuild_8a51ad4d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CaseExportOperation|null>
      * @throws Exception
     */
-    public function get(?MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MicrosoftGraphEdiscoveryCaseExportOperationRequestBuild_8a51ad4d $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,10 +54,10 @@ class MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilder extends BaseRequ
 
     /**
      * Get the item of type microsoft.graph.ediscovery.caseOperation as microsoft.graph.ediscovery.caseExportOperation
-     * @param MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphEdiscoveryCaseExportOperationRequestBuild_8a51ad4d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MicrosoftGraphEdiscoveryCaseExportOperationRequestBuild_8a51ad4d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

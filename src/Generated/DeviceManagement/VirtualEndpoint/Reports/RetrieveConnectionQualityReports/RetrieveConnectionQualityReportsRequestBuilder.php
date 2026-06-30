@@ -33,11 +33,11 @@ class RetrieveConnectionQualityReportsRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action retrieveConnectionQualityReports
      * @param RetrieveConnectionQualityReportsPostRequestBody $body The request body
-     * @param RetrieveConnectionQualityReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveConnectionQualityReportsRequestBuilderPostReque_31057b1b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(RetrieveConnectionQualityReportsPostRequestBody $body, ?RetrieveConnectionQualityReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(RetrieveConnectionQualityReportsPostRequestBody $body, ?RetrieveConnectionQualityReportsRequestBuilderPostReque_31057b1b $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class RetrieveConnectionQualityReportsRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action retrieveConnectionQualityReports
      * @param RetrieveConnectionQualityReportsPostRequestBody $body The request body
-     * @param RetrieveConnectionQualityReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveConnectionQualityReportsRequestBuilderPostReque_31057b1b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(RetrieveConnectionQualityReportsPostRequestBody $body, ?RetrieveConnectionQualityReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(RetrieveConnectionQualityReportsPostRequestBody $body, ?RetrieveConnectionQualityReportsRequestBuilderPostReque_31057b1b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

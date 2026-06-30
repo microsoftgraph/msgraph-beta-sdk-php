@@ -32,12 +32,12 @@ class MicrosoftGraphSecurityEvaluateRemovalRequestBuilder extends BaseRequestBui
     /**
      * Indicate to the consuming application what actions it should take to remove the label information. Given contentInfo as an input, which includes existing content metadata key-value pairs, the API returns an informationProtectionAction that contains some combination of one or more of the following: 
      * @param EvaluateRemovalPostRequestBody $body The request body
-     * @param MicrosoftGraphSecurityEvaluateRemovalRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphSecurityEvaluateRemovalRequestBuilderPost_17bb566f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EvaluateRemovalPostResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/security-sensitivitylabel-evaluateremoval?view=graph-rest-beta Find more info here
     */
-    public function post(EvaluateRemovalPostRequestBody $body, ?MicrosoftGraphSecurityEvaluateRemovalRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(EvaluateRemovalPostRequestBody $body, ?MicrosoftGraphSecurityEvaluateRemovalRequestBuilderPost_17bb566f $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class MicrosoftGraphSecurityEvaluateRemovalRequestBuilder extends BaseRequestBui
     /**
      * Indicate to the consuming application what actions it should take to remove the label information. Given contentInfo as an input, which includes existing content metadata key-value pairs, the API returns an informationProtectionAction that contains some combination of one or more of the following: 
      * @param EvaluateRemovalPostRequestBody $body The request body
-     * @param MicrosoftGraphSecurityEvaluateRemovalRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphSecurityEvaluateRemovalRequestBuilderPost_17bb566f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(EvaluateRemovalPostRequestBody $body, ?MicrosoftGraphSecurityEvaluateRemovalRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(EvaluateRemovalPostRequestBody $body, ?MicrosoftGraphSecurityEvaluateRemovalRequestBuilderPost_17bb566f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

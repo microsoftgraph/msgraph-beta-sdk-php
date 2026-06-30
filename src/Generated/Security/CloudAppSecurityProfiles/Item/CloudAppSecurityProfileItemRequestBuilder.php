@@ -32,11 +32,11 @@ class CloudAppSecurityProfileItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property cloudAppSecurityProfiles for security
-     * @param CloudAppSecurityProfileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudAppSecurityProfileItemRequestBuilderDeleteRequestC_70b5fc68|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CloudAppSecurityProfileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CloudAppSecurityProfileItemRequestBuilderDeleteRequestC_70b5fc68 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class CloudAppSecurityProfileItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property cloudAppSecurityProfiles in security
      * @param CloudAppSecurityProfile $body The request body
-     * @param CloudAppSecurityProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudAppSecurityProfileItemRequestBuilderPatchRequestCo_48b96471|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudAppSecurityProfile|null>
      * @throws Exception
     */
-    public function patch(CloudAppSecurityProfile $body, ?CloudAppSecurityProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(CloudAppSecurityProfile $body, ?CloudAppSecurityProfileItemRequestBuilderPatchRequestCo_48b96471 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class CloudAppSecurityProfileItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property cloudAppSecurityProfiles for security
-     * @param CloudAppSecurityProfileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudAppSecurityProfileItemRequestBuilderDeleteRequestC_70b5fc68|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CloudAppSecurityProfileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CloudAppSecurityProfileItemRequestBuilderDeleteRequestC_70b5fc68 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class CloudAppSecurityProfileItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property cloudAppSecurityProfiles in security
      * @param CloudAppSecurityProfile $body The request body
-     * @param CloudAppSecurityProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudAppSecurityProfileItemRequestBuilderPatchRequestCo_48b96471|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CloudAppSecurityProfile $body, ?CloudAppSecurityProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(CloudAppSecurityProfile $body, ?CloudAppSecurityProfileItemRequestBuilderPatchRequestCo_48b96471 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

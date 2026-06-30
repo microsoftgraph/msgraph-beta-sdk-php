@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Rules\DetectionRules\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get detectionRules from security
+ * The custom detection rules configured for the tenant.
 */
 class DetectionRuleItemRequestBuilderGetQueryParameters 
 {

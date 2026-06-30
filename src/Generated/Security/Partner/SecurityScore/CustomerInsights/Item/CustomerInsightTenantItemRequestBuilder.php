@@ -32,11 +32,11 @@ class CustomerInsightTenantItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property customerInsights for security
-     * @param CustomerInsightTenantItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomerInsightTenantItemRequestBuilderDeleteRequestCon_694add6d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CustomerInsightTenantItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CustomerInsightTenantItemRequestBuilderDeleteRequestCon_694add6d $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class CustomerInsightTenantItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property customerInsights for security
-     * @param CustomerInsightTenantItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomerInsightTenantItemRequestBuilderDeleteRequestCon_694add6d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CustomerInsightTenantItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CustomerInsightTenantItemRequestBuilderDeleteRequestCon_694add6d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

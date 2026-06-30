@@ -35,11 +35,11 @@ class GetSkypeForBusinessDeviceUsageUserCountsWithPeriodRequestBuilder extends B
 
     /**
      * Invoke function getSkypeForBusinessDeviceUsageUserCounts
-     * @param GetSkypeForBusinessDeviceUsageUserCountsWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetSkypeForBusinessDeviceUsageUserCountsWithPeriodReque_aae04615|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function get(?GetSkypeForBusinessDeviceUsageUserCountsWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetSkypeForBusinessDeviceUsageUserCountsWithPeriodReque_aae04615 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -51,10 +51,10 @@ class GetSkypeForBusinessDeviceUsageUserCountsWithPeriodRequestBuilder extends B
 
     /**
      * Invoke function getSkypeForBusinessDeviceUsageUserCounts
-     * @param GetSkypeForBusinessDeviceUsageUserCountsWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetSkypeForBusinessDeviceUsageUserCountsWithPeriodReque_aae04615|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetSkypeForBusinessDeviceUsageUserCountsWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetSkypeForBusinessDeviceUsageUserCountsWithPeriodReque_aae04615 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

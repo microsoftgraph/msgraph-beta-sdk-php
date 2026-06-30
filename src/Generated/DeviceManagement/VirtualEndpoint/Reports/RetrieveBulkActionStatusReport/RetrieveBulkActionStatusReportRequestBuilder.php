@@ -33,12 +33,12 @@ class RetrieveBulkActionStatusReportRequestBuilder extends BaseRequestBuilder
     /**
      * Get the bulk remote action status report, including data such as the bulk action ID, bulk action display name, initiating user's principal name, action type, and action state.
      * @param RetrieveBulkActionStatusReportPostRequestBody $body The request body
-     * @param RetrieveBulkActionStatusReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveBulkActionStatusReportRequestBuilderPostRequest_61e45956|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpcreports-retrievebulkactionstatusreport?view=graph-rest-beta Find more info here
     */
-    public function post(RetrieveBulkActionStatusReportPostRequestBody $body, ?RetrieveBulkActionStatusReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(RetrieveBulkActionStatusReportPostRequestBody $body, ?RetrieveBulkActionStatusReportRequestBuilderPostRequest_61e45956 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -51,10 +51,10 @@ class RetrieveBulkActionStatusReportRequestBuilder extends BaseRequestBuilder
     /**
      * Get the bulk remote action status report, including data such as the bulk action ID, bulk action display name, initiating user's principal name, action type, and action state.
      * @param RetrieveBulkActionStatusReportPostRequestBody $body The request body
-     * @param RetrieveBulkActionStatusReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveBulkActionStatusReportRequestBuilderPostRequest_61e45956|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(RetrieveBulkActionStatusReportPostRequestBody $body, ?RetrieveBulkActionStatusReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(RetrieveBulkActionStatusReportPostRequestBody $body, ?RetrieveBulkActionStatusReportRequestBuilderPostRequest_61e45956 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

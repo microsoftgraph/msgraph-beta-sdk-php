@@ -35,11 +35,11 @@ class ApproversWithUserPrincipalNameRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get approvers from privacy
-     * @param ApproversWithUserPrincipalNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApproversWithUserPrincipalNameRequestBuilderGetRequestC_7031e5b0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<User|null>
      * @throws Exception
     */
-    public function get(?ApproversWithUserPrincipalNameRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ApproversWithUserPrincipalNameRequestBuilderGetRequestC_7031e5b0 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,10 +49,10 @@ class ApproversWithUserPrincipalNameRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get approvers from privacy
-     * @param ApproversWithUserPrincipalNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApproversWithUserPrincipalNameRequestBuilderGetRequestC_7031e5b0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ApproversWithUserPrincipalNameRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ApproversWithUserPrincipalNameRequestBuilderGetRequestC_7031e5b0 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

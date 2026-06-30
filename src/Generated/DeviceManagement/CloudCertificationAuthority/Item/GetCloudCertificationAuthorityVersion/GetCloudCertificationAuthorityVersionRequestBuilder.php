@@ -32,11 +32,11 @@ class GetCloudCertificationAuthorityVersionRequestBuilder extends BaseRequestBui
 
     /**
      * Invoke action getCloudCertificationAuthorityVersion
-     * @param GetCloudCertificationAuthorityVersionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetCloudCertificationAuthorityVersionRequestBuilderPost_313c4b05|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudCertificationAuthorityVersion|null>
      * @throws Exception
     */
-    public function post(?GetCloudCertificationAuthorityVersionRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?GetCloudCertificationAuthorityVersionRequestBuilderPost_313c4b05 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class GetCloudCertificationAuthorityVersionRequestBuilder extends BaseRequestBui
 
     /**
      * Invoke action getCloudCertificationAuthorityVersion
-     * @param GetCloudCertificationAuthorityVersionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetCloudCertificationAuthorityVersionRequestBuilderPost_313c4b05|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?GetCloudCertificationAuthorityVersionRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?GetCloudCertificationAuthorityVersionRequestBuilderPost_313c4b05 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

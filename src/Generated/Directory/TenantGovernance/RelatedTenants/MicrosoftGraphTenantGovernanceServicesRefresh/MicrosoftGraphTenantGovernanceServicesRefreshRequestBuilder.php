@@ -31,12 +31,12 @@ class MicrosoftGraphTenantGovernanceServicesRefreshRequestBuilder extends BaseRe
 
     /**
      * Manually refresh the list of related tenants. The list is also automatically refreshed daily.
-     * @param MicrosoftGraphTenantGovernanceServicesRefreshRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphTenantGovernanceServicesRefreshRequestBui_467dbf21|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/tenantgovernanceservices-relatedtenant-refresh?view=graph-rest-beta Find more info here
     */
-    public function post(?MicrosoftGraphTenantGovernanceServicesRefreshRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?MicrosoftGraphTenantGovernanceServicesRefreshRequestBui_467dbf21 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class MicrosoftGraphTenantGovernanceServicesRefreshRequestBuilder extends BaseRe
 
     /**
      * Manually refresh the list of related tenants. The list is also automatically refreshed daily.
-     * @param MicrosoftGraphTenantGovernanceServicesRefreshRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphTenantGovernanceServicesRefreshRequestBui_467dbf21|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?MicrosoftGraphTenantGovernanceServicesRefreshRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?MicrosoftGraphTenantGovernanceServicesRefreshRequestBui_467dbf21 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

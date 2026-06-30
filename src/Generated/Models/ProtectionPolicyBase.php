@@ -154,7 +154,7 @@ class ProtectionPolicyBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the protectionMode property value. The protectionMode property
+     * Gets the protectionMode property value. The backup mode for the protection policy. The possible values are: standard, fullServiceBackup, unknownFutureValue. When set to fullServiceBackup, the entire workload is backed up and specific items can be excluded using exclusion units. When set to standard, only the items explicitly added as protection units are backed up.
      * @return BackupPolicyProtectionMode|null
     */
     public function getProtectionMode(): ?BackupPolicyProtectionMode {
@@ -166,7 +166,7 @@ class ProtectionPolicyBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the protectionPolicyArtifactCount property value. The count of artifacts in the protection policy by status. Requires $select to retrieve.
+     * Gets the protectionPolicyArtifactCount property value. The count of artifacts in the protection policy by status. Returned only on $select.
      * @return ProtectionPolicyArtifactCount|null
     */
     public function getProtectionPolicyArtifactCount(): ?ProtectionPolicyArtifactCount {
@@ -288,7 +288,7 @@ class ProtectionPolicyBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the protectionMode property value. The protectionMode property
+     * Sets the protectionMode property value. The backup mode for the protection policy. The possible values are: standard, fullServiceBackup, unknownFutureValue. When set to fullServiceBackup, the entire workload is backed up and specific items can be excluded using exclusion units. When set to standard, only the items explicitly added as protection units are backed up.
      * @param BackupPolicyProtectionMode|null $value Value to set for the protectionMode property.
     */
     public function setProtectionMode(?BackupPolicyProtectionMode $value): void {
@@ -296,7 +296,7 @@ class ProtectionPolicyBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the protectionPolicyArtifactCount property value. The count of artifacts in the protection policy by status. Requires $select to retrieve.
+     * Sets the protectionPolicyArtifactCount property value. The count of artifacts in the protection policy by status. Returned only on $select.
      * @param ProtectionPolicyArtifactCount|null $value Value to set for the protectionPolicyArtifactCount property.
     */
     public function setProtectionPolicyArtifactCount(?ProtectionPolicyArtifactCount $value): void {

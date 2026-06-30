@@ -32,11 +32,11 @@ class CredentialUserRegistrationDetailsItemRequestBuilder extends BaseRequestBui
 
     /**
      * Delete navigation property credentialUserRegistrationDetails for reports
-     * @param CredentialUserRegistrationDetailsItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CredentialUserRegistrationDetailsItemRequestBuilderDele_9f38c97e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CredentialUserRegistrationDetailsItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CredentialUserRegistrationDetailsItemRequestBuilderDele_9f38c97e $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class CredentialUserRegistrationDetailsItemRequestBuilder extends BaseRequestBui
 
     /**
      * Details of the usage of self-service password reset and multifactor authentication (MFA) for all registered users.
-     * @param CredentialUserRegistrationDetailsItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CredentialUserRegistrationDetailsItemRequestBuilderGetR_d246c593|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CredentialUserRegistrationDetails|null>
      * @throws Exception
     */
-    public function get(?CredentialUserRegistrationDetailsItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CredentialUserRegistrationDetailsItemRequestBuilderGetR_d246c593 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class CredentialUserRegistrationDetailsItemRequestBuilder extends BaseRequestBui
     /**
      * Update the navigation property credentialUserRegistrationDetails in reports
      * @param CredentialUserRegistrationDetails $body The request body
-     * @param CredentialUserRegistrationDetailsItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CredentialUserRegistrationDetailsItemRequestBuilderPatc_1112ea06|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CredentialUserRegistrationDetails|null>
      * @throws Exception
     */
-    public function patch(CredentialUserRegistrationDetails $body, ?CredentialUserRegistrationDetailsItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(CredentialUserRegistrationDetails $body, ?CredentialUserRegistrationDetailsItemRequestBuilderPatc_1112ea06 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class CredentialUserRegistrationDetailsItemRequestBuilder extends BaseRequestBui
 
     /**
      * Delete navigation property credentialUserRegistrationDetails for reports
-     * @param CredentialUserRegistrationDetailsItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CredentialUserRegistrationDetailsItemRequestBuilderDele_9f38c97e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CredentialUserRegistrationDetailsItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CredentialUserRegistrationDetailsItemRequestBuilderDele_9f38c97e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class CredentialUserRegistrationDetailsItemRequestBuilder extends BaseRequestBui
 
     /**
      * Details of the usage of self-service password reset and multifactor authentication (MFA) for all registered users.
-     * @param CredentialUserRegistrationDetailsItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CredentialUserRegistrationDetailsItemRequestBuilderGetR_d246c593|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CredentialUserRegistrationDetailsItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CredentialUserRegistrationDetailsItemRequestBuilderGetR_d246c593 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class CredentialUserRegistrationDetailsItemRequestBuilder extends BaseRequestBui
     /**
      * Update the navigation property credentialUserRegistrationDetails in reports
      * @param CredentialUserRegistrationDetails $body The request body
-     * @param CredentialUserRegistrationDetailsItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CredentialUserRegistrationDetailsItemRequestBuilderPatc_1112ea06|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CredentialUserRegistrationDetails $body, ?CredentialUserRegistrationDetailsItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(CredentialUserRegistrationDetails $body, ?CredentialUserRegistrationDetailsItemRequestBuilderPatc_1112ea06 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

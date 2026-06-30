@@ -35,12 +35,12 @@ class GetOperationStatusWithOperationIdRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get the status of a SharePoint site creation operation to monitor its progress.
-     * @param GetOperationStatusWithOperationIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetOperationStatusWithOperationIdRequestBuilderGetReque_efc3248d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RichLongRunningOperation|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/site-getoperationstatus?view=graph-rest-beta Find more info here
     */
-    public function get(?GetOperationStatusWithOperationIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetOperationStatusWithOperationIdRequestBuilderGetReque_efc3248d $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class GetOperationStatusWithOperationIdRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get the status of a SharePoint site creation operation to monitor its progress.
-     * @param GetOperationStatusWithOperationIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetOperationStatusWithOperationIdRequestBuilderGetReque_efc3248d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetOperationStatusWithOperationIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetOperationStatusWithOperationIdRequestBuilderGetReque_efc3248d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

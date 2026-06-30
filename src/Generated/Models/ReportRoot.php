@@ -80,6 +80,20 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the correlations property value. The identity correlation reports in the tenant.
+     * @return array<IdentityCorrelation>|null
+    */
+    public function getCorrelations(): ?array {
+        $val = $this->getBackingStore()->get('correlations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, IdentityCorrelation::class);
+            /** @var array<IdentityCorrelation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'correlations'");
+    }
+
+    /**
      * Gets the credentialUserRegistrationDetails property value. Details of the usage of self-service password reset and multifactor authentication (MFA) for all registered users.
      * @return array<CredentialUserRegistrationDetails>|null
     */
@@ -174,6 +188,7 @@ class ReportRoot extends Entity implements Parsable
             'applicationSignInDetailedSummary' => fn(ParseNode $n) => $o->setApplicationSignInDetailedSummary($n->getCollectionOfObjectValues([ApplicationSignInDetailedSummary::class, 'createFromDiscriminatorValue'])),
             'authenticationMethods' => fn(ParseNode $n) => $o->setAuthenticationMethods($n->getObjectValue([AuthenticationMethodsRoot::class, 'createFromDiscriminatorValue'])),
             'azureADPremiumLicenseInsight' => fn(ParseNode $n) => $o->setAzureADPremiumLicenseInsight($n->getObjectValue([AzureADPremiumLicenseInsight::class, 'createFromDiscriminatorValue'])),
+            'correlations' => fn(ParseNode $n) => $o->setCorrelations($n->getCollectionOfObjectValues([IdentityCorrelation::class, 'createFromDiscriminatorValue'])),
             'credentialUserRegistrationDetails' => fn(ParseNode $n) => $o->setCredentialUserRegistrationDetails($n->getCollectionOfObjectValues([CredentialUserRegistrationDetails::class, 'createFromDiscriminatorValue'])),
             'dailyPrintUsage' => fn(ParseNode $n) => $o->setDailyPrintUsage($n->getCollectionOfObjectValues([PrintUsage::class, 'createFromDiscriminatorValue'])),
             'dailyPrintUsageByPrinter' => fn(ParseNode $n) => $o->setDailyPrintUsageByPrinter($n->getCollectionOfObjectValues([PrintUsageByPrinter::class, 'createFromDiscriminatorValue'])),
@@ -181,6 +196,7 @@ class ReportRoot extends Entity implements Parsable
             'dailyPrintUsageSummariesByPrinter' => fn(ParseNode $n) => $o->setDailyPrintUsageSummariesByPrinter($n->getCollectionOfObjectValues([PrintUsageByPrinter::class, 'createFromDiscriminatorValue'])),
             'dailyPrintUsageSummariesByUser' => fn(ParseNode $n) => $o->setDailyPrintUsageSummariesByUser($n->getCollectionOfObjectValues([PrintUsageByUser::class, 'createFromDiscriminatorValue'])),
             'healthMonitoring' => fn(ParseNode $n) => $o->setHealthMonitoring($n->getObjectValue([HealthMonitoringRoot::class, 'createFromDiscriminatorValue'])),
+            'identityAnalytics' => fn(ParseNode $n) => $o->setIdentityAnalytics($n->getObjectValue([IdentityAnalyticsRoot::class, 'createFromDiscriminatorValue'])),
             'monthlyPrintUsageByPrinter' => fn(ParseNode $n) => $o->setMonthlyPrintUsageByPrinter($n->getCollectionOfObjectValues([PrintUsageByPrinter::class, 'createFromDiscriminatorValue'])),
             'monthlyPrintUsageByUser' => fn(ParseNode $n) => $o->setMonthlyPrintUsageByUser($n->getCollectionOfObjectValues([PrintUsageByUser::class, 'createFromDiscriminatorValue'])),
             'monthlyPrintUsageSummariesByPrinter' => fn(ParseNode $n) => $o->setMonthlyPrintUsageSummariesByPrinter($n->getCollectionOfObjectValues([PrintUsageByPrinter::class, 'createFromDiscriminatorValue'])),
@@ -205,6 +221,18 @@ class ReportRoot extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'healthMonitoring'");
+    }
+
+    /**
+     * Gets the identityAnalytics property value. Microsoft Entra identity analytics for the tenant, including its groups.
+     * @return IdentityAnalyticsRoot|null
+    */
+    public function getIdentityAnalytics(): ?IdentityAnalyticsRoot {
+        $val = $this->getBackingStore()->get('identityAnalytics');
+        if (is_null($val) || $val instanceof IdentityAnalyticsRoot) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityAnalytics'");
     }
 
     /**
@@ -361,6 +389,7 @@ class ReportRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('applicationSignInDetailedSummary', $this->getApplicationSignInDetailedSummary());
         $writer->writeObjectValue('authenticationMethods', $this->getAuthenticationMethods());
         $writer->writeObjectValue('azureADPremiumLicenseInsight', $this->getAzureADPremiumLicenseInsight());
+        $writer->writeCollectionOfObjectValues('correlations', $this->getCorrelations());
         $writer->writeCollectionOfObjectValues('credentialUserRegistrationDetails', $this->getCredentialUserRegistrationDetails());
         $writer->writeCollectionOfObjectValues('dailyPrintUsage', $this->getDailyPrintUsage());
         $writer->writeCollectionOfObjectValues('dailyPrintUsageByPrinter', $this->getDailyPrintUsageByPrinter());
@@ -368,6 +397,7 @@ class ReportRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('dailyPrintUsageSummariesByPrinter', $this->getDailyPrintUsageSummariesByPrinter());
         $writer->writeCollectionOfObjectValues('dailyPrintUsageSummariesByUser', $this->getDailyPrintUsageSummariesByUser());
         $writer->writeObjectValue('healthMonitoring', $this->getHealthMonitoring());
+        $writer->writeObjectValue('identityAnalytics', $this->getIdentityAnalytics());
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageByPrinter', $this->getMonthlyPrintUsageByPrinter());
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageByUser', $this->getMonthlyPrintUsageByUser());
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageSummariesByPrinter', $this->getMonthlyPrintUsageSummariesByPrinter());
@@ -411,6 +441,14 @@ class ReportRoot extends Entity implements Parsable
     */
     public function setAzureADPremiumLicenseInsight(?AzureADPremiumLicenseInsight $value): void {
         $this->getBackingStore()->set('azureADPremiumLicenseInsight', $value);
+    }
+
+    /**
+     * Sets the correlations property value. The identity correlation reports in the tenant.
+     * @param array<IdentityCorrelation>|null $value Value to set for the correlations property.
+    */
+    public function setCorrelations(?array $value): void {
+        $this->getBackingStore()->set('correlations', $value);
     }
 
     /**
@@ -467,6 +505,14 @@ class ReportRoot extends Entity implements Parsable
     */
     public function setHealthMonitoring(?HealthMonitoringRoot $value): void {
         $this->getBackingStore()->set('healthMonitoring', $value);
+    }
+
+    /**
+     * Sets the identityAnalytics property value. Microsoft Entra identity analytics for the tenant, including its groups.
+     * @param IdentityAnalyticsRoot|null $value Value to set for the identityAnalytics property.
+    */
+    public function setIdentityAnalytics(?IdentityAnalyticsRoot $value): void {
+        $this->getBackingStore()->set('identityAnalytics', $value);
     }
 
     /**

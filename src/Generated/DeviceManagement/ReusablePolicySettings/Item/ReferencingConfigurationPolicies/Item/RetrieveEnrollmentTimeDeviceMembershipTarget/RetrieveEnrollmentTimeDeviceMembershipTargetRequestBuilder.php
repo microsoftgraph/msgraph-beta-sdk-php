@@ -32,11 +32,11 @@ class RetrieveEnrollmentTimeDeviceMembershipTargetRequestBuilder extends BaseReq
 
     /**
      * Invoke action retrieveEnrollmentTimeDeviceMembershipTarget
-     * @param RetrieveEnrollmentTimeDeviceMembershipTargetRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveEnrollmentTimeDeviceMembershipTargetRequestBuil_f9f7f60b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EnrollmentTimeDeviceMembershipTargetResult|null>
      * @throws Exception
     */
-    public function post(?RetrieveEnrollmentTimeDeviceMembershipTargetRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?RetrieveEnrollmentTimeDeviceMembershipTargetRequestBuil_f9f7f60b $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class RetrieveEnrollmentTimeDeviceMembershipTargetRequestBuilder extends BaseReq
 
     /**
      * Invoke action retrieveEnrollmentTimeDeviceMembershipTarget
-     * @param RetrieveEnrollmentTimeDeviceMembershipTargetRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveEnrollmentTimeDeviceMembershipTargetRequestBuil_f9f7f60b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?RetrieveEnrollmentTimeDeviceMembershipTargetRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?RetrieveEnrollmentTimeDeviceMembershipTargetRequestBuil_f9f7f60b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -35,12 +35,12 @@ class GetBySourceSiteUrlWithSourceSiteUrlRequestBuilder extends BaseRequestBuild
 
     /**
      * Get a sharePointMigrationTask that was previously created for a regular site, using the source site URL. The returned sharePointMigrationTask object includes the source and target site URLs, migration status, optional timestamps (startedDateTime and finishedDateTime), and error details about issues during processing.
-     * @param GetBySourceSiteUrlWithSourceSiteUrlRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetBySourceSiteUrlWithSourceSiteUrlRequestBuilderGetReq_acf1b481|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SharePointMigrationTask|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/sharepointmigrationtask-getbysourcesiteurl?view=graph-rest-beta Find more info here
     */
-    public function get(?GetBySourceSiteUrlWithSourceSiteUrlRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetBySourceSiteUrlWithSourceSiteUrlRequestBuilderGetReq_acf1b481 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class GetBySourceSiteUrlWithSourceSiteUrlRequestBuilder extends BaseRequestBuild
 
     /**
      * Get a sharePointMigrationTask that was previously created for a regular site, using the source site URL. The returned sharePointMigrationTask object includes the source and target site URLs, migration status, optional timestamps (startedDateTime and finishedDateTime), and error details about issues during processing.
-     * @param GetBySourceSiteUrlWithSourceSiteUrlRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetBySourceSiteUrlWithSourceSiteUrlRequestBuilderGetReq_acf1b481|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetBySourceSiteUrlWithSourceSiteUrlRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetBySourceSiteUrlWithSourceSiteUrlRequestBuilderGetReq_acf1b481 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

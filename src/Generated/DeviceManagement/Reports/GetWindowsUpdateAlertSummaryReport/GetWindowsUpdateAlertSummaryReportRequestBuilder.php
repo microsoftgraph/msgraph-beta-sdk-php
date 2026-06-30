@@ -33,11 +33,11 @@ class GetWindowsUpdateAlertSummaryReportRequestBuilder extends BaseRequestBuilde
     /**
      * Invoke action getWindowsUpdateAlertSummaryReport
      * @param GetWindowsUpdateAlertSummaryReportPostRequestBody $body The request body
-     * @param GetWindowsUpdateAlertSummaryReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetWindowsUpdateAlertSummaryReportRequestBuilderPostReq_fa073fed|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(GetWindowsUpdateAlertSummaryReportPostRequestBody $body, ?GetWindowsUpdateAlertSummaryReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetWindowsUpdateAlertSummaryReportPostRequestBody $body, ?GetWindowsUpdateAlertSummaryReportRequestBuilderPostReq_fa073fed $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class GetWindowsUpdateAlertSummaryReportRequestBuilder extends BaseRequestBuilde
     /**
      * Invoke action getWindowsUpdateAlertSummaryReport
      * @param GetWindowsUpdateAlertSummaryReportPostRequestBody $body The request body
-     * @param GetWindowsUpdateAlertSummaryReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetWindowsUpdateAlertSummaryReportRequestBuilderPostReq_fa073fed|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetWindowsUpdateAlertSummaryReportPostRequestBody $body, ?GetWindowsUpdateAlertSummaryReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetWindowsUpdateAlertSummaryReportPostRequestBody $body, ?GetWindowsUpdateAlertSummaryReportRequestBuilderPostReq_fa073fed $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

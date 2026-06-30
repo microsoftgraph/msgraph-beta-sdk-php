@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\ResourceAccessProfiles
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ResourceAccessProfiles\Item\Assignments\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\ResourceAccessProfiles\Item\Assignments\Item\DeviceManagementResourceAccessProfileAssignmentItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ResourceAccessProfiles\Item\Assignments\Item\DeviceManagementResourceAccessProfileAssignmentItemRequ_909d4c28;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementResourceAccessProfileAssignment;
-use Microsoft\Graph\Beta\Generated\Models\DeviceManagementResourceAccessProfileAssignmentCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\DeviceManagementResourceAccessProfileAssignmentCollecti_b4ece20a;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -29,12 +29,12 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.deviceManagementResourceAccessProfileBase entity.
      * @param string $deviceManagementResourceAccessProfileAssignmentId The unique identifier of deviceManagementResourceAccessProfileAssignment
-     * @return DeviceManagementResourceAccessProfileAssignmentItemRequestBuilder
+     * @return DeviceManagementResourceAccessProfileAssignmentItemRequ_909d4c28
     */
-    public function byDeviceManagementResourceAccessProfileAssignmentId(string $deviceManagementResourceAccessProfileAssignmentId): DeviceManagementResourceAccessProfileAssignmentItemRequestBuilder {
+    public function byDeviceManagementResourceAccessProfileAssignmentId(string $deviceManagementResourceAccessProfileAssignmentId): DeviceManagementResourceAccessProfileAssignmentItemRequ_909d4c28 {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementResourceAccessProfileAssignment%2Did'] = $deviceManagementResourceAccessProfileAssignmentId;
-        return new DeviceManagementResourceAccessProfileAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new DeviceManagementResourceAccessProfileAssignmentItemRequ_909d4c28($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -54,7 +54,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
     /**
      * The list of assignments for the device configuration profile.
      * @param AssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<DeviceManagementResourceAccessProfileAssignmentCollectionResponse|null>
+     * @return Promise<DeviceManagementResourceAccessProfileAssignmentCollecti_b4ece20a|null>
      * @throws Exception
     */
     public function get(?AssignmentsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
@@ -62,7 +62,7 @@ class AssignmentsRequestBuilder extends BaseRequestBuilder
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagementResourceAccessProfileAssignmentCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+        return $this->requestAdapter->sendAsync($requestInfo, [DeviceManagementResourceAccessProfileAssignmentCollecti_b4ece20a::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**

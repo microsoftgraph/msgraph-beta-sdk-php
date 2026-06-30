@@ -51,7 +51,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the connectionSetting property value. The connection setting of the Cloud PC. Possible values: enableSingleSignOn. Read Only.
+     * Gets the connectionSetting property value. The connection setting of the Cloud PC. Possible values: enableSingleSignOn. Read-only.
      * @return CloudPcConnectionSetting|null
     */
     public function getConnectionSetting(): ?CloudPcConnectionSetting {
@@ -154,6 +154,7 @@ class CloudPC extends Entity implements Parsable
             'gracePeriodEndDateTime' => fn(ParseNode $n) => $o->setGracePeriodEndDateTime($n->getDateTimeValue()),
             'groupDetail' => fn(ParseNode $n) => $o->setGroupDetail($n->getObjectValue([CloudPcEntraGroupDetail::class, 'createFromDiscriminatorValue'])),
             'imageDisplayName' => fn(ParseNode $n) => $o->setImageDisplayName($n->getStringValue()),
+            'isDisasterRecoveryActive' => fn(ParseNode $n) => $o->setIsDisasterRecoveryActive($n->getBooleanValue()),
             'lastLoginResult' => fn(ParseNode $n) => $o->setLastLoginResult($n->getObjectValue([CloudPcLoginResult::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'lastRemoteActionResult' => fn(ParseNode $n) => $o->setLastRemoteActionResult($n->getObjectValue([CloudPcRemoteActionResult::class, 'createFromDiscriminatorValue'])),
@@ -236,6 +237,18 @@ class CloudPC extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'imageDisplayName'");
+    }
+
+    /**
+     * Gets the isDisasterRecoveryActive property value. The isDisasterRecoveryActive property
+     * @return bool|null
+    */
+    public function getIsDisasterRecoveryActive(): ?bool {
+        $val = $this->getBackingStore()->get('isDisasterRecoveryActive');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDisasterRecoveryActive'");
     }
 
     /**
@@ -409,7 +422,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the scopeIds property value. The scopeIds property
+     * Gets the scopeIds property value. The scope IDs of the corresponding permission. Currently, it's the Intune scope tag ID. Read-only.
      * @return array<string>|null
     */
     public function getScopeIds(): ?array {
@@ -573,6 +586,7 @@ class CloudPC extends Entity implements Parsable
         $writer->writeDateTimeValue('gracePeriodEndDateTime', $this->getGracePeriodEndDateTime());
         $writer->writeObjectValue('groupDetail', $this->getGroupDetail());
         $writer->writeStringValue('imageDisplayName', $this->getImageDisplayName());
+        $writer->writeBooleanValue('isDisasterRecoveryActive', $this->getIsDisasterRecoveryActive());
         $writer->writeObjectValue('lastLoginResult', $this->getLastLoginResult());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeObjectValue('lastRemoteActionResult', $this->getLastRemoteActionResult());
@@ -618,7 +632,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the connectionSetting property value. The connection setting of the Cloud PC. Possible values: enableSingleSignOn. Read Only.
+     * Sets the connectionSetting property value. The connection setting of the Cloud PC. Possible values: enableSingleSignOn. Read-only.
      * @param CloudPcConnectionSetting|null $value Value to set for the connectionSetting property.
     */
     public function setConnectionSetting(?CloudPcConnectionSetting $value): void {
@@ -703,6 +717,14 @@ class CloudPC extends Entity implements Parsable
     */
     public function setImageDisplayName(?string $value): void {
         $this->getBackingStore()->set('imageDisplayName', $value);
+    }
+
+    /**
+     * Sets the isDisasterRecoveryActive property value. The isDisasterRecoveryActive property
+     * @param bool|null $value Value to set for the isDisasterRecoveryActive property.
+    */
+    public function setIsDisasterRecoveryActive(?bool $value): void {
+        $this->getBackingStore()->set('isDisasterRecoveryActive', $value);
     }
 
     /**
@@ -818,7 +840,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the scopeIds property value. The scopeIds property
+     * Sets the scopeIds property value. The scope IDs of the corresponding permission. Currently, it's the Intune scope tag ID. Read-only.
      * @param array<string>|null $value Value to set for the scopeIds property.
     */
     public function setScopeIds(?array $value): void {

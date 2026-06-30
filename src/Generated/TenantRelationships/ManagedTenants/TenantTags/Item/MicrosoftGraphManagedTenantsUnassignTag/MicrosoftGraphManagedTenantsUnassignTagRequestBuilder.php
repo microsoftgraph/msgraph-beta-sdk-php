@@ -33,12 +33,12 @@ class MicrosoftGraphManagedTenantsUnassignTagRequestBuilder extends BaseRequestB
     /**
      * Un-assigns the tenant tag from the specified managed tenants.
      * @param UnassignTagPostRequestBody $body The request body
-     * @param MicrosoftGraphManagedTenantsUnassignTagRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphManagedTenantsUnassignTagRequestBuilderPo_565fea8d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantTag|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/managedtenants-tenanttag-unassigntag?view=graph-rest-beta Find more info here
     */
-    public function post(UnassignTagPostRequestBody $body, ?MicrosoftGraphManagedTenantsUnassignTagRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(UnassignTagPostRequestBody $body, ?MicrosoftGraphManagedTenantsUnassignTagRequestBuilderPo_565fea8d $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,10 +49,10 @@ class MicrosoftGraphManagedTenantsUnassignTagRequestBuilder extends BaseRequestB
     /**
      * Un-assigns the tenant tag from the specified managed tenants.
      * @param UnassignTagPostRequestBody $body The request body
-     * @param MicrosoftGraphManagedTenantsUnassignTagRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphManagedTenantsUnassignTagRequestBuilderPo_565fea8d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(UnassignTagPostRequestBody $body, ?MicrosoftGraphManagedTenantsUnassignTagRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(UnassignTagPostRequestBody $body, ?MicrosoftGraphManagedTenantsUnassignTagRequestBuilderPo_565fea8d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

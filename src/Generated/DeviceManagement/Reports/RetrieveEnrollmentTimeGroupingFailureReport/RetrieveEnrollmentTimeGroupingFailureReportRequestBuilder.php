@@ -33,11 +33,11 @@ class RetrieveEnrollmentTimeGroupingFailureReportRequestBuilder extends BaseRequ
     /**
      * Invoke action retrieveEnrollmentTimeGroupingFailureReport
      * @param RetrieveEnrollmentTimeGroupingFailureReportPostRequestBody $body The request body
-     * @param RetrieveEnrollmentTimeGroupingFailureReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveEnrollmentTimeGroupingFailureReportRequestBuild_d7e03ae9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(RetrieveEnrollmentTimeGroupingFailureReportPostRequestBody $body, ?RetrieveEnrollmentTimeGroupingFailureReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(RetrieveEnrollmentTimeGroupingFailureReportPostRequestBody $body, ?RetrieveEnrollmentTimeGroupingFailureReportRequestBuild_d7e03ae9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class RetrieveEnrollmentTimeGroupingFailureReportRequestBuilder extends BaseRequ
     /**
      * Invoke action retrieveEnrollmentTimeGroupingFailureReport
      * @param RetrieveEnrollmentTimeGroupingFailureReportPostRequestBody $body The request body
-     * @param RetrieveEnrollmentTimeGroupingFailureReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveEnrollmentTimeGroupingFailureReportRequestBuild_d7e03ae9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(RetrieveEnrollmentTimeGroupingFailureReportPostRequestBody $body, ?RetrieveEnrollmentTimeGroupingFailureReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(RetrieveEnrollmentTimeGroupingFailureReportPostRequestBody $body, ?RetrieveEnrollmentTimeGroupingFailureReportRequestBuild_d7e03ae9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
