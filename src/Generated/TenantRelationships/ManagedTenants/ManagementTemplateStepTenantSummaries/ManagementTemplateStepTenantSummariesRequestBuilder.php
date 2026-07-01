@@ -53,11 +53,11 @@ class ManagementTemplateStepTenantSummariesRequestBuilder extends BaseRequestBui
 
     /**
      * Get managementTemplateStepTenantSummaries from tenantRelationships
-     * @param ManagementTemplateStepTenantSummariesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepTenantSummariesRequestBuilderGetR_42ed8bd8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementTemplateStepTenantSummaryCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?ManagementTemplateStepTenantSummariesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagementTemplateStepTenantSummariesRequestBuilderGetR_42ed8bd8 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class ManagementTemplateStepTenantSummariesRequestBuilder extends BaseRequestBui
     /**
      * Create new navigation property to managementTemplateStepTenantSummaries for tenantRelationships
      * @param ManagementTemplateStepTenantSummary $body The request body
-     * @param ManagementTemplateStepTenantSummariesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepTenantSummariesRequestBuilderPost_c9fec714|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementTemplateStepTenantSummary|null>
      * @throws Exception
     */
-    public function post(ManagementTemplateStepTenantSummary $body, ?ManagementTemplateStepTenantSummariesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ManagementTemplateStepTenantSummary $body, ?ManagementTemplateStepTenantSummariesRequestBuilderPost_c9fec714 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class ManagementTemplateStepTenantSummariesRequestBuilder extends BaseRequestBui
 
     /**
      * Get managementTemplateStepTenantSummaries from tenantRelationships
-     * @param ManagementTemplateStepTenantSummariesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepTenantSummariesRequestBuilderGetR_42ed8bd8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagementTemplateStepTenantSummariesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagementTemplateStepTenantSummariesRequestBuilderGetR_42ed8bd8 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class ManagementTemplateStepTenantSummariesRequestBuilder extends BaseRequestBui
     /**
      * Create new navigation property to managementTemplateStepTenantSummaries for tenantRelationships
      * @param ManagementTemplateStepTenantSummary $body The request body
-     * @param ManagementTemplateStepTenantSummariesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepTenantSummariesRequestBuilderPost_c9fec714|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ManagementTemplateStepTenantSummary $body, ?ManagementTemplateStepTenantSummariesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ManagementTemplateStepTenantSummary $body, ?ManagementTemplateStepTenantSummariesRequestBuilderPost_c9fec714 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

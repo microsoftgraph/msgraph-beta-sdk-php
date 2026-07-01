@@ -32,11 +32,11 @@ class GetComanagementEligibleDevicesSummaryRequestBuilder extends BaseRequestBui
 
     /**
      * Invoke function getComanagementEligibleDevicesSummary
-     * @param GetComanagementEligibleDevicesSummaryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetComanagementEligibleDevicesSummaryRequestBuilderGetR_d3670447|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ComanagementEligibleDevicesSummary|null>
      * @throws Exception
     */
-    public function get(?GetComanagementEligibleDevicesSummaryRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetComanagementEligibleDevicesSummaryRequestBuilderGetR_d3670447 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class GetComanagementEligibleDevicesSummaryRequestBuilder extends BaseRequestBui
 
     /**
      * Invoke function getComanagementEligibleDevicesSummary
-     * @param GetComanagementEligibleDevicesSummaryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetComanagementEligibleDevicesSummaryRequestBuilderGetR_d3670447|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetComanagementEligibleDevicesSummaryRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetComanagementEligibleDevicesSummaryRequestBuilderGetR_d3670447 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

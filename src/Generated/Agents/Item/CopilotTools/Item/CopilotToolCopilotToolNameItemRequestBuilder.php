@@ -32,11 +32,11 @@ class CopilotToolCopilotToolNameItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property copilotTools for agents
-     * @param CopilotToolCopilotToolNameItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CopilotToolCopilotToolNameItemRequestBuilderDeleteReque_c342ce04|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CopilotToolCopilotToolNameItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CopilotToolCopilotToolNameItemRequestBuilderDeleteReque_c342ce04 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class CopilotToolCopilotToolNameItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get copilotTools from agents
-     * @param CopilotToolCopilotToolNameItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CopilotToolCopilotToolNameItemRequestBuilderGetRequestC_9d66c6dc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CopilotTool|null>
      * @throws Exception
     */
-    public function get(?CopilotToolCopilotToolNameItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CopilotToolCopilotToolNameItemRequestBuilderGetRequestC_9d66c6dc $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class CopilotToolCopilotToolNameItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property copilotTools in agents
      * @param CopilotTool $body The request body
-     * @param CopilotToolCopilotToolNameItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CopilotToolCopilotToolNameItemRequestBuilderPatchReques_d5dc0b2b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CopilotTool|null>
      * @throws Exception
     */
-    public function patch(CopilotTool $body, ?CopilotToolCopilotToolNameItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(CopilotTool $body, ?CopilotToolCopilotToolNameItemRequestBuilderPatchReques_d5dc0b2b $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class CopilotToolCopilotToolNameItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property copilotTools for agents
-     * @param CopilotToolCopilotToolNameItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CopilotToolCopilotToolNameItemRequestBuilderDeleteReque_c342ce04|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CopilotToolCopilotToolNameItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CopilotToolCopilotToolNameItemRequestBuilderDeleteReque_c342ce04 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class CopilotToolCopilotToolNameItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get copilotTools from agents
-     * @param CopilotToolCopilotToolNameItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CopilotToolCopilotToolNameItemRequestBuilderGetRequestC_9d66c6dc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CopilotToolCopilotToolNameItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CopilotToolCopilotToolNameItemRequestBuilderGetRequestC_9d66c6dc $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class CopilotToolCopilotToolNameItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property copilotTools in agents
      * @param CopilotTool $body The request body
-     * @param CopilotToolCopilotToolNameItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CopilotToolCopilotToolNameItemRequestBuilderPatchReques_d5dc0b2b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CopilotTool $body, ?CopilotToolCopilotToolNameItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(CopilotTool $body, ?CopilotToolCopilotToolNameItemRequestBuilderPatchReques_d5dc0b2b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -32,11 +32,11 @@ class EmailThreatSubmissionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property emailThreats for threatSubmission
-     * @param EmailThreatSubmissionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmailThreatSubmissionItemRequestBuilderDeleteRequestCon_450b0ac4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?EmailThreatSubmissionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?EmailThreatSubmissionItemRequestBuilderDeleteRequestCon_450b0ac4 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class EmailThreatSubmissionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property emailThreats for threatSubmission
-     * @param EmailThreatSubmissionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmailThreatSubmissionItemRequestBuilderDeleteRequestCon_450b0ac4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?EmailThreatSubmissionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?EmailThreatSubmissionItemRequestBuilderDeleteRequestCon_450b0ac4 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

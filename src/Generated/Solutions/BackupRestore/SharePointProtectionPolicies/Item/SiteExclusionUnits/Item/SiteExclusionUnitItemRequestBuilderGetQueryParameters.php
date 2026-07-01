@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointProte
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get siteExclusionUnits from solutions
+ * Get a site exclusion unit associated with a SharePoint protection policy.
 */
 class SiteExclusionUnitItemRequestBuilderGetQueryParameters 
 {

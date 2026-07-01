@@ -365,7 +365,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the cloudPcPools property value. The cloudPcPools property
+     * Gets the cloudPcPools property value. The user's Cloud PC pools. Read-only. Nullable.
      * @return array<CloudPcPool>|null
     */
     public function getCloudPcPools(): ?array {
@@ -649,6 +649,20 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the distributionLists property value. The personal distribution lists in the user's mailbox. Read-only. Nullable.
+     * @return array<DistributionList>|null
+    */
+    public function getDistributionLists(): ?array {
+        $val = $this->getBackingStore()->get('distributionLists');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DistributionList::class);
+            /** @var array<DistributionList>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'distributionLists'");
+    }
+
+    /**
      * Gets the drive property value. The user's OneDrive. Read-only.
      * @return Drive|null
     */
@@ -883,6 +897,7 @@ class User extends DirectoryObject implements Parsable
             'devices' => fn(ParseNode $n) => $o->setDevices($n->getCollectionOfObjectValues([Device::class, 'createFromDiscriminatorValue'])),
             'directReports' => fn(ParseNode $n) => $o->setDirectReports($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'distributionLists' => fn(ParseNode $n) => $o->setDistributionLists($n->getCollectionOfObjectValues([DistributionList::class, 'createFromDiscriminatorValue'])),
             'drive' => fn(ParseNode $n) => $o->setDrive($n->getObjectValue([Drive::class, 'createFromDiscriminatorValue'])),
             'drives' => fn(ParseNode $n) => $o->setDrives($n->getCollectionOfObjectValues([Drive::class, 'createFromDiscriminatorValue'])),
             'employeeExperience' => fn(ParseNode $n) => $o->setEmployeeExperience($n->getObjectValue([EmployeeExperienceUser::class, 'createFromDiscriminatorValue'])),
@@ -1119,7 +1134,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the identityGovernance property value. The identityGovernance property
+     * Gets the identityGovernance property value. The identity governance settings for the user, including the approver delegate configuration. Nullable. Returned only on $select. Supports $expand.
      * @return IdentityGovernanceUserSettings|null
     */
     public function getIdentityGovernance(): ?IdentityGovernanceUserSettings {
@@ -1257,7 +1272,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the isResourceAccount property value. Do not use – reserved for future use.
+     * Gets the isResourceAccount property value. Do not use. Reserved for future use.
      * @return bool|null
     */
     public function getIsResourceAccount(): ?bool {
@@ -2439,6 +2454,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('devices', $this->getDevices());
         $writer->writeCollectionOfObjectValues('directReports', $this->getDirectReports());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfObjectValues('distributionLists', $this->getDistributionLists());
         $writer->writeObjectValue('drive', $this->getDrive());
         $writer->writeCollectionOfObjectValues('drives', $this->getDrives());
         $writer->writeObjectValue('employeeExperience', $this->getEmployeeExperience());
@@ -2759,7 +2775,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the cloudPcPools property value. The cloudPcPools property
+     * Sets the cloudPcPools property value. The user's Cloud PC pools. Read-only. Nullable.
      * @param array<CloudPcPool>|null $value Value to set for the cloudPcPools property.
     */
     public function setCloudPcPools(?array $value): void {
@@ -2935,6 +2951,14 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
+     * Sets the distributionLists property value. The personal distribution lists in the user's mailbox. Read-only. Nullable.
+     * @param array<DistributionList>|null $value Value to set for the distributionLists property.
+    */
+    public function setDistributionLists(?array $value): void {
+        $this->getBackingStore()->set('distributionLists', $value);
+    }
+
+    /**
      * Sets the drive property value. The user's OneDrive. Read-only.
      * @param Drive|null $value Value to set for the drive property.
     */
@@ -3079,7 +3103,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the identityGovernance property value. The identityGovernance property
+     * Sets the identityGovernance property value. The identity governance settings for the user, including the approver delegate configuration. Nullable. Returned only on $select. Supports $expand.
      * @param IdentityGovernanceUserSettings|null $value Value to set for the identityGovernance property.
     */
     public function setIdentityGovernance(?IdentityGovernanceUserSettings $value): void {
@@ -3167,7 +3191,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the isResourceAccount property value. Do not use – reserved for future use.
+     * Sets the isResourceAccount property value. Do not use. Reserved for future use.
      * @param bool|null $value Value to set for the isResourceAccount property.
     */
     public function setIsResourceAccount(?bool $value): void {

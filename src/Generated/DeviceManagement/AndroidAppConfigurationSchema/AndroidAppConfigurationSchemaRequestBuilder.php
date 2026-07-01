@@ -40,11 +40,11 @@ class AndroidAppConfigurationSchemaRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property androidAppConfigurationSchema for deviceManagement
-     * @param AndroidAppConfigurationSchemaRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidAppConfigurationSchemaRequestBuilderDeleteReques_86bd7d45|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?AndroidAppConfigurationSchemaRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?AndroidAppConfigurationSchemaRequestBuilderDeleteReques_86bd7d45 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,11 +54,11 @@ class AndroidAppConfigurationSchemaRequestBuilder extends BaseRequestBuilder
 
     /**
      * Android App Configurations Schema entity.
-     * @param AndroidAppConfigurationSchemaRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidAppConfigurationSchemaRequestBuilderGetRequestCo_8e8f12bf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AndroidAppConfigurationSchema|null>
      * @throws Exception
     */
-    public function get(?AndroidAppConfigurationSchemaRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AndroidAppConfigurationSchemaRequestBuilderGetRequestCo_8e8f12bf $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class AndroidAppConfigurationSchemaRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property androidAppConfigurationSchema in deviceManagement
      * @param AndroidAppConfigurationSchema $body The request body
-     * @param AndroidAppConfigurationSchemaRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidAppConfigurationSchemaRequestBuilderPatchRequest_d20c7e20|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AndroidAppConfigurationSchema|null>
      * @throws Exception
     */
-    public function patch(AndroidAppConfigurationSchema $body, ?AndroidAppConfigurationSchemaRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(AndroidAppConfigurationSchema $body, ?AndroidAppConfigurationSchemaRequestBuilderPatchRequest_d20c7e20 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class AndroidAppConfigurationSchemaRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property androidAppConfigurationSchema for deviceManagement
-     * @param AndroidAppConfigurationSchemaRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidAppConfigurationSchemaRequestBuilderDeleteReques_86bd7d45|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?AndroidAppConfigurationSchemaRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?AndroidAppConfigurationSchemaRequestBuilderDeleteReques_86bd7d45 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -101,10 +101,10 @@ class AndroidAppConfigurationSchemaRequestBuilder extends BaseRequestBuilder
 
     /**
      * Android App Configurations Schema entity.
-     * @param AndroidAppConfigurationSchemaRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidAppConfigurationSchemaRequestBuilderGetRequestCo_8e8f12bf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AndroidAppConfigurationSchemaRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AndroidAppConfigurationSchemaRequestBuilderGetRequestCo_8e8f12bf $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -123,10 +123,10 @@ class AndroidAppConfigurationSchemaRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property androidAppConfigurationSchema in deviceManagement
      * @param AndroidAppConfigurationSchema $body The request body
-     * @param AndroidAppConfigurationSchemaRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidAppConfigurationSchemaRequestBuilderPatchRequest_d20c7e20|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(AndroidAppConfigurationSchema $body, ?AndroidAppConfigurationSchemaRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(AndroidAppConfigurationSchema $body, ?AndroidAppConfigurationSchemaRequestBuilderPatchRequest_d20c7e20 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

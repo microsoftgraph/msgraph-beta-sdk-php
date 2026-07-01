@@ -35,11 +35,11 @@ class AccessPackagesIncompatibleWithWithUniqueNameRequestBuilder extends BaseReq
 
     /**
      * The access packages that are incompatible with this package. Read-only.
-     * @param AccessPackagesIncompatibleWithWithUniqueNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackagesIncompatibleWithWithUniqueNameRequestBuil_41d9ffab|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackage|null>
      * @throws Exception
     */
-    public function get(?AccessPackagesIncompatibleWithWithUniqueNameRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AccessPackagesIncompatibleWithWithUniqueNameRequestBuil_41d9ffab $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,10 +49,10 @@ class AccessPackagesIncompatibleWithWithUniqueNameRequestBuilder extends BaseReq
 
     /**
      * The access packages that are incompatible with this package. Read-only.
-     * @param AccessPackagesIncompatibleWithWithUniqueNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackagesIncompatibleWithWithUniqueNameRequestBuil_41d9ffab|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AccessPackagesIncompatibleWithWithUniqueNameRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AccessPackagesIncompatibleWithWithUniqueNameRequestBuil_41d9ffab $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

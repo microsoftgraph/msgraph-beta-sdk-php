@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\ApplicationTemplates;
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\ApplicationTemplates\Categories\CategoriesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ApplicationTemplates\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ApplicationTemplates\Item\ApplicationTemplateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ApplicationTemplateCollectionResponse;
@@ -18,6 +19,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class ApplicationTemplatesRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to call the categories method.
+    */
+    public function categories(): CategoriesRequestBuilder {
+        return new CategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to count the resources in the collection.
     */

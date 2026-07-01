@@ -69,11 +69,11 @@ class AggregatedPolicyCompliancesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to aggregatedPolicyCompliances for tenantRelationships
      * @param AggregatedPolicyCompliance $body The request body
-     * @param AggregatedPolicyCompliancesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AggregatedPolicyCompliancesRequestBuilderPostRequestCon_d65dc620|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AggregatedPolicyCompliance|null>
      * @throws Exception
     */
-    public function post(AggregatedPolicyCompliance $body, ?AggregatedPolicyCompliancesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AggregatedPolicyCompliance $body, ?AggregatedPolicyCompliancesRequestBuilderPostRequestCon_d65dc620 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -105,10 +105,10 @@ class AggregatedPolicyCompliancesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to aggregatedPolicyCompliances for tenantRelationships
      * @param AggregatedPolicyCompliance $body The request body
-     * @param AggregatedPolicyCompliancesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AggregatedPolicyCompliancesRequestBuilderPostRequestCon_d65dc620|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AggregatedPolicyCompliance $body, ?AggregatedPolicyCompliancesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AggregatedPolicyCompliance $body, ?AggregatedPolicyCompliancesRequestBuilderPostRequestCon_d65dc620 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

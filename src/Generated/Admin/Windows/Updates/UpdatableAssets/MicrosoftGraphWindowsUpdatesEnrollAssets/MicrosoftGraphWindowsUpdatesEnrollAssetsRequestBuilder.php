@@ -30,13 +30,13 @@ class MicrosoftGraphWindowsUpdatesEnrollAssetsRequestBuilder extends BaseRequest
     }
 
     /**
-     * Enroll updatableAsset resources in update management by Windows Autopatch. You can enroll an azureADDevice resource in update management, but may not enroll an updatableAssetGroup in update management. Enrolling a Microsoft Entra device in update management automatically creates an azureADDevice object if it does not already exist. You can also use the method enrollAssetsById to enroll assets.
+     * Enroll updatableAsset resources in update management by Windows Autopatch. You can enroll an azureADDevice resource in update management, but may not enroll an updatableAssetGroup in update management. Enrolling a Microsoft Entra device in update management automatically creates an azureADDevice object if it doesn't already exist. You can also use the method enrollAssetsById to enroll assets.
      * @param EnrollAssetsPostRequestBody $body The request body
-     * @param MicrosoftGraphWindowsUpdatesEnrollAssetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphWindowsUpdatesEnrollAssetsRequestBuilderP_c5a4f526|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(EnrollAssetsPostRequestBody $body, ?MicrosoftGraphWindowsUpdatesEnrollAssetsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(EnrollAssetsPostRequestBody $body, ?MicrosoftGraphWindowsUpdatesEnrollAssetsRequestBuilderP_c5a4f526 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,12 +45,12 @@ class MicrosoftGraphWindowsUpdatesEnrollAssetsRequestBuilder extends BaseRequest
     }
 
     /**
-     * Enroll updatableAsset resources in update management by Windows Autopatch. You can enroll an azureADDevice resource in update management, but may not enroll an updatableAssetGroup in update management. Enrolling a Microsoft Entra device in update management automatically creates an azureADDevice object if it does not already exist. You can also use the method enrollAssetsById to enroll assets.
+     * Enroll updatableAsset resources in update management by Windows Autopatch. You can enroll an azureADDevice resource in update management, but may not enroll an updatableAssetGroup in update management. Enrolling a Microsoft Entra device in update management automatically creates an azureADDevice object if it doesn't already exist. You can also use the method enrollAssetsById to enroll assets.
      * @param EnrollAssetsPostRequestBody $body The request body
-     * @param MicrosoftGraphWindowsUpdatesEnrollAssetsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphWindowsUpdatesEnrollAssetsRequestBuilderP_c5a4f526|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(EnrollAssetsPostRequestBody $body, ?MicrosoftGraphWindowsUpdatesEnrollAssetsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(EnrollAssetsPostRequestBody $body, ?MicrosoftGraphWindowsUpdatesEnrollAssetsRequestBuilderP_c5a4f526 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

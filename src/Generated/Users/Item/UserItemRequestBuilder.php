@@ -40,6 +40,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\DeviceManagementTroubleshootingEve
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\DevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\DevicesWithDeviceId\DevicesWithDeviceIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\DirectReports\DirectReportsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\DistributionLists\DistributionListsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drive\DriveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\DrivesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\EmployeeExperience\EmployeeExperienceRequestBuilder;
@@ -360,6 +361,13 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     */
     public function directReports(): DirectReportsRequestBuilder {
         return new DirectReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the distributionLists property of the microsoft.graph.user entity.
+    */
+    public function distributionLists(): DistributionListsRequestBuilder {
+        return new DistributionListsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

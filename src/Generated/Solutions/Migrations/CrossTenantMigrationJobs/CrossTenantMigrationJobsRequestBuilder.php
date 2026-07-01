@@ -75,7 +75,7 @@ class CrossTenantMigrationJobsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new crossTenantMigrationJob.
+     * Create a new crossTenantMigrationJob. A job defines the migration batch but doesn't start validation or migration. After you create the job, call validate to verify tenant and resource configuration, then call migrate to begin the actual migration.
      * @param CrossTenantMigrationJob $body The request body
      * @param CrossTenantMigrationJobsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CrossTenantMigrationJob|null>
@@ -112,7 +112,7 @@ class CrossTenantMigrationJobsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new crossTenantMigrationJob.
+     * Create a new crossTenantMigrationJob. A job defines the migration batch but doesn't start validation or migration. After you create the job, call validate to verify tenant and resource configuration, then call migrate to begin the actual migration.
      * @param CrossTenantMigrationJob $body The request body
      * @param CrossTenantMigrationJobsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

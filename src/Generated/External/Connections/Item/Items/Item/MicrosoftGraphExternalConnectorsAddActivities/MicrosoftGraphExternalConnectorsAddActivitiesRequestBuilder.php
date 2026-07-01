@@ -32,11 +32,11 @@ class MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder extends BaseRe
     /**
      * Invoke action addActivities
      * @param AddActivitiesPostRequestBody $body The request body
-     * @param MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphExternalConnectorsAddActivitiesRequestBui_e57480e9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AddActivitiesPostResponse|null>
      * @throws Exception
     */
-    public function post(AddActivitiesPostRequestBody $body, ?MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AddActivitiesPostRequestBody $body, ?MicrosoftGraphExternalConnectorsAddActivitiesRequestBui_e57480e9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,10 +47,10 @@ class MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder extends BaseRe
     /**
      * Invoke action addActivities
      * @param AddActivitiesPostRequestBody $body The request body
-     * @param MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphExternalConnectorsAddActivitiesRequestBui_e57480e9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AddActivitiesPostRequestBody $body, ?MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AddActivitiesPostRequestBody $body, ?MicrosoftGraphExternalConnectorsAddActivitiesRequestBui_e57480e9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

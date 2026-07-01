@@ -48,7 +48,7 @@ class RestorePointSearchResult implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the artifactHitCount property value. Total number of mailbox items that can be restored for a granular restore session.
+     * Gets the artifactHitCount property value. The number of items that match the specified search criteria and were changed within the given time range.
      * @return int|null
     */
     public function getArtifactHitCount(): ?int {
@@ -124,7 +124,7 @@ class RestorePointSearchResult implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the artifactHitCount property value. Total number of mailbox items that can be restored for a granular restore session.
+     * Sets the artifactHitCount property value. The number of items that match the specified search criteria and were changed within the given time range.
      * @param int|null $value Value to set for the artifactHitCount property.
     */
     public function setArtifactHitCount(?int $value): void {

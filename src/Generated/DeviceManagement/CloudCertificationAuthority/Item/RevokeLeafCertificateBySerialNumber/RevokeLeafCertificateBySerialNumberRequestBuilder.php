@@ -33,11 +33,11 @@ class RevokeLeafCertificateBySerialNumberRequestBuilder extends BaseRequestBuild
     /**
      * Invoke action revokeLeafCertificateBySerialNumber
      * @param RevokeLeafCertificateBySerialNumberPostRequestBody $body The request body
-     * @param RevokeLeafCertificateBySerialNumberRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RevokeLeafCertificateBySerialNumberRequestBuilderPostRe_06c4c1d9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudCertificationAuthorityLeafCertificate|null>
      * @throws Exception
     */
-    public function post(RevokeLeafCertificateBySerialNumberPostRequestBody $body, ?RevokeLeafCertificateBySerialNumberRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(RevokeLeafCertificateBySerialNumberPostRequestBody $body, ?RevokeLeafCertificateBySerialNumberRequestBuilderPostRe_06c4c1d9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class RevokeLeafCertificateBySerialNumberRequestBuilder extends BaseRequestBuild
     /**
      * Invoke action revokeLeafCertificateBySerialNumber
      * @param RevokeLeafCertificateBySerialNumberPostRequestBody $body The request body
-     * @param RevokeLeafCertificateBySerialNumberRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RevokeLeafCertificateBySerialNumberRequestBuilderPostRe_06c4c1d9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(RevokeLeafCertificateBySerialNumberPostRequestBody $body, ?RevokeLeafCertificateBySerialNumberRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(RevokeLeafCertificateBySerialNumberPostRequestBody $body, ?RevokeLeafCertificateBySerialNumberRequestBuilderPostRe_06c4c1d9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

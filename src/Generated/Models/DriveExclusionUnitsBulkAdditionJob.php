@@ -27,7 +27,7 @@ class DriveExclusionUnitsBulkAdditionJob extends ExclusionUnitBulkAdditionJob im
     }
 
     /**
-     * Gets the drives property value. The drives property
+     * Gets the drives property value. The email addresses or user principal names of the users whose OneDrive drives are to be added as exclusion units to the protection policy.
      * @return array<string>|null
     */
     public function getDrives(): ?array {
@@ -68,7 +68,7 @@ class DriveExclusionUnitsBulkAdditionJob extends ExclusionUnitBulkAdditionJob im
     }
 
     /**
-     * Sets the drives property value. The drives property
+     * Sets the drives property value. The email addresses or user principal names of the users whose OneDrive drives are to be added as exclusion units to the protection policy.
      * @param array<string>|null $value Value to set for the drives property.
     */
     public function setDrives(?array $value): void {

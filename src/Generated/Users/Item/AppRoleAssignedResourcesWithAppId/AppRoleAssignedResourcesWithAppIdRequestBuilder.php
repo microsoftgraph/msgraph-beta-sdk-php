@@ -35,11 +35,11 @@ class AppRoleAssignedResourcesWithAppIdRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get appRoleAssignedResources from users
-     * @param AppRoleAssignedResourcesWithAppIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppRoleAssignedResourcesWithAppIdRequestBuilderGetReque_27b182ad|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServicePrincipal|null>
      * @throws Exception
     */
-    public function get(?AppRoleAssignedResourcesWithAppIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AppRoleAssignedResourcesWithAppIdRequestBuilderGetReque_27b182ad $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,10 +49,10 @@ class AppRoleAssignedResourcesWithAppIdRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get appRoleAssignedResources from users
-     * @param AppRoleAssignedResourcesWithAppIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppRoleAssignedResourcesWithAppIdRequestBuilderGetReque_27b182ad|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AppRoleAssignedResourcesWithAppIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AppRoleAssignedResourcesWithAppIdRequestBuilderGetReque_27b182ad $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

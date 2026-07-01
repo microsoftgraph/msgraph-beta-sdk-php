@@ -32,11 +32,11 @@ class WindowsProtectionStateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property windowsProtectionStates for tenantRelationships
-     * @param WindowsProtectionStateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsProtectionStateItemRequestBuilderDeleteRequestCo_0fe40b91|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?WindowsProtectionStateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?WindowsProtectionStateItemRequestBuilderDeleteRequestCo_0fe40b91 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class WindowsProtectionStateItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property windowsProtectionStates in tenantRelationships
      * @param WindowsProtectionState $body The request body
-     * @param WindowsProtectionStateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsProtectionStateItemRequestBuilderPatchRequestCon_e8a5644c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsProtectionState|null>
      * @throws Exception
     */
-    public function patch(WindowsProtectionState $body, ?WindowsProtectionStateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(WindowsProtectionState $body, ?WindowsProtectionStateItemRequestBuilderPatchRequestCon_e8a5644c $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -76,10 +76,10 @@ class WindowsProtectionStateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property windowsProtectionStates for tenantRelationships
-     * @param WindowsProtectionStateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsProtectionStateItemRequestBuilderDeleteRequestCo_0fe40b91|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?WindowsProtectionStateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?WindowsProtectionStateItemRequestBuilderDeleteRequestCo_0fe40b91 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -116,10 +116,10 @@ class WindowsProtectionStateItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property windowsProtectionStates in tenantRelationships
      * @param WindowsProtectionState $body The request body
-     * @param WindowsProtectionStateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsProtectionStateItemRequestBuilderPatchRequestCon_e8a5644c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(WindowsProtectionState $body, ?WindowsProtectionStateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(WindowsProtectionState $body, ?WindowsProtectionStateItemRequestBuilderPatchRequestCon_e8a5644c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

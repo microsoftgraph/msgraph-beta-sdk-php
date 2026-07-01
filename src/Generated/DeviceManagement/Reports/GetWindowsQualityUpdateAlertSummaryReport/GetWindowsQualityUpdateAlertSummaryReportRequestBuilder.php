@@ -33,11 +33,11 @@ class GetWindowsQualityUpdateAlertSummaryReportRequestBuilder extends BaseReques
     /**
      * Invoke action getWindowsQualityUpdateAlertSummaryReport
      * @param GetWindowsQualityUpdateAlertSummaryReportPostRequestBody $body The request body
-     * @param GetWindowsQualityUpdateAlertSummaryReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetWindowsQualityUpdateAlertSummaryReportRequestBuilder_ac2d6939|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(GetWindowsQualityUpdateAlertSummaryReportPostRequestBody $body, ?GetWindowsQualityUpdateAlertSummaryReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetWindowsQualityUpdateAlertSummaryReportPostRequestBody $body, ?GetWindowsQualityUpdateAlertSummaryReportRequestBuilder_ac2d6939 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class GetWindowsQualityUpdateAlertSummaryReportRequestBuilder extends BaseReques
     /**
      * Invoke action getWindowsQualityUpdateAlertSummaryReport
      * @param GetWindowsQualityUpdateAlertSummaryReportPostRequestBody $body The request body
-     * @param GetWindowsQualityUpdateAlertSummaryReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetWindowsQualityUpdateAlertSummaryReportRequestBuilder_ac2d6939|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetWindowsQualityUpdateAlertSummaryReportPostRequestBody $body, ?GetWindowsQualityUpdateAlertSummaryReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetWindowsQualityUpdateAlertSummaryReportPostRequestBody $body, ?GetWindowsQualityUpdateAlertSummaryReportRequestBuilder_ac2d6939 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

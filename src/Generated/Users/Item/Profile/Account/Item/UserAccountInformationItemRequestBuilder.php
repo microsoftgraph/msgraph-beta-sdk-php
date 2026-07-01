@@ -32,11 +32,11 @@ class UserAccountInformationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property account for users
-     * @param UserAccountInformationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserAccountInformationItemRequestBuilderDeleteRequestCo_ea1f35e9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?UserAccountInformationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?UserAccountInformationItemRequestBuilderDeleteRequestCo_ea1f35e9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class UserAccountInformationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property account in users
      * @param UserAccountInformation $body The request body
-     * @param UserAccountInformationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserAccountInformationItemRequestBuilderPatchRequestCon_5357d322|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserAccountInformation|null>
      * @throws Exception
     */
-    public function patch(UserAccountInformation $body, ?UserAccountInformationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(UserAccountInformation $body, ?UserAccountInformationItemRequestBuilderPatchRequestCon_5357d322 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class UserAccountInformationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property account for users
-     * @param UserAccountInformationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserAccountInformationItemRequestBuilderDeleteRequestCo_ea1f35e9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?UserAccountInformationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?UserAccountInformationItemRequestBuilderDeleteRequestCo_ea1f35e9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class UserAccountInformationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property account in users
      * @param UserAccountInformation $body The request body
-     * @param UserAccountInformationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserAccountInformationItemRequestBuilderPatchRequestCon_5357d322|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(UserAccountInformation $body, ?UserAccountInformationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(UserAccountInformation $body, ?UserAccountInformationItemRequestBuilderPatchRequestCon_5357d322 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

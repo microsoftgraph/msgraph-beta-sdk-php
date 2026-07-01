@@ -53,11 +53,11 @@ class ReferencingConfigurationPoliciesRequestBuilder extends BaseRequestBuilder
 
     /**
      * configuration policies referencing the current reusable setting. This property is read-only.
-     * @param ReferencingConfigurationPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ReferencingConfigurationPoliciesRequestBuilderGetReques_98ec9278|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementConfigurationPolicyCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?ReferencingConfigurationPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ReferencingConfigurationPoliciesRequestBuilderGetReques_98ec9278 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class ReferencingConfigurationPoliciesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to referencingConfigurationPolicies for deviceManagement
      * @param DeviceManagementConfigurationPolicy $body The request body
-     * @param ReferencingConfigurationPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ReferencingConfigurationPoliciesRequestBuilderPostReque_0731a7a9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementConfigurationPolicy|null>
      * @throws Exception
     */
-    public function post(DeviceManagementConfigurationPolicy $body, ?ReferencingConfigurationPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(DeviceManagementConfigurationPolicy $body, ?ReferencingConfigurationPoliciesRequestBuilderPostReque_0731a7a9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class ReferencingConfigurationPoliciesRequestBuilder extends BaseRequestBuilder
 
     /**
      * configuration policies referencing the current reusable setting. This property is read-only.
-     * @param ReferencingConfigurationPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ReferencingConfigurationPoliciesRequestBuilderGetReques_98ec9278|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ReferencingConfigurationPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ReferencingConfigurationPoliciesRequestBuilderGetReques_98ec9278 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class ReferencingConfigurationPoliciesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to referencingConfigurationPolicies for deviceManagement
      * @param DeviceManagementConfigurationPolicy $body The request body
-     * @param ReferencingConfigurationPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ReferencingConfigurationPoliciesRequestBuilderPostReque_0731a7a9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(DeviceManagementConfigurationPolicy $body, ?ReferencingConfigurationPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(DeviceManagementConfigurationPolicy $body, ?ReferencingConfigurationPoliciesRequestBuilderPostReque_0731a7a9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

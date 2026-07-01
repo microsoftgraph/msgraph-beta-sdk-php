@@ -31,12 +31,12 @@ class MicrosoftGraphIndustryDataValidateRequestBuilder extends BaseRequestBuilde
 
     /**
      * Perform validations applicable for the specific instance of the data connector.
-     * @param MicrosoftGraphIndustryDataValidateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphIndustryDataValidateRequestBuilderPostReq_83862f11|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/industrydata-industrydataconnector-validate?view=graph-rest-beta Find more info here
     */
-    public function post(?MicrosoftGraphIndustryDataValidateRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?MicrosoftGraphIndustryDataValidateRequestBuilderPostReq_83862f11 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class MicrosoftGraphIndustryDataValidateRequestBuilder extends BaseRequestBuilde
 
     /**
      * Perform validations applicable for the specific instance of the data connector.
-     * @param MicrosoftGraphIndustryDataValidateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphIndustryDataValidateRequestBuilderPostReq_83862f11|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?MicrosoftGraphIndustryDataValidateRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?MicrosoftGraphIndustryDataValidateRequestBuilderPostReq_83862f11 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

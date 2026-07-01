@@ -10,7 +10,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\As
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\DeviceSettingStateSummaries\DeviceSettingStateSummariesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\DeviceStatuses\DeviceStatusesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\DeviceStatusOverview\DeviceStatusOverviewRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\GetOmaSettingPlainTextValueWithSecretReferenceValueId\GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\GetOmaSettingPlainTextValueWithSecretReferenceValueId\GetOmaSettingPlainTextValueWithSecretReferenceValueIdRe_f6b2f2f2;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\GroupAssignments\GroupAssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\UserStatuses\UserStatusesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceConfigurations\Item\UserStatusOverview\UserStatusOverviewRequestBuilder;
@@ -142,10 +142,10 @@ class DeviceConfigurationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the getOmaSettingPlainTextValue method.
      * @param string $secretReferenceValueId Usage: secretReferenceValueId='{secretReferenceValueId}'
-     * @return GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder
+     * @return GetOmaSettingPlainTextValueWithSecretReferenceValueIdRe_f6b2f2f2
     */
-    public function getOmaSettingPlainTextValueWithSecretReferenceValueId(string $secretReferenceValueId): GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder {
-        return new GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder($this->pathParameters, $this->requestAdapter, $secretReferenceValueId);
+    public function getOmaSettingPlainTextValueWithSecretReferenceValueId(string $secretReferenceValueId): GetOmaSettingPlainTextValueWithSecretReferenceValueIdRe_f6b2f2f2 {
+        return new GetOmaSettingPlainTextValueWithSecretReferenceValueIdRe_f6b2f2f2($this->pathParameters, $this->requestAdapter, $secretReferenceValueId);
     }
 
     /**

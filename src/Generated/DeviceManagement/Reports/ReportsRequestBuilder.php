@@ -33,7 +33,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetConfigurationSett
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetConfigurationSettingsReport\GetConfigurationSettingsReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceConfigurationPolicySettingsSummaryReport\GetDeviceConfigurationPolicySettingsSummaryReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceConfigurationPolicyStatusSummary\GetDeviceConfigurationPolicyStatusSummaryRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceManagementIntentPerSettingContributingProfiles\GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceManagementIntentPerSettingContributingProfiles\GetDeviceManagementIntentPerSettingContributingProfiles_0f5720ea;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceManagementIntentSettingsReport\GetDeviceManagementIntentSettingsReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceNonComplianceReport\GetDeviceNonComplianceReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDevicePoliciesComplianceReport\GetDevicePoliciesComplianceReportRequestBuilder;
@@ -43,7 +43,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDevicesStatusBySe
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceStatusByCompliacePolicyReport\GetDeviceStatusByCompliacePolicyReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceStatusByCompliancePolicySettingReport\GetDeviceStatusByCompliancePolicySettingReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceStatusSummaryByCompliacePolicyReport\GetDeviceStatusSummaryByCompliacePolicyReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceStatusSummaryByCompliancePolicySettingsReport\GetDeviceStatusSummaryByCompliancePolicySettingsReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDeviceStatusSummaryByCompliancePolicySettingsReport\GetDeviceStatusSummaryByCompliancePolicySettingsReportR_42144a17;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetDevicesWithoutCompliancePolicyReport\GetDevicesWithoutCompliancePolicyReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetEncryptionReportForDevices\GetEncryptionReportForDevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetEnrollmentConfigurationPoliciesByDevice\GetEnrollmentConfigurationPoliciesByDeviceRequestBuilder;
@@ -52,8 +52,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetFailedMobileAppsS
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetGroupPolicySettingsDeviceSettingsReport\GetGroupPolicySettingsDeviceSettingsReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetHistoricalReport\GetHistoricalReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetMalwareSummaryReport\GetMalwareSummaryReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetMobileApplicationManagementAppConfigurationReport\GetMobileApplicationManagementAppConfigurationReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetMobileApplicationManagementAppRegistrationSummaryReport\GetMobileApplicationManagementAppRegistrationSummaryReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetMobileApplicationManagementAppConfigurationReport\GetMobileApplicationManagementAppConfigurationReportReq_bcc872f3;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetMobileApplicationManagementAppRegistrationSummaryReport\GetMobileApplicationManagementAppRegistrationSummaryRep_fa50c4b5;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetNoncompliantDevicesAndSettingsReport\GetNoncompliantDevicesAndSettingsReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetPolicyNonComplianceMetadata\GetPolicyNonComplianceMetadataRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetPolicyNonComplianceReport\GetPolicyNonComplianceReportRequestBuilder;
@@ -68,9 +68,9 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetUnhealthyDefender
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetUnhealthyFirewallReport\GetUnhealthyFirewallReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetUnhealthyFirewallSummaryReport\GetUnhealthyFirewallSummaryReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetUserInstallStatusReport\GetUserInstallStatusReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsDriverUpdateAlertsPerPolicyPerDeviceReport\GetWindowsDriverUpdateAlertsPerPolicyPerDeviceReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsDriverUpdateAlertsPerPolicyPerDeviceReport\GetWindowsDriverUpdateAlertsPerPolicyPerDeviceReportReq_6fe65ded;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsDriverUpdateAlertSummaryReport\GetWindowsDriverUpdateAlertSummaryReportRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReport\GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReport\GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRe_ae0faab0;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsQualityUpdateAlertSummaryReport\GetWindowsQualityUpdateAlertSummaryReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsUpdateAlertsPerPolicyPerDeviceReport\GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetWindowsUpdateAlertSummaryReport\GetWindowsUpdateAlertSummaryReportRequestBuilder;
@@ -301,8 +301,8 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the getDeviceManagementIntentPerSettingContributingProfiles method.
     */
-    public function getDeviceManagementIntentPerSettingContributingProfiles(): GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder {
-        return new GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function getDeviceManagementIntentPerSettingContributingProfiles(): GetDeviceManagementIntentPerSettingContributingProfiles_0f5720ea {
+        return new GetDeviceManagementIntentPerSettingContributingProfiles_0f5720ea($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -371,8 +371,8 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the getDeviceStatusSummaryByCompliancePolicySettingsReport method.
     */
-    public function getDeviceStatusSummaryByCompliancePolicySettingsReport(): GetDeviceStatusSummaryByCompliancePolicySettingsReportRequestBuilder {
-        return new GetDeviceStatusSummaryByCompliancePolicySettingsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function getDeviceStatusSummaryByCompliancePolicySettingsReport(): GetDeviceStatusSummaryByCompliancePolicySettingsReportR_42144a17 {
+        return new GetDeviceStatusSummaryByCompliancePolicySettingsReportR_42144a17($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -434,15 +434,15 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the getMobileApplicationManagementAppConfigurationReport method.
     */
-    public function getMobileApplicationManagementAppConfigurationReport(): GetMobileApplicationManagementAppConfigurationReportRequestBuilder {
-        return new GetMobileApplicationManagementAppConfigurationReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function getMobileApplicationManagementAppConfigurationReport(): GetMobileApplicationManagementAppConfigurationReportReq_bcc872f3 {
+        return new GetMobileApplicationManagementAppConfigurationReportReq_bcc872f3($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getMobileApplicationManagementAppRegistrationSummaryReport method.
     */
-    public function getMobileApplicationManagementAppRegistrationSummaryReport(): GetMobileApplicationManagementAppRegistrationSummaryReportRequestBuilder {
-        return new GetMobileApplicationManagementAppRegistrationSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function getMobileApplicationManagementAppRegistrationSummaryReport(): GetMobileApplicationManagementAppRegistrationSummaryRep_fa50c4b5 {
+        return new GetMobileApplicationManagementAppRegistrationSummaryRep_fa50c4b5($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -546,8 +546,8 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the getWindowsDriverUpdateAlertsPerPolicyPerDeviceReport method.
     */
-    public function getWindowsDriverUpdateAlertsPerPolicyPerDeviceReport(): GetWindowsDriverUpdateAlertsPerPolicyPerDeviceReportRequestBuilder {
-        return new GetWindowsDriverUpdateAlertsPerPolicyPerDeviceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function getWindowsDriverUpdateAlertsPerPolicyPerDeviceReport(): GetWindowsDriverUpdateAlertsPerPolicyPerDeviceReportReq_6fe65ded {
+        return new GetWindowsDriverUpdateAlertsPerPolicyPerDeviceReportReq_6fe65ded($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -560,8 +560,8 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the getWindowsQualityUpdateAlertsPerPolicyPerDeviceReport method.
     */
-    public function getWindowsQualityUpdateAlertsPerPolicyPerDeviceReport(): GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRequestBuilder {
-        return new GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function getWindowsQualityUpdateAlertsPerPolicyPerDeviceReport(): GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRe_ae0faab0 {
+        return new GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRe_ae0faab0($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -677,7 +677,7 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get reports from deviceManagement
+     * Reports singleton
      * @param ReportsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementReports|null>
      * @throws Exception
@@ -724,7 +724,7 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get reports from deviceManagement
+     * Reports singleton
      * @param ReportsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -32,11 +32,11 @@ class MacOSSoftwareUpdateStateSummaryItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Delete navigation property updateStateSummaries for deviceManagement
-     * @param MacOSSoftwareUpdateStateSummaryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MacOSSoftwareUpdateStateSummaryItemRequestBuilderDelete_17cbace6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?MacOSSoftwareUpdateStateSummaryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?MacOSSoftwareUpdateStateSummaryItemRequestBuilderDelete_17cbace6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class MacOSSoftwareUpdateStateSummaryItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Summary of the update states.
-     * @param MacOSSoftwareUpdateStateSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MacOSSoftwareUpdateStateSummaryItemRequestBuilderGetReq_3f0e5894|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MacOSSoftwareUpdateStateSummary|null>
      * @throws Exception
     */
-    public function get(?MacOSSoftwareUpdateStateSummaryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MacOSSoftwareUpdateStateSummaryItemRequestBuilderGetReq_3f0e5894 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class MacOSSoftwareUpdateStateSummaryItemRequestBuilder extends BaseRequestBuild
     /**
      * Update the navigation property updateStateSummaries in deviceManagement
      * @param MacOSSoftwareUpdateStateSummary $body The request body
-     * @param MacOSSoftwareUpdateStateSummaryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MacOSSoftwareUpdateStateSummaryItemRequestBuilderPatchR_c5cbc548|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MacOSSoftwareUpdateStateSummary|null>
      * @throws Exception
     */
-    public function patch(MacOSSoftwareUpdateStateSummary $body, ?MacOSSoftwareUpdateStateSummaryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(MacOSSoftwareUpdateStateSummary $body, ?MacOSSoftwareUpdateStateSummaryItemRequestBuilderPatchR_c5cbc548 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class MacOSSoftwareUpdateStateSummaryItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Delete navigation property updateStateSummaries for deviceManagement
-     * @param MacOSSoftwareUpdateStateSummaryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MacOSSoftwareUpdateStateSummaryItemRequestBuilderDelete_17cbace6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?MacOSSoftwareUpdateStateSummaryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?MacOSSoftwareUpdateStateSummaryItemRequestBuilderDelete_17cbace6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class MacOSSoftwareUpdateStateSummaryItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Summary of the update states.
-     * @param MacOSSoftwareUpdateStateSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MacOSSoftwareUpdateStateSummaryItemRequestBuilderGetReq_3f0e5894|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MacOSSoftwareUpdateStateSummaryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MacOSSoftwareUpdateStateSummaryItemRequestBuilderGetReq_3f0e5894 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class MacOSSoftwareUpdateStateSummaryItemRequestBuilder extends BaseRequestBuild
     /**
      * Update the navigation property updateStateSummaries in deviceManagement
      * @param MacOSSoftwareUpdateStateSummary $body The request body
-     * @param MacOSSoftwareUpdateStateSummaryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MacOSSoftwareUpdateStateSummaryItemRequestBuilderPatchR_c5cbc548|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(MacOSSoftwareUpdateStateSummary $body, ?MacOSSoftwareUpdateStateSummaryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(MacOSSoftwareUpdateStateSummary $body, ?MacOSSoftwareUpdateStateSummaryItemRequestBuilderPatchR_c5cbc548 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

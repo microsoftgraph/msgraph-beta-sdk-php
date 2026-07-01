@@ -33,11 +33,11 @@ class RetrieveAndroidWorkProfileDeviceMigrationStatusesRequestBuilder extends Ba
     /**
      * Invoke action retrieveAndroidWorkProfileDeviceMigrationStatuses
      * @param RetrieveAndroidWorkProfileDeviceMigrationStatusesPostRequestBody $body The request body
-     * @param RetrieveAndroidWorkProfileDeviceMigrationStatusesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveAndroidWorkProfileDeviceMigrationStatusesReques_0247a8e5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(RetrieveAndroidWorkProfileDeviceMigrationStatusesPostRequestBody $body, ?RetrieveAndroidWorkProfileDeviceMigrationStatusesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(RetrieveAndroidWorkProfileDeviceMigrationStatusesPostRequestBody $body, ?RetrieveAndroidWorkProfileDeviceMigrationStatusesReques_0247a8e5 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class RetrieveAndroidWorkProfileDeviceMigrationStatusesRequestBuilder extends Ba
     /**
      * Invoke action retrieveAndroidWorkProfileDeviceMigrationStatuses
      * @param RetrieveAndroidWorkProfileDeviceMigrationStatusesPostRequestBody $body The request body
-     * @param RetrieveAndroidWorkProfileDeviceMigrationStatusesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveAndroidWorkProfileDeviceMigrationStatusesReques_0247a8e5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(RetrieveAndroidWorkProfileDeviceMigrationStatusesPostRequestBody $body, ?RetrieveAndroidWorkProfileDeviceMigrationStatusesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(RetrieveAndroidWorkProfileDeviceMigrationStatusesPostRequestBody $body, ?RetrieveAndroidWorkProfileDeviceMigrationStatusesReques_0247a8e5 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -32,11 +32,11 @@ class AccessPackageResourceRoleScopeItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * The resource role scopes associated with this available access package.
-     * @param AccessPackageResourceRoleScopeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageResourceRoleScopeItemRequestBuilderGetRequ_7497f8c7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageResourceRoleScope|null>
      * @throws Exception
     */
-    public function get(?AccessPackageResourceRoleScopeItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AccessPackageResourceRoleScopeItemRequestBuilderGetRequ_7497f8c7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class AccessPackageResourceRoleScopeItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * The resource role scopes associated with this available access package.
-     * @param AccessPackageResourceRoleScopeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageResourceRoleScopeItemRequestBuilderGetRequ_7497f8c7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AccessPackageResourceRoleScopeItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AccessPackageResourceRoleScopeItemRequestBuilderGetRequ_7497f8c7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

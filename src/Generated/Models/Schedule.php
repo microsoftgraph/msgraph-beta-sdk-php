@@ -407,7 +407,7 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Gets the timeZone property value. Indicates the time zone of the schedule team using tz database format. Required.
+     * Gets the timeZone property value. The time zone of the schedule team as an IANA time zone database (tz database) name; for example, America/Chicago. For the full list of valid values, see List of tz database time zones. Required.
      * @return string|null
     */
     public function getTimeZone(): ?string {
@@ -675,7 +675,7 @@ class Schedule extends Entity implements Parsable
     }
 
     /**
-     * Sets the timeZone property value. Indicates the time zone of the schedule team using tz database format. Required.
+     * Sets the timeZone property value. The time zone of the schedule team as an IANA time zone database (tz database) name; for example, America/Chicago. For the full list of valid values, see List of tz database time zones. Required.
      * @param string|null $value Value to set for the timeZone property.
     */
     public function setTimeZone(?string $value): void {

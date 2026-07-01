@@ -32,11 +32,11 @@ class SensitivityPolicySettingsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property sensitivityPolicySettings for informationProtection
-     * @param SensitivityPolicySettingsRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SensitivityPolicySettingsRequestBuilderDeleteRequestCon_829d3085|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?SensitivityPolicySettingsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?SensitivityPolicySettingsRequestBuilderDeleteRequestCon_829d3085 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class SensitivityPolicySettingsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property sensitivityPolicySettings for informationProtection
-     * @param SensitivityPolicySettingsRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SensitivityPolicySettingsRequestBuilderDeleteRequestCon_829d3085|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?SensitivityPolicySettingsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?SensitivityPolicySettingsRequestBuilderDeleteRequestCon_829d3085 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -61,6 +61,18 @@ class DetectionAction implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the automatedActions property value. The set of automated actions to run against entities that match the detection. Replaces the deprecated responseActions property.
+     * @return AutomatedActionSet|null
+    */
+    public function getAutomatedActions(): ?AutomatedActionSet {
+        $val = $this->getBackingStore()->get('automatedActions');
+        if (is_null($val) || $val instanceof AutomatedActionSet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'automatedActions'");
+    }
+
+    /**
      * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -76,6 +88,7 @@ class DetectionAction implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             'alertTemplate' => fn(ParseNode $n) => $o->setAlertTemplate($n->getObjectValue([AlertTemplate::class, 'createFromDiscriminatorValue'])),
+            'automatedActions' => fn(ParseNode $n) => $o->setAutomatedActions($n->getObjectValue([AutomatedActionSet::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'organizationalScope' => fn(ParseNode $n) => $o->setOrganizationalScope($n->getObjectValue([OrganizationalScope::class, 'createFromDiscriminatorValue'])),
             'responseActions' => fn(ParseNode $n) => $o->setResponseActions($n->getCollectionOfObjectValues([ResponseAction::class, 'createFromDiscriminatorValue'])),
@@ -95,7 +108,7 @@ class DetectionAction implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the organizationalScope property value. Groups to which the custom detection rule applies.
+     * Gets the organizationalScope property value. The set of groups (for example, device groups) to which the parent custom detection rule applies.
      * @return OrganizationalScope|null
     */
     public function getOrganizationalScope(): ?OrganizationalScope {
@@ -107,7 +120,7 @@ class DetectionAction implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the responseActions property value. Actions taken on impacted assets as set in the custom detection rule.
+     * Gets the responseActions property value. Actions taken on impacted assets as set in the custom detection rule. Deprecated. Use automatedActions instead. This property will be removed from this resource on 2026-10-01.
      * @return array<ResponseAction>|null
     */
     public function getResponseActions(): ?array {
@@ -126,6 +139,7 @@ class DetectionAction implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('alertTemplate', $this->getAlertTemplate());
+        $writer->writeObjectValue('automatedActions', $this->getAutomatedActions());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('organizationalScope', $this->getOrganizationalScope());
         $writer->writeCollectionOfObjectValues('responseActions', $this->getResponseActions());
@@ -149,6 +163,14 @@ class DetectionAction implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Sets the automatedActions property value. The set of automated actions to run against entities that match the detection. Replaces the deprecated responseActions property.
+     * @param AutomatedActionSet|null $value Value to set for the automatedActions property.
+    */
+    public function setAutomatedActions(?AutomatedActionSet $value): void {
+        $this->getBackingStore()->set('automatedActions', $value);
+    }
+
+    /**
      * Sets the BackingStore property value. Stores model information.
      * @param BackingStore $value Value to set for the BackingStore property.
     */
@@ -165,7 +187,7 @@ class DetectionAction implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the organizationalScope property value. Groups to which the custom detection rule applies.
+     * Sets the organizationalScope property value. The set of groups (for example, device groups) to which the parent custom detection rule applies.
      * @param OrganizationalScope|null $value Value to set for the organizationalScope property.
     */
     public function setOrganizationalScope(?OrganizationalScope $value): void {
@@ -173,7 +195,7 @@ class DetectionAction implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the responseActions property value. Actions taken on impacted assets as set in the custom detection rule.
+     * Sets the responseActions property value. Actions taken on impacted assets as set in the custom detection rule. Deprecated. Use automatedActions instead. This property will be removed from this resource on 2026-10-01.
      * @param array<ResponseAction>|null $value Value to set for the responseActions property.
     */
     public function setResponseActions(?array $value): void {

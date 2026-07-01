@@ -42,7 +42,7 @@ class ExchangeProtectionPolicy extends ProtectionPolicyBase implements Parsable
     }
 
     /**
-     * Gets the mailboxExclusionUnits property value. The mailboxExclusionUnits property
+     * Gets the mailboxExclusionUnits property value. The mailbox exclusion units associated with the Exchange protection policy.
      * @return array<MailboxExclusionUnit>|null
     */
     public function getMailboxExclusionUnits(): ?array {
@@ -56,7 +56,7 @@ class ExchangeProtectionPolicy extends ProtectionPolicyBase implements Parsable
     }
 
     /**
-     * Gets the mailboxExclusionUnitsBulkAdditionJobs property value. The mailboxExclusionUnitsBulkAdditionJobs property
+     * Gets the mailboxExclusionUnitsBulkAdditionJobs property value. The list of bulk addition jobs for mailbox exclusion units associated with the Exchange protection policy.
      * @return array<MailboxExclusionUnitsBulkAdditionJob>|null
     */
     public function getMailboxExclusionUnitsBulkAdditionJobs(): ?array {
@@ -125,7 +125,7 @@ class ExchangeProtectionPolicy extends ProtectionPolicyBase implements Parsable
     }
 
     /**
-     * Sets the mailboxExclusionUnits property value. The mailboxExclusionUnits property
+     * Sets the mailboxExclusionUnits property value. The mailbox exclusion units associated with the Exchange protection policy.
      * @param array<MailboxExclusionUnit>|null $value Value to set for the mailboxExclusionUnits property.
     */
     public function setMailboxExclusionUnits(?array $value): void {
@@ -133,7 +133,7 @@ class ExchangeProtectionPolicy extends ProtectionPolicyBase implements Parsable
     }
 
     /**
-     * Sets the mailboxExclusionUnitsBulkAdditionJobs property value. The mailboxExclusionUnitsBulkAdditionJobs property
+     * Sets the mailboxExclusionUnitsBulkAdditionJobs property value. The list of bulk addition jobs for mailbox exclusion units associated with the Exchange protection policy.
      * @param array<MailboxExclusionUnitsBulkAdditionJob>|null $value Value to set for the mailboxExclusionUnitsBulkAdditionJobs property.
     */
     public function setMailboxExclusionUnitsBulkAdditionJobs(?array $value): void {

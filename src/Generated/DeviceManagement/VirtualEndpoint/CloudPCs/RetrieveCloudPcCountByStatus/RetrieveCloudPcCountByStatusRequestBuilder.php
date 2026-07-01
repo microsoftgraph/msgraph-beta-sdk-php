@@ -31,12 +31,12 @@ class RetrieveCloudPcCountByStatusRequestBuilder extends BaseRequestBuilder
 
     /**
      * Retrieve the Cloud PC count grouped by status.
-     * @param RetrieveCloudPcCountByStatusRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveCloudPcCountByStatusRequestBuilderGetRequestCon_26fec73a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RetrieveCloudPcCountByStatusGetResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpc-retrievecloudpccountbystatus?view=graph-rest-beta Find more info here
     */
-    public function get(?RetrieveCloudPcCountByStatusRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?RetrieveCloudPcCountByStatusRequestBuilderGetRequestCon_26fec73a $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class RetrieveCloudPcCountByStatusRequestBuilder extends BaseRequestBuilder
 
     /**
      * Retrieve the Cloud PC count grouped by status.
-     * @param RetrieveCloudPcCountByStatusRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveCloudPcCountByStatusRequestBuilderGetRequestCon_26fec73a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?RetrieveCloudPcCountByStatusRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?RetrieveCloudPcCountByStatusRequestBuilderGetRequestCon_26fec73a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -32,11 +32,11 @@ class AppCredentialSignInActivityItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property appCredentialSignInActivities for reports
-     * @param AppCredentialSignInActivityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppCredentialSignInActivityItemRequestBuilderDeleteRequ_654217f6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?AppCredentialSignInActivityItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?AppCredentialSignInActivityItemRequestBuilderDeleteRequ_654217f6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,12 +46,12 @@ class AppCredentialSignInActivityItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get an appCredentialSignInActivity object that contains recent activity of an application credential.
-     * @param AppCredentialSignInActivityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppCredentialSignInActivityItemRequestBuilderGetRequest_6d4587d3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AppCredentialSignInActivity|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/appcredentialsigninactivity-get?view=graph-rest-beta Find more info here
     */
-    public function get(?AppCredentialSignInActivityItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AppCredentialSignInActivityItemRequestBuilderGetRequest_6d4587d3 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class AppCredentialSignInActivityItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property appCredentialSignInActivities in reports
      * @param AppCredentialSignInActivity $body The request body
-     * @param AppCredentialSignInActivityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppCredentialSignInActivityItemRequestBuilderPatchReque_afc2161c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AppCredentialSignInActivity|null>
      * @throws Exception
     */
-    public function patch(AppCredentialSignInActivity $body, ?AppCredentialSignInActivityItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(AppCredentialSignInActivity $body, ?AppCredentialSignInActivityItemRequestBuilderPatchReque_afc2161c $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -76,10 +76,10 @@ class AppCredentialSignInActivityItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property appCredentialSignInActivities for reports
-     * @param AppCredentialSignInActivityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppCredentialSignInActivityItemRequestBuilderDeleteRequ_654217f6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?AppCredentialSignInActivityItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?AppCredentialSignInActivityItemRequestBuilderDeleteRequ_654217f6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -94,10 +94,10 @@ class AppCredentialSignInActivityItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get an appCredentialSignInActivity object that contains recent activity of an application credential.
-     * @param AppCredentialSignInActivityItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppCredentialSignInActivityItemRequestBuilderGetRequest_6d4587d3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AppCredentialSignInActivityItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AppCredentialSignInActivityItemRequestBuilderGetRequest_6d4587d3 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -116,10 +116,10 @@ class AppCredentialSignInActivityItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property appCredentialSignInActivities in reports
      * @param AppCredentialSignInActivity $body The request body
-     * @param AppCredentialSignInActivityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppCredentialSignInActivityItemRequestBuilderPatchReque_afc2161c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(AppCredentialSignInActivity $body, ?AppCredentialSignInActivityItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(AppCredentialSignInActivity $body, ?AppCredentialSignInActivityItemRequestBuilderPatchReque_afc2161c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

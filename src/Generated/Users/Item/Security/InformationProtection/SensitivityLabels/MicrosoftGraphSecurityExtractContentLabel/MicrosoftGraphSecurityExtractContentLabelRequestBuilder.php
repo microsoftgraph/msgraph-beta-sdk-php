@@ -33,12 +33,12 @@ class MicrosoftGraphSecurityExtractContentLabelRequestBuilder extends BaseReques
     /**
      * Use the metadata that exists on an already-labeled piece of information to resolve the metadata to a specific sensitivity label. The contentInfo input is resolved to informationProtectionContentLabel.
      * @param ExtractContentLabelPostRequestBody $body The request body
-     * @param MicrosoftGraphSecurityExtractContentLabelRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphSecurityExtractContentLabelRequestBuilder_dd66a2dc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ContentLabel|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/security-sensitivitylabel-extractcontentlabel?view=graph-rest-beta Find more info here
     */
-    public function post(ExtractContentLabelPostRequestBody $body, ?MicrosoftGraphSecurityExtractContentLabelRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ExtractContentLabelPostRequestBody $body, ?MicrosoftGraphSecurityExtractContentLabelRequestBuilder_dd66a2dc $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,10 +49,10 @@ class MicrosoftGraphSecurityExtractContentLabelRequestBuilder extends BaseReques
     /**
      * Use the metadata that exists on an already-labeled piece of information to resolve the metadata to a specific sensitivity label. The contentInfo input is resolved to informationProtectionContentLabel.
      * @param ExtractContentLabelPostRequestBody $body The request body
-     * @param MicrosoftGraphSecurityExtractContentLabelRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphSecurityExtractContentLabelRequestBuilder_dd66a2dc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ExtractContentLabelPostRequestBody $body, ?MicrosoftGraphSecurityExtractContentLabelRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ExtractContentLabelPostRequestBody $body, ?MicrosoftGraphSecurityExtractContentLabelRequestBuilder_dd66a2dc $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

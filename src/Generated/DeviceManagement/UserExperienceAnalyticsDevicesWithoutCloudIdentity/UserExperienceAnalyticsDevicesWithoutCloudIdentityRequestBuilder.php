@@ -5,10 +5,10 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalytic
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDevicesWithoutCloudIdentity\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDevicesWithoutCloudIdentity\Item\UserExperienceAnalyticsDeviceWithoutCloudIdentityItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsDevicesWithoutCloudIdentity\Item\UserExperienceAnalyticsDeviceWithoutCloudIdentityItemRe_a3c70812;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDeviceWithoutCloudIdentity;
-use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDeviceWithoutCloudIdentityCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\UserExperienceAnalyticsDeviceWithoutCloudIdentityCollec_72cb7466;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -29,12 +29,12 @@ class UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilder extends B
     /**
      * Provides operations to manage the userExperienceAnalyticsDevicesWithoutCloudIdentity property of the microsoft.graph.deviceManagement entity.
      * @param string $userExperienceAnalyticsDeviceWithoutCloudIdentityId The unique identifier of userExperienceAnalyticsDeviceWithoutCloudIdentity
-     * @return UserExperienceAnalyticsDeviceWithoutCloudIdentityItemRequestBuilder
+     * @return UserExperienceAnalyticsDeviceWithoutCloudIdentityItemRe_a3c70812
     */
-    public function byUserExperienceAnalyticsDeviceWithoutCloudIdentityId(string $userExperienceAnalyticsDeviceWithoutCloudIdentityId): UserExperienceAnalyticsDeviceWithoutCloudIdentityItemRequestBuilder {
+    public function byUserExperienceAnalyticsDeviceWithoutCloudIdentityId(string $userExperienceAnalyticsDeviceWithoutCloudIdentityId): UserExperienceAnalyticsDeviceWithoutCloudIdentityItemRe_a3c70812 {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsDeviceWithoutCloudIdentity%2Did'] = $userExperienceAnalyticsDeviceWithoutCloudIdentityId;
-        return new UserExperienceAnalyticsDeviceWithoutCloudIdentityItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new UserExperienceAnalyticsDeviceWithoutCloudIdentityItemRe_a3c70812($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -53,26 +53,26 @@ class UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilder extends B
 
     /**
      * User experience analytics devices without cloud identity.
-     * @param UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<UserExperienceAnalyticsDeviceWithoutCloudIdentityCollectionResponse|null>
+     * @param UserExperienceAnalyticsDevicesWithoutCloudIdentityReque_0650d331|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise<UserExperienceAnalyticsDeviceWithoutCloudIdentityCollec_72cb7466|null>
      * @throws Exception
     */
-    public function get(?UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserExperienceAnalyticsDevicesWithoutCloudIdentityReque_0650d331 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        return $this->requestAdapter->sendAsync($requestInfo, [UserExperienceAnalyticsDeviceWithoutCloudIdentityCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+        return $this->requestAdapter->sendAsync($requestInfo, [UserExperienceAnalyticsDeviceWithoutCloudIdentityCollec_72cb7466::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
      * Create new navigation property to userExperienceAnalyticsDevicesWithoutCloudIdentity for deviceManagement
      * @param UserExperienceAnalyticsDeviceWithoutCloudIdentity $body The request body
-     * @param UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDevicesWithoutCloudIdentityReque_886e06a7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsDeviceWithoutCloudIdentity|null>
      * @throws Exception
     */
-    public function post(UserExperienceAnalyticsDeviceWithoutCloudIdentity $body, ?UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(UserExperienceAnalyticsDeviceWithoutCloudIdentity $body, ?UserExperienceAnalyticsDevicesWithoutCloudIdentityReque_886e06a7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilder extends B
 
     /**
      * User experience analytics devices without cloud identity.
-     * @param UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDevicesWithoutCloudIdentityReque_0650d331|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UserExperienceAnalyticsDevicesWithoutCloudIdentityReque_0650d331 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilder extends B
     /**
      * Create new navigation property to userExperienceAnalyticsDevicesWithoutCloudIdentity for deviceManagement
      * @param UserExperienceAnalyticsDeviceWithoutCloudIdentity $body The request body
-     * @param UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsDevicesWithoutCloudIdentityReque_886e06a7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(UserExperienceAnalyticsDeviceWithoutCloudIdentity $body, ?UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(UserExperienceAnalyticsDeviceWithoutCloudIdentity $body, ?UserExperienceAnalyticsDevicesWithoutCloudIdentityReque_886e06a7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

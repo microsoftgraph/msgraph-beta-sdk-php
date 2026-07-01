@@ -32,11 +32,11 @@ class DeviceManagementConfigurationPolicyAssignmentItemRequestBuilder extends Ba
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param DeviceManagementConfigurationPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementConfigurationPolicyAssignmentItemReques_7023442b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DeviceManagementConfigurationPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DeviceManagementConfigurationPolicyAssignmentItemReques_7023442b $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class DeviceManagementConfigurationPolicyAssignmentItemRequestBuilder extends Ba
 
     /**
      * Policy assignments
-     * @param DeviceManagementConfigurationPolicyAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementConfigurationPolicyAssignmentItemReques_bf07e925|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementConfigurationPolicyAssignment|null>
      * @throws Exception
     */
-    public function get(?DeviceManagementConfigurationPolicyAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DeviceManagementConfigurationPolicyAssignmentItemReques_bf07e925 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class DeviceManagementConfigurationPolicyAssignmentItemRequestBuilder extends Ba
     /**
      * Update the navigation property assignments in deviceManagement
      * @param DeviceManagementConfigurationPolicyAssignment $body The request body
-     * @param DeviceManagementConfigurationPolicyAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementConfigurationPolicyAssignmentItemReques_125eaa56|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementConfigurationPolicyAssignment|null>
      * @throws Exception
     */
-    public function patch(DeviceManagementConfigurationPolicyAssignment $body, ?DeviceManagementConfigurationPolicyAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DeviceManagementConfigurationPolicyAssignment $body, ?DeviceManagementConfigurationPolicyAssignmentItemReques_125eaa56 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class DeviceManagementConfigurationPolicyAssignmentItemRequestBuilder extends Ba
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param DeviceManagementConfigurationPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementConfigurationPolicyAssignmentItemReques_7023442b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DeviceManagementConfigurationPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DeviceManagementConfigurationPolicyAssignmentItemReques_7023442b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class DeviceManagementConfigurationPolicyAssignmentItemRequestBuilder extends Ba
 
     /**
      * Policy assignments
-     * @param DeviceManagementConfigurationPolicyAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementConfigurationPolicyAssignmentItemReques_bf07e925|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DeviceManagementConfigurationPolicyAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DeviceManagementConfigurationPolicyAssignmentItemReques_bf07e925 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class DeviceManagementConfigurationPolicyAssignmentItemRequestBuilder extends Ba
     /**
      * Update the navigation property assignments in deviceManagement
      * @param DeviceManagementConfigurationPolicyAssignment $body The request body
-     * @param DeviceManagementConfigurationPolicyAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementConfigurationPolicyAssignmentItemReques_125eaa56|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DeviceManagementConfigurationPolicyAssignment $body, ?DeviceManagementConfigurationPolicyAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DeviceManagementConfigurationPolicyAssignment $body, ?DeviceManagementConfigurationPolicyAssignmentItemReques_125eaa56 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

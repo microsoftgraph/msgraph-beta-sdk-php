@@ -53,12 +53,12 @@ class CrossOrganizationGroupMappingsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Retrieve a specific cross-organization group identity mapping based on the Microsoft Entra ID object ID of the source group. This method allows clients to verify existing group migration configurations and confirm that mappings are correctly established prior to or during cross-tenant migration operations.
-     * @param CrossOrganizationGroupMappingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossOrganizationGroupMappingsRequestBuilderGetRequestC_e5b0f6ac|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SharePointGroupIdentityMappingCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/sharepointgroupidentitymapping-get?view=graph-rest-beta Find more info here
     */
-    public function get(?CrossOrganizationGroupMappingsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CrossOrganizationGroupMappingsRequestBuilderGetRequestC_e5b0f6ac $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class CrossOrganizationGroupMappingsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to crossOrganizationGroupMappings for solutions
      * @param SharePointGroupIdentityMapping $body The request body
-     * @param CrossOrganizationGroupMappingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossOrganizationGroupMappingsRequestBuilderPostRequest_4b215604|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SharePointGroupIdentityMapping|null>
      * @throws Exception
     */
-    public function post(SharePointGroupIdentityMapping $body, ?CrossOrganizationGroupMappingsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(SharePointGroupIdentityMapping $body, ?CrossOrganizationGroupMappingsRequestBuilderPostRequest_4b215604 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class CrossOrganizationGroupMappingsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Retrieve a specific cross-organization group identity mapping based on the Microsoft Entra ID object ID of the source group. This method allows clients to verify existing group migration configurations and confirm that mappings are correctly established prior to or during cross-tenant migration operations.
-     * @param CrossOrganizationGroupMappingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossOrganizationGroupMappingsRequestBuilderGetRequestC_e5b0f6ac|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CrossOrganizationGroupMappingsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CrossOrganizationGroupMappingsRequestBuilderGetRequestC_e5b0f6ac $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -105,10 +105,10 @@ class CrossOrganizationGroupMappingsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to crossOrganizationGroupMappings for solutions
      * @param SharePointGroupIdentityMapping $body The request body
-     * @param CrossOrganizationGroupMappingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CrossOrganizationGroupMappingsRequestBuilderPostRequest_4b215604|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(SharePointGroupIdentityMapping $body, ?CrossOrganizationGroupMappingsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(SharePointGroupIdentityMapping $body, ?CrossOrganizationGroupMappingsRequestBuilderPostRequest_4b215604 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

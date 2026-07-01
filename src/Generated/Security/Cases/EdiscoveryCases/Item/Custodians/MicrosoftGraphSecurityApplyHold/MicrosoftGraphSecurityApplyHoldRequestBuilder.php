@@ -32,12 +32,12 @@ class MicrosoftGraphSecurityApplyHoldRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action applyHold
      * @param ApplyHoldPostRequestBody $body The request body
-     * @param MicrosoftGraphSecurityApplyHoldRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphSecurityApplyHoldRequestBuilderPostReques_12af404a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-applyhold?view=graph-rest-beta Find more info here
     */
-    public function post(ApplyHoldPostRequestBody $body, ?MicrosoftGraphSecurityApplyHoldRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ApplyHoldPostRequestBody $body, ?MicrosoftGraphSecurityApplyHoldRequestBuilderPostReques_12af404a $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class MicrosoftGraphSecurityApplyHoldRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action applyHold
      * @param ApplyHoldPostRequestBody $body The request body
-     * @param MicrosoftGraphSecurityApplyHoldRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphSecurityApplyHoldRequestBuilderPostReques_12af404a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ApplyHoldPostRequestBody $body, ?MicrosoftGraphSecurityApplyHoldRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ApplyHoldPostRequestBody $body, ?MicrosoftGraphSecurityApplyHoldRequestBuilderPostReques_12af404a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

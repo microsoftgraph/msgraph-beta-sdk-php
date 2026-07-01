@@ -32,11 +32,11 @@ class MobileAppProvisioningConfigGroupAssignmentItemRequestBuilder extends BaseR
 
     /**
      * Delete navigation property groupAssignments for deviceAppManagement
-     * @param MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppProvisioningConfigGroupAssignmentItemRequestBu_5b7f0f0a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?MobileAppProvisioningConfigGroupAssignmentItemRequestBu_5b7f0f0a $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class MobileAppProvisioningConfigGroupAssignmentItemRequestBuilder extends BaseR
 
     /**
      * The associated group assignments.
-     * @param MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppProvisioningConfigGroupAssignmentItemRequestBu_19a7b75a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MobileAppProvisioningConfigGroupAssignment|null>
      * @throws Exception
     */
-    public function get(?MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MobileAppProvisioningConfigGroupAssignmentItemRequestBu_19a7b75a $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class MobileAppProvisioningConfigGroupAssignmentItemRequestBuilder extends BaseR
     /**
      * Update the navigation property groupAssignments in deviceAppManagement
      * @param MobileAppProvisioningConfigGroupAssignment $body The request body
-     * @param MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppProvisioningConfigGroupAssignmentItemRequestBu_33e1f28f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MobileAppProvisioningConfigGroupAssignment|null>
      * @throws Exception
     */
-    public function patch(MobileAppProvisioningConfigGroupAssignment $body, ?MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(MobileAppProvisioningConfigGroupAssignment $body, ?MobileAppProvisioningConfigGroupAssignmentItemRequestBu_33e1f28f $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class MobileAppProvisioningConfigGroupAssignmentItemRequestBuilder extends BaseR
 
     /**
      * Delete navigation property groupAssignments for deviceAppManagement
-     * @param MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppProvisioningConfigGroupAssignmentItemRequestBu_5b7f0f0a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?MobileAppProvisioningConfigGroupAssignmentItemRequestBu_5b7f0f0a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class MobileAppProvisioningConfigGroupAssignmentItemRequestBuilder extends BaseR
 
     /**
      * The associated group assignments.
-     * @param MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppProvisioningConfigGroupAssignmentItemRequestBu_19a7b75a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MobileAppProvisioningConfigGroupAssignmentItemRequestBu_19a7b75a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class MobileAppProvisioningConfigGroupAssignmentItemRequestBuilder extends BaseR
     /**
      * Update the navigation property groupAssignments in deviceAppManagement
      * @param MobileAppProvisioningConfigGroupAssignment $body The request body
-     * @param MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppProvisioningConfigGroupAssignmentItemRequestBu_33e1f28f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(MobileAppProvisioningConfigGroupAssignment $body, ?MobileAppProvisioningConfigGroupAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(MobileAppProvisioningConfigGroupAssignment $body, ?MobileAppProvisioningConfigGroupAssignmentItemRequestBu_33e1f28f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

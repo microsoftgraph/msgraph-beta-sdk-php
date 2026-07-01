@@ -53,12 +53,12 @@ class AccessPackageResourceRequestsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Retrieve a list of accessPackageResourceRequest objects.
-     * @param AccessPackageResourceRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageResourceRequestsRequestBuilderGetRequestCo_6fe65253|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageResourceRequestCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/entitlementmanagement-list-accesspackageresourcerequests?view=graph-rest-beta Find more info here
     */
-    public function get(?AccessPackageResourceRequestsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AccessPackageResourceRequestsRequestBuilderGetRequestCo_6fe65253 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,12 +69,12 @@ class AccessPackageResourceRequestsRequestBuilder extends BaseRequestBuilder
     /**
      * Create a new accessPackageResourceRequest object to request the addition of a resource to an access package catalog, update of a resource, or the removal of a resource from a catalog.  A resource must be included in an access package catalog before a role of that resource can be added to an access package.
      * @param AccessPackageResourceRequest $body The request body
-     * @param AccessPackageResourceRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageResourceRequestsRequestBuilderPostRequestC_4deb534e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageResourceRequest|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/entitlementmanagement-post-accesspackageresourcerequests?view=graph-rest-beta Find more info here
     */
-    public function post(AccessPackageResourceRequest $body, ?AccessPackageResourceRequestsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AccessPackageResourceRequest $body, ?AccessPackageResourceRequestsRequestBuilderPostRequestC_4deb534e $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -84,10 +84,10 @@ class AccessPackageResourceRequestsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Retrieve a list of accessPackageResourceRequest objects.
-     * @param AccessPackageResourceRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageResourceRequestsRequestBuilderGetRequestCo_6fe65253|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AccessPackageResourceRequestsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AccessPackageResourceRequestsRequestBuilderGetRequestCo_6fe65253 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -106,10 +106,10 @@ class AccessPackageResourceRequestsRequestBuilder extends BaseRequestBuilder
     /**
      * Create a new accessPackageResourceRequest object to request the addition of a resource to an access package catalog, update of a resource, or the removal of a resource from a catalog.  A resource must be included in an access package catalog before a role of that resource can be added to an access package.
      * @param AccessPackageResourceRequest $body The request body
-     * @param AccessPackageResourceRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageResourceRequestsRequestBuilderPostRequestC_4deb534e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AccessPackageResourceRequest $body, ?AccessPackageResourceRequestsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AccessPackageResourceRequest $body, ?AccessPackageResourceRequestsRequestBuilderPostRequestC_4deb534e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

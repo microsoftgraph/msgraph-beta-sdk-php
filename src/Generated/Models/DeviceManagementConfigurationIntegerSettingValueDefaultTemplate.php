@@ -38,7 +38,7 @@ class DeviceManagementConfigurationIntegerSettingValueDefaultTemplate implements
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
-                case '#microsoft.graph.deviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate': return new DeviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate();
+                case '#microsoft.graph.deviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate': return new DeviceManagementConfigurationIntegerSettingValueConstan_3d54b6cb();
             }
         }
         return new DeviceManagementConfigurationIntegerSettingValueDefaultTemplate();

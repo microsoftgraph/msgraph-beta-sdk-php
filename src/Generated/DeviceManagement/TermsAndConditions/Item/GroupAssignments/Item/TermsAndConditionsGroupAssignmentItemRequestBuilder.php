@@ -40,11 +40,11 @@ class TermsAndConditionsGroupAssignmentItemRequestBuilder extends BaseRequestBui
 
     /**
      * Delete navigation property groupAssignments for deviceManagement
-     * @param TermsAndConditionsGroupAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TermsAndConditionsGroupAssignmentItemRequestBuilderDele_18d168e3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?TermsAndConditionsGroupAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?TermsAndConditionsGroupAssignmentItemRequestBuilderDele_18d168e3 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,11 +54,11 @@ class TermsAndConditionsGroupAssignmentItemRequestBuilder extends BaseRequestBui
 
     /**
      * The list of group assignments for this T&C policy.
-     * @param TermsAndConditionsGroupAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TermsAndConditionsGroupAssignmentItemRequestBuilderGetR_f5153f09|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TermsAndConditionsGroupAssignment|null>
      * @throws Exception
     */
-    public function get(?TermsAndConditionsGroupAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?TermsAndConditionsGroupAssignmentItemRequestBuilderGetR_f5153f09 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class TermsAndConditionsGroupAssignmentItemRequestBuilder extends BaseRequestBui
     /**
      * Update the navigation property groupAssignments in deviceManagement
      * @param TermsAndConditionsGroupAssignment $body The request body
-     * @param TermsAndConditionsGroupAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TermsAndConditionsGroupAssignmentItemRequestBuilderPatc_c390cdce|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TermsAndConditionsGroupAssignment|null>
      * @throws Exception
     */
-    public function patch(TermsAndConditionsGroupAssignment $body, ?TermsAndConditionsGroupAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(TermsAndConditionsGroupAssignment $body, ?TermsAndConditionsGroupAssignmentItemRequestBuilderPatc_c390cdce $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class TermsAndConditionsGroupAssignmentItemRequestBuilder extends BaseRequestBui
 
     /**
      * Delete navigation property groupAssignments for deviceManagement
-     * @param TermsAndConditionsGroupAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TermsAndConditionsGroupAssignmentItemRequestBuilderDele_18d168e3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?TermsAndConditionsGroupAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?TermsAndConditionsGroupAssignmentItemRequestBuilderDele_18d168e3 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -101,10 +101,10 @@ class TermsAndConditionsGroupAssignmentItemRequestBuilder extends BaseRequestBui
 
     /**
      * The list of group assignments for this T&C policy.
-     * @param TermsAndConditionsGroupAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TermsAndConditionsGroupAssignmentItemRequestBuilderGetR_f5153f09|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?TermsAndConditionsGroupAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?TermsAndConditionsGroupAssignmentItemRequestBuilderGetR_f5153f09 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -123,10 +123,10 @@ class TermsAndConditionsGroupAssignmentItemRequestBuilder extends BaseRequestBui
     /**
      * Update the navigation property groupAssignments in deviceManagement
      * @param TermsAndConditionsGroupAssignment $body The request body
-     * @param TermsAndConditionsGroupAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TermsAndConditionsGroupAssignmentItemRequestBuilderPatc_c390cdce|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(TermsAndConditionsGroupAssignment $body, ?TermsAndConditionsGroupAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(TermsAndConditionsGroupAssignment $body, ?TermsAndConditionsGroupAssignmentItemRequestBuilderPatc_c390cdce $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

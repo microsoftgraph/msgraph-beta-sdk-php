@@ -32,11 +32,11 @@ class MobileAppIntentAndStateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property mobileAppIntentAndStates for users
-     * @param MobileAppIntentAndStateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppIntentAndStateItemRequestBuilderDeleteRequestC_2187357c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?MobileAppIntentAndStateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?MobileAppIntentAndStateItemRequestBuilderDeleteRequestC_2187357c $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class MobileAppIntentAndStateItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property mobileAppIntentAndStates in users
      * @param MobileAppIntentAndState $body The request body
-     * @param MobileAppIntentAndStateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppIntentAndStateItemRequestBuilderPatchRequestCo_d8c12022|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MobileAppIntentAndState|null>
      * @throws Exception
     */
-    public function patch(MobileAppIntentAndState $body, ?MobileAppIntentAndStateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(MobileAppIntentAndState $body, ?MobileAppIntentAndStateItemRequestBuilderPatchRequestCo_d8c12022 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class MobileAppIntentAndStateItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property mobileAppIntentAndStates for users
-     * @param MobileAppIntentAndStateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppIntentAndStateItemRequestBuilderDeleteRequestC_2187357c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?MobileAppIntentAndStateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?MobileAppIntentAndStateItemRequestBuilderDeleteRequestC_2187357c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class MobileAppIntentAndStateItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property mobileAppIntentAndStates in users
      * @param MobileAppIntentAndState $body The request body
-     * @param MobileAppIntentAndStateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppIntentAndStateItemRequestBuilderPatchRequestCo_d8c12022|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(MobileAppIntentAndState $body, ?MobileAppIntentAndStateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(MobileAppIntentAndState $body, ?MobileAppIntentAndStateItemRequestBuilderPatchRequestCo_d8c12022 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -32,11 +32,11 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilder extends B
 
     /**
      * Delete navigation property userExperienceAnalyticsBatteryHealthRuntimeDetails for deviceManagement
-     * @param UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsBatteryHealthRuntimeDetailsReque_8e4b334e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?UserExperienceAnalyticsBatteryHealthRuntimeDetailsReque_8e4b334e $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilder extends B
 
     /**
      * User Experience Analytics Battery Health Runtime Details
-     * @param UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsBatteryHealthRuntimeDetailsReque_e6265bae|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsBatteryHealthRuntimeDetails|null>
      * @throws Exception
     */
-    public function get(?UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserExperienceAnalyticsBatteryHealthRuntimeDetailsReque_e6265bae $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilder extends B
     /**
      * Update the navigation property userExperienceAnalyticsBatteryHealthRuntimeDetails in deviceManagement
      * @param UserExperienceAnalyticsBatteryHealthRuntimeDetails $body The request body
-     * @param UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsBatteryHealthRuntimeDetailsReque_873d27c5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsBatteryHealthRuntimeDetails|null>
      * @throws Exception
     */
-    public function patch(UserExperienceAnalyticsBatteryHealthRuntimeDetails $body, ?UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(UserExperienceAnalyticsBatteryHealthRuntimeDetails $body, ?UserExperienceAnalyticsBatteryHealthRuntimeDetailsReque_873d27c5 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilder extends B
 
     /**
      * Delete navigation property userExperienceAnalyticsBatteryHealthRuntimeDetails for deviceManagement
-     * @param UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsBatteryHealthRuntimeDetailsReque_8e4b334e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?UserExperienceAnalyticsBatteryHealthRuntimeDetailsReque_8e4b334e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilder extends B
 
     /**
      * User Experience Analytics Battery Health Runtime Details
-     * @param UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsBatteryHealthRuntimeDetailsReque_e6265bae|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UserExperienceAnalyticsBatteryHealthRuntimeDetailsReque_e6265bae $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilder extends B
     /**
      * Update the navigation property userExperienceAnalyticsBatteryHealthRuntimeDetails in deviceManagement
      * @param UserExperienceAnalyticsBatteryHealthRuntimeDetails $body The request body
-     * @param UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsBatteryHealthRuntimeDetailsReque_873d27c5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(UserExperienceAnalyticsBatteryHealthRuntimeDetails $body, ?UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(UserExperienceAnalyticsBatteryHealthRuntimeDetails $body, ?UserExperienceAnalyticsBatteryHealthRuntimeDetailsReque_873d27c5 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

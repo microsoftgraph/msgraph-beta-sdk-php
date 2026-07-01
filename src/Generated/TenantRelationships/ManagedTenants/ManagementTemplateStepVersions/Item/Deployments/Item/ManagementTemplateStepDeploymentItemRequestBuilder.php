@@ -48,11 +48,11 @@ class ManagementTemplateStepDeploymentItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Delete navigation property deployments for tenantRelationships
-     * @param ManagementTemplateStepDeploymentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepDeploymentItemRequestBuilderDelet_75ad4e39|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ManagementTemplateStepDeploymentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ManagementTemplateStepDeploymentItemRequestBuilderDelet_75ad4e39 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class ManagementTemplateStepDeploymentItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Get deployments from tenantRelationships
-     * @param ManagementTemplateStepDeploymentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepDeploymentItemRequestBuilderGetRe_2d88b088|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementTemplateStepDeployment|null>
      * @throws Exception
     */
-    public function get(?ManagementTemplateStepDeploymentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagementTemplateStepDeploymentItemRequestBuilderGetRe_2d88b088 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,11 +77,11 @@ class ManagementTemplateStepDeploymentItemRequestBuilder extends BaseRequestBuil
     /**
      * Update the navigation property deployments in tenantRelationships
      * @param ManagementTemplateStepDeployment $body The request body
-     * @param ManagementTemplateStepDeploymentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepDeploymentItemRequestBuilderPatch_6ff2bc9e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementTemplateStepDeployment|null>
      * @throws Exception
     */
-    public function patch(ManagementTemplateStepDeployment $body, ?ManagementTemplateStepDeploymentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ManagementTemplateStepDeployment $body, ?ManagementTemplateStepDeploymentItemRequestBuilderPatch_6ff2bc9e $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -91,10 +91,10 @@ class ManagementTemplateStepDeploymentItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Delete navigation property deployments for tenantRelationships
-     * @param ManagementTemplateStepDeploymentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepDeploymentItemRequestBuilderDelet_75ad4e39|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ManagementTemplateStepDeploymentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ManagementTemplateStepDeploymentItemRequestBuilderDelet_75ad4e39 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -109,10 +109,10 @@ class ManagementTemplateStepDeploymentItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Get deployments from tenantRelationships
-     * @param ManagementTemplateStepDeploymentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepDeploymentItemRequestBuilderGetRe_2d88b088|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagementTemplateStepDeploymentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagementTemplateStepDeploymentItemRequestBuilderGetRe_2d88b088 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -131,10 +131,10 @@ class ManagementTemplateStepDeploymentItemRequestBuilder extends BaseRequestBuil
     /**
      * Update the navigation property deployments in tenantRelationships
      * @param ManagementTemplateStepDeployment $body The request body
-     * @param ManagementTemplateStepDeploymentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepDeploymentItemRequestBuilderPatch_6ff2bc9e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ManagementTemplateStepDeployment $body, ?ManagementTemplateStepDeploymentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ManagementTemplateStepDeployment $body, ?ManagementTemplateStepDeploymentItemRequestBuilderPatch_6ff2bc9e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

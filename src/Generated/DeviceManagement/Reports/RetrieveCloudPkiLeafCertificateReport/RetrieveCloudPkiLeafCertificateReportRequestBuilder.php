@@ -33,11 +33,11 @@ class RetrieveCloudPkiLeafCertificateReportRequestBuilder extends BaseRequestBui
     /**
      * Invoke action retrieveCloudPkiLeafCertificateReport
      * @param RetrieveCloudPkiLeafCertificateReportPostRequestBody $body The request body
-     * @param RetrieveCloudPkiLeafCertificateReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveCloudPkiLeafCertificateReportRequestBuilderPost_831d2aab|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(RetrieveCloudPkiLeafCertificateReportPostRequestBody $body, ?RetrieveCloudPkiLeafCertificateReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(RetrieveCloudPkiLeafCertificateReportPostRequestBody $body, ?RetrieveCloudPkiLeafCertificateReportRequestBuilderPost_831d2aab $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class RetrieveCloudPkiLeafCertificateReportRequestBuilder extends BaseRequestBui
     /**
      * Invoke action retrieveCloudPkiLeafCertificateReport
      * @param RetrieveCloudPkiLeafCertificateReportPostRequestBody $body The request body
-     * @param RetrieveCloudPkiLeafCertificateReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveCloudPkiLeafCertificateReportRequestBuilderPost_831d2aab|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(RetrieveCloudPkiLeafCertificateReportPostRequestBody $body, ?RetrieveCloudPkiLeafCertificateReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(RetrieveCloudPkiLeafCertificateReportPostRequestBody $body, ?RetrieveCloudPkiLeafCertificateReportRequestBuilderPost_831d2aab $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

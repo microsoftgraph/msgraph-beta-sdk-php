@@ -40,11 +40,11 @@ class DeviceAndAppManagementAssignmentFilterItemRequestBuilder extends BaseReque
 
     /**
      * Delete navigation property assignmentFilters for deviceManagement
-     * @param DeviceAndAppManagementAssignmentFilterItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceAndAppManagementAssignmentFilterItemRequestBuilde_cc4cfcbc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DeviceAndAppManagementAssignmentFilterItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DeviceAndAppManagementAssignmentFilterItemRequestBuilde_cc4cfcbc $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,11 +54,11 @@ class DeviceAndAppManagementAssignmentFilterItemRequestBuilder extends BaseReque
 
     /**
      * The list of assignment filters
-     * @param DeviceAndAppManagementAssignmentFilterItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceAndAppManagementAssignmentFilterItemRequestBuilde_b013d164|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceAndAppManagementAssignmentFilter|null>
      * @throws Exception
     */
-    public function get(?DeviceAndAppManagementAssignmentFilterItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DeviceAndAppManagementAssignmentFilterItemRequestBuilde_b013d164 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class DeviceAndAppManagementAssignmentFilterItemRequestBuilder extends BaseReque
     /**
      * Update the navigation property assignmentFilters in deviceManagement
      * @param DeviceAndAppManagementAssignmentFilter $body The request body
-     * @param DeviceAndAppManagementAssignmentFilterItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceAndAppManagementAssignmentFilterItemRequestBuilde_5a2c284b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceAndAppManagementAssignmentFilter|null>
      * @throws Exception
     */
-    public function patch(DeviceAndAppManagementAssignmentFilter $body, ?DeviceAndAppManagementAssignmentFilterItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DeviceAndAppManagementAssignmentFilter $body, ?DeviceAndAppManagementAssignmentFilterItemRequestBuilde_5a2c284b $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class DeviceAndAppManagementAssignmentFilterItemRequestBuilder extends BaseReque
 
     /**
      * Delete navigation property assignmentFilters for deviceManagement
-     * @param DeviceAndAppManagementAssignmentFilterItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceAndAppManagementAssignmentFilterItemRequestBuilde_cc4cfcbc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DeviceAndAppManagementAssignmentFilterItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DeviceAndAppManagementAssignmentFilterItemRequestBuilde_cc4cfcbc $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -101,10 +101,10 @@ class DeviceAndAppManagementAssignmentFilterItemRequestBuilder extends BaseReque
 
     /**
      * The list of assignment filters
-     * @param DeviceAndAppManagementAssignmentFilterItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceAndAppManagementAssignmentFilterItemRequestBuilde_b013d164|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DeviceAndAppManagementAssignmentFilterItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DeviceAndAppManagementAssignmentFilterItemRequestBuilde_b013d164 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -123,10 +123,10 @@ class DeviceAndAppManagementAssignmentFilterItemRequestBuilder extends BaseReque
     /**
      * Update the navigation property assignmentFilters in deviceManagement
      * @param DeviceAndAppManagementAssignmentFilter $body The request body
-     * @param DeviceAndAppManagementAssignmentFilterItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceAndAppManagementAssignmentFilterItemRequestBuilde_5a2c284b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DeviceAndAppManagementAssignmentFilter $body, ?DeviceAndAppManagementAssignmentFilterItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DeviceAndAppManagementAssignmentFilter $body, ?DeviceAndAppManagementAssignmentFilterItemRequestBuilde_5a2c284b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

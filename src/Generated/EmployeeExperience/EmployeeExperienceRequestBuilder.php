@@ -8,7 +8,7 @@ use Microsoft\Graph\Beta\Generated\EmployeeExperience\Communities\CommunitiesReq
 use Microsoft\Graph\Beta\Generated\EmployeeExperience\EngagementAsyncOperations\EngagementAsyncOperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EmployeeExperience\Goals\GoalsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningCourseActivities\LearningCourseActivitiesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningCourseActivitiesWithExternalcourseActivityId\LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningCourseActivitiesWithExternalcourseActivityId\LearningCourseActivitiesWithExternalcourseActivityIdReq_fbf0436b;
 use Microsoft\Graph\Beta\Generated\EmployeeExperience\LearningProviders\LearningProvidersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EmployeeExperience\Roles\RolesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EmployeeExperience;
@@ -96,10 +96,10 @@ class EmployeeExperienceRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperience entity.
      * @param string $externalcourseActivityId Alternate key of learningCourseActivity
-     * @return LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder
+     * @return LearningCourseActivitiesWithExternalcourseActivityIdReq_fbf0436b
     */
-    public function learningCourseActivitiesWithExternalcourseActivityId(string $externalcourseActivityId): LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder {
-        return new LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder($this->pathParameters, $this->requestAdapter, $externalcourseActivityId);
+    public function learningCourseActivitiesWithExternalcourseActivityId(string $externalcourseActivityId): LearningCourseActivitiesWithExternalcourseActivityIdReq_fbf0436b {
+        return new LearningCourseActivitiesWithExternalcourseActivityIdReq_fbf0436b($this->pathParameters, $this->requestAdapter, $externalcourseActivityId);
     }
 
     /**

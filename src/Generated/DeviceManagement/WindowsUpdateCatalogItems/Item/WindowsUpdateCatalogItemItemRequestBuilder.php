@@ -32,11 +32,11 @@ class WindowsUpdateCatalogItemItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property windowsUpdateCatalogItems for deviceManagement
-     * @param WindowsUpdateCatalogItemItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsUpdateCatalogItemItemRequestBuilderDeleteRequest_48da09f2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?WindowsUpdateCatalogItemItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?WindowsUpdateCatalogItemItemRequestBuilderDeleteRequest_48da09f2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class WindowsUpdateCatalogItemItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * A collection of windows update catalog items (fetaure updates item , quality updates item)
-     * @param WindowsUpdateCatalogItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsUpdateCatalogItemItemRequestBuilderGetRequestCon_b0534fac|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsUpdateCatalogItem|null>
      * @throws Exception
     */
-    public function get(?WindowsUpdateCatalogItemItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?WindowsUpdateCatalogItemItemRequestBuilderGetRequestCon_b0534fac $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class WindowsUpdateCatalogItemItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property windowsUpdateCatalogItems in deviceManagement
      * @param WindowsUpdateCatalogItem $body The request body
-     * @param WindowsUpdateCatalogItemItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsUpdateCatalogItemItemRequestBuilderPatchRequestC_278b7faa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsUpdateCatalogItem|null>
      * @throws Exception
     */
-    public function patch(WindowsUpdateCatalogItem $body, ?WindowsUpdateCatalogItemItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(WindowsUpdateCatalogItem $body, ?WindowsUpdateCatalogItemItemRequestBuilderPatchRequestC_278b7faa $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class WindowsUpdateCatalogItemItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property windowsUpdateCatalogItems for deviceManagement
-     * @param WindowsUpdateCatalogItemItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsUpdateCatalogItemItemRequestBuilderDeleteRequest_48da09f2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?WindowsUpdateCatalogItemItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?WindowsUpdateCatalogItemItemRequestBuilderDeleteRequest_48da09f2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class WindowsUpdateCatalogItemItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * A collection of windows update catalog items (fetaure updates item , quality updates item)
-     * @param WindowsUpdateCatalogItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsUpdateCatalogItemItemRequestBuilderGetRequestCon_b0534fac|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?WindowsUpdateCatalogItemItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?WindowsUpdateCatalogItemItemRequestBuilderGetRequestCon_b0534fac $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class WindowsUpdateCatalogItemItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property windowsUpdateCatalogItems in deviceManagement
      * @param WindowsUpdateCatalogItem $body The request body
-     * @param WindowsUpdateCatalogItemItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsUpdateCatalogItemItemRequestBuilderPatchRequestC_278b7faa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(WindowsUpdateCatalogItem $body, ?WindowsUpdateCatalogItemItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(WindowsUpdateCatalogItem $body, ?WindowsUpdateCatalogItemItemRequestBuilderPatchRequestC_278b7faa $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

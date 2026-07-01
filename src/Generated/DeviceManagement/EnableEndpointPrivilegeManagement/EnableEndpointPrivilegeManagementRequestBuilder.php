@@ -31,11 +31,11 @@ class EnableEndpointPrivilegeManagementRequestBuilder extends BaseRequestBuilder
 
     /**
      * DEPRECATED - DO NOT USE. (Triggers onboarding of tenant to Microsoft Managed Platform - Cloud (MMP-C)).
-     * @param EnableEndpointPrivilegeManagementRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EnableEndpointPrivilegeManagementRequestBuilderPostRequ_45e8ccca|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(?EnableEndpointPrivilegeManagementRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?EnableEndpointPrivilegeManagementRequestBuilderPostRequ_45e8ccca $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,10 +45,10 @@ class EnableEndpointPrivilegeManagementRequestBuilder extends BaseRequestBuilder
 
     /**
      * DEPRECATED - DO NOT USE. (Triggers onboarding of tenant to Microsoft Managed Platform - Cloud (MMP-C)).
-     * @param EnableEndpointPrivilegeManagementRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EnableEndpointPrivilegeManagementRequestBuilderPostRequ_45e8ccca|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?EnableEndpointPrivilegeManagementRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?EnableEndpointPrivilegeManagementRequestBuilderPostRequ_45e8ccca $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

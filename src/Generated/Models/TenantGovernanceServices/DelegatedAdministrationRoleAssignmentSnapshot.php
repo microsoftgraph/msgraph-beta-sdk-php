@@ -63,10 +63,23 @@ class DelegatedAdministrationRoleAssignmentSnapshot implements AdditionalDataHol
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'groupDisplayName' => fn(ParseNode $n) => $o->setGroupDisplayName($n->getStringValue()),
             'groupId' => fn(ParseNode $n) => $o->setGroupId($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'roleTemplates' => fn(ParseNode $n) => $o->setRoleTemplates($n->getCollectionOfObjectValues([RoleTemplate::class, 'createFromDiscriminatorValue'])),
         ];
+    }
+
+    /**
+     * Gets the groupDisplayName property value. The display name of the security group identified by groupId at the time the snapshot was created. Read-only.
+     * @return string|null
+    */
+    public function getGroupDisplayName(): ?string {
+        $val = $this->getBackingStore()->get('groupDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupDisplayName'");
     }
 
     /**
@@ -112,6 +125,7 @@ class DelegatedAdministrationRoleAssignmentSnapshot implements AdditionalDataHol
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('groupDisplayName', $this->getGroupDisplayName());
         $writer->writeStringValue('groupId', $this->getGroupId());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('roleTemplates', $this->getRoleTemplates());
@@ -132,6 +146,14 @@ class DelegatedAdministrationRoleAssignmentSnapshot implements AdditionalDataHol
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the groupDisplayName property value. The display name of the security group identified by groupId at the time the snapshot was created. Read-only.
+     * @param string|null $value Value to set for the groupDisplayName property.
+    */
+    public function setGroupDisplayName(?string $value): void {
+        $this->getBackingStore()->set('groupDisplayName', $value);
     }
 
     /**

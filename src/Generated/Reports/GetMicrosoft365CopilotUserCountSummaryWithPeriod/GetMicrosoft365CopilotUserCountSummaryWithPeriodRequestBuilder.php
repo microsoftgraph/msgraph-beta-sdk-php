@@ -35,12 +35,12 @@ class GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder extends Bas
 
     /**
      * Get the aggregated number of active and enabled users of Microsoft 365 Copilot for a specified time period.
-     * @param GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetMicrosoft365CopilotUserCountSummaryWithPeriodRequest_a1d52a8b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/reportroot-getmicrosoft365copilotusercountsummary?view=graph-rest-beta Find more info here
     */
-    public function get(?GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetMicrosoft365CopilotUserCountSummaryWithPeriodRequest_a1d52a8b $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -52,10 +52,10 @@ class GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder extends Bas
 
     /**
      * Get the aggregated number of active and enabled users of Microsoft 365 Copilot for a specified time period.
-     * @param GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetMicrosoft365CopilotUserCountSummaryWithPeriodRequest_a1d52a8b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetMicrosoft365CopilotUserCountSummaryWithPeriodRequest_a1d52a8b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

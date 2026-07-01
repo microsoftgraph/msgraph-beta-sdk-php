@@ -52,7 +52,7 @@ class MailboxExclusionUnitsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get mailboxExclusionUnits from solutions
+     * The list of mailbox exclusion units in the tenant.
      * @param MailboxExclusionUnitsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MailboxExclusionUnitCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class MailboxExclusionUnitsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get mailboxExclusionUnits from solutions
+     * The list of mailbox exclusion units in the tenant.
      * @param MailboxExclusionUnitsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

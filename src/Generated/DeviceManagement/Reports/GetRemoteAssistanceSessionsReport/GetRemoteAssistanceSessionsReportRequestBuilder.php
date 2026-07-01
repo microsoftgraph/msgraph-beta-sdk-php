@@ -33,11 +33,11 @@ class GetRemoteAssistanceSessionsReportRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action getRemoteAssistanceSessionsReport
      * @param GetRemoteAssistanceSessionsReportPostRequestBody $body The request body
-     * @param GetRemoteAssistanceSessionsReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetRemoteAssistanceSessionsReportRequestBuilderPostRequ_283d15d2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(GetRemoteAssistanceSessionsReportPostRequestBody $body, ?GetRemoteAssistanceSessionsReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetRemoteAssistanceSessionsReportPostRequestBody $body, ?GetRemoteAssistanceSessionsReportRequestBuilderPostRequ_283d15d2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class GetRemoteAssistanceSessionsReportRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action getRemoteAssistanceSessionsReport
      * @param GetRemoteAssistanceSessionsReportPostRequestBody $body The request body
-     * @param GetRemoteAssistanceSessionsReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetRemoteAssistanceSessionsReportRequestBuilderPostRequ_283d15d2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetRemoteAssistanceSessionsReportPostRequestBody $body, ?GetRemoteAssistanceSessionsReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetRemoteAssistanceSessionsReportPostRequestBody $body, ?GetRemoteAssistanceSessionsReportRequestBuilderPostRequ_283d15d2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -32,11 +32,11 @@ class WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilder extends Base
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsAutopilotDeploymentProfileAssignmentItemRequestB_26fbf009|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?WindowsAutopilotDeploymentProfileAssignmentItemRequestB_26fbf009 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilder extends Base
 
     /**
      * The list of group assignments for the profile.
-     * @param WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsAutopilotDeploymentProfileAssignmentItemRequestB_0d80473a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsAutopilotDeploymentProfileAssignment|null>
      * @throws Exception
     */
-    public function get(?WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?WindowsAutopilotDeploymentProfileAssignmentItemRequestB_0d80473a $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilder extends Base
     /**
      * Update the navigation property assignments in deviceManagement
      * @param WindowsAutopilotDeploymentProfileAssignment $body The request body
-     * @param WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsAutopilotDeploymentProfileAssignmentItemRequestB_5a080d5f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsAutopilotDeploymentProfileAssignment|null>
      * @throws Exception
     */
-    public function patch(WindowsAutopilotDeploymentProfileAssignment $body, ?WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(WindowsAutopilotDeploymentProfileAssignment $body, ?WindowsAutopilotDeploymentProfileAssignmentItemRequestB_5a080d5f $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilder extends Base
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsAutopilotDeploymentProfileAssignmentItemRequestB_26fbf009|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?WindowsAutopilotDeploymentProfileAssignmentItemRequestB_26fbf009 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilder extends Base
 
     /**
      * The list of group assignments for the profile.
-     * @param WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsAutopilotDeploymentProfileAssignmentItemRequestB_0d80473a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?WindowsAutopilotDeploymentProfileAssignmentItemRequestB_0d80473a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilder extends Base
     /**
      * Update the navigation property assignments in deviceManagement
      * @param WindowsAutopilotDeploymentProfileAssignment $body The request body
-     * @param WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsAutopilotDeploymentProfileAssignmentItemRequestB_5a080d5f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(WindowsAutopilotDeploymentProfileAssignment $body, ?WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(WindowsAutopilotDeploymentProfileAssignment $body, ?WindowsAutopilotDeploymentProfileAssignmentItemRequestB_5a080d5f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

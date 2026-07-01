@@ -56,7 +56,7 @@ class UpdateManagementEnrollment implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the driver property value. The driver property
+     * Gets the driver property value. Information about the enrollment state of the device in driver update management.
      * @return UpdateCategoryEnrollmentInformation|null
     */
     public function getDriver(): ?UpdateCategoryEnrollmentInformation {
@@ -68,7 +68,7 @@ class UpdateManagementEnrollment implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the feature property value. The feature property
+     * Gets the feature property value. Information about the enrollment state of the device in feature update management.
      * @return UpdateCategoryEnrollmentInformation|null
     */
     public function getFeature(): ?UpdateCategoryEnrollmentInformation {
@@ -106,7 +106,7 @@ class UpdateManagementEnrollment implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Gets the quality property value. The quality property
+     * Gets the quality property value. Information about the enrollment state of the device in quality update management.
      * @return UpdateCategoryEnrollmentInformation|null
     */
     public function getQuality(): ?UpdateCategoryEnrollmentInformation {
@@ -146,7 +146,7 @@ class UpdateManagementEnrollment implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the driver property value. The driver property
+     * Sets the driver property value. Information about the enrollment state of the device in driver update management.
      * @param UpdateCategoryEnrollmentInformation|null $value Value to set for the driver property.
     */
     public function setDriver(?UpdateCategoryEnrollmentInformation $value): void {
@@ -154,7 +154,7 @@ class UpdateManagementEnrollment implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the feature property value. The feature property
+     * Sets the feature property value. Information about the enrollment state of the device in feature update management.
      * @param UpdateCategoryEnrollmentInformation|null $value Value to set for the feature property.
     */
     public function setFeature(?UpdateCategoryEnrollmentInformation $value): void {
@@ -170,7 +170,7 @@ class UpdateManagementEnrollment implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
-     * Sets the quality property value. The quality property
+     * Sets the quality property value. Information about the enrollment state of the device in quality update management.
      * @param UpdateCategoryEnrollmentInformation|null $value Value to set for the quality property.
     */
     public function setQuality(?UpdateCategoryEnrollmentInformation $value): void {

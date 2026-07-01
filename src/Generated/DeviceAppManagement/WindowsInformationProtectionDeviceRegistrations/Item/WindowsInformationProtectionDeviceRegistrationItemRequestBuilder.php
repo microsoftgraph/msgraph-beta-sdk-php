@@ -40,11 +40,11 @@ class WindowsInformationProtectionDeviceRegistrationItemRequestBuilder extends B
 
     /**
      * Delete navigation property windowsInformationProtectionDeviceRegistrations for deviceAppManagement
-     * @param WindowsInformationProtectionDeviceRegistrationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsInformationProtectionDeviceRegistrationItemReque_90510cf3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?WindowsInformationProtectionDeviceRegistrationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?WindowsInformationProtectionDeviceRegistrationItemReque_90510cf3 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,11 +54,11 @@ class WindowsInformationProtectionDeviceRegistrationItemRequestBuilder extends B
 
     /**
      * Windows information protection device registrations that are not MDM enrolled.
-     * @param WindowsInformationProtectionDeviceRegistrationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsInformationProtectionDeviceRegistrationItemReque_177ce919|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsInformationProtectionDeviceRegistration|null>
      * @throws Exception
     */
-    public function get(?WindowsInformationProtectionDeviceRegistrationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?WindowsInformationProtectionDeviceRegistrationItemReque_177ce919 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class WindowsInformationProtectionDeviceRegistrationItemRequestBuilder extends B
     /**
      * Update the navigation property windowsInformationProtectionDeviceRegistrations in deviceAppManagement
      * @param WindowsInformationProtectionDeviceRegistration $body The request body
-     * @param WindowsInformationProtectionDeviceRegistrationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsInformationProtectionDeviceRegistrationItemReque_1aab73f3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsInformationProtectionDeviceRegistration|null>
      * @throws Exception
     */
-    public function patch(WindowsInformationProtectionDeviceRegistration $body, ?WindowsInformationProtectionDeviceRegistrationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(WindowsInformationProtectionDeviceRegistration $body, ?WindowsInformationProtectionDeviceRegistrationItemReque_1aab73f3 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class WindowsInformationProtectionDeviceRegistrationItemRequestBuilder extends B
 
     /**
      * Delete navigation property windowsInformationProtectionDeviceRegistrations for deviceAppManagement
-     * @param WindowsInformationProtectionDeviceRegistrationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsInformationProtectionDeviceRegistrationItemReque_90510cf3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?WindowsInformationProtectionDeviceRegistrationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?WindowsInformationProtectionDeviceRegistrationItemReque_90510cf3 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -101,10 +101,10 @@ class WindowsInformationProtectionDeviceRegistrationItemRequestBuilder extends B
 
     /**
      * Windows information protection device registrations that are not MDM enrolled.
-     * @param WindowsInformationProtectionDeviceRegistrationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsInformationProtectionDeviceRegistrationItemReque_177ce919|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?WindowsInformationProtectionDeviceRegistrationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?WindowsInformationProtectionDeviceRegistrationItemReque_177ce919 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -123,10 +123,10 @@ class WindowsInformationProtectionDeviceRegistrationItemRequestBuilder extends B
     /**
      * Update the navigation property windowsInformationProtectionDeviceRegistrations in deviceAppManagement
      * @param WindowsInformationProtectionDeviceRegistration $body The request body
-     * @param WindowsInformationProtectionDeviceRegistrationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsInformationProtectionDeviceRegistrationItemReque_1aab73f3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(WindowsInformationProtectionDeviceRegistration $body, ?WindowsInformationProtectionDeviceRegistrationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(WindowsInformationProtectionDeviceRegistration $body, ?WindowsInformationProtectionDeviceRegistrationItemReque_1aab73f3 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

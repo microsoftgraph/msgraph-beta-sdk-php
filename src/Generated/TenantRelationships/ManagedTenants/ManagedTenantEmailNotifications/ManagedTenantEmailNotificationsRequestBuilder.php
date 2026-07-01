@@ -53,11 +53,11 @@ class ManagedTenantEmailNotificationsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get managedTenantEmailNotifications from tenantRelationships
-     * @param ManagedTenantEmailNotificationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantEmailNotificationsRequestBuilderGetRequest_2e1d4354|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedTenantEmailNotificationCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?ManagedTenantEmailNotificationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagedTenantEmailNotificationsRequestBuilderGetRequest_2e1d4354 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class ManagedTenantEmailNotificationsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to managedTenantEmailNotifications for tenantRelationships
      * @param ManagedTenantEmailNotification $body The request body
-     * @param ManagedTenantEmailNotificationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantEmailNotificationsRequestBuilderPostReques_c7adabd3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedTenantEmailNotification|null>
      * @throws Exception
     */
-    public function post(ManagedTenantEmailNotification $body, ?ManagedTenantEmailNotificationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ManagedTenantEmailNotification $body, ?ManagedTenantEmailNotificationsRequestBuilderPostReques_c7adabd3 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class ManagedTenantEmailNotificationsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get managedTenantEmailNotifications from tenantRelationships
-     * @param ManagedTenantEmailNotificationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantEmailNotificationsRequestBuilderGetRequest_2e1d4354|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagedTenantEmailNotificationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagedTenantEmailNotificationsRequestBuilderGetRequest_2e1d4354 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class ManagedTenantEmailNotificationsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to managedTenantEmailNotifications for tenantRelationships
      * @param ManagedTenantEmailNotification $body The request body
-     * @param ManagedTenantEmailNotificationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagedTenantEmailNotificationsRequestBuilderPostReques_c7adabd3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ManagedTenantEmailNotification $body, ?ManagedTenantEmailNotificationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ManagedTenantEmailNotification $body, ?ManagedTenantEmailNotificationsRequestBuilderPostReques_c7adabd3 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

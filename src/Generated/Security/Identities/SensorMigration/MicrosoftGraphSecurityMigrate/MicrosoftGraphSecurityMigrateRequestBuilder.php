@@ -31,13 +31,14 @@ class MicrosoftGraphSecurityMigrateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action migrate
+     * Migrate the specified sensors to the unified security portal. This action initiates the migration process for one or more Microsoft Defender for Identity sensors.
      * @param MigratePostRequestBody $body The request body
-     * @param MicrosoftGraphSecurityMigrateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphSecurityMigrateRequestBuilderPostRequestC_9d7d1526|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MigrateSensorsResult|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-sensormigration-migrate?view=graph-rest-beta Find more info here
     */
-    public function post(MigratePostRequestBody $body, ?MicrosoftGraphSecurityMigrateRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(MigratePostRequestBody $body, ?MicrosoftGraphSecurityMigrateRequestBuilderPostRequestC_9d7d1526 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,12 +47,12 @@ class MicrosoftGraphSecurityMigrateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action migrate
+     * Migrate the specified sensors to the unified security portal. This action initiates the migration process for one or more Microsoft Defender for Identity sensors.
      * @param MigratePostRequestBody $body The request body
-     * @param MicrosoftGraphSecurityMigrateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphSecurityMigrateRequestBuilderPostRequestC_9d7d1526|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(MigratePostRequestBody $body, ?MicrosoftGraphSecurityMigrateRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(MigratePostRequestBody $body, ?MicrosoftGraphSecurityMigrateRequestBuilderPostRequestC_9d7d1526 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

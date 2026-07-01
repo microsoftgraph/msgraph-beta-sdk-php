@@ -34,12 +34,12 @@ class FindByMethodModeWithAuthenticationMethodModesRequestBuilder extends BaseRe
 
     /**
      * Get a list of the authenticationStrengthPolicy objects and their properties filtered to only include policies that include the authentication method mode specified in the request.
-     * @param FindByMethodModeWithAuthenticationMethodModesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param FindByMethodModeWithAuthenticationMethodModesRequestBui_29cdd333|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<FindByMethodModeWithAuthenticationMethodModesGetResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/authenticationstrengthpolicy-findbymethodmode?view=graph-rest-beta Find more info here
     */
-    public function get(?FindByMethodModeWithAuthenticationMethodModesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?FindByMethodModeWithAuthenticationMethodModesRequestBui_29cdd333 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,10 +49,10 @@ class FindByMethodModeWithAuthenticationMethodModesRequestBuilder extends BaseRe
 
     /**
      * Get a list of the authenticationStrengthPolicy objects and their properties filtered to only include policies that include the authentication method mode specified in the request.
-     * @param FindByMethodModeWithAuthenticationMethodModesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param FindByMethodModeWithAuthenticationMethodModesRequestBui_29cdd333|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?FindByMethodModeWithAuthenticationMethodModesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?FindByMethodModeWithAuthenticationMethodModesRequestBui_29cdd333 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

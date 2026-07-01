@@ -31,12 +31,12 @@ class MicrosoftGraphIndustryDataResetRequestBuilder extends BaseRequestBuilder
 
     /**
      * Reset a provisioningFlow. This action reprovisions all current data as if it were the initial run, and clears out the existing errors associated with the flow.
-     * @param MicrosoftGraphIndustryDataResetRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphIndustryDataResetRequestBuilderPostReques_30c6e0a0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/industrydata-provisioningflow-reset?view=graph-rest-beta Find more info here
     */
-    public function post(?MicrosoftGraphIndustryDataResetRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?MicrosoftGraphIndustryDataResetRequestBuilderPostReques_30c6e0a0 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class MicrosoftGraphIndustryDataResetRequestBuilder extends BaseRequestBuilder
 
     /**
      * Reset a provisioningFlow. This action reprovisions all current data as if it were the initial run, and clears out the existing errors associated with the flow.
-     * @param MicrosoftGraphIndustryDataResetRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphIndustryDataResetRequestBuilderPostReques_30c6e0a0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?MicrosoftGraphIndustryDataResetRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?MicrosoftGraphIndustryDataResetRequestBuilderPostReques_30c6e0a0 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

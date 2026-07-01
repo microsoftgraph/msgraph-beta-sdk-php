@@ -33,12 +33,12 @@ class GetConnectionQualityReportsRequestBuilder extends BaseRequestBuilder
     /**
      * Get the overall connection quality reports for all devices within a current tenant during a given time period, including metrics like the average round trip time (P50), average available bandwidth, and UDP connection percentage. Get also other real-time metrics such as last connection round trip time, last connection client IP, last connection gateway, and last connection protocol.
      * @param GetConnectionQualityReportsPostRequestBody $body The request body
-     * @param GetConnectionQualityReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetConnectionQualityReportsRequestBuilderPostRequestCon_23fea15a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpcreports-getconnectionqualityreports?view=graph-rest-beta Find more info here
     */
-    public function post(GetConnectionQualityReportsPostRequestBody $body, ?GetConnectionQualityReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetConnectionQualityReportsPostRequestBody $body, ?GetConnectionQualityReportsRequestBuilderPostRequestCon_23fea15a $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -51,10 +51,10 @@ class GetConnectionQualityReportsRequestBuilder extends BaseRequestBuilder
     /**
      * Get the overall connection quality reports for all devices within a current tenant during a given time period, including metrics like the average round trip time (P50), average available bandwidth, and UDP connection percentage. Get also other real-time metrics such as last connection round trip time, last connection client IP, last connection gateway, and last connection protocol.
      * @param GetConnectionQualityReportsPostRequestBody $body The request body
-     * @param GetConnectionQualityReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetConnectionQualityReportsRequestBuilderPostRequestCon_23fea15a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetConnectionQualityReportsPostRequestBody $body, ?GetConnectionQualityReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetConnectionQualityReportsPostRequestBody $body, ?GetConnectionQualityReportsRequestBuilderPostRequestCon_23fea15a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

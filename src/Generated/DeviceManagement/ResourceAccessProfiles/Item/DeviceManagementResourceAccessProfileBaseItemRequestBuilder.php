@@ -48,11 +48,11 @@ class DeviceManagementResourceAccessProfileBaseItemRequestBuilder extends BaseRe
 
     /**
      * Delete navigation property resourceAccessProfiles for deviceManagement
-     * @param DeviceManagementResourceAccessProfileBaseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementResourceAccessProfileBaseItemRequestBui_e3c4d6e6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DeviceManagementResourceAccessProfileBaseItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DeviceManagementResourceAccessProfileBaseItemRequestBui_e3c4d6e6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class DeviceManagementResourceAccessProfileBaseItemRequestBuilder extends BaseRe
 
     /**
      * Collection of resource access settings associated with account.
-     * @param DeviceManagementResourceAccessProfileBaseItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementResourceAccessProfileBaseItemRequestBui_b5bd485a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementResourceAccessProfileBase|null>
      * @throws Exception
     */
-    public function get(?DeviceManagementResourceAccessProfileBaseItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DeviceManagementResourceAccessProfileBaseItemRequestBui_b5bd485a $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,11 +77,11 @@ class DeviceManagementResourceAccessProfileBaseItemRequestBuilder extends BaseRe
     /**
      * Update the navigation property resourceAccessProfiles in deviceManagement
      * @param DeviceManagementResourceAccessProfileBase $body The request body
-     * @param DeviceManagementResourceAccessProfileBaseItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementResourceAccessProfileBaseItemRequestBui_39a0bcef|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementResourceAccessProfileBase|null>
      * @throws Exception
     */
-    public function patch(DeviceManagementResourceAccessProfileBase $body, ?DeviceManagementResourceAccessProfileBaseItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DeviceManagementResourceAccessProfileBase $body, ?DeviceManagementResourceAccessProfileBaseItemRequestBui_39a0bcef $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -91,10 +91,10 @@ class DeviceManagementResourceAccessProfileBaseItemRequestBuilder extends BaseRe
 
     /**
      * Delete navigation property resourceAccessProfiles for deviceManagement
-     * @param DeviceManagementResourceAccessProfileBaseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementResourceAccessProfileBaseItemRequestBui_e3c4d6e6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DeviceManagementResourceAccessProfileBaseItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DeviceManagementResourceAccessProfileBaseItemRequestBui_e3c4d6e6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -109,10 +109,10 @@ class DeviceManagementResourceAccessProfileBaseItemRequestBuilder extends BaseRe
 
     /**
      * Collection of resource access settings associated with account.
-     * @param DeviceManagementResourceAccessProfileBaseItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementResourceAccessProfileBaseItemRequestBui_b5bd485a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DeviceManagementResourceAccessProfileBaseItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DeviceManagementResourceAccessProfileBaseItemRequestBui_b5bd485a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -131,10 +131,10 @@ class DeviceManagementResourceAccessProfileBaseItemRequestBuilder extends BaseRe
     /**
      * Update the navigation property resourceAccessProfiles in deviceManagement
      * @param DeviceManagementResourceAccessProfileBase $body The request body
-     * @param DeviceManagementResourceAccessProfileBaseItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementResourceAccessProfileBaseItemRequestBui_39a0bcef|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DeviceManagementResourceAccessProfileBase $body, ?DeviceManagementResourceAccessProfileBaseItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DeviceManagementResourceAccessProfileBase $body, ?DeviceManagementResourceAccessProfileBaseItemRequestBui_39a0bcef $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

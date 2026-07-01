@@ -32,11 +32,11 @@ class ImportedDeviceIdentityItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property importedDeviceIdentities for deviceManagement
-     * @param ImportedDeviceIdentityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ImportedDeviceIdentityItemRequestBuilderDeleteRequestCo_7abbbafc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ImportedDeviceIdentityItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ImportedDeviceIdentityItemRequestBuilderDeleteRequestCo_7abbbafc $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class ImportedDeviceIdentityItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property importedDeviceIdentities in deviceManagement
      * @param ImportedDeviceIdentity $body The request body
-     * @param ImportedDeviceIdentityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ImportedDeviceIdentityItemRequestBuilderPatchRequestCon_480554b5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ImportedDeviceIdentity|null>
      * @throws Exception
     */
-    public function patch(ImportedDeviceIdentity $body, ?ImportedDeviceIdentityItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ImportedDeviceIdentity $body, ?ImportedDeviceIdentityItemRequestBuilderPatchRequestCon_480554b5 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class ImportedDeviceIdentityItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property importedDeviceIdentities for deviceManagement
-     * @param ImportedDeviceIdentityItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ImportedDeviceIdentityItemRequestBuilderDeleteRequestCo_7abbbafc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ImportedDeviceIdentityItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ImportedDeviceIdentityItemRequestBuilderDeleteRequestCo_7abbbafc $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class ImportedDeviceIdentityItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property importedDeviceIdentities in deviceManagement
      * @param ImportedDeviceIdentity $body The request body
-     * @param ImportedDeviceIdentityItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ImportedDeviceIdentityItemRequestBuilderPatchRequestCon_480554b5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ImportedDeviceIdentity $body, ?ImportedDeviceIdentityItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ImportedDeviceIdentity $body, ?ImportedDeviceIdentityItemRequestBuilderPatchRequestCon_480554b5 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

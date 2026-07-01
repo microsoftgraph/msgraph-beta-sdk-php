@@ -32,11 +32,11 @@ class MobileAppContentScriptItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property scripts for deviceAppManagement
-     * @param MobileAppContentScriptItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppContentScriptItemRequestBuilderDeleteRequestCo_1d7edd33|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?MobileAppContentScriptItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?MobileAppContentScriptItemRequestBuilderDeleteRequestCo_1d7edd33 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class MobileAppContentScriptItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property scripts in deviceAppManagement
      * @param MobileAppContentScript $body The request body
-     * @param MobileAppContentScriptItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppContentScriptItemRequestBuilderPatchRequestCon_35a5f6e9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MobileAppContentScript|null>
      * @throws Exception
     */
-    public function patch(MobileAppContentScript $body, ?MobileAppContentScriptItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(MobileAppContentScript $body, ?MobileAppContentScriptItemRequestBuilderPatchRequestCon_35a5f6e9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class MobileAppContentScriptItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property scripts for deviceAppManagement
-     * @param MobileAppContentScriptItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppContentScriptItemRequestBuilderDeleteRequestCo_1d7edd33|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?MobileAppContentScriptItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?MobileAppContentScriptItemRequestBuilderDeleteRequestCo_1d7edd33 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class MobileAppContentScriptItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property scripts in deviceAppManagement
      * @param MobileAppContentScript $body The request body
-     * @param MobileAppContentScriptItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobileAppContentScriptItemRequestBuilderPatchRequestCon_35a5f6e9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(MobileAppContentScript $body, ?MobileAppContentScriptItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(MobileAppContentScript $body, ?MobileAppContentScriptItemRequestBuilderPatchRequestCon_35a5f6e9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

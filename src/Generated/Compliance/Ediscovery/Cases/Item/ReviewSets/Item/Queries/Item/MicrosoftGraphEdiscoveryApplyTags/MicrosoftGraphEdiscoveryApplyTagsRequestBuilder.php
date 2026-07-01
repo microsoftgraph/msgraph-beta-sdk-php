@@ -32,12 +32,12 @@ class MicrosoftGraphEdiscoveryApplyTagsRequestBuilder extends BaseRequestBuilder
     /**
      * Apply tags to documents that match the specified reviewSetQuery.
      * @param ApplyTagsPostRequestBody $body The request body
-     * @param MicrosoftGraphEdiscoveryApplyTagsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphEdiscoveryApplyTagsRequestBuilderPostRequ_5b547c8b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/ediscovery-reviewsetquery-applytags?view=graph-rest-beta Find more info here
     */
-    public function post(ApplyTagsPostRequestBody $body, ?MicrosoftGraphEdiscoveryApplyTagsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ApplyTagsPostRequestBody $body, ?MicrosoftGraphEdiscoveryApplyTagsRequestBuilderPostRequ_5b547c8b $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class MicrosoftGraphEdiscoveryApplyTagsRequestBuilder extends BaseRequestBuilder
     /**
      * Apply tags to documents that match the specified reviewSetQuery.
      * @param ApplyTagsPostRequestBody $body The request body
-     * @param MicrosoftGraphEdiscoveryApplyTagsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphEdiscoveryApplyTagsRequestBuilderPostRequ_5b547c8b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ApplyTagsPostRequestBody $body, ?MicrosoftGraphEdiscoveryApplyTagsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ApplyTagsPostRequestBody $body, ?MicrosoftGraphEdiscoveryApplyTagsRequestBuilderPostRequ_5b547c8b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

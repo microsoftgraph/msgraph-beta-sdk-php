@@ -33,11 +33,11 @@ class GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilder extends BaseR
     /**
      * Invoke action getWindowsUpdateAlertsPerPolicyPerDeviceReport
      * @param GetWindowsUpdateAlertsPerPolicyPerDeviceReportPostRequestBody $body The request body
-     * @param GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBu_ff55d7e2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(GetWindowsUpdateAlertsPerPolicyPerDeviceReportPostRequestBody $body, ?GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetWindowsUpdateAlertsPerPolicyPerDeviceReportPostRequestBody $body, ?GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBu_ff55d7e2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilder extends BaseR
     /**
      * Invoke action getWindowsUpdateAlertsPerPolicyPerDeviceReport
      * @param GetWindowsUpdateAlertsPerPolicyPerDeviceReportPostRequestBody $body The request body
-     * @param GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBu_ff55d7e2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetWindowsUpdateAlertsPerPolicyPerDeviceReportPostRequestBody $body, ?GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetWindowsUpdateAlertsPerPolicyPerDeviceReportPostRequestBody $body, ?GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBu_ff55d7e2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

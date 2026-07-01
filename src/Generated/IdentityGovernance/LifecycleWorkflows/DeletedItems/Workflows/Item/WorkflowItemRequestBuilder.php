@@ -9,14 +9,17 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\Deleted
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\ExecutionScope\ExecutionScopeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\LastModifiedBy\LastModifiedByRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\MicrosoftGraphIdentityGovernanceActivate\MicrosoftGraphIdentityGovernanceActivateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\MicrosoftGraphIdentityGovernanceActivateAndWait\MicrosoftGraphIdentityGovernanceActivateAndWaitRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\MicrosoftGraphIdentityGovernanceActivateWithScope\MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\MicrosoftGraphIdentityGovernanceCancelProcessing\MicrosoftGraphIdentityGovernanceCancelProcessingRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\MicrosoftGraphIdentityGovernanceClearQuarantine\MicrosoftGraphIdentityGovernanceClearQuarantineRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\MicrosoftGraphIdentityGovernanceCreateNewVersion\MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\MicrosoftGraphIdentityGovernancePreviewTaskFailures\MicrosoftGraphIdentityGovernancePreviewTaskFailuresRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\MicrosoftGraphIdentityGovernancePreviewTaskFailures\MicrosoftGraphIdentityGovernancePreviewTaskFailuresRequ_71c2adef;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\MicrosoftGraphIdentityGovernancePreviewWorkflow\MicrosoftGraphIdentityGovernancePreviewWorkflowRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\MicrosoftGraphIdentityGovernanceRestore\MicrosoftGraphIdentityGovernanceRestoreRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\PreviewScope\PreviewScopeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\Runs\RunsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\SubjectProcessingResults\SubjectProcessingResultsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\TaskReports\TaskReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\Tasks\TasksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\Item\UserProcessingResults\UserProcessingResultsRequestBuilder;
@@ -69,6 +72,13 @@ class WorkflowItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the activateAndWait method.
+    */
+    public function microsoftGraphIdentityGovernanceActivateAndWait(): MicrosoftGraphIdentityGovernanceActivateAndWaitRequestBuilder {
+        return new MicrosoftGraphIdentityGovernanceActivateAndWaitRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the activateWithScope method.
     */
     public function microsoftGraphIdentityGovernanceActivateWithScope(): MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilder {
@@ -83,6 +93,13 @@ class WorkflowItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the clearQuarantine method.
+    */
+    public function microsoftGraphIdentityGovernanceClearQuarantine(): MicrosoftGraphIdentityGovernanceClearQuarantineRequestBuilder {
+        return new MicrosoftGraphIdentityGovernanceClearQuarantineRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the createNewVersion method.
     */
     public function microsoftGraphIdentityGovernanceCreateNewVersion(): MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilder {
@@ -92,8 +109,8 @@ class WorkflowItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the previewTaskFailures method.
     */
-    public function microsoftGraphIdentityGovernancePreviewTaskFailures(): MicrosoftGraphIdentityGovernancePreviewTaskFailuresRequestBuilder {
-        return new MicrosoftGraphIdentityGovernancePreviewTaskFailuresRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphIdentityGovernancePreviewTaskFailures(): MicrosoftGraphIdentityGovernancePreviewTaskFailuresRequ_71c2adef {
+        return new MicrosoftGraphIdentityGovernancePreviewTaskFailuresRequ_71c2adef($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -122,6 +139,13 @@ class WorkflowItemRequestBuilder extends BaseRequestBuilder
     */
     public function runs(): RunsRequestBuilder {
         return new RunsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the subjectProcessingResults property of the microsoft.graph.identityGovernance.workflow entity.
+    */
+    public function subjectProcessingResults(): SubjectProcessingResultsRequestBuilder {
+        return new SubjectProcessingResultsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

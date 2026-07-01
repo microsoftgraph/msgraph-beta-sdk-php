@@ -32,12 +32,12 @@ class MicrosoftGraphEdiscoveryAddToReviewSetRequestBuilder extends BaseRequestBu
     /**
      * Start the process of adding a collection from Microsoft 365 services to a review set. After the operation is created, you can get the status of the operation by retrieving the Location parameter from the response headers. The location provides a URL that will return a caseExportOperation.
      * @param AddToReviewSetPostRequestBody $body The request body
-     * @param MicrosoftGraphEdiscoveryAddToReviewSetRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphEdiscoveryAddToReviewSetRequestBuilderPos_8139b918|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/ediscovery-reviewset-addtoreviewset?view=graph-rest-beta Find more info here
     */
-    public function post(AddToReviewSetPostRequestBody $body, ?MicrosoftGraphEdiscoveryAddToReviewSetRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AddToReviewSetPostRequestBody $body, ?MicrosoftGraphEdiscoveryAddToReviewSetRequestBuilderPos_8139b918 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class MicrosoftGraphEdiscoveryAddToReviewSetRequestBuilder extends BaseRequestBu
     /**
      * Start the process of adding a collection from Microsoft 365 services to a review set. After the operation is created, you can get the status of the operation by retrieving the Location parameter from the response headers. The location provides a URL that will return a caseExportOperation.
      * @param AddToReviewSetPostRequestBody $body The request body
-     * @param MicrosoftGraphEdiscoveryAddToReviewSetRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphEdiscoveryAddToReviewSetRequestBuilderPos_8139b918|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AddToReviewSetPostRequestBody $body, ?MicrosoftGraphEdiscoveryAddToReviewSetRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AddToReviewSetPostRequestBody $body, ?MicrosoftGraphEdiscoveryAddToReviewSetRequestBuilderPos_8139b918 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

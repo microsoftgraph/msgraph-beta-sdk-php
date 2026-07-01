@@ -27,7 +27,7 @@ class VirtualEventSession extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Gets the capacity property value. The capacity property
+     * Gets the capacity property value. Represents the expected number of attendees for town hall session.
      * @return int|null
     */
     public function getCapacity(): ?int {
@@ -133,7 +133,7 @@ class VirtualEventSession extends OnlineMeetingBase implements Parsable
     }
 
     /**
-     * Sets the capacity property value. The capacity property
+     * Sets the capacity property value. Represents the expected number of attendees for town hall session.
      * @param int|null $value Value to set for the capacity property.
     */
     public function setCapacity(?int $value): void {

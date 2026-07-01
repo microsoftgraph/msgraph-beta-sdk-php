@@ -53,11 +53,11 @@ class AccessPackageCustomWorkflowExtensionsRequestBuilder extends BaseRequestBui
 
     /**
      * The attributes of a logic app, which can be called at various stages of an access package request and assignment cycle.
-     * @param AccessPackageCustomWorkflowExtensionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageCustomWorkflowExtensionsRequestBuilderGetR_67beb38e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomCalloutExtensionCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?AccessPackageCustomWorkflowExtensionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AccessPackageCustomWorkflowExtensionsRequestBuilderGetR_67beb38e $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class AccessPackageCustomWorkflowExtensionsRequestBuilder extends BaseRequestBui
     /**
      * Create new navigation property to accessPackageCustomWorkflowExtensions for identityGovernance
      * @param CustomCalloutExtension $body The request body
-     * @param AccessPackageCustomWorkflowExtensionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageCustomWorkflowExtensionsRequestBuilderPost_dbe543f6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomCalloutExtension|null>
      * @throws Exception
     */
-    public function post(CustomCalloutExtension $body, ?AccessPackageCustomWorkflowExtensionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(CustomCalloutExtension $body, ?AccessPackageCustomWorkflowExtensionsRequestBuilderPost_dbe543f6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class AccessPackageCustomWorkflowExtensionsRequestBuilder extends BaseRequestBui
 
     /**
      * The attributes of a logic app, which can be called at various stages of an access package request and assignment cycle.
-     * @param AccessPackageCustomWorkflowExtensionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageCustomWorkflowExtensionsRequestBuilderGetR_67beb38e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AccessPackageCustomWorkflowExtensionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AccessPackageCustomWorkflowExtensionsRequestBuilderGetR_67beb38e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class AccessPackageCustomWorkflowExtensionsRequestBuilder extends BaseRequestBui
     /**
      * Create new navigation property to accessPackageCustomWorkflowExtensions for identityGovernance
      * @param CustomCalloutExtension $body The request body
-     * @param AccessPackageCustomWorkflowExtensionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageCustomWorkflowExtensionsRequestBuilderPost_dbe543f6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(CustomCalloutExtension $body, ?AccessPackageCustomWorkflowExtensionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(CustomCalloutExtension $body, ?AccessPackageCustomWorkflowExtensionsRequestBuilderPost_dbe543f6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -39,7 +39,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RebootNow\Rebo
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RecoverPasscode\RecoverPasscodeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\Reenable\ReenableRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RemoteLock\RemoteLockRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RemoveDeviceFirmwareConfigurationInterfaceManagement\RemoveDeviceFirmwareConfigurationInterfaceManagementRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RemoveDeviceFirmwareConfigurationInterfaceManagement\RemoveDeviceFirmwareConfigurationInterfaceManagementReq_abf9bd5f;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RequestRemoteAssistance\RequestRemoteAssistanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\ResetPasscode\ResetPasscodeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RestoreManagedHomeScreen\RestoreManagedHomeScreenRequestBuilder;
@@ -309,8 +309,8 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the removeDeviceFirmwareConfigurationInterfaceManagement method.
     */
-    public function removeDeviceFirmwareConfigurationInterfaceManagement(): RemoveDeviceFirmwareConfigurationInterfaceManagementRequestBuilder {
-        return new RemoveDeviceFirmwareConfigurationInterfaceManagementRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function removeDeviceFirmwareConfigurationInterfaceManagement(): RemoveDeviceFirmwareConfigurationInterfaceManagementReq_abf9bd5f {
+        return new RemoveDeviceFirmwareConfigurationInterfaceManagementReq_abf9bd5f($this->pathParameters, $this->requestAdapter);
     }
     
     /**

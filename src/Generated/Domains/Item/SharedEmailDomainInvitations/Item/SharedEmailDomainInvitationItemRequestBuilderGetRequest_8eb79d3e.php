@@ -1,0 +1,39 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Domains\Item\SharedEmailDomainInvitations\Item;
+
+use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
+use Microsoft\Kiota\Abstractions\RequestOption;
+
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options. Original name: SharedEmailDomainInvitationItemRequestBuilderGetRequestConfiguration
+*/
+class SharedEmailDomainInvitationItemRequestBuilderGetRequest_8eb79d3e extends BaseRequestConfiguration 
+{
+    /**
+     * @var SharedEmailDomainInvitationItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?SharedEmailDomainInvitationItemRequestBuilderGetQueryParameters $queryParameters = null;
+    
+    /**
+     * Instantiates a new SharedEmailDomainInvitationItemRequestBuilderGetRequest_8eb79d3e and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
+     * @param SharedEmailDomainInvitationItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?SharedEmailDomainInvitationItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        parent::__construct($headers ?? [], $options ?? []);
+        $this->queryParameters = $queryParameters;
+    }
+
+    /**
+     * Instantiates a new SharedEmailDomainInvitationItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return SharedEmailDomainInvitationItemRequestBuilderGetQueryParameters
+    */
+    public static function createQueryParameters(?array $expand = null, ?array $select = null): SharedEmailDomainInvitationItemRequestBuilderGetQueryParameters {
+        return new SharedEmailDomainInvitationItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+}

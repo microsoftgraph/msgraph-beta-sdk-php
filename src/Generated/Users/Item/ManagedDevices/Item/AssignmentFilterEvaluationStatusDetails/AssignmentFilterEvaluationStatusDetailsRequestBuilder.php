@@ -53,11 +53,11 @@ class AssignmentFilterEvaluationStatusDetailsRequestBuilder extends BaseRequestB
 
     /**
      * Managed device mobile app configuration states for this device.
-     * @param AssignmentFilterEvaluationStatusDetailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AssignmentFilterEvaluationStatusDetailsRequestBuilderGe_5e41e4a1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AssignmentFilterEvaluationStatusDetailsCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?AssignmentFilterEvaluationStatusDetailsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AssignmentFilterEvaluationStatusDetailsRequestBuilderGe_5e41e4a1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class AssignmentFilterEvaluationStatusDetailsRequestBuilder extends BaseRequestB
     /**
      * Create new navigation property to assignmentFilterEvaluationStatusDetails for users
      * @param AssignmentFilterEvaluationStatusDetails $body The request body
-     * @param AssignmentFilterEvaluationStatusDetailsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AssignmentFilterEvaluationStatusDetailsRequestBuilderPo_a209d3c6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AssignmentFilterEvaluationStatusDetails|null>
      * @throws Exception
     */
-    public function post(AssignmentFilterEvaluationStatusDetails $body, ?AssignmentFilterEvaluationStatusDetailsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AssignmentFilterEvaluationStatusDetails $body, ?AssignmentFilterEvaluationStatusDetailsRequestBuilderPo_a209d3c6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class AssignmentFilterEvaluationStatusDetailsRequestBuilder extends BaseRequestB
 
     /**
      * Managed device mobile app configuration states for this device.
-     * @param AssignmentFilterEvaluationStatusDetailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AssignmentFilterEvaluationStatusDetailsRequestBuilderGe_5e41e4a1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AssignmentFilterEvaluationStatusDetailsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AssignmentFilterEvaluationStatusDetailsRequestBuilderGe_5e41e4a1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class AssignmentFilterEvaluationStatusDetailsRequestBuilder extends BaseRequestB
     /**
      * Create new navigation property to assignmentFilterEvaluationStatusDetails for users
      * @param AssignmentFilterEvaluationStatusDetails $body The request body
-     * @param AssignmentFilterEvaluationStatusDetailsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AssignmentFilterEvaluationStatusDetailsRequestBuilderPo_a209d3c6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AssignmentFilterEvaluationStatusDetails $body, ?AssignmentFilterEvaluationStatusDetailsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AssignmentFilterEvaluationStatusDetails $body, ?AssignmentFilterEvaluationStatusDetailsRequestBuilderPo_a209d3c6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

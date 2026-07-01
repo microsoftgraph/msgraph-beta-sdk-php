@@ -131,6 +131,9 @@ class Subscription extends Entity implements Parsable
             'notificationUrl' => fn(ParseNode $n) => $o->setNotificationUrl($n->getStringValue()),
             'notificationUrlAppId' => fn(ParseNode $n) => $o->setNotificationUrlAppId($n->getStringValue()),
             'resource' => fn(ParseNode $n) => $o->setResource($n->getStringValue()),
+            'vapidPublicKey' => fn(ParseNode $n) => $o->setVapidPublicKey($n->getStringValue()),
+            'webPushEncryptionP256dhPublicKey' => fn(ParseNode $n) => $o->setWebPushEncryptionP256dhPublicKey($n->getStringValue()),
+            'webPushEncryptionSecret' => fn(ParseNode $n) => $o->setWebPushEncryptionSecret($n->getStringValue()),
         ]);
     }
 
@@ -231,6 +234,42 @@ class Subscription extends Entity implements Parsable
     }
 
     /**
+     * Gets the vapidPublicKey property value. The vapidPublicKey property
+     * @return string|null
+    */
+    public function getVapidPublicKey(): ?string {
+        $val = $this->getBackingStore()->get('vapidPublicKey');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'vapidPublicKey'");
+    }
+
+    /**
+     * Gets the webPushEncryptionP256dhPublicKey property value. The webPushEncryptionP256dhPublicKey property
+     * @return string|null
+    */
+    public function getWebPushEncryptionP256dhPublicKey(): ?string {
+        $val = $this->getBackingStore()->get('webPushEncryptionP256dhPublicKey');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'webPushEncryptionP256dhPublicKey'");
+    }
+
+    /**
+     * Gets the webPushEncryptionSecret property value. The webPushEncryptionSecret property
+     * @return string|null
+    */
+    public function getWebPushEncryptionSecret(): ?string {
+        $val = $this->getBackingStore()->get('webPushEncryptionSecret');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'webPushEncryptionSecret'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -251,6 +290,9 @@ class Subscription extends Entity implements Parsable
         $writer->writeStringValue('notificationUrl', $this->getNotificationUrl());
         $writer->writeStringValue('notificationUrlAppId', $this->getNotificationUrlAppId());
         $writer->writeStringValue('resource', $this->getResource());
+        $writer->writeStringValue('vapidPublicKey', $this->getVapidPublicKey());
+        $writer->writeStringValue('webPushEncryptionP256dhPublicKey', $this->getWebPushEncryptionP256dhPublicKey());
+        $writer->writeStringValue('webPushEncryptionSecret', $this->getWebPushEncryptionSecret());
     }
 
     /**
@@ -371,6 +413,30 @@ class Subscription extends Entity implements Parsable
     */
     public function setResource(?string $value): void {
         $this->getBackingStore()->set('resource', $value);
+    }
+
+    /**
+     * Sets the vapidPublicKey property value. The vapidPublicKey property
+     * @param string|null $value Value to set for the vapidPublicKey property.
+    */
+    public function setVapidPublicKey(?string $value): void {
+        $this->getBackingStore()->set('vapidPublicKey', $value);
+    }
+
+    /**
+     * Sets the webPushEncryptionP256dhPublicKey property value. The webPushEncryptionP256dhPublicKey property
+     * @param string|null $value Value to set for the webPushEncryptionP256dhPublicKey property.
+    */
+    public function setWebPushEncryptionP256dhPublicKey(?string $value): void {
+        $this->getBackingStore()->set('webPushEncryptionP256dhPublicKey', $value);
+    }
+
+    /**
+     * Sets the webPushEncryptionSecret property value. The webPushEncryptionSecret property
+     * @param string|null $value Value to set for the webPushEncryptionSecret property.
+    */
+    public function setWebPushEncryptionSecret(?string $value): void {
+        $this->getBackingStore()->set('webPushEncryptionSecret', $value);
     }
 
 }

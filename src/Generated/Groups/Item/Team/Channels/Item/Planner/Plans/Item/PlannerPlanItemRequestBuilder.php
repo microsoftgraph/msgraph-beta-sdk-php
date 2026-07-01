@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\Planner\Plans\
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\Planner\Plans\Item\Buckets\BucketsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\Planner\Plans\Item\Details\DetailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\Planner\Plans\Item\GetUsageRights\GetUsageRightsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\Planner\Plans\Item\HistoryItems\HistoryItemsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\Planner\Plans\Item\MoveToContainer\MoveToContainerRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\Planner\Plans\Item\Tasks\TasksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\Planner\Plans\Item\Unarchive\UnarchiveRequestBuilder;
@@ -49,6 +50,13 @@ class PlannerPlanItemRequestBuilder extends BaseRequestBuilder
     */
     public function getUsageRights(): GetUsageRightsRequestBuilder {
         return new GetUsageRightsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the historyItems property of the microsoft.graph.plannerPlan entity.
+    */
+    public function historyItems(): HistoryItemsRequestBuilder {
+        return new HistoryItemsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
