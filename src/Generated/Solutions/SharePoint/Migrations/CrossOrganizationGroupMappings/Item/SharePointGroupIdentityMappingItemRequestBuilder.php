@@ -32,11 +32,11 @@ class SharePointGroupIdentityMappingItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property crossOrganizationGroupMappings for solutions
-     * @param SharePointGroupIdentityMappingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharePointGroupIdentityMappingItemRequestBuilderDeleteR_b4f6ee0f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?SharePointGroupIdentityMappingItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?SharePointGroupIdentityMappingItemRequestBuilderDeleteR_b4f6ee0f $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class SharePointGroupIdentityMappingItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Collection of group identity mappings for cross-organization migration.
-     * @param SharePointGroupIdentityMappingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharePointGroupIdentityMappingItemRequestBuilderGetRequ_2bf17795|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SharePointGroupIdentityMapping|null>
      * @throws Exception
     */
-    public function get(?SharePointGroupIdentityMappingItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?SharePointGroupIdentityMappingItemRequestBuilderGetRequ_2bf17795 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,12 +61,12 @@ class SharePointGroupIdentityMappingItemRequestBuilder extends BaseRequestBuilde
     /**
      * Perform delta patch operations on group identity mappings for cross-organization migration. This operation supports bulk add, update, and delete actions for both Microsoft 365 groups and regular Microsoft Entra groups. Maximum of 50 items allowed in the value array.
      * @param SharePointGroupIdentityMapping $body The request body
-     * @param SharePointGroupIdentityMappingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharePointGroupIdentityMappingItemRequestBuilderPatchRe_5f320350|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SharePointGroupIdentityMapping|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/sharepointgroupidentitymapping-update?view=graph-rest-beta Find more info here
     */
-    public function patch(SharePointGroupIdentityMapping $body, ?SharePointGroupIdentityMappingItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(SharePointGroupIdentityMapping $body, ?SharePointGroupIdentityMappingItemRequestBuilderPatchRe_5f320350 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -76,10 +76,10 @@ class SharePointGroupIdentityMappingItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property crossOrganizationGroupMappings for solutions
-     * @param SharePointGroupIdentityMappingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharePointGroupIdentityMappingItemRequestBuilderDeleteR_b4f6ee0f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?SharePointGroupIdentityMappingItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?SharePointGroupIdentityMappingItemRequestBuilderDeleteR_b4f6ee0f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -94,10 +94,10 @@ class SharePointGroupIdentityMappingItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Collection of group identity mappings for cross-organization migration.
-     * @param SharePointGroupIdentityMappingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharePointGroupIdentityMappingItemRequestBuilderGetRequ_2bf17795|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?SharePointGroupIdentityMappingItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?SharePointGroupIdentityMappingItemRequestBuilderGetRequ_2bf17795 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -116,10 +116,10 @@ class SharePointGroupIdentityMappingItemRequestBuilder extends BaseRequestBuilde
     /**
      * Perform delta patch operations on group identity mappings for cross-organization migration. This operation supports bulk add, update, and delete actions for both Microsoft 365 groups and regular Microsoft Entra groups. Maximum of 50 items allowed in the value array.
      * @param SharePointGroupIdentityMapping $body The request body
-     * @param SharePointGroupIdentityMappingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharePointGroupIdentityMappingItemRequestBuilderPatchRe_5f320350|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(SharePointGroupIdentityMapping $body, ?SharePointGroupIdentityMappingItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(SharePointGroupIdentityMapping $body, ?SharePointGroupIdentityMappingItemRequestBuilderPatchRe_5f320350 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

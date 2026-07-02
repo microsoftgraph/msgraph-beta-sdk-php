@@ -34,11 +34,11 @@ class GetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilder extends Base
 
     /**
      * Invoke function getOffice365GroupsActivityGroupCounts
-     * @param GetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetOffice365GroupsActivityGroupCountsWithPeriodRequestB_36ab5b49|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetOffice365GroupsActivityGroupCountsWithPeriodGetResponse|null>
      * @throws Exception
     */
-    public function get(?GetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetOffice365GroupsActivityGroupCountsWithPeriodRequestB_36ab5b49 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class GetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilder extends Base
 
     /**
      * Invoke function getOffice365GroupsActivityGroupCounts
-     * @param GetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetOffice365GroupsActivityGroupCountsWithPeriodRequestB_36ab5b49|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetOffice365GroupsActivityGroupCountsWithPeriodRequestB_36ab5b49 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

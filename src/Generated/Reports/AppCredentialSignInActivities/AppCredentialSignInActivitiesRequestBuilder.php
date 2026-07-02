@@ -53,12 +53,12 @@ class AppCredentialSignInActivitiesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a list of appCredentialSignInActivity objects that contains recent activity of application credentials.
-     * @param AppCredentialSignInActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppCredentialSignInActivitiesRequestBuilderGetRequestCo_fcdd8c2e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AppCredentialSignInActivityCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/reportroot-list-appcredentialsigninactivities?view=graph-rest-beta Find more info here
     */
-    public function get(?AppCredentialSignInActivitiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AppCredentialSignInActivitiesRequestBuilderGetRequestCo_fcdd8c2e $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class AppCredentialSignInActivitiesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to appCredentialSignInActivities for reports
      * @param AppCredentialSignInActivity $body The request body
-     * @param AppCredentialSignInActivitiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppCredentialSignInActivitiesRequestBuilderPostRequestC_ecf681d8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AppCredentialSignInActivity|null>
      * @throws Exception
     */
-    public function post(AppCredentialSignInActivity $body, ?AppCredentialSignInActivitiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AppCredentialSignInActivity $body, ?AppCredentialSignInActivitiesRequestBuilderPostRequestC_ecf681d8 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class AppCredentialSignInActivitiesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a list of appCredentialSignInActivity objects that contains recent activity of application credentials.
-     * @param AppCredentialSignInActivitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppCredentialSignInActivitiesRequestBuilderGetRequestCo_fcdd8c2e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AppCredentialSignInActivitiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AppCredentialSignInActivitiesRequestBuilderGetRequestCo_fcdd8c2e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -105,10 +105,10 @@ class AppCredentialSignInActivitiesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to appCredentialSignInActivities for reports
      * @param AppCredentialSignInActivity $body The request body
-     * @param AppCredentialSignInActivitiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AppCredentialSignInActivitiesRequestBuilderPostRequestC_ecf681d8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AppCredentialSignInActivity $body, ?AppCredentialSignInActivitiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AppCredentialSignInActivity $body, ?AppCredentialSignInActivitiesRequestBuilderPostRequestC_ecf681d8 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

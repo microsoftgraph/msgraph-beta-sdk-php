@@ -31,12 +31,11 @@ class ValidateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Validate the configuration of a crossTenantMigrationJob. This function doesn't migrate any content, but goes through validation for the specified workloads to find any errors or misconfigurations that would affect an actual migration job. 
+     * Invoke action validate
      * @param ValidatePostRequestBody $body The request body
      * @param ValidateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CrossTenantMigrationJob|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/crosstenantmigrationjob-validate?view=graph-rest-beta Find more info here
     */
     public function post(ValidatePostRequestBody $body, ?ValidateRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -47,7 +46,7 @@ class ValidateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Validate the configuration of a crossTenantMigrationJob. This function doesn't migrate any content, but goes through validation for the specified workloads to find any errors or misconfigurations that would affect an actual migration job. 
+     * Invoke action validate
      * @param ValidatePostRequestBody $body The request body
      * @param ValidateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

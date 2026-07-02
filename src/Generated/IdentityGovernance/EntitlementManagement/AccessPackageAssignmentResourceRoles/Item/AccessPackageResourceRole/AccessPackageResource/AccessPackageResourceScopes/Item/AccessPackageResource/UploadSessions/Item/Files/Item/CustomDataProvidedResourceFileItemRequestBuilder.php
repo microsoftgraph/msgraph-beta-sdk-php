@@ -40,11 +40,11 @@ class CustomDataProvidedResourceFileItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * The files uploaded during this upload session. Supports $expand and $expand with nested $filter and $orderby.
-     * @param CustomDataProvidedResourceFileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomDataProvidedResourceFileItemRequestBuilderGetRequ_bee4c2a9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomDataProvidedResourceFile|null>
      * @throws Exception
     */
-    public function get(?CustomDataProvidedResourceFileItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CustomDataProvidedResourceFileItemRequestBuilderGetRequ_bee4c2a9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,10 +54,10 @@ class CustomDataProvidedResourceFileItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * The files uploaded during this upload session. Supports $expand and $expand with nested $filter and $orderby.
-     * @param CustomDataProvidedResourceFileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomDataProvidedResourceFileItemRequestBuilderGetRequ_bee4c2a9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CustomDataProvidedResourceFileItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CustomDataProvidedResourceFileItemRequestBuilderGetRequ_bee4c2a9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

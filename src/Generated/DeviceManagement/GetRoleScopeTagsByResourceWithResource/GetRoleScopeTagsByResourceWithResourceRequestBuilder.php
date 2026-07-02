@@ -34,11 +34,11 @@ class GetRoleScopeTagsByResourceWithResourceRequestBuilder extends BaseRequestBu
 
     /**
      * Invoke function getRoleScopeTagsByResource
-     * @param GetRoleScopeTagsByResourceWithResourceRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetRoleScopeTagsByResourceWithResourceRequestBuilderGet_ad3ba911|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetRoleScopeTagsByResourceWithResourceGetResponse|null>
      * @throws Exception
     */
-    public function get(?GetRoleScopeTagsByResourceWithResourceRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetRoleScopeTagsByResourceWithResourceRequestBuilderGet_ad3ba911 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class GetRoleScopeTagsByResourceWithResourceRequestBuilder extends BaseRequestBu
 
     /**
      * Invoke function getRoleScopeTagsByResource
-     * @param GetRoleScopeTagsByResourceWithResourceRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetRoleScopeTagsByResourceWithResourceRequestBuilderGet_ad3ba911|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetRoleScopeTagsByResourceWithResourceRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetRoleScopeTagsByResourceWithResourceRequestBuilderGet_ad3ba911 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

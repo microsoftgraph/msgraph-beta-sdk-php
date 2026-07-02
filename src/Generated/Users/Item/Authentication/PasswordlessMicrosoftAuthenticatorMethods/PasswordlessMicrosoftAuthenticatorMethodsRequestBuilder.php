@@ -5,9 +5,9 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessM
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\PasswordlessMicrosoftAuthenticatorAuthenticationMethodCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\PasswordlessMicrosoftAuthenticatorAuthenticationMethodC_01a79cbd;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PasswordlessMicrosoftAuthenticatorMethods\Item\PasswordlessMicrosoftAuthenticatorAuthenticationMethodI_a9962b72;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -28,12 +28,12 @@ class PasswordlessMicrosoftAuthenticatorMethodsRequestBuilder extends BaseReques
     /**
      * Provides operations to manage the passwordlessMicrosoftAuthenticatorMethods property of the microsoft.graph.authentication entity.
      * @param string $passwordlessMicrosoftAuthenticatorAuthenticationMethodId The unique identifier of passwordlessMicrosoftAuthenticatorAuthenticationMethod
-     * @return PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder
+     * @return PasswordlessMicrosoftAuthenticatorAuthenticationMethodI_a9962b72
     */
-    public function byPasswordlessMicrosoftAuthenticatorAuthenticationMethodId(string $passwordlessMicrosoftAuthenticatorAuthenticationMethodId): PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder {
+    public function byPasswordlessMicrosoftAuthenticatorAuthenticationMethodId(string $passwordlessMicrosoftAuthenticatorAuthenticationMethodId): PasswordlessMicrosoftAuthenticatorAuthenticationMethodI_a9962b72 {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['passwordlessMicrosoftAuthenticatorAuthenticationMethod%2Did'] = $passwordlessMicrosoftAuthenticatorAuthenticationMethodId;
-        return new PasswordlessMicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new PasswordlessMicrosoftAuthenticatorAuthenticationMethodI_a9962b72($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -52,24 +52,24 @@ class PasswordlessMicrosoftAuthenticatorMethodsRequestBuilder extends BaseReques
 
     /**
      * Represents the Microsoft Authenticator Passwordless Phone Sign-in methods registered to a user for authentication.
-     * @param PasswordlessMicrosoftAuthenticatorMethodsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<PasswordlessMicrosoftAuthenticatorAuthenticationMethodCollectionResponse|null>
+     * @param PasswordlessMicrosoftAuthenticatorMethodsRequestBuilder_34f9560d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise<PasswordlessMicrosoftAuthenticatorAuthenticationMethodC_01a79cbd|null>
      * @throws Exception
     */
-    public function get(?PasswordlessMicrosoftAuthenticatorMethodsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?PasswordlessMicrosoftAuthenticatorMethodsRequestBuilder_34f9560d $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        return $this->requestAdapter->sendAsync($requestInfo, [PasswordlessMicrosoftAuthenticatorAuthenticationMethodCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+        return $this->requestAdapter->sendAsync($requestInfo, [PasswordlessMicrosoftAuthenticatorAuthenticationMethodC_01a79cbd::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
      * Represents the Microsoft Authenticator Passwordless Phone Sign-in methods registered to a user for authentication.
-     * @param PasswordlessMicrosoftAuthenticatorMethodsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PasswordlessMicrosoftAuthenticatorMethodsRequestBuilder_34f9560d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?PasswordlessMicrosoftAuthenticatorMethodsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?PasswordlessMicrosoftAuthenticatorMethodsRequestBuilder_34f9560d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

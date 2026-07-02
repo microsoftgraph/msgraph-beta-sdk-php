@@ -52,12 +52,12 @@ class DriveExclusionUnitsBulkAdditionJobsRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Get driveExclusionUnitsBulkAdditionJobs from solutions
-     * @param DriveExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * The list of bulk addition jobs for drive exclusion units in the tenant.
+     * @param DriveExclusionUnitsBulkAdditionJobsRequestBuilderGetReq_95248282|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DriveExclusionUnitsBulkAdditionJobCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?DriveExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DriveExclusionUnitsBulkAdditionJobsRequestBuilderGetReq_95248282 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class DriveExclusionUnitsBulkAdditionJobsRequestBuilder extends BaseRequestBuild
     /**
      * Create new navigation property to driveExclusionUnitsBulkAdditionJobs for solutions
      * @param DriveExclusionUnitsBulkAdditionJob $body The request body
-     * @param DriveExclusionUnitsBulkAdditionJobsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DriveExclusionUnitsBulkAdditionJobsRequestBuilderPostRe_453f87f2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DriveExclusionUnitsBulkAdditionJob|null>
      * @throws Exception
     */
-    public function post(DriveExclusionUnitsBulkAdditionJob $body, ?DriveExclusionUnitsBulkAdditionJobsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(DriveExclusionUnitsBulkAdditionJob $body, ?DriveExclusionUnitsBulkAdditionJobsRequestBuilderPostRe_453f87f2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -81,11 +81,11 @@ class DriveExclusionUnitsBulkAdditionJobsRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Get driveExclusionUnitsBulkAdditionJobs from solutions
-     * @param DriveExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * The list of bulk addition jobs for drive exclusion units in the tenant.
+     * @param DriveExclusionUnitsBulkAdditionJobsRequestBuilderGetReq_95248282|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DriveExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DriveExclusionUnitsBulkAdditionJobsRequestBuilderGetReq_95248282 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class DriveExclusionUnitsBulkAdditionJobsRequestBuilder extends BaseRequestBuild
     /**
      * Create new navigation property to driveExclusionUnitsBulkAdditionJobs for solutions
      * @param DriveExclusionUnitsBulkAdditionJob $body The request body
-     * @param DriveExclusionUnitsBulkAdditionJobsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DriveExclusionUnitsBulkAdditionJobsRequestBuilderPostRe_453f87f2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(DriveExclusionUnitsBulkAdditionJob $body, ?DriveExclusionUnitsBulkAdditionJobsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(DriveExclusionUnitsBulkAdditionJob $body, ?DriveExclusionUnitsBulkAdditionJobsRequestBuilderPostRe_453f87f2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

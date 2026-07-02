@@ -53,11 +53,11 @@ class GroupPolicyUploadedDefinitionFilesRequestBuilder extends BaseRequestBuilde
 
     /**
      * The available group policy uploaded definition files for this account.
-     * @param GroupPolicyUploadedDefinitionFilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyUploadedDefinitionFilesRequestBuilderGetRequ_53d77168|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GroupPolicyUploadedDefinitionFileCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?GroupPolicyUploadedDefinitionFilesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GroupPolicyUploadedDefinitionFilesRequestBuilderGetRequ_53d77168 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class GroupPolicyUploadedDefinitionFilesRequestBuilder extends BaseRequestBuilde
     /**
      * Create new navigation property to groupPolicyUploadedDefinitionFiles for deviceManagement
      * @param GroupPolicyUploadedDefinitionFile $body The request body
-     * @param GroupPolicyUploadedDefinitionFilesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyUploadedDefinitionFilesRequestBuilderPostReq_765c26bb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GroupPolicyUploadedDefinitionFile|null>
      * @throws Exception
     */
-    public function post(GroupPolicyUploadedDefinitionFile $body, ?GroupPolicyUploadedDefinitionFilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GroupPolicyUploadedDefinitionFile $body, ?GroupPolicyUploadedDefinitionFilesRequestBuilderPostReq_765c26bb $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class GroupPolicyUploadedDefinitionFilesRequestBuilder extends BaseRequestBuilde
 
     /**
      * The available group policy uploaded definition files for this account.
-     * @param GroupPolicyUploadedDefinitionFilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyUploadedDefinitionFilesRequestBuilderGetRequ_53d77168|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GroupPolicyUploadedDefinitionFilesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GroupPolicyUploadedDefinitionFilesRequestBuilderGetRequ_53d77168 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class GroupPolicyUploadedDefinitionFilesRequestBuilder extends BaseRequestBuilde
     /**
      * Create new navigation property to groupPolicyUploadedDefinitionFiles for deviceManagement
      * @param GroupPolicyUploadedDefinitionFile $body The request body
-     * @param GroupPolicyUploadedDefinitionFilesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyUploadedDefinitionFilesRequestBuilderPostReq_765c26bb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GroupPolicyUploadedDefinitionFile $body, ?GroupPolicyUploadedDefinitionFilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GroupPolicyUploadedDefinitionFile $body, ?GroupPolicyUploadedDefinitionFilesRequestBuilderPostReq_765c26bb $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

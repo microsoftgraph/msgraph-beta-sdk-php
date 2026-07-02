@@ -28,7 +28,7 @@ class ApplicationTemplate extends Entity implements Parsable
     }
 
     /**
-     * Gets the categories property value. The list of categories for the application. Supported values can be: Collaboration, Business Management, Consumer, Content management, CRM, Data services, Developer services, E-commerce, Education, ERP, Finance, Health, Human resources, IT infrastructure, Mail, Management, Marketing, Media, Productivity, Project management, Telecommunications, Tools, Travel, and Web design & hosting.  Supports $filter (contains).
+     * Gets the categories property value. The list of categories for the application. To get the full list of supported values, use the applicationTemplate: categories function. Supports $filter (contains).
      * @return array<string>|null
     */
     public function getCategories(): ?array {
@@ -322,7 +322,7 @@ class ApplicationTemplate extends Entity implements Parsable
     }
 
     /**
-     * Sets the categories property value. The list of categories for the application. Supported values can be: Collaboration, Business Management, Consumer, Content management, CRM, Data services, Developer services, E-commerce, Education, ERP, Finance, Health, Human resources, IT infrastructure, Mail, Management, Marketing, Media, Productivity, Project management, Telecommunications, Tools, Travel, and Web design & hosting.  Supports $filter (contains).
+     * Sets the categories property value. The list of categories for the application. To get the full list of supported values, use the applicationTemplate: categories function. Supports $filter (contains).
      * @param array<string>|null $value Value to set for the categories property.
     */
     public function setCategories(?array $value): void {

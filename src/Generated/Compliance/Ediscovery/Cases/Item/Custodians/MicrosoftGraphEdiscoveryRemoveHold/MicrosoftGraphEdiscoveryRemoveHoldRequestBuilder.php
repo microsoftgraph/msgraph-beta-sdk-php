@@ -32,11 +32,11 @@ class MicrosoftGraphEdiscoveryRemoveHoldRequestBuilder extends BaseRequestBuilde
     /**
      * Invoke action removeHold
      * @param RemoveHoldPostRequestBody $body The request body
-     * @param MicrosoftGraphEdiscoveryRemoveHoldRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphEdiscoveryRemoveHoldRequestBuilderPostReq_cd61b3b6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(RemoveHoldPostRequestBody $body, ?MicrosoftGraphEdiscoveryRemoveHoldRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(RemoveHoldPostRequestBody $body, ?MicrosoftGraphEdiscoveryRemoveHoldRequestBuilderPostReq_cd61b3b6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,10 +47,10 @@ class MicrosoftGraphEdiscoveryRemoveHoldRequestBuilder extends BaseRequestBuilde
     /**
      * Invoke action removeHold
      * @param RemoveHoldPostRequestBody $body The request body
-     * @param MicrosoftGraphEdiscoveryRemoveHoldRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphEdiscoveryRemoveHoldRequestBuilderPostReq_cd61b3b6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(RemoveHoldPostRequestBody $body, ?MicrosoftGraphEdiscoveryRemoveHoldRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(RemoveHoldPostRequestBody $body, ?MicrosoftGraphEdiscoveryRemoveHoldRequestBuilderPostReq_cd61b3b6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

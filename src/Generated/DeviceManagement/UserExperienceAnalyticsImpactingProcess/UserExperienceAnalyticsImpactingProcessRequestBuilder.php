@@ -53,11 +53,11 @@ class UserExperienceAnalyticsImpactingProcessRequestBuilder extends BaseRequestB
 
     /**
      * User experience analytics impacting process
-     * @param UserExperienceAnalyticsImpactingProcessRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsImpactingProcessRequestBuilderGe_5b84e091|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsImpactingProcessCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?UserExperienceAnalyticsImpactingProcessRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserExperienceAnalyticsImpactingProcessRequestBuilderGe_5b84e091 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class UserExperienceAnalyticsImpactingProcessRequestBuilder extends BaseRequestB
     /**
      * Create new navigation property to userExperienceAnalyticsImpactingProcess for deviceManagement
      * @param UserExperienceAnalyticsImpactingProcess $body The request body
-     * @param UserExperienceAnalyticsImpactingProcessRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsImpactingProcessRequestBuilderPo_568ec7a6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsImpactingProcess|null>
      * @throws Exception
     */
-    public function post(UserExperienceAnalyticsImpactingProcess $body, ?UserExperienceAnalyticsImpactingProcessRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(UserExperienceAnalyticsImpactingProcess $body, ?UserExperienceAnalyticsImpactingProcessRequestBuilderPo_568ec7a6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class UserExperienceAnalyticsImpactingProcessRequestBuilder extends BaseRequestB
 
     /**
      * User experience analytics impacting process
-     * @param UserExperienceAnalyticsImpactingProcessRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsImpactingProcessRequestBuilderGe_5b84e091|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UserExperienceAnalyticsImpactingProcessRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UserExperienceAnalyticsImpactingProcessRequestBuilderGe_5b84e091 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class UserExperienceAnalyticsImpactingProcessRequestBuilder extends BaseRequestB
     /**
      * Create new navigation property to userExperienceAnalyticsImpactingProcess for deviceManagement
      * @param UserExperienceAnalyticsImpactingProcess $body The request body
-     * @param UserExperienceAnalyticsImpactingProcessRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsImpactingProcessRequestBuilderPo_568ec7a6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(UserExperienceAnalyticsImpactingProcess $body, ?UserExperienceAnalyticsImpactingProcessRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(UserExperienceAnalyticsImpactingProcess $body, ?UserExperienceAnalyticsImpactingProcessRequestBuilderPo_568ec7a6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

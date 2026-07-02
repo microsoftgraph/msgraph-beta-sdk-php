@@ -33,11 +33,11 @@ class GetNoncompliantDevicesToRetireRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action getNoncompliantDevicesToRetire
      * @param GetNoncompliantDevicesToRetirePostRequestBody $body The request body
-     * @param GetNoncompliantDevicesToRetireRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetNoncompliantDevicesToRetireRequestBuilderPostRequest_f6be4963|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(GetNoncompliantDevicesToRetirePostRequestBody $body, ?GetNoncompliantDevicesToRetireRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetNoncompliantDevicesToRetirePostRequestBody $body, ?GetNoncompliantDevicesToRetireRequestBuilderPostRequest_f6be4963 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class GetNoncompliantDevicesToRetireRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action getNoncompliantDevicesToRetire
      * @param GetNoncompliantDevicesToRetirePostRequestBody $body The request body
-     * @param GetNoncompliantDevicesToRetireRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetNoncompliantDevicesToRetireRequestBuilderPostRequest_f6be4963|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetNoncompliantDevicesToRetirePostRequestBody $body, ?GetNoncompliantDevicesToRetireRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetNoncompliantDevicesToRetirePostRequestBody $body, ?GetNoncompliantDevicesToRetireRequestBuilderPostRequest_f6be4963 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -32,11 +32,11 @@ class EmailThreatSubmissionPolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property emailThreatSubmissionPolicies for threatSubmission
-     * @param EmailThreatSubmissionPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmailThreatSubmissionPolicyItemRequestBuilderDeleteRequ_0fe3b343|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?EmailThreatSubmissionPolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?EmailThreatSubmissionPolicyItemRequestBuilderDeleteRequ_0fe3b343 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class EmailThreatSubmissionPolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get emailThreatSubmissionPolicies from threatSubmission
-     * @param EmailThreatSubmissionPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmailThreatSubmissionPolicyItemRequestBuilderGetRequest_0328ccda|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EmailThreatSubmissionPolicy|null>
      * @throws Exception
     */
-    public function get(?EmailThreatSubmissionPolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?EmailThreatSubmissionPolicyItemRequestBuilderGetRequest_0328ccda $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class EmailThreatSubmissionPolicyItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property emailThreatSubmissionPolicies in threatSubmission
      * @param EmailThreatSubmissionPolicy $body The request body
-     * @param EmailThreatSubmissionPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmailThreatSubmissionPolicyItemRequestBuilderPatchReque_e867e754|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EmailThreatSubmissionPolicy|null>
      * @throws Exception
     */
-    public function patch(EmailThreatSubmissionPolicy $body, ?EmailThreatSubmissionPolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(EmailThreatSubmissionPolicy $body, ?EmailThreatSubmissionPolicyItemRequestBuilderPatchReque_e867e754 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class EmailThreatSubmissionPolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property emailThreatSubmissionPolicies for threatSubmission
-     * @param EmailThreatSubmissionPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmailThreatSubmissionPolicyItemRequestBuilderDeleteRequ_0fe3b343|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?EmailThreatSubmissionPolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?EmailThreatSubmissionPolicyItemRequestBuilderDeleteRequ_0fe3b343 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class EmailThreatSubmissionPolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get emailThreatSubmissionPolicies from threatSubmission
-     * @param EmailThreatSubmissionPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmailThreatSubmissionPolicyItemRequestBuilderGetRequest_0328ccda|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?EmailThreatSubmissionPolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?EmailThreatSubmissionPolicyItemRequestBuilderGetRequest_0328ccda $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class EmailThreatSubmissionPolicyItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property emailThreatSubmissionPolicies in threatSubmission
      * @param EmailThreatSubmissionPolicy $body The request body
-     * @param EmailThreatSubmissionPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param EmailThreatSubmissionPolicyItemRequestBuilderPatchReque_e867e754|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(EmailThreatSubmissionPolicy $body, ?EmailThreatSubmissionPolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(EmailThreatSubmissionPolicy $body, ?EmailThreatSubmissionPolicyItemRequestBuilderPatchReque_e867e754 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -32,11 +32,11 @@ class PermissionsRequestChangeItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property permissionsRequestChanges for identityGovernance
-     * @param PermissionsRequestChangeItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionsRequestChangeItemRequestBuilderDeleteRequest_5c01c47d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?PermissionsRequestChangeItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?PermissionsRequestChangeItemRequestBuilderDeleteRequest_5c01c47d $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,12 +46,12 @@ class PermissionsRequestChangeItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of a permissionsRequestChange object.
-     * @param PermissionsRequestChangeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionsRequestChangeItemRequestBuilderGetRequestCon_5591c666|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PermissionsRequestChange|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/permissionsrequestchange-get?view=graph-rest-beta Find more info here
     */
-    public function get(?PermissionsRequestChangeItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?PermissionsRequestChangeItemRequestBuilderGetRequestCon_5591c666 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class PermissionsRequestChangeItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property permissionsRequestChanges in identityGovernance
      * @param PermissionsRequestChange $body The request body
-     * @param PermissionsRequestChangeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionsRequestChangeItemRequestBuilderPatchRequestC_1ed6b38c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PermissionsRequestChange|null>
      * @throws Exception
     */
-    public function patch(PermissionsRequestChange $body, ?PermissionsRequestChangeItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(PermissionsRequestChange $body, ?PermissionsRequestChangeItemRequestBuilderPatchRequestC_1ed6b38c $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -76,10 +76,10 @@ class PermissionsRequestChangeItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property permissionsRequestChanges for identityGovernance
-     * @param PermissionsRequestChangeItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionsRequestChangeItemRequestBuilderDeleteRequest_5c01c47d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?PermissionsRequestChangeItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?PermissionsRequestChangeItemRequestBuilderDeleteRequest_5c01c47d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -94,10 +94,10 @@ class PermissionsRequestChangeItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of a permissionsRequestChange object.
-     * @param PermissionsRequestChangeItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionsRequestChangeItemRequestBuilderGetRequestCon_5591c666|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?PermissionsRequestChangeItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?PermissionsRequestChangeItemRequestBuilderGetRequestCon_5591c666 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -116,10 +116,10 @@ class PermissionsRequestChangeItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property permissionsRequestChanges in identityGovernance
      * @param PermissionsRequestChange $body The request body
-     * @param PermissionsRequestChangeItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionsRequestChangeItemRequestBuilderPatchRequestC_1ed6b38c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(PermissionsRequestChange $body, ?PermissionsRequestChangeItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(PermissionsRequestChange $body, ?PermissionsRequestChangeItemRequestBuilderPatchRequestC_1ed6b38c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

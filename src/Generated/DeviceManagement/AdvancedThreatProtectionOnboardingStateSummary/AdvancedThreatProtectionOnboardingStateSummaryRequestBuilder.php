@@ -4,7 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\AdvancedThreatProtecti
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\AdvancedThreatProtectionOnboardingStateSummary\AdvancedThreatProtectionOnboardingDeviceSettingStates\AdvancedThreatProtectionOnboardingDeviceSettingStatesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AdvancedThreatProtectionOnboardingStateSummary\AdvancedThreatProtectionOnboardingDeviceSettingStates\AdvancedThreatProtectionOnboardingDeviceSettingStatesRe_23f016bc;
 use Microsoft\Graph\Beta\Generated\Models\AdvancedThreatProtectionOnboardingStateSummary;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -20,8 +20,8 @@ class AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder extends BaseR
     /**
      * Provides operations to manage the advancedThreatProtectionOnboardingDeviceSettingStates property of the microsoft.graph.advancedThreatProtectionOnboardingStateSummary entity.
     */
-    public function advancedThreatProtectionOnboardingDeviceSettingStates(): AdvancedThreatProtectionOnboardingDeviceSettingStatesRequestBuilder {
-        return new AdvancedThreatProtectionOnboardingDeviceSettingStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function advancedThreatProtectionOnboardingDeviceSettingStates(): AdvancedThreatProtectionOnboardingDeviceSettingStatesRe_23f016bc {
+        return new AdvancedThreatProtectionOnboardingDeviceSettingStatesRe_23f016bc($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -40,11 +40,11 @@ class AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder extends BaseR
 
     /**
      * Delete navigation property advancedThreatProtectionOnboardingStateSummary for deviceManagement
-     * @param AdvancedThreatProtectionOnboardingStateSummaryRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AdvancedThreatProtectionOnboardingStateSummaryRequestBu_04488c20|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?AdvancedThreatProtectionOnboardingStateSummaryRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?AdvancedThreatProtectionOnboardingStateSummaryRequestBu_04488c20 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,11 +54,11 @@ class AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder extends BaseR
 
     /**
      * The summary state of ATP onboarding state for this account.
-     * @param AdvancedThreatProtectionOnboardingStateSummaryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AdvancedThreatProtectionOnboardingStateSummaryRequestBu_b3e75c7e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AdvancedThreatProtectionOnboardingStateSummary|null>
      * @throws Exception
     */
-    public function get(?AdvancedThreatProtectionOnboardingStateSummaryRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AdvancedThreatProtectionOnboardingStateSummaryRequestBu_b3e75c7e $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder extends BaseR
     /**
      * Update the navigation property advancedThreatProtectionOnboardingStateSummary in deviceManagement
      * @param AdvancedThreatProtectionOnboardingStateSummary $body The request body
-     * @param AdvancedThreatProtectionOnboardingStateSummaryRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AdvancedThreatProtectionOnboardingStateSummaryRequestBu_afd8b25d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AdvancedThreatProtectionOnboardingStateSummary|null>
      * @throws Exception
     */
-    public function patch(AdvancedThreatProtectionOnboardingStateSummary $body, ?AdvancedThreatProtectionOnboardingStateSummaryRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(AdvancedThreatProtectionOnboardingStateSummary $body, ?AdvancedThreatProtectionOnboardingStateSummaryRequestBu_afd8b25d $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder extends BaseR
 
     /**
      * Delete navigation property advancedThreatProtectionOnboardingStateSummary for deviceManagement
-     * @param AdvancedThreatProtectionOnboardingStateSummaryRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AdvancedThreatProtectionOnboardingStateSummaryRequestBu_04488c20|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?AdvancedThreatProtectionOnboardingStateSummaryRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?AdvancedThreatProtectionOnboardingStateSummaryRequestBu_04488c20 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -101,10 +101,10 @@ class AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder extends BaseR
 
     /**
      * The summary state of ATP onboarding state for this account.
-     * @param AdvancedThreatProtectionOnboardingStateSummaryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AdvancedThreatProtectionOnboardingStateSummaryRequestBu_b3e75c7e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AdvancedThreatProtectionOnboardingStateSummaryRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AdvancedThreatProtectionOnboardingStateSummaryRequestBu_b3e75c7e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -123,10 +123,10 @@ class AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder extends BaseR
     /**
      * Update the navigation property advancedThreatProtectionOnboardingStateSummary in deviceManagement
      * @param AdvancedThreatProtectionOnboardingStateSummary $body The request body
-     * @param AdvancedThreatProtectionOnboardingStateSummaryRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AdvancedThreatProtectionOnboardingStateSummaryRequestBu_afd8b25d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(AdvancedThreatProtectionOnboardingStateSummary $body, ?AdvancedThreatProtectionOnboardingStateSummaryRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(AdvancedThreatProtectionOnboardingStateSummary $body, ?AdvancedThreatProtectionOnboardingStateSummaryRequestBu_afd8b25d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

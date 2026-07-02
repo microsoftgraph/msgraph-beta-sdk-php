@@ -27,6 +27,7 @@ class FindMeetingLocationsPostRequestBody implements AdditionalDataHolder, Backe
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
+        $this->setAllowFreeOnly(false);
     }
 
     /**

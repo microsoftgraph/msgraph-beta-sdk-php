@@ -32,12 +32,12 @@ class RetrievePolicyApplyActionResultRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get the result of the latest apply operation of a provision policy. Frontline shared only. Administrators only.
-     * @param RetrievePolicyApplyActionResultRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrievePolicyApplyActionResultRequestBuilderGetRequest_068c9c7b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcPolicyApplyActionResult|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpcprovisioningpolicy-retrievepolicyapplyactionresult?view=graph-rest-beta Find more info here
     */
-    public function get(?RetrievePolicyApplyActionResultRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?RetrievePolicyApplyActionResultRequestBuilderGetRequest_068c9c7b $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,10 +47,10 @@ class RetrievePolicyApplyActionResultRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get the result of the latest apply operation of a provision policy. Frontline shared only. Administrators only.
-     * @param RetrievePolicyApplyActionResultRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrievePolicyApplyActionResultRequestBuilderGetRequest_068c9c7b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?RetrievePolicyApplyActionResultRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?RetrievePolicyApplyActionResultRequestBuilderGetRequest_068c9c7b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

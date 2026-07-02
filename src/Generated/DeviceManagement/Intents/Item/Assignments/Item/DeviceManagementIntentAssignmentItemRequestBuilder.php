@@ -32,11 +32,11 @@ class DeviceManagementIntentAssignmentItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param DeviceManagementIntentAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementIntentAssignmentItemRequestBuilderDelet_1e798e5a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DeviceManagementIntentAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DeviceManagementIntentAssignmentItemRequestBuilderDelet_1e798e5a $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class DeviceManagementIntentAssignmentItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Collection of assignments
-     * @param DeviceManagementIntentAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementIntentAssignmentItemRequestBuilderGetRe_72a4c88a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementIntentAssignment|null>
      * @throws Exception
     */
-    public function get(?DeviceManagementIntentAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DeviceManagementIntentAssignmentItemRequestBuilderGetRe_72a4c88a $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class DeviceManagementIntentAssignmentItemRequestBuilder extends BaseRequestBuil
     /**
      * Update the navigation property assignments in deviceManagement
      * @param DeviceManagementIntentAssignment $body The request body
-     * @param DeviceManagementIntentAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementIntentAssignmentItemRequestBuilderPatch_3c9ea4af|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementIntentAssignment|null>
      * @throws Exception
     */
-    public function patch(DeviceManagementIntentAssignment $body, ?DeviceManagementIntentAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DeviceManagementIntentAssignment $body, ?DeviceManagementIntentAssignmentItemRequestBuilderPatch_3c9ea4af $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class DeviceManagementIntentAssignmentItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param DeviceManagementIntentAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementIntentAssignmentItemRequestBuilderDelet_1e798e5a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DeviceManagementIntentAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DeviceManagementIntentAssignmentItemRequestBuilderDelet_1e798e5a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class DeviceManagementIntentAssignmentItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Collection of assignments
-     * @param DeviceManagementIntentAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementIntentAssignmentItemRequestBuilderGetRe_72a4c88a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DeviceManagementIntentAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DeviceManagementIntentAssignmentItemRequestBuilderGetRe_72a4c88a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class DeviceManagementIntentAssignmentItemRequestBuilder extends BaseRequestBuil
     /**
      * Update the navigation property assignments in deviceManagement
      * @param DeviceManagementIntentAssignment $body The request body
-     * @param DeviceManagementIntentAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementIntentAssignmentItemRequestBuilderPatch_3c9ea4af|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DeviceManagementIntentAssignment $body, ?DeviceManagementIntentAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DeviceManagementIntentAssignment $body, ?DeviceManagementIntentAssignmentItemRequestBuilderPatch_3c9ea4af $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

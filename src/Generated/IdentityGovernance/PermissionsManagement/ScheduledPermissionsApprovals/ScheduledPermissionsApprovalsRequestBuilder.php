@@ -63,11 +63,11 @@ class ScheduledPermissionsApprovalsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get scheduledPermissionsApprovals from identityGovernance
-     * @param ScheduledPermissionsApprovalsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ScheduledPermissionsApprovalsRequestBuilderGetRequestCo_b7cfab78|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApprovalCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?ScheduledPermissionsApprovalsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ScheduledPermissionsApprovalsRequestBuilderGetRequestCo_b7cfab78 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -78,11 +78,11 @@ class ScheduledPermissionsApprovalsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to scheduledPermissionsApprovals for identityGovernance
      * @param Approval $body The request body
-     * @param ScheduledPermissionsApprovalsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ScheduledPermissionsApprovalsRequestBuilderPostRequestC_ddb99313|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Approval|null>
      * @throws Exception
     */
-    public function post(Approval $body, ?ScheduledPermissionsApprovalsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(Approval $body, ?ScheduledPermissionsApprovalsRequestBuilderPostRequestC_ddb99313 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -92,10 +92,10 @@ class ScheduledPermissionsApprovalsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get scheduledPermissionsApprovals from identityGovernance
-     * @param ScheduledPermissionsApprovalsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ScheduledPermissionsApprovalsRequestBuilderGetRequestCo_b7cfab78|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ScheduledPermissionsApprovalsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ScheduledPermissionsApprovalsRequestBuilderGetRequestCo_b7cfab78 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -114,10 +114,10 @@ class ScheduledPermissionsApprovalsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to scheduledPermissionsApprovals for identityGovernance
      * @param Approval $body The request body
-     * @param ScheduledPermissionsApprovalsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ScheduledPermissionsApprovalsRequestBuilderPostRequestC_ddb99313|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(Approval $body, ?ScheduledPermissionsApprovalsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(Approval $body, ?ScheduledPermissionsApprovalsRequestBuilderPostRequestC_ddb99313 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

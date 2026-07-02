@@ -30,7 +30,7 @@ class ApplyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Apply the current provisioning policy configuration to all Cloud PC devices under a specified policy. Currently, the region is the only policy setting that you can apply.
+     * Apply the current provisioning policy configuration to all Cloud PC devices under a specified policy. You can apply policy settings such as region and singleSignOn. This action also supports reprovisioning for frontline shared mode Cloud PCs by using the reservePercentage parameter to control the percentage of Cloud PCs that remain available during the process.
      * @param ApplyPostRequestBody $body The request body
      * @param ApplyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -46,7 +46,7 @@ class ApplyRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Apply the current provisioning policy configuration to all Cloud PC devices under a specified policy. Currently, the region is the only policy setting that you can apply.
+     * Apply the current provisioning policy configuration to all Cloud PC devices under a specified policy. You can apply policy settings such as region and singleSignOn. This action also supports reprovisioning for frontline shared mode Cloud PCs by using the reservePercentage parameter to control the percentage of Cloud PCs that remain available during the process.
      * @param ApplyPostRequestBody $body The request body
      * @param ApplyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

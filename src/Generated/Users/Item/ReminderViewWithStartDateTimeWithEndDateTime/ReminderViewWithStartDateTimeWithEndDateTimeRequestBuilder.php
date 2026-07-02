@@ -36,12 +36,12 @@ class ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder extends BaseReq
 
     /**
      * Return a list of event reminders in a user calendar within the specified start and end times.
-     * @param ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ReminderViewWithStartDateTimeWithEndDateTimeRequestBuil_553c1b5c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ReminderViewWithStartDateTimeWithEndDateTimeGetResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/user-reminderview?view=graph-rest-beta Find more info here
     */
-    public function get(?ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ReminderViewWithStartDateTimeWithEndDateTimeRequestBuil_553c1b5c $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -51,10 +51,10 @@ class ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder extends BaseReq
 
     /**
      * Return a list of event reminders in a user calendar within the specified start and end times.
-     * @param ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ReminderViewWithStartDateTimeWithEndDateTimeRequestBuil_553c1b5c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ReminderViewWithStartDateTimeWithEndDateTimeRequestBuil_553c1b5c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

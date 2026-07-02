@@ -26,7 +26,7 @@ class GroupChatTeamsAppInstallationScopeInfo extends TeamsAppInstallationScopeIn
     }
 
     /**
-     * Gets the chatId property value. The chatId property
+     * Gets the chatId property value. The ID of the chat where the Teams app is installed.
      * @return string|null
     */
     public function getChatId(): ?string {
@@ -58,7 +58,7 @@ class GroupChatTeamsAppInstallationScopeInfo extends TeamsAppInstallationScopeIn
     }
 
     /**
-     * Sets the chatId property value. The chatId property
+     * Sets the chatId property value. The ID of the chat where the Teams app is installed.
      * @param string|null $value Value to set for the chatId property.
     */
     public function setChatId(?string $value): void {

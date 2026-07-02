@@ -32,12 +32,12 @@ class CreationOptionsWithChallengeTimeoutInMinutesRequestBuilder extends BaseReq
 
     /**
      * Retrieve creation options required to generate and register a Microsoft Entra ID-compatible passkey. Self-service operations aren't supported.  
-     * @param CreationOptionsWithChallengeTimeoutInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CreationOptionsWithChallengeTimeoutInMinutesRequestBuil_cf5a23a7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WebauthnCredentialCreationOptions|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/fido2authenticationmethod-creationoptions?view=graph-rest-beta Find more info here
     */
-    public function get(?CreationOptionsWithChallengeTimeoutInMinutesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CreationOptionsWithChallengeTimeoutInMinutesRequestBuil_cf5a23a7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,10 +47,10 @@ class CreationOptionsWithChallengeTimeoutInMinutesRequestBuilder extends BaseReq
 
     /**
      * Retrieve creation options required to generate and register a Microsoft Entra ID-compatible passkey. Self-service operations aren't supported.  
-     * @param CreationOptionsWithChallengeTimeoutInMinutesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CreationOptionsWithChallengeTimeoutInMinutesRequestBuil_cf5a23a7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CreationOptionsWithChallengeTimeoutInMinutesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CreationOptionsWithChallengeTimeoutInMinutesRequestBuil_cf5a23a7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

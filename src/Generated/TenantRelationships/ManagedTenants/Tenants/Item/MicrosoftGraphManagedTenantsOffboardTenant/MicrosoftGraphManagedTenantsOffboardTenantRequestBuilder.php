@@ -32,12 +32,12 @@ class MicrosoftGraphManagedTenantsOffboardTenantRequestBuilder extends BaseReque
 
     /**
      * Carries out the appropriate procedures to remove a managed tenant from the multitenant management platform. No relationships, such as commerce and delegate administrative privileges, will be impacted. The only change made by invoking this action is the tenant will be deprovisioned from the multitenant management platform.
-     * @param MicrosoftGraphManagedTenantsOffboardTenantRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphManagedTenantsOffboardTenantRequestBuilde_bd9cae82|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Tenant|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/managedtenants-tenant-offboardtenant?view=graph-rest-beta Find more info here
     */
-    public function post(?MicrosoftGraphManagedTenantsOffboardTenantRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?MicrosoftGraphManagedTenantsOffboardTenantRequestBuilde_bd9cae82 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,10 +47,10 @@ class MicrosoftGraphManagedTenantsOffboardTenantRequestBuilder extends BaseReque
 
     /**
      * Carries out the appropriate procedures to remove a managed tenant from the multitenant management platform. No relationships, such as commerce and delegate administrative privileges, will be impacted. The only change made by invoking this action is the tenant will be deprovisioned from the multitenant management platform.
-     * @param MicrosoftGraphManagedTenantsOffboardTenantRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphManagedTenantsOffboardTenantRequestBuilde_bd9cae82|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?MicrosoftGraphManagedTenantsOffboardTenantRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?MicrosoftGraphManagedTenantsOffboardTenantRequestBuilde_bd9cae82 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

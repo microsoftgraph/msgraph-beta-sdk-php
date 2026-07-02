@@ -102,6 +102,7 @@ class CopilotPackageDetail extends CopilotPackage implements Parsable
             'elementDetails' => fn(ParseNode $n) => $o->setElementDetails($n->getCollectionOfObjectValues([PackageElementDetail::class, 'createFromDiscriminatorValue'])),
             'longDescription' => fn(ParseNode $n) => $o->setLongDescription($n->getStringValue()),
             'sensitivity' => fn(ParseNode $n) => $o->setSensitivity($n->getStringValue()),
+            'sharedWithUsersAndGroups' => fn(ParseNode $n) => $o->setSharedWithUsersAndGroups($n->getCollectionOfObjectValues([PackageAccessEntity::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -130,6 +131,20 @@ class CopilotPackageDetail extends CopilotPackage implements Parsable
     }
 
     /**
+     * Gets the sharedWithUsersAndGroups property value. The sharedWithUsersAndGroups property
+     * @return array<PackageAccessEntity>|null
+    */
+    public function getSharedWithUsersAndGroups(): ?array {
+        $val = $this->getBackingStore()->get('sharedWithUsersAndGroups');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PackageAccessEntity::class);
+            /** @var array<PackageAccessEntity>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sharedWithUsersAndGroups'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -141,6 +156,7 @@ class CopilotPackageDetail extends CopilotPackage implements Parsable
         $writer->writeCollectionOfObjectValues('elementDetails', $this->getElementDetails());
         $writer->writeStringValue('longDescription', $this->getLongDescription());
         $writer->writeStringValue('sensitivity', $this->getSensitivity());
+        $writer->writeCollectionOfObjectValues('sharedWithUsersAndGroups', $this->getSharedWithUsersAndGroups());
     }
 
     /**
@@ -189,6 +205,14 @@ class CopilotPackageDetail extends CopilotPackage implements Parsable
     */
     public function setSensitivity(?string $value): void {
         $this->getBackingStore()->set('sensitivity', $value);
+    }
+
+    /**
+     * Sets the sharedWithUsersAndGroups property value. The sharedWithUsersAndGroups property
+     * @param array<PackageAccessEntity>|null $value Value to set for the sharedWithUsersAndGroups property.
+    */
+    public function setSharedWithUsersAndGroups(?array $value): void {
+        $this->getBackingStore()->set('sharedWithUsersAndGroups', $value);
     }
 
 }

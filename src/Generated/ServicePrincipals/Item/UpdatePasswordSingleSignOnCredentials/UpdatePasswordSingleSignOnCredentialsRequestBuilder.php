@@ -32,12 +32,12 @@ class UpdatePasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBui
     /**
      * Update single sign-on credentials using a password for a user or group.
      * @param UpdatePasswordSingleSignOnCredentialsPostRequestBody $body The request body
-     * @param UpdatePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UpdatePasswordSingleSignOnCredentialsRequestBuilderPost_6192bf2e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/serviceprincipal-updatepasswordsinglesignoncredentials?view=graph-rest-beta Find more info here
     */
-    public function post(UpdatePasswordSingleSignOnCredentialsPostRequestBody $body, ?UpdatePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(UpdatePasswordSingleSignOnCredentialsPostRequestBody $body, ?UpdatePasswordSingleSignOnCredentialsRequestBuilderPost_6192bf2e $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class UpdatePasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBui
     /**
      * Update single sign-on credentials using a password for a user or group.
      * @param UpdatePasswordSingleSignOnCredentialsPostRequestBody $body The request body
-     * @param UpdatePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UpdatePasswordSingleSignOnCredentialsRequestBuilderPost_6192bf2e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(UpdatePasswordSingleSignOnCredentialsPostRequestBody $body, ?UpdatePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(UpdatePasswordSingleSignOnCredentialsPostRequestBody $body, ?UpdatePasswordSingleSignOnCredentialsRequestBuilderPost_6192bf2e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

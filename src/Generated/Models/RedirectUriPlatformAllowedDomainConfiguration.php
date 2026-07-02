@@ -49,7 +49,7 @@ class RedirectUriPlatformAllowedDomainConfiguration implements AdditionalDataHol
     }
 
     /**
-     * Gets the allowedDomains property value. The allowedDomains property
+     * Gets the allowedDomains property value. Collection of domain names that are allowed for this specific platform. Domain validation follows RFC 3986 (URI syntax, section 3.2.2 for the host component). Domain matching is case-insensitive and exact; wildcards are not supported.
      * @return array<string>|null
     */
     public function getAllowedDomains(): ?array {
@@ -120,7 +120,7 @@ class RedirectUriPlatformAllowedDomainConfiguration implements AdditionalDataHol
     }
 
     /**
-     * Sets the allowedDomains property value. The allowedDomains property
+     * Sets the allowedDomains property value. Collection of domain names that are allowed for this specific platform. Domain validation follows RFC 3986 (URI syntax, section 3.2.2 for the host component). Domain matching is case-insensitive and exact; wildcards are not supported.
      * @param array<string>|null $value Value to set for the allowedDomains property.
     */
     public function setAllowedDomains(?array $value): void {

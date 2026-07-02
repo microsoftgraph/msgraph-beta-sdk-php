@@ -32,11 +32,11 @@ class UserExperienceAnalyticsImpactingProcessItemRequestBuilder extends BaseRequ
 
     /**
      * Delete navigation property userExperienceAnalyticsImpactingProcess for deviceManagement
-     * @param UserExperienceAnalyticsImpactingProcessItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsImpactingProcessItemRequestBuild_eba508fe|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?UserExperienceAnalyticsImpactingProcessItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?UserExperienceAnalyticsImpactingProcessItemRequestBuild_eba508fe $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class UserExperienceAnalyticsImpactingProcessItemRequestBuilder extends BaseRequ
 
     /**
      * User experience analytics impacting process
-     * @param UserExperienceAnalyticsImpactingProcessItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsImpactingProcessItemRequestBuild_9391776f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsImpactingProcess|null>
      * @throws Exception
     */
-    public function get(?UserExperienceAnalyticsImpactingProcessItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserExperienceAnalyticsImpactingProcessItemRequestBuild_9391776f $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class UserExperienceAnalyticsImpactingProcessItemRequestBuilder extends BaseRequ
     /**
      * Update the navigation property userExperienceAnalyticsImpactingProcess in deviceManagement
      * @param UserExperienceAnalyticsImpactingProcess $body The request body
-     * @param UserExperienceAnalyticsImpactingProcessItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsImpactingProcessItemRequestBuild_d4eef2ce|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsImpactingProcess|null>
      * @throws Exception
     */
-    public function patch(UserExperienceAnalyticsImpactingProcess $body, ?UserExperienceAnalyticsImpactingProcessItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(UserExperienceAnalyticsImpactingProcess $body, ?UserExperienceAnalyticsImpactingProcessItemRequestBuild_d4eef2ce $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class UserExperienceAnalyticsImpactingProcessItemRequestBuilder extends BaseRequ
 
     /**
      * Delete navigation property userExperienceAnalyticsImpactingProcess for deviceManagement
-     * @param UserExperienceAnalyticsImpactingProcessItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsImpactingProcessItemRequestBuild_eba508fe|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?UserExperienceAnalyticsImpactingProcessItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?UserExperienceAnalyticsImpactingProcessItemRequestBuild_eba508fe $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class UserExperienceAnalyticsImpactingProcessItemRequestBuilder extends BaseRequ
 
     /**
      * User experience analytics impacting process
-     * @param UserExperienceAnalyticsImpactingProcessItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsImpactingProcessItemRequestBuild_9391776f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UserExperienceAnalyticsImpactingProcessItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UserExperienceAnalyticsImpactingProcessItemRequestBuild_9391776f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class UserExperienceAnalyticsImpactingProcessItemRequestBuilder extends BaseRequ
     /**
      * Update the navigation property userExperienceAnalyticsImpactingProcess in deviceManagement
      * @param UserExperienceAnalyticsImpactingProcess $body The request body
-     * @param UserExperienceAnalyticsImpactingProcessItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsImpactingProcessItemRequestBuild_d4eef2ce|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(UserExperienceAnalyticsImpactingProcess $body, ?UserExperienceAnalyticsImpactingProcessItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(UserExperienceAnalyticsImpactingProcess $body, ?UserExperienceAnalyticsImpactingProcessItemRequestBuild_d4eef2ce $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

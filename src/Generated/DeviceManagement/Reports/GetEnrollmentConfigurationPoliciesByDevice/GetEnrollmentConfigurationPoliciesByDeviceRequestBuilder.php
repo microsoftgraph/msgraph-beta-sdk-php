@@ -33,11 +33,11 @@ class GetEnrollmentConfigurationPoliciesByDeviceRequestBuilder extends BaseReque
     /**
      * Invoke action getEnrollmentConfigurationPoliciesByDevice
      * @param GetEnrollmentConfigurationPoliciesByDevicePostRequestBody $body The request body
-     * @param GetEnrollmentConfigurationPoliciesByDeviceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetEnrollmentConfigurationPoliciesByDeviceRequestBuilde_fd2da89f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(GetEnrollmentConfigurationPoliciesByDevicePostRequestBody $body, ?GetEnrollmentConfigurationPoliciesByDeviceRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetEnrollmentConfigurationPoliciesByDevicePostRequestBody $body, ?GetEnrollmentConfigurationPoliciesByDeviceRequestBuilde_fd2da89f $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class GetEnrollmentConfigurationPoliciesByDeviceRequestBuilder extends BaseReque
     /**
      * Invoke action getEnrollmentConfigurationPoliciesByDevice
      * @param GetEnrollmentConfigurationPoliciesByDevicePostRequestBody $body The request body
-     * @param GetEnrollmentConfigurationPoliciesByDeviceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetEnrollmentConfigurationPoliciesByDeviceRequestBuilde_fd2da89f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetEnrollmentConfigurationPoliciesByDevicePostRequestBody $body, ?GetEnrollmentConfigurationPoliciesByDeviceRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetEnrollmentConfigurationPoliciesByDevicePostRequestBody $body, ?GetEnrollmentConfigurationPoliciesByDeviceRequestBuilde_fd2da89f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

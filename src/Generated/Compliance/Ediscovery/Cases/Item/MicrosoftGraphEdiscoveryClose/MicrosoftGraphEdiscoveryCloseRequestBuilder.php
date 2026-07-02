@@ -31,12 +31,12 @@ class MicrosoftGraphEdiscoveryCloseRequestBuilder extends BaseRequestBuilder
 
     /**
      * Close an eDiscovery case. For details, see Close a case.
-     * @param MicrosoftGraphEdiscoveryCloseRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphEdiscoveryCloseRequestBuilderPostRequestC_bce1ff24|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/ediscovery-case-close?view=graph-rest-beta Find more info here
     */
-    public function post(?MicrosoftGraphEdiscoveryCloseRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?MicrosoftGraphEdiscoveryCloseRequestBuilderPostRequestC_bce1ff24 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class MicrosoftGraphEdiscoveryCloseRequestBuilder extends BaseRequestBuilder
 
     /**
      * Close an eDiscovery case. For details, see Close a case.
-     * @param MicrosoftGraphEdiscoveryCloseRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphEdiscoveryCloseRequestBuilderPostRequestC_bce1ff24|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?MicrosoftGraphEdiscoveryCloseRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?MicrosoftGraphEdiscoveryCloseRequestBuilderPostRequestC_bce1ff24 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

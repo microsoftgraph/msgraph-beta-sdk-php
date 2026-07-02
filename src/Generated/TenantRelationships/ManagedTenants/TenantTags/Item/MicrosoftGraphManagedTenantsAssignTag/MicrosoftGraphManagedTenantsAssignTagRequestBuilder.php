@@ -33,12 +33,12 @@ class MicrosoftGraphManagedTenantsAssignTagRequestBuilder extends BaseRequestBui
     /**
      * Assign the tenant tag to the specified managed tenants.
      * @param AssignTagPostRequestBody $body The request body
-     * @param MicrosoftGraphManagedTenantsAssignTagRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphManagedTenantsAssignTagRequestBuilderPost_ba650f58|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantTag|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/managedtenants-tenanttag-assigntag?view=graph-rest-beta Find more info here
     */
-    public function post(AssignTagPostRequestBody $body, ?MicrosoftGraphManagedTenantsAssignTagRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AssignTagPostRequestBody $body, ?MicrosoftGraphManagedTenantsAssignTagRequestBuilderPost_ba650f58 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,10 +49,10 @@ class MicrosoftGraphManagedTenantsAssignTagRequestBuilder extends BaseRequestBui
     /**
      * Assign the tenant tag to the specified managed tenants.
      * @param AssignTagPostRequestBody $body The request body
-     * @param MicrosoftGraphManagedTenantsAssignTagRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphManagedTenantsAssignTagRequestBuilderPost_ba650f58|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AssignTagPostRequestBody $body, ?MicrosoftGraphManagedTenantsAssignTagRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AssignTagPostRequestBody $body, ?MicrosoftGraphManagedTenantsAssignTagRequestBuilderPost_ba650f58 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -32,11 +32,11 @@ class ApplicationSignInDetailedSummaryItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Delete navigation property applicationSignInDetailedSummary for reports
-     * @param ApplicationSignInDetailedSummaryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplicationSignInDetailedSummaryItemRequestBuilderDelet_5ebd83fc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ApplicationSignInDetailedSummaryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ApplicationSignInDetailedSummaryItemRequestBuilderDelet_5ebd83fc $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,12 +46,12 @@ class ApplicationSignInDetailedSummaryItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Retrieve the properties and relationships of an applicationSignInDetailedSummary object.
-     * @param ApplicationSignInDetailedSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplicationSignInDetailedSummaryItemRequestBuilderGetRe_63bed336|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApplicationSignInDetailedSummary|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/applicationsignindetailedsummary-get?view=graph-rest-beta Find more info here
     */
-    public function get(?ApplicationSignInDetailedSummaryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ApplicationSignInDetailedSummaryItemRequestBuilderGetRe_63bed336 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class ApplicationSignInDetailedSummaryItemRequestBuilder extends BaseRequestBuil
     /**
      * Update the navigation property applicationSignInDetailedSummary in reports
      * @param ApplicationSignInDetailedSummary $body The request body
-     * @param ApplicationSignInDetailedSummaryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplicationSignInDetailedSummaryItemRequestBuilderPatch_67204170|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApplicationSignInDetailedSummary|null>
      * @throws Exception
     */
-    public function patch(ApplicationSignInDetailedSummary $body, ?ApplicationSignInDetailedSummaryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ApplicationSignInDetailedSummary $body, ?ApplicationSignInDetailedSummaryItemRequestBuilderPatch_67204170 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -76,10 +76,10 @@ class ApplicationSignInDetailedSummaryItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Delete navigation property applicationSignInDetailedSummary for reports
-     * @param ApplicationSignInDetailedSummaryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplicationSignInDetailedSummaryItemRequestBuilderDelet_5ebd83fc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ApplicationSignInDetailedSummaryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ApplicationSignInDetailedSummaryItemRequestBuilderDelet_5ebd83fc $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -94,10 +94,10 @@ class ApplicationSignInDetailedSummaryItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Retrieve the properties and relationships of an applicationSignInDetailedSummary object.
-     * @param ApplicationSignInDetailedSummaryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplicationSignInDetailedSummaryItemRequestBuilderGetRe_63bed336|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ApplicationSignInDetailedSummaryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ApplicationSignInDetailedSummaryItemRequestBuilderGetRe_63bed336 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -116,10 +116,10 @@ class ApplicationSignInDetailedSummaryItemRequestBuilder extends BaseRequestBuil
     /**
      * Update the navigation property applicationSignInDetailedSummary in reports
      * @param ApplicationSignInDetailedSummary $body The request body
-     * @param ApplicationSignInDetailedSummaryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ApplicationSignInDetailedSummaryItemRequestBuilderPatch_67204170|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ApplicationSignInDetailedSummary $body, ?ApplicationSignInDetailedSummaryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ApplicationSignInDetailedSummary $body, ?ApplicationSignInDetailedSummaryItemRequestBuilderPatch_67204170 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

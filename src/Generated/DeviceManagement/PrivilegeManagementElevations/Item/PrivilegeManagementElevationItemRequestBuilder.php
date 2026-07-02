@@ -32,11 +32,11 @@ class PrivilegeManagementElevationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property privilegeManagementElevations for deviceManagement
-     * @param PrivilegeManagementElevationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegeManagementElevationItemRequestBuilderDeleteReq_e725c55f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?PrivilegeManagementElevationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?PrivilegeManagementElevationItemRequestBuilderDeleteReq_e725c55f $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class PrivilegeManagementElevationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * The endpoint privilege management elevation event entity contains elevation details.
-     * @param PrivilegeManagementElevationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegeManagementElevationItemRequestBuilderGetReques_95cfecae|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrivilegeManagementElevation|null>
      * @throws Exception
     */
-    public function get(?PrivilegeManagementElevationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?PrivilegeManagementElevationItemRequestBuilderGetReques_95cfecae $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class PrivilegeManagementElevationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property privilegeManagementElevations in deviceManagement
      * @param PrivilegeManagementElevation $body The request body
-     * @param PrivilegeManagementElevationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegeManagementElevationItemRequestBuilderPatchRequ_e54f652f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrivilegeManagementElevation|null>
      * @throws Exception
     */
-    public function patch(PrivilegeManagementElevation $body, ?PrivilegeManagementElevationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(PrivilegeManagementElevation $body, ?PrivilegeManagementElevationItemRequestBuilderPatchRequ_e54f652f $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class PrivilegeManagementElevationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property privilegeManagementElevations for deviceManagement
-     * @param PrivilegeManagementElevationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegeManagementElevationItemRequestBuilderDeleteReq_e725c55f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?PrivilegeManagementElevationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?PrivilegeManagementElevationItemRequestBuilderDeleteReq_e725c55f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class PrivilegeManagementElevationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * The endpoint privilege management elevation event entity contains elevation details.
-     * @param PrivilegeManagementElevationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegeManagementElevationItemRequestBuilderGetReques_95cfecae|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?PrivilegeManagementElevationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?PrivilegeManagementElevationItemRequestBuilderGetReques_95cfecae $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class PrivilegeManagementElevationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property privilegeManagementElevations in deviceManagement
      * @param PrivilegeManagementElevation $body The request body
-     * @param PrivilegeManagementElevationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegeManagementElevationItemRequestBuilderPatchRequ_e54f652f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(PrivilegeManagementElevation $body, ?PrivilegeManagementElevationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(PrivilegeManagementElevation $body, ?PrivilegeManagementElevationItemRequestBuilderPatchRequ_e54f652f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

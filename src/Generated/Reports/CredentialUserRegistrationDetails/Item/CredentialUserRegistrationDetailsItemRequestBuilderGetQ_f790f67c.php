@@ -1,0 +1,34 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Reports\CredentialUserRegistrationDetails\Item;
+
+use Microsoft\Kiota\Abstractions\QueryParameter;
+
+/**
+ * Details of the usage of self-service password reset and multifactor authentication (MFA) for all registered users. Original name: CredentialUserRegistrationDetailsItemRequestBuilderGetQueryParameters
+*/
+class CredentialUserRegistrationDetailsItemRequestBuilderGetQ_f790f67c 
+{
+    /**
+     * @QueryParameter("%24expand")
+     * @var array<string>|null $expand Expand related entities
+    */
+    public ?array $expand = null;
+    
+    /**
+     * @QueryParameter("%24select")
+     * @var array<string>|null $select Select properties to be returned
+    */
+    public ?array $select = null;
+    
+    /**
+     * Instantiates a new CredentialUserRegistrationDetailsItemRequestBuilderGetQ_f790f67c and sets the default values.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+    */
+    public function __construct(?array $expand = null, ?array $select = null) {
+        $this->expand = $expand;
+        $this->select = $select;
+    }
+
+}

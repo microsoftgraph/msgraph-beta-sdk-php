@@ -32,11 +32,11 @@ class CartToClassAssociationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property cartToClassAssociations for deviceManagement
-     * @param CartToClassAssociationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CartToClassAssociationItemRequestBuilderDeleteRequestCo_1d2d0954|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CartToClassAssociationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CartToClassAssociationItemRequestBuilderDeleteRequestCo_1d2d0954 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class CartToClassAssociationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property cartToClassAssociations in deviceManagement
      * @param CartToClassAssociation $body The request body
-     * @param CartToClassAssociationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CartToClassAssociationItemRequestBuilderPatchRequestCon_f6f1c94b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CartToClassAssociation|null>
      * @throws Exception
     */
-    public function patch(CartToClassAssociation $body, ?CartToClassAssociationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(CartToClassAssociation $body, ?CartToClassAssociationItemRequestBuilderPatchRequestCon_f6f1c94b $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class CartToClassAssociationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property cartToClassAssociations for deviceManagement
-     * @param CartToClassAssociationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CartToClassAssociationItemRequestBuilderDeleteRequestCo_1d2d0954|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CartToClassAssociationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CartToClassAssociationItemRequestBuilderDeleteRequestCo_1d2d0954 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class CartToClassAssociationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property cartToClassAssociations in deviceManagement
      * @param CartToClassAssociation $body The request body
-     * @param CartToClassAssociationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CartToClassAssociationItemRequestBuilderPatchRequestCon_f6f1c94b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CartToClassAssociation $body, ?CartToClassAssociationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(CartToClassAssociation $body, ?CartToClassAssociationItemRequestBuilderPatchRequestCon_f6f1c94b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

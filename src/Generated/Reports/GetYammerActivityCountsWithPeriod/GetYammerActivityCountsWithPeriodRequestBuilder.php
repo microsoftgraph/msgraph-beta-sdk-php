@@ -35,11 +35,11 @@ class GetYammerActivityCountsWithPeriodRequestBuilder extends BaseRequestBuilder
 
     /**
      * Invoke function getYammerActivityCounts
-     * @param GetYammerActivityCountsWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetYammerActivityCountsWithPeriodRequestBuilderGetReque_385b9f7c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function get(?GetYammerActivityCountsWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetYammerActivityCountsWithPeriodRequestBuilderGetReque_385b9f7c $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -51,10 +51,10 @@ class GetYammerActivityCountsWithPeriodRequestBuilder extends BaseRequestBuilder
 
     /**
      * Invoke function getYammerActivityCounts
-     * @param GetYammerActivityCountsWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetYammerActivityCountsWithPeriodRequestBuilderGetReque_385b9f7c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetYammerActivityCountsWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetYammerActivityCountsWithPeriodRequestBuilderGetReque_385b9f7c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

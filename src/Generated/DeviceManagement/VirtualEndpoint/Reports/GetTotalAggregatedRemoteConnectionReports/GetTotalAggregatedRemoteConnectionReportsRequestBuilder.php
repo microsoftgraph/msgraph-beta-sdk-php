@@ -33,12 +33,12 @@ class GetTotalAggregatedRemoteConnectionReportsRequestBuilder extends BaseReques
     /**
      * Get the total aggregated remote connection usage of a Cloud PC during a given time span.
      * @param GetTotalAggregatedRemoteConnectionReportsPostRequestBody $body The request body
-     * @param GetTotalAggregatedRemoteConnectionReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetTotalAggregatedRemoteConnectionReportsRequestBuilder_28c1f0db|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpcreports-gettotalaggregatedremoteconnectionreports?view=graph-rest-beta Find more info here
     */
-    public function post(GetTotalAggregatedRemoteConnectionReportsPostRequestBody $body, ?GetTotalAggregatedRemoteConnectionReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetTotalAggregatedRemoteConnectionReportsPostRequestBody $body, ?GetTotalAggregatedRemoteConnectionReportsRequestBuilder_28c1f0db $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -51,10 +51,10 @@ class GetTotalAggregatedRemoteConnectionReportsRequestBuilder extends BaseReques
     /**
      * Get the total aggregated remote connection usage of a Cloud PC during a given time span.
      * @param GetTotalAggregatedRemoteConnectionReportsPostRequestBody $body The request body
-     * @param GetTotalAggregatedRemoteConnectionReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetTotalAggregatedRemoteConnectionReportsRequestBuilder_28c1f0db|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetTotalAggregatedRemoteConnectionReportsPostRequestBody $body, ?GetTotalAggregatedRemoteConnectionReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetTotalAggregatedRemoteConnectionReportsPostRequestBody $body, ?GetTotalAggregatedRemoteConnectionReportsRequestBuilder_28c1f0db $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -32,11 +32,11 @@ class MicrosoftGraphIndustryDataGetStatisticsRequestBuilder extends BaseRequestB
 
     /**
      * Invoke function getStatistics
-     * @param MicrosoftGraphIndustryDataGetStatisticsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphIndustryDataGetStatisticsRequestBuilderGe_6fa1098a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IndustryDataRunStatistics|null>
      * @throws Exception
     */
-    public function get(?MicrosoftGraphIndustryDataGetStatisticsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MicrosoftGraphIndustryDataGetStatisticsRequestBuilderGe_6fa1098a $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class MicrosoftGraphIndustryDataGetStatisticsRequestBuilder extends BaseRequestB
 
     /**
      * Invoke function getStatistics
-     * @param MicrosoftGraphIndustryDataGetStatisticsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphIndustryDataGetStatisticsRequestBuilderGe_6fa1098a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MicrosoftGraphIndustryDataGetStatisticsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MicrosoftGraphIndustryDataGetStatisticsRequestBuilderGe_6fa1098a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -32,11 +32,11 @@ class AssignedAccessMultiModeProfilesRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action assignedAccessMultiModeProfiles
      * @param AssignedAccessMultiModeProfilesPostRequestBody $body The request body
-     * @param AssignedAccessMultiModeProfilesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AssignedAccessMultiModeProfilesRequestBuilderPostReques_277d568d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(AssignedAccessMultiModeProfilesPostRequestBody $body, ?AssignedAccessMultiModeProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AssignedAccessMultiModeProfilesPostRequestBody $body, ?AssignedAccessMultiModeProfilesRequestBuilderPostReques_277d568d $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,10 +47,10 @@ class AssignedAccessMultiModeProfilesRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action assignedAccessMultiModeProfiles
      * @param AssignedAccessMultiModeProfilesPostRequestBody $body The request body
-     * @param AssignedAccessMultiModeProfilesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AssignedAccessMultiModeProfilesRequestBuilderPostReques_277d568d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AssignedAccessMultiModeProfilesPostRequestBody $body, ?AssignedAccessMultiModeProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AssignedAccessMultiModeProfilesPostRequestBody $body, ?AssignedAccessMultiModeProfilesRequestBuilderPostReques_277d568d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

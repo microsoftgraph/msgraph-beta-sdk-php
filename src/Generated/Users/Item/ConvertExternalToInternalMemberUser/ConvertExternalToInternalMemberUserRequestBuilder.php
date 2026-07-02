@@ -33,12 +33,12 @@ class ConvertExternalToInternalMemberUserRequestBuilder extends BaseRequestBuild
     /**
      * Convert an externally authenticated user into an internal user. The user is able to sign into the host tenant as an internal user and access resources as a member. For more information about this conversion, see Convert external users to internal users.
      * @param ConvertExternalToInternalMemberUserPostRequestBody $body The request body
-     * @param ConvertExternalToInternalMemberUserRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConvertExternalToInternalMemberUserRequestBuilderPostRe_ce6166e5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConversionUserDetails|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/user-convertexternaltointernalmemberuser?view=graph-rest-beta Find more info here
     */
-    public function post(ConvertExternalToInternalMemberUserPostRequestBody $body, ?ConvertExternalToInternalMemberUserRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ConvertExternalToInternalMemberUserPostRequestBody $body, ?ConvertExternalToInternalMemberUserRequestBuilderPostRe_ce6166e5 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,10 +49,10 @@ class ConvertExternalToInternalMemberUserRequestBuilder extends BaseRequestBuild
     /**
      * Convert an externally authenticated user into an internal user. The user is able to sign into the host tenant as an internal user and access resources as a member. For more information about this conversion, see Convert external users to internal users.
      * @param ConvertExternalToInternalMemberUserPostRequestBody $body The request body
-     * @param ConvertExternalToInternalMemberUserRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConvertExternalToInternalMemberUserRequestBuilderPostRe_ce6166e5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ConvertExternalToInternalMemberUserPostRequestBody $body, ?ConvertExternalToInternalMemberUserRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ConvertExternalToInternalMemberUserPostRequestBody $body, ?ConvertExternalToInternalMemberUserRequestBuilderPostRe_ce6166e5 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

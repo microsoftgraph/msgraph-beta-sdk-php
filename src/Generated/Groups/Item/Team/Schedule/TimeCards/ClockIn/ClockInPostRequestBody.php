@@ -24,6 +24,8 @@ class ClockInPostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
+        $this->setAtApprovedLocation(false);
+        $this->setIsAtApprovedLocation(false);
     }
 
     /**

@@ -1,0 +1,83 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Reports\ManagedDeviceEnrollmentAbandonmentDetailsWithSkipWithTo_3cc2b7d1;
+
+use Exception;
+use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Models\Report;
+use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
+use Microsoft\Kiota\Abstractions\HttpMethod;
+use Microsoft\Kiota\Abstractions\RequestAdapter;
+use Microsoft\Kiota\Abstractions\RequestInformation;
+
+/**
+ * Provides operations to call the managedDeviceEnrollmentAbandonmentDetails method. Original name: managedDeviceEnrollmentAbandonmentDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder
+*/
+class ManagedDeviceEnrollmentAbandonmentDetailsWithSkipWithTo_88eb5369 extends BaseRequestBuilder 
+{
+    /**
+     * Instantiates a new ManagedDeviceEnrollmentAbandonmentDetailsWithSkipWithTo_88eb5369 and sets the default values.
+     * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
+     * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+     * @param string|null $filter Usage: filter='{filter}'
+     * @param int|null $skip Usage: skip={skip}
+     * @param string|null $skipToken Usage: skipToken='{skipToken}'
+     * @param int|null $top Usage: top={top}
+    */
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $filter = null, ?int $skip = null, ?string $skipToken = null, ?int $top = null) {
+        parent::__construct($requestAdapter, [], '{+baseurl}/reports/managedDeviceEnrollmentAbandonmentDetails(skip={skip},top={top},filter=\'{filter}\',skipToken=\'{skipToken}\')');
+        if (is_array($pathParametersOrRawUrl)) {
+            $urlTplParams = $pathParametersOrRawUrl;
+            $urlTplParams['filter'] = $filter;
+            $urlTplParams['skip'] = $skip;
+            $urlTplParams['skipToken'] = $skipToken;
+            $urlTplParams['top'] = $top;
+            $this->pathParameters = $urlTplParams;
+        } else {
+            $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
+        }
+    }
+
+    /**
+     * Metadata for Enrollment abandonment details report
+     * @param ManagedDeviceEnrollmentAbandonmentDetailsWithSkipWithTo_bd63d291|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return Promise<Report|null>
+     * @throws Exception
+    */
+    public function get(?ManagedDeviceEnrollmentAbandonmentDetailsWithSkipWithTo_bd63d291 $requestConfiguration = null): Promise {
+        $requestInfo = $this->toGetRequestInformation($requestConfiguration);
+        $errorMappings = [
+                'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [Report::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Metadata for Enrollment abandonment details report
+     * @param ManagedDeviceEnrollmentAbandonmentDetailsWithSkipWithTo_bd63d291|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @return RequestInformation
+    */
+    public function toGetRequestInformation(?ManagedDeviceEnrollmentAbandonmentDetailsWithSkipWithTo_bd63d291 $requestConfiguration = null): RequestInformation {
+        $requestInfo = new RequestInformation();
+        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->pathParameters = $this->pathParameters;
+        $requestInfo->httpMethod = HttpMethod::GET;
+        if ($requestConfiguration !== null) {
+            $requestInfo->addHeaders($requestConfiguration->headers);
+            $requestInfo->addRequestOptions(...$requestConfiguration->options);
+        }
+        $requestInfo->tryAddHeader('Accept', "application/json");
+        return $requestInfo;
+    }
+
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param string $rawUrl The raw URL to use for the request builder.
+     * @return ManagedDeviceEnrollmentAbandonmentDetailsWithSkipWithTo_88eb5369
+    */
+    public function withUrl(string $rawUrl): ManagedDeviceEnrollmentAbandonmentDetailsWithSkipWithTo_88eb5369 {
+        return new ManagedDeviceEnrollmentAbandonmentDetailsWithSkipWithTo_88eb5369($rawUrl, $this->requestAdapter);
+    }
+
+}

@@ -66,7 +66,10 @@ class Workflow extends WorkflowBase implements Parsable
             'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
             'nextScheduleRunDateTime' => fn(ParseNode $n) => $o->setNextScheduleRunDateTime($n->getDateTimeValue()),
             'previewScope' => fn(ParseNode $n) => $o->setPreviewScope($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
+            'quarantineDetails' => fn(ParseNode $n) => $o->setQuarantineDetails($n->getObjectValue([QuarantineDetails::class, 'createFromDiscriminatorValue'])),
             'runs' => fn(ParseNode $n) => $o->setRuns($n->getCollectionOfObjectValues([Run::class, 'createFromDiscriminatorValue'])),
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([WorkflowSetting::class, 'createFromDiscriminatorValue'])),
+            'subjectProcessingResults' => fn(ParseNode $n) => $o->setSubjectProcessingResults($n->getCollectionOfObjectValues([SubjectProcessingResult::class, 'createFromDiscriminatorValue'])),
             'taskReports' => fn(ParseNode $n) => $o->setTaskReports($n->getCollectionOfObjectValues([TaskReport::class, 'createFromDiscriminatorValue'])),
             'userProcessingResults' => fn(ParseNode $n) => $o->setUserProcessingResults($n->getCollectionOfObjectValues([UserProcessingResult::class, 'createFromDiscriminatorValue'])),
             'version' => fn(ParseNode $n) => $o->setVersion($n->getIntegerValue()),
@@ -113,6 +116,18 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
+     * Gets the quarantineDetails property value. The quarantineDetails property
+     * @return QuarantineDetails|null
+    */
+    public function getQuarantineDetails(): ?QuarantineDetails {
+        $val = $this->getBackingStore()->get('quarantineDetails');
+        if (is_null($val) || $val instanceof QuarantineDetails) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'quarantineDetails'");
+    }
+
+    /**
      * Gets the runs property value. Workflow runs.
      * @return array<Run>|null
     */
@@ -124,6 +139,32 @@ class Workflow extends WorkflowBase implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'runs'");
+    }
+
+    /**
+     * Gets the settings property value. The settings property
+     * @return WorkflowSetting|null
+    */
+    public function getSettings(): ?WorkflowSetting {
+        $val = $this->getBackingStore()->get('settings');
+        if (is_null($val) || $val instanceof WorkflowSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settings'");
+    }
+
+    /**
+     * Gets the subjectProcessingResults property value. The subjectProcessingResults property
+     * @return array<SubjectProcessingResult>|null
+    */
+    public function getSubjectProcessingResults(): ?array {
+        $val = $this->getBackingStore()->get('subjectProcessingResults');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SubjectProcessingResult::class);
+            /** @var array<SubjectProcessingResult>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subjectProcessingResults'");
     }
 
     /**
@@ -191,7 +232,10 @@ class Workflow extends WorkflowBase implements Parsable
         $writer->writeStringValue('id', $this->getId());
         $writer->writeDateTimeValue('nextScheduleRunDateTime', $this->getNextScheduleRunDateTime());
         $writer->writeCollectionOfObjectValues('previewScope', $this->getPreviewScope());
+        $writer->writeObjectValue('quarantineDetails', $this->getQuarantineDetails());
         $writer->writeCollectionOfObjectValues('runs', $this->getRuns());
+        $writer->writeObjectValue('settings', $this->getSettings());
+        $writer->writeCollectionOfObjectValues('subjectProcessingResults', $this->getSubjectProcessingResults());
         $writer->writeCollectionOfObjectValues('taskReports', $this->getTaskReports());
         $writer->writeCollectionOfObjectValues('userProcessingResults', $this->getUserProcessingResults());
         $writer->writeIntegerValue('version', $this->getVersion());
@@ -239,11 +283,35 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
+     * Sets the quarantineDetails property value. The quarantineDetails property
+     * @param QuarantineDetails|null $value Value to set for the quarantineDetails property.
+    */
+    public function setQuarantineDetails(?QuarantineDetails $value): void {
+        $this->getBackingStore()->set('quarantineDetails', $value);
+    }
+
+    /**
      * Sets the runs property value. Workflow runs.
      * @param array<Run>|null $value Value to set for the runs property.
     */
     public function setRuns(?array $value): void {
         $this->getBackingStore()->set('runs', $value);
+    }
+
+    /**
+     * Sets the settings property value. The settings property
+     * @param WorkflowSetting|null $value Value to set for the settings property.
+    */
+    public function setSettings(?WorkflowSetting $value): void {
+        $this->getBackingStore()->set('settings', $value);
+    }
+
+    /**
+     * Sets the subjectProcessingResults property value. The subjectProcessingResults property
+     * @param array<SubjectProcessingResult>|null $value Value to set for the subjectProcessingResults property.
+    */
+    public function setSubjectProcessingResults(?array $value): void {
+        $this->getBackingStore()->set('subjectProcessingResults', $value);
     }
 
     /**

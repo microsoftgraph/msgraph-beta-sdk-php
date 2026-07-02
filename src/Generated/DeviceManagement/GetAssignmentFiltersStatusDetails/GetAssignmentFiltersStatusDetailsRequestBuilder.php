@@ -33,11 +33,11 @@ class GetAssignmentFiltersStatusDetailsRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action getAssignmentFiltersStatusDetails
      * @param GetAssignmentFiltersStatusDetailsPostRequestBody $body The request body
-     * @param GetAssignmentFiltersStatusDetailsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetAssignmentFiltersStatusDetailsRequestBuilderPostRequ_650bb214|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AssignmentFilterStatusDetails|null>
      * @throws Exception
     */
-    public function post(GetAssignmentFiltersStatusDetailsPostRequestBody $body, ?GetAssignmentFiltersStatusDetailsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetAssignmentFiltersStatusDetailsPostRequestBody $body, ?GetAssignmentFiltersStatusDetailsRequestBuilderPostRequ_650bb214 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class GetAssignmentFiltersStatusDetailsRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action getAssignmentFiltersStatusDetails
      * @param GetAssignmentFiltersStatusDetailsPostRequestBody $body The request body
-     * @param GetAssignmentFiltersStatusDetailsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetAssignmentFiltersStatusDetailsRequestBuilderPostRequ_650bb214|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetAssignmentFiltersStatusDetailsPostRequestBody $body, ?GetAssignmentFiltersStatusDetailsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetAssignmentFiltersStatusDetailsPostRequestBody $body, ?GetAssignmentFiltersStatusDetailsRequestBuilderPostRequ_650bb214 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -33,11 +33,11 @@ class MicrosoftGraphManagedTenantsAddUserInputLogRequestBuilder extends BaseRequ
     /**
      * Invoke action addUserInputLog
      * @param AddUserInputLogPostRequestBody $body The request body
-     * @param MicrosoftGraphManagedTenantsAddUserInputLogRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphManagedTenantsAddUserInputLogRequestBuild_a0e81ce3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagedTenantAlert|null>
      * @throws Exception
     */
-    public function post(AddUserInputLogPostRequestBody $body, ?MicrosoftGraphManagedTenantsAddUserInputLogRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AddUserInputLogPostRequestBody $body, ?MicrosoftGraphManagedTenantsAddUserInputLogRequestBuild_a0e81ce3 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class MicrosoftGraphManagedTenantsAddUserInputLogRequestBuilder extends BaseRequ
     /**
      * Invoke action addUserInputLog
      * @param AddUserInputLogPostRequestBody $body The request body
-     * @param MicrosoftGraphManagedTenantsAddUserInputLogRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphManagedTenantsAddUserInputLogRequestBuild_a0e81ce3|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AddUserInputLogPostRequestBody $body, ?MicrosoftGraphManagedTenantsAddUserInputLogRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AddUserInputLogPostRequestBody $body, ?MicrosoftGraphManagedTenantsAddUserInputLogRequestBuild_a0e81ce3 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

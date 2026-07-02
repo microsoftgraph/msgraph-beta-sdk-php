@@ -32,11 +32,11 @@ class CreateEnrollmentNotificationConfigurationRequestBuilder extends BaseReques
     /**
      * Invoke action createEnrollmentNotificationConfiguration
      * @param CreateEnrollmentNotificationConfigurationPostRequestBody $body The request body
-     * @param CreateEnrollmentNotificationConfigurationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CreateEnrollmentNotificationConfigurationRequestBuilder_be60d438|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(CreateEnrollmentNotificationConfigurationPostRequestBody $body, ?CreateEnrollmentNotificationConfigurationRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(CreateEnrollmentNotificationConfigurationPostRequestBody $body, ?CreateEnrollmentNotificationConfigurationRequestBuilder_be60d438 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,10 +47,10 @@ class CreateEnrollmentNotificationConfigurationRequestBuilder extends BaseReques
     /**
      * Invoke action createEnrollmentNotificationConfiguration
      * @param CreateEnrollmentNotificationConfigurationPostRequestBody $body The request body
-     * @param CreateEnrollmentNotificationConfigurationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CreateEnrollmentNotificationConfigurationRequestBuilder_be60d438|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(CreateEnrollmentNotificationConfigurationPostRequestBody $body, ?CreateEnrollmentNotificationConfigurationRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(CreateEnrollmentNotificationConfigurationPostRequestBody $body, ?CreateEnrollmentNotificationConfigurationRequestBuilder_be60d438 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

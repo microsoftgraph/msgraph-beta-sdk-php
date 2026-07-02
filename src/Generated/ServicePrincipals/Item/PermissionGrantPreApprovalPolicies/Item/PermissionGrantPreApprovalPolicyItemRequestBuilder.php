@@ -32,12 +32,12 @@ class PermissionGrantPreApprovalPolicyItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Retrieve the permissionGrantPreApprovalPolicy object for the servicePrincipal.
-     * @param PermissionGrantPreApprovalPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionGrantPreApprovalPolicyItemRequestBuilderGetRe_aac52250|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PermissionGrantPreApprovalPolicy|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/serviceprincipal-list-permissiongrantpreapprovalpolicies?view=graph-rest-beta Find more info here
     */
-    public function get(?PermissionGrantPreApprovalPolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?PermissionGrantPreApprovalPolicyItemRequestBuilderGetRe_aac52250 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,10 +47,10 @@ class PermissionGrantPreApprovalPolicyItemRequestBuilder extends BaseRequestBuil
 
     /**
      * Retrieve the permissionGrantPreApprovalPolicy object for the servicePrincipal.
-     * @param PermissionGrantPreApprovalPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionGrantPreApprovalPolicyItemRequestBuilderGetRe_aac52250|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?PermissionGrantPreApprovalPolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?PermissionGrantPreApprovalPolicyItemRequestBuilderGetRe_aac52250 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

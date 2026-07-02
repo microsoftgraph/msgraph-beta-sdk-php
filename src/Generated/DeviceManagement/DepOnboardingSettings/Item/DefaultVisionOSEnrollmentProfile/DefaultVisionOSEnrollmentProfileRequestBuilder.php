@@ -32,11 +32,11 @@ class DefaultVisionOSEnrollmentProfileRequestBuilder extends BaseRequestBuilder
 
     /**
      * Default VisionOS Enrollment Profile
-     * @param DefaultVisionOSEnrollmentProfileRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DefaultVisionOSEnrollmentProfileRequestBuilderGetReques_29b57865|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DepVisionOSEnrollmentProfile|null>
      * @throws Exception
     */
-    public function get(?DefaultVisionOSEnrollmentProfileRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DefaultVisionOSEnrollmentProfileRequestBuilderGetReques_29b57865 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class DefaultVisionOSEnrollmentProfileRequestBuilder extends BaseRequestBuilder
 
     /**
      * Default VisionOS Enrollment Profile
-     * @param DefaultVisionOSEnrollmentProfileRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DefaultVisionOSEnrollmentProfileRequestBuilderGetReques_29b57865|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DefaultVisionOSEnrollmentProfileRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DefaultVisionOSEnrollmentProfileRequestBuilderGetReques_29b57865 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

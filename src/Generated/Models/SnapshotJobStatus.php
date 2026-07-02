@@ -9,6 +9,6 @@ class SnapshotJobStatus extends Enum {
     public const RUNNING = "running";
     public const SUCCEEDED = "succeeded";
     public const FAILED = "failed";
-    public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
     public const PARTIALLY_SUCCESSFUL = "partiallySuccessful";
+    public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

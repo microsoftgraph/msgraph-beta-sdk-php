@@ -32,11 +32,11 @@ class ConfigManagerCollectionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property configManagerCollections for deviceManagement
-     * @param ConfigManagerCollectionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConfigManagerCollectionItemRequestBuilderDeleteRequestC_224f9ff8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ConfigManagerCollectionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ConfigManagerCollectionItemRequestBuilderDeleteRequestC_224f9ff8 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class ConfigManagerCollectionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property configManagerCollections in deviceManagement
      * @param ConfigManagerCollection $body The request body
-     * @param ConfigManagerCollectionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConfigManagerCollectionItemRequestBuilderPatchRequestCo_2e642448|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConfigManagerCollection|null>
      * @throws Exception
     */
-    public function patch(ConfigManagerCollection $body, ?ConfigManagerCollectionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ConfigManagerCollection $body, ?ConfigManagerCollectionItemRequestBuilderPatchRequestCo_2e642448 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class ConfigManagerCollectionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property configManagerCollections for deviceManagement
-     * @param ConfigManagerCollectionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConfigManagerCollectionItemRequestBuilderDeleteRequestC_224f9ff8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ConfigManagerCollectionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ConfigManagerCollectionItemRequestBuilderDeleteRequestC_224f9ff8 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class ConfigManagerCollectionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property configManagerCollections in deviceManagement
      * @param ConfigManagerCollection $body The request body
-     * @param ConfigManagerCollectionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConfigManagerCollectionItemRequestBuilderPatchRequestCo_2e642448|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ConfigManagerCollection $body, ?ConfigManagerCollectionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ConfigManagerCollection $body, ?ConfigManagerCollectionItemRequestBuilderPatchRequestCo_2e642448 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -33,11 +33,11 @@ class SetEnrollmentTimeDeviceMembershipTargetRequestBuilder extends BaseRequestB
     /**
      * Invoke action setEnrollmentTimeDeviceMembershipTarget
      * @param SetEnrollmentTimeDeviceMembershipTargetPostRequestBody $body The request body
-     * @param SetEnrollmentTimeDeviceMembershipTargetRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SetEnrollmentTimeDeviceMembershipTargetRequestBuilderPo_38aa3e3e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<EnrollmentTimeDeviceMembershipTargetResult|null>
      * @throws Exception
     */
-    public function post(SetEnrollmentTimeDeviceMembershipTargetPostRequestBody $body, ?SetEnrollmentTimeDeviceMembershipTargetRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(SetEnrollmentTimeDeviceMembershipTargetPostRequestBody $body, ?SetEnrollmentTimeDeviceMembershipTargetRequestBuilderPo_38aa3e3e $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class SetEnrollmentTimeDeviceMembershipTargetRequestBuilder extends BaseRequestB
     /**
      * Invoke action setEnrollmentTimeDeviceMembershipTarget
      * @param SetEnrollmentTimeDeviceMembershipTargetPostRequestBody $body The request body
-     * @param SetEnrollmentTimeDeviceMembershipTargetRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SetEnrollmentTimeDeviceMembershipTargetRequestBuilderPo_38aa3e3e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(SetEnrollmentTimeDeviceMembershipTargetPostRequestBody $body, ?SetEnrollmentTimeDeviceMembershipTargetRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(SetEnrollmentTimeDeviceMembershipTargetPostRequestBody $body, ?SetEnrollmentTimeDeviceMembershipTargetRequestBuilderPo_38aa3e3e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

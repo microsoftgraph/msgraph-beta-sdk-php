@@ -33,11 +33,11 @@ class GetConfigurationPolicyDeviceSummaryReportRequestBuilder extends BaseReques
     /**
      * Invoke action getConfigurationPolicyDeviceSummaryReport
      * @param GetConfigurationPolicyDeviceSummaryReportPostRequestBody $body The request body
-     * @param GetConfigurationPolicyDeviceSummaryReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetConfigurationPolicyDeviceSummaryReportRequestBuilder_b6da9f05|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(GetConfigurationPolicyDeviceSummaryReportPostRequestBody $body, ?GetConfigurationPolicyDeviceSummaryReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetConfigurationPolicyDeviceSummaryReportPostRequestBody $body, ?GetConfigurationPolicyDeviceSummaryReportRequestBuilder_b6da9f05 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class GetConfigurationPolicyDeviceSummaryReportRequestBuilder extends BaseReques
     /**
      * Invoke action getConfigurationPolicyDeviceSummaryReport
      * @param GetConfigurationPolicyDeviceSummaryReportPostRequestBody $body The request body
-     * @param GetConfigurationPolicyDeviceSummaryReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetConfigurationPolicyDeviceSummaryReportRequestBuilder_b6da9f05|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetConfigurationPolicyDeviceSummaryReportPostRequestBody $body, ?GetConfigurationPolicyDeviceSummaryReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetConfigurationPolicyDeviceSummaryReportPostRequestBody $body, ?GetConfigurationPolicyDeviceSummaryReportRequestBuilder_b6da9f05 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

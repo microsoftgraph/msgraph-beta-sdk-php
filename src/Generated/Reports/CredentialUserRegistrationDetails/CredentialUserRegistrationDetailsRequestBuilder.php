@@ -53,12 +53,12 @@ class CredentialUserRegistrationDetailsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a list of credentialUserRegistrationDetails objects for a given tenant.
-     * @param CredentialUserRegistrationDetailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CredentialUserRegistrationDetailsRequestBuilderGetReque_6b870880|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CredentialUserRegistrationDetailsCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-beta Find more info here
     */
-    public function get(?CredentialUserRegistrationDetailsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CredentialUserRegistrationDetailsRequestBuilderGetReque_6b870880 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class CredentialUserRegistrationDetailsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to credentialUserRegistrationDetails for reports
      * @param CredentialUserRegistrationDetails $body The request body
-     * @param CredentialUserRegistrationDetailsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CredentialUserRegistrationDetailsRequestBuilderPostRequ_a27fcfec|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CredentialUserRegistrationDetails|null>
      * @throws Exception
     */
-    public function post(CredentialUserRegistrationDetails $body, ?CredentialUserRegistrationDetailsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(CredentialUserRegistrationDetails $body, ?CredentialUserRegistrationDetailsRequestBuilderPostRequ_a27fcfec $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class CredentialUserRegistrationDetailsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a list of credentialUserRegistrationDetails objects for a given tenant.
-     * @param CredentialUserRegistrationDetailsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CredentialUserRegistrationDetailsRequestBuilderGetReque_6b870880|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CredentialUserRegistrationDetailsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CredentialUserRegistrationDetailsRequestBuilderGetReque_6b870880 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -105,10 +105,10 @@ class CredentialUserRegistrationDetailsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to credentialUserRegistrationDetails for reports
      * @param CredentialUserRegistrationDetails $body The request body
-     * @param CredentialUserRegistrationDetailsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CredentialUserRegistrationDetailsRequestBuilderPostRequ_a27fcfec|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(CredentialUserRegistrationDetails $body, ?CredentialUserRegistrationDetailsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(CredentialUserRegistrationDetails $body, ?CredentialUserRegistrationDetailsRequestBuilderPostRequ_a27fcfec $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

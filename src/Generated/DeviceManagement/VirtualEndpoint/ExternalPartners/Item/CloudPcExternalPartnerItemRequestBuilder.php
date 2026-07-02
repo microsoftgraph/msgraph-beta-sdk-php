@@ -7,7 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ExternalPartners\Item\ConfigureAgent\ConfigureAgentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ExternalPartners\Item\DeployAgent\DeployAgentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ExternalPartners\Item\RetrieveActionReports\RetrieveActionReportsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ExternalPartners\Item\RetrieveDeployAgentActionResultsactivityIdActivityIdCloudPcIdCloudPcId\RetrieveDeployAgentActionResultsactivityIdActivityIdCloudPcIdCloudPcIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ExternalPartners\Item\RetrieveDeployAgentActionResultsactivityIdActivityIdClo_c6f461a2\RetrieveDeployAgentActionResultsactivityIdActivityIdClo_aaebe13d;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcExternalPartner;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -44,8 +44,8 @@ class CloudPcExternalPartnerItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the retrieveDeployAgentActionResults method.
     */
-    public function retrieveDeployAgentActionResultsactivityIdActivityIdCloudPcIdCloudPcId(): RetrieveDeployAgentActionResultsactivityIdActivityIdCloudPcIdCloudPcIdRequestBuilder {
-        return new RetrieveDeployAgentActionResultsactivityIdActivityIdCloudPcIdCloudPcIdRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function retrieveDeployAgentActionResultsactivityIdActivityIdCloudPcIdCloudPcId(): RetrieveDeployAgentActionResultsactivityIdActivityIdClo_aaebe13d {
+        return new RetrieveDeployAgentActionResultsactivityIdActivityIdClo_aaebe13d($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -64,11 +64,11 @@ class CloudPcExternalPartnerItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property externalPartners for deviceManagement
-     * @param CloudPcExternalPartnerItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcExternalPartnerItemRequestBuilderDeleteRequestCo_e9da8429|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?CloudPcExternalPartnerItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CloudPcExternalPartnerItemRequestBuilderDeleteRequestCo_e9da8429 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -94,12 +94,12 @@ class CloudPcExternalPartnerItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a cloudPcExternalPartner object.
      * @param CloudPcExternalPartner $body The request body
-     * @param CloudPcExternalPartnerItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcExternalPartnerItemRequestBuilderPatchRequestCon_3f89e905|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcExternalPartner|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpcexternalpartner-update?view=graph-rest-beta Find more info here
     */
-    public function patch(CloudPcExternalPartner $body, ?CloudPcExternalPartnerItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(CloudPcExternalPartner $body, ?CloudPcExternalPartnerItemRequestBuilderPatchRequestCon_3f89e905 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -109,10 +109,10 @@ class CloudPcExternalPartnerItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property externalPartners for deviceManagement
-     * @param CloudPcExternalPartnerItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcExternalPartnerItemRequestBuilderDeleteRequestCo_e9da8429|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?CloudPcExternalPartnerItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CloudPcExternalPartnerItemRequestBuilderDeleteRequestCo_e9da8429 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -149,10 +149,10 @@ class CloudPcExternalPartnerItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a cloudPcExternalPartner object.
      * @param CloudPcExternalPartner $body The request body
-     * @param CloudPcExternalPartnerItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CloudPcExternalPartnerItemRequestBuilderPatchRequestCon_3f89e905|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CloudPcExternalPartner $body, ?CloudPcExternalPartnerItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(CloudPcExternalPartner $body, ?CloudPcExternalPartnerItemRequestBuilderPatchRequestCon_3f89e905 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -69,7 +69,7 @@ class ProcessContentRequest implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the contentEntries property value. A collection of content entries to be processed. Each entry contains the content itself and its metadata. Use conversation metadata for content like prompts and responses and file metadata for files. Required.
+     * Gets the contentEntries property value. A collection of content entries to be processed. Each entry contains the content itself and its metadata. Use conversation metadata for content like prompts and responses, file metadata for files, and content activity metadata for enforcement result status entries. Required.
      * @return array<ProcessContentMetadataBase>|null
     */
     public function getContentEntries(): ?array {
@@ -80,6 +80,18 @@ class ProcessContentRequest implements AdditionalDataHolder, BackedModel, Parsab
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'contentEntries'");
+    }
+
+    /**
+     * Gets the contextMetadata property value. The contextMetadata property
+     * @return ContextMetadata|null
+    */
+    public function getContextMetadata(): ?ContextMetadata {
+        $val = $this->getBackingStore()->get('contextMetadata');
+        if (is_null($val) || $val instanceof ContextMetadata) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contextMetadata'");
     }
 
     /**
@@ -103,6 +115,7 @@ class ProcessContentRequest implements AdditionalDataHolder, BackedModel, Parsab
         return  [
             'activityMetadata' => fn(ParseNode $n) => $o->setActivityMetadata($n->getObjectValue([ActivityMetadata::class, 'createFromDiscriminatorValue'])),
             'contentEntries' => fn(ParseNode $n) => $o->setContentEntries($n->getCollectionOfObjectValues([ProcessContentMetadataBase::class, 'createFromDiscriminatorValue'])),
+            'contextMetadata' => fn(ParseNode $n) => $o->setContextMetadata($n->getObjectValue([ContextMetadata::class, 'createFromDiscriminatorValue'])),
             'deviceMetadata' => fn(ParseNode $n) => $o->setDeviceMetadata($n->getObjectValue([DeviceMetadata::class, 'createFromDiscriminatorValue'])),
             'integratedAppMetadata' => fn(ParseNode $n) => $o->setIntegratedAppMetadata($n->getObjectValue([IntegratedApplicationMetadata::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -153,6 +166,7 @@ class ProcessContentRequest implements AdditionalDataHolder, BackedModel, Parsab
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('activityMetadata', $this->getActivityMetadata());
         $writer->writeCollectionOfObjectValues('contentEntries', $this->getContentEntries());
+        $writer->writeObjectValue('contextMetadata', $this->getContextMetadata());
         $writer->writeObjectValue('deviceMetadata', $this->getDeviceMetadata());
         $writer->writeObjectValue('integratedAppMetadata', $this->getIntegratedAppMetadata());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -185,11 +199,19 @@ class ProcessContentRequest implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the contentEntries property value. A collection of content entries to be processed. Each entry contains the content itself and its metadata. Use conversation metadata for content like prompts and responses and file metadata for files. Required.
+     * Sets the contentEntries property value. A collection of content entries to be processed. Each entry contains the content itself and its metadata. Use conversation metadata for content like prompts and responses, file metadata for files, and content activity metadata for enforcement result status entries. Required.
      * @param array<ProcessContentMetadataBase>|null $value Value to set for the contentEntries property.
     */
     public function setContentEntries(?array $value): void {
         $this->getBackingStore()->set('contentEntries', $value);
+    }
+
+    /**
+     * Sets the contextMetadata property value. The contextMetadata property
+     * @param ContextMetadata|null $value Value to set for the contextMetadata property.
+    */
+    public function setContextMetadata(?ContextMetadata $value): void {
+        $this->getBackingStore()->set('contextMetadata', $value);
     }
 
     /**

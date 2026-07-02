@@ -53,11 +53,11 @@ class ManagementTemplateStepVersionsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get managementTemplateStepVersions from tenantRelationships
-     * @param ManagementTemplateStepVersionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepVersionsRequestBuilderGetRequestC_9b5f21d0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementTemplateStepVersionCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?ManagementTemplateStepVersionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagementTemplateStepVersionsRequestBuilderGetRequestC_9b5f21d0 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class ManagementTemplateStepVersionsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to managementTemplateStepVersions for tenantRelationships
      * @param ManagementTemplateStepVersion $body The request body
-     * @param ManagementTemplateStepVersionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepVersionsRequestBuilderPostRequest_b86bf75e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementTemplateStepVersion|null>
      * @throws Exception
     */
-    public function post(ManagementTemplateStepVersion $body, ?ManagementTemplateStepVersionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ManagementTemplateStepVersion $body, ?ManagementTemplateStepVersionsRequestBuilderPostRequest_b86bf75e $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class ManagementTemplateStepVersionsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get managementTemplateStepVersions from tenantRelationships
-     * @param ManagementTemplateStepVersionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepVersionsRequestBuilderGetRequestC_9b5f21d0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagementTemplateStepVersionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagementTemplateStepVersionsRequestBuilderGetRequestC_9b5f21d0 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class ManagementTemplateStepVersionsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to managementTemplateStepVersions for tenantRelationships
      * @param ManagementTemplateStepVersion $body The request body
-     * @param ManagementTemplateStepVersionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateStepVersionsRequestBuilderPostRequest_b86bf75e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ManagementTemplateStepVersion $body, ?ManagementTemplateStepVersionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ManagementTemplateStepVersion $body, ?ManagementTemplateStepVersionsRequestBuilderPostRequest_b86bf75e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -35,12 +35,12 @@ class GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder extends BaseR
 
     /**
      * Get the trend in the daily number of active and enabled users of Microsoft 365 Copilot for a specified time period.
-     * @param GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBu_5d984980|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/reportroot-getmicrosoft365copilotusercounttrend?view=graph-rest-beta Find more info here
     */
-    public function get(?GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBu_5d984980 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -52,10 +52,10 @@ class GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder extends BaseR
 
     /**
      * Get the trend in the daily number of active and enabled users of Microsoft 365 Copilot for a specified time period.
-     * @param GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBu_5d984980|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBu_5d984980 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

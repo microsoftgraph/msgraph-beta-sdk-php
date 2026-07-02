@@ -32,11 +32,11 @@ class ServicePrincipalCreationConditionSetItemRequestBuilder extends BaseRequest
 
     /**
      * Delete navigation property includes for policies
-     * @param ServicePrincipalCreationConditionSetItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalCreationConditionSetItemRequestBuilderD_ba7b2400|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ServicePrincipalCreationConditionSetItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ServicePrincipalCreationConditionSetItemRequestBuilderD_ba7b2400 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class ServicePrincipalCreationConditionSetItemRequestBuilder extends BaseRequest
 
     /**
      * Get includes from policies
-     * @param ServicePrincipalCreationConditionSetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalCreationConditionSetItemRequestBuilderG_5f083eb6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServicePrincipalCreationConditionSet|null>
      * @throws Exception
     */
-    public function get(?ServicePrincipalCreationConditionSetItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ServicePrincipalCreationConditionSetItemRequestBuilderG_5f083eb6 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class ServicePrincipalCreationConditionSetItemRequestBuilder extends BaseRequest
     /**
      * Update the navigation property includes in policies
      * @param ServicePrincipalCreationConditionSet $body The request body
-     * @param ServicePrincipalCreationConditionSetItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalCreationConditionSetItemRequestBuilderP_70689948|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ServicePrincipalCreationConditionSet|null>
      * @throws Exception
     */
-    public function patch(ServicePrincipalCreationConditionSet $body, ?ServicePrincipalCreationConditionSetItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ServicePrincipalCreationConditionSet $body, ?ServicePrincipalCreationConditionSetItemRequestBuilderP_70689948 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class ServicePrincipalCreationConditionSetItemRequestBuilder extends BaseRequest
 
     /**
      * Delete navigation property includes for policies
-     * @param ServicePrincipalCreationConditionSetItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalCreationConditionSetItemRequestBuilderD_ba7b2400|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ServicePrincipalCreationConditionSetItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ServicePrincipalCreationConditionSetItemRequestBuilderD_ba7b2400 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class ServicePrincipalCreationConditionSetItemRequestBuilder extends BaseRequest
 
     /**
      * Get includes from policies
-     * @param ServicePrincipalCreationConditionSetItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalCreationConditionSetItemRequestBuilderG_5f083eb6|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ServicePrincipalCreationConditionSetItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ServicePrincipalCreationConditionSetItemRequestBuilderG_5f083eb6 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class ServicePrincipalCreationConditionSetItemRequestBuilder extends BaseRequest
     /**
      * Update the navigation property includes in policies
      * @param ServicePrincipalCreationConditionSet $body The request body
-     * @param ServicePrincipalCreationConditionSetItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ServicePrincipalCreationConditionSetItemRequestBuilderP_70689948|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ServicePrincipalCreationConditionSet $body, ?ServicePrincipalCreationConditionSetItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ServicePrincipalCreationConditionSet $body, ?ServicePrincipalCreationConditionSetItemRequestBuilderP_70689948 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

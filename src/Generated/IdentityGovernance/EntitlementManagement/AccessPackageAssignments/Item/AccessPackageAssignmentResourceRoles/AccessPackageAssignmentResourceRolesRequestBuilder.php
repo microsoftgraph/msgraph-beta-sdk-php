@@ -61,11 +61,11 @@ class AccessPackageAssignmentResourceRolesRequestBuilder extends BaseRequestBuil
 
     /**
      * The resource roles delivered to the target user for this assignment. Read-only. Nullable.
-     * @param AccessPackageAssignmentResourceRolesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageAssignmentResourceRolesRequestBuilderGetRe_fbfd0dd2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageAssignmentResourceRoleCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?AccessPackageAssignmentResourceRolesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AccessPackageAssignmentResourceRolesRequestBuilderGetRe_fbfd0dd2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -76,11 +76,11 @@ class AccessPackageAssignmentResourceRolesRequestBuilder extends BaseRequestBuil
     /**
      * Create new navigation property to accessPackageAssignmentResourceRoles for identityGovernance
      * @param AccessPackageAssignmentResourceRole $body The request body
-     * @param AccessPackageAssignmentResourceRolesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageAssignmentResourceRolesRequestBuilderPostR_b12a41b8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageAssignmentResourceRole|null>
      * @throws Exception
     */
-    public function post(AccessPackageAssignmentResourceRole $body, ?AccessPackageAssignmentResourceRolesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AccessPackageAssignmentResourceRole $body, ?AccessPackageAssignmentResourceRolesRequestBuilderPostR_b12a41b8 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -90,10 +90,10 @@ class AccessPackageAssignmentResourceRolesRequestBuilder extends BaseRequestBuil
 
     /**
      * The resource roles delivered to the target user for this assignment. Read-only. Nullable.
-     * @param AccessPackageAssignmentResourceRolesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageAssignmentResourceRolesRequestBuilderGetRe_fbfd0dd2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AccessPackageAssignmentResourceRolesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AccessPackageAssignmentResourceRolesRequestBuilderGetRe_fbfd0dd2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -112,10 +112,10 @@ class AccessPackageAssignmentResourceRolesRequestBuilder extends BaseRequestBuil
     /**
      * Create new navigation property to accessPackageAssignmentResourceRoles for identityGovernance
      * @param AccessPackageAssignmentResourceRole $body The request body
-     * @param AccessPackageAssignmentResourceRolesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageAssignmentResourceRolesRequestBuilderPostR_b12a41b8|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AccessPackageAssignmentResourceRole $body, ?AccessPackageAssignmentResourceRolesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AccessPackageAssignmentResourceRole $body, ?AccessPackageAssignmentResourceRolesRequestBuilderPostR_b12a41b8 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

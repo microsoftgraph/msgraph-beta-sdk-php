@@ -32,11 +32,11 @@ class TenantCustomizedInformationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property tenantsCustomizedInformation for tenantRelationships
-     * @param TenantCustomizedInformationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TenantCustomizedInformationItemRequestBuilderDeleteRequ_828812f1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?TenantCustomizedInformationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?TenantCustomizedInformationItemRequestBuilderDeleteRequ_828812f1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,12 +46,12 @@ class TenantCustomizedInformationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of a tenantCustomizedInformation object.
-     * @param TenantCustomizedInformationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TenantCustomizedInformationItemRequestBuilderGetRequest_a202a253|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantCustomizedInformation|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/managedtenants-tenantcustomizedinformation-get?view=graph-rest-beta Find more info here
     */
-    public function get(?TenantCustomizedInformationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?TenantCustomizedInformationItemRequestBuilderGetRequest_a202a253 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,12 +62,12 @@ class TenantCustomizedInformationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a tenantCustomizedInformation object.
      * @param TenantCustomizedInformation $body The request body
-     * @param TenantCustomizedInformationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TenantCustomizedInformationItemRequestBuilderPatchReque_97db8bcc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantCustomizedInformation|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/managedtenants-tenantcustomizedinformation-update?view=graph-rest-beta Find more info here
     */
-    public function patch(TenantCustomizedInformation $body, ?TenantCustomizedInformationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(TenantCustomizedInformation $body, ?TenantCustomizedInformationItemRequestBuilderPatchReque_97db8bcc $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,10 +77,10 @@ class TenantCustomizedInformationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property tenantsCustomizedInformation for tenantRelationships
-     * @param TenantCustomizedInformationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TenantCustomizedInformationItemRequestBuilderDeleteRequ_828812f1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?TenantCustomizedInformationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?TenantCustomizedInformationItemRequestBuilderDeleteRequ_828812f1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -95,10 +95,10 @@ class TenantCustomizedInformationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of a tenantCustomizedInformation object.
-     * @param TenantCustomizedInformationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TenantCustomizedInformationItemRequestBuilderGetRequest_a202a253|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?TenantCustomizedInformationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?TenantCustomizedInformationItemRequestBuilderGetRequest_a202a253 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -117,10 +117,10 @@ class TenantCustomizedInformationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a tenantCustomizedInformation object.
      * @param TenantCustomizedInformation $body The request body
-     * @param TenantCustomizedInformationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TenantCustomizedInformationItemRequestBuilderPatchReque_97db8bcc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(TenantCustomizedInformation $body, ?TenantCustomizedInformationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(TenantCustomizedInformation $body, ?TenantCustomizedInformationItemRequestBuilderPatchReque_97db8bcc $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

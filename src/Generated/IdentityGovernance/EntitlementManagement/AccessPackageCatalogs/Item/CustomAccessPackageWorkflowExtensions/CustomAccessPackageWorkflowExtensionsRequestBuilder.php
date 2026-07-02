@@ -53,12 +53,12 @@ class CustomAccessPackageWorkflowExtensionsRequestBuilder extends BaseRequestBui
 
     /**
      * Get a list of the customAccessPackageWorkflowExtension objects and their properties. The resulting list includes all the customAccessPackageWorkflowExtension objects for the catalog that the caller has access to read.
-     * @param CustomAccessPackageWorkflowExtensionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomAccessPackageWorkflowExtensionsRequestBuilderGetR_26b1571f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomAccessPackageWorkflowExtensionCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/accesspackagecatalog-list-customaccesspackageworkflowextensions?view=graph-rest-beta Find more info here
     */
-    public function get(?CustomAccessPackageWorkflowExtensionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CustomAccessPackageWorkflowExtensionsRequestBuilderGetR_26b1571f $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,12 +69,12 @@ class CustomAccessPackageWorkflowExtensionsRequestBuilder extends BaseRequestBui
     /**
      * Create a new customAccessPackageWorkflowExtension object and add it to an existing accessPackageCatalog object.  
      * @param CustomAccessPackageWorkflowExtension $body The request body
-     * @param CustomAccessPackageWorkflowExtensionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomAccessPackageWorkflowExtensionsRequestBuilderPost_86641293|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CustomAccessPackageWorkflowExtension|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/accesspackagecatalog-post-customaccesspackageworkflowextensions?view=graph-rest-beta Find more info here
     */
-    public function post(CustomAccessPackageWorkflowExtension $body, ?CustomAccessPackageWorkflowExtensionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(CustomAccessPackageWorkflowExtension $body, ?CustomAccessPackageWorkflowExtensionsRequestBuilderPost_86641293 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -84,10 +84,10 @@ class CustomAccessPackageWorkflowExtensionsRequestBuilder extends BaseRequestBui
 
     /**
      * Get a list of the customAccessPackageWorkflowExtension objects and their properties. The resulting list includes all the customAccessPackageWorkflowExtension objects for the catalog that the caller has access to read.
-     * @param CustomAccessPackageWorkflowExtensionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomAccessPackageWorkflowExtensionsRequestBuilderGetR_26b1571f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?CustomAccessPackageWorkflowExtensionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CustomAccessPackageWorkflowExtensionsRequestBuilderGetR_26b1571f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -106,10 +106,10 @@ class CustomAccessPackageWorkflowExtensionsRequestBuilder extends BaseRequestBui
     /**
      * Create a new customAccessPackageWorkflowExtension object and add it to an existing accessPackageCatalog object.  
      * @param CustomAccessPackageWorkflowExtension $body The request body
-     * @param CustomAccessPackageWorkflowExtensionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomAccessPackageWorkflowExtensionsRequestBuilderPost_86641293|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(CustomAccessPackageWorkflowExtension $body, ?CustomAccessPackageWorkflowExtensionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(CustomAccessPackageWorkflowExtension $body, ?CustomAccessPackageWorkflowExtensionsRequestBuilderPost_86641293 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

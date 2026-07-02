@@ -13,9 +13,9 @@ use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UserRegistratio
 use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UserRegistrationDetails\UserRegistrationDetailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UserSignInsByAuthMethodSummaryWithPeriod\UserSignInsByAuthMethodSummaryWithPeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UsersRegisteredByFeature\UsersRegisteredByFeatureRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UsersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRoles\UsersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRolesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UsersRegisteredByFeatureWithIncludedUserTypesWithInclud_40624112\UsersRegisteredByFeatureWithIncludedUserTypesWithInclud_f59ef00a;
 use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UsersRegisteredByMethod\UsersRegisteredByMethodRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRoles\UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\UsersRegisteredByMethodWithIncludedUserTypesWithInclude_cee28f2b\UsersRegisteredByMethodWithIncludedUserTypesWithInclude_05a31a99;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -206,20 +206,20 @@ class AuthenticationMethodsRequestBuilder extends BaseRequestBuilder
      * Provides operations to call the usersRegisteredByFeature method.
      * @param string $includedUserRoles Usage: includedUserRoles='{includedUserRoles}'
      * @param string $includedUserTypes Usage: includedUserTypes='{includedUserTypes}'
-     * @return UsersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRolesRequestBuilder
+     * @return UsersRegisteredByFeatureWithIncludedUserTypesWithInclud_f59ef00a
     */
-    public function usersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRoles(string $includedUserRoles, string $includedUserTypes): UsersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRolesRequestBuilder {
-        return new UsersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRolesRequestBuilder($this->pathParameters, $this->requestAdapter, $includedUserRoles, $includedUserTypes);
+    public function usersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRoles(string $includedUserRoles, string $includedUserTypes): UsersRegisteredByFeatureWithIncludedUserTypesWithInclud_f59ef00a {
+        return new UsersRegisteredByFeatureWithIncludedUserTypesWithInclud_f59ef00a($this->pathParameters, $this->requestAdapter, $includedUserRoles, $includedUserTypes);
     }
 
     /**
      * Provides operations to call the usersRegisteredByMethod method.
      * @param string $includedUserRoles Usage: includedUserRoles='{includedUserRoles}'
      * @param string $includedUserTypes Usage: includedUserTypes='{includedUserTypes}'
-     * @return UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilder
+     * @return UsersRegisteredByMethodWithIncludedUserTypesWithInclude_05a31a99
     */
-    public function usersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRoles(string $includedUserRoles, string $includedUserTypes): UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilder {
-        return new UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilder($this->pathParameters, $this->requestAdapter, $includedUserRoles, $includedUserTypes);
+    public function usersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRoles(string $includedUserRoles, string $includedUserTypes): UsersRegisteredByMethodWithIncludedUserTypesWithInclude_05a31a99 {
+        return new UsersRegisteredByMethodWithIncludedUserTypesWithInclude_05a31a99($this->pathParameters, $this->requestAdapter, $includedUserRoles, $includedUserTypes);
     }
 
     /**

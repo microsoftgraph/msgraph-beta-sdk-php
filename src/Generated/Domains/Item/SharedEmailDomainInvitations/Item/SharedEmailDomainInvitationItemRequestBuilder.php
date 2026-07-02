@@ -32,11 +32,11 @@ class SharedEmailDomainInvitationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property sharedEmailDomainInvitations for domains
-     * @param SharedEmailDomainInvitationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharedEmailDomainInvitationItemRequestBuilderDeleteRequ_038ef618|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?SharedEmailDomainInvitationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?SharedEmailDomainInvitationItemRequestBuilderDeleteRequ_038ef618 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class SharedEmailDomainInvitationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get sharedEmailDomainInvitations from domains
-     * @param SharedEmailDomainInvitationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharedEmailDomainInvitationItemRequestBuilderGetRequest_8eb79d3e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SharedEmailDomainInvitation|null>
      * @throws Exception
     */
-    public function get(?SharedEmailDomainInvitationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?SharedEmailDomainInvitationItemRequestBuilderGetRequest_8eb79d3e $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class SharedEmailDomainInvitationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property sharedEmailDomainInvitations in domains
      * @param SharedEmailDomainInvitation $body The request body
-     * @param SharedEmailDomainInvitationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharedEmailDomainInvitationItemRequestBuilderPatchReque_ffc36543|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SharedEmailDomainInvitation|null>
      * @throws Exception
     */
-    public function patch(SharedEmailDomainInvitation $body, ?SharedEmailDomainInvitationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(SharedEmailDomainInvitation $body, ?SharedEmailDomainInvitationItemRequestBuilderPatchReque_ffc36543 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class SharedEmailDomainInvitationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property sharedEmailDomainInvitations for domains
-     * @param SharedEmailDomainInvitationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharedEmailDomainInvitationItemRequestBuilderDeleteRequ_038ef618|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?SharedEmailDomainInvitationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?SharedEmailDomainInvitationItemRequestBuilderDeleteRequ_038ef618 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class SharedEmailDomainInvitationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get sharedEmailDomainInvitations from domains
-     * @param SharedEmailDomainInvitationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharedEmailDomainInvitationItemRequestBuilderGetRequest_8eb79d3e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?SharedEmailDomainInvitationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?SharedEmailDomainInvitationItemRequestBuilderGetRequest_8eb79d3e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class SharedEmailDomainInvitationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property sharedEmailDomainInvitations in domains
      * @param SharedEmailDomainInvitation $body The request body
-     * @param SharedEmailDomainInvitationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharedEmailDomainInvitationItemRequestBuilderPatchReque_ffc36543|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(SharedEmailDomainInvitation $body, ?SharedEmailDomainInvitationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(SharedEmailDomainInvitation $body, ?SharedEmailDomainInvitationItemRequestBuilderPatchReque_ffc36543 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

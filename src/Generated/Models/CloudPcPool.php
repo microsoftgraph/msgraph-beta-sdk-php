@@ -34,7 +34,7 @@ class CloudPcPool extends Entity implements Parsable
     }
 
     /**
-     * Gets the assignments property value. The assignments property
+     * Gets the assignments property value. The collection of assignments that grant user or service principal identities access to this pool.
      * @return array<CloudPcPoolAssignment>|null
     */
     public function getAssignments(): ?array {
@@ -72,7 +72,7 @@ class CloudPcPool extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date and time when the pool was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2026 is 2026-01-01T00:00:00Z. Read-only.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -84,7 +84,7 @@ class CloudPcPool extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. The description of the pool. The maximum length is 512 characters.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -96,7 +96,7 @@ class CloudPcPool extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name of the pool. The name is unique across Cloud PC pools in an organization. The maximum length is 60 characters.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -126,7 +126,7 @@ class CloudPcPool extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. The date and time when the pool was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2026 is 2026-01-01T00:00:00Z. Read-only.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -166,7 +166,7 @@ class CloudPcPool extends Entity implements Parsable
     }
 
     /**
-     * Sets the assignments property value. The assignments property
+     * Sets the assignments property value. The collection of assignments that grant user or service principal identities access to this pool.
      * @param array<CloudPcPoolAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value): void {
@@ -190,7 +190,7 @@ class CloudPcPool extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date and time when the pool was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2026 is 2026-01-01T00:00:00Z. Read-only.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -198,7 +198,7 @@ class CloudPcPool extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. The description of the pool. The maximum length is 512 characters.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -206,7 +206,7 @@ class CloudPcPool extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name of the pool. The name is unique across Cloud PC pools in an organization. The maximum length is 60 characters.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -214,7 +214,7 @@ class CloudPcPool extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. The date and time when the pool was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2026 is 2026-01-01T00:00:00Z. Read-only.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {

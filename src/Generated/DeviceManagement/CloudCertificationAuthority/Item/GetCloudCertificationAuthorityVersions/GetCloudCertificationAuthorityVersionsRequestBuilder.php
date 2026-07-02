@@ -31,11 +31,11 @@ class GetCloudCertificationAuthorityVersionsRequestBuilder extends BaseRequestBu
 
     /**
      * Invoke action getCloudCertificationAuthorityVersions
-     * @param GetCloudCertificationAuthorityVersionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetCloudCertificationAuthorityVersionsRequestBuilderPos_f9f222ec|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetCloudCertificationAuthorityVersionsPostResponse|null>
      * @throws Exception
     */
-    public function post(?GetCloudCertificationAuthorityVersionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?GetCloudCertificationAuthorityVersionsRequestBuilderPos_f9f222ec $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,10 +45,10 @@ class GetCloudCertificationAuthorityVersionsRequestBuilder extends BaseRequestBu
 
     /**
      * Invoke action getCloudCertificationAuthorityVersions
-     * @param GetCloudCertificationAuthorityVersionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetCloudCertificationAuthorityVersionsRequestBuilderPos_f9f222ec|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?GetCloudCertificationAuthorityVersionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?GetCloudCertificationAuthorityVersionsRequestBuilderPos_f9f222ec $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

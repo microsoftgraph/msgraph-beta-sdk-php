@@ -86,6 +86,18 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
+     * Gets the clientSessionId property value. The clientSessionId property
+     * @return string|null
+    */
+    public function getClientSessionId(): ?string {
+        $val = $this->getBackingStore()->get('clientSessionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientSessionId'");
+    }
+
+    /**
      * Gets the detectedDateTime property value. Date and time that the risk was detected. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Supports $filter (eq, le, and ge).
      * @return DateTime|null
     */
@@ -110,6 +122,18 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
+     * Gets the displayName property value. The displayName property
+     * @return string|null
+    */
+    public function getDisplayName(): ?string {
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -121,8 +145,11 @@ class AgentRiskDetection extends Entity implements Parsable
             'agentDisplayName' => fn(ParseNode $n) => $o->setAgentDisplayName($n->getStringValue()),
             'agentId' => fn(ParseNode $n) => $o->setAgentId($n->getStringValue()),
             'blueprintId' => fn(ParseNode $n) => $o->setBlueprintId($n->getStringValue()),
+            'clientSessionId' => fn(ParseNode $n) => $o->setClientSessionId($n->getStringValue()),
             'detectedDateTime' => fn(ParseNode $n) => $o->setDetectedDateTime($n->getDateTimeValue()),
             'detectionTimingType' => fn(ParseNode $n) => $o->setDetectionTimingType($n->getEnumValue(RiskDetectionTimingType::class)),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'identityId' => fn(ParseNode $n) => $o->setIdentityId($n->getStringValue()),
             'identityType' => fn(ParseNode $n) => $o->setIdentityType($n->getEnumValue(AgentIdentityType::class)),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'riskDetail' => fn(ParseNode $n) => $o->setRiskDetail($n->getEnumValue(RiskDetail::class)),
@@ -130,8 +157,23 @@ class AgentRiskDetection extends Entity implements Parsable
             'riskEvidence' => fn(ParseNode $n) => $o->setRiskEvidence($n->getStringValue()),
             'riskLevel' => fn(ParseNode $n) => $o->setRiskLevel($n->getEnumValue(RiskLevel::class)),
             'riskState' => fn(ParseNode $n) => $o->setRiskState($n->getEnumValue(RiskState::class)),
+            'signInClientDisplayName' => fn(ParseNode $n) => $o->setSignInClientDisplayName($n->getStringValue()),
+            'signInCorrelationId' => fn(ParseNode $n) => $o->setSignInCorrelationId($n->getStringValue()),
+            'signInRequestId' => fn(ParseNode $n) => $o->setSignInRequestId($n->getStringValue()),
             'source' => fn(ParseNode $n) => $o->setSource($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the identityId property value. The identityId property
+     * @return string|null
+    */
+    public function getIdentityId(): ?string {
+        $val = $this->getBackingStore()->get('identityId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityId'");
     }
 
     /**
@@ -219,6 +261,42 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
+     * Gets the signInClientDisplayName property value. The signInClientDisplayName property
+     * @return string|null
+    */
+    public function getSignInClientDisplayName(): ?string {
+        $val = $this->getBackingStore()->get('signInClientDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signInClientDisplayName'");
+    }
+
+    /**
+     * Gets the signInCorrelationId property value. The signInCorrelationId property
+     * @return string|null
+    */
+    public function getSignInCorrelationId(): ?string {
+        $val = $this->getBackingStore()->get('signInCorrelationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signInCorrelationId'");
+    }
+
+    /**
+     * Gets the signInRequestId property value. The signInRequestId property
+     * @return string|null
+    */
+    public function getSignInRequestId(): ?string {
+        $val = $this->getBackingStore()->get('signInRequestId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'signInRequestId'");
+    }
+
+    /**
      * Gets the source property value. The source system that generated the risk detection. Nullable.
      * @return string|null
     */
@@ -241,8 +319,11 @@ class AgentRiskDetection extends Entity implements Parsable
         $writer->writeStringValue('agentDisplayName', $this->getAgentDisplayName());
         $writer->writeStringValue('agentId', $this->getAgentId());
         $writer->writeStringValue('blueprintId', $this->getBlueprintId());
+        $writer->writeStringValue('clientSessionId', $this->getClientSessionId());
         $writer->writeDateTimeValue('detectedDateTime', $this->getDetectedDateTime());
         $writer->writeEnumValue('detectionTimingType', $this->getDetectionTimingType());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('identityId', $this->getIdentityId());
         $writer->writeEnumValue('identityType', $this->getIdentityType());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeEnumValue('riskDetail', $this->getRiskDetail());
@@ -250,6 +331,9 @@ class AgentRiskDetection extends Entity implements Parsable
         $writer->writeStringValue('riskEvidence', $this->getRiskEvidence());
         $writer->writeEnumValue('riskLevel', $this->getRiskLevel());
         $writer->writeEnumValue('riskState', $this->getRiskState());
+        $writer->writeStringValue('signInClientDisplayName', $this->getSignInClientDisplayName());
+        $writer->writeStringValue('signInCorrelationId', $this->getSignInCorrelationId());
+        $writer->writeStringValue('signInRequestId', $this->getSignInRequestId());
         $writer->writeStringValue('source', $this->getSource());
     }
 
@@ -294,6 +378,14 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
+     * Sets the clientSessionId property value. The clientSessionId property
+     * @param string|null $value Value to set for the clientSessionId property.
+    */
+    public function setClientSessionId(?string $value): void {
+        $this->getBackingStore()->set('clientSessionId', $value);
+    }
+
+    /**
      * Sets the detectedDateTime property value. Date and time that the risk was detected. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Supports $filter (eq, le, and ge).
      * @param DateTime|null $value Value to set for the detectedDateTime property.
     */
@@ -307,6 +399,22 @@ class AgentRiskDetection extends Entity implements Parsable
     */
     public function setDetectionTimingType(?RiskDetectionTimingType $value): void {
         $this->getBackingStore()->set('detectionTimingType', $value);
+    }
+
+    /**
+     * Sets the displayName property value. The displayName property
+     * @param string|null $value Value to set for the displayName property.
+    */
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the identityId property value. The identityId property
+     * @param string|null $value Value to set for the identityId property.
+    */
+    public function setIdentityId(?string $value): void {
+        $this->getBackingStore()->set('identityId', $value);
     }
 
     /**
@@ -363,6 +471,30 @@ class AgentRiskDetection extends Entity implements Parsable
     */
     public function setRiskState(?RiskState $value): void {
         $this->getBackingStore()->set('riskState', $value);
+    }
+
+    /**
+     * Sets the signInClientDisplayName property value. The signInClientDisplayName property
+     * @param string|null $value Value to set for the signInClientDisplayName property.
+    */
+    public function setSignInClientDisplayName(?string $value): void {
+        $this->getBackingStore()->set('signInClientDisplayName', $value);
+    }
+
+    /**
+     * Sets the signInCorrelationId property value. The signInCorrelationId property
+     * @param string|null $value Value to set for the signInCorrelationId property.
+    */
+    public function setSignInCorrelationId(?string $value): void {
+        $this->getBackingStore()->set('signInCorrelationId', $value);
+    }
+
+    /**
+     * Sets the signInRequestId property value. The signInRequestId property
+     * @param string|null $value Value to set for the signInRequestId property.
+    */
+    public function setSignInRequestId(?string $value): void {
+        $this->getBackingStore()->set('signInRequestId', $value);
     }
 
     /**

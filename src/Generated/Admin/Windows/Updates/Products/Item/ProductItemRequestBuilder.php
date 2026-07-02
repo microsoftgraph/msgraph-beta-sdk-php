@@ -6,7 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\Item\Editions\EditionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\Item\KnownIssues\KnownIssuesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\Item\MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActive\MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActiveRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\Item\MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWi_b9906865\MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWi_9058882d;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\Item\Revisions\RevisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\Product;
@@ -86,10 +86,10 @@ class ProductItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the getKnownIssuesByTimeRange method.
      * @param int $daysInPast Usage: daysInPast={daysInPast}
-     * @return MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActiveRequestBuilder
+     * @return MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWi_9058882d
     */
-    public function microsoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActive(int $daysInPast): MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActiveRequestBuilder {
-        return new MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActiveRequestBuilder($this->pathParameters, $this->requestAdapter, $daysInPast);
+    public function microsoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActive(int $daysInPast): MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWi_9058882d {
+        return new MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWi_9058882d($this->pathParameters, $this->requestAdapter, $daysInPast);
     }
 
     /**

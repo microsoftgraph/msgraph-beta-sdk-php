@@ -4,7 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps;
 
 use Exception;
 use Http\Promise\Promise;
-use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageId\ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageId\ConvertFromMobileAppCatalogPackageWithMobileAppCatalogP_bce13f5a;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\GraphAndroidForWorkApp\GraphAndroidForWorkAppRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\MobileApps\GraphAndroidLobApp\GraphAndroidLobAppRequestBuilder;
@@ -239,10 +239,10 @@ class MobileAppsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the convertFromMobileAppCatalogPackage method.
      * @param string $mobileAppCatalogPackageId Usage: mobileAppCatalogPackageId='{mobileAppCatalogPackageId}'
-     * @return ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageIdRequestBuilder
+     * @return ConvertFromMobileAppCatalogPackageWithMobileAppCatalogP_bce13f5a
     */
-    public function convertFromMobileAppCatalogPackageWithMobileAppCatalogPackageId(string $mobileAppCatalogPackageId): ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageIdRequestBuilder {
-        return new ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageIdRequestBuilder($this->pathParameters, $this->requestAdapter, $mobileAppCatalogPackageId);
+    public function convertFromMobileAppCatalogPackageWithMobileAppCatalogPackageId(string $mobileAppCatalogPackageId): ConvertFromMobileAppCatalogPackageWithMobileAppCatalogP_bce13f5a {
+        return new ConvertFromMobileAppCatalogPackageWithMobileAppCatalogP_bce13f5a($this->pathParameters, $this->requestAdapter, $mobileAppCatalogPackageId);
     }
 
     /**

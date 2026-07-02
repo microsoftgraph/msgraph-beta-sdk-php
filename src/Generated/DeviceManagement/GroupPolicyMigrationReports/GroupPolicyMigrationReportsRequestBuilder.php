@@ -76,11 +76,11 @@ class GroupPolicyMigrationReportsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to groupPolicyMigrationReports for deviceManagement
      * @param GroupPolicyMigrationReport $body The request body
-     * @param GroupPolicyMigrationReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyMigrationReportsRequestBuilderPostRequestCon_c39dd0e9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GroupPolicyMigrationReport|null>
      * @throws Exception
     */
-    public function post(GroupPolicyMigrationReport $body, ?GroupPolicyMigrationReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GroupPolicyMigrationReport $body, ?GroupPolicyMigrationReportsRequestBuilderPostRequestCon_c39dd0e9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -112,10 +112,10 @@ class GroupPolicyMigrationReportsRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to groupPolicyMigrationReports for deviceManagement
      * @param GroupPolicyMigrationReport $body The request body
-     * @param GroupPolicyMigrationReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyMigrationReportsRequestBuilderPostRequestCon_c39dd0e9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GroupPolicyMigrationReport $body, ?GroupPolicyMigrationReportsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GroupPolicyMigrationReport $body, ?GroupPolicyMigrationReportsRequestBuilderPostRequestCon_c39dd0e9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

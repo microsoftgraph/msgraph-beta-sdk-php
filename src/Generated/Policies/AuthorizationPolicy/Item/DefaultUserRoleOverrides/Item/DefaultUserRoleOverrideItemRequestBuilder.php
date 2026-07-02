@@ -32,11 +32,11 @@ class DefaultUserRoleOverrideItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property defaultUserRoleOverrides for policies
-     * @param DefaultUserRoleOverrideItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DefaultUserRoleOverrideItemRequestBuilderDeleteRequestC_3bdcbb8c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DefaultUserRoleOverrideItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DefaultUserRoleOverrideItemRequestBuilderDeleteRequestC_3bdcbb8c $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class DefaultUserRoleOverrideItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property defaultUserRoleOverrides in policies
      * @param DefaultUserRoleOverride $body The request body
-     * @param DefaultUserRoleOverrideItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DefaultUserRoleOverrideItemRequestBuilderPatchRequestCo_258cb5ca|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DefaultUserRoleOverride|null>
      * @throws Exception
     */
-    public function patch(DefaultUserRoleOverride $body, ?DefaultUserRoleOverrideItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DefaultUserRoleOverride $body, ?DefaultUserRoleOverrideItemRequestBuilderPatchRequestCo_258cb5ca $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class DefaultUserRoleOverrideItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property defaultUserRoleOverrides for policies
-     * @param DefaultUserRoleOverrideItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DefaultUserRoleOverrideItemRequestBuilderDeleteRequestC_3bdcbb8c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DefaultUserRoleOverrideItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DefaultUserRoleOverrideItemRequestBuilderDeleteRequestC_3bdcbb8c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class DefaultUserRoleOverrideItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property defaultUserRoleOverrides in policies
      * @param DefaultUserRoleOverride $body The request body
-     * @param DefaultUserRoleOverrideItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DefaultUserRoleOverrideItemRequestBuilderPatchRequestCo_258cb5ca|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DefaultUserRoleOverride $body, ?DefaultUserRoleOverrideItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DefaultUserRoleOverride $body, ?DefaultUserRoleOverrideItemRequestBuilderPatchRequestCo_258cb5ca $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

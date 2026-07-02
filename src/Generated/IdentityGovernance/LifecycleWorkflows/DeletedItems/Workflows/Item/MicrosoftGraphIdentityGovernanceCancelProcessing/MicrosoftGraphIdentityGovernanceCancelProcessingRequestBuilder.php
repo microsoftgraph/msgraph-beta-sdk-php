@@ -32,12 +32,12 @@ class MicrosoftGraphIdentityGovernanceCancelProcessingRequestBuilder extends Bas
     /**
      * Cancel one or more workflow runs that are currently in queued or inProgress status. Currently limited to canceling one run per request.
      * @param CancelProcessingPostRequestBody $body The request body
-     * @param MicrosoftGraphIdentityGovernanceCancelProcessingRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphIdentityGovernanceCancelProcessingRequest_73c7ea5d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/identitygovernance-workflow-cancelprocessing?view=graph-rest-beta Find more info here
     */
-    public function post(CancelProcessingPostRequestBody $body, ?MicrosoftGraphIdentityGovernanceCancelProcessingRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(CancelProcessingPostRequestBody $body, ?MicrosoftGraphIdentityGovernanceCancelProcessingRequest_73c7ea5d $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class MicrosoftGraphIdentityGovernanceCancelProcessingRequestBuilder extends Bas
     /**
      * Cancel one or more workflow runs that are currently in queued or inProgress status. Currently limited to canceling one run per request.
      * @param CancelProcessingPostRequestBody $body The request body
-     * @param MicrosoftGraphIdentityGovernanceCancelProcessingRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphIdentityGovernanceCancelProcessingRequest_73c7ea5d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(CancelProcessingPostRequestBody $body, ?MicrosoftGraphIdentityGovernanceCancelProcessingRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(CancelProcessingPostRequestBody $body, ?MicrosoftGraphIdentityGovernanceCancelProcessingRequest_73c7ea5d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

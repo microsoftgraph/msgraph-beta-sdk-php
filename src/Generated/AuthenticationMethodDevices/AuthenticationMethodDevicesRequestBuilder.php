@@ -68,11 +68,11 @@ class AuthenticationMethodDevicesRequestBuilder extends BaseRequestBuilder
     /**
      * Add new entity to authenticationMethodDevices
      * @param AuthenticationMethodDevice $body The request body
-     * @param AuthenticationMethodDevicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AuthenticationMethodDevicesRequestBuilderPostRequestCon_904dcc2d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AuthenticationMethodDevice|null>
      * @throws Exception
     */
-    public function post(AuthenticationMethodDevice $body, ?AuthenticationMethodDevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AuthenticationMethodDevice $body, ?AuthenticationMethodDevicesRequestBuilderPostRequestCon_904dcc2d $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -104,10 +104,10 @@ class AuthenticationMethodDevicesRequestBuilder extends BaseRequestBuilder
     /**
      * Add new entity to authenticationMethodDevices
      * @param AuthenticationMethodDevice $body The request body
-     * @param AuthenticationMethodDevicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AuthenticationMethodDevicesRequestBuilderPostRequestCon_904dcc2d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AuthenticationMethodDevice $body, ?AuthenticationMethodDevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AuthenticationMethodDevice $body, ?AuthenticationMethodDevicesRequestBuilderPostRequestCon_904dcc2d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

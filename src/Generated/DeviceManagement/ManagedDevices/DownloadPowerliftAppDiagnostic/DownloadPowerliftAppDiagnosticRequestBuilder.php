@@ -33,11 +33,11 @@ class DownloadPowerliftAppDiagnosticRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action downloadPowerliftAppDiagnostic
      * @param DownloadPowerliftAppDiagnosticPostRequestBody $body The request body
-     * @param DownloadPowerliftAppDiagnosticRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DownloadPowerliftAppDiagnosticRequestBuilderPostRequest_0a4a66e4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(DownloadPowerliftAppDiagnosticPostRequestBody $body, ?DownloadPowerliftAppDiagnosticRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(DownloadPowerliftAppDiagnosticPostRequestBody $body, ?DownloadPowerliftAppDiagnosticRequestBuilderPostRequest_0a4a66e4 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class DownloadPowerliftAppDiagnosticRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action downloadPowerliftAppDiagnostic
      * @param DownloadPowerliftAppDiagnosticPostRequestBody $body The request body
-     * @param DownloadPowerliftAppDiagnosticRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DownloadPowerliftAppDiagnosticRequestBuilderPostRequest_0a4a66e4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(DownloadPowerliftAppDiagnosticPostRequestBody $body, ?DownloadPowerliftAppDiagnosticRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(DownloadPowerliftAppDiagnosticPostRequestBody $body, ?DownloadPowerliftAppDiagnosticRequestBuilderPostRequest_0a4a66e4 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -32,11 +32,11 @@ class MicrosoftGraphWindowsUpdatesEnrollAssetsByIdRequestBuilder extends BaseReq
     /**
      * Invoke action enrollAssetsById
      * @param EnrollAssetsByIdPostRequestBody $body The request body
-     * @param MicrosoftGraphWindowsUpdatesEnrollAssetsByIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphWindowsUpdatesEnrollAssetsByIdRequestBuil_2aa30f09|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(EnrollAssetsByIdPostRequestBody $body, ?MicrosoftGraphWindowsUpdatesEnrollAssetsByIdRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(EnrollAssetsByIdPostRequestBody $body, ?MicrosoftGraphWindowsUpdatesEnrollAssetsByIdRequestBuil_2aa30f09 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,10 +47,10 @@ class MicrosoftGraphWindowsUpdatesEnrollAssetsByIdRequestBuilder extends BaseReq
     /**
      * Invoke action enrollAssetsById
      * @param EnrollAssetsByIdPostRequestBody $body The request body
-     * @param MicrosoftGraphWindowsUpdatesEnrollAssetsByIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphWindowsUpdatesEnrollAssetsByIdRequestBuil_2aa30f09|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(EnrollAssetsByIdPostRequestBody $body, ?MicrosoftGraphWindowsUpdatesEnrollAssetsByIdRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(EnrollAssetsByIdPostRequestBody $body, ?MicrosoftGraphWindowsUpdatesEnrollAssetsByIdRequestBuil_2aa30f09 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -40,11 +40,11 @@ class MultiTenantOrganizationPartnerConfigurationRequestBuilder extends BaseRequ
 
     /**
      * Delete navigation property multiTenantOrganizationPartnerConfiguration for policies
-     * @param MultiTenantOrganizationPartnerConfigurationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MultiTenantOrganizationPartnerConfigurationRequestBuild_b608b51d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?MultiTenantOrganizationPartnerConfigurationRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?MultiTenantOrganizationPartnerConfigurationRequestBuild_b608b51d $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,12 +54,12 @@ class MultiTenantOrganizationPartnerConfigurationRequestBuilder extends BaseRequ
 
     /**
      * Get the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization.
-     * @param MultiTenantOrganizationPartnerConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MultiTenantOrganizationPartnerConfigurationRequestBuild_5e37cf32|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MultiTenantOrganizationPartnerConfigurationTemplate|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/multitenantorganizationpartnerconfigurationtemplate-get?view=graph-rest-beta Find more info here
     */
-    public function get(?MultiTenantOrganizationPartnerConfigurationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MultiTenantOrganizationPartnerConfigurationRequestBuild_5e37cf32 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -70,12 +70,12 @@ class MultiTenantOrganizationPartnerConfigurationRequestBuilder extends BaseRequ
     /**
      * Update the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization.
      * @param MultiTenantOrganizationPartnerConfigurationTemplate $body The request body
-     * @param MultiTenantOrganizationPartnerConfigurationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MultiTenantOrganizationPartnerConfigurationRequestBuild_cfc6f5ef|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MultiTenantOrganizationPartnerConfigurationTemplate|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/multitenantorganizationpartnerconfigurationtemplate-update?view=graph-rest-beta Find more info here
     */
-    public function patch(MultiTenantOrganizationPartnerConfigurationTemplate $body, ?MultiTenantOrganizationPartnerConfigurationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(MultiTenantOrganizationPartnerConfigurationTemplate $body, ?MultiTenantOrganizationPartnerConfigurationRequestBuild_cfc6f5ef $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -85,10 +85,10 @@ class MultiTenantOrganizationPartnerConfigurationRequestBuilder extends BaseRequ
 
     /**
      * Delete navigation property multiTenantOrganizationPartnerConfiguration for policies
-     * @param MultiTenantOrganizationPartnerConfigurationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MultiTenantOrganizationPartnerConfigurationRequestBuild_b608b51d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?MultiTenantOrganizationPartnerConfigurationRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?MultiTenantOrganizationPartnerConfigurationRequestBuild_b608b51d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -103,10 +103,10 @@ class MultiTenantOrganizationPartnerConfigurationRequestBuilder extends BaseRequ
 
     /**
      * Get the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization.
-     * @param MultiTenantOrganizationPartnerConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MultiTenantOrganizationPartnerConfigurationRequestBuild_5e37cf32|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MultiTenantOrganizationPartnerConfigurationRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MultiTenantOrganizationPartnerConfigurationRequestBuild_5e37cf32 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -125,10 +125,10 @@ class MultiTenantOrganizationPartnerConfigurationRequestBuilder extends BaseRequ
     /**
      * Update the cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization.
      * @param MultiTenantOrganizationPartnerConfigurationTemplate $body The request body
-     * @param MultiTenantOrganizationPartnerConfigurationRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MultiTenantOrganizationPartnerConfigurationRequestBuild_cfc6f5ef|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(MultiTenantOrganizationPartnerConfigurationTemplate $body, ?MultiTenantOrganizationPartnerConfigurationRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(MultiTenantOrganizationPartnerConfigurationTemplate $body, ?MultiTenantOrganizationPartnerConfigurationRequestBuild_cfc6f5ef $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
