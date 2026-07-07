@@ -32,11 +32,11 @@ class UpdateDeviceProfileAssignmentRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action updateDeviceProfileAssignment
      * @param UpdateDeviceProfileAssignmentPostRequestBody $body The request body
-     * @param UpdateDeviceProfileAssignmentRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UpdateDeviceProfileAssignmentRequestBuilderPostRequestC_bdff8bf2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(UpdateDeviceProfileAssignmentPostRequestBody $body, ?UpdateDeviceProfileAssignmentRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(UpdateDeviceProfileAssignmentPostRequestBody $body, ?UpdateDeviceProfileAssignmentRequestBuilderPostRequestC_bdff8bf2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -47,10 +47,10 @@ class UpdateDeviceProfileAssignmentRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action updateDeviceProfileAssignment
      * @param UpdateDeviceProfileAssignmentPostRequestBody $body The request body
-     * @param UpdateDeviceProfileAssignmentRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UpdateDeviceProfileAssignmentRequestBuilderPostRequestC_bdff8bf2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(UpdateDeviceProfileAssignmentPostRequestBody $body, ?UpdateDeviceProfileAssignmentRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(UpdateDeviceProfileAssignmentPostRequestBody $body, ?UpdateDeviceProfileAssignmentRequestBuilderPostRequestC_bdff8bf2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

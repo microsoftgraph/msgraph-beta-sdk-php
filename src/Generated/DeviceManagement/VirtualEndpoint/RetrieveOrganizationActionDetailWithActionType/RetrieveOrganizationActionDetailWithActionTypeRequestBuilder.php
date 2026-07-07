@@ -35,11 +35,11 @@ class RetrieveOrganizationActionDetailWithActionTypeRequestBuilder extends BaseR
 
     /**
      * Invoke function retrieveOrganizationActionDetail
-     * @param RetrieveOrganizationActionDetailWithActionTypeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveOrganizationActionDetailWithActionTypeRequestBu_fa028bd1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcOrganizationActionDetail|null>
      * @throws Exception
     */
-    public function get(?RetrieveOrganizationActionDetailWithActionTypeRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?RetrieveOrganizationActionDetailWithActionTypeRequestBu_fa028bd1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,10 +49,10 @@ class RetrieveOrganizationActionDetailWithActionTypeRequestBuilder extends BaseR
 
     /**
      * Invoke function retrieveOrganizationActionDetail
-     * @param RetrieveOrganizationActionDetailWithActionTypeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveOrganizationActionDetailWithActionTypeRequestBu_fa028bd1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?RetrieveOrganizationActionDetailWithActionTypeRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?RetrieveOrganizationActionDetailWithActionTypeRequestBu_fa028bd1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

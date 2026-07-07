@@ -40,11 +40,11 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete entity from mobilityManagementPolicies
-     * @param MobilityManagementPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobilityManagementPolicyItemRequestBuilderDeleteRequest_f78a969a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?MobilityManagementPolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?MobilityManagementPolicyItemRequestBuilderDeleteRequest_f78a969a $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -54,11 +54,11 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get entity from mobilityManagementPolicies by key
-     * @param MobilityManagementPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobilityManagementPolicyItemRequestBuilderGetRequestCon_614ff151|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MobilityManagementPolicy|null>
      * @throws Exception
     */
-    public function get(?MobilityManagementPolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MobilityManagementPolicyItemRequestBuilderGetRequestCon_614ff151 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update entity in mobilityManagementPolicies
      * @param MobilityManagementPolicy $body The request body
-     * @param MobilityManagementPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobilityManagementPolicyItemRequestBuilderPatchRequestC_e20202ae|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MobilityManagementPolicy|null>
      * @throws Exception
     */
-    public function patch(MobilityManagementPolicy $body, ?MobilityManagementPolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(MobilityManagementPolicy $body, ?MobilityManagementPolicyItemRequestBuilderPatchRequestC_e20202ae $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete entity from mobilityManagementPolicies
-     * @param MobilityManagementPolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobilityManagementPolicyItemRequestBuilderDeleteRequest_f78a969a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?MobilityManagementPolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?MobilityManagementPolicyItemRequestBuilderDeleteRequest_f78a969a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -101,10 +101,10 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get entity from mobilityManagementPolicies by key
-     * @param MobilityManagementPolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobilityManagementPolicyItemRequestBuilderGetRequestCon_614ff151|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MobilityManagementPolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MobilityManagementPolicyItemRequestBuilderGetRequestCon_614ff151 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -123,10 +123,10 @@ class MobilityManagementPolicyItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update entity in mobilityManagementPolicies
      * @param MobilityManagementPolicy $body The request body
-     * @param MobilityManagementPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MobilityManagementPolicyItemRequestBuilderPatchRequestC_e20202ae|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(MobilityManagementPolicy $body, ?MobilityManagementPolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(MobilityManagementPolicy $body, ?MobilityManagementPolicyItemRequestBuilderPatchRequestC_e20202ae $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

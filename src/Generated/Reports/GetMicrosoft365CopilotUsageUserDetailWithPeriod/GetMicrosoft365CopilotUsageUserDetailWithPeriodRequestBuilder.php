@@ -35,12 +35,12 @@ class GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder extends Base
 
     /**
      * Get the most recent activity data for enabled users of Microsoft 365 Copilot apps.
-     * @param GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestB_9fad4361|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/reportroot-getmicrosoft365copilotusageuserdetail?view=graph-rest-beta Find more info here
     */
-    public function get(?GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestB_9fad4361 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -52,10 +52,10 @@ class GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder extends Base
 
     /**
      * Get the most recent activity data for enabled users of Microsoft 365 Copilot apps.
-     * @param GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestB_9fad4361|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestB_9fad4361 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

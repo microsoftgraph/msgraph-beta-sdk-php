@@ -32,11 +32,11 @@ class MutualTlsOauthConfigurationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property mutualTlsOauthConfigurations for directory
-     * @param MutualTlsOauthConfigurationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MutualTlsOauthConfigurationItemRequestBuilderDeleteRequ_46df2783|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?MutualTlsOauthConfigurationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?MutualTlsOauthConfigurationItemRequestBuilderDeleteRequ_46df2783 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,12 +46,12 @@ class MutualTlsOauthConfigurationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get the properties and relationships of the specified mutualTlsOauthConfiguration resource.
-     * @param MutualTlsOauthConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MutualTlsOauthConfigurationItemRequestBuilderGetRequest_127ee3a5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MutualTlsOauthConfiguration|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/mutualtlsoauthconfiguration-get?view=graph-rest-beta Find more info here
     */
-    public function get(?MutualTlsOauthConfigurationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MutualTlsOauthConfigurationItemRequestBuilderGetRequest_127ee3a5 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,12 +62,12 @@ class MutualTlsOauthConfigurationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the specified mutualTlsOauthConfiguration resource. You can only update the following two properties: displayName, certificateAuthority. To update a subset of objects in the certificateAuthorities collection, first get the complete list, make your modifications, and then repost the entire contents of the certificateAuthorities attribute list in the request body. Excluding a subset of objects removes them from the collection.
      * @param MutualTlsOauthConfiguration $body The request body
-     * @param MutualTlsOauthConfigurationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MutualTlsOauthConfigurationItemRequestBuilderPatchReque_2d1137a1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MutualTlsOauthConfiguration|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/mutualtlsoauthconfiguration-update?view=graph-rest-beta Find more info here
     */
-    public function patch(MutualTlsOauthConfiguration $body, ?MutualTlsOauthConfigurationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(MutualTlsOauthConfiguration $body, ?MutualTlsOauthConfigurationItemRequestBuilderPatchReque_2d1137a1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,10 +77,10 @@ class MutualTlsOauthConfigurationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property mutualTlsOauthConfigurations for directory
-     * @param MutualTlsOauthConfigurationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MutualTlsOauthConfigurationItemRequestBuilderDeleteRequ_46df2783|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?MutualTlsOauthConfigurationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?MutualTlsOauthConfigurationItemRequestBuilderDeleteRequ_46df2783 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -95,10 +95,10 @@ class MutualTlsOauthConfigurationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get the properties and relationships of the specified mutualTlsOauthConfiguration resource.
-     * @param MutualTlsOauthConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MutualTlsOauthConfigurationItemRequestBuilderGetRequest_127ee3a5|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MutualTlsOauthConfigurationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MutualTlsOauthConfigurationItemRequestBuilderGetRequest_127ee3a5 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -117,10 +117,10 @@ class MutualTlsOauthConfigurationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the specified mutualTlsOauthConfiguration resource. You can only update the following two properties: displayName, certificateAuthority. To update a subset of objects in the certificateAuthorities collection, first get the complete list, make your modifications, and then repost the entire contents of the certificateAuthorities attribute list in the request body. Excluding a subset of objects removes them from the collection.
      * @param MutualTlsOauthConfiguration $body The request body
-     * @param MutualTlsOauthConfigurationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MutualTlsOauthConfigurationItemRequestBuilderPatchReque_2d1137a1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(MutualTlsOauthConfiguration $body, ?MutualTlsOauthConfigurationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(MutualTlsOauthConfiguration $body, ?MutualTlsOauthConfigurationItemRequestBuilderPatchReque_2d1137a1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

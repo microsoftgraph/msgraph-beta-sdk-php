@@ -68,11 +68,11 @@ class ComanagementEligibleDevicesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to comanagementEligibleDevices for deviceManagement
      * @param ComanagementEligibleDevice $body The request body
-     * @param ComanagementEligibleDevicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ComanagementEligibleDevicesRequestBuilderPostRequestCon_22d5be42|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ComanagementEligibleDevice|null>
      * @throws Exception
     */
-    public function post(ComanagementEligibleDevice $body, ?ComanagementEligibleDevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ComanagementEligibleDevice $body, ?ComanagementEligibleDevicesRequestBuilderPostRequestCon_22d5be42 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -104,10 +104,10 @@ class ComanagementEligibleDevicesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to comanagementEligibleDevices for deviceManagement
      * @param ComanagementEligibleDevice $body The request body
-     * @param ComanagementEligibleDevicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ComanagementEligibleDevicesRequestBuilderPostRequestCon_22d5be42|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ComanagementEligibleDevice $body, ?ComanagementEligibleDevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ComanagementEligibleDevice $body, ?ComanagementEligibleDevicesRequestBuilderPostRequestCon_22d5be42 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

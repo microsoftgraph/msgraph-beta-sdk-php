@@ -32,12 +32,12 @@ class MicrosoftGraphEdiscoveryExportRequestBuilder extends BaseRequestBuilder
     /**
      * Initiate an export from a reviewSet.  For details, see Export documents from a review set in Advanced eDiscovery.
      * @param ExportPostRequestBody $body The request body
-     * @param MicrosoftGraphEdiscoveryExportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphEdiscoveryExportRequestBuilderPostRequest_c5e58378|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/ediscovery-reviewset-export?view=graph-rest-beta Find more info here
     */
-    public function post(ExportPostRequestBody $body, ?MicrosoftGraphEdiscoveryExportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ExportPostRequestBody $body, ?MicrosoftGraphEdiscoveryExportRequestBuilderPostRequest_c5e58378 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class MicrosoftGraphEdiscoveryExportRequestBuilder extends BaseRequestBuilder
     /**
      * Initiate an export from a reviewSet.  For details, see Export documents from a review set in Advanced eDiscovery.
      * @param ExportPostRequestBody $body The request body
-     * @param MicrosoftGraphEdiscoveryExportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphEdiscoveryExportRequestBuilderPostRequest_c5e58378|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ExportPostRequestBody $body, ?MicrosoftGraphEdiscoveryExportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ExportPostRequestBody $body, ?MicrosoftGraphEdiscoveryExportRequestBuilderPostRequest_c5e58378 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

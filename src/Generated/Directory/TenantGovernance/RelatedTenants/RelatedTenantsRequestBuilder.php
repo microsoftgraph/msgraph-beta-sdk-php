@@ -7,7 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\RelatedTenants\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\RelatedTenants\Item\RelatedTenantItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\RelatedTenants\MicrosoftGraphTenantGovernanceServicesRefresh\MicrosoftGraphTenantGovernanceServicesRefreshRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\RelatedTenants\MicrosoftGraphTenantGovernanceServicesRefreshStatus\MicrosoftGraphTenantGovernanceServicesRefreshStatusRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\RelatedTenants\MicrosoftGraphTenantGovernanceServicesRefreshStatus\MicrosoftGraphTenantGovernanceServicesRefreshStatusRequ_f386b52a;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\RelatedTenant;
 use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\RelatedTenantCollectionResponse;
@@ -38,8 +38,8 @@ class RelatedTenantsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the refreshStatus method.
     */
-    public function microsoftGraphTenantGovernanceServicesRefreshStatus(): MicrosoftGraphTenantGovernanceServicesRefreshStatusRequestBuilder {
-        return new MicrosoftGraphTenantGovernanceServicesRefreshStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphTenantGovernanceServicesRefreshStatus(): MicrosoftGraphTenantGovernanceServicesRefreshStatusRequ_f386b52a {
+        return new MicrosoftGraphTenantGovernanceServicesRefreshStatusRequ_f386b52a($this->pathParameters, $this->requestAdapter);
     }
     
     /**

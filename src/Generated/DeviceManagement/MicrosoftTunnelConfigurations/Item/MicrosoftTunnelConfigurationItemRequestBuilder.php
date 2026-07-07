@@ -32,11 +32,11 @@ class MicrosoftTunnelConfigurationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property microsoftTunnelConfigurations for deviceManagement
-     * @param MicrosoftTunnelConfigurationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelConfigurationItemRequestBuilderDeleteReq_b0e2f8f9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?MicrosoftTunnelConfigurationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?MicrosoftTunnelConfigurationItemRequestBuilderDeleteReq_b0e2f8f9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class MicrosoftTunnelConfigurationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Collection of MicrosoftTunnelConfiguration settings associated with account.
-     * @param MicrosoftTunnelConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelConfigurationItemRequestBuilderGetReques_f27c54e0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MicrosoftTunnelConfiguration|null>
      * @throws Exception
     */
-    public function get(?MicrosoftTunnelConfigurationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MicrosoftTunnelConfigurationItemRequestBuilderGetReques_f27c54e0 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class MicrosoftTunnelConfigurationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property microsoftTunnelConfigurations in deviceManagement
      * @param MicrosoftTunnelConfiguration $body The request body
-     * @param MicrosoftTunnelConfigurationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelConfigurationItemRequestBuilderPatchRequ_a6a4f360|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MicrosoftTunnelConfiguration|null>
      * @throws Exception
     */
-    public function patch(MicrosoftTunnelConfiguration $body, ?MicrosoftTunnelConfigurationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(MicrosoftTunnelConfiguration $body, ?MicrosoftTunnelConfigurationItemRequestBuilderPatchRequ_a6a4f360 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class MicrosoftTunnelConfigurationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property microsoftTunnelConfigurations for deviceManagement
-     * @param MicrosoftTunnelConfigurationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelConfigurationItemRequestBuilderDeleteReq_b0e2f8f9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?MicrosoftTunnelConfigurationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?MicrosoftTunnelConfigurationItemRequestBuilderDeleteReq_b0e2f8f9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class MicrosoftTunnelConfigurationItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Collection of MicrosoftTunnelConfiguration settings associated with account.
-     * @param MicrosoftTunnelConfigurationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelConfigurationItemRequestBuilderGetReques_f27c54e0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MicrosoftTunnelConfigurationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MicrosoftTunnelConfigurationItemRequestBuilderGetReques_f27c54e0 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class MicrosoftTunnelConfigurationItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property microsoftTunnelConfigurations in deviceManagement
      * @param MicrosoftTunnelConfiguration $body The request body
-     * @param MicrosoftTunnelConfigurationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelConfigurationItemRequestBuilderPatchRequ_a6a4f360|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(MicrosoftTunnelConfiguration $body, ?MicrosoftTunnelConfigurationItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(MicrosoftTunnelConfiguration $body, ?MicrosoftTunnelConfigurationItemRequestBuilderPatchRequ_a6a4f360 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

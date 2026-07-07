@@ -32,11 +32,11 @@ class AccessPackageResourceEnvironmentRequestBuilder extends BaseRequestBuilder
 
     /**
      * Contains the environment information for the resource. This environment can be set using either the @odata.bind annotation or the environment's originId. Supports $expand.
-     * @param AccessPackageResourceEnvironmentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageResourceEnvironmentRequestBuilderGetReques_8227bed2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageResourceEnvironment|null>
      * @throws Exception
     */
-    public function get(?AccessPackageResourceEnvironmentRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AccessPackageResourceEnvironmentRequestBuilderGetReques_8227bed2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class AccessPackageResourceEnvironmentRequestBuilder extends BaseRequestBuilder
 
     /**
      * Contains the environment information for the resource. This environment can be set using either the @odata.bind annotation or the environment's originId. Supports $expand.
-     * @param AccessPackageResourceEnvironmentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageResourceEnvironmentRequestBuilderGetReques_8227bed2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AccessPackageResourceEnvironmentRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AccessPackageResourceEnvironmentRequestBuilderGetReques_8227bed2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

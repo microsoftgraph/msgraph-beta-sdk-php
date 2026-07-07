@@ -32,11 +32,11 @@ class UserExperienceAnalyticsRemoteConnectionItemRequestBuilder extends BaseRequ
 
     /**
      * Delete navigation property userExperienceAnalyticsRemoteConnection for deviceManagement
-     * @param UserExperienceAnalyticsRemoteConnectionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsRemoteConnectionItemRequestBuild_e5f4905c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?UserExperienceAnalyticsRemoteConnectionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?UserExperienceAnalyticsRemoteConnectionItemRequestBuild_e5f4905c $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class UserExperienceAnalyticsRemoteConnectionItemRequestBuilder extends BaseRequ
 
     /**
      * User experience analytics remote connection. The report will be retired on December 31, 2024. You can start using the Cloud PC connection quality report now via https://learn.microsoft.com/windows-365/enterprise/report-cloud-pc-connection-quality.
-     * @param UserExperienceAnalyticsRemoteConnectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsRemoteConnectionItemRequestBuild_27deb260|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsRemoteConnection|null>
      * @throws Exception
     */
-    public function get(?UserExperienceAnalyticsRemoteConnectionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserExperienceAnalyticsRemoteConnectionItemRequestBuild_27deb260 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class UserExperienceAnalyticsRemoteConnectionItemRequestBuilder extends BaseRequ
     /**
      * Update the navigation property userExperienceAnalyticsRemoteConnection in deviceManagement
      * @param UserExperienceAnalyticsRemoteConnection $body The request body
-     * @param UserExperienceAnalyticsRemoteConnectionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsRemoteConnectionItemRequestBuild_8bbf16dc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserExperienceAnalyticsRemoteConnection|null>
      * @throws Exception
     */
-    public function patch(UserExperienceAnalyticsRemoteConnection $body, ?UserExperienceAnalyticsRemoteConnectionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(UserExperienceAnalyticsRemoteConnection $body, ?UserExperienceAnalyticsRemoteConnectionItemRequestBuild_8bbf16dc $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class UserExperienceAnalyticsRemoteConnectionItemRequestBuilder extends BaseRequ
 
     /**
      * Delete navigation property userExperienceAnalyticsRemoteConnection for deviceManagement
-     * @param UserExperienceAnalyticsRemoteConnectionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsRemoteConnectionItemRequestBuild_e5f4905c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?UserExperienceAnalyticsRemoteConnectionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?UserExperienceAnalyticsRemoteConnectionItemRequestBuild_e5f4905c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class UserExperienceAnalyticsRemoteConnectionItemRequestBuilder extends BaseRequ
 
     /**
      * User experience analytics remote connection. The report will be retired on December 31, 2024. You can start using the Cloud PC connection quality report now via https://learn.microsoft.com/windows-365/enterprise/report-cloud-pc-connection-quality.
-     * @param UserExperienceAnalyticsRemoteConnectionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsRemoteConnectionItemRequestBuild_27deb260|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UserExperienceAnalyticsRemoteConnectionItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UserExperienceAnalyticsRemoteConnectionItemRequestBuild_27deb260 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class UserExperienceAnalyticsRemoteConnectionItemRequestBuilder extends BaseRequ
     /**
      * Update the navigation property userExperienceAnalyticsRemoteConnection in deviceManagement
      * @param UserExperienceAnalyticsRemoteConnection $body The request body
-     * @param UserExperienceAnalyticsRemoteConnectionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserExperienceAnalyticsRemoteConnectionItemRequestBuild_8bbf16dc|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(UserExperienceAnalyticsRemoteConnection $body, ?UserExperienceAnalyticsRemoteConnectionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(UserExperienceAnalyticsRemoteConnection $body, ?UserExperienceAnalyticsRemoteConnectionItemRequestBuild_8bbf16dc $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

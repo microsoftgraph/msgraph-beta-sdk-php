@@ -70,7 +70,7 @@ class QueryCondition implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. Timestamp of when the query in the custom detection rule was last updated.
+     * Gets the lastModifiedDateTime property value. Timestamp of when the query in the custom detection rule was last updated. Deprecated. This property will be removed from this resource on 2026-10-01.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -133,7 +133,7 @@ class QueryCondition implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. Timestamp of when the query in the custom detection rule was last updated.
+     * Sets the lastModifiedDateTime property value. Timestamp of when the query in the custom detection rule was last updated. Deprecated. This property will be removed from this resource on 2026-10-01.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {

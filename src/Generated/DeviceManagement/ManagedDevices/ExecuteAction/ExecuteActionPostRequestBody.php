@@ -25,6 +25,9 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel,
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
+        $this->setKeepEnrollmentData(false);
+        $this->setKeepUserData(false);
+        $this->setPersistEsimDataPlan(false);
     }
 
     /**

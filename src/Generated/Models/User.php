@@ -49,7 +49,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the accountEnabled property value. true if the account is enabled; otherwise, false. This property is required when creating the object. Supports $filter (eq, ne, not, and in).
+     * Gets the accountEnabled property value. true if the account is enabled; otherwise, false. This property is required when creating the object. Supports $filter (eq, ne, not, and in). This property is subject to sensitive action restrictions; only specific privileged administrator roles can update it.
      * @return bool|null
     */
     public function getAccountEnabled(): ?bool {
@@ -247,7 +247,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the businessPhones property value. The telephone numbers for the user. Only one number can be set for this property. Read-only for users synced from on-premises directory. Supports $filter (eq, not, ge, le, startsWith).
+     * Gets the businessPhones property value. The telephone numbers for the user. Only one number can be set for this property. Read-only for users synced from on-premises directory. Supports $filter (eq, not, ge, le, startsWith). This property is subject to sensitive action restrictions; only specific privileged administrator roles can update it.
      * @return array<string>|null
     */
     public function getBusinessPhones(): ?array {
@@ -365,7 +365,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the cloudPcPools property value. The cloudPcPools property
+     * Gets the cloudPcPools property value. The user's Cloud PC pools. Read-only. Nullable.
      * @return array<CloudPcPool>|null
     */
     public function getCloudPcPools(): ?array {
@@ -649,6 +649,20 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the distributionLists property value. The personal distribution lists in the user's mailbox. Read-only. Nullable.
+     * @return array<DistributionList>|null
+    */
+    public function getDistributionLists(): ?array {
+        $val = $this->getBackingStore()->get('distributionLists');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, DistributionList::class);
+            /** @var array<DistributionList>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'distributionLists'");
+    }
+
+    /**
      * Gets the drive property value. The user's OneDrive. Read-only.
      * @return Drive|null
     */
@@ -883,6 +897,7 @@ class User extends DirectoryObject implements Parsable
             'devices' => fn(ParseNode $n) => $o->setDevices($n->getCollectionOfObjectValues([Device::class, 'createFromDiscriminatorValue'])),
             'directReports' => fn(ParseNode $n) => $o->setDirectReports($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'distributionLists' => fn(ParseNode $n) => $o->setDistributionLists($n->getCollectionOfObjectValues([DistributionList::class, 'createFromDiscriminatorValue'])),
             'drive' => fn(ParseNode $n) => $o->setDrive($n->getObjectValue([Drive::class, 'createFromDiscriminatorValue'])),
             'drives' => fn(ParseNode $n) => $o->setDrives($n->getCollectionOfObjectValues([Drive::class, 'createFromDiscriminatorValue'])),
             'employeeExperience' => fn(ParseNode $n) => $o->setEmployeeExperience($n->getObjectValue([EmployeeExperienceUser::class, 'createFromDiscriminatorValue'])),
@@ -1119,7 +1134,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the identityGovernance property value. The identityGovernance property
+     * Gets the identityGovernance property value. The identity governance settings for the user, including the approver delegate configuration. Nullable. Returned only on $select. Supports $expand.
      * @return IdentityGovernanceUserSettings|null
     */
     public function getIdentityGovernance(): ?IdentityGovernanceUserSettings {
@@ -1257,7 +1272,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the isResourceAccount property value. Do not use – reserved for future use.
+     * Gets the isResourceAccount property value. Do not use. Reserved for future use.
      * @return bool|null
     */
     public function getIsResourceAccount(): ?bool {
@@ -1521,7 +1536,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the mobilePhone property value. The primary cellular telephone number for the user. Read-only for users synced from the on-premises directory.  Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values) and $search.
+     * Gets the mobilePhone property value. The primary cellular telephone number for the user. Read-only for users synced from the on-premises directory.  Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values) and $search. This property is subject to sensitive action restrictions; only specific privileged administrator roles can update it.
      * @return string|null
     */
     public function getMobilePhone(): ?string {
@@ -1647,7 +1662,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onPremisesImmutableId property value. This property associates an on-premises Active Directory user account to their Microsoft Entra user object. This property must be specified when creating a new user account in the Graph if you're using a federated domain for the user's userPrincipalName (UPN) property. Note: The $ and _ characters can't be used when specifying this property. Supports $filter (eq, ne, not, ge, le, in).
+     * Gets the onPremisesImmutableId property value. This property associates an on-premises Active Directory user account to their Microsoft Entra user object. This property must be specified when creating a new user account in the Graph if you're using a federated domain for the user's userPrincipalName (UPN) property. Note: The $ and _ characters can't be used when specifying this property. Supports $filter (eq, ne, not, ge, le, in). This property is subject to sensitive action restrictions; only specific privileged administrator roles can update it.
      * @return string|null
     */
     public function getOnPremisesImmutableId(): ?string {
@@ -1757,7 +1772,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the otherMails property value. A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com']. Can store up to 250 values, each with a limit of 250 characters. NOTE: This property can't contain accent characters.Supports $filter (eq, not, ge, le, in, startsWith, endsWith, /$count eq 0, /$count ne 0).
+     * Gets the otherMails property value. A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com']. Can store up to 250 values, each with a limit of 250 characters. NOTE: This property can't contain accent characters.Supports $filter (eq, not, ge, le, in, startsWith, endsWith, /$count eq 0, /$count ne 0). This property is subject to sensitive action restrictions; only specific privileged administrator roles can update it.
      * @return array<string>|null
     */
     public function getOtherMails(): ?array {
@@ -1823,7 +1838,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the passwordProfile property value. Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. The password in the profile must satisfy minimum requirements as specified by the passwordPolicies property. By default, a strong password is required. Supports $filter (eq, ne, not, in, and eq on null values).  User-PasswordProfile.ReadWrite.All is the least privileged permission to update this property.  In delegated scenarios, the User Administrator Microsoft Entra role is the least privileged admin role supported to update this property for nonadmin users. Privileged Authentication Administrator is the least privileged role that's allowed to update this property for all administrators in the tenant. In general, the signed-in user must have a higher privileged administrator role as indicated in Who can reset passwords.  In app-only scenarios, the calling app must be assigned a supported permission and at least the User Administrator Microsoft Entra role.
+     * Gets the passwordProfile property value. Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. The password in the profile must satisfy minimum requirements as specified by the passwordPolicies property. By default, a strong password is required. Supports $filter (eq, ne, not, in, and eq on null values).  User-PasswordProfile.ReadWrite.All is the least privileged permission to update this property.  In delegated scenarios, the User Administrator Microsoft Entra role is the least privileged admin role supported to update this property for nonadmin users. Privileged Authentication Administrator is the least privileged role that's allowed to update this property for all administrators in the tenant. In general, the signed-in user must have a higher privileged administrator role as indicated in Who can reset passwords.  In app-only scenarios, the calling app must be assigned a supported permission and at least the User Administrator Microsoft Entra role.This property is also subject to sensitive action restrictions.
      * @return PasswordProfile|null
     */
     public function getPasswordProfile(): ?PasswordProfile {
@@ -2337,7 +2352,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the userPrincipalName property value. The user principal name (UPN) of the user. The UPN is an Internet-style sign-in name for the user based on the Internet standard RFC 822. By convention, this should map to the user's email name. The general format is alias@domain, where the domain must be present in the tenant's verified domain collection. This property is required when a user is created. The verified domains for the tenant can be accessed from the verifiedDomains property of organization.NOTE: This property can't contain accent characters. Only the following characters are allowed A - Z, a - z, 0 - 9, ' . - _ ! # ^ ~. For the complete list of allowed characters, see username policies. Supports $filter (eq, ne, not, ge, le, in, startsWith, endsWith) and $orderby.
+     * Gets the userPrincipalName property value. The user principal name (UPN) of the user. The UPN is an Internet-style sign-in name for the user based on the Internet standard RFC 822. By convention, this should map to the user's email name. The general format is alias@domain, where the domain must be present in the tenant's verified domain collection. This property is required when a user is created. The verified domains for the tenant can be accessed from the verifiedDomains property of organization.NOTE: This property can't contain accent characters. Only the following characters are allowed A - Z, a - z, 0 - 9, ' . - _ ! # ^ ~. For the complete list of allowed characters, see username policies. Supports $filter (eq, ne, not, ge, le, in, startsWith, endsWith) and $orderby. This property is subject to sensitive action restrictions; only specific privileged administrator roles can update it.
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
@@ -2439,6 +2454,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('devices', $this->getDevices());
         $writer->writeCollectionOfObjectValues('directReports', $this->getDirectReports());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfObjectValues('distributionLists', $this->getDistributionLists());
         $writer->writeObjectValue('drive', $this->getDrive());
         $writer->writeCollectionOfObjectValues('drives', $this->getDrives());
         $writer->writeObjectValue('employeeExperience', $this->getEmployeeExperience());
@@ -2567,7 +2583,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the accountEnabled property value. true if the account is enabled; otherwise, false. This property is required when creating the object. Supports $filter (eq, ne, not, and in).
+     * Sets the accountEnabled property value. true if the account is enabled; otherwise, false. This property is required when creating the object. Supports $filter (eq, ne, not, and in). This property is subject to sensitive action restrictions; only specific privileged administrator roles can update it.
      * @param bool|null $value Value to set for the accountEnabled property.
     */
     public function setAccountEnabled(?bool $value): void {
@@ -2687,7 +2703,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the businessPhones property value. The telephone numbers for the user. Only one number can be set for this property. Read-only for users synced from on-premises directory. Supports $filter (eq, not, ge, le, startsWith).
+     * Sets the businessPhones property value. The telephone numbers for the user. Only one number can be set for this property. Read-only for users synced from on-premises directory. Supports $filter (eq, not, ge, le, startsWith). This property is subject to sensitive action restrictions; only specific privileged administrator roles can update it.
      * @param array<string>|null $value Value to set for the businessPhones property.
     */
     public function setBusinessPhones(?array $value): void {
@@ -2759,7 +2775,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the cloudPcPools property value. The cloudPcPools property
+     * Sets the cloudPcPools property value. The user's Cloud PC pools. Read-only. Nullable.
      * @param array<CloudPcPool>|null $value Value to set for the cloudPcPools property.
     */
     public function setCloudPcPools(?array $value): void {
@@ -2935,6 +2951,14 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
+     * Sets the distributionLists property value. The personal distribution lists in the user's mailbox. Read-only. Nullable.
+     * @param array<DistributionList>|null $value Value to set for the distributionLists property.
+    */
+    public function setDistributionLists(?array $value): void {
+        $this->getBackingStore()->set('distributionLists', $value);
+    }
+
+    /**
      * Sets the drive property value. The user's OneDrive. Read-only.
      * @param Drive|null $value Value to set for the drive property.
     */
@@ -3079,7 +3103,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the identityGovernance property value. The identityGovernance property
+     * Sets the identityGovernance property value. The identity governance settings for the user, including the approver delegate configuration. Nullable. Returned only on $select. Supports $expand.
      * @param IdentityGovernanceUserSettings|null $value Value to set for the identityGovernance property.
     */
     public function setIdentityGovernance(?IdentityGovernanceUserSettings $value): void {
@@ -3167,7 +3191,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the isResourceAccount property value. Do not use – reserved for future use.
+     * Sets the isResourceAccount property value. Do not use. Reserved for future use.
      * @param bool|null $value Value to set for the isResourceAccount property.
     */
     public function setIsResourceAccount(?bool $value): void {
@@ -3327,7 +3351,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the mobilePhone property value. The primary cellular telephone number for the user. Read-only for users synced from the on-premises directory.  Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values) and $search.
+     * Sets the mobilePhone property value. The primary cellular telephone number for the user. Read-only for users synced from the on-premises directory.  Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values) and $search. This property is subject to sensitive action restrictions; only specific privileged administrator roles can update it.
      * @param string|null $value Value to set for the mobilePhone property.
     */
     public function setMobilePhone(?string $value): void {
@@ -3407,7 +3431,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onPremisesImmutableId property value. This property associates an on-premises Active Directory user account to their Microsoft Entra user object. This property must be specified when creating a new user account in the Graph if you're using a federated domain for the user's userPrincipalName (UPN) property. Note: The $ and _ characters can't be used when specifying this property. Supports $filter (eq, ne, not, ge, le, in).
+     * Sets the onPremisesImmutableId property value. This property associates an on-premises Active Directory user account to their Microsoft Entra user object. This property must be specified when creating a new user account in the Graph if you're using a federated domain for the user's userPrincipalName (UPN) property. Note: The $ and _ characters can't be used when specifying this property. Supports $filter (eq, ne, not, ge, le, in). This property is subject to sensitive action restrictions; only specific privileged administrator roles can update it.
      * @param string|null $value Value to set for the onPremisesImmutableId property.
     */
     public function setOnPremisesImmutableId(?string $value): void {
@@ -3479,7 +3503,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the otherMails property value. A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com']. Can store up to 250 values, each with a limit of 250 characters. NOTE: This property can't contain accent characters.Supports $filter (eq, not, ge, le, in, startsWith, endsWith, /$count eq 0, /$count ne 0).
+     * Sets the otherMails property value. A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com']. Can store up to 250 values, each with a limit of 250 characters. NOTE: This property can't contain accent characters.Supports $filter (eq, not, ge, le, in, startsWith, endsWith, /$count eq 0, /$count ne 0). This property is subject to sensitive action restrictions; only specific privileged administrator roles can update it.
      * @param array<string>|null $value Value to set for the otherMails property.
     */
     public function setOtherMails(?array $value): void {
@@ -3519,7 +3543,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the passwordProfile property value. Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. The password in the profile must satisfy minimum requirements as specified by the passwordPolicies property. By default, a strong password is required. Supports $filter (eq, ne, not, in, and eq on null values).  User-PasswordProfile.ReadWrite.All is the least privileged permission to update this property.  In delegated scenarios, the User Administrator Microsoft Entra role is the least privileged admin role supported to update this property for nonadmin users. Privileged Authentication Administrator is the least privileged role that's allowed to update this property for all administrators in the tenant. In general, the signed-in user must have a higher privileged administrator role as indicated in Who can reset passwords.  In app-only scenarios, the calling app must be assigned a supported permission and at least the User Administrator Microsoft Entra role.
+     * Sets the passwordProfile property value. Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. The password in the profile must satisfy minimum requirements as specified by the passwordPolicies property. By default, a strong password is required. Supports $filter (eq, ne, not, in, and eq on null values).  User-PasswordProfile.ReadWrite.All is the least privileged permission to update this property.  In delegated scenarios, the User Administrator Microsoft Entra role is the least privileged admin role supported to update this property for nonadmin users. Privileged Authentication Administrator is the least privileged role that's allowed to update this property for all administrators in the tenant. In general, the signed-in user must have a higher privileged administrator role as indicated in Who can reset passwords.  In app-only scenarios, the calling app must be assigned a supported permission and at least the User Administrator Microsoft Entra role.This property is also subject to sensitive action restrictions.
      * @param PasswordProfile|null $value Value to set for the passwordProfile property.
     */
     public function setPasswordProfile(?PasswordProfile $value): void {
@@ -3839,7 +3863,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the userPrincipalName property value. The user principal name (UPN) of the user. The UPN is an Internet-style sign-in name for the user based on the Internet standard RFC 822. By convention, this should map to the user's email name. The general format is alias@domain, where the domain must be present in the tenant's verified domain collection. This property is required when a user is created. The verified domains for the tenant can be accessed from the verifiedDomains property of organization.NOTE: This property can't contain accent characters. Only the following characters are allowed A - Z, a - z, 0 - 9, ' . - _ ! # ^ ~. For the complete list of allowed characters, see username policies. Supports $filter (eq, ne, not, ge, le, in, startsWith, endsWith) and $orderby.
+     * Sets the userPrincipalName property value. The user principal name (UPN) of the user. The UPN is an Internet-style sign-in name for the user based on the Internet standard RFC 822. By convention, this should map to the user's email name. The general format is alias@domain, where the domain must be present in the tenant's verified domain collection. This property is required when a user is created. The verified domains for the tenant can be accessed from the verifiedDomains property of organization.NOTE: This property can't contain accent characters. Only the following characters are allowed A - Z, a - z, 0 - 9, ' . - _ ! # ^ ~. For the complete list of allowed characters, see username policies. Supports $filter (eq, ne, not, ge, le, in, startsWith, endsWith) and $orderby. This property is subject to sensitive action restrictions; only specific privileged administrator roles can update it.
      * @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value): void {

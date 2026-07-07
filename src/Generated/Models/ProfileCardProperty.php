@@ -65,7 +65,7 @@ class ProfileCardProperty extends Entity implements Parsable
     }
 
     /**
-     * Gets the isVisible property value. The isVisible property
+     * Gets the isVisible property value. Indicates whether the given directory property should be shown on a user’s profile card.
      * @return bool|null
     */
     public function getIsVisible(): ?bool {
@@ -104,7 +104,7 @@ class ProfileCardProperty extends Entity implements Parsable
     }
 
     /**
-     * Sets the isVisible property value. The isVisible property
+     * Sets the isVisible property value. Indicates whether the given directory property should be shown on a user’s profile card.
      * @param bool|null $value Value to set for the isVisible property.
     */
     public function setIsVisible(?bool $value): void {

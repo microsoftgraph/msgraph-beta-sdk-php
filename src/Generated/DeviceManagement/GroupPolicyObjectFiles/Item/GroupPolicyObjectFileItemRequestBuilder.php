@@ -32,11 +32,11 @@ class GroupPolicyObjectFileItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property groupPolicyObjectFiles for deviceManagement
-     * @param GroupPolicyObjectFileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyObjectFileItemRequestBuilderDeleteRequestCon_3b423cd9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?GroupPolicyObjectFileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?GroupPolicyObjectFileItemRequestBuilderDeleteRequestCon_3b423cd9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class GroupPolicyObjectFileItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property groupPolicyObjectFiles for deviceManagement
-     * @param GroupPolicyObjectFileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyObjectFileItemRequestBuilderDeleteRequestCon_3b423cd9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?GroupPolicyObjectFileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?GroupPolicyObjectFileItemRequestBuilderDeleteRequestCon_3b423cd9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

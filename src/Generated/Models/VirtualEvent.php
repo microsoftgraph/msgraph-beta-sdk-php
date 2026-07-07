@@ -108,6 +108,7 @@ class VirtualEvent extends Entity implements Parsable
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getObjectValue([DateTimeTimeZone::class, 'createFromDiscriminatorValue'])),
             'externalEventInformation' => fn(ParseNode $n) => $o->setExternalEventInformation($n->getCollectionOfObjectValues([VirtualEventExternalInformation::class, 'createFromDiscriminatorValue'])),
             'isRegistrationEnabled' => fn(ParseNode $n) => $o->setIsRegistrationEnabled($n->getBooleanValue()),
+            'isRegistrationRequired' => fn(ParseNode $n) => $o->setIsRegistrationRequired($n->getBooleanValue()),
             'presenters' => fn(ParseNode $n) => $o->setPresenters($n->getCollectionOfObjectValues([VirtualEventPresenter::class, 'createFromDiscriminatorValue'])),
             'sessions' => fn(ParseNode $n) => $o->setSessions($n->getCollectionOfObjectValues([VirtualEventSession::class, 'createFromDiscriminatorValue'])),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([VirtualEventSettings::class, 'createFromDiscriminatorValue'])),
@@ -126,6 +127,18 @@ class VirtualEvent extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isRegistrationEnabled'");
+    }
+
+    /**
+     * Gets the isRegistrationRequired property value. Indicates whether attendee registration is enabled for the virtual event.
+     * @return bool|null
+    */
+    public function getIsRegistrationRequired(): ?bool {
+        $val = $this->getBackingStore()->get('isRegistrationRequired');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isRegistrationRequired'");
     }
 
     /**
@@ -204,6 +217,7 @@ class VirtualEvent extends Entity implements Parsable
         $writer->writeObjectValue('endDateTime', $this->getEndDateTime());
         $writer->writeCollectionOfObjectValues('externalEventInformation', $this->getExternalEventInformation());
         $writer->writeBooleanValue('isRegistrationEnabled', $this->getIsRegistrationEnabled());
+        $writer->writeBooleanValue('isRegistrationRequired', $this->getIsRegistrationRequired());
         $writer->writeCollectionOfObjectValues('presenters', $this->getPresenters());
         $writer->writeCollectionOfObjectValues('sessions', $this->getSessions());
         $writer->writeObjectValue('settings', $this->getSettings());
@@ -257,6 +271,14 @@ class VirtualEvent extends Entity implements Parsable
     */
     public function setIsRegistrationEnabled(?bool $value): void {
         $this->getBackingStore()->set('isRegistrationEnabled', $value);
+    }
+
+    /**
+     * Sets the isRegistrationRequired property value. Indicates whether attendee registration is enabled for the virtual event.
+     * @param bool|null $value Value to set for the isRegistrationRequired property.
+    */
+    public function setIsRegistrationRequired(?bool $value): void {
+        $this->getBackingStore()->set('isRegistrationRequired', $value);
     }
 
     /**

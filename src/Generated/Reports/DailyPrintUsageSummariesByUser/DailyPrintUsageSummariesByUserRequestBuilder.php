@@ -53,11 +53,11 @@ class DailyPrintUsageSummariesByUserRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get dailyPrintUsageSummariesByUser from reports
-     * @param DailyPrintUsageSummariesByUserRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DailyPrintUsageSummariesByUserRequestBuilderGetRequestC_17b74a75|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrintUsageByUserCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?DailyPrintUsageSummariesByUserRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DailyPrintUsageSummariesByUserRequestBuilderGetRequestC_17b74a75 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class DailyPrintUsageSummariesByUserRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to dailyPrintUsageSummariesByUser for reports
      * @param PrintUsageByUser $body The request body
-     * @param DailyPrintUsageSummariesByUserRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DailyPrintUsageSummariesByUserRequestBuilderPostRequest_dc5aa163|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrintUsageByUser|null>
      * @throws Exception
     */
-    public function post(PrintUsageByUser $body, ?DailyPrintUsageSummariesByUserRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(PrintUsageByUser $body, ?DailyPrintUsageSummariesByUserRequestBuilderPostRequest_dc5aa163 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class DailyPrintUsageSummariesByUserRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get dailyPrintUsageSummariesByUser from reports
-     * @param DailyPrintUsageSummariesByUserRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DailyPrintUsageSummariesByUserRequestBuilderGetRequestC_17b74a75|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DailyPrintUsageSummariesByUserRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DailyPrintUsageSummariesByUserRequestBuilderGetRequestC_17b74a75 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class DailyPrintUsageSummariesByUserRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to dailyPrintUsageSummariesByUser for reports
      * @param PrintUsageByUser $body The request body
-     * @param DailyPrintUsageSummariesByUserRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DailyPrintUsageSummariesByUserRequestBuilderPostRequest_dc5aa163|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(PrintUsageByUser $body, ?DailyPrintUsageSummariesByUserRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(PrintUsageByUser $body, ?DailyPrintUsageSummariesByUserRequestBuilderPostRequest_dc5aa163 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

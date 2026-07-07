@@ -32,11 +32,11 @@ class DailyInactiveUsersByApplicationMetricItemRequestBuilder extends BaseReques
 
     /**
      * Get inactiveUsersByApplication from reports
-     * @param DailyInactiveUsersByApplicationMetricItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DailyInactiveUsersByApplicationMetricItemRequestBuilder_d6d8d687|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DailyInactiveUsersByApplicationMetric|null>
      * @throws Exception
     */
-    public function get(?DailyInactiveUsersByApplicationMetricItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DailyInactiveUsersByApplicationMetricItemRequestBuilder_d6d8d687 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class DailyInactiveUsersByApplicationMetricItemRequestBuilder extends BaseReques
 
     /**
      * Get inactiveUsersByApplication from reports
-     * @param DailyInactiveUsersByApplicationMetricItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DailyInactiveUsersByApplicationMetricItemRequestBuilder_d6d8d687|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DailyInactiveUsersByApplicationMetricItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DailyInactiveUsersByApplicationMetricItemRequestBuilder_d6d8d687 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

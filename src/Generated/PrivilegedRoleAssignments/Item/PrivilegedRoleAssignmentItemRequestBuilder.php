@@ -56,11 +56,11 @@ class PrivilegedRoleAssignmentItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete entity from privilegedRoleAssignments
-     * @param PrivilegedRoleAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegedRoleAssignmentItemRequestBuilderDeleteRequest_36cdebb4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?PrivilegedRoleAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?PrivilegedRoleAssignmentItemRequestBuilderDeleteRequest_36cdebb4 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -70,11 +70,11 @@ class PrivilegedRoleAssignmentItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get entity from privilegedRoleAssignments by key
-     * @param PrivilegedRoleAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegedRoleAssignmentItemRequestBuilderGetRequestCon_0edf99a9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrivilegedRoleAssignment|null>
      * @throws Exception
     */
-    public function get(?PrivilegedRoleAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?PrivilegedRoleAssignmentItemRequestBuilderGetRequestCon_0edf99a9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -85,11 +85,11 @@ class PrivilegedRoleAssignmentItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update entity in privilegedRoleAssignments
      * @param PrivilegedRoleAssignment $body The request body
-     * @param PrivilegedRoleAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegedRoleAssignmentItemRequestBuilderPatchRequestC_ce8491ac|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PrivilegedRoleAssignment|null>
      * @throws Exception
     */
-    public function patch(PrivilegedRoleAssignment $body, ?PrivilegedRoleAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(PrivilegedRoleAssignment $body, ?PrivilegedRoleAssignmentItemRequestBuilderPatchRequestC_ce8491ac $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -99,10 +99,10 @@ class PrivilegedRoleAssignmentItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete entity from privilegedRoleAssignments
-     * @param PrivilegedRoleAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegedRoleAssignmentItemRequestBuilderDeleteRequest_36cdebb4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?PrivilegedRoleAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?PrivilegedRoleAssignmentItemRequestBuilderDeleteRequest_36cdebb4 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -117,10 +117,10 @@ class PrivilegedRoleAssignmentItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get entity from privilegedRoleAssignments by key
-     * @param PrivilegedRoleAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegedRoleAssignmentItemRequestBuilderGetRequestCon_0edf99a9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?PrivilegedRoleAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?PrivilegedRoleAssignmentItemRequestBuilderGetRequestCon_0edf99a9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -139,10 +139,10 @@ class PrivilegedRoleAssignmentItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update entity in privilegedRoleAssignments
      * @param PrivilegedRoleAssignment $body The request body
-     * @param PrivilegedRoleAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PrivilegedRoleAssignmentItemRequestBuilderPatchRequestC_ce8491ac|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(PrivilegedRoleAssignment $body, ?PrivilegedRoleAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(PrivilegedRoleAssignment $body, ?PrivilegedRoleAssignmentItemRequestBuilderPatchRequestC_ce8491ac $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

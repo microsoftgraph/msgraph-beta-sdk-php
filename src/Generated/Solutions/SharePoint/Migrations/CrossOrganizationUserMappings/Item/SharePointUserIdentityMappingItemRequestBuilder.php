@@ -32,11 +32,11 @@ class SharePointUserIdentityMappingItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property crossOrganizationUserMappings for solutions
-     * @param SharePointUserIdentityMappingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharePointUserIdentityMappingItemRequestBuilderDeleteRe_84d72f78|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?SharePointUserIdentityMappingItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?SharePointUserIdentityMappingItemRequestBuilderDeleteRe_84d72f78 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class SharePointUserIdentityMappingItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Collection of user identity mappings for cross-organization migration.
-     * @param SharePointUserIdentityMappingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharePointUserIdentityMappingItemRequestBuilderGetReque_d56b9ac2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SharePointUserIdentityMapping|null>
      * @throws Exception
     */
-    public function get(?SharePointUserIdentityMappingItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?SharePointUserIdentityMappingItemRequestBuilderGetReque_d56b9ac2 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,12 +61,12 @@ class SharePointUserIdentityMappingItemRequestBuilder extends BaseRequestBuilder
     /**
      * Perform delta patch operations on user identity mappings for cross-organization migration. Supports bulk add, update, and delete operations in a single request. Maximum of 50 items allowed in the value array.
      * @param SharePointUserIdentityMapping $body The request body
-     * @param SharePointUserIdentityMappingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharePointUserIdentityMappingItemRequestBuilderPatchReq_e5bde691|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SharePointUserIdentityMapping|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/sharepointuseridentitymapping-update?view=graph-rest-beta Find more info here
     */
-    public function patch(SharePointUserIdentityMapping $body, ?SharePointUserIdentityMappingItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(SharePointUserIdentityMapping $body, ?SharePointUserIdentityMappingItemRequestBuilderPatchReq_e5bde691 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -76,10 +76,10 @@ class SharePointUserIdentityMappingItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property crossOrganizationUserMappings for solutions
-     * @param SharePointUserIdentityMappingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharePointUserIdentityMappingItemRequestBuilderDeleteRe_84d72f78|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?SharePointUserIdentityMappingItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?SharePointUserIdentityMappingItemRequestBuilderDeleteRe_84d72f78 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -94,10 +94,10 @@ class SharePointUserIdentityMappingItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Collection of user identity mappings for cross-organization migration.
-     * @param SharePointUserIdentityMappingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharePointUserIdentityMappingItemRequestBuilderGetReque_d56b9ac2|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?SharePointUserIdentityMappingItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?SharePointUserIdentityMappingItemRequestBuilderGetReque_d56b9ac2 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -116,10 +116,10 @@ class SharePointUserIdentityMappingItemRequestBuilder extends BaseRequestBuilder
     /**
      * Perform delta patch operations on user identity mappings for cross-organization migration. Supports bulk add, update, and delete operations in a single request. Maximum of 50 items allowed in the value array.
      * @param SharePointUserIdentityMapping $body The request body
-     * @param SharePointUserIdentityMappingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SharePointUserIdentityMappingItemRequestBuilderPatchReq_e5bde691|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(SharePointUserIdentityMapping $body, ?SharePointUserIdentityMappingItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(SharePointUserIdentityMapping $body, ?SharePointUserIdentityMappingItemRequestBuilderPatchReq_e5bde691 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

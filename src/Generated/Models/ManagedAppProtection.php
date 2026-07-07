@@ -276,6 +276,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
             'previousPinBlockCount' => fn(ParseNode $n) => $o->setPreviousPinBlockCount($n->getIntegerValue()),
             'printBlocked' => fn(ParseNode $n) => $o->setPrintBlocked($n->getBooleanValue()),
             'protectedMessagingRedirectAppType' => fn(ParseNode $n) => $o->setProtectedMessagingRedirectAppType($n->getEnumValue(MessagingRedirectAppType::class)),
+            'purviewContentEvaluationRequired' => fn(ParseNode $n) => $o->setPurviewContentEvaluationRequired($n->getEnumValue(ManagedAppPurviewEvaluationRequirement::class)),
             'saveAsBlocked' => fn(ParseNode $n) => $o->setSaveAsBlocked($n->getBooleanValue()),
             'simplePinBlocked' => fn(ParseNode $n) => $o->setSimplePinBlocked($n->getBooleanValue()),
         ]);
@@ -642,6 +643,18 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
     }
 
     /**
+     * Gets the purviewContentEvaluationRequired property value. Specifies whether Microsoft Purview Data Loss Prevention (DLP) content evaluation is required before data sharing.
+     * @return ManagedAppPurviewEvaluationRequirement|null
+    */
+    public function getPurviewContentEvaluationRequired(): ?ManagedAppPurviewEvaluationRequirement {
+        $val = $this->getBackingStore()->get('purviewContentEvaluationRequired');
+        if (is_null($val) || $val instanceof ManagedAppPurviewEvaluationRequirement) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'purviewContentEvaluationRequired'");
+    }
+
+    /**
      * Gets the saveAsBlocked property value. Indicates whether users may use the 'Save As' menu item to save a copy of protected files.
      * @return bool|null
     */
@@ -716,6 +729,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
         $writer->writeIntegerValue('previousPinBlockCount', $this->getPreviousPinBlockCount());
         $writer->writeBooleanValue('printBlocked', $this->getPrintBlocked());
         $writer->writeEnumValue('protectedMessagingRedirectAppType', $this->getProtectedMessagingRedirectAppType());
+        $writer->writeEnumValue('purviewContentEvaluationRequired', $this->getPurviewContentEvaluationRequired());
         $writer->writeBooleanValue('saveAsBlocked', $this->getSaveAsBlocked());
         $writer->writeBooleanValue('simplePinBlocked', $this->getSimplePinBlocked());
     }
@@ -1078,6 +1092,14 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
     */
     public function setProtectedMessagingRedirectAppType(?MessagingRedirectAppType $value): void {
         $this->getBackingStore()->set('protectedMessagingRedirectAppType', $value);
+    }
+
+    /**
+     * Sets the purviewContentEvaluationRequired property value. Specifies whether Microsoft Purview Data Loss Prevention (DLP) content evaluation is required before data sharing.
+     * @param ManagedAppPurviewEvaluationRequirement|null $value Value to set for the purviewContentEvaluationRequired property.
+    */
+    public function setPurviewContentEvaluationRequired(?ManagedAppPurviewEvaluationRequirement $value): void {
+        $this->getBackingStore()->set('purviewContentEvaluationRequired', $value);
     }
 
     /**

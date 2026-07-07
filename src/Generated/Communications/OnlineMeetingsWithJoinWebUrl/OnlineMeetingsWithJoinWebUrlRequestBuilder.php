@@ -59,11 +59,11 @@ class OnlineMeetingsWithJoinWebUrlRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property onlineMeetings for communications
-     * @param OnlineMeetingsWithJoinWebUrlRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnlineMeetingsWithJoinWebUrlRequestBuilderDeleteRequest_e4c8c97d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?OnlineMeetingsWithJoinWebUrlRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?OnlineMeetingsWithJoinWebUrlRequestBuilderDeleteRequest_e4c8c97d $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -73,11 +73,11 @@ class OnlineMeetingsWithJoinWebUrlRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get onlineMeetings from communications
-     * @param OnlineMeetingsWithJoinWebUrlRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnlineMeetingsWithJoinWebUrlRequestBuilderGetRequestCon_ac039a4a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnlineMeeting|null>
      * @throws Exception
     */
-    public function get(?OnlineMeetingsWithJoinWebUrlRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?OnlineMeetingsWithJoinWebUrlRequestBuilderGetRequestCon_ac039a4a $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -88,11 +88,11 @@ class OnlineMeetingsWithJoinWebUrlRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property onlineMeetings in communications
      * @param OnlineMeeting $body The request body
-     * @param OnlineMeetingsWithJoinWebUrlRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnlineMeetingsWithJoinWebUrlRequestBuilderPatchRequestC_f9e332e7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<OnlineMeeting|null>
      * @throws Exception
     */
-    public function patch(OnlineMeeting $body, ?OnlineMeetingsWithJoinWebUrlRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(OnlineMeeting $body, ?OnlineMeetingsWithJoinWebUrlRequestBuilderPatchRequestC_f9e332e7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -102,10 +102,10 @@ class OnlineMeetingsWithJoinWebUrlRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property onlineMeetings for communications
-     * @param OnlineMeetingsWithJoinWebUrlRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnlineMeetingsWithJoinWebUrlRequestBuilderDeleteRequest_e4c8c97d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?OnlineMeetingsWithJoinWebUrlRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?OnlineMeetingsWithJoinWebUrlRequestBuilderDeleteRequest_e4c8c97d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -120,10 +120,10 @@ class OnlineMeetingsWithJoinWebUrlRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get onlineMeetings from communications
-     * @param OnlineMeetingsWithJoinWebUrlRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnlineMeetingsWithJoinWebUrlRequestBuilderGetRequestCon_ac039a4a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?OnlineMeetingsWithJoinWebUrlRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?OnlineMeetingsWithJoinWebUrlRequestBuilderGetRequestCon_ac039a4a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -142,10 +142,10 @@ class OnlineMeetingsWithJoinWebUrlRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property onlineMeetings in communications
      * @param OnlineMeeting $body The request body
-     * @param OnlineMeetingsWithJoinWebUrlRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param OnlineMeetingsWithJoinWebUrlRequestBuilderPatchRequestC_f9e332e7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(OnlineMeeting $body, ?OnlineMeetingsWithJoinWebUrlRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(OnlineMeeting $body, ?OnlineMeetingsWithJoinWebUrlRequestBuilderPatchRequestC_f9e332e7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

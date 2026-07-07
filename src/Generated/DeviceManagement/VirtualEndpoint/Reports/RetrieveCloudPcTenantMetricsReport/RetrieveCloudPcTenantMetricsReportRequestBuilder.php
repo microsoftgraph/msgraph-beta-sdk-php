@@ -33,12 +33,12 @@ class RetrieveCloudPcTenantMetricsReportRequestBuilder extends BaseRequestBuilde
     /**
      * Get a report related to the performance of Cloud PCs.
      * @param RetrieveCloudPcTenantMetricsReportPostRequestBody $body The request body
-     * @param RetrieveCloudPcTenantMetricsReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveCloudPcTenantMetricsReportRequestBuilderPostReq_d33d348d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpcreports-retrievecloudpctenantmetricsreport?view=graph-rest-beta Find more info here
     */
-    public function post(RetrieveCloudPcTenantMetricsReportPostRequestBody $body, ?RetrieveCloudPcTenantMetricsReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(RetrieveCloudPcTenantMetricsReportPostRequestBody $body, ?RetrieveCloudPcTenantMetricsReportRequestBuilderPostReq_d33d348d $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -51,10 +51,10 @@ class RetrieveCloudPcTenantMetricsReportRequestBuilder extends BaseRequestBuilde
     /**
      * Get a report related to the performance of Cloud PCs.
      * @param RetrieveCloudPcTenantMetricsReportPostRequestBody $body The request body
-     * @param RetrieveCloudPcTenantMetricsReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveCloudPcTenantMetricsReportRequestBuilderPostReq_d33d348d|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(RetrieveCloudPcTenantMetricsReportPostRequestBody $body, ?RetrieveCloudPcTenantMetricsReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(RetrieveCloudPcTenantMetricsReportPostRequestBody $body, ?RetrieveCloudPcTenantMetricsReportRequestBuilderPostReq_d33d348d $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

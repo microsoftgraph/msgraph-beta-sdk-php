@@ -61,11 +61,11 @@ class ImportedAppleDeviceIdentitiesRequestBuilder extends BaseRequestBuilder
 
     /**
      * The imported Apple device identities.
-     * @param ImportedAppleDeviceIdentitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ImportedAppleDeviceIdentitiesRequestBuilderGetRequestCo_6709b749|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ImportedAppleDeviceIdentityCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?ImportedAppleDeviceIdentitiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ImportedAppleDeviceIdentitiesRequestBuilderGetRequestCo_6709b749 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -76,11 +76,11 @@ class ImportedAppleDeviceIdentitiesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to importedAppleDeviceIdentities for deviceManagement
      * @param ImportedAppleDeviceIdentity $body The request body
-     * @param ImportedAppleDeviceIdentitiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ImportedAppleDeviceIdentitiesRequestBuilderPostRequestC_318fdf6b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ImportedAppleDeviceIdentity|null>
      * @throws Exception
     */
-    public function post(ImportedAppleDeviceIdentity $body, ?ImportedAppleDeviceIdentitiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ImportedAppleDeviceIdentity $body, ?ImportedAppleDeviceIdentitiesRequestBuilderPostRequestC_318fdf6b $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -90,10 +90,10 @@ class ImportedAppleDeviceIdentitiesRequestBuilder extends BaseRequestBuilder
 
     /**
      * The imported Apple device identities.
-     * @param ImportedAppleDeviceIdentitiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ImportedAppleDeviceIdentitiesRequestBuilderGetRequestCo_6709b749|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ImportedAppleDeviceIdentitiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ImportedAppleDeviceIdentitiesRequestBuilderGetRequestCo_6709b749 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -112,10 +112,10 @@ class ImportedAppleDeviceIdentitiesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to importedAppleDeviceIdentities for deviceManagement
      * @param ImportedAppleDeviceIdentity $body The request body
-     * @param ImportedAppleDeviceIdentitiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ImportedAppleDeviceIdentitiesRequestBuilderPostRequestC_318fdf6b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ImportedAppleDeviceIdentity $body, ?ImportedAppleDeviceIdentitiesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ImportedAppleDeviceIdentity $body, ?ImportedAppleDeviceIdentitiesRequestBuilderPostRequestC_318fdf6b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

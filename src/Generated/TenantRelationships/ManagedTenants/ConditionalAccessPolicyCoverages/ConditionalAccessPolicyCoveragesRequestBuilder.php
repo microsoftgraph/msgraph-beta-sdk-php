@@ -53,12 +53,12 @@ class ConditionalAccessPolicyCoveragesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a list of the conditionalAccessPolicyCoverage objects and their properties. Use this operation to list Microsoft Entra Conditional Access policy coverage for all tenants that are being managed by the multi-tenant management platform.
-     * @param ConditionalAccessPolicyCoveragesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConditionalAccessPolicyCoveragesRequestBuilderGetReques_db6b65f9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConditionalAccessPolicyCoverageCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/managedtenants-managedtenant-list-conditionalaccesspolicycoverages?view=graph-rest-beta Find more info here
     */
-    public function get(?ConditionalAccessPolicyCoveragesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ConditionalAccessPolicyCoveragesRequestBuilderGetReques_db6b65f9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class ConditionalAccessPolicyCoveragesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to conditionalAccessPolicyCoverages for tenantRelationships
      * @param ConditionalAccessPolicyCoverage $body The request body
-     * @param ConditionalAccessPolicyCoveragesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConditionalAccessPolicyCoveragesRequestBuilderPostReque_57970286|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConditionalAccessPolicyCoverage|null>
      * @throws Exception
     */
-    public function post(ConditionalAccessPolicyCoverage $body, ?ConditionalAccessPolicyCoveragesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ConditionalAccessPolicyCoverage $body, ?ConditionalAccessPolicyCoveragesRequestBuilderPostReque_57970286 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class ConditionalAccessPolicyCoveragesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get a list of the conditionalAccessPolicyCoverage objects and their properties. Use this operation to list Microsoft Entra Conditional Access policy coverage for all tenants that are being managed by the multi-tenant management platform.
-     * @param ConditionalAccessPolicyCoveragesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConditionalAccessPolicyCoveragesRequestBuilderGetReques_db6b65f9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ConditionalAccessPolicyCoveragesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ConditionalAccessPolicyCoveragesRequestBuilderGetReques_db6b65f9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -105,10 +105,10 @@ class ConditionalAccessPolicyCoveragesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to conditionalAccessPolicyCoverages for tenantRelationships
      * @param ConditionalAccessPolicyCoverage $body The request body
-     * @param ConditionalAccessPolicyCoveragesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ConditionalAccessPolicyCoveragesRequestBuilderPostReque_57970286|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ConditionalAccessPolicyCoverage $body, ?ConditionalAccessPolicyCoveragesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ConditionalAccessPolicyCoverage $body, ?ConditionalAccessPolicyCoveragesRequestBuilderPostReque_57970286 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

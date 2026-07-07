@@ -98,8 +98,21 @@ class RelatedTenant extends Entity implements Parsable
             'b2BSignInActivityMetrics' => fn(ParseNode $n) => $o->setB2BSignInActivityMetrics($n->getObjectValue([B2BSignInActivityMetrics::class, 'createFromDiscriminatorValue'])),
             'billingMetrics' => fn(ParseNode $n) => $o->setBillingMetrics($n->getObjectValue([BillingMetrics::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'isMicrosoftInfrastructure' => fn(ParseNode $n) => $o->setIsMicrosoftInfrastructure($n->getBooleanValue()),
             'multiTenantApplicationMetrics' => fn(ParseNode $n) => $o->setMultiTenantApplicationMetrics($n->getObjectValue([MultiTenantApplicationMetrics::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the isMicrosoftInfrastructure property value. Indicates whether this tenant is a Microsoft infrastructure tenant.
+     * @return bool|null
+    */
+    public function getIsMicrosoftInfrastructure(): ?bool {
+        $val = $this->getBackingStore()->get('isMicrosoftInfrastructure');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isMicrosoftInfrastructure'");
     }
 
     /**
@@ -166,6 +179,14 @@ class RelatedTenant extends Entity implements Parsable
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
+    }
+
+    /**
+     * Sets the isMicrosoftInfrastructure property value. Indicates whether this tenant is a Microsoft infrastructure tenant.
+     * @param bool|null $value Value to set for the isMicrosoftInfrastructure property.
+    */
+    public function setIsMicrosoftInfrastructure(?bool $value): void {
+        $this->getBackingStore()->set('isMicrosoftInfrastructure', $value);
     }
 
     /**

@@ -61,11 +61,11 @@ class WindowsAutopilotDeploymentProfilesRequestBuilder extends BaseRequestBuilde
 
     /**
      * Windows auto pilot deployment profiles
-     * @param WindowsAutopilotDeploymentProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsAutopilotDeploymentProfilesRequestBuilderGetRequ_20d75479|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsAutopilotDeploymentProfileCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?WindowsAutopilotDeploymentProfilesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?WindowsAutopilotDeploymentProfilesRequestBuilderGetRequ_20d75479 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -76,11 +76,11 @@ class WindowsAutopilotDeploymentProfilesRequestBuilder extends BaseRequestBuilde
     /**
      * Create new navigation property to windowsAutopilotDeploymentProfiles for deviceManagement
      * @param WindowsAutopilotDeploymentProfile $body The request body
-     * @param WindowsAutopilotDeploymentProfilesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsAutopilotDeploymentProfilesRequestBuilderPostReq_cc3b4969|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsAutopilotDeploymentProfile|null>
      * @throws Exception
     */
-    public function post(WindowsAutopilotDeploymentProfile $body, ?WindowsAutopilotDeploymentProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(WindowsAutopilotDeploymentProfile $body, ?WindowsAutopilotDeploymentProfilesRequestBuilderPostReq_cc3b4969 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -90,10 +90,10 @@ class WindowsAutopilotDeploymentProfilesRequestBuilder extends BaseRequestBuilde
 
     /**
      * Windows auto pilot deployment profiles
-     * @param WindowsAutopilotDeploymentProfilesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsAutopilotDeploymentProfilesRequestBuilderGetRequ_20d75479|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?WindowsAutopilotDeploymentProfilesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?WindowsAutopilotDeploymentProfilesRequestBuilderGetRequ_20d75479 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -112,10 +112,10 @@ class WindowsAutopilotDeploymentProfilesRequestBuilder extends BaseRequestBuilde
     /**
      * Create new navigation property to windowsAutopilotDeploymentProfiles for deviceManagement
      * @param WindowsAutopilotDeploymentProfile $body The request body
-     * @param WindowsAutopilotDeploymentProfilesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsAutopilotDeploymentProfilesRequestBuilderPostReq_cc3b4969|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(WindowsAutopilotDeploymentProfile $body, ?WindowsAutopilotDeploymentProfilesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(WindowsAutopilotDeploymentProfile $body, ?WindowsAutopilotDeploymentProfilesRequestBuilderPostReq_cc3b4969 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

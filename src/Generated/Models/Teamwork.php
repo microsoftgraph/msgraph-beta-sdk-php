@@ -78,6 +78,7 @@ class Teamwork extends Entity implements Parsable
             'deletedTeams' => fn(ParseNode $n) => $o->setDeletedTeams($n->getCollectionOfObjectValues([DeletedTeam::class, 'createFromDiscriminatorValue'])),
             'devices' => fn(ParseNode $n) => $o->setDevices($n->getCollectionOfObjectValues([TeamworkDevice::class, 'createFromDiscriminatorValue'])),
             'isTeamsEnabled' => fn(ParseNode $n) => $o->setIsTeamsEnabled($n->getBooleanValue()),
+            'messaging' => fn(ParseNode $n) => $o->setMessaging($n->getObjectValue([TeamworkMessaging::class, 'createFromDiscriminatorValue'])),
             'region' => fn(ParseNode $n) => $o->setRegion($n->getStringValue()),
             'teamsAppSettings' => fn(ParseNode $n) => $o->setTeamsAppSettings($n->getObjectValue([TeamsAppSettings::class, 'createFromDiscriminatorValue'])),
             'teamTemplates' => fn(ParseNode $n) => $o->setTeamTemplates($n->getCollectionOfObjectValues([TeamTemplate::class, 'createFromDiscriminatorValue'])),
@@ -95,6 +96,18 @@ class Teamwork extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isTeamsEnabled'");
+    }
+
+    /**
+     * Gets the messaging property value. The messaging property
+     * @return TeamworkMessaging|null
+    */
+    public function getMessaging(): ?TeamworkMessaging {
+        $val = $this->getBackingStore()->get('messaging');
+        if (is_null($val) || $val instanceof TeamworkMessaging) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'messaging'");
     }
 
     /**
@@ -159,6 +172,7 @@ class Teamwork extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('deletedTeams', $this->getDeletedTeams());
         $writer->writeCollectionOfObjectValues('devices', $this->getDevices());
         $writer->writeBooleanValue('isTeamsEnabled', $this->getIsTeamsEnabled());
+        $writer->writeObjectValue('messaging', $this->getMessaging());
         $writer->writeStringValue('region', $this->getRegion());
         $writer->writeObjectValue('teamsAppSettings', $this->getTeamsAppSettings());
         $writer->writeCollectionOfObjectValues('teamTemplates', $this->getTeamTemplates());
@@ -195,6 +209,14 @@ class Teamwork extends Entity implements Parsable
     */
     public function setIsTeamsEnabled(?bool $value): void {
         $this->getBackingStore()->set('isTeamsEnabled', $value);
+    }
+
+    /**
+     * Sets the messaging property value. The messaging property
+     * @param TeamworkMessaging|null $value Value to set for the messaging property.
+    */
+    public function setMessaging(?TeamworkMessaging $value): void {
+        $this->getBackingStore()->set('messaging', $value);
     }
 
     /**

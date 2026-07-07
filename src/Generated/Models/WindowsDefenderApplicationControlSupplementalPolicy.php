@@ -79,11 +79,11 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
 
     /**
      * Gets the deploySummary property value. WindowsDefenderApplicationControl supplemental policy deployment summary.
-     * @return WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary|null
+     * @return WindowsDefenderApplicationControlSupplementalPolicyDepl_3c935e9e|null
     */
-    public function getDeploySummary(): ?WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary {
+    public function getDeploySummary(): ?WindowsDefenderApplicationControlSupplementalPolicyDepl_3c935e9e {
         $val = $this->getBackingStore()->get('deploySummary');
-        if (is_null($val) || $val instanceof WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary) {
+        if (is_null($val) || $val instanceof WindowsDefenderApplicationControlSupplementalPolicyDepl_3c935e9e) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'deploySummary'");
@@ -103,13 +103,13 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
 
     /**
      * Gets the deviceStatuses property value. The list of device deployment states for this WindowsDefenderApplicationControl supplemental policy.
-     * @return array<WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus>|null
+     * @return array<WindowsDefenderApplicationControlSupplementalPolicyDepl_cf10f8b0>|null
     */
     public function getDeviceStatuses(): ?array {
         $val = $this->getBackingStore()->get('deviceStatuses');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus::class);
-            /** @var array<WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus>|null $val */
+            TypeUtils::validateCollectionValues($val, WindowsDefenderApplicationControlSupplementalPolicyDepl_cf10f8b0::class);
+            /** @var array<WindowsDefenderApplicationControlSupplementalPolicyDepl_cf10f8b0>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceStatuses'");
@@ -138,9 +138,9 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
             'content' => fn(ParseNode $n) => $o->setContent($n->getBinaryContent()),
             'contentFileName' => fn(ParseNode $n) => $o->setContentFileName($n->getStringValue()),
             'creationDateTime' => fn(ParseNode $n) => $o->setCreationDateTime($n->getDateTimeValue()),
-            'deploySummary' => fn(ParseNode $n) => $o->setDeploySummary($n->getObjectValue([WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary::class, 'createFromDiscriminatorValue'])),
+            'deploySummary' => fn(ParseNode $n) => $o->setDeploySummary($n->getObjectValue([WindowsDefenderApplicationControlSupplementalPolicyDepl_3c935e9e::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
-            'deviceStatuses' => fn(ParseNode $n) => $o->setDeviceStatuses($n->getCollectionOfObjectValues([WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus::class, 'createFromDiscriminatorValue'])),
+            'deviceStatuses' => fn(ParseNode $n) => $o->setDeviceStatuses($n->getCollectionOfObjectValues([WindowsDefenderApplicationControlSupplementalPolicyDepl_cf10f8b0::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'roleScopeTagIds' => function (ParseNode $n) {
@@ -246,9 +246,9 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
 
     /**
      * Sets the deploySummary property value. WindowsDefenderApplicationControl supplemental policy deployment summary.
-     * @param WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary|null $value Value to set for the deploySummary property.
+     * @param WindowsDefenderApplicationControlSupplementalPolicyDepl_3c935e9e|null $value Value to set for the deploySummary property.
     */
-    public function setDeploySummary(?WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary $value): void {
+    public function setDeploySummary(?WindowsDefenderApplicationControlSupplementalPolicyDepl_3c935e9e $value): void {
         $this->getBackingStore()->set('deploySummary', $value);
     }
 
@@ -262,7 +262,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
 
     /**
      * Sets the deviceStatuses property value. The list of device deployment states for this WindowsDefenderApplicationControl supplemental policy.
-     * @param array<WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus>|null $value Value to set for the deviceStatuses property.
+     * @param array<WindowsDefenderApplicationControlSupplementalPolicyDepl_cf10f8b0>|null $value Value to set for the deviceStatuses property.
     */
     public function setDeviceStatuses(?array $value): void {
         $this->getBackingStore()->set('deviceStatuses', $value);

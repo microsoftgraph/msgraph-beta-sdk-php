@@ -65,6 +65,7 @@ class DelegatedAdministrationRoleAssignment implements AdditionalDataHolder, Bac
         $o = $this;
         return  [
             'group' => fn(ParseNode $n) => $o->setGroup($n->getObjectValue([Group::class, 'createFromDiscriminatorValue'])),
+            'groupDisplayName' => fn(ParseNode $n) => $o->setGroupDisplayName($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'roleTemplates' => fn(ParseNode $n) => $o->setRoleTemplates($n->getCollectionOfObjectValues([RoleTemplate::class, 'createFromDiscriminatorValue'])),
         ];
@@ -80,6 +81,18 @@ class DelegatedAdministrationRoleAssignment implements AdditionalDataHolder, Bac
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'group'");
+    }
+
+    /**
+     * Gets the groupDisplayName property value. The display name of the security group referenced by the group navigation property. Server-populated and read-only; returns null if the referenced group has been deleted.
+     * @return string|null
+    */
+    public function getGroupDisplayName(): ?string {
+        $val = $this->getBackingStore()->get('groupDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'groupDisplayName'");
     }
 
     /**
@@ -114,6 +127,7 @@ class DelegatedAdministrationRoleAssignment implements AdditionalDataHolder, Bac
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('group', $this->getGroup());
+        $writer->writeStringValue('groupDisplayName', $this->getGroupDisplayName());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('roleTemplates', $this->getRoleTemplates());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -141,6 +155,14 @@ class DelegatedAdministrationRoleAssignment implements AdditionalDataHolder, Bac
     */
     public function setGroup(?Group $value): void {
         $this->getBackingStore()->set('group', $value);
+    }
+
+    /**
+     * Sets the groupDisplayName property value. The display name of the security group referenced by the group navigation property. Server-populated and read-only; returns null if the referenced group has been deleted.
+     * @param string|null $value Value to set for the groupDisplayName property.
+    */
+    public function setGroupDisplayName(?string $value): void {
+        $this->getBackingStore()->set('groupDisplayName', $value);
     }
 
     /**

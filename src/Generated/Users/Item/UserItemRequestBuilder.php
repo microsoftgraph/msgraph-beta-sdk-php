@@ -40,6 +40,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\DeviceManagementTroubleshootingEve
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\DevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\DevicesWithDeviceId\DevicesWithDeviceIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\DirectReports\DirectReportsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\DistributionLists\DistributionListsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drive\DriveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\DrivesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\EmployeeExperience\EmployeeExperienceRequestBuilder;
@@ -360,6 +361,13 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     */
     public function directReports(): DirectReportsRequestBuilder {
         return new DirectReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the distributionLists property of the microsoft.graph.user entity.
+    */
+    public function distributionLists(): DistributionListsRequestBuilder {
+        return new DistributionListsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -1041,7 +1049,7 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a user or agentUser object.
+     * Update the properties of a user. To use this API to update an agentUser, specify an @odata.type property with a value of #microsoft.graph.agentUser in the request body.
      * @param User $body The request body
      * @param UserItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<User|null>
@@ -1106,7 +1114,7 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a user or agentUser object.
+     * Update the properties of a user. To use this API to update an agentUser, specify an @odata.type property with a value of #microsoft.graph.agentUser in the request body.
      * @param User $body The request body
      * @param UserItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

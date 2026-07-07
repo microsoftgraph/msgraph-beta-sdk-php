@@ -32,11 +32,11 @@ class ContinuousAccessEvaluationPolicyRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property continuousAccessEvaluationPolicy for identity
-     * @param ContinuousAccessEvaluationPolicyRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ContinuousAccessEvaluationPolicyRequestBuilderDeleteReq_e4fcb155|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ContinuousAccessEvaluationPolicyRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ContinuousAccessEvaluationPolicyRequestBuilderDeleteReq_e4fcb155 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,12 +46,12 @@ class ContinuousAccessEvaluationPolicyRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of a continuousAccessEvaluationPolicy object.
-     * @param ContinuousAccessEvaluationPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ContinuousAccessEvaluationPolicyRequestBuilderGetReques_cd5bf41e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ContinuousAccessEvaluationPolicy|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/continuousaccessevaluationpolicy-get?view=graph-rest-beta Find more info here
     */
-    public function get(?ContinuousAccessEvaluationPolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ContinuousAccessEvaluationPolicyRequestBuilderGetReques_cd5bf41e $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,12 +62,12 @@ class ContinuousAccessEvaluationPolicyRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a continuousAccessEvaluationPolicy object.
      * @param ContinuousAccessEvaluationPolicy $body The request body
-     * @param ContinuousAccessEvaluationPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ContinuousAccessEvaluationPolicyRequestBuilderPatchRequ_8259d8d4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ContinuousAccessEvaluationPolicy|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/continuousaccessevaluationpolicy-update?view=graph-rest-beta Find more info here
     */
-    public function patch(ContinuousAccessEvaluationPolicy $body, ?ContinuousAccessEvaluationPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ContinuousAccessEvaluationPolicy $body, ?ContinuousAccessEvaluationPolicyRequestBuilderPatchRequ_8259d8d4 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,10 +77,10 @@ class ContinuousAccessEvaluationPolicyRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property continuousAccessEvaluationPolicy for identity
-     * @param ContinuousAccessEvaluationPolicyRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ContinuousAccessEvaluationPolicyRequestBuilderDeleteReq_e4fcb155|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ContinuousAccessEvaluationPolicyRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ContinuousAccessEvaluationPolicyRequestBuilderDeleteReq_e4fcb155 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -95,10 +95,10 @@ class ContinuousAccessEvaluationPolicyRequestBuilder extends BaseRequestBuilder
 
     /**
      * Read the properties and relationships of a continuousAccessEvaluationPolicy object.
-     * @param ContinuousAccessEvaluationPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ContinuousAccessEvaluationPolicyRequestBuilderGetReques_cd5bf41e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ContinuousAccessEvaluationPolicyRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ContinuousAccessEvaluationPolicyRequestBuilderGetReques_cd5bf41e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -117,10 +117,10 @@ class ContinuousAccessEvaluationPolicyRequestBuilder extends BaseRequestBuilder
     /**
      * Update the properties of a continuousAccessEvaluationPolicy object.
      * @param ContinuousAccessEvaluationPolicy $body The request body
-     * @param ContinuousAccessEvaluationPolicyRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ContinuousAccessEvaluationPolicyRequestBuilderPatchRequ_8259d8d4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ContinuousAccessEvaluationPolicy $body, ?ContinuousAccessEvaluationPolicyRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ContinuousAccessEvaluationPolicy $body, ?ContinuousAccessEvaluationPolicyRequestBuilderPatchRequ_8259d8d4 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

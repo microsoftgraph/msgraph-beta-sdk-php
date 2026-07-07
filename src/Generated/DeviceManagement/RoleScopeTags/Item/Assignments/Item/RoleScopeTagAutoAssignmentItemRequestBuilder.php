@@ -32,11 +32,11 @@ class RoleScopeTagAutoAssignmentItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param RoleScopeTagAutoAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RoleScopeTagAutoAssignmentItemRequestBuilderDeleteReque_b772bf7a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?RoleScopeTagAutoAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?RoleScopeTagAutoAssignmentItemRequestBuilderDeleteReque_b772bf7a $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class RoleScopeTagAutoAssignmentItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * The list of assignments for this Role Scope Tag.
-     * @param RoleScopeTagAutoAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RoleScopeTagAutoAssignmentItemRequestBuilderGetRequestC_ce481f94|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RoleScopeTagAutoAssignment|null>
      * @throws Exception
     */
-    public function get(?RoleScopeTagAutoAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?RoleScopeTagAutoAssignmentItemRequestBuilderGetRequestC_ce481f94 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class RoleScopeTagAutoAssignmentItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property assignments in deviceManagement
      * @param RoleScopeTagAutoAssignment $body The request body
-     * @param RoleScopeTagAutoAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RoleScopeTagAutoAssignmentItemRequestBuilderPatchReques_2ac49645|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RoleScopeTagAutoAssignment|null>
      * @throws Exception
     */
-    public function patch(RoleScopeTagAutoAssignment $body, ?RoleScopeTagAutoAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(RoleScopeTagAutoAssignment $body, ?RoleScopeTagAutoAssignmentItemRequestBuilderPatchReques_2ac49645 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class RoleScopeTagAutoAssignmentItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property assignments for deviceManagement
-     * @param RoleScopeTagAutoAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RoleScopeTagAutoAssignmentItemRequestBuilderDeleteReque_b772bf7a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?RoleScopeTagAutoAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?RoleScopeTagAutoAssignmentItemRequestBuilderDeleteReque_b772bf7a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class RoleScopeTagAutoAssignmentItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * The list of assignments for this Role Scope Tag.
-     * @param RoleScopeTagAutoAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RoleScopeTagAutoAssignmentItemRequestBuilderGetRequestC_ce481f94|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?RoleScopeTagAutoAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?RoleScopeTagAutoAssignmentItemRequestBuilderGetRequestC_ce481f94 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class RoleScopeTagAutoAssignmentItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property assignments in deviceManagement
      * @param RoleScopeTagAutoAssignment $body The request body
-     * @param RoleScopeTagAutoAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RoleScopeTagAutoAssignmentItemRequestBuilderPatchReques_2ac49645|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(RoleScopeTagAutoAssignment $body, ?RoleScopeTagAutoAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(RoleScopeTagAutoAssignment $body, ?RoleScopeTagAutoAssignmentItemRequestBuilderPatchReques_2ac49645 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

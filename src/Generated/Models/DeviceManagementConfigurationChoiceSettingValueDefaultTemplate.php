@@ -38,7 +38,7 @@ class DeviceManagementConfigurationChoiceSettingValueDefaultTemplate implements 
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
-                case '#microsoft.graph.deviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate': return new DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate();
+                case '#microsoft.graph.deviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate': return new DeviceManagementConfigurationChoiceSettingValueConstant_c93bdeb8();
             }
         }
         return new DeviceManagementConfigurationChoiceSettingValueDefaultTemplate();

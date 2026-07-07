@@ -53,12 +53,12 @@ class PermissionsCreepIndexDistributionsRequestBuilder extends BaseRequestBuilde
 
     /**
      * Get a list of the permissionsCreepIndexDistribution objects and their properties.
-     * @param PermissionsCreepIndexDistributionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionsCreepIndexDistributionsRequestBuilderGetRequ_f7f523d4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PermissionsCreepIndexDistributionCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/permissionsanalytics-list-permissionscreepindexdistributions?view=graph-rest-beta Find more info here
     */
-    public function get(?PermissionsCreepIndexDistributionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?PermissionsCreepIndexDistributionsRequestBuilderGetRequ_f7f523d4 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class PermissionsCreepIndexDistributionsRequestBuilder extends BaseRequestBuilde
     /**
      * Create new navigation property to permissionsCreepIndexDistributions for identityGovernance
      * @param PermissionsCreepIndexDistribution $body The request body
-     * @param PermissionsCreepIndexDistributionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionsCreepIndexDistributionsRequestBuilderPostReq_e71ced35|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PermissionsCreepIndexDistribution|null>
      * @throws Exception
     */
-    public function post(PermissionsCreepIndexDistribution $body, ?PermissionsCreepIndexDistributionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(PermissionsCreepIndexDistribution $body, ?PermissionsCreepIndexDistributionsRequestBuilderPostReq_e71ced35 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class PermissionsCreepIndexDistributionsRequestBuilder extends BaseRequestBuilde
 
     /**
      * Get a list of the permissionsCreepIndexDistribution objects and their properties.
-     * @param PermissionsCreepIndexDistributionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionsCreepIndexDistributionsRequestBuilderGetRequ_f7f523d4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?PermissionsCreepIndexDistributionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?PermissionsCreepIndexDistributionsRequestBuilderGetRequ_f7f523d4 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -105,10 +105,10 @@ class PermissionsCreepIndexDistributionsRequestBuilder extends BaseRequestBuilde
     /**
      * Create new navigation property to permissionsCreepIndexDistributions for identityGovernance
      * @param PermissionsCreepIndexDistribution $body The request body
-     * @param PermissionsCreepIndexDistributionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PermissionsCreepIndexDistributionsRequestBuilderPostReq_e71ced35|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(PermissionsCreepIndexDistribution $body, ?PermissionsCreepIndexDistributionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(PermissionsCreepIndexDistribution $body, ?PermissionsCreepIndexDistributionsRequestBuilderPostReq_e71ced35 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

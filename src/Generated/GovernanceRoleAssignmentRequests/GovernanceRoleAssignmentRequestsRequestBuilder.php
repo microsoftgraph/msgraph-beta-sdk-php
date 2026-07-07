@@ -53,11 +53,11 @@ class GovernanceRoleAssignmentRequestsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get entities from governanceRoleAssignmentRequests
-     * @param GovernanceRoleAssignmentRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernanceRoleAssignmentRequestsRequestBuilderGetReques_02e95ab1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GovernanceRoleAssignmentRequestCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?GovernanceRoleAssignmentRequestsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GovernanceRoleAssignmentRequestsRequestBuilderGetReques_02e95ab1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class GovernanceRoleAssignmentRequestsRequestBuilder extends BaseRequestBuilder
     /**
      * Add new entity to governanceRoleAssignmentRequests
      * @param GovernanceRoleAssignmentRequest $body The request body
-     * @param GovernanceRoleAssignmentRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernanceRoleAssignmentRequestsRequestBuilderPostReque_1b14dc1e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GovernanceRoleAssignmentRequest|null>
      * @throws Exception
     */
-    public function post(GovernanceRoleAssignmentRequest $body, ?GovernanceRoleAssignmentRequestsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GovernanceRoleAssignmentRequest $body, ?GovernanceRoleAssignmentRequestsRequestBuilderPostReque_1b14dc1e $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class GovernanceRoleAssignmentRequestsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get entities from governanceRoleAssignmentRequests
-     * @param GovernanceRoleAssignmentRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernanceRoleAssignmentRequestsRequestBuilderGetReques_02e95ab1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GovernanceRoleAssignmentRequestsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GovernanceRoleAssignmentRequestsRequestBuilderGetReques_02e95ab1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class GovernanceRoleAssignmentRequestsRequestBuilder extends BaseRequestBuilder
     /**
      * Add new entity to governanceRoleAssignmentRequests
      * @param GovernanceRoleAssignmentRequest $body The request body
-     * @param GovernanceRoleAssignmentRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernanceRoleAssignmentRequestsRequestBuilderPostReque_1b14dc1e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GovernanceRoleAssignmentRequest $body, ?GovernanceRoleAssignmentRequestsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GovernanceRoleAssignmentRequest $body, ?GovernanceRoleAssignmentRequestsRequestBuilderPostReque_1b14dc1e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

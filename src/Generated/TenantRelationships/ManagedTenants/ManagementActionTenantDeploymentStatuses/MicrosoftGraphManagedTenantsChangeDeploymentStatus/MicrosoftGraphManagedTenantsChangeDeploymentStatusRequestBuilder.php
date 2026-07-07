@@ -33,11 +33,11 @@ class MicrosoftGraphManagedTenantsChangeDeploymentStatusRequestBuilder extends B
     /**
      * Changes the tenant level deployment status for the management action. This information is used to provide insights into what management actions are in a specific state. As example there might be a plan to apply the require multi-factor authentication for admins, so it would be ideal to change the status to planned to reflect the appropriate status.
      * @param ChangeDeploymentStatusPostRequestBody $body The request body
-     * @param MicrosoftGraphManagedTenantsChangeDeploymentStatusRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphManagedTenantsChangeDeploymentStatusReque_04e9edac|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementActionDeploymentStatus|null>
      * @throws Exception
     */
-    public function post(ChangeDeploymentStatusPostRequestBody $body, ?MicrosoftGraphManagedTenantsChangeDeploymentStatusRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ChangeDeploymentStatusPostRequestBody $body, ?MicrosoftGraphManagedTenantsChangeDeploymentStatusReque_04e9edac $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class MicrosoftGraphManagedTenantsChangeDeploymentStatusRequestBuilder extends B
     /**
      * Changes the tenant level deployment status for the management action. This information is used to provide insights into what management actions are in a specific state. As example there might be a plan to apply the require multi-factor authentication for admins, so it would be ideal to change the status to planned to reflect the appropriate status.
      * @param ChangeDeploymentStatusPostRequestBody $body The request body
-     * @param MicrosoftGraphManagedTenantsChangeDeploymentStatusRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphManagedTenantsChangeDeploymentStatusReque_04e9edac|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ChangeDeploymentStatusPostRequestBody $body, ?MicrosoftGraphManagedTenantsChangeDeploymentStatusRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ChangeDeploymentStatusPostRequestBody $body, ?MicrosoftGraphManagedTenantsChangeDeploymentStatusReque_04e9edac $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

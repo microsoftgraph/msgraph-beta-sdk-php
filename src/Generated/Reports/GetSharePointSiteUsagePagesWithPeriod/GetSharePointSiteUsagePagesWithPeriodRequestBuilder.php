@@ -35,11 +35,11 @@ class GetSharePointSiteUsagePagesWithPeriodRequestBuilder extends BaseRequestBui
 
     /**
      * Invoke function getSharePointSiteUsagePages
-     * @param GetSharePointSiteUsagePagesWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetSharePointSiteUsagePagesWithPeriodRequestBuilderGetR_8cbcd571|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function get(?GetSharePointSiteUsagePagesWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetSharePointSiteUsagePagesWithPeriodRequestBuilderGetR_8cbcd571 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -51,10 +51,10 @@ class GetSharePointSiteUsagePagesWithPeriodRequestBuilder extends BaseRequestBui
 
     /**
      * Invoke function getSharePointSiteUsagePages
-     * @param GetSharePointSiteUsagePagesWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetSharePointSiteUsagePagesWithPeriodRequestBuilderGetR_8cbcd571|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetSharePointSiteUsagePagesWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetSharePointSiteUsagePagesWithPeriodRequestBuilderGetR_8cbcd571 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

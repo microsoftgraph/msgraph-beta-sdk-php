@@ -56,11 +56,11 @@ class GroupPolicyMigrationReportItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property groupPolicyMigrationReports for deviceManagement
-     * @param GroupPolicyMigrationReportItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyMigrationReportItemRequestBuilderDeleteReque_ce5a3405|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?GroupPolicyMigrationReportItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?GroupPolicyMigrationReportItemRequestBuilderDeleteReque_ce5a3405 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -70,11 +70,11 @@ class GroupPolicyMigrationReportItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * A list of Group Policy migration reports.
-     * @param GroupPolicyMigrationReportItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyMigrationReportItemRequestBuilderGetRequestC_1a4231ac|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GroupPolicyMigrationReport|null>
      * @throws Exception
     */
-    public function get(?GroupPolicyMigrationReportItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GroupPolicyMigrationReportItemRequestBuilderGetRequestC_1a4231ac $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -85,11 +85,11 @@ class GroupPolicyMigrationReportItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property groupPolicyMigrationReports in deviceManagement
      * @param GroupPolicyMigrationReport $body The request body
-     * @param GroupPolicyMigrationReportItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyMigrationReportItemRequestBuilderPatchReques_f34a761e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GroupPolicyMigrationReport|null>
      * @throws Exception
     */
-    public function patch(GroupPolicyMigrationReport $body, ?GroupPolicyMigrationReportItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(GroupPolicyMigrationReport $body, ?GroupPolicyMigrationReportItemRequestBuilderPatchReques_f34a761e $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -99,10 +99,10 @@ class GroupPolicyMigrationReportItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property groupPolicyMigrationReports for deviceManagement
-     * @param GroupPolicyMigrationReportItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyMigrationReportItemRequestBuilderDeleteReque_ce5a3405|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?GroupPolicyMigrationReportItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?GroupPolicyMigrationReportItemRequestBuilderDeleteReque_ce5a3405 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -117,10 +117,10 @@ class GroupPolicyMigrationReportItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * A list of Group Policy migration reports.
-     * @param GroupPolicyMigrationReportItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyMigrationReportItemRequestBuilderGetRequestC_1a4231ac|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GroupPolicyMigrationReportItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GroupPolicyMigrationReportItemRequestBuilderGetRequestC_1a4231ac $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -139,10 +139,10 @@ class GroupPolicyMigrationReportItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property groupPolicyMigrationReports in deviceManagement
      * @param GroupPolicyMigrationReport $body The request body
-     * @param GroupPolicyMigrationReportItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GroupPolicyMigrationReportItemRequestBuilderPatchReques_f34a761e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(GroupPolicyMigrationReport $body, ?GroupPolicyMigrationReportItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(GroupPolicyMigrationReport $body, ?GroupPolicyMigrationReportItemRequestBuilderPatchReques_f34a761e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

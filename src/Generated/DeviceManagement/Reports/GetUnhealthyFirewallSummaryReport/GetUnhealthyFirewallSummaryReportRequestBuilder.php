@@ -33,11 +33,11 @@ class GetUnhealthyFirewallSummaryReportRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action getUnhealthyFirewallSummaryReport
      * @param GetUnhealthyFirewallSummaryReportPostRequestBody $body The request body
-     * @param GetUnhealthyFirewallSummaryReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetUnhealthyFirewallSummaryReportRequestBuilderPostRequ_333223a7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(GetUnhealthyFirewallSummaryReportPostRequestBody $body, ?GetUnhealthyFirewallSummaryReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetUnhealthyFirewallSummaryReportPostRequestBody $body, ?GetUnhealthyFirewallSummaryReportRequestBuilderPostRequ_333223a7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class GetUnhealthyFirewallSummaryReportRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action getUnhealthyFirewallSummaryReport
      * @param GetUnhealthyFirewallSummaryReportPostRequestBody $body The request body
-     * @param GetUnhealthyFirewallSummaryReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetUnhealthyFirewallSummaryReportRequestBuilderPostRequ_333223a7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetUnhealthyFirewallSummaryReportPostRequestBody $body, ?GetUnhealthyFirewallSummaryReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetUnhealthyFirewallSummaryReportPostRequestBody $body, ?GetUnhealthyFirewallSummaryReportRequestBuilderPostRequ_333223a7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

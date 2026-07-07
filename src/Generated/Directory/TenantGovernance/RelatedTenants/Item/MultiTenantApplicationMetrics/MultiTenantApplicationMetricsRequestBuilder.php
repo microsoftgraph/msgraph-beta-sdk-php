@@ -32,11 +32,11 @@ class MultiTenantApplicationMetricsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Multi-tenant application usage metrics for this related tenant. Expanded by default.
-     * @param MultiTenantApplicationMetricsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MultiTenantApplicationMetricsRequestBuilderGetRequestCo_0a947157|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MultiTenantApplicationMetrics|null>
      * @throws Exception
     */
-    public function get(?MultiTenantApplicationMetricsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MultiTenantApplicationMetricsRequestBuilderGetRequestCo_0a947157 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class MultiTenantApplicationMetricsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Multi-tenant application usage metrics for this related tenant. Expanded by default.
-     * @param MultiTenantApplicationMetricsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MultiTenantApplicationMetricsRequestBuilderGetRequestCo_0a947157|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MultiTenantApplicationMetricsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MultiTenantApplicationMetricsRequestBuilderGetRequestCo_0a947157 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

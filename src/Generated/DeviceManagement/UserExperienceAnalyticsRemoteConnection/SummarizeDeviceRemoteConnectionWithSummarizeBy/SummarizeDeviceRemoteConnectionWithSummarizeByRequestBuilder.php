@@ -34,11 +34,11 @@ class SummarizeDeviceRemoteConnectionWithSummarizeByRequestBuilder extends BaseR
 
     /**
      * Invoke function summarizeDeviceRemoteConnection
-     * @param SummarizeDeviceRemoteConnectionWithSummarizeByRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SummarizeDeviceRemoteConnectionWithSummarizeByRequestBu_f15705ce|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SummarizeDeviceRemoteConnectionWithSummarizeByGetResponse|null>
      * @throws Exception
     */
-    public function get(?SummarizeDeviceRemoteConnectionWithSummarizeByRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?SummarizeDeviceRemoteConnectionWithSummarizeByRequestBu_f15705ce $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class SummarizeDeviceRemoteConnectionWithSummarizeByRequestBuilder extends BaseR
 
     /**
      * Invoke function summarizeDeviceRemoteConnection
-     * @param SummarizeDeviceRemoteConnectionWithSummarizeByRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param SummarizeDeviceRemoteConnectionWithSummarizeByRequestBu_f15705ce|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?SummarizeDeviceRemoteConnectionWithSummarizeByRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?SummarizeDeviceRemoteConnectionWithSummarizeByRequestBu_f15705ce $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

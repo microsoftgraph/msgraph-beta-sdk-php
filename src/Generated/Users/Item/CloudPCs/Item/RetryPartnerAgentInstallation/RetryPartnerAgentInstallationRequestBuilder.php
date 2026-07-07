@@ -31,12 +31,12 @@ class RetryPartnerAgentInstallationRequestBuilder extends BaseRequestBuilder
 
     /**
      * Retry installation for the partner agents that failed to install on the Cloud PC. Service side checks which agent installation failed firstly and retry.
-     * @param RetryPartnerAgentInstallationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetryPartnerAgentInstallationRequestBuilderPostRequestC_e6bb41be|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/cloudpc-retrypartneragentinstallation?view=graph-rest-beta Find more info here
     */
-    public function post(?RetryPartnerAgentInstallationRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?RetryPartnerAgentInstallationRequestBuilderPostRequestC_e6bb41be $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class RetryPartnerAgentInstallationRequestBuilder extends BaseRequestBuilder
 
     /**
      * Retry installation for the partner agents that failed to install on the Cloud PC. Service side checks which agent installation failed firstly and retry.
-     * @param RetryPartnerAgentInstallationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetryPartnerAgentInstallationRequestBuilderPostRequestC_e6bb41be|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?RetryPartnerAgentInstallationRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?RetryPartnerAgentInstallationRequestBuilderPostRequestC_e6bb41be $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

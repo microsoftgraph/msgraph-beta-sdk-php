@@ -32,11 +32,11 @@ class InformationProtectionLabelItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property labels for groups
-     * @param InformationProtectionLabelItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param InformationProtectionLabelItemRequestBuilderDeleteReque_9241f9be|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?InformationProtectionLabelItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?InformationProtectionLabelItemRequestBuilderDeleteReque_9241f9be $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class InformationProtectionLabelItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get labels from groups
-     * @param InformationProtectionLabelItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param InformationProtectionLabelItemRequestBuilderGetRequestC_24a56aab|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InformationProtectionLabel|null>
      * @throws Exception
     */
-    public function get(?InformationProtectionLabelItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?InformationProtectionLabelItemRequestBuilderGetRequestC_24a56aab $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class InformationProtectionLabelItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property labels in groups
      * @param InformationProtectionLabel $body The request body
-     * @param InformationProtectionLabelItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param InformationProtectionLabelItemRequestBuilderPatchReques_2ce639f0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<InformationProtectionLabel|null>
      * @throws Exception
     */
-    public function patch(InformationProtectionLabel $body, ?InformationProtectionLabelItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(InformationProtectionLabel $body, ?InformationProtectionLabelItemRequestBuilderPatchReques_2ce639f0 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class InformationProtectionLabelItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property labels for groups
-     * @param InformationProtectionLabelItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param InformationProtectionLabelItemRequestBuilderDeleteReque_9241f9be|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?InformationProtectionLabelItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?InformationProtectionLabelItemRequestBuilderDeleteReque_9241f9be $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class InformationProtectionLabelItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get labels from groups
-     * @param InformationProtectionLabelItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param InformationProtectionLabelItemRequestBuilderGetRequestC_24a56aab|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?InformationProtectionLabelItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?InformationProtectionLabelItemRequestBuilderGetRequestC_24a56aab $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class InformationProtectionLabelItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property labels in groups
      * @param InformationProtectionLabel $body The request body
-     * @param InformationProtectionLabelItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param InformationProtectionLabelItemRequestBuilderPatchReques_2ce639f0|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(InformationProtectionLabel $body, ?InformationProtectionLabelItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(InformationProtectionLabel $body, ?InformationProtectionLabelItemRequestBuilderPatchReques_2ce639f0 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

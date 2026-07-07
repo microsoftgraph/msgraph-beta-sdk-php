@@ -32,11 +32,11 @@ class DeviceManagementConfigurationCategoryItemRequestBuilder extends BaseReques
 
     /**
      * Delete navigation property configurationCategories for deviceManagement
-     * @param DeviceManagementConfigurationCategoryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementConfigurationCategoryItemRequestBuilder_034ee91c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?DeviceManagementConfigurationCategoryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DeviceManagementConfigurationCategoryItemRequestBuilder_034ee91c $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class DeviceManagementConfigurationCategoryItemRequestBuilder extends BaseReques
 
     /**
      * List of all Configuration Categories
-     * @param DeviceManagementConfigurationCategoryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementConfigurationCategoryItemRequestBuilder_bdb5d11b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementConfigurationCategory|null>
      * @throws Exception
     */
-    public function get(?DeviceManagementConfigurationCategoryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DeviceManagementConfigurationCategoryItemRequestBuilder_bdb5d11b $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class DeviceManagementConfigurationCategoryItemRequestBuilder extends BaseReques
     /**
      * Update the navigation property configurationCategories in deviceManagement
      * @param DeviceManagementConfigurationCategory $body The request body
-     * @param DeviceManagementConfigurationCategoryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementConfigurationCategoryItemRequestBuilder_f75ad36e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DeviceManagementConfigurationCategory|null>
      * @throws Exception
     */
-    public function patch(DeviceManagementConfigurationCategory $body, ?DeviceManagementConfigurationCategoryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(DeviceManagementConfigurationCategory $body, ?DeviceManagementConfigurationCategoryItemRequestBuilder_f75ad36e $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class DeviceManagementConfigurationCategoryItemRequestBuilder extends BaseReques
 
     /**
      * Delete navigation property configurationCategories for deviceManagement
-     * @param DeviceManagementConfigurationCategoryItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementConfigurationCategoryItemRequestBuilder_034ee91c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?DeviceManagementConfigurationCategoryItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?DeviceManagementConfigurationCategoryItemRequestBuilder_034ee91c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class DeviceManagementConfigurationCategoryItemRequestBuilder extends BaseReques
 
     /**
      * List of all Configuration Categories
-     * @param DeviceManagementConfigurationCategoryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementConfigurationCategoryItemRequestBuilder_bdb5d11b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?DeviceManagementConfigurationCategoryItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?DeviceManagementConfigurationCategoryItemRequestBuilder_bdb5d11b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class DeviceManagementConfigurationCategoryItemRequestBuilder extends BaseReques
     /**
      * Update the navigation property configurationCategories in deviceManagement
      * @param DeviceManagementConfigurationCategory $body The request body
-     * @param DeviceManagementConfigurationCategoryItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param DeviceManagementConfigurationCategoryItemRequestBuilder_f75ad36e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DeviceManagementConfigurationCategory $body, ?DeviceManagementConfigurationCategoryItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(DeviceManagementConfigurationCategory $body, ?DeviceManagementConfigurationCategoryItemRequestBuilder_f75ad36e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -40,11 +40,11 @@ class TeamTemplateDefinitionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete entity from teamTemplateDefinition
-     * @param TeamTemplateDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TeamTemplateDefinitionItemRequestBuilderDeleteRequestCo_90d44300|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?TeamTemplateDefinitionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?TeamTemplateDefinitionItemRequestBuilderDeleteRequestCo_90d44300 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -69,11 +69,11 @@ class TeamTemplateDefinitionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update entity in teamTemplateDefinition
      * @param TeamTemplateDefinition $body The request body
-     * @param TeamTemplateDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TeamTemplateDefinitionItemRequestBuilderPatchRequestCon_ee003e55|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamTemplateDefinition|null>
      * @throws Exception
     */
-    public function patch(TeamTemplateDefinition $body, ?TeamTemplateDefinitionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(TeamTemplateDefinition $body, ?TeamTemplateDefinitionItemRequestBuilderPatchRequestCon_ee003e55 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -83,10 +83,10 @@ class TeamTemplateDefinitionItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete entity from teamTemplateDefinition
-     * @param TeamTemplateDefinitionItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TeamTemplateDefinitionItemRequestBuilderDeleteRequestCo_90d44300|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?TeamTemplateDefinitionItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?TeamTemplateDefinitionItemRequestBuilderDeleteRequestCo_90d44300 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -123,10 +123,10 @@ class TeamTemplateDefinitionItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update entity in teamTemplateDefinition
      * @param TeamTemplateDefinition $body The request body
-     * @param TeamTemplateDefinitionItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param TeamTemplateDefinitionItemRequestBuilderPatchRequestCon_ee003e55|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(TeamTemplateDefinition $body, ?TeamTemplateDefinitionItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(TeamTemplateDefinition $body, ?TeamTemplateDefinitionItemRequestBuilderPatchRequestCon_ee003e55 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

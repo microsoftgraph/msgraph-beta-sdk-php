@@ -48,11 +48,11 @@ class PlannerTaskChatMessageItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property messages for planner
-     * @param PlannerTaskChatMessageItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PlannerTaskChatMessageItemRequestBuilderDeleteRequestCo_5244486e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?PlannerTaskChatMessageItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?PlannerTaskChatMessageItemRequestBuilderDeleteRequestCo_5244486e $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,11 +77,11 @@ class PlannerTaskChatMessageItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property messages in planner
      * @param PlannerTaskChatMessage $body The request body
-     * @param PlannerTaskChatMessageItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PlannerTaskChatMessageItemRequestBuilderPatchRequestCon_d618d997|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerTaskChatMessage|null>
      * @throws Exception
     */
-    public function patch(PlannerTaskChatMessage $body, ?PlannerTaskChatMessageItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(PlannerTaskChatMessage $body, ?PlannerTaskChatMessageItemRequestBuilderPatchRequestCon_d618d997 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -91,10 +91,10 @@ class PlannerTaskChatMessageItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property messages for planner
-     * @param PlannerTaskChatMessageItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PlannerTaskChatMessageItemRequestBuilderDeleteRequestCo_5244486e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?PlannerTaskChatMessageItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?PlannerTaskChatMessageItemRequestBuilderDeleteRequestCo_5244486e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -131,10 +131,10 @@ class PlannerTaskChatMessageItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property messages in planner
      * @param PlannerTaskChatMessage $body The request body
-     * @param PlannerTaskChatMessageItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PlannerTaskChatMessageItemRequestBuilderPatchRequestCon_d618d997|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(PlannerTaskChatMessage $body, ?PlannerTaskChatMessageItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(PlannerTaskChatMessage $body, ?PlannerTaskChatMessageItemRequestBuilderPatchRequestCon_d618d997 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

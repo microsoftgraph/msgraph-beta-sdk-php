@@ -63,11 +63,11 @@ class PendingAccessReviewInstancesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Navigation property to get a list of access reviews pending approval by the reviewer.
-     * @param PendingAccessReviewInstancesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PendingAccessReviewInstancesRequestBuilderGetRequestCon_8a4233cb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessReviewInstanceCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?PendingAccessReviewInstancesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?PendingAccessReviewInstancesRequestBuilderGetRequestCon_8a4233cb $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -78,11 +78,11 @@ class PendingAccessReviewInstancesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to pendingAccessReviewInstances for users
      * @param AccessReviewInstance $body The request body
-     * @param PendingAccessReviewInstancesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PendingAccessReviewInstancesRequestBuilderPostRequestCo_2de090e7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessReviewInstance|null>
      * @throws Exception
     */
-    public function post(AccessReviewInstance $body, ?PendingAccessReviewInstancesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AccessReviewInstance $body, ?PendingAccessReviewInstancesRequestBuilderPostRequestCo_2de090e7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -92,10 +92,10 @@ class PendingAccessReviewInstancesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Navigation property to get a list of access reviews pending approval by the reviewer.
-     * @param PendingAccessReviewInstancesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PendingAccessReviewInstancesRequestBuilderGetRequestCon_8a4233cb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?PendingAccessReviewInstancesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?PendingAccessReviewInstancesRequestBuilderGetRequestCon_8a4233cb $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -114,10 +114,10 @@ class PendingAccessReviewInstancesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to pendingAccessReviewInstances for users
      * @param AccessReviewInstance $body The request body
-     * @param PendingAccessReviewInstancesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param PendingAccessReviewInstancesRequestBuilderPostRequestCo_2de090e7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AccessReviewInstance $body, ?PendingAccessReviewInstancesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AccessReviewInstance $body, ?PendingAccessReviewInstancesRequestBuilderPostRequestCo_2de090e7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

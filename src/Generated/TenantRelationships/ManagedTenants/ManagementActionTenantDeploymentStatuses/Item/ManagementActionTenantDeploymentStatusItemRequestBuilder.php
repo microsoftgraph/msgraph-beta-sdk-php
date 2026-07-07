@@ -32,11 +32,11 @@ class ManagementActionTenantDeploymentStatusItemRequestBuilder extends BaseReque
 
     /**
      * Delete navigation property managementActionTenantDeploymentStatuses for tenantRelationships
-     * @param ManagementActionTenantDeploymentStatusItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementActionTenantDeploymentStatusItemRequestBuilde_be9b969f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?ManagementActionTenantDeploymentStatusItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?ManagementActionTenantDeploymentStatusItemRequestBuilde_be9b969f $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,12 +46,12 @@ class ManagementActionTenantDeploymentStatusItemRequestBuilder extends BaseReque
 
     /**
      * Read the properties and relationships of a managementActionTenantDeploymentStatus object.
-     * @param ManagementActionTenantDeploymentStatusItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementActionTenantDeploymentStatusItemRequestBuilde_62b01d1e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementActionTenantDeploymentStatus|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/managedtenants-managementactiontenantdeploymentstatus-get?view=graph-rest-beta Find more info here
     */
-    public function get(?ManagementActionTenantDeploymentStatusItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagementActionTenantDeploymentStatusItemRequestBuilde_62b01d1e $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class ManagementActionTenantDeploymentStatusItemRequestBuilder extends BaseReque
     /**
      * Update the navigation property managementActionTenantDeploymentStatuses in tenantRelationships
      * @param ManagementActionTenantDeploymentStatus $body The request body
-     * @param ManagementActionTenantDeploymentStatusItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementActionTenantDeploymentStatusItemRequestBuilde_5320fbe1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementActionTenantDeploymentStatus|null>
      * @throws Exception
     */
-    public function patch(ManagementActionTenantDeploymentStatus $body, ?ManagementActionTenantDeploymentStatusItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(ManagementActionTenantDeploymentStatus $body, ?ManagementActionTenantDeploymentStatusItemRequestBuilde_5320fbe1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -76,10 +76,10 @@ class ManagementActionTenantDeploymentStatusItemRequestBuilder extends BaseReque
 
     /**
      * Delete navigation property managementActionTenantDeploymentStatuses for tenantRelationships
-     * @param ManagementActionTenantDeploymentStatusItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementActionTenantDeploymentStatusItemRequestBuilde_be9b969f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?ManagementActionTenantDeploymentStatusItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?ManagementActionTenantDeploymentStatusItemRequestBuilde_be9b969f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -94,10 +94,10 @@ class ManagementActionTenantDeploymentStatusItemRequestBuilder extends BaseReque
 
     /**
      * Read the properties and relationships of a managementActionTenantDeploymentStatus object.
-     * @param ManagementActionTenantDeploymentStatusItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementActionTenantDeploymentStatusItemRequestBuilde_62b01d1e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagementActionTenantDeploymentStatusItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagementActionTenantDeploymentStatusItemRequestBuilde_62b01d1e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -116,10 +116,10 @@ class ManagementActionTenantDeploymentStatusItemRequestBuilder extends BaseReque
     /**
      * Update the navigation property managementActionTenantDeploymentStatuses in tenantRelationships
      * @param ManagementActionTenantDeploymentStatus $body The request body
-     * @param ManagementActionTenantDeploymentStatusItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementActionTenantDeploymentStatusItemRequestBuilde_5320fbe1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(ManagementActionTenantDeploymentStatus $body, ?ManagementActionTenantDeploymentStatusItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(ManagementActionTenantDeploymentStatus $body, ?ManagementActionTenantDeploymentStatusItemRequestBuilde_5320fbe1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

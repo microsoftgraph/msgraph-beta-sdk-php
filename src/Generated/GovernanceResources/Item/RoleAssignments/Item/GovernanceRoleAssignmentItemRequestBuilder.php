@@ -64,11 +64,11 @@ class GovernanceRoleAssignmentItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property roleAssignments for governanceResources
-     * @param GovernanceRoleAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernanceRoleAssignmentItemRequestBuilderDeleteRequest_6ae27683|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?GovernanceRoleAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?GovernanceRoleAssignmentItemRequestBuilderDeleteRequest_6ae27683 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -78,11 +78,11 @@ class GovernanceRoleAssignmentItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * The collection of role assignments for the resource.
-     * @param GovernanceRoleAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernanceRoleAssignmentItemRequestBuilderGetRequestCon_5742a7a1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GovernanceRoleAssignment|null>
      * @throws Exception
     */
-    public function get(?GovernanceRoleAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GovernanceRoleAssignmentItemRequestBuilderGetRequestCon_5742a7a1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -93,11 +93,11 @@ class GovernanceRoleAssignmentItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property roleAssignments in governanceResources
      * @param GovernanceRoleAssignment $body The request body
-     * @param GovernanceRoleAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernanceRoleAssignmentItemRequestBuilderPatchRequestC_8cf0e9c9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GovernanceRoleAssignment|null>
      * @throws Exception
     */
-    public function patch(GovernanceRoleAssignment $body, ?GovernanceRoleAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(GovernanceRoleAssignment $body, ?GovernanceRoleAssignmentItemRequestBuilderPatchRequestC_8cf0e9c9 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -107,10 +107,10 @@ class GovernanceRoleAssignmentItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property roleAssignments for governanceResources
-     * @param GovernanceRoleAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernanceRoleAssignmentItemRequestBuilderDeleteRequest_6ae27683|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?GovernanceRoleAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?GovernanceRoleAssignmentItemRequestBuilderDeleteRequest_6ae27683 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -125,10 +125,10 @@ class GovernanceRoleAssignmentItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * The collection of role assignments for the resource.
-     * @param GovernanceRoleAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernanceRoleAssignmentItemRequestBuilderGetRequestCon_5742a7a1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GovernanceRoleAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GovernanceRoleAssignmentItemRequestBuilderGetRequestCon_5742a7a1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -147,10 +147,10 @@ class GovernanceRoleAssignmentItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property roleAssignments in governanceResources
      * @param GovernanceRoleAssignment $body The request body
-     * @param GovernanceRoleAssignmentItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernanceRoleAssignmentItemRequestBuilderPatchRequestC_8cf0e9c9|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(GovernanceRoleAssignment $body, ?GovernanceRoleAssignmentItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(GovernanceRoleAssignment $body, ?GovernanceRoleAssignmentItemRequestBuilderPatchRequestC_8cf0e9c9 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

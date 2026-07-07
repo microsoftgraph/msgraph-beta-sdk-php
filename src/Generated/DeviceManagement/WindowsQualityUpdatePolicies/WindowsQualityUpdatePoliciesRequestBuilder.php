@@ -53,11 +53,11 @@ class WindowsQualityUpdatePoliciesRequestBuilder extends BaseRequestBuilder
 
     /**
      * A collection of Windows quality update policies
-     * @param WindowsQualityUpdatePoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsQualityUpdatePoliciesRequestBuilderGetRequestCon_17e79d7f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsQualityUpdatePolicyCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?WindowsQualityUpdatePoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?WindowsQualityUpdatePoliciesRequestBuilderGetRequestCon_17e79d7f $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class WindowsQualityUpdatePoliciesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to windowsQualityUpdatePolicies for deviceManagement
      * @param WindowsQualityUpdatePolicy $body The request body
-     * @param WindowsQualityUpdatePoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsQualityUpdatePoliciesRequestBuilderPostRequestCo_483e05bf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsQualityUpdatePolicy|null>
      * @throws Exception
     */
-    public function post(WindowsQualityUpdatePolicy $body, ?WindowsQualityUpdatePoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(WindowsQualityUpdatePolicy $body, ?WindowsQualityUpdatePoliciesRequestBuilderPostRequestCo_483e05bf $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class WindowsQualityUpdatePoliciesRequestBuilder extends BaseRequestBuilder
 
     /**
      * A collection of Windows quality update policies
-     * @param WindowsQualityUpdatePoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsQualityUpdatePoliciesRequestBuilderGetRequestCon_17e79d7f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?WindowsQualityUpdatePoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?WindowsQualityUpdatePoliciesRequestBuilderGetRequestCon_17e79d7f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class WindowsQualityUpdatePoliciesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to windowsQualityUpdatePolicies for deviceManagement
      * @param WindowsQualityUpdatePolicy $body The request body
-     * @param WindowsQualityUpdatePoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsQualityUpdatePoliciesRequestBuilderPostRequestCo_483e05bf|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(WindowsQualityUpdatePolicy $body, ?WindowsQualityUpdatePoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(WindowsQualityUpdatePolicy $body, ?WindowsQualityUpdatePoliciesRequestBuilderPostRequestCo_483e05bf $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

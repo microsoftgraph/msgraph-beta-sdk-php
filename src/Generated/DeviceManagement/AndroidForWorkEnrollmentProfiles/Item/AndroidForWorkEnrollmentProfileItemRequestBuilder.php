@@ -48,11 +48,11 @@ class AndroidForWorkEnrollmentProfileItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Delete navigation property androidForWorkEnrollmentProfiles for deviceManagement
-     * @param AndroidForWorkEnrollmentProfileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidForWorkEnrollmentProfileItemRequestBuilderDelete_4ce6a82b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?AndroidForWorkEnrollmentProfileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?AndroidForWorkEnrollmentProfileItemRequestBuilderDelete_4ce6a82b $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class AndroidForWorkEnrollmentProfileItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Android for Work enrollment profile entities.
-     * @param AndroidForWorkEnrollmentProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidForWorkEnrollmentProfileItemRequestBuilderGetReq_04e86ace|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AndroidForWorkEnrollmentProfile|null>
      * @throws Exception
     */
-    public function get(?AndroidForWorkEnrollmentProfileItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AndroidForWorkEnrollmentProfileItemRequestBuilderGetReq_04e86ace $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,11 +77,11 @@ class AndroidForWorkEnrollmentProfileItemRequestBuilder extends BaseRequestBuild
     /**
      * Update the navigation property androidForWorkEnrollmentProfiles in deviceManagement
      * @param AndroidForWorkEnrollmentProfile $body The request body
-     * @param AndroidForWorkEnrollmentProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidForWorkEnrollmentProfileItemRequestBuilderPatchR_5da4a8ca|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AndroidForWorkEnrollmentProfile|null>
      * @throws Exception
     */
-    public function patch(AndroidForWorkEnrollmentProfile $body, ?AndroidForWorkEnrollmentProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(AndroidForWorkEnrollmentProfile $body, ?AndroidForWorkEnrollmentProfileItemRequestBuilderPatchR_5da4a8ca $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -91,10 +91,10 @@ class AndroidForWorkEnrollmentProfileItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Delete navigation property androidForWorkEnrollmentProfiles for deviceManagement
-     * @param AndroidForWorkEnrollmentProfileItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidForWorkEnrollmentProfileItemRequestBuilderDelete_4ce6a82b|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?AndroidForWorkEnrollmentProfileItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?AndroidForWorkEnrollmentProfileItemRequestBuilderDelete_4ce6a82b $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -109,10 +109,10 @@ class AndroidForWorkEnrollmentProfileItemRequestBuilder extends BaseRequestBuild
 
     /**
      * Android for Work enrollment profile entities.
-     * @param AndroidForWorkEnrollmentProfileItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidForWorkEnrollmentProfileItemRequestBuilderGetReq_04e86ace|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AndroidForWorkEnrollmentProfileItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AndroidForWorkEnrollmentProfileItemRequestBuilderGetReq_04e86ace $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -131,10 +131,10 @@ class AndroidForWorkEnrollmentProfileItemRequestBuilder extends BaseRequestBuild
     /**
      * Update the navigation property androidForWorkEnrollmentProfiles in deviceManagement
      * @param AndroidForWorkEnrollmentProfile $body The request body
-     * @param AndroidForWorkEnrollmentProfileItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AndroidForWorkEnrollmentProfileItemRequestBuilderPatchR_5da4a8ca|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(AndroidForWorkEnrollmentProfile $body, ?AndroidForWorkEnrollmentProfileItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(AndroidForWorkEnrollmentProfile $body, ?AndroidForWorkEnrollmentProfileItemRequestBuilderPatchR_5da4a8ca $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

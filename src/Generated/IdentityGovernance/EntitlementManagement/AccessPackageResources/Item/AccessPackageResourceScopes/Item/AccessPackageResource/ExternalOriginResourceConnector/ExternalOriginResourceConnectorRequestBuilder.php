@@ -32,11 +32,11 @@ class ExternalOriginResourceConnectorRequestBuilder extends BaseRequestBuilder
 
     /**
      * The connector that integrates with external origin systems to provision access to resources from those systems. Read-only. Nullable.
-     * @param ExternalOriginResourceConnectorRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ExternalOriginResourceConnectorRequestBuilderGetRequest_01ae5673|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExternalOriginResourceConnector|null>
      * @throws Exception
     */
-    public function get(?ExternalOriginResourceConnectorRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ExternalOriginResourceConnectorRequestBuilderGetRequest_01ae5673 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class ExternalOriginResourceConnectorRequestBuilder extends BaseRequestBuilder
 
     /**
      * The connector that integrates with external origin systems to provision access to resources from those systems. Read-only. Nullable.
-     * @param ExternalOriginResourceConnectorRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ExternalOriginResourceConnectorRequestBuilderGetRequest_01ae5673|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ExternalOriginResourceConnectorRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ExternalOriginResourceConnectorRequestBuilderGetRequest_01ae5673 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

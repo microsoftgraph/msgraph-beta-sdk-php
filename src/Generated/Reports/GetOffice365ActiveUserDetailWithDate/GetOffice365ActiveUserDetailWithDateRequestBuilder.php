@@ -35,11 +35,11 @@ class GetOffice365ActiveUserDetailWithDateRequestBuilder extends BaseRequestBuil
 
     /**
      * Invoke function getOffice365ActiveUserDetail
-     * @param GetOffice365ActiveUserDetailWithDateRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetOffice365ActiveUserDetailWithDateRequestBuilderGetRe_a1f7b8c7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetOffice365ActiveUserDetailWithDateGetResponse|null>
      * @throws Exception
     */
-    public function get(?GetOffice365ActiveUserDetailWithDateRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetOffice365ActiveUserDetailWithDateRequestBuilderGetRe_a1f7b8c7 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,10 +49,10 @@ class GetOffice365ActiveUserDetailWithDateRequestBuilder extends BaseRequestBuil
 
     /**
      * Invoke function getOffice365ActiveUserDetail
-     * @param GetOffice365ActiveUserDetailWithDateRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetOffice365ActiveUserDetailWithDateRequestBuilderGetRe_a1f7b8c7|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetOffice365ActiveUserDetailWithDateRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetOffice365ActiveUserDetailWithDateRequestBuilderGetRe_a1f7b8c7 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

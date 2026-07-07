@@ -70,7 +70,7 @@ class DecisionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the decisions from a stage in a multi-stage access review. The decisions in an accessReviewStage object are represented by an accessReviewInstanceDecisionItem object.
+     * Get the accessReviewInstanceDecisionItem objects from an accessReviewStage in a multi-stage access review.
      * @param DecisionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessReviewInstanceDecisionItemCollectionResponse|null>
      * @throws Exception
@@ -100,7 +100,7 @@ class DecisionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the decisions from a stage in a multi-stage access review. The decisions in an accessReviewStage object are represented by an accessReviewInstanceDecisionItem object.
+     * Get the accessReviewInstanceDecisionItem objects from an accessReviewStage in a multi-stage access review.
      * @param DecisionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

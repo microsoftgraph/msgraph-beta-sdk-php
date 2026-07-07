@@ -27,7 +27,7 @@ class SensorMigration extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date and time the sensor was created.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -39,7 +39,7 @@ class SensorMigration extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name of the sensor.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -51,7 +51,7 @@ class SensorMigration extends Entity implements Parsable
     }
 
     /**
-     * Gets the domainName property value. The domainName property
+     * Gets the domainName property value. The fully qualified domain name (FQDN) of the domain controller where the sensor is installed.
      * @return string|null
     */
     public function getDomainName(): ?string {
@@ -129,7 +129,7 @@ class SensorMigration extends Entity implements Parsable
     }
 
     /**
-     * Gets the version property value. The version property
+     * Gets the version property value. The version number of the sensor software.
      * @return string|null
     */
     public function getVersion(): ?string {
@@ -157,7 +157,7 @@ class SensorMigration extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date and time the sensor was created.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -165,7 +165,7 @@ class SensorMigration extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name of the sensor.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -173,7 +173,7 @@ class SensorMigration extends Entity implements Parsable
     }
 
     /**
-     * Sets the domainName property value. The domainName property
+     * Sets the domainName property value. The fully qualified domain name (FQDN) of the domain controller where the sensor is installed.
      * @param string|null $value Value to set for the domainName property.
     */
     public function setDomainName(?string $value): void {
@@ -213,7 +213,7 @@ class SensorMigration extends Entity implements Parsable
     }
 
     /**
-     * Sets the version property value. The version property
+     * Sets the version property value. The version number of the sensor software.
      * @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value): void {

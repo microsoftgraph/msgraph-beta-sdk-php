@@ -52,11 +52,11 @@ class ManagementTemplateCollectionsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get managementTemplateCollections from tenantRelationships
-     * @param ManagementTemplateCollectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateCollectionsRequestBuilderGetRequestCo_b1936366|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementTemplateCollectionCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?ManagementTemplateCollectionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ManagementTemplateCollectionsRequestBuilderGetRequestCo_b1936366 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -66,10 +66,10 @@ class ManagementTemplateCollectionsRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get managementTemplateCollections from tenantRelationships
-     * @param ManagementTemplateCollectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param ManagementTemplateCollectionsRequestBuilderGetRequestCo_b1936366|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?ManagementTemplateCollectionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?ManagementTemplateCollectionsRequestBuilderGetRequestCo_b1936366 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

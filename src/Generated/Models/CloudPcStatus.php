@@ -22,4 +22,6 @@ class CloudPcStatus extends Enum {
     public const MODIFYING_SINGLE_SIGN_ON = "modifyingSingleSignOn";
     public const REFRESH_POLICY_CONFIGURATION = "refreshPolicyConfiguration";
     public const PREPARING = "preparing";
+    public const FAILOVER_IN_PROGRESS = "failoverInProgress";
+    public const FAILBACK_IN_PROGRESS = "failbackInProgress";
 }

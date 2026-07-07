@@ -32,11 +32,11 @@ class IosVppAppAssignedLicenseItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property assignedLicenses for deviceAppManagement
-     * @param IosVppAppAssignedLicenseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IosVppAppAssignedLicenseItemRequestBuilderDeleteRequest_2c53e62a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?IosVppAppAssignedLicenseItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?IosVppAppAssignedLicenseItemRequestBuilderDeleteRequest_2c53e62a $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +46,11 @@ class IosVppAppAssignedLicenseItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * The licenses assigned to this app.
-     * @param IosVppAppAssignedLicenseItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IosVppAppAssignedLicenseItemRequestBuilderGetRequestCon_bf17f1b1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IosVppAppAssignedLicense|null>
      * @throws Exception
     */
-    public function get(?IosVppAppAssignedLicenseItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?IosVppAppAssignedLicenseItemRequestBuilderGetRequestCon_bf17f1b1 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +61,11 @@ class IosVppAppAssignedLicenseItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property assignedLicenses in deviceAppManagement
      * @param IosVppAppAssignedLicense $body The request body
-     * @param IosVppAppAssignedLicenseItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IosVppAppAssignedLicenseItemRequestBuilderPatchRequestC_024c968f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<IosVppAppAssignedLicense|null>
      * @throws Exception
     */
-    public function patch(IosVppAppAssignedLicense $body, ?IosVppAppAssignedLicenseItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(IosVppAppAssignedLicense $body, ?IosVppAppAssignedLicenseItemRequestBuilderPatchRequestC_024c968f $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +75,10 @@ class IosVppAppAssignedLicenseItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property assignedLicenses for deviceAppManagement
-     * @param IosVppAppAssignedLicenseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IosVppAppAssignedLicenseItemRequestBuilderDeleteRequest_2c53e62a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?IosVppAppAssignedLicenseItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?IosVppAppAssignedLicenseItemRequestBuilderDeleteRequest_2c53e62a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +93,10 @@ class IosVppAppAssignedLicenseItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * The licenses assigned to this app.
-     * @param IosVppAppAssignedLicenseItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IosVppAppAssignedLicenseItemRequestBuilderGetRequestCon_bf17f1b1|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?IosVppAppAssignedLicenseItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?IosVppAppAssignedLicenseItemRequestBuilderGetRequestCon_bf17f1b1 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +115,10 @@ class IosVppAppAssignedLicenseItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property assignedLicenses in deviceAppManagement
      * @param IosVppAppAssignedLicense $body The request body
-     * @param IosVppAppAssignedLicenseItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param IosVppAppAssignedLicenseItemRequestBuilderPatchRequestC_024c968f|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(IosVppAppAssignedLicense $body, ?IosVppAppAssignedLicenseItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(IosVppAppAssignedLicense $body, ?IosVppAppAssignedLicenseItemRequestBuilderPatchRequestC_024c968f $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

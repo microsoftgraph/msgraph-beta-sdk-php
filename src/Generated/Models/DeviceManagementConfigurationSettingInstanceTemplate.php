@@ -38,11 +38,11 @@ class DeviceManagementConfigurationSettingInstanceTemplate implements Additional
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
-                case '#microsoft.graph.deviceManagementConfigurationChoiceSettingCollectionInstanceTemplate': return new DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate();
+                case '#microsoft.graph.deviceManagementConfigurationChoiceSettingCollectionInstanceTemplate': return new DeviceManagementConfigurationChoiceSettingCollectionIns_8889d9d6();
                 case '#microsoft.graph.deviceManagementConfigurationChoiceSettingInstanceTemplate': return new DeviceManagementConfigurationChoiceSettingInstanceTemplate();
-                case '#microsoft.graph.deviceManagementConfigurationGroupSettingCollectionInstanceTemplate': return new DeviceManagementConfigurationGroupSettingCollectionInstanceTemplate();
+                case '#microsoft.graph.deviceManagementConfigurationGroupSettingCollectionInstanceTemplate': return new DeviceManagementConfigurationGroupSettingCollectionInst_3ffb2e91();
                 case '#microsoft.graph.deviceManagementConfigurationGroupSettingInstanceTemplate': return new DeviceManagementConfigurationGroupSettingInstanceTemplate();
-                case '#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionInstanceTemplate': return new DeviceManagementConfigurationSimpleSettingCollectionInstanceTemplate();
+                case '#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionInstanceTemplate': return new DeviceManagementConfigurationSimpleSettingCollectionIns_a974c598();
                 case '#microsoft.graph.deviceManagementConfigurationSimpleSettingInstanceTemplate': return new DeviceManagementConfigurationSimpleSettingInstanceTemplate();
             }
         }

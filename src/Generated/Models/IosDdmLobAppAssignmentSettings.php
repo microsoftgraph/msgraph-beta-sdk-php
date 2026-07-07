@@ -56,6 +56,42 @@ class IosDdmLobAppAssignmentSettings extends MobileAppAssignmentSettings impleme
     }
 
     /**
+     * Gets the cellularSliceConfigurationId property value. The cellularSliceConfigurationId property
+     * @return string|null
+    */
+    public function getCellularSliceConfigurationId(): ?string {
+        $val = $this->getBackingStore()->get('cellularSliceConfigurationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cellularSliceConfigurationId'");
+    }
+
+    /**
+     * Gets the contentFilterConfigurationId property value. The contentFilterConfigurationId property
+     * @return string|null
+    */
+    public function getContentFilterConfigurationId(): ?string {
+        $val = $this->getBackingStore()->get('contentFilterConfigurationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentFilterConfigurationId'");
+    }
+
+    /**
+     * Gets the dnsProxyConfigurationId property value. The dnsProxyConfigurationId property
+     * @return string|null
+    */
+    public function getDnsProxyConfigurationId(): ?string {
+        $val = $this->getBackingStore()->get('dnsProxyConfigurationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dnsProxyConfigurationId'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -71,7 +107,11 @@ class IosDdmLobAppAssignmentSettings extends MobileAppAssignmentSettings impleme
                 $this->setAssociatedDomains($val);
             },
             'associatedDomainsDirectDownloadAllowed' => fn(ParseNode $n) => $o->setAssociatedDomainsDirectDownloadAllowed($n->getBooleanValue()),
+            'cellularSliceConfigurationId' => fn(ParseNode $n) => $o->setCellularSliceConfigurationId($n->getStringValue()),
+            'contentFilterConfigurationId' => fn(ParseNode $n) => $o->setContentFilterConfigurationId($n->getStringValue()),
+            'dnsProxyConfigurationId' => fn(ParseNode $n) => $o->setDnsProxyConfigurationId($n->getStringValue()),
             'preventManagedAppBackup' => fn(ParseNode $n) => $o->setPreventManagedAppBackup($n->getBooleanValue()),
+            'relayConfigurationId' => fn(ParseNode $n) => $o->setRelayConfigurationId($n->getStringValue()),
             'tapToPayScreenLockEnabled' => fn(ParseNode $n) => $o->setTapToPayScreenLockEnabled($n->getBooleanValue()),
             'vpnConfigurationId' => fn(ParseNode $n) => $o->setVpnConfigurationId($n->getStringValue()),
         ]);
@@ -87,6 +127,18 @@ class IosDdmLobAppAssignmentSettings extends MobileAppAssignmentSettings impleme
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'preventManagedAppBackup'");
+    }
+
+    /**
+     * Gets the relayConfigurationId property value. The relayConfigurationId property
+     * @return string|null
+    */
+    public function getRelayConfigurationId(): ?string {
+        $val = $this->getBackingStore()->get('relayConfigurationId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'relayConfigurationId'");
     }
 
     /**
@@ -121,7 +173,11 @@ class IosDdmLobAppAssignmentSettings extends MobileAppAssignmentSettings impleme
         parent::serialize($writer);
         $writer->writeCollectionOfPrimitiveValues('associatedDomains', $this->getAssociatedDomains());
         $writer->writeBooleanValue('associatedDomainsDirectDownloadAllowed', $this->getAssociatedDomainsDirectDownloadAllowed());
+        $writer->writeStringValue('cellularSliceConfigurationId', $this->getCellularSliceConfigurationId());
+        $writer->writeStringValue('contentFilterConfigurationId', $this->getContentFilterConfigurationId());
+        $writer->writeStringValue('dnsProxyConfigurationId', $this->getDnsProxyConfigurationId());
         $writer->writeBooleanValue('preventManagedAppBackup', $this->getPreventManagedAppBackup());
+        $writer->writeStringValue('relayConfigurationId', $this->getRelayConfigurationId());
         $writer->writeBooleanValue('tapToPayScreenLockEnabled', $this->getTapToPayScreenLockEnabled());
         $writer->writeStringValue('vpnConfigurationId', $this->getVpnConfigurationId());
     }
@@ -143,11 +199,43 @@ class IosDdmLobAppAssignmentSettings extends MobileAppAssignmentSettings impleme
     }
 
     /**
+     * Sets the cellularSliceConfigurationId property value. The cellularSliceConfigurationId property
+     * @param string|null $value Value to set for the cellularSliceConfigurationId property.
+    */
+    public function setCellularSliceConfigurationId(?string $value): void {
+        $this->getBackingStore()->set('cellularSliceConfigurationId', $value);
+    }
+
+    /**
+     * Sets the contentFilterConfigurationId property value. The contentFilterConfigurationId property
+     * @param string|null $value Value to set for the contentFilterConfigurationId property.
+    */
+    public function setContentFilterConfigurationId(?string $value): void {
+        $this->getBackingStore()->set('contentFilterConfigurationId', $value);
+    }
+
+    /**
+     * Sets the dnsProxyConfigurationId property value. The dnsProxyConfigurationId property
+     * @param string|null $value Value to set for the dnsProxyConfigurationId property.
+    */
+    public function setDnsProxyConfigurationId(?string $value): void {
+        $this->getBackingStore()->set('dnsProxyConfigurationId', $value);
+    }
+
+    /**
      * Sets the preventManagedAppBackup property value. When true, indicates that the app should not be backed up to iCloud. When false, indicates that the app may be backed up to iCloud. Default is false.
      * @param bool|null $value Value to set for the preventManagedAppBackup property.
     */
     public function setPreventManagedAppBackup(?bool $value): void {
         $this->getBackingStore()->set('preventManagedAppBackup', $value);
+    }
+
+    /**
+     * Sets the relayConfigurationId property value. The relayConfigurationId property
+     * @param string|null $value Value to set for the relayConfigurationId property.
+    */
+    public function setRelayConfigurationId(?string $value): void {
+        $this->getBackingStore()->set('relayConfigurationId', $value);
     }
 
     /**

@@ -34,11 +34,11 @@ class GetOffice365GroupsActivityStorageWithPeriodRequestBuilder extends BaseRequ
 
     /**
      * Invoke function getOffice365GroupsActivityStorage
-     * @param GetOffice365GroupsActivityStorageWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetOffice365GroupsActivityStorageWithPeriodRequestBuild_bc8bc7fa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetOffice365GroupsActivityStorageWithPeriodGetResponse|null>
      * @throws Exception
     */
-    public function get(?GetOffice365GroupsActivityStorageWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetOffice365GroupsActivityStorageWithPeriodRequestBuild_bc8bc7fa $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class GetOffice365GroupsActivityStorageWithPeriodRequestBuilder extends BaseRequ
 
     /**
      * Invoke function getOffice365GroupsActivityStorage
-     * @param GetOffice365GroupsActivityStorageWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetOffice365GroupsActivityStorageWithPeriodRequestBuild_bc8bc7fa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetOffice365GroupsActivityStorageWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetOffice365GroupsActivityStorageWithPeriodRequestBuild_bc8bc7fa $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -34,11 +34,11 @@ class RetrieveSnapshotImportResultsWithSnapshotIdRequestBuilder extends BaseRequ
 
     /**
      * Invoke function retrieveSnapshotImportResults
-     * @param RetrieveSnapshotImportResultsWithSnapshotIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveSnapshotImportResultsWithSnapshotIdRequestBuild_5a8e7b3c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RetrieveSnapshotImportResultsWithSnapshotIdGetResponse|null>
      * @throws Exception
     */
-    public function get(?RetrieveSnapshotImportResultsWithSnapshotIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?RetrieveSnapshotImportResultsWithSnapshotIdRequestBuild_5a8e7b3c $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -48,10 +48,10 @@ class RetrieveSnapshotImportResultsWithSnapshotIdRequestBuilder extends BaseRequ
 
     /**
      * Invoke function retrieveSnapshotImportResults
-     * @param RetrieveSnapshotImportResultsWithSnapshotIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveSnapshotImportResultsWithSnapshotIdRequestBuild_5a8e7b3c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?RetrieveSnapshotImportResultsWithSnapshotIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?RetrieveSnapshotImportResultsWithSnapshotIdRequestBuild_5a8e7b3c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

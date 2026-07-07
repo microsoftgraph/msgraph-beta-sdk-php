@@ -33,11 +33,11 @@ class GetAppsInstallSummaryReportRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action getAppsInstallSummaryReport
      * @param GetAppsInstallSummaryReportPostRequestBody $body The request body
-     * @param GetAppsInstallSummaryReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetAppsInstallSummaryReportRequestBuilderPostRequestCon_3a417a18|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function post(GetAppsInstallSummaryReportPostRequestBody $body, ?GetAppsInstallSummaryReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetAppsInstallSummaryReportPostRequestBody $body, ?GetAppsInstallSummaryReportRequestBuilderPostRequestCon_3a417a18 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -50,10 +50,10 @@ class GetAppsInstallSummaryReportRequestBuilder extends BaseRequestBuilder
     /**
      * Invoke action getAppsInstallSummaryReport
      * @param GetAppsInstallSummaryReportPostRequestBody $body The request body
-     * @param GetAppsInstallSummaryReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetAppsInstallSummaryReportRequestBuilderPostRequestCon_3a417a18|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetAppsInstallSummaryReportPostRequestBody $body, ?GetAppsInstallSummaryReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetAppsInstallSummaryReportPostRequestBody $body, ?GetAppsInstallSummaryReportRequestBuilderPostRequestCon_3a417a18 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -34,12 +34,12 @@ class UserSignInsByAuthMethodSummaryWithPeriodRequestBuilder extends BaseRequest
 
     /**
      * Gets a list of the number of successful sign ins for each authentication method that is available.
-     * @param UserSignInsByAuthMethodSummaryWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserSignInsByAuthMethodSummaryWithPeriodRequestBuilderG_d0922df4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserSignInsByAuthMethodSummaryWithPeriodGetResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/authenticationmethodsroot-usersigninsbyauthmethodsummary?view=graph-rest-beta Find more info here
     */
-    public function get(?UserSignInsByAuthMethodSummaryWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserSignInsByAuthMethodSummaryWithPeriodRequestBuilderG_d0922df4 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,10 +49,10 @@ class UserSignInsByAuthMethodSummaryWithPeriodRequestBuilder extends BaseRequest
 
     /**
      * Gets a list of the number of successful sign ins for each authentication method that is available.
-     * @param UserSignInsByAuthMethodSummaryWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param UserSignInsByAuthMethodSummaryWithPeriodRequestBuilderG_d0922df4|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?UserSignInsByAuthMethodSummaryWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?UserSignInsByAuthMethodSummaryWithPeriodRequestBuilderG_d0922df4 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

@@ -35,11 +35,11 @@ class GetPolicySummaryWithPolicyIdRequestBuilder extends BaseRequestBuilder
 
     /**
      * Invoke function getPolicySummary
-     * @param GetPolicySummaryWithPolicyIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetPolicySummaryWithPolicyIdRequestBuilderGetRequestCon_b11ca435|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConfigManagerPolicySummary|null>
      * @throws Exception
     */
-    public function get(?GetPolicySummaryWithPolicyIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetPolicySummaryWithPolicyIdRequestBuilderGetRequestCon_b11ca435 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,10 +49,10 @@ class GetPolicySummaryWithPolicyIdRequestBuilder extends BaseRequestBuilder
 
     /**
      * Invoke function getPolicySummary
-     * @param GetPolicySummaryWithPolicyIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetPolicySummaryWithPolicyIdRequestBuilderGetRequestCon_b11ca435|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetPolicySummaryWithPolicyIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetPolicySummaryWithPolicyIdRequestBuilderGetRequestCon_b11ca435 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

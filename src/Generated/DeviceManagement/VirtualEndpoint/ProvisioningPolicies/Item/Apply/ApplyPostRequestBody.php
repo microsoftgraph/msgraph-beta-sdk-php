@@ -24,6 +24,7 @@ class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsabl
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
+        $this->setIsForceUserLogoffEnabled(false);
     }
 
     /**
@@ -63,9 +64,22 @@ class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'isForceUserLogoffEnabled' => fn(ParseNode $n) => $o->setIsForceUserLogoffEnabled($n->getBooleanValue()),
             'policySettings' => fn(ParseNode $n) => $o->setPolicySettings($n->getEnumValue(CloudPcPolicySettingType::class)),
             'reservePercentage' => fn(ParseNode $n) => $o->setReservePercentage($n->getIntegerValue()),
         ];
+    }
+
+    /**
+     * Gets the isForceUserLogoffEnabled property value. The isForceUserLogoffEnabled property
+     * @return bool|null
+    */
+    public function getIsForceUserLogoffEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isForceUserLogoffEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isForceUserLogoffEnabled'");
     }
 
     /**
@@ -97,6 +111,7 @@ class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsabl
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeBooleanValue('isForceUserLogoffEnabled', $this->getIsForceUserLogoffEnabled());
         $writer->writeEnumValue('policySettings', $this->getPolicySettings());
         $writer->writeIntegerValue('reservePercentage', $this->getReservePercentage());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -116,6 +131,14 @@ class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the isForceUserLogoffEnabled property value. The isForceUserLogoffEnabled property
+     * @param bool|null $value Value to set for the isForceUserLogoffEnabled property.
+    */
+    public function setIsForceUserLogoffEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isForceUserLogoffEnabled', $value);
     }
 
     /**

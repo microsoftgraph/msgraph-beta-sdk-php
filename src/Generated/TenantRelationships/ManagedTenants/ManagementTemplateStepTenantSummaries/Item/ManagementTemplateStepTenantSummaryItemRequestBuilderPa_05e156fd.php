@@ -1,0 +1,22 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateStepTenantSummaries\Item;
+
+use Microsoft\Kiota\Abstractions\BaseRequestConfiguration;
+use Microsoft\Kiota\Abstractions\RequestOption;
+
+/**
+ * Configuration for the request such as headers, query parameters, and middleware options. Original name: ManagementTemplateStepTenantSummaryItemRequestBuilderPatchRequestConfiguration
+*/
+class ManagementTemplateStepTenantSummaryItemRequestBuilderPa_05e156fd extends BaseRequestConfiguration 
+{
+    /**
+     * Instantiates a new ManagementTemplateStepTenantSummaryItemRequestBuilderPa_05e156fd and sets the default values.
+     * @param array<string, array<string>|string>|null $headers Request headers
+     * @param array<RequestOption>|null $options Request options
+    */
+    public function __construct(?array $headers = null, ?array $options = null) {
+        parent::__construct($headers ?? [], $options ?? []);
+    }
+
+}

@@ -7,7 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdatePolicies\Item\Assign\AssignRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdatePolicies\Item\Assignments\AssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdatePolicies\Item\BulkAction\BulkActionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdatePolicies\Item\RetrieveWindowsQualityUpdateCatalogItemDetailsWithIds\RetrieveWindowsQualityUpdateCatalogItemDetailsWithIdsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\WindowsQualityUpdatePolicies\Item\RetrieveWindowsQualityUpdateCatalogItemDetailsWithIds\RetrieveWindowsQualityUpdateCatalogItemDetailsWithIdsRe_5f8c4e37;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\WindowsQualityUpdatePolicy;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -57,11 +57,11 @@ class WindowsQualityUpdatePolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property windowsQualityUpdatePolicies for deviceManagement
-     * @param WindowsQualityUpdatePolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsQualityUpdatePolicyItemRequestBuilderDeleteReque_6414fc22|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?WindowsQualityUpdatePolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?WindowsQualityUpdatePolicyItemRequestBuilderDeleteReque_6414fc22 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -71,11 +71,11 @@ class WindowsQualityUpdatePolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * A collection of Windows quality update policies
-     * @param WindowsQualityUpdatePolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsQualityUpdatePolicyItemRequestBuilderGetRequestC_3462867a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsQualityUpdatePolicy|null>
      * @throws Exception
     */
-    public function get(?WindowsQualityUpdatePolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?WindowsQualityUpdatePolicyItemRequestBuilderGetRequestC_3462867a $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -86,11 +86,11 @@ class WindowsQualityUpdatePolicyItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property windowsQualityUpdatePolicies in deviceManagement
      * @param WindowsQualityUpdatePolicy $body The request body
-     * @param WindowsQualityUpdatePolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsQualityUpdatePolicyItemRequestBuilderPatchReques_d0ba47fa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<WindowsQualityUpdatePolicy|null>
      * @throws Exception
     */
-    public function patch(WindowsQualityUpdatePolicy $body, ?WindowsQualityUpdatePolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(WindowsQualityUpdatePolicy $body, ?WindowsQualityUpdatePolicyItemRequestBuilderPatchReques_d0ba47fa $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -101,18 +101,18 @@ class WindowsQualityUpdatePolicyItemRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the retrieveWindowsQualityUpdateCatalogItemDetails method.
      * @param string $ids Usage: ids={ids}
-     * @return RetrieveWindowsQualityUpdateCatalogItemDetailsWithIdsRequestBuilder
+     * @return RetrieveWindowsQualityUpdateCatalogItemDetailsWithIdsRe_5f8c4e37
     */
-    public function retrieveWindowsQualityUpdateCatalogItemDetailsWithIds(string $ids): RetrieveWindowsQualityUpdateCatalogItemDetailsWithIdsRequestBuilder {
-        return new RetrieveWindowsQualityUpdateCatalogItemDetailsWithIdsRequestBuilder($this->pathParameters, $this->requestAdapter, $ids);
+    public function retrieveWindowsQualityUpdateCatalogItemDetailsWithIds(string $ids): RetrieveWindowsQualityUpdateCatalogItemDetailsWithIdsRe_5f8c4e37 {
+        return new RetrieveWindowsQualityUpdateCatalogItemDetailsWithIdsRe_5f8c4e37($this->pathParameters, $this->requestAdapter, $ids);
     }
 
     /**
      * Delete navigation property windowsQualityUpdatePolicies for deviceManagement
-     * @param WindowsQualityUpdatePolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsQualityUpdatePolicyItemRequestBuilderDeleteReque_6414fc22|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?WindowsQualityUpdatePolicyItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?WindowsQualityUpdatePolicyItemRequestBuilderDeleteReque_6414fc22 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -127,10 +127,10 @@ class WindowsQualityUpdatePolicyItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * A collection of Windows quality update policies
-     * @param WindowsQualityUpdatePolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsQualityUpdatePolicyItemRequestBuilderGetRequestC_3462867a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?WindowsQualityUpdatePolicyItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?WindowsQualityUpdatePolicyItemRequestBuilderGetRequestC_3462867a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -149,10 +149,10 @@ class WindowsQualityUpdatePolicyItemRequestBuilder extends BaseRequestBuilder
     /**
      * Update the navigation property windowsQualityUpdatePolicies in deviceManagement
      * @param WindowsQualityUpdatePolicy $body The request body
-     * @param WindowsQualityUpdatePolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param WindowsQualityUpdatePolicyItemRequestBuilderPatchReques_d0ba47fa|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(WindowsQualityUpdatePolicy $body, ?WindowsQualityUpdatePolicyItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(WindowsQualityUpdatePolicy $body, ?WindowsQualityUpdatePolicyItemRequestBuilderPatchReques_d0ba47fa $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

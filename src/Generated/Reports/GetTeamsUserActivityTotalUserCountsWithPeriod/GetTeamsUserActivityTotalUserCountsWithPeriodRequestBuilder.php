@@ -35,11 +35,11 @@ class GetTeamsUserActivityTotalUserCountsWithPeriodRequestBuilder extends BaseRe
 
     /**
      * Invoke function getTeamsUserActivityTotalUserCounts
-     * @param GetTeamsUserActivityTotalUserCountsWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetTeamsUserActivityTotalUserCountsWithPeriodRequestBui_aafc8a94|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
     */
-    public function get(?GetTeamsUserActivityTotalUserCountsWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetTeamsUserActivityTotalUserCountsWithPeriodRequestBui_aafc8a94 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -51,10 +51,10 @@ class GetTeamsUserActivityTotalUserCountsWithPeriodRequestBuilder extends BaseRe
 
     /**
      * Invoke function getTeamsUserActivityTotalUserCounts
-     * @param GetTeamsUserActivityTotalUserCountsWithPeriodRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetTeamsUserActivityTotalUserCountsWithPeriodRequestBui_aafc8a94|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetTeamsUserActivityTotalUserCountsWithPeriodRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetTeamsUserActivityTotalUserCountsWithPeriodRequestBui_aafc8a94 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

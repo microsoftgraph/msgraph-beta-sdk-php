@@ -23,6 +23,8 @@ class UpdateAllMessagesReadStatePostRequestBody implements AdditionalDataHolder,
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
+        $this->setIsRead(false);
+        $this->setSuppressReadReceipts(false);
     }
 
     /**

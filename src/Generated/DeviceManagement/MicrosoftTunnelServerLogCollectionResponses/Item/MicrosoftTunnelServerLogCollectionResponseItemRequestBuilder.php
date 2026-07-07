@@ -48,11 +48,11 @@ class MicrosoftTunnelServerLogCollectionResponseItemRequestBuilder extends BaseR
 
     /**
      * Delete navigation property microsoftTunnelServerLogCollectionResponses for deviceManagement
-     * @param MicrosoftTunnelServerLogCollectionResponseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelServerLogCollectionResponseItemRequestBu_dbe3e68a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?MicrosoftTunnelServerLogCollectionResponseItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?MicrosoftTunnelServerLogCollectionResponseItemRequestBu_dbe3e68a $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -62,11 +62,11 @@ class MicrosoftTunnelServerLogCollectionResponseItemRequestBuilder extends BaseR
 
     /**
      * Collection of MicrosoftTunnelServerLogCollectionResponse settings associated with account.
-     * @param MicrosoftTunnelServerLogCollectionResponseItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelServerLogCollectionResponseItemRequestBu_2b5cb34c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MicrosoftTunnelServerLogCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?MicrosoftTunnelServerLogCollectionResponseItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MicrosoftTunnelServerLogCollectionResponseItemRequestBu_2b5cb34c $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -77,11 +77,11 @@ class MicrosoftTunnelServerLogCollectionResponseItemRequestBuilder extends BaseR
     /**
      * Update the navigation property microsoftTunnelServerLogCollectionResponses in deviceManagement
      * @param MicrosoftTunnelServerLogCollectionResponse $body The request body
-     * @param MicrosoftTunnelServerLogCollectionResponseItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelServerLogCollectionResponseItemRequestBu_fa8bacfe|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MicrosoftTunnelServerLogCollectionResponse|null>
      * @throws Exception
     */
-    public function patch(MicrosoftTunnelServerLogCollectionResponse $body, ?MicrosoftTunnelServerLogCollectionResponseItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(MicrosoftTunnelServerLogCollectionResponse $body, ?MicrosoftTunnelServerLogCollectionResponseItemRequestBu_fa8bacfe $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -91,10 +91,10 @@ class MicrosoftTunnelServerLogCollectionResponseItemRequestBuilder extends BaseR
 
     /**
      * Delete navigation property microsoftTunnelServerLogCollectionResponses for deviceManagement
-     * @param MicrosoftTunnelServerLogCollectionResponseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelServerLogCollectionResponseItemRequestBu_dbe3e68a|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?MicrosoftTunnelServerLogCollectionResponseItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?MicrosoftTunnelServerLogCollectionResponseItemRequestBu_dbe3e68a $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -109,10 +109,10 @@ class MicrosoftTunnelServerLogCollectionResponseItemRequestBuilder extends BaseR
 
     /**
      * Collection of MicrosoftTunnelServerLogCollectionResponse settings associated with account.
-     * @param MicrosoftTunnelServerLogCollectionResponseItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelServerLogCollectionResponseItemRequestBu_2b5cb34c|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?MicrosoftTunnelServerLogCollectionResponseItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?MicrosoftTunnelServerLogCollectionResponseItemRequestBu_2b5cb34c $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -131,10 +131,10 @@ class MicrosoftTunnelServerLogCollectionResponseItemRequestBuilder extends BaseR
     /**
      * Update the navigation property microsoftTunnelServerLogCollectionResponses in deviceManagement
      * @param MicrosoftTunnelServerLogCollectionResponse $body The request body
-     * @param MicrosoftTunnelServerLogCollectionResponseItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftTunnelServerLogCollectionResponseItemRequestBu_fa8bacfe|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(MicrosoftTunnelServerLogCollectionResponse $body, ?MicrosoftTunnelServerLogCollectionResponseItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(MicrosoftTunnelServerLogCollectionResponse $body, ?MicrosoftTunnelServerLogCollectionResponseItemRequestBu_fa8bacfe $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

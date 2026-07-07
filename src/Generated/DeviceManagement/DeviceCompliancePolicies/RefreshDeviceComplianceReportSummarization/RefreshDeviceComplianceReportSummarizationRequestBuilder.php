@@ -31,11 +31,11 @@ class RefreshDeviceComplianceReportSummarizationRequestBuilder extends BaseReque
 
     /**
      * Invoke action refreshDeviceComplianceReportSummarization
-     * @param RefreshDeviceComplianceReportSummarizationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RefreshDeviceComplianceReportSummarizationRequestBuilde_1a4be216|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(?RefreshDeviceComplianceReportSummarizationRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?RefreshDeviceComplianceReportSummarizationRequestBuilde_1a4be216 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,10 +45,10 @@ class RefreshDeviceComplianceReportSummarizationRequestBuilder extends BaseReque
 
     /**
      * Invoke action refreshDeviceComplianceReportSummarization
-     * @param RefreshDeviceComplianceReportSummarizationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RefreshDeviceComplianceReportSummarizationRequestBuilde_1a4be216|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?RefreshDeviceComplianceReportSummarizationRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(?RefreshDeviceComplianceReportSummarizationRequestBuilde_1a4be216 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

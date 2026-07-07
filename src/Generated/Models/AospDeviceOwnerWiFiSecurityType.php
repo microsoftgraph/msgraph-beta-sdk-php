@@ -9,4 +9,5 @@ class AospDeviceOwnerWiFiSecurityType extends Enum {
     public const WEP = "wep";
     public const WPA_PERSONAL = "wpaPersonal";
     public const WPA_ENTERPRISE = "wpaEnterprise";
+    public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

@@ -31,12 +31,12 @@ class GetCredentialUserRegistrationCountRequestBuilder extends BaseRequestBuilde
 
     /**
      * Report the current state of how many users in your organization are registered for self-service password reset and multifactor authentication (MFA) capabilities.
-     * @param GetCredentialUserRegistrationCountRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetCredentialUserRegistrationCountRequestBuilderGetRequ_d0492a14|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetCredentialUserRegistrationCountGetResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/reportroot-getcredentialuserregistrationcount?view=graph-rest-beta Find more info here
     */
-    public function get(?GetCredentialUserRegistrationCountRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?GetCredentialUserRegistrationCountRequestBuilderGetRequ_d0492a14 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,10 +46,10 @@ class GetCredentialUserRegistrationCountRequestBuilder extends BaseRequestBuilde
 
     /**
      * Report the current state of how many users in your organization are registered for self-service password reset and multifactor authentication (MFA) capabilities.
-     * @param GetCredentialUserRegistrationCountRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetCredentialUserRegistrationCountRequestBuilderGetRequ_d0492a14|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?GetCredentialUserRegistrationCountRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?GetCredentialUserRegistrationCountRequestBuilderGetRequ_d0492a14 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

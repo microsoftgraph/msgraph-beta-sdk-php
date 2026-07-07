@@ -9,8 +9,8 @@ use Microsoft\Graph\Beta\Generated\AuditLogs\CustomSecurityAttributeAudits\Custo
 use Microsoft\Graph\Beta\Generated\AuditLogs\DirectoryAudits\DirectoryAuditsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\DirectoryProvisioning\DirectoryProvisioningRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\GetSummarizedMSISignInsWithAggregationWindow\GetSummarizedMSISignInsWithAggregationWindowRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AuditLogs\GetSummarizedNonInteractiveSignInsWithAggregationWindow\GetSummarizedNonInteractiveSignInsWithAggregationWindowRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AuditLogs\GetSummarizedServicePrincipalSignInsWithAggregationWindow\GetSummarizedServicePrincipalSignInsWithAggregationWindowRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AuditLogs\GetSummarizedNonInteractiveSignInsWithAggregationWindow\GetSummarizedNonInteractiveSignInsWithAggregationWindow_bf746882;
+use Microsoft\Graph\Beta\Generated\AuditLogs\GetSummarizedServicePrincipalSignInsWithAggregationWindow\GetSummarizedServicePrincipalSignInsWithAggregationWind_381a3e7c;
 use Microsoft\Graph\Beta\Generated\AuditLogs\Provisioning\ProvisioningRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\SignInEventsAppSummary\SignInEventsAppSummaryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\SignInEventsSummary\SignInEventsSummaryRequestBuilder;
@@ -131,19 +131,19 @@ class AuditLogsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the getSummarizedNonInteractiveSignIns method.
      * @param string $aggregationWindow Usage: aggregationWindow='{aggregationWindow}'
-     * @return GetSummarizedNonInteractiveSignInsWithAggregationWindowRequestBuilder
+     * @return GetSummarizedNonInteractiveSignInsWithAggregationWindow_bf746882
     */
-    public function getSummarizedNonInteractiveSignInsWithAggregationWindow(string $aggregationWindow): GetSummarizedNonInteractiveSignInsWithAggregationWindowRequestBuilder {
-        return new GetSummarizedNonInteractiveSignInsWithAggregationWindowRequestBuilder($this->pathParameters, $this->requestAdapter, $aggregationWindow);
+    public function getSummarizedNonInteractiveSignInsWithAggregationWindow(string $aggregationWindow): GetSummarizedNonInteractiveSignInsWithAggregationWindow_bf746882 {
+        return new GetSummarizedNonInteractiveSignInsWithAggregationWindow_bf746882($this->pathParameters, $this->requestAdapter, $aggregationWindow);
     }
 
     /**
      * Provides operations to call the getSummarizedServicePrincipalSignIns method.
      * @param string $aggregationWindow Usage: aggregationWindow='{aggregationWindow}'
-     * @return GetSummarizedServicePrincipalSignInsWithAggregationWindowRequestBuilder
+     * @return GetSummarizedServicePrincipalSignInsWithAggregationWind_381a3e7c
     */
-    public function getSummarizedServicePrincipalSignInsWithAggregationWindow(string $aggregationWindow): GetSummarizedServicePrincipalSignInsWithAggregationWindowRequestBuilder {
-        return new GetSummarizedServicePrincipalSignInsWithAggregationWindowRequestBuilder($this->pathParameters, $this->requestAdapter, $aggregationWindow);
+    public function getSummarizedServicePrincipalSignInsWithAggregationWindow(string $aggregationWindow): GetSummarizedServicePrincipalSignInsWithAggregationWind_381a3e7c {
+        return new GetSummarizedServicePrincipalSignInsWithAggregationWind_381a3e7c($this->pathParameters, $this->requestAdapter, $aggregationWindow);
     }
 
     /**

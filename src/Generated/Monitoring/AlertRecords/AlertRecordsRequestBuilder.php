@@ -9,8 +9,8 @@ use Microsoft\Graph\Beta\Generated\Models\DeviceManagement\AlertRecordCollection
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Monitoring\AlertRecords\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Monitoring\AlertRecords\Item\AlertRecordItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Monitoring\AlertRecords\MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSent\MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSentRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Monitoring\AlertRecords\MicrosoftGraphDeviceManagementGetPortalNotifications\MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Monitoring\AlertRecords\MicrosoftGraphDeviceManagementChangeAlertRecordsPortalN_43d1221f\MicrosoftGraphDeviceManagementChangeAlertRecordsPortalN_5b94bff7;
+use Microsoft\Graph\Beta\Generated\Monitoring\AlertRecords\MicrosoftGraphDeviceManagementGetPortalNotifications\MicrosoftGraphDeviceManagementGetPortalNotificationsReq_8191e564;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -31,15 +31,15 @@ class AlertRecordsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the changeAlertRecordsPortalNotificationAsSent method.
     */
-    public function microsoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSent(): MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSentRequestBuilder {
-        return new MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSent(): MicrosoftGraphDeviceManagementChangeAlertRecordsPortalN_5b94bff7 {
+        return new MicrosoftGraphDeviceManagementChangeAlertRecordsPortalN_5b94bff7($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the getPortalNotifications method.
     */
-    public function microsoftGraphDeviceManagementGetPortalNotifications(): MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder {
-        return new MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function microsoftGraphDeviceManagementGetPortalNotifications(): MicrosoftGraphDeviceManagementGetPortalNotificationsReq_8191e564 {
+        return new MicrosoftGraphDeviceManagementGetPortalNotificationsReq_8191e564($this->pathParameters, $this->requestAdapter);
     }
     
     /**

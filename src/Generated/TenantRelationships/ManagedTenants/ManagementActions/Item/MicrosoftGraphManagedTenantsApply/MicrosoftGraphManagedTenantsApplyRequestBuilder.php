@@ -33,12 +33,12 @@ class MicrosoftGraphManagedTenantsApplyRequestBuilder extends BaseRequestBuilder
     /**
      * Applies a management action against a specific managed tenant. Performing this operation makes the appropriate configurations and creates the appropriate policies. For example, when applying the required multifactor authentication for admins, management action creates a Microsoft Entra Conditional Access policy that requires multifactor authentication for all users that are assigned an administrative directory role.
      * @param ApplyPostRequestBody $body The request body
-     * @param MicrosoftGraphManagedTenantsApplyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphManagedTenantsApplyRequestBuilderPostRequ_ced61751|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ManagementActionDeploymentStatus|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/managedtenants-managementaction-apply?view=graph-rest-beta Find more info here
     */
-    public function post(ApplyPostRequestBody $body, ?MicrosoftGraphManagedTenantsApplyRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(ApplyPostRequestBody $body, ?MicrosoftGraphManagedTenantsApplyRequestBuilderPostRequ_ced61751 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,10 +49,10 @@ class MicrosoftGraphManagedTenantsApplyRequestBuilder extends BaseRequestBuilder
     /**
      * Applies a management action against a specific managed tenant. Performing this operation makes the appropriate configurations and creates the appropriate policies. For example, when applying the required multifactor authentication for admins, management action creates a Microsoft Entra Conditional Access policy that requires multifactor authentication for all users that are assigned an administrative directory role.
      * @param ApplyPostRequestBody $body The request body
-     * @param MicrosoftGraphManagedTenantsApplyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param MicrosoftGraphManagedTenantsApplyRequestBuilderPostRequ_ced61751|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ApplyPostRequestBody $body, ?MicrosoftGraphManagedTenantsApplyRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(ApplyPostRequestBody $body, ?MicrosoftGraphManagedTenantsApplyRequestBuilderPostRequ_ced61751 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

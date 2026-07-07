@@ -48,11 +48,11 @@ class GovernanceRoleSettingItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property roleSettings for governanceResources
-     * @param GovernanceRoleSettingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernanceRoleSettingItemRequestBuilderDeleteRequestCon_e4804815|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?GovernanceRoleSettingItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?GovernanceRoleSettingItemRequestBuilderDeleteRequestCon_e4804815 $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -91,10 +91,10 @@ class GovernanceRoleSettingItemRequestBuilder extends BaseRequestBuilder
 
     /**
      * Delete navigation property roleSettings for governanceResources
-     * @param GovernanceRoleSettingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GovernanceRoleSettingItemRequestBuilderDeleteRequestCon_e4804815|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?GovernanceRoleSettingItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?GovernanceRoleSettingItemRequestBuilderDeleteRequestCon_e4804815 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

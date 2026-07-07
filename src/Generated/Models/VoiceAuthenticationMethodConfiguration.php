@@ -27,12 +27,25 @@ class VoiceAuthenticationMethodConfiguration extends AuthenticationMethodConfigu
     }
 
     /**
+     * Gets the callerIdNumber property value. The phone number used as the caller ID when voice call authentication is initiated.
+     * @return string|null
+    */
+    public function getCallerIdNumber(): ?string {
+        $val = $this->getBackingStore()->get('callerIdNumber');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'callerIdNumber'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'callerIdNumber' => fn(ParseNode $n) => $o->setCallerIdNumber($n->getStringValue()),
             'includeTargets' => fn(ParseNode $n) => $o->setIncludeTargets($n->getCollectionOfObjectValues([VoiceAuthenticationMethodTarget::class, 'createFromDiscriminatorValue'])),
             'isOfficePhoneAllowed' => fn(ParseNode $n) => $o->setIsOfficePhoneAllowed($n->getBooleanValue()),
         ]);
@@ -70,8 +83,17 @@ class VoiceAuthenticationMethodConfiguration extends AuthenticationMethodConfigu
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('callerIdNumber', $this->getCallerIdNumber());
         $writer->writeCollectionOfObjectValues('includeTargets', $this->getIncludeTargets());
         $writer->writeBooleanValue('isOfficePhoneAllowed', $this->getIsOfficePhoneAllowed());
+    }
+
+    /**
+     * Sets the callerIdNumber property value. The phone number used as the caller ID when voice call authentication is initiated.
+     * @param string|null $value Value to set for the callerIdNumber property.
+    */
+    public function setCallerIdNumber(?string $value): void {
+        $this->getBackingStore()->set('callerIdNumber', $value);
     }
 
     /**

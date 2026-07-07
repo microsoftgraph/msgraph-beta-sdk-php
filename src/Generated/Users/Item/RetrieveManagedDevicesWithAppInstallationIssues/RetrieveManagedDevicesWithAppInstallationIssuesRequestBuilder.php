@@ -31,11 +31,11 @@ class RetrieveManagedDevicesWithAppInstallationIssuesRequestBuilder extends Base
 
     /**
      * Retrieves the list of devices with failed or pending apps
-     * @param RetrieveManagedDevicesWithAppInstallationIssuesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveManagedDevicesWithAppInstallationIssuesRequestB_0e07b151|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RetrieveManagedDevicesWithAppInstallationIssuesGetResponse|null>
      * @throws Exception
     */
-    public function get(?RetrieveManagedDevicesWithAppInstallationIssuesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?RetrieveManagedDevicesWithAppInstallationIssuesRequestB_0e07b151 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,10 +45,10 @@ class RetrieveManagedDevicesWithAppInstallationIssuesRequestBuilder extends Base
 
     /**
      * Retrieves the list of devices with failed or pending apps
-     * @param RetrieveManagedDevicesWithAppInstallationIssuesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param RetrieveManagedDevicesWithAppInstallationIssuesRequestB_0e07b151|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?RetrieveManagedDevicesWithAppInstallationIssuesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?RetrieveManagedDevicesWithAppInstallationIssuesRequestB_0e07b151 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

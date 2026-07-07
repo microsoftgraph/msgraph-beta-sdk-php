@@ -33,12 +33,12 @@ class GetPasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBuilde
     /**
      * Get a list of single sign-on credentials using a password for a user or group.
      * @param GetPasswordSingleSignOnCredentialsPostRequestBody $body The request body
-     * @param GetPasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetPasswordSingleSignOnCredentialsRequestBuilderPostReq_f6c6cbcb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PasswordSingleSignOnCredentialSet|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/serviceprincipal-getpasswordsinglesignoncredentials?view=graph-rest-beta Find more info here
     */
-    public function post(GetPasswordSingleSignOnCredentialsPostRequestBody $body, ?GetPasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GetPasswordSingleSignOnCredentialsPostRequestBody $body, ?GetPasswordSingleSignOnCredentialsRequestBuilderPostReq_f6c6cbcb $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -49,10 +49,10 @@ class GetPasswordSingleSignOnCredentialsRequestBuilder extends BaseRequestBuilde
     /**
      * Get a list of single sign-on credentials using a password for a user or group.
      * @param GetPasswordSingleSignOnCredentialsPostRequestBody $body The request body
-     * @param GetPasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param GetPasswordSingleSignOnCredentialsRequestBuilderPostReq_f6c6cbcb|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GetPasswordSingleSignOnCredentialsPostRequestBody $body, ?GetPasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(GetPasswordSingleSignOnCredentialsPostRequestBody $body, ?GetPasswordSingleSignOnCredentialsRequestBuilderPostReq_f6c6cbcb $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

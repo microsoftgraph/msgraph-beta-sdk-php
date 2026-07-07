@@ -31,12 +31,13 @@ class SiteExclusionUnitsBulkAdditionJobItemRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Get siteExclusionUnitsBulkAdditionJobs from solutions
-     * @param SiteExclusionUnitsBulkAdditionJobItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * Get a site exclusion units bulk addition job associated with a SharePoint protection policy.
+     * @param SiteExclusionUnitsBulkAdditionJobItemRequestBuilderGetR_5e829b80|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SiteExclusionUnitsBulkAdditionJob|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/siteexclusionunitsbulkadditionjob-get?view=graph-rest-beta Find more info here
     */
-    public function get(?SiteExclusionUnitsBulkAdditionJobItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?SiteExclusionUnitsBulkAdditionJobItemRequestBuilderGetR_5e829b80 $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -45,11 +46,11 @@ class SiteExclusionUnitsBulkAdditionJobItemRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Get siteExclusionUnitsBulkAdditionJobs from solutions
-     * @param SiteExclusionUnitsBulkAdditionJobItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * Get a site exclusion units bulk addition job associated with a SharePoint protection policy.
+     * @param SiteExclusionUnitsBulkAdditionJobItemRequestBuilderGetR_5e829b80|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?SiteExclusionUnitsBulkAdditionJobItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?SiteExclusionUnitsBulkAdditionJobItemRequestBuilderGetR_5e829b80 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

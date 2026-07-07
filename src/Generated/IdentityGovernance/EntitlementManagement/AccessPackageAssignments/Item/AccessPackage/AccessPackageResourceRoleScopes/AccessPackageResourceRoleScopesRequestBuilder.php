@@ -53,11 +53,11 @@ class AccessPackageResourceRoleScopesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get accessPackageResourceRoleScopes from identityGovernance
-     * @param AccessPackageResourceRoleScopesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageResourceRoleScopesRequestBuilderGetRequest_95d6134e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageResourceRoleScopeCollectionResponse|null>
      * @throws Exception
     */
-    public function get(?AccessPackageResourceRoleScopesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?AccessPackageResourceRoleScopesRequestBuilderGetRequest_95d6134e $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -68,11 +68,11 @@ class AccessPackageResourceRoleScopesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to accessPackageResourceRoleScopes for identityGovernance
      * @param AccessPackageResourceRoleScope $body The request body
-     * @param AccessPackageResourceRoleScopesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageResourceRoleScopesRequestBuilderPostReques_55ae3832|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AccessPackageResourceRoleScope|null>
      * @throws Exception
     */
-    public function post(AccessPackageResourceRoleScope $body, ?AccessPackageResourceRoleScopesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AccessPackageResourceRoleScope $body, ?AccessPackageResourceRoleScopesRequestBuilderPostReques_55ae3832 $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -82,10 +82,10 @@ class AccessPackageResourceRoleScopesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Get accessPackageResourceRoleScopes from identityGovernance
-     * @param AccessPackageResourceRoleScopesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageResourceRoleScopesRequestBuilderGetRequest_95d6134e|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?AccessPackageResourceRoleScopesRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?AccessPackageResourceRoleScopesRequestBuilderGetRequest_95d6134e $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -104,10 +104,10 @@ class AccessPackageResourceRoleScopesRequestBuilder extends BaseRequestBuilder
     /**
      * Create new navigation property to accessPackageResourceRoleScopes for identityGovernance
      * @param AccessPackageResourceRoleScope $body The request body
-     * @param AccessPackageResourceRoleScopesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param AccessPackageResourceRoleScopesRequestBuilderPostReques_55ae3832|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(AccessPackageResourceRoleScope $body, ?AccessPackageResourceRoleScopesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(AccessPackageResourceRoleScope $body, ?AccessPackageResourceRoleScopesRequestBuilderPostReques_55ae3832 $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
