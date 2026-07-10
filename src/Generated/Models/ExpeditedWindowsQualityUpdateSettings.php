@@ -79,6 +79,7 @@ class ExpeditedWindowsQualityUpdateSettings implements AdditionalDataHolder, Bac
         return  [
             'daysUntilForcedReboot' => fn(ParseNode $n) => $o->setDaysUntilForcedReboot($n->getIntegerValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'qualityUpdateCatalogItemId' => fn(ParseNode $n) => $o->setQualityUpdateCatalogItemId($n->getStringValue()),
             'qualityUpdateRelease' => fn(ParseNode $n) => $o->setQualityUpdateRelease($n->getStringValue()),
         ];
     }
@@ -93,6 +94,18 @@ class ExpeditedWindowsQualityUpdateSettings implements AdditionalDataHolder, Bac
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
+     * Gets the qualityUpdateCatalogItemId property value. The unique identifier for the quality update catalog item targeted by the expedite.
+     * @return string|null
+    */
+    public function getQualityUpdateCatalogItemId(): ?string {
+        $val = $this->getBackingStore()->get('qualityUpdateCatalogItemId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'qualityUpdateCatalogItemId'");
     }
 
     /**
@@ -114,6 +127,7 @@ class ExpeditedWindowsQualityUpdateSettings implements AdditionalDataHolder, Bac
     public function serialize(SerializationWriter $writer): void {
         $writer->writeIntegerValue('daysUntilForcedReboot', $this->getDaysUntilForcedReboot());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('qualityUpdateCatalogItemId', $this->getQualityUpdateCatalogItemId());
         $writer->writeStringValue('qualityUpdateRelease', $this->getQualityUpdateRelease());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -148,6 +162,14 @@ class ExpeditedWindowsQualityUpdateSettings implements AdditionalDataHolder, Bac
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the qualityUpdateCatalogItemId property value. The unique identifier for the quality update catalog item targeted by the expedite.
+     * @param string|null $value Value to set for the qualityUpdateCatalogItemId property.
+    */
+    public function setQualityUpdateCatalogItemId(?string $value): void {
+        $this->getBackingStore()->set('qualityUpdateCatalogItemId', $value);
     }
 
     /**

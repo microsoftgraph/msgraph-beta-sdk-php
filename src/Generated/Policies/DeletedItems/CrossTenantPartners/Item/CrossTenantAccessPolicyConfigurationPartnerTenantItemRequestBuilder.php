@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Policies\DeletedItems\CrossTenantPartners\Item\IdentitySynchronization\IdentitySynchronizationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\DeletedItems\CrossTenantPartners\Item\M365Capabilities\M365CapabilitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\DeletedItems\CrossTenantPartners\Item\Restore\RestoreRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Policies\DeletedItems\CrossTenantPartners\Item\ServiceProviderConstraints\ServiceProviderConstraintsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -38,6 +39,13 @@ class CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder extend
     */
     public function restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the serviceProviderConstraints property of the microsoft.graph.crossTenantAccessPolicyConfigurationPartner entity.
+    */
+    public function serviceProviderConstraints(): ServiceProviderConstraintsRequestBuilder {
+        return new ServiceProviderConstraintsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

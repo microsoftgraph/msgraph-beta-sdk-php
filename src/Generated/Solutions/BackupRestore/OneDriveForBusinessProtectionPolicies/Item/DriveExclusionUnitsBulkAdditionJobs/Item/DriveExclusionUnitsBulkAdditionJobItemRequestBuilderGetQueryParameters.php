@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\OneDriveForBusi
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get driveExclusionUnitsBulkAdditionJobs from solutions
+ * Get a drive exclusion units bulk addition job associated with a OneDrive for work or school protection policy.
 */
 class DriveExclusionUnitsBulkAdditionJobItemRequestBuilderGetQueryParameters 
 {

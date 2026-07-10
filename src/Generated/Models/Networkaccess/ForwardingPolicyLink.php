@@ -37,7 +37,7 @@ class ForwardingPolicyLink extends PolicyLink implements Parsable
     }
 
     /**
-     * Gets the priority property value. The priority property
+     * Gets the priority property value. Priority of the policy within the forwarding profile.
      * @return int|null
     */
     public function getPriority(): ?int {
@@ -58,7 +58,7 @@ class ForwardingPolicyLink extends PolicyLink implements Parsable
     }
 
     /**
-     * Sets the priority property value. The priority property
+     * Sets the priority property value. Priority of the policy within the forwarding profile.
      * @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value): void {

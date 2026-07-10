@@ -35,7 +35,7 @@ class ExclusionUnitBulkAdditionJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdBy property value. The createdBy property
+     * Gets the createdBy property value. The identity of the person who created the bulk addition job.
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
@@ -47,7 +47,7 @@ class ExclusionUnitBulkAdditionJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date and time when the bulk addition job was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -59,7 +59,7 @@ class ExclusionUnitBulkAdditionJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name of the bulk addition job.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -71,7 +71,7 @@ class ExclusionUnitBulkAdditionJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the error property value. The error property
+     * Gets the error property value. Contains error details if the bulk addition job failed.
      * @return PublicError|null
     */
     public function getError(): ?PublicError {
@@ -100,7 +100,7 @@ class ExclusionUnitBulkAdditionJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedBy property value. The lastModifiedBy property
+     * Gets the lastModifiedBy property value. The identity of the person who last modified the bulk addition job.
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
@@ -112,7 +112,7 @@ class ExclusionUnitBulkAdditionJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. The date and time when the bulk addition job was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -151,7 +151,7 @@ class ExclusionUnitBulkAdditionJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdBy property value. The createdBy property
+     * Sets the createdBy property value. The identity of the person who created the bulk addition job.
      * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
@@ -159,7 +159,7 @@ class ExclusionUnitBulkAdditionJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date and time when the bulk addition job was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -167,7 +167,7 @@ class ExclusionUnitBulkAdditionJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name of the bulk addition job.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -175,7 +175,7 @@ class ExclusionUnitBulkAdditionJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the error property value. The error property
+     * Sets the error property value. Contains error details if the bulk addition job failed.
      * @param PublicError|null $value Value to set for the error property.
     */
     public function setError(?PublicError $value): void {
@@ -183,7 +183,7 @@ class ExclusionUnitBulkAdditionJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedBy property value. The lastModifiedBy property
+     * Sets the lastModifiedBy property value. The identity of the person who last modified the bulk addition job.
      * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
@@ -191,7 +191,7 @@ class ExclusionUnitBulkAdditionJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. The date and time when the bulk addition job was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {

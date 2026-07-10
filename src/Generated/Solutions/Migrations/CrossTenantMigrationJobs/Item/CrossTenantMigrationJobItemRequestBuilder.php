@@ -7,7 +7,9 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\CrossTenantMigrationJob;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Solutions\Migrations\CrossTenantMigrationJobs\Item\Cancel\CancelRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\Migrations\CrossTenantMigrationJobs\Item\Migrate\MigrateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\Migrations\CrossTenantMigrationJobs\Item\Users\UsersRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\Migrations\CrossTenantMigrationJobs\Item\Validate\ValidateRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -26,10 +28,24 @@ class CrossTenantMigrationJobItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the migrate method.
+    */
+    public function migrate(): MigrateRequestBuilder {
+        return new MigrateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the users property of the microsoft.graph.crossTenantMigrationJob entity.
     */
     public function users(): UsersRequestBuilder {
         return new UsersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the validate method.
+    */
+    public function validate(): ValidateRequestBuilder {
+        return new ValidateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

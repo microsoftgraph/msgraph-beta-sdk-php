@@ -11,6 +11,7 @@ use Microsoft\Graph\Beta\Generated\Reports\AppCredentialSignInActivities\AppCred
 use Microsoft\Graph\Beta\Generated\Reports\ApplicationSignInDetailedSummary\ApplicationSignInDetailedSummaryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\AuthenticationMethodsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\AzureADPremiumLicenseInsight\AzureADPremiumLicenseInsightRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\Correlations\CorrelationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\CredentialUserRegistrationDetails\CredentialUserRegistrationDetailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsage\DailyPrintUsageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageByPrinter\DailyPrintUsageByPrinterRequestBuilder;
@@ -140,6 +141,7 @@ use Microsoft\Graph\Beta\Generated\Reports\GetYammerGroupsActivityDetailWithDate
 use Microsoft\Graph\Beta\Generated\Reports\GetYammerGroupsActivityDetailWithPeriod\GetYammerGroupsActivityDetailWithPeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetYammerGroupsActivityGroupCountsWithPeriod\GetYammerGroupsActivityGroupCountsWithPeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\HealthMonitoring\HealthMonitoringRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\IdentityAnalytics\IdentityAnalyticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\ManagedDeviceEnrollmentAbandonmentDetailsWithSkipWithTopWithFilterWithSkipToken\ManagedDeviceEnrollmentAbandonmentDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\ManagedDeviceEnrollmentAbandonmentSummaryWithSkipWithTopWithFilterWithSkipToken\ManagedDeviceEnrollmentAbandonmentSummaryWithSkipWithTopWithFilterWithSkipTokenRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\ManagedDeviceEnrollmentFailureDetails\ManagedDeviceEnrollmentFailureDetailsRequestBuilder;
@@ -195,6 +197,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function azureADPremiumLicenseInsight(): AzureADPremiumLicenseInsightRequestBuilder {
         return new AzureADPremiumLicenseInsightRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the correlations property of the microsoft.graph.reportRoot entity.
+    */
+    public function correlations(): CorrelationsRequestBuilder {
+        return new CorrelationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -314,6 +323,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function healthMonitoring(): HealthMonitoringRequestBuilder {
         return new HealthMonitoringRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the identityAnalytics property of the microsoft.graph.reportRoot entity.
+    */
+    public function identityAnalytics(): IdentityAnalyticsRequestBuilder {
+        return new IdentityAnalyticsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

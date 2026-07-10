@@ -133,6 +133,7 @@ class DeviceComplianceScript extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'enforceSignatureCheck' => fn(ParseNode $n) => $o->setEnforceSignatureCheck($n->getBooleanValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'platform' => fn(ParseNode $n) => $o->setPlatform($n->getEnumValue(DeviceComplianceScriptPlatformType::class)),
             'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
             'roleScopeTagIds' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -159,6 +160,18 @@ class DeviceComplianceScript extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
+    }
+
+    /**
+     * Gets the platform property value. Indicates the operating system platform type that this compliance script targets.
+     * @return DeviceComplianceScriptPlatformType|null
+    */
+    public function getPlatform(): ?DeviceComplianceScriptPlatformType {
+        $val = $this->getBackingStore()->get('platform');
+        if (is_null($val) || $val instanceof DeviceComplianceScriptPlatformType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'platform'");
     }
 
     /**
@@ -247,6 +260,7 @@ class DeviceComplianceScript extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('deviceRunStates', $this->getDeviceRunStates());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeBooleanValue('enforceSignatureCheck', $this->getEnforceSignatureCheck());
+        $writer->writeEnumValue('platform', $this->getPlatform());
         $writer->writeStringValue('publisher', $this->getPublisher());
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
         $writer->writeBooleanValue('runAs32Bit', $this->getRunAs32Bit());
@@ -317,6 +331,14 @@ class DeviceComplianceScript extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the platform property value. Indicates the operating system platform type that this compliance script targets.
+     * @param DeviceComplianceScriptPlatformType|null $value Value to set for the platform property.
+    */
+    public function setPlatform(?DeviceComplianceScriptPlatformType $value): void {
+        $this->getBackingStore()->set('platform', $value);
     }
 
     /**

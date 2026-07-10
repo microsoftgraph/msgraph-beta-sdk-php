@@ -92,6 +92,18 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, BackedM
     }
 
     /**
+     * Gets the enforcementScope property value. The enforcementScope property
+     * @return ServicePrincipalLockScope|null
+    */
+    public function getEnforcementScope(): ?ServicePrincipalLockScope {
+        $val = $this->getBackingStore()->get('enforcementScope');
+        if (is_null($val) || $val instanceof ServicePrincipalLockScope) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enforcementScope'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -101,6 +113,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, BackedM
             'allProperties' => fn(ParseNode $n) => $o->setAllProperties($n->getBooleanValue()),
             'credentialsWithUsageSign' => fn(ParseNode $n) => $o->setCredentialsWithUsageSign($n->getBooleanValue()),
             'credentialsWithUsageVerify' => fn(ParseNode $n) => $o->setCredentialsWithUsageVerify($n->getBooleanValue()),
+            'enforcementScope' => fn(ParseNode $n) => $o->setEnforcementScope($n->getEnumValue(ServicePrincipalLockScope::class)),
             'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'tokenEncryptionKeyId' => fn(ParseNode $n) => $o->setTokenEncryptionKeyId($n->getBooleanValue()),
@@ -151,6 +164,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, BackedM
         $writer->writeBooleanValue('allProperties', $this->getAllProperties());
         $writer->writeBooleanValue('credentialsWithUsageSign', $this->getCredentialsWithUsageSign());
         $writer->writeBooleanValue('credentialsWithUsageVerify', $this->getCredentialsWithUsageVerify());
+        $writer->writeEnumValue('enforcementScope', $this->getEnforcementScope());
         $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('tokenEncryptionKeyId', $this->getTokenEncryptionKeyId());
@@ -195,6 +209,14 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, BackedM
     */
     public function setCredentialsWithUsageVerify(?bool $value): void {
         $this->getBackingStore()->set('credentialsWithUsageVerify', $value);
+    }
+
+    /**
+     * Sets the enforcementScope property value. The enforcementScope property
+     * @param ServicePrincipalLockScope|null $value Value to set for the enforcementScope property.
+    */
+    public function setEnforcementScope(?ServicePrincipalLockScope $value): void {
+        $this->getBackingStore()->set('enforcementScope', $value);
     }
 
     /**

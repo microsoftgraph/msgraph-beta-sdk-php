@@ -31,10 +31,11 @@ class DriveExclusionUnitsBulkAdditionJobItemRequestBuilder extends BaseRequestBu
     }
 
     /**
-     * Get driveExclusionUnitsBulkAdditionJobs from solutions
+     * Get a drive exclusion units bulk addition job associated with a OneDrive for work or school protection policy.
      * @param DriveExclusionUnitsBulkAdditionJobItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DriveExclusionUnitsBulkAdditionJob|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/driveexclusionunitsbulkadditionjob-get?view=graph-rest-beta Find more info here
     */
     public function get(?DriveExclusionUnitsBulkAdditionJobItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -45,7 +46,7 @@ class DriveExclusionUnitsBulkAdditionJobItemRequestBuilder extends BaseRequestBu
     }
 
     /**
-     * Get driveExclusionUnitsBulkAdditionJobs from solutions
+     * Get a drive exclusion units bulk addition job associated with a OneDrive for work or school protection policy.
      * @param DriveExclusionUnitsBulkAdditionJobItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

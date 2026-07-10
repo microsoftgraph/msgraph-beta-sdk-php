@@ -9,4 +9,5 @@ class GroupAccessType extends Enum {
     public const PRIVATE = "private";
     public const SECRET = "secret";
     public const PUBLIC = "public";
+    public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

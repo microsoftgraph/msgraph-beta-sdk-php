@@ -58,7 +58,7 @@ class RedirectUriBlockedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the blockedDomains property value. The blockedDomains property
+     * Gets the blockedDomains property value. Collection of domain names that are blocked globally across all platforms. Domain validation follows RFC 3986 (URI syntax, section 3.2.2 for the host component). Domain matching is case-insensitive and exact; wildcards are not supported.
      * @return array<string>|null
     */
     public function getBlockedDomains(): ?array {
@@ -72,7 +72,7 @@ class RedirectUriBlockedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the excludeActors property value. The excludeActors property
+     * Gets the excludeActors property value. Applications or service principals that are exempt from this restriction.
      * @return AppManagementPolicyActorExemptions|null
     */
     public function getExcludeActors(): ?AppManagementPolicyActorExemptions {
@@ -110,7 +110,7 @@ class RedirectUriBlockedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the isStateSetByMicrosoft property value. The isStateSetByMicrosoft property
+     * Gets the isStateSetByMicrosoft property value. Indicates whether the restriction state was set by Microsoft.
      * @return bool|null
     */
     public function getIsStateSetByMicrosoft(): ?bool {
@@ -134,7 +134,7 @@ class RedirectUriBlockedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the publicClient property value. The publicClient property
+     * Gets the publicClient property value. Platform-specific blocked domain configuration for public client applications (native/mobile apps).
      * @return RedirectUriPlatformBlockedDomainConfiguration|null
     */
     public function getPublicClient(): ?RedirectUriPlatformBlockedDomainConfiguration {
@@ -146,7 +146,7 @@ class RedirectUriBlockedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the restrictForAppsCreatedAfterDateTime property value. The restrictForAppsCreatedAfterDateTime property
+     * Gets the restrictForAppsCreatedAfterDateTime property value. Date and time when this restriction starts applying to newly created applications. Applications created before this date are not affected.
      * @return DateTime|null
     */
     public function getRestrictForAppsCreatedAfterDateTime(): ?DateTime {
@@ -158,7 +158,7 @@ class RedirectUriBlockedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the spa property value. The spa property
+     * Gets the spa property value. Platform-specific blocked domain configuration for single-page applications (SPAs).
      * @return RedirectUriPlatformBlockedDomainConfiguration|null
     */
     public function getSpa(): ?RedirectUriPlatformBlockedDomainConfiguration {
@@ -182,7 +182,7 @@ class RedirectUriBlockedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the web property value. The web property
+     * Gets the web property value. Platform-specific blocked domain configuration for web applications.
      * @return RedirectUriPlatformBlockedDomainConfiguration|null
     */
     public function getWeb(): ?RedirectUriPlatformBlockedDomainConfiguration {
@@ -226,7 +226,7 @@ class RedirectUriBlockedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the blockedDomains property value. The blockedDomains property
+     * Sets the blockedDomains property value. Collection of domain names that are blocked globally across all platforms. Domain validation follows RFC 3986 (URI syntax, section 3.2.2 for the host component). Domain matching is case-insensitive and exact; wildcards are not supported.
      * @param array<string>|null $value Value to set for the blockedDomains property.
     */
     public function setBlockedDomains(?array $value): void {
@@ -234,7 +234,7 @@ class RedirectUriBlockedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the excludeActors property value. The excludeActors property
+     * Sets the excludeActors property value. Applications or service principals that are exempt from this restriction.
      * @param AppManagementPolicyActorExemptions|null $value Value to set for the excludeActors property.
     */
     public function setExcludeActors(?AppManagementPolicyActorExemptions $value): void {
@@ -242,7 +242,7 @@ class RedirectUriBlockedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the isStateSetByMicrosoft property value. The isStateSetByMicrosoft property
+     * Sets the isStateSetByMicrosoft property value. Indicates whether the restriction state was set by Microsoft.
      * @param bool|null $value Value to set for the isStateSetByMicrosoft property.
     */
     public function setIsStateSetByMicrosoft(?bool $value): void {
@@ -258,7 +258,7 @@ class RedirectUriBlockedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the publicClient property value. The publicClient property
+     * Sets the publicClient property value. Platform-specific blocked domain configuration for public client applications (native/mobile apps).
      * @param RedirectUriPlatformBlockedDomainConfiguration|null $value Value to set for the publicClient property.
     */
     public function setPublicClient(?RedirectUriPlatformBlockedDomainConfiguration $value): void {
@@ -266,7 +266,7 @@ class RedirectUriBlockedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the restrictForAppsCreatedAfterDateTime property value. The restrictForAppsCreatedAfterDateTime property
+     * Sets the restrictForAppsCreatedAfterDateTime property value. Date and time when this restriction starts applying to newly created applications. Applications created before this date are not affected.
      * @param DateTime|null $value Value to set for the restrictForAppsCreatedAfterDateTime property.
     */
     public function setRestrictForAppsCreatedAfterDateTime(?DateTime $value): void {
@@ -274,7 +274,7 @@ class RedirectUriBlockedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the spa property value. The spa property
+     * Sets the spa property value. Platform-specific blocked domain configuration for single-page applications (SPAs).
      * @param RedirectUriPlatformBlockedDomainConfiguration|null $value Value to set for the spa property.
     */
     public function setSpa(?RedirectUriPlatformBlockedDomainConfiguration $value): void {
@@ -290,7 +290,7 @@ class RedirectUriBlockedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the web property value. The web property
+     * Sets the web property value. Platform-specific blocked domain configuration for web applications.
      * @param RedirectUriPlatformBlockedDomainConfiguration|null $value Value to set for the web property.
     */
     public function setWeb(?RedirectUriPlatformBlockedDomainConfiguration $value): void {

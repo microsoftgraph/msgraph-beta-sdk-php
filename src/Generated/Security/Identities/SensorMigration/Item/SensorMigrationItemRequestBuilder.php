@@ -45,7 +45,7 @@ class SensorMigrationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sensorMigration from security
+     * Represents Microsoft Defender for Identity sensors that can be migrated to the unified security portal.
      * @param SensorMigrationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SensorMigration|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class SensorMigrationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sensorMigration from security
+     * Represents Microsoft Defender for Identity sensors that can be migrated to the unified security portal.
      * @param SensorMigrationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

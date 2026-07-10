@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudP
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get cloudPcPools from deviceManagement
+ * List the properties and relationships of the cloudPcPool objects.
 */
 class CloudPcPoolsRequestBuilderGetQueryParameters 
 {

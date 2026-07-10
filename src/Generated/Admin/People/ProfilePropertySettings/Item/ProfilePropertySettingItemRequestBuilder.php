@@ -31,7 +31,7 @@ class ProfilePropertySettingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a profilePropertySetting object.
+     * Delete a profilePropertySetting object. You shouldn't delete a profilePropertySetting that includes a source precedence configuration. Instead, patch it to a default state that contains only the Microsoft Entra ID source reference. This delete operation is supported but fails unless the prioritizedSourceUrls property contains only the Entra ID source reference.
      * @param ProfilePropertySettingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -77,7 +77,7 @@ class ProfilePropertySettingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a profilePropertySetting object.
+     * Delete a profilePropertySetting object. You shouldn't delete a profilePropertySetting that includes a source precedence configuration. Instead, patch it to a default state that contains only the Microsoft Entra ID source reference. This delete operation is supported but fails unless the prioritizedSourceUrls property contains only the Entra ID source reference.
      * @param ProfilePropertySettingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

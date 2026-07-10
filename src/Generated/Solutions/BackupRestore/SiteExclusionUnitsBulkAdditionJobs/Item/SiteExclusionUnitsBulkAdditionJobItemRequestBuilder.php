@@ -45,7 +45,7 @@ class SiteExclusionUnitsBulkAdditionJobItemRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Get siteExclusionUnitsBulkAdditionJobs from solutions
+     * The list of bulk addition jobs for site exclusion units in the tenant.
      * @param SiteExclusionUnitsBulkAdditionJobItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SiteExclusionUnitsBulkAdditionJob|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class SiteExclusionUnitsBulkAdditionJobItemRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Get siteExclusionUnitsBulkAdditionJobs from solutions
+     * The list of bulk addition jobs for site exclusion units in the tenant.
      * @param SiteExclusionUnitsBulkAdditionJobItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
