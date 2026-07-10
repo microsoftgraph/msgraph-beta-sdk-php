@@ -31,11 +31,12 @@ class MicrosoftGraphSecurityMigrateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action migrate
+     * Migrate the specified sensors to the unified security portal. This action initiates the migration process for one or more Microsoft Defender for Identity sensors.
      * @param MigratePostRequestBody $body The request body
      * @param MicrosoftGraphSecurityMigrateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MigrateSensorsResult|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-sensormigration-migrate?view=graph-rest-beta Find more info here
     */
     public function post(MigratePostRequestBody $body, ?MicrosoftGraphSecurityMigrateRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -46,7 +47,7 @@ class MicrosoftGraphSecurityMigrateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action migrate
+     * Migrate the specified sensors to the unified security portal. This action initiates the migration process for one or more Microsoft Defender for Identity sensors.
      * @param MigratePostRequestBody $body The request body
      * @param MicrosoftGraphSecurityMigrateRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

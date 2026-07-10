@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Defini
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Retrieve the stages in a multi-stage access review instance.
+ * Retrieve the accessReviewStage objects for a specific accessReviewInstance in a multi-stage access review.
 */
 class StagesRequestBuilderGetQueryParameters 
 {

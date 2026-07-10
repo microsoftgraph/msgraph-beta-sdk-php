@@ -57,7 +57,7 @@ class MigrateSensorsResult implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the failedMigrationSensorIds property value. The failedMigrationSensorIds property
+     * Gets the failedMigrationSensorIds property value. The collection of sensor IDs that failed to migrate.
      * @return array<string>|null
     */
     public function getFailedMigrationSensorIds(): ?array {
@@ -110,7 +110,7 @@ class MigrateSensorsResult implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the successfulMigrationSensorIds property value. The successfulMigrationSensorIds property
+     * Gets the successfulMigrationSensorIds property value. The collection of sensor IDs that were successfully migrated.
      * @return array<string>|null
     */
     public function getSuccessfulMigrationSensorIds(): ?array {
@@ -151,7 +151,7 @@ class MigrateSensorsResult implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the failedMigrationSensorIds property value. The failedMigrationSensorIds property
+     * Sets the failedMigrationSensorIds property value. The collection of sensor IDs that failed to migrate.
      * @param array<string>|null $value Value to set for the failedMigrationSensorIds property.
     */
     public function setFailedMigrationSensorIds(?array $value): void {
@@ -167,7 +167,7 @@ class MigrateSensorsResult implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the successfulMigrationSensorIds property value. The successfulMigrationSensorIds property
+     * Sets the successfulMigrationSensorIds property value. The collection of sensor IDs that were successfully migrated.
      * @param array<string>|null $value Value to set for the successfulMigrationSensorIds property.
     */
     public function setSuccessfulMigrationSensorIds(?array $value): void {

@@ -31,10 +31,11 @@ class SiteExclusionUnitsBulkAdditionJobItemRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Get siteExclusionUnitsBulkAdditionJobs from solutions
+     * Get a site exclusion units bulk addition job associated with a SharePoint protection policy.
      * @param SiteExclusionUnitsBulkAdditionJobItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SiteExclusionUnitsBulkAdditionJob|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/siteexclusionunitsbulkadditionjob-get?view=graph-rest-beta Find more info here
     */
     public function get(?SiteExclusionUnitsBulkAdditionJobItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -45,7 +46,7 @@ class SiteExclusionUnitsBulkAdditionJobItemRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Get siteExclusionUnitsBulkAdditionJobs from solutions
+     * Get a site exclusion units bulk addition job associated with a SharePoint protection policy.
      * @param SiteExclusionUnitsBulkAdditionJobItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

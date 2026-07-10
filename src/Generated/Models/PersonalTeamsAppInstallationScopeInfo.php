@@ -37,7 +37,7 @@ class PersonalTeamsAppInstallationScopeInfo extends TeamsAppInstallationScopeInf
     }
 
     /**
-     * Gets the userId property value. The userId property
+     * Gets the userId property value. The ID of the user for whom the Teams app is installed.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -58,7 +58,7 @@ class PersonalTeamsAppInstallationScopeInfo extends TeamsAppInstallationScopeInf
     }
 
     /**
-     * Sets the userId property value. The userId property
+     * Sets the userId property value. The ID of the user for whom the Teams app is installed.
      * @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value): void {

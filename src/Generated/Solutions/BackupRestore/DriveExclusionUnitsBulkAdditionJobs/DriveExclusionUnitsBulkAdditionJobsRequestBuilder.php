@@ -52,7 +52,7 @@ class DriveExclusionUnitsBulkAdditionJobsRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Get driveExclusionUnitsBulkAdditionJobs from solutions
+     * The list of bulk addition jobs for drive exclusion units in the tenant.
      * @param DriveExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DriveExclusionUnitsBulkAdditionJobCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class DriveExclusionUnitsBulkAdditionJobsRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Get driveExclusionUnitsBulkAdditionJobs from solutions
+     * The list of bulk addition jobs for drive exclusion units in the tenant.
      * @param DriveExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

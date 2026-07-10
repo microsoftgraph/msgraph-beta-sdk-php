@@ -191,6 +191,18 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
+     * Gets the excludeLocalNetworks property value. Indicates whether local network traffic is excluded from the VPN tunnel. When TRUE, local network traffic bypasses the VPN tunnel. Default value is null. Only takes effect when includeAllNetworks is TRUE or enforceVpnRouting is TRUE. Not applicable when enablePerApp is TRUE.
+     * @return bool|null
+    */
+    public function getExcludeLocalNetworks(): ?bool {
+        $val = $this->getBackingStore()->get('excludeLocalNetworks');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'excludeLocalNetworks'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -223,7 +235,9 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
                 /** @var array<string>|null $val */
                 $this->setExcludedDomains($val);
             },
+            'excludeLocalNetworks' => fn(ParseNode $n) => $o->setExcludeLocalNetworks($n->getBooleanValue()),
             'identifier' => fn(ParseNode $n) => $o->setIdentifier($n->getStringValue()),
+            'includeAllNetworks' => fn(ParseNode $n) => $o->setIncludeAllNetworks($n->getBooleanValue()),
             'loginGroupOrDomain' => fn(ParseNode $n) => $o->setLoginGroupOrDomain($n->getStringValue()),
             'onDemandRules' => fn(ParseNode $n) => $o->setOnDemandRules($n->getCollectionOfObjectValues([VpnOnDemandRule::class, 'createFromDiscriminatorValue'])),
             'optInToDeviceIdSharing' => fn(ParseNode $n) => $o->setOptInToDeviceIdSharing($n->getBooleanValue()),
@@ -253,6 +267,18 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'identifier'");
+    }
+
+    /**
+     * Gets the includeAllNetworks property value. Indicates whether most network traffic is routed through the VPN tunnel. When TRUE, most network traffic is sent through the VPN tunnel. Default value is null. Not applicable when enablePerApp is TRUE.
+     * @return bool|null
+    */
+    public function getIncludeAllNetworks(): ?bool {
+        $val = $this->getBackingStore()->get('includeAllNetworks');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'includeAllNetworks'");
     }
 
     /**
@@ -385,7 +411,9 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
         $writer->writeBooleanValue('enablePerApp', $this->getEnablePerApp());
         $writer->writeBooleanValue('enableSplitTunneling', $this->getEnableSplitTunneling());
         $writer->writeCollectionOfPrimitiveValues('excludedDomains', $this->getExcludedDomains());
+        $writer->writeBooleanValue('excludeLocalNetworks', $this->getExcludeLocalNetworks());
         $writer->writeStringValue('identifier', $this->getIdentifier());
+        $writer->writeBooleanValue('includeAllNetworks', $this->getIncludeAllNetworks());
         $writer->writeStringValue('loginGroupOrDomain', $this->getLoginGroupOrDomain());
         $writer->writeCollectionOfObjectValues('onDemandRules', $this->getOnDemandRules());
         $writer->writeBooleanValue('optInToDeviceIdSharing', $this->getOptInToDeviceIdSharing());
@@ -494,11 +522,27 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
+     * Sets the excludeLocalNetworks property value. Indicates whether local network traffic is excluded from the VPN tunnel. When TRUE, local network traffic bypasses the VPN tunnel. Default value is null. Only takes effect when includeAllNetworks is TRUE or enforceVpnRouting is TRUE. Not applicable when enablePerApp is TRUE.
+     * @param bool|null $value Value to set for the excludeLocalNetworks property.
+    */
+    public function setExcludeLocalNetworks(?bool $value): void {
+        $this->getBackingStore()->set('excludeLocalNetworks', $value);
+    }
+
+    /**
      * Sets the identifier property value. Identifier provided by VPN vendor when connection type is set to Custom VPN. For example: Cisco AnyConnect uses an identifier of the form com.cisco.anyconnect.applevpn.plugin
      * @param string|null $value Value to set for the identifier property.
     */
     public function setIdentifier(?string $value): void {
         $this->getBackingStore()->set('identifier', $value);
+    }
+
+    /**
+     * Sets the includeAllNetworks property value. Indicates whether most network traffic is routed through the VPN tunnel. When TRUE, most network traffic is sent through the VPN tunnel. Default value is null. Not applicable when enablePerApp is TRUE.
+     * @param bool|null $value Value to set for the includeAllNetworks property.
+    */
+    public function setIncludeAllNetworks(?bool $value): void {
+        $this->getBackingStore()->set('includeAllNetworks', $value);
     }
 
     /**

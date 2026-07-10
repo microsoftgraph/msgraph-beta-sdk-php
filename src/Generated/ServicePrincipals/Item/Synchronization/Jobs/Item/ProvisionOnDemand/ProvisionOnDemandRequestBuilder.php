@@ -31,7 +31,7 @@ class ProvisionOnDemandRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Select a user and provision the account on-demand. The rate limit for this API is 5 requests per 10 seconds. No user or group will be provisioned on-demand that would not have been provisioned through the regular provisioning cycles.
+     * Select a user and provision the account on-demand for a synchronizationJob. The rate limit for this API is 5 requests per 10 seconds. No user or group will be provisioned on-demand that would not have been provisioned through the regular provisioning cycles.
      * @param ProvisionOnDemandPostRequestBody $body The request body
      * @param ProvisionOnDemandRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StringKeyStringValuePair|null>
@@ -47,7 +47,7 @@ class ProvisionOnDemandRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Select a user and provision the account on-demand. The rate limit for this API is 5 requests per 10 seconds. No user or group will be provisioned on-demand that would not have been provisioned through the regular provisioning cycles.
+     * Select a user and provision the account on-demand for a synchronizationJob. The rate limit for this API is 5 requests per 10 seconds. No user or group will be provisioned on-demand that would not have been provisioned through the regular provisioning cycles.
      * @param ProvisionOnDemandPostRequestBody $body The request body
      * @param ProvisionOnDemandRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

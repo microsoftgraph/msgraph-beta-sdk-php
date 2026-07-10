@@ -106,7 +106,7 @@ class CustomAppManagementApplicationConfiguration implements AdditionalDataHolde
     }
 
     /**
-     * Gets the redirectUris property value. The redirectUris property
+     * Gets the redirectUris property value. Configuration for redirect URI validation rules and restrictions.
      * @return RedirectUriConfiguration|null
     */
     public function getRedirectUris(): ?RedirectUriConfiguration {
@@ -170,7 +170,7 @@ class CustomAppManagementApplicationConfiguration implements AdditionalDataHolde
     }
 
     /**
-     * Sets the redirectUris property value. The redirectUris property
+     * Sets the redirectUris property value. Configuration for redirect URI validation rules and restrictions.
      * @param RedirectUriConfiguration|null $value Value to set for the redirectUris property.
     */
     public function setRedirectUris(?RedirectUriConfiguration $value): void {

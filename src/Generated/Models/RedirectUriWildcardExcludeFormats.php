@@ -57,7 +57,7 @@ class RedirectUriWildcardExcludeFormats implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Gets the excludeWildcardsInPath property value. The excludeWildcardsInPath property
+     * Gets the excludeWildcardsInPath property value. When true, blocks the use of wildcards in the path portion of redirect URIs. When false, allows wildcards in paths.
      * @return bool|null
     */
     public function getExcludeWildcardsInPath(): ?bool {
@@ -69,7 +69,7 @@ class RedirectUriWildcardExcludeFormats implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Gets the excludeWildcardsInPathWithDomains property value. The excludeWildcardsInPathWithDomains property
+     * Gets the excludeWildcardsInPathWithDomains property value. Collection of domain names where wildcards in the path portion of redirect URIs are blocked. Accepts only valid host names (no wildcards) as defined in RFC 3986 §3.2.2. For example, login.microsoft.com or contoso.com.
      * @return array<string>|null
     */
     public function getExcludeWildcardsInPathWithDomains(): ?array {
@@ -142,7 +142,7 @@ class RedirectUriWildcardExcludeFormats implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Sets the excludeWildcardsInPath property value. The excludeWildcardsInPath property
+     * Sets the excludeWildcardsInPath property value. When true, blocks the use of wildcards in the path portion of redirect URIs. When false, allows wildcards in paths.
      * @param bool|null $value Value to set for the excludeWildcardsInPath property.
     */
     public function setExcludeWildcardsInPath(?bool $value): void {
@@ -150,7 +150,7 @@ class RedirectUriWildcardExcludeFormats implements AdditionalDataHolder, BackedM
     }
 
     /**
-     * Sets the excludeWildcardsInPathWithDomains property value. The excludeWildcardsInPathWithDomains property
+     * Sets the excludeWildcardsInPathWithDomains property value. Collection of domain names where wildcards in the path portion of redirect URIs are blocked. Accepts only valid host names (no wildcards) as defined in RFC 3986 §3.2.2. For example, login.microsoft.com or contoso.com.
      * @param array<string>|null $value Value to set for the excludeWildcardsInPathWithDomains property.
     */
     public function setExcludeWildcardsInPathWithDomains(?array $value): void {

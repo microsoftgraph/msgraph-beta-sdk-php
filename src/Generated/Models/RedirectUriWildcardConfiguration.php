@@ -57,7 +57,7 @@ class RedirectUriWildcardConfiguration implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the excludeActors property value. The excludeActors property
+     * Gets the excludeActors property value. Applications or service principals that are exempt from this restriction.
      * @return AppManagementPolicyActorExemptions|null
     */
     public function getExcludeActors(): ?AppManagementPolicyActorExemptions {
@@ -69,7 +69,7 @@ class RedirectUriWildcardConfiguration implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the excludeFormats property value. The excludeFormats property
+     * Gets the excludeFormats property value. Configuration that specifies exceptions to the wildcard restriction, such as allowing wildcards for specific trusted domains.
      * @return RedirectUriWildcardExcludeFormats|null
     */
     public function getExcludeFormats(): ?RedirectUriWildcardExcludeFormats {
@@ -97,7 +97,7 @@ class RedirectUriWildcardConfiguration implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the isStateSetByMicrosoft property value. The isStateSetByMicrosoft property
+     * Gets the isStateSetByMicrosoft property value. Indicates whether the restriction state was set by Microsoft.
      * @return bool|null
     */
     public function getIsStateSetByMicrosoft(): ?bool {
@@ -121,7 +121,7 @@ class RedirectUriWildcardConfiguration implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the restrictForAppsCreatedAfterDateTime property value. The restrictForAppsCreatedAfterDateTime property
+     * Gets the restrictForAppsCreatedAfterDateTime property value. Date and time when this restriction starts applying to newly created applications. Applications created before this date are not affected.
      * @return DateTime|null
     */
     public function getRestrictForAppsCreatedAfterDateTime(): ?DateTime {
@@ -174,7 +174,7 @@ class RedirectUriWildcardConfiguration implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the excludeActors property value. The excludeActors property
+     * Sets the excludeActors property value. Applications or service principals that are exempt from this restriction.
      * @param AppManagementPolicyActorExemptions|null $value Value to set for the excludeActors property.
     */
     public function setExcludeActors(?AppManagementPolicyActorExemptions $value): void {
@@ -182,7 +182,7 @@ class RedirectUriWildcardConfiguration implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the excludeFormats property value. The excludeFormats property
+     * Sets the excludeFormats property value. Configuration that specifies exceptions to the wildcard restriction, such as allowing wildcards for specific trusted domains.
      * @param RedirectUriWildcardExcludeFormats|null $value Value to set for the excludeFormats property.
     */
     public function setExcludeFormats(?RedirectUriWildcardExcludeFormats $value): void {
@@ -190,7 +190,7 @@ class RedirectUriWildcardConfiguration implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the isStateSetByMicrosoft property value. The isStateSetByMicrosoft property
+     * Sets the isStateSetByMicrosoft property value. Indicates whether the restriction state was set by Microsoft.
      * @param bool|null $value Value to set for the isStateSetByMicrosoft property.
     */
     public function setIsStateSetByMicrosoft(?bool $value): void {
@@ -206,7 +206,7 @@ class RedirectUriWildcardConfiguration implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the restrictForAppsCreatedAfterDateTime property value. The restrictForAppsCreatedAfterDateTime property
+     * Sets the restrictForAppsCreatedAfterDateTime property value. Date and time when this restriction starts applying to newly created applications. Applications created before this date are not affected.
      * @param DateTime|null $value Value to set for the restrictForAppsCreatedAfterDateTime property.
     */
     public function setRestrictForAppsCreatedAfterDateTime(?DateTime $value): void {

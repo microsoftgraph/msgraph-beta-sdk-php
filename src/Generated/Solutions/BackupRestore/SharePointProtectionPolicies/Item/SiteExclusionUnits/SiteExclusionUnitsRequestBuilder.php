@@ -51,10 +51,11 @@ class SiteExclusionUnitsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get siteExclusionUnits from solutions
+     * Get a list of site exclusion units associated with a SharePoint protection policy.
      * @param SiteExclusionUnitsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SiteExclusionUnitCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/sharepointprotectionpolicy-list-siteexclusionunits?view=graph-rest-beta Find more info here
     */
     public function get(?SiteExclusionUnitsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -65,7 +66,7 @@ class SiteExclusionUnitsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get siteExclusionUnits from solutions
+     * Get a list of site exclusion units associated with a SharePoint protection policy.
      * @param SiteExclusionUnitsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

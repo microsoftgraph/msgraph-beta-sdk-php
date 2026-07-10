@@ -30,7 +30,7 @@ class BatchApplyCustomDataProvidedResourceDecisionsRequestBuilder extends BaseRe
     }
 
     /**
-     * Enables reviewers to set the applyResult and applyDescription on all accessReviewInstanceDecisionItem objects in batches by using customDataProvidedResourceId. NOTE: The access review instance must be in an Applying state.
+     * Enables reviewers to set the applyResult and applyDescription on all accessReviewInstanceDecisionItem objects in a specific accessReviewInstance in batches by using customDataProvidedResourceId. NOTE: The access review instance must be in an Applying state.
      * @param BatchApplyCustomDataProvidedResourceDecisionsPostRequestBody $body The request body
      * @param BatchApplyCustomDataProvidedResourceDecisionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -46,7 +46,7 @@ class BatchApplyCustomDataProvidedResourceDecisionsRequestBuilder extends BaseRe
     }
 
     /**
-     * Enables reviewers to set the applyResult and applyDescription on all accessReviewInstanceDecisionItem objects in batches by using customDataProvidedResourceId. NOTE: The access review instance must be in an Applying state.
+     * Enables reviewers to set the applyResult and applyDescription on all accessReviewInstanceDecisionItem objects in a specific accessReviewInstance in batches by using customDataProvidedResourceId. NOTE: The access review instance must be in an Applying state.
      * @param BatchApplyCustomDataProvidedResourceDecisionsPostRequestBody $body The request body
      * @param BatchApplyCustomDataProvidedResourceDecisionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\MailboxExclusio
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get mailboxExclusionUnits from solutions
+ * The list of mailbox exclusion units in the tenant.
 */
 class MailboxExclusionUnitItemRequestBuilderGetQueryParameters 
 {

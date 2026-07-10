@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\CompleteMigra
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName\DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\EnabledApps\EnabledAppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\FilesFolder\FilesFolderRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\JoinedUsers\JoinedUsersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Members\MembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Messages\MessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\PrimaryChannel\Planner\PlannerRequestBuilder;
@@ -71,6 +72,13 @@ class PrimaryChannelRequestBuilder extends BaseRequestBuilder
     */
     public function filesFolder(): FilesFolderRequestBuilder {
         return new FilesFolderRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the joinedUsers property of the microsoft.graph.channel entity.
+    */
+    public function joinedUsers(): JoinedUsersRequestBuilder {
+        return new JoinedUsersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

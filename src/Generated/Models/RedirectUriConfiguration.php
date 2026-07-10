@@ -84,7 +84,7 @@ class RedirectUriConfiguration implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the uriWithBlockedDomain property value. The uriWithBlockedDomain property
+     * Gets the uriWithBlockedDomain property value. Configuration that specifies blocked domains for redirect URIs with global and platform-specific settings.
      * @return RedirectUriBlockedDomainConfiguration|null
     */
     public function getUriWithBlockedDomain(): ?RedirectUriBlockedDomainConfiguration {
@@ -96,7 +96,7 @@ class RedirectUriConfiguration implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the uriWithBlockedScheme property value. The uriWithBlockedScheme property
+     * Gets the uriWithBlockedScheme property value. Configuration that specifies blocked URI schemes for redirect URIs with global and platform-specific settings and exempt format patterns.
      * @return RedirectUriBlockedSchemeConfiguration|null
     */
     public function getUriWithBlockedScheme(): ?RedirectUriBlockedSchemeConfiguration {
@@ -108,7 +108,7 @@ class RedirectUriConfiguration implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the uriWithoutAllowedDomain property value. The uriWithoutAllowedDomain property
+     * Gets the uriWithoutAllowedDomain property value. Configuration that specifies allowed domains for redirect URIs with global and platform-specific settings.
      * @return RedirectUriAllowedDomainConfiguration|null
     */
     public function getUriWithoutAllowedDomain(): ?RedirectUriAllowedDomainConfiguration {
@@ -120,7 +120,7 @@ class RedirectUriConfiguration implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the uriWithoutAllowedScheme property value. The uriWithoutAllowedScheme property
+     * Gets the uriWithoutAllowedScheme property value. Configuration that specifies allowed URI schemes for redirect URIs with global and platform-specific settings.
      * @return RedirectUriAllowedSchemeConfiguration|null
     */
     public function getUriWithoutAllowedScheme(): ?RedirectUriAllowedSchemeConfiguration {
@@ -132,7 +132,7 @@ class RedirectUriConfiguration implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the uriWithWildcard property value. The uriWithWildcard property
+     * Gets the uriWithWildcard property value. Configuration that controls the use of wildcard patterns in redirect URIs with configurable exceptions.
      * @return RedirectUriWildcardConfiguration|null
     */
     public function getUriWithWildcard(): ?RedirectUriWildcardConfiguration {
@@ -182,7 +182,7 @@ class RedirectUriConfiguration implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the uriWithBlockedDomain property value. The uriWithBlockedDomain property
+     * Sets the uriWithBlockedDomain property value. Configuration that specifies blocked domains for redirect URIs with global and platform-specific settings.
      * @param RedirectUriBlockedDomainConfiguration|null $value Value to set for the uriWithBlockedDomain property.
     */
     public function setUriWithBlockedDomain(?RedirectUriBlockedDomainConfiguration $value): void {
@@ -190,7 +190,7 @@ class RedirectUriConfiguration implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the uriWithBlockedScheme property value. The uriWithBlockedScheme property
+     * Sets the uriWithBlockedScheme property value. Configuration that specifies blocked URI schemes for redirect URIs with global and platform-specific settings and exempt format patterns.
      * @param RedirectUriBlockedSchemeConfiguration|null $value Value to set for the uriWithBlockedScheme property.
     */
     public function setUriWithBlockedScheme(?RedirectUriBlockedSchemeConfiguration $value): void {
@@ -198,7 +198,7 @@ class RedirectUriConfiguration implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the uriWithoutAllowedDomain property value. The uriWithoutAllowedDomain property
+     * Sets the uriWithoutAllowedDomain property value. Configuration that specifies allowed domains for redirect URIs with global and platform-specific settings.
      * @param RedirectUriAllowedDomainConfiguration|null $value Value to set for the uriWithoutAllowedDomain property.
     */
     public function setUriWithoutAllowedDomain(?RedirectUriAllowedDomainConfiguration $value): void {
@@ -206,7 +206,7 @@ class RedirectUriConfiguration implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the uriWithoutAllowedScheme property value. The uriWithoutAllowedScheme property
+     * Sets the uriWithoutAllowedScheme property value. Configuration that specifies allowed URI schemes for redirect URIs with global and platform-specific settings.
      * @param RedirectUriAllowedSchemeConfiguration|null $value Value to set for the uriWithoutAllowedScheme property.
     */
     public function setUriWithoutAllowedScheme(?RedirectUriAllowedSchemeConfiguration $value): void {
@@ -214,7 +214,7 @@ class RedirectUriConfiguration implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the uriWithWildcard property value. The uriWithWildcard property
+     * Sets the uriWithWildcard property value. Configuration that controls the use of wildcard patterns in redirect URIs with configurable exceptions.
      * @param RedirectUriWildcardConfiguration|null $value Value to set for the uriWithWildcard property.
     */
     public function setUriWithWildcard(?RedirectUriWildcardConfiguration $value): void {

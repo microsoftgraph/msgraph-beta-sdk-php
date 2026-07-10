@@ -57,11 +57,24 @@ class CloudPcPolicyScheduledApplyActionDetail extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'cronScheduleExpression' => fn(ParseNode $n) => $o->setCronScheduleExpression($n->getStringValue()),
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getStringValue()),
+            'isForceUserLogoffEnabled' => fn(ParseNode $n) => $o->setIsForceUserLogoffEnabled($n->getBooleanValue()),
             'nextRunDateTime' => fn(ParseNode $n) => $o->setNextRunDateTime($n->getStringValue()),
             'reservePercentage' => fn(ParseNode $n) => $o->setReservePercentage($n->getIntegerValue()),
             'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getStringValue()),
             'timezone' => fn(ParseNode $n) => $o->setTimezone($n->getEnumValue(CloudPcPolicyTimezone::class)),
         ]);
+    }
+
+    /**
+     * Gets the isForceUserLogoffEnabled property value. Indicates whether active Cloud PC sessions are forcibly signed out when reprovisioning begins. When true, connected users are immediately signed out and reprovisioning starts right away; reservePercentage must be set to 0 when this property is true, otherwise the request fails. When false, reprovisioning waits until the user disconnects. The default value is false. Optional. Frontline shared only.
+     * @return bool|null
+    */
+    public function getIsForceUserLogoffEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isForceUserLogoffEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isForceUserLogoffEnabled'");
     }
 
     /**
@@ -120,6 +133,7 @@ class CloudPcPolicyScheduledApplyActionDetail extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('cronScheduleExpression', $this->getCronScheduleExpression());
         $writer->writeStringValue('endDateTime', $this->getEndDateTime());
+        $writer->writeBooleanValue('isForceUserLogoffEnabled', $this->getIsForceUserLogoffEnabled());
         $writer->writeStringValue('nextRunDateTime', $this->getNextRunDateTime());
         $writer->writeIntegerValue('reservePercentage', $this->getReservePercentage());
         $writer->writeStringValue('startDateTime', $this->getStartDateTime());
@@ -140,6 +154,14 @@ class CloudPcPolicyScheduledApplyActionDetail extends Entity implements Parsable
     */
     public function setEndDateTime(?string $value): void {
         $this->getBackingStore()->set('endDateTime', $value);
+    }
+
+    /**
+     * Sets the isForceUserLogoffEnabled property value. Indicates whether active Cloud PC sessions are forcibly signed out when reprovisioning begins. When true, connected users are immediately signed out and reprovisioning starts right away; reservePercentage must be set to 0 when this property is true, otherwise the request fails. When false, reprovisioning waits until the user disconnects. The default value is false. Optional. Frontline shared only.
+     * @param bool|null $value Value to set for the isForceUserLogoffEnabled property.
+    */
+    public function setIsForceUserLogoffEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isForceUserLogoffEnabled', $value);
     }
 
     /**

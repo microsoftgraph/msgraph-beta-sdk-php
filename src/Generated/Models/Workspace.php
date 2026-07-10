@@ -141,7 +141,7 @@ class Workspace extends Place implements Parsable
     }
 
     /**
-     * Gets the placeId property value. An alternative immutable unique identifier of the workspace. Read-only.
+     * Gets the placeId property value. The placeId property
      * @return string|null
     */
     public function getPlaceId(): ?string {
@@ -234,7 +234,7 @@ class Workspace extends Place implements Parsable
     }
 
     /**
-     * Sets the placeId property value. An alternative immutable unique identifier of the workspace. Read-only.
+     * Sets the placeId property value. The placeId property
      * @param string|null $value Value to set for the placeId property.
     */
     public function setPlaceId(?string $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ExclusionUnits;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get exclusionUnits from solutions
+ * The list of exclusion units in the tenant.
 */
 class ExclusionUnitsRequestBuilderGetQueryParameters 
 {

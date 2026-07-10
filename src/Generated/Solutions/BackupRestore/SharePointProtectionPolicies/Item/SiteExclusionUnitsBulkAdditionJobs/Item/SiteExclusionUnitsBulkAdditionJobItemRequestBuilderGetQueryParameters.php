@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SharePointProte
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get siteExclusionUnitsBulkAdditionJobs from solutions
+ * Get a site exclusion units bulk addition job associated with a SharePoint protection policy.
 */
 class SiteExclusionUnitsBulkAdditionJobItemRequestBuilderGetQueryParameters 
 {

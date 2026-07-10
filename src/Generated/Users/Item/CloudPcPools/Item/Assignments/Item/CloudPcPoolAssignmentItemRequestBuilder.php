@@ -45,7 +45,7 @@ class CloudPcPoolAssignmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get assignments from users
+     * The collection of assignments that grant user or service principal identities access to this pool.
      * @param CloudPcPoolAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcPoolAssignment|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class CloudPcPoolAssignmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get assignments from users
+     * The collection of assignments that grant user or service principal identities access to this pool.
      * @param CloudPcPoolAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

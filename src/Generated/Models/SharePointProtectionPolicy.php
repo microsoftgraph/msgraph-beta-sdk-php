@@ -42,7 +42,7 @@ class SharePointProtectionPolicy extends ProtectionPolicyBase implements Parsabl
     }
 
     /**
-     * Gets the siteExclusionUnits property value. The siteExclusionUnits property
+     * Gets the siteExclusionUnits property value. The site exclusion units associated with the SharePoint protection policy.
      * @return array<SiteExclusionUnit>|null
     */
     public function getSiteExclusionUnits(): ?array {
@@ -56,7 +56,7 @@ class SharePointProtectionPolicy extends ProtectionPolicyBase implements Parsabl
     }
 
     /**
-     * Gets the siteExclusionUnitsBulkAdditionJobs property value. The siteExclusionUnitsBulkAdditionJobs property
+     * Gets the siteExclusionUnitsBulkAdditionJobs property value. The list of bulk addition jobs for site exclusion units associated with the SharePoint protection policy.
      * @return array<SiteExclusionUnitsBulkAdditionJob>|null
     */
     public function getSiteExclusionUnitsBulkAdditionJobs(): ?array {
@@ -125,7 +125,7 @@ class SharePointProtectionPolicy extends ProtectionPolicyBase implements Parsabl
     }
 
     /**
-     * Sets the siteExclusionUnits property value. The siteExclusionUnits property
+     * Sets the siteExclusionUnits property value. The site exclusion units associated with the SharePoint protection policy.
      * @param array<SiteExclusionUnit>|null $value Value to set for the siteExclusionUnits property.
     */
     public function setSiteExclusionUnits(?array $value): void {
@@ -133,7 +133,7 @@ class SharePointProtectionPolicy extends ProtectionPolicyBase implements Parsabl
     }
 
     /**
-     * Sets the siteExclusionUnitsBulkAdditionJobs property value. The siteExclusionUnitsBulkAdditionJobs property
+     * Sets the siteExclusionUnitsBulkAdditionJobs property value. The list of bulk addition jobs for site exclusion units associated with the SharePoint protection policy.
      * @param array<SiteExclusionUnitsBulkAdditionJob>|null $value Value to set for the siteExclusionUnitsBulkAdditionJobs property.
     */
     public function setSiteExclusionUnitsBulkAdditionJobs(?array $value): void {

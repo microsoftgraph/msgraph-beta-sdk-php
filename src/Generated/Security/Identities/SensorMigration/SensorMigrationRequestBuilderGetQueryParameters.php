@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Identities\SensorMigration;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get sensorMigration from security
+ * Get a list of the sensorMigration objects and their properties.
 */
 class SensorMigrationRequestBuilderGetQueryParameters 
 {

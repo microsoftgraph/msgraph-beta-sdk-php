@@ -7,6 +7,8 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\CrossTenantMigrationJob;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Solutions\Migrations\CrossTenantMigrationJobsWithDisplayName\Cancel\CancelRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\Migrations\CrossTenantMigrationJobsWithDisplayName\Migrate\MigrateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\Migrations\CrossTenantMigrationJobsWithDisplayName\Validate\ValidateRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -22,6 +24,20 @@ class CrossTenantMigrationJobsWithDisplayNameRequestBuilder extends BaseRequestB
     */
     public function cancel(): CancelRequestBuilder {
         return new CancelRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the migrate method.
+    */
+    public function migrate(): MigrateRequestBuilder {
+        return new MigrateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the validate method.
+    */
+    public function validate(): ValidateRequestBuilder {
+        return new ValidateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
