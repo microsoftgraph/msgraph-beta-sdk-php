@@ -56,7 +56,7 @@ class CloudPcOrganizationActionDetail implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Gets the errorDescription property value. The errorDescription property
+     * Gets the errorDescription property value. More user-friendly error details. For example, Activation failed due to invalid billing plan.
      * @return string|null
     */
     public function getErrorDescription(): ?string {
@@ -132,7 +132,7 @@ class CloudPcOrganizationActionDetail implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Sets the errorDescription property value. The errorDescription property
+     * Sets the errorDescription property value. More user-friendly error details. For example, Activation failed due to invalid billing plan.
      * @param string|null $value Value to set for the errorDescription property.
     */
     public function setErrorDescription(?string $value): void {

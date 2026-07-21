@@ -36,7 +36,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the activeChecklistItemCount property value. The activeChecklistItemCount property
+     * Gets the activeChecklistItemCount property value. The number of incomplete checklist items whose value is set to false.
      * @return int|null
     */
     public function getActiveChecklistItemCount(): ?int {
@@ -61,7 +61,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the appliedCategories property value. The appliedCategories property
+     * Gets the appliedCategories property value. The categories to which the task is applied.
      * @return PlannerAppliedCategories|null
     */
     public function getAppliedCategories(): ?PlannerAppliedCategories {
@@ -73,7 +73,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the archivalInfo property value. The archivalInfo property
+     * Gets the archivalInfo property value. Information about who archived or unarchived the task and why.
      * @return PlannerArchivalInfo|null
     */
     public function getArchivalInfo(): ?PlannerArchivalInfo {
@@ -85,7 +85,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the assignments property value. The assignments property
+     * Gets the assignments property value. The set of assignees the task is assigned to.
      * @return PlannerAssignments|null
     */
     public function getAssignments(): ?PlannerAssignments {
@@ -105,7 +105,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the bucketId property value. The bucketId property
+     * Gets the bucketId property value. Bucket ID to which the task belongs. The bucket needs to be in the same plan as the task.
      * @return string|null
     */
     public function getBucketId(): ?string {
@@ -117,7 +117,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the checklistItemCount property value. The checklistItemCount property
+     * Gets the checklistItemCount property value. The number of checklist items that are present on the task.
      * @return int|null
     */
     public function getChecklistItemCount(): ?int {
@@ -129,7 +129,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the completedBy property value. The completedBy property
+     * Gets the completedBy property value. The identity of the user that completed the task.
      * @return IdentitySet|null
     */
     public function getCompletedBy(): ?IdentitySet {
@@ -141,7 +141,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the completedDateTime property value. The completedDateTime property
+     * Gets the completedDateTime property value. The date and time at which the percentComplete of the task is set to 100. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getCompletedDateTime(): ?DateTime {
@@ -153,7 +153,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the conversationThreadId property value. The conversationThreadId property
+     * Gets the conversationThreadId property value. The thread ID of the conversation on the task that corresponds to the ID of the conversation thread object created in the group.
      * @return string|null
     */
     public function getConversationThreadId(): ?string {
@@ -165,7 +165,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the createdBy property value. The createdBy property
+     * Gets the createdBy property value. The identity of the user who created the task.
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
@@ -177,7 +177,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date and time at which the task was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -189,7 +189,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the creationSource property value. The creationSource property
+     * Gets the creationSource property value. Information about the origin of the task.
      * @return PlannerTaskCreation|null
     */
     public function getCreationSource(): ?PlannerTaskCreation {
@@ -201,7 +201,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the details property value. The details property
+     * Gets the details property value. Additional details about the task.
      * @return PlannerTaskDetailsData|null
     */
     public function getDetails(): ?PlannerTaskDetailsData {
@@ -213,7 +213,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the dueDateTime property value. The dueDateTime property
+     * Gets the dueDateTime property value. The date and time at which the task is due. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getDueDateTime(): ?DateTime {
@@ -262,7 +262,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the hasChat property value. The hasChat property
+     * Gets the hasChat property value. Set to true if the task has a chat associated with it; otherwise, false.
      * @return bool|null
     */
     public function getHasChat(): ?bool {
@@ -274,7 +274,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the hasDescription property value. The hasDescription property
+     * Gets the hasDescription property value. Set to true if the details object of the task has a nonempty description; otherwise, false.
      * @return bool|null
     */
     public function getHasDescription(): ?bool {
@@ -286,7 +286,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isArchived property value. The isArchived property
+     * Gets the isArchived property value. Set to true if the task is archived; otherwise, false.
      * @return bool|null
     */
     public function getIsArchived(): ?bool {
@@ -310,7 +310,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the orderHint property value. The orderHint property
+     * Gets the orderHint property value. Hint used to order items of this type in a list view.
      * @return string|null
     */
     public function getOrderHint(): ?string {
@@ -322,7 +322,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the percentComplete property value. The percentComplete property
+     * Gets the percentComplete property value. Percentage of task completion. When set to 100, the task is considered completed.
      * @return int|null
     */
     public function getPercentComplete(): ?int {
@@ -346,7 +346,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the priority property value. The priority property
+     * Gets the priority property value. The priority of the task. Valid values are between 0 and 10, inclusive. Larger values indicate lower priority. For example, 0 has the highest priority and 10 has the lowest priority.
      * @return int|null
     */
     public function getPriority(): ?int {
@@ -358,7 +358,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the recurrence property value. The recurrence property
+     * Gets the recurrence property value. Defines active or inactive recurrence for the task. A null value indicates that the recurrence was never defined for the task.
      * @return PlannerTaskRecurrence|null
     */
     public function getRecurrence(): ?PlannerTaskRecurrence {
@@ -370,7 +370,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the referenceCount property value. The referenceCount property
+     * Gets the referenceCount property value. Number of external references that exist on the task.
      * @return int|null
     */
     public function getReferenceCount(): ?int {
@@ -394,7 +394,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the startDateTime property value. The startDateTime property
+     * Gets the startDateTime property value. The date and time at which the task starts. The date and time information uses ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2021 is 2021-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
@@ -406,7 +406,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the title property value. The title property
+     * Gets the title property value. Title of the task.
      * @return string|null
     */
     public function getTitle(): ?string {
@@ -453,7 +453,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the activeChecklistItemCount property value. The activeChecklistItemCount property
+     * Sets the activeChecklistItemCount property value. The number of incomplete checklist items whose value is set to false.
      * @param int|null $value Value to set for the activeChecklistItemCount property.
     */
     public function setActiveChecklistItemCount(?int $value): void {
@@ -469,7 +469,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the appliedCategories property value. The appliedCategories property
+     * Sets the appliedCategories property value. The categories to which the task is applied.
      * @param PlannerAppliedCategories|null $value Value to set for the appliedCategories property.
     */
     public function setAppliedCategories(?PlannerAppliedCategories $value): void {
@@ -477,7 +477,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the archivalInfo property value. The archivalInfo property
+     * Sets the archivalInfo property value. Information about who archived or unarchived the task and why.
      * @param PlannerArchivalInfo|null $value Value to set for the archivalInfo property.
     */
     public function setArchivalInfo(?PlannerArchivalInfo $value): void {
@@ -485,7 +485,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the assignments property value. The assignments property
+     * Sets the assignments property value. The set of assignees the task is assigned to.
      * @param PlannerAssignments|null $value Value to set for the assignments property.
     */
     public function setAssignments(?PlannerAssignments $value): void {
@@ -501,7 +501,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the bucketId property value. The bucketId property
+     * Sets the bucketId property value. Bucket ID to which the task belongs. The bucket needs to be in the same plan as the task.
      * @param string|null $value Value to set for the bucketId property.
     */
     public function setBucketId(?string $value): void {
@@ -509,7 +509,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the checklistItemCount property value. The checklistItemCount property
+     * Sets the checklistItemCount property value. The number of checklist items that are present on the task.
      * @param int|null $value Value to set for the checklistItemCount property.
     */
     public function setChecklistItemCount(?int $value): void {
@@ -517,7 +517,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the completedBy property value. The completedBy property
+     * Sets the completedBy property value. The identity of the user that completed the task.
      * @param IdentitySet|null $value Value to set for the completedBy property.
     */
     public function setCompletedBy(?IdentitySet $value): void {
@@ -525,7 +525,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the completedDateTime property value. The completedDateTime property
+     * Sets the completedDateTime property value. The date and time at which the percentComplete of the task is set to 100. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the completedDateTime property.
     */
     public function setCompletedDateTime(?DateTime $value): void {
@@ -533,7 +533,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the conversationThreadId property value. The conversationThreadId property
+     * Sets the conversationThreadId property value. The thread ID of the conversation on the task that corresponds to the ID of the conversation thread object created in the group.
      * @param string|null $value Value to set for the conversationThreadId property.
     */
     public function setConversationThreadId(?string $value): void {
@@ -541,7 +541,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the createdBy property value. The createdBy property
+     * Sets the createdBy property value. The identity of the user who created the task.
      * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
@@ -549,7 +549,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date and time at which the task was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -557,7 +557,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the creationSource property value. The creationSource property
+     * Sets the creationSource property value. Information about the origin of the task.
      * @param PlannerTaskCreation|null $value Value to set for the creationSource property.
     */
     public function setCreationSource(?PlannerTaskCreation $value): void {
@@ -565,7 +565,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the details property value. The details property
+     * Sets the details property value. Additional details about the task.
      * @param PlannerTaskDetailsData|null $value Value to set for the details property.
     */
     public function setDetails(?PlannerTaskDetailsData $value): void {
@@ -573,7 +573,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the dueDateTime property value. The dueDateTime property
+     * Sets the dueDateTime property value. The date and time at which the task is due. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the dueDateTime property.
     */
     public function setDueDateTime(?DateTime $value): void {
@@ -581,7 +581,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the hasChat property value. The hasChat property
+     * Sets the hasChat property value. Set to true if the task has a chat associated with it; otherwise, false.
      * @param bool|null $value Value to set for the hasChat property.
     */
     public function setHasChat(?bool $value): void {
@@ -589,7 +589,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the hasDescription property value. The hasDescription property
+     * Sets the hasDescription property value. Set to true if the details object of the task has a nonempty description; otherwise, false.
      * @param bool|null $value Value to set for the hasDescription property.
     */
     public function setHasDescription(?bool $value): void {
@@ -597,7 +597,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isArchived property value. The isArchived property
+     * Sets the isArchived property value. Set to true if the task is archived; otherwise, false.
      * @param bool|null $value Value to set for the isArchived property.
     */
     public function setIsArchived(?bool $value): void {
@@ -613,7 +613,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the orderHint property value. The orderHint property
+     * Sets the orderHint property value. Hint used to order items of this type in a list view.
      * @param string|null $value Value to set for the orderHint property.
     */
     public function setOrderHint(?string $value): void {
@@ -621,7 +621,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the percentComplete property value. The percentComplete property
+     * Sets the percentComplete property value. Percentage of task completion. When set to 100, the task is considered completed.
      * @param int|null $value Value to set for the percentComplete property.
     */
     public function setPercentComplete(?int $value): void {
@@ -637,7 +637,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the priority property value. The priority property
+     * Sets the priority property value. The priority of the task. Valid values are between 0 and 10, inclusive. Larger values indicate lower priority. For example, 0 has the highest priority and 10 has the lowest priority.
      * @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value): void {
@@ -645,7 +645,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the recurrence property value. The recurrence property
+     * Sets the recurrence property value. Defines active or inactive recurrence for the task. A null value indicates that the recurrence was never defined for the task.
      * @param PlannerTaskRecurrence|null $value Value to set for the recurrence property.
     */
     public function setRecurrence(?PlannerTaskRecurrence $value): void {
@@ -653,7 +653,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the referenceCount property value. The referenceCount property
+     * Sets the referenceCount property value. Number of external references that exist on the task.
      * @param int|null $value Value to set for the referenceCount property.
     */
     public function setReferenceCount(?int $value): void {
@@ -669,7 +669,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the startDateTime property value. The startDateTime property
+     * Sets the startDateTime property value. The date and time at which the task starts. The date and time information uses ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2021 is 2021-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the startDateTime property.
     */
     public function setStartDateTime(?DateTime $value): void {
@@ -677,7 +677,7 @@ class PlannerTaskData implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the title property value. The title property
+     * Sets the title property value. Title of the task.
      * @param string|null $value Value to set for the title property.
     */
     public function setTitle(?string $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\DeletedTeams\Item\Channels\Ite
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get historyItems from teamwork
+ * Collection of history items for entities in the plan. Read-only. Nullable.
 */
 class PlannerHistoryItemItemRequestBuilderGetQueryParameters 
 {

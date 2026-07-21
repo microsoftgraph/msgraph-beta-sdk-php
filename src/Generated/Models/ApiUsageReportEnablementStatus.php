@@ -69,7 +69,7 @@ class ApiUsageReportEnablementStatus implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the metric property value. The name of the API usage report metric. Currently, only EgressReport is supported.
+     * Gets the metric property value. The name of the API usage report metric. The supported values are: egressReport, throttlingReport.
      * @return string|null
     */
     public function getMetric(): ?string {
@@ -132,7 +132,7 @@ class ApiUsageReportEnablementStatus implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the metric property value. The name of the API usage report metric. Currently, only EgressReport is supported.
+     * Sets the metric property value. The name of the API usage report metric. The supported values are: egressReport, throttlingReport.
      * @param string|null $value Value to set for the metric property.
     */
     public function setMetric(?string $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\ReportSettings\SharePoint\ApiUsag
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get the list of SharePoint API usage report metrics and their enablement status for the tenant. Currently, only the EgressReport metric is supported.
+ * Get the list of SharePoint API usage report metrics and their enablement status for the tenant. The supported metrics are egressReport and throttlingReport.
 */
 class ApiUsageReportMetricsRequestBuilderGetQueryParameters 
 {

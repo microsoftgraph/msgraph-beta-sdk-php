@@ -38,7 +38,7 @@ class TaskHistoryItem extends PlannerHistoryItem implements Parsable
     }
 
     /**
-     * Gets the newData property value. The newData property
+     * Gets the newData property value. A snapshot of the task state after the change. This property is null for deletion events.
      * @return PlannerTaskData|null
     */
     public function getNewData(): ?PlannerTaskData {
@@ -50,7 +50,7 @@ class TaskHistoryItem extends PlannerHistoryItem implements Parsable
     }
 
     /**
-     * Gets the oldData property value. The oldData property
+     * Gets the oldData property value. A snapshot of the task state before the change. This property is null for creation and undeletion events.
      * @return PlannerTaskData|null
     */
     public function getOldData(): ?PlannerTaskData {
@@ -72,7 +72,7 @@ class TaskHistoryItem extends PlannerHistoryItem implements Parsable
     }
 
     /**
-     * Sets the newData property value. The newData property
+     * Sets the newData property value. A snapshot of the task state after the change. This property is null for deletion events.
      * @param PlannerTaskData|null $value Value to set for the newData property.
     */
     public function setNewData(?PlannerTaskData $value): void {
@@ -80,7 +80,7 @@ class TaskHistoryItem extends PlannerHistoryItem implements Parsable
     }
 
     /**
-     * Sets the oldData property value. The oldData property
+     * Sets the oldData property value. A snapshot of the task state before the change. This property is null for creation and undeletion events.
      * @param PlannerTaskData|null $value Value to set for the oldData property.
     */
     public function setOldData(?PlannerTaskData $value): void {

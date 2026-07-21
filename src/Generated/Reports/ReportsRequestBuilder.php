@@ -52,9 +52,9 @@ use Microsoft\Graph\Beta\Generated\Reports\GetMailboxUsageDetailWithPeriod\GetMa
 use Microsoft\Graph\Beta\Generated\Reports\GetMailboxUsageMailboxCountsWithPeriod\GetMailboxUsageMailboxCountsWithPeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetMailboxUsageQuotaStatusMailboxCountsWithPeriod\GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetMailboxUsageStorageWithPeriod\GetMailboxUsageStorageWithPeriodRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\GetMicrosoft365CopilotUsageUserDetailWithPeriod\GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\GetMicrosoft365CopilotUserCountSummaryWithPeriod\GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\GetMicrosoft365CopilotUserCountTrendWithPeriod\GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersion\GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersion\GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\GetMicrosoft365CopilotUserCountTrendWithPeriodWithVersion\GetMicrosoft365CopilotUserCountTrendWithPeriodWithVersionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetOffice365ActivationCounts\GetOffice365ActivationCountsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetOffice365ActivationsUserCounts\GetOffice365ActivationsUserCountsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetOffice365ActivationsUserDetail\GetOffice365ActivationsUserDetailRequestBuilder;
@@ -706,28 +706,31 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the getMicrosoft365CopilotUsageUserDetail method.
      * @param string $period Usage: period='{period}'
-     * @return GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder
+     * @param string $version Usage: version='{version}'
+     * @return GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilder
     */
-    public function getMicrosoft365CopilotUsageUserDetailWithPeriod(string $period): GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder {
-        return new GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder($this->pathParameters, $this->requestAdapter, $period);
+    public function getMicrosoft365CopilotUsageUserDetailWithPeriodWithVersion(string $period, string $version): GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilder {
+        return new GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilder($this->pathParameters, $this->requestAdapter, $period, $version);
     }
 
     /**
      * Provides operations to call the getMicrosoft365CopilotUserCountSummary method.
      * @param string $period Usage: period='{period}'
-     * @return GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder
+     * @param string $version Usage: version='{version}'
+     * @return GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder
     */
-    public function getMicrosoft365CopilotUserCountSummaryWithPeriod(string $period): GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder {
-        return new GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder($this->pathParameters, $this->requestAdapter, $period);
+    public function getMicrosoft365CopilotUserCountSummaryWithPeriodWithVersion(string $period, string $version): GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder {
+        return new GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder($this->pathParameters, $this->requestAdapter, $period, $version);
     }
 
     /**
      * Provides operations to call the getMicrosoft365CopilotUserCountTrend method.
      * @param string $period Usage: period='{period}'
-     * @return GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder
+     * @param string $version Usage: version='{version}'
+     * @return GetMicrosoft365CopilotUserCountTrendWithPeriodWithVersionRequestBuilder
     */
-    public function getMicrosoft365CopilotUserCountTrendWithPeriod(string $period): GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder {
-        return new GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder($this->pathParameters, $this->requestAdapter, $period);
+    public function getMicrosoft365CopilotUserCountTrendWithPeriodWithVersion(string $period, string $version): GetMicrosoft365CopilotUserCountTrendWithPeriodWithVersionRequestBuilder {
+        return new GetMicrosoft365CopilotUserCountTrendWithPeriodWithVersionRequestBuilder($this->pathParameters, $this->requestAdapter, $period, $version);
     }
 
     /**
