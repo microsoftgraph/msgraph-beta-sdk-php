@@ -45,7 +45,7 @@ class PlannerHistoryItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get historyItems from teamwork
+     * Collection of history items for entities in the plan. Read-only. Nullable.
      * @param PlannerHistoryItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerHistoryItem|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class PlannerHistoryItemItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get historyItems from teamwork
+     * Collection of history items for entities in the plan. Read-only. Nullable.
      * @param PlannerHistoryItemItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

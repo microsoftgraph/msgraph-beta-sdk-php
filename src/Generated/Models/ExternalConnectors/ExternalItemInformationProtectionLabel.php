@@ -80,7 +80,7 @@ class ExternalItemInformationProtectionLabel implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Gets the sensitivityLabelId property value. The sensitivityLabelId property
+     * Gets the sensitivityLabelId property value. The GUID of the Purview sensitivity label. To get the label GUID, use the Get sensitivityLabel API or the Get-Label PowerShell command.
      * @return string|null
     */
     public function getSensitivityLabelId(): ?string {
@@ -126,7 +126,7 @@ class ExternalItemInformationProtectionLabel implements AdditionalDataHolder, Ba
     }
 
     /**
-     * Sets the sensitivityLabelId property value. The sensitivityLabelId property
+     * Sets the sensitivityLabelId property value. The GUID of the Purview sensitivity label. To get the label GUID, use the Get sensitivityLabel API or the Get-Label PowerShell command.
      * @param string|null $value Value to set for the sensitivityLabelId property.
     */
     public function setSensitivityLabelId(?string $value): void {

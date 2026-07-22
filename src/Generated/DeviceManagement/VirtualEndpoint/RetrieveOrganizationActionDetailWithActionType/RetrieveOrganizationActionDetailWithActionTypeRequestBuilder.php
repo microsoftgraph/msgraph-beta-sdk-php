@@ -34,10 +34,11 @@ class RetrieveOrganizationActionDetailWithActionTypeRequestBuilder extends BaseR
     }
 
     /**
-     * Invoke function retrieveOrganizationActionDetail
+     * Retrieve the details of a cloudPcOrganizationActionDetail.
      * @param RetrieveOrganizationActionDetailWithActionTypeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcOrganizationActionDetail|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpc-retrieveorganizationactiondetail?view=graph-rest-beta Find more info here
     */
     public function get(?RetrieveOrganizationActionDetailWithActionTypeRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -48,7 +49,7 @@ class RetrieveOrganizationActionDetailWithActionTypeRequestBuilder extends BaseR
     }
 
     /**
-     * Invoke function retrieveOrganizationActionDetail
+     * Retrieve the details of a cloudPcOrganizationActionDetail.
      * @param RetrieveOrganizationActionDetailWithActionTypeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

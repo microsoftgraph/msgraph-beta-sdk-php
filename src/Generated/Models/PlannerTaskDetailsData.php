@@ -48,7 +48,7 @@ class PlannerTaskDetailsData implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the approvalAttachment property value. The approvalAttachment property
+     * Gets the approvalAttachment property value. Detailed information about the approval that is attached to the task.
      * @return PlannerBaseApprovalAttachment|null
     */
     public function getApprovalAttachment(): ?PlannerBaseApprovalAttachment {
@@ -68,7 +68,7 @@ class PlannerTaskDetailsData implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the checklist property value. The checklist property
+     * Gets the checklist property value. The collection of checklist items on the task.
      * @return PlannerChecklistItems|null
     */
     public function getChecklist(): ?PlannerChecklistItems {
@@ -80,7 +80,7 @@ class PlannerTaskDetailsData implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the completionRequirements property value. The completionRequirements property
+     * Gets the completionRequirements property value. Contains detailed information about requirements on the task.
      * @return PlannerTaskCompletionRequirementDetails|null
     */
     public function getCompletionRequirements(): ?PlannerTaskCompletionRequirementDetails {
@@ -92,7 +92,7 @@ class PlannerTaskDetailsData implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. Description of the task.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -123,7 +123,7 @@ class PlannerTaskDetailsData implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the forms property value. The forms property
+     * Gets the forms property value. The collection of forms associated with the task.
      * @return PlannerFormsDictionary|null
     */
     public function getForms(): ?PlannerFormsDictionary {
@@ -135,7 +135,7 @@ class PlannerTaskDetailsData implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the notes property value. The notes property
+     * Gets the notes property value. Rich text description of the task for use by applications that support HTML content.
      * @return ItemBody|null
     */
     public function getNotes(): ?ItemBody {
@@ -171,7 +171,7 @@ class PlannerTaskDetailsData implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the references property value. The references property
+     * Gets the references property value. The collection of references on the task.
      * @return PlannerExternalReferences|null
     */
     public function getReferences(): ?PlannerExternalReferences {
@@ -208,7 +208,7 @@ class PlannerTaskDetailsData implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the approvalAttachment property value. The approvalAttachment property
+     * Sets the approvalAttachment property value. Detailed information about the approval that is attached to the task.
      * @param PlannerBaseApprovalAttachment|null $value Value to set for the approvalAttachment property.
     */
     public function setApprovalAttachment(?PlannerBaseApprovalAttachment $value): void {
@@ -224,7 +224,7 @@ class PlannerTaskDetailsData implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the checklist property value. The checklist property
+     * Sets the checklist property value. The collection of checklist items on the task.
      * @param PlannerChecklistItems|null $value Value to set for the checklist property.
     */
     public function setChecklist(?PlannerChecklistItems $value): void {
@@ -232,7 +232,7 @@ class PlannerTaskDetailsData implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the completionRequirements property value. The completionRequirements property
+     * Sets the completionRequirements property value. Contains detailed information about requirements on the task.
      * @param PlannerTaskCompletionRequirementDetails|null $value Value to set for the completionRequirements property.
     */
     public function setCompletionRequirements(?PlannerTaskCompletionRequirementDetails $value): void {
@@ -240,7 +240,7 @@ class PlannerTaskDetailsData implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. Description of the task.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -248,7 +248,7 @@ class PlannerTaskDetailsData implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the forms property value. The forms property
+     * Sets the forms property value. The collection of forms associated with the task.
      * @param PlannerFormsDictionary|null $value Value to set for the forms property.
     */
     public function setForms(?PlannerFormsDictionary $value): void {
@@ -256,7 +256,7 @@ class PlannerTaskDetailsData implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the notes property value. The notes property
+     * Sets the notes property value. Rich text description of the task for use by applications that support HTML content.
      * @param ItemBody|null $value Value to set for the notes property.
     */
     public function setNotes(?ItemBody $value): void {
@@ -280,7 +280,7 @@ class PlannerTaskDetailsData implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the references property value. The references property
+     * Sets the references property value. The collection of references on the task.
      * @param PlannerExternalReferences|null $value Value to set for the references property.
     */
     public function setReferences(?PlannerExternalReferences $value): void {

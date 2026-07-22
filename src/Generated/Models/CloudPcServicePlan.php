@@ -79,7 +79,7 @@ class CloudPcServicePlan extends Entity implements Parsable
     }
 
     /**
-     * Gets the storageInGB property value. The size of the OS Disk in GB. Read-only.
+     * Gets the storageInGB property value. The size of the operating system disk in GB. Read-only.
      * @return int|null
     */
     public function getStorageInGB(): ?int {
@@ -179,7 +179,7 @@ class CloudPcServicePlan extends Entity implements Parsable
     }
 
     /**
-     * Sets the storageInGB property value. The size of the OS Disk in GB. Read-only.
+     * Sets the storageInGB property value. The size of the operating system disk in GB. Read-only.
      * @param int|null $value Value to set for the storageInGB property.
     */
     public function setStorageInGB(?int $value): void {

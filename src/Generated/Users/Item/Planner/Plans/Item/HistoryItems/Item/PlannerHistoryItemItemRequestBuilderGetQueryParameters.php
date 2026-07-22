@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Planner\Plans\Item\HistoryIt
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get historyItems from users
+ * Collection of history items for entities in the plan. Read-only. Nullable.
 */
 class PlannerHistoryItemItemRequestBuilderGetQueryParameters 
 {

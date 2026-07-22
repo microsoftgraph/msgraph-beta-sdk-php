@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get historyItems from teamwork
+ * Collection of history items for entities in the plan. Read-only. Nullable.
 */
 class HistoryItemsRequestBuilderGetQueryParameters 
 {

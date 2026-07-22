@@ -82,7 +82,7 @@ class ExternalItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the informationProtectionLabel property value. The informationProtectionLabel property
+     * Gets the informationProtectionLabel property value. Specifies the Microsoft Purview sensitivity label for the item. Set the sensitivityLabelId property to the GUID of a Purview sensitivity label. The service then applies the label rules to the item. To get the label GUID, use the Get sensitivityLabel API or the Get-Label PowerShell command. Optional.
      * @return ExternalItemInformationProtectionLabel|null
     */
     public function getInformationProtectionLabel(): ?ExternalItemInformationProtectionLabel {
@@ -143,7 +143,7 @@ class ExternalItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the informationProtectionLabel property value. The informationProtectionLabel property
+     * Sets the informationProtectionLabel property value. Specifies the Microsoft Purview sensitivity label for the item. Set the sensitivityLabelId property to the GUID of a Purview sensitivity label. The service then applies the label rules to the item. To get the label GUID, use the Get sensitivityLabel API or the Get-Label PowerShell command. Optional.
      * @param ExternalItemInformationProtectionLabel|null $value Value to set for the informationProtectionLabel property.
     */
     public function setInformationProtectionLabel(?ExternalItemInformationProtectionLabel $value): void {

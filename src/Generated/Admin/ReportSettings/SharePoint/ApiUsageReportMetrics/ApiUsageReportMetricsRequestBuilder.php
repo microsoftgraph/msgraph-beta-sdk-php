@@ -52,7 +52,7 @@ class ApiUsageReportMetricsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of SharePoint API usage report metrics and their enablement status for the tenant. Currently, only the EgressReport metric is supported.
+     * Get the list of SharePoint API usage report metrics and their enablement status for the tenant. The supported metrics are egressReport and throttlingReport.
      * @param ApiUsageReportMetricsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApiUsageReportEnablementStatusCollectionResponse|null>
      * @throws Exception
@@ -82,7 +82,7 @@ class ApiUsageReportMetricsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get the list of SharePoint API usage report metrics and their enablement status for the tenant. Currently, only the EgressReport metric is supported.
+     * Get the list of SharePoint API usage report metrics and their enablement status for the tenant. The supported metrics are egressReport and throttlingReport.
      * @param ApiUsageReportMetricsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -8,6 +8,8 @@ use Microsoft\Graph\Beta\Generated\Models\FileStorageContainer;
 use Microsoft\Graph\Beta\Generated\Models\FileStorageContainerCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\GetByUserWithUserPrincipalName\GetByUserWithUserPrincipalNameRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\GetByUserWithUserPrincipalNameWithRole\GetByUserWithUserPrincipalNameWithRoleRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\Item\FileStorageContainerItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -64,6 +66,25 @@ class ContainersRequestBuilder extends BaseRequestBuilder
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [FileStorageContainerCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to call the getByUser method.
+     * @param string $userPrincipalName Usage: userPrincipalName='{userPrincipalName}'
+     * @return GetByUserWithUserPrincipalNameRequestBuilder
+    */
+    public function getByUserWithUserPrincipalName(string $userPrincipalName): GetByUserWithUserPrincipalNameRequestBuilder {
+        return new GetByUserWithUserPrincipalNameRequestBuilder($this->pathParameters, $this->requestAdapter, $userPrincipalName);
+    }
+
+    /**
+     * Provides operations to call the getByUser method.
+     * @param string $role Usage: role='{role}'
+     * @param string $userPrincipalName Usage: userPrincipalName='{userPrincipalName}'
+     * @return GetByUserWithUserPrincipalNameWithRoleRequestBuilder
+    */
+    public function getByUserWithUserPrincipalNameWithRole(string $role, string $userPrincipalName): GetByUserWithUserPrincipalNameWithRoleRequestBuilder {
+        return new GetByUserWithUserPrincipalNameWithRoleRequestBuilder($this->pathParameters, $this->requestAdapter, $role, $userPrincipalName);
     }
 
     /**

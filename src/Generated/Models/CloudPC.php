@@ -156,6 +156,7 @@ class CloudPC extends Entity implements Parsable
             'imageDisplayName' => fn(ParseNode $n) => $o->setImageDisplayName($n->getStringValue()),
             'isDisasterRecoveryActive' => fn(ParseNode $n) => $o->setIsDisasterRecoveryActive($n->getBooleanValue()),
             'lastLoginResult' => fn(ParseNode $n) => $o->setLastLoginResult($n->getObjectValue([CloudPcLoginResult::class, 'createFromDiscriminatorValue'])),
+            'lastLogoffDateTime' => fn(ParseNode $n) => $o->setLastLogoffDateTime($n->getDateTimeValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'lastRemoteActionResult' => fn(ParseNode $n) => $o->setLastRemoteActionResult($n->getObjectValue([CloudPcRemoteActionResult::class, 'createFromDiscriminatorValue'])),
             'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getStringValue()),
@@ -261,6 +262,18 @@ class CloudPC extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastLoginResult'");
+    }
+
+    /**
+     * Gets the lastLogoffDateTime property value. The date and time when the user last logged off from the Cloud PC session. Returns null if the user has never established a session or if a session is currently active. The timestamp is shown in ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Returned only when explicitly selected with $select.
+     * @return DateTime|null
+    */
+    public function getLastLogoffDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('lastLogoffDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastLogoffDateTime'");
     }
 
     /**
@@ -588,6 +601,7 @@ class CloudPC extends Entity implements Parsable
         $writer->writeStringValue('imageDisplayName', $this->getImageDisplayName());
         $writer->writeBooleanValue('isDisasterRecoveryActive', $this->getIsDisasterRecoveryActive());
         $writer->writeObjectValue('lastLoginResult', $this->getLastLoginResult());
+        $writer->writeDateTimeValue('lastLogoffDateTime', $this->getLastLogoffDateTime());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeObjectValue('lastRemoteActionResult', $this->getLastRemoteActionResult());
         $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
@@ -733,6 +747,14 @@ class CloudPC extends Entity implements Parsable
     */
     public function setLastLoginResult(?CloudPcLoginResult $value): void {
         $this->getBackingStore()->set('lastLoginResult', $value);
+    }
+
+    /**
+     * Sets the lastLogoffDateTime property value. The date and time when the user last logged off from the Cloud PC session. Returns null if the user has never established a session or if a session is currently active. The timestamp is shown in ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Returned only when explicitly selected with $select.
+     * @param DateTime|null $value Value to set for the lastLogoffDateTime property.
+    */
+    public function setLastLogoffDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastLogoffDateTime', $value);
     }
 
     /**

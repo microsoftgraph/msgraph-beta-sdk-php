@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinit
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get historyItems from teamTemplateDefinition
+ * Collection of history items for entities in the plan. Read-only. Nullable.
 */
 class HistoryItemsRequestBuilderGetQueryParameters 
 {

@@ -31,11 +31,12 @@ class OrganizationActionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action organizationAction
+     * Trigger a Cloud PC organization action.
      * @param OrganizationActionPostRequestBody $body The request body
      * @param OrganizationActionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcOrganizationActionDetail|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpc-organizationaction?view=graph-rest-beta Find more info here
     */
     public function post(OrganizationActionPostRequestBody $body, ?OrganizationActionRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -46,7 +47,7 @@ class OrganizationActionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action organizationAction
+     * Trigger a Cloud PC organization action.
      * @param OrganizationActionPostRequestBody $body The request body
      * @param OrganizationActionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

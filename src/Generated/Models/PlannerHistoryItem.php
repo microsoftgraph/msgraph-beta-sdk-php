@@ -33,7 +33,7 @@ class PlannerHistoryItem extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the actor property value. The actor property
+     * Gets the actor property value. The identity of the user or application that performed the change.
      * @return IdentitySet|null
     */
     public function getActor(): ?IdentitySet {
@@ -45,7 +45,7 @@ class PlannerHistoryItem extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the entityId property value. The entityId property
+     * Gets the entityId property value. The ID of the entity that was changed.
      * @return string|null
     */
     public function getEntityId(): ?string {
@@ -97,7 +97,7 @@ class PlannerHistoryItem extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the occurredDateTime property value. The occurredDateTime property
+     * Gets the occurredDateTime property value. The date and time when the change occurred. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getOccurredDateTime(): ?DateTime {
@@ -109,7 +109,7 @@ class PlannerHistoryItem extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the planId property value. The planId property
+     * Gets the planId property value. The ID of the plan that contains the changed entity.
      * @return string|null
     */
     public function getPlanId(): ?string {
@@ -135,7 +135,7 @@ class PlannerHistoryItem extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the actor property value. The actor property
+     * Sets the actor property value. The identity of the user or application that performed the change.
      * @param IdentitySet|null $value Value to set for the actor property.
     */
     public function setActor(?IdentitySet $value): void {
@@ -143,7 +143,7 @@ class PlannerHistoryItem extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the entityId property value. The entityId property
+     * Sets the entityId property value. The ID of the entity that was changed.
      * @param string|null $value Value to set for the entityId property.
     */
     public function setEntityId(?string $value): void {
@@ -167,7 +167,7 @@ class PlannerHistoryItem extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the occurredDateTime property value. The occurredDateTime property
+     * Sets the occurredDateTime property value. The date and time when the change occurred. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the occurredDateTime property.
     */
     public function setOccurredDateTime(?DateTime $value): void {
@@ -175,7 +175,7 @@ class PlannerHistoryItem extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the planId property value. The planId property
+     * Sets the planId property value. The ID of the plan that contains the changed entity.
      * @param string|null $value Value to set for the planId property.
     */
     public function setPlanId(?string $value): void {

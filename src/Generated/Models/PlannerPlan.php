@@ -162,7 +162,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the historyItems property value. The historyItems property
+     * Gets the historyItems property value. Collection of history items for entities in the plan. Read-only. Nullable.
      * @return array<PlannerHistoryItem>|null
     */
     public function getHistoryItems(): ?array {
@@ -335,7 +335,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the historyItems property value. The historyItems property
+     * Sets the historyItems property value. Collection of history items for entities in the plan. Read-only. Nullable.
      * @param array<PlannerHistoryItem>|null $value Value to set for the historyItems property.
     */
     public function setHistoryItems(?array $value): void {

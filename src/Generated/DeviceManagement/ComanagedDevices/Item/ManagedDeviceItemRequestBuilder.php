@@ -23,6 +23,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\Enable
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\EnrollNowAction\EnrollNowActionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\GetFileVaultKey\GetFileVaultKeyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\GetNonCompliantSettings\GetNonCompliantSettingsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\GetSyncStatus\GetSyncStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\InitiateDeviceAttestation\InitiateDeviceAttestationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\InitiateMobileDeviceManagementKeyRecovery\InitiateMobileDeviceManagementKeyRecoveryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\InitiateOnDemandProactiveRemediation\InitiateOnDemandProactiveRemediationRequestBuilder;
@@ -37,6 +38,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\Reboot
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\RecoverPasscode\RecoverPasscodeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\Reenable\ReenableRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\RemoteLock\RemoteLockRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\RemoveDeviceEsim\RemoveDeviceEsimRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\RemoveDeviceFirmwareConfigurationInterfaceManagement\RemoveDeviceFirmwareConfigurationInterfaceManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\RequestRemoteAssistance\RequestRemoteAssistanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ComanagedDevices\Item\ResetPasscode\ResetPasscodeRequestBuilder;
@@ -209,6 +211,13 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the getSyncStatus method.
+    */
+    public function getSyncStatus(): GetSyncStatusRequestBuilder {
+        return new GetSyncStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the initiateDeviceAttestation method.
     */
     public function initiateDeviceAttestation(): InitiateDeviceAttestationRequestBuilder {
@@ -304,6 +313,13 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     */
     public function remoteLock(): RemoteLockRequestBuilder {
         return new RemoteLockRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the removeDeviceEsim method.
+    */
+    public function removeDeviceEsim(): RemoveDeviceEsimRequestBuilder {
+        return new RemoveDeviceEsimRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
