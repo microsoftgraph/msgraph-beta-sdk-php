@@ -81,7 +81,7 @@ class M365CapabilityResourceScope implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the resourceId property value. The ID of the resource to modify (a user or group ID).
+     * Gets the resourceId property value. The ID of the resource to modify. The value is either All, to apply the capability to all resources of the type specified by resourceType (all users or all groups), or the GUID of a specific user or group.
      * @return string|null
     */
     public function getResourceId(): ?string {
@@ -140,7 +140,7 @@ class M365CapabilityResourceScope implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the resourceId property value. The ID of the resource to modify (a user or group ID).
+     * Sets the resourceId property value. The ID of the resource to modify. The value is either All, to apply the capability to all resources of the type specified by resourceType (all users or all groups), or the GUID of a specific user or group.
      * @param string|null $value Value to set for the resourceId property.
     */
     public function setResourceId(?string $value): void {

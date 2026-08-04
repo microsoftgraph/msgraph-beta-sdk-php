@@ -32,14 +32,40 @@ class PolicyTipAction extends DlpActionInfo implements Parsable
     }
 
     /**
+     * Gets the complianceUrl property value. The complianceUrl property
+     * @return string|null
+    */
+    public function getComplianceUrl(): ?string {
+        $val = $this->getBackingStore()->get('complianceUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'complianceUrl'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'complianceUrl' => fn(ParseNode $n) => $o->setComplianceUrl($n->getStringValue()),
+            'matchedConditionsDescription' => fn(ParseNode $n) => $o->setMatchedConditionsDescription($n->getStringValue()),
             'policyTip' => fn(ParseNode $n) => $o->setPolicyTip($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the matchedConditionsDescription property value. The matchedConditionsDescription property
+     * @return string|null
+    */
+    public function getMatchedConditionsDescription(): ?string {
+        $val = $this->getBackingStore()->get('matchedConditionsDescription');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'matchedConditionsDescription'");
     }
 
     /**
@@ -60,7 +86,25 @@ class PolicyTipAction extends DlpActionInfo implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('complianceUrl', $this->getComplianceUrl());
+        $writer->writeStringValue('matchedConditionsDescription', $this->getMatchedConditionsDescription());
         $writer->writeStringValue('policyTip', $this->getPolicyTip());
+    }
+
+    /**
+     * Sets the complianceUrl property value. The complianceUrl property
+     * @param string|null $value Value to set for the complianceUrl property.
+    */
+    public function setComplianceUrl(?string $value): void {
+        $this->getBackingStore()->set('complianceUrl', $value);
+    }
+
+    /**
+     * Sets the matchedConditionsDescription property value. The matchedConditionsDescription property
+     * @param string|null $value Value to set for the matchedConditionsDescription property.
+    */
+    public function setMatchedConditionsDescription(?string $value): void {
+        $this->getBackingStore()->set('matchedConditionsDescription', $value);
     }
 
     /**

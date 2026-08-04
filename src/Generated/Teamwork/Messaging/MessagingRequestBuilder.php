@@ -53,7 +53,7 @@ class MessagingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get messaging from teamwork
+     * The messaging functionality, including custom emojis.
      * @param MessagingRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkMessaging|null>
      * @throws Exception
@@ -100,7 +100,7 @@ class MessagingRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get messaging from teamwork
+     * The messaging functionality, including custom emojis.
      * @param MessagingRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

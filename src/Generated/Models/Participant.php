@@ -43,6 +43,7 @@ class Participant extends Entity implements Parsable
             'removedState' => fn(ParseNode $n) => $o->setRemovedState($n->getObjectValue([RemovedState::class, 'createFromDiscriminatorValue'])),
             'restrictedExperience' => fn(ParseNode $n) => $o->setRestrictedExperience($n->getObjectValue([OnlineMeetingRestricted::class, 'createFromDiscriminatorValue'])),
             'rosterSequenceNumber' => fn(ParseNode $n) => $o->setRosterSequenceNumber($n->getIntegerValue()),
+            'syntheticMediaDetection' => fn(ParseNode $n) => $o->setSyntheticMediaDetection($n->getObjectValue([SyntheticMediaDetectionInfo::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -181,6 +182,18 @@ class Participant extends Entity implements Parsable
     }
 
     /**
+     * Gets the syntheticMediaDetection property value. The syntheticMediaDetection property
+     * @return SyntheticMediaDetectionInfo|null
+    */
+    public function getSyntheticMediaDetection(): ?SyntheticMediaDetectionInfo {
+        $val = $this->getBackingStore()->get('syntheticMediaDetection');
+        if (is_null($val) || $val instanceof SyntheticMediaDetectionInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'syntheticMediaDetection'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -197,6 +210,7 @@ class Participant extends Entity implements Parsable
         $writer->writeObjectValue('removedState', $this->getRemovedState());
         $writer->writeObjectValue('restrictedExperience', $this->getRestrictedExperience());
         $writer->writeIntegerValue('rosterSequenceNumber', $this->getRosterSequenceNumber());
+        $writer->writeObjectValue('syntheticMediaDetection', $this->getSyntheticMediaDetection());
     }
 
     /**
@@ -285,6 +299,14 @@ class Participant extends Entity implements Parsable
     */
     public function setRosterSequenceNumber(?int $value): void {
         $this->getBackingStore()->set('rosterSequenceNumber', $value);
+    }
+
+    /**
+     * Sets the syntheticMediaDetection property value. The syntheticMediaDetection property
+     * @param SyntheticMediaDetectionInfo|null $value Value to set for the syntheticMediaDetection property.
+    */
+    public function setSyntheticMediaDetection(?SyntheticMediaDetectionInfo $value): void {
+        $this->getBackingStore()->set('syntheticMediaDetection', $value);
     }
 
 }

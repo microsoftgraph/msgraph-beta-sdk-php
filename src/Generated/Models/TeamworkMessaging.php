@@ -26,7 +26,7 @@ class TeamworkMessaging extends Entity implements Parsable
     }
 
     /**
-     * Gets the customEmojis property value. The customEmojis property
+     * Gets the customEmojis property value. The collection of custom emojis available in organization messaging.
      * @return array<TeamworkCustomEmoji>|null
     */
     public function getCustomEmojis(): ?array {
@@ -60,7 +60,7 @@ class TeamworkMessaging extends Entity implements Parsable
     }
 
     /**
-     * Sets the customEmojis property value. The customEmojis property
+     * Sets the customEmojis property value. The collection of custom emojis available in organization messaging.
      * @param array<TeamworkCustomEmoji>|null $value Value to set for the customEmojis property.
     */
     public function setCustomEmojis(?array $value): void {

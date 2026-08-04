@@ -97,10 +97,25 @@ class PolicyScopeBase implements AdditionalDataHolder, BackedModel, Parsable
         return  [
             'activities' => fn(ParseNode $n) => $o->setActivities($n->getEnumValue(UserActivityTypes::class)),
             'executionMode' => fn(ParseNode $n) => $o->setExecutionMode($n->getEnumValue(ExecutionMode::class)),
+            'locationExclusions' => fn(ParseNode $n) => $o->setLocationExclusions($n->getCollectionOfObjectValues([PolicyLocation::class, 'createFromDiscriminatorValue'])),
             'locations' => fn(ParseNode $n) => $o->setLocations($n->getCollectionOfObjectValues([PolicyLocation::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'policyActions' => fn(ParseNode $n) => $o->setPolicyActions($n->getCollectionOfObjectValues([DlpActionInfo::class, 'createFromDiscriminatorValue'])),
         ];
+    }
+
+    /**
+     * Gets the locationExclusions property value. The locationExclusions property
+     * @return array<PolicyLocation>|null
+    */
+    public function getLocationExclusions(): ?array {
+        $val = $this->getBackingStore()->get('locationExclusions');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PolicyLocation::class);
+            /** @var array<PolicyLocation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'locationExclusions'");
     }
 
     /**
@@ -150,6 +165,7 @@ class PolicyScopeBase implements AdditionalDataHolder, BackedModel, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('activities', $this->getActivities());
         $writer->writeEnumValue('executionMode', $this->getExecutionMode());
+        $writer->writeCollectionOfObjectValues('locationExclusions', $this->getLocationExclusions());
         $writer->writeCollectionOfObjectValues('locations', $this->getLocations());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('policyActions', $this->getPolicyActions());
@@ -186,6 +202,14 @@ class PolicyScopeBase implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setExecutionMode(?ExecutionMode $value): void {
         $this->getBackingStore()->set('executionMode', $value);
+    }
+
+    /**
+     * Sets the locationExclusions property value. The locationExclusions property
+     * @param array<PolicyLocation>|null $value Value to set for the locationExclusions property.
+    */
+    public function setLocationExclusions(?array $value): void {
+        $this->getBackingStore()->set('locationExclusions', $value);
     }
 
     /**

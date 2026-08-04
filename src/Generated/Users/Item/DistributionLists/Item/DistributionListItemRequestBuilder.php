@@ -8,7 +8,6 @@ use Microsoft\Graph\Beta\Generated\Models\DistributionList;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\DistributionLists\Item\AddMembers\AddMembersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\DistributionLists\Item\DeleteMembers\DeleteMembersRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Users\Item\DistributionLists\Item\DistributionListMembers\DistributionListMembersRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -31,13 +30,6 @@ class DistributionListItemRequestBuilder extends BaseRequestBuilder
     */
     public function deleteMembers(): DeleteMembersRequestBuilder {
         return new DeleteMembersRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the distributionListMembers property of the microsoft.graph.distributionList entity.
-    */
-    public function distributionListMembers(): DistributionListMembersRequestBuilder {
-        return new DistributionListMembersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

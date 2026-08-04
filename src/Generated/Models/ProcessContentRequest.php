@@ -107,6 +107,18 @@ class ProcessContentRequest implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
+     * Gets the evaluationScope property value. The evaluationScope property
+     * @return EvaluationScope|null
+    */
+    public function getEvaluationScope(): ?EvaluationScope {
+        $val = $this->getBackingStore()->get('evaluationScope');
+        if (is_null($val) || $val instanceof EvaluationScope) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'evaluationScope'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -117,6 +129,7 @@ class ProcessContentRequest implements AdditionalDataHolder, BackedModel, Parsab
             'contentEntries' => fn(ParseNode $n) => $o->setContentEntries($n->getCollectionOfObjectValues([ProcessContentMetadataBase::class, 'createFromDiscriminatorValue'])),
             'contextMetadata' => fn(ParseNode $n) => $o->setContextMetadata($n->getObjectValue([ContextMetadata::class, 'createFromDiscriminatorValue'])),
             'deviceMetadata' => fn(ParseNode $n) => $o->setDeviceMetadata($n->getObjectValue([DeviceMetadata::class, 'createFromDiscriminatorValue'])),
+            'evaluationScope' => fn(ParseNode $n) => $o->setEvaluationScope($n->getObjectValue([EvaluationScope::class, 'createFromDiscriminatorValue'])),
             'integratedAppMetadata' => fn(ParseNode $n) => $o->setIntegratedAppMetadata($n->getObjectValue([IntegratedApplicationMetadata::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'protectedAppMetadata' => fn(ParseNode $n) => $o->setProtectedAppMetadata($n->getObjectValue([ProtectedApplicationMetadata::class, 'createFromDiscriminatorValue'])),
@@ -168,6 +181,7 @@ class ProcessContentRequest implements AdditionalDataHolder, BackedModel, Parsab
         $writer->writeCollectionOfObjectValues('contentEntries', $this->getContentEntries());
         $writer->writeObjectValue('contextMetadata', $this->getContextMetadata());
         $writer->writeObjectValue('deviceMetadata', $this->getDeviceMetadata());
+        $writer->writeObjectValue('evaluationScope', $this->getEvaluationScope());
         $writer->writeObjectValue('integratedAppMetadata', $this->getIntegratedAppMetadata());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('protectedAppMetadata', $this->getProtectedAppMetadata());
@@ -220,6 +234,14 @@ class ProcessContentRequest implements AdditionalDataHolder, BackedModel, Parsab
     */
     public function setDeviceMetadata(?DeviceMetadata $value): void {
         $this->getBackingStore()->set('deviceMetadata', $value);
+    }
+
+    /**
+     * Sets the evaluationScope property value. The evaluationScope property
+     * @param EvaluationScope|null $value Value to set for the evaluationScope property.
+    */
+    public function setEvaluationScope(?EvaluationScope $value): void {
+        $this->getBackingStore()->set('evaluationScope', $value);
     }
 
     /**

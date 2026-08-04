@@ -130,7 +130,7 @@ class VerifiedIdProfile extends Entity implements Parsable
     }
 
     /**
-     * Gets the verifiedIdUsageConfigurations property value. Collection defining the usage purpose for the profile. The possible values are: recovery, onboarding, all, unknownFutureValue. Required.
+     * Gets the verifiedIdUsageConfigurations property value. Collection defining the usage purpose for the profile. The possible values are: recovery, onboarding, all, unknownFutureValue, verification. Use the Prefer: include-unknown-enum-members request header to get the following value from this evolvable enum: verification. Required.
      * @return array<VerifiedIdUsageConfiguration>|null
     */
     public function getVerifiedIdUsageConfigurations(): ?array {
@@ -229,7 +229,7 @@ class VerifiedIdProfile extends Entity implements Parsable
     }
 
     /**
-     * Sets the verifiedIdUsageConfigurations property value. Collection defining the usage purpose for the profile. The possible values are: recovery, onboarding, all, unknownFutureValue. Required.
+     * Sets the verifiedIdUsageConfigurations property value. Collection defining the usage purpose for the profile. The possible values are: recovery, onboarding, all, unknownFutureValue, verification. Use the Prefer: include-unknown-enum-members request header to get the following value from this evolvable enum: verification. Required.
      * @param array<VerifiedIdUsageConfiguration>|null $value Value to set for the verifiedIdUsageConfigurations property.
     */
     public function setVerifiedIdUsageConfigurations(?array $value): void {

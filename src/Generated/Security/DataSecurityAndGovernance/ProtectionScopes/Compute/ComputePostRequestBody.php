@@ -3,6 +3,7 @@
 namespace Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\ProtectionScopes\Compute;
 
 use Microsoft\Graph\Beta\Generated\Models\DeviceMetadata;
+use Microsoft\Graph\Beta\Generated\Models\EvaluationScope;
 use Microsoft\Graph\Beta\Generated\Models\IntegratedApplicationMetadata;
 use Microsoft\Graph\Beta\Generated\Models\PolicyLocation;
 use Microsoft\Graph\Beta\Generated\Models\PolicyPivotProperty;
@@ -86,6 +87,18 @@ class ComputePostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
+     * Gets the evaluationScope property value. The evaluationScope property
+     * @return EvaluationScope|null
+    */
+    public function getEvaluationScope(): ?EvaluationScope {
+        $val = $this->getBackingStore()->get('evaluationScope');
+        if (is_null($val) || $val instanceof EvaluationScope) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'evaluationScope'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -94,6 +107,7 @@ class ComputePostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
         return  [
             'activities' => fn(ParseNode $n) => $o->setActivities($n->getEnumValue(UserActivityTypes::class)),
             'deviceMetadata' => fn(ParseNode $n) => $o->setDeviceMetadata($n->getObjectValue([DeviceMetadata::class, 'createFromDiscriminatorValue'])),
+            'evaluationScope' => fn(ParseNode $n) => $o->setEvaluationScope($n->getObjectValue([EvaluationScope::class, 'createFromDiscriminatorValue'])),
             'integratedAppMetadata' => fn(ParseNode $n) => $o->setIntegratedAppMetadata($n->getObjectValue([IntegratedApplicationMetadata::class, 'createFromDiscriminatorValue'])),
             'locations' => fn(ParseNode $n) => $o->setLocations($n->getCollectionOfObjectValues([PolicyLocation::class, 'createFromDiscriminatorValue'])),
             'pivotOn' => fn(ParseNode $n) => $o->setPivotOn($n->getEnumValue(PolicyPivotProperty::class)),
@@ -145,6 +159,7 @@ class ComputePostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('activities', $this->getActivities());
         $writer->writeObjectValue('deviceMetadata', $this->getDeviceMetadata());
+        $writer->writeObjectValue('evaluationScope', $this->getEvaluationScope());
         $writer->writeObjectValue('integratedAppMetadata', $this->getIntegratedAppMetadata());
         $writer->writeCollectionOfObjectValues('locations', $this->getLocations());
         $writer->writeEnumValue('pivotOn', $this->getPivotOn());
@@ -181,6 +196,14 @@ class ComputePostRequestBody implements AdditionalDataHolder, BackedModel, Parsa
     */
     public function setDeviceMetadata(?DeviceMetadata $value): void {
         $this->getBackingStore()->set('deviceMetadata', $value);
+    }
+
+    /**
+     * Sets the evaluationScope property value. The evaluationScope property
+     * @param EvaluationScope|null $value Value to set for the evaluationScope property.
+    */
+    public function setEvaluationScope(?EvaluationScope $value): void {
+        $this->getBackingStore()->set('evaluationScope', $value);
     }
 
     /**

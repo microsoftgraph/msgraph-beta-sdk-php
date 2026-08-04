@@ -45,7 +45,7 @@ class TeamworkCustomEmojiDisplayNameItemRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Get customEmojis from teamwork
+     * The collection of custom emojis available in organization messaging.
      * @param TeamworkCustomEmojiDisplayNameItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkCustomEmoji|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class TeamworkCustomEmojiDisplayNameItemRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Get customEmojis from teamwork
+     * The collection of custom emojis available in organization messaging.
      * @param TeamworkCustomEmojiDisplayNameItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -31,10 +31,11 @@ class M365CapabilityBaseNameItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property m365Capabilities for policies
+     * Delete a Microsoft 365 cross-tenant capability from a partner organization in the cross-tenant access policy.
      * @param M365CapabilityBaseNameItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationpartner-delete-m365capabilities?view=graph-rest-beta Find more info here
     */
     public function delete(?M365CapabilityBaseNameItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -59,11 +60,12 @@ class M365CapabilityBaseNameItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property m365Capabilities in policies
+     * Update an existing Microsoft 365 cross-tenant capability for a partner organization in the cross-tenant access policy.
      * @param M365CapabilityBase $body The request body
      * @param M365CapabilityBaseNameItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<M365CapabilityBase|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationpartner-update-m365capabilities?view=graph-rest-beta Find more info here
     */
     public function patch(M365CapabilityBase $body, ?M365CapabilityBaseNameItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -74,7 +76,7 @@ class M365CapabilityBaseNameItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property m365Capabilities for policies
+     * Delete a Microsoft 365 cross-tenant capability from a partner organization in the cross-tenant access policy.
      * @param M365CapabilityBaseNameItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +115,7 @@ class M365CapabilityBaseNameItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property m365Capabilities in policies
+     * Update an existing Microsoft 365 cross-tenant capability for a partner organization in the cross-tenant access policy.
      * @param M365CapabilityBase $body The request body
      * @param M365CapabilityBaseNameItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

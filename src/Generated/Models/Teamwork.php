@@ -99,7 +99,7 @@ class Teamwork extends Entity implements Parsable
     }
 
     /**
-     * Gets the messaging property value. The messaging property
+     * Gets the messaging property value. The messaging functionality, including custom emojis.
      * @return TeamworkMessaging|null
     */
     public function getMessaging(): ?TeamworkMessaging {
@@ -212,7 +212,7 @@ class Teamwork extends Entity implements Parsable
     }
 
     /**
-     * Sets the messaging property value. The messaging property
+     * Sets the messaging property value. The messaging functionality, including custom emojis.
      * @param TeamworkMessaging|null $value Value to set for the messaging property.
     */
     public function setMessaging(?TeamworkMessaging $value): void {
