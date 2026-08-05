@@ -23,6 +23,7 @@ use Microsoft\Graph\Beta\Generated\Directory\PublicKeyInfrastructure\PublicKeyIn
 use Microsoft\Graph\Beta\Generated\Directory\RecommendationConfiguration\RecommendationConfigurationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Recommendations\RecommendationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Recovery\RecoveryRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\RemoteTenantGroups\RemoteTenantGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\SharedEmailDomains\SharedEmailDomainsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Subscriptions\SubscriptionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\SubscriptionsWithCommerceSubscriptionId\SubscriptionsWithCommerceSubscriptionIdRequestBuilder;
@@ -172,6 +173,13 @@ class DirectoryRequestBuilder extends BaseRequestBuilder
     */
     public function recovery(): RecoveryRequestBuilder {
         return new RecoveryRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the remoteTenantGroups property of the microsoft.graph.directory entity.
+    */
+    public function remoteTenantGroups(): RemoteTenantGroupsRequestBuilder {
+        return new RemoteTenantGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\Messaging;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get messaging from teamwork
+ * The messaging functionality, including custom emojis.
 */
 class MessagingRequestBuilderGetQueryParameters 
 {

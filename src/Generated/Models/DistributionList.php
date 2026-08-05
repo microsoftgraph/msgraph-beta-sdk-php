@@ -39,20 +39,6 @@ class DistributionList extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the distributionListMembers property value. The expanded members of the distribution list. Each member contains detailed information including resolved email addresses. Read-only.
-     * @return array<DistributionListMember>|null
-    */
-    public function getDistributionListMembers(): ?array {
-        $val = $this->getBackingStore()->get('distributionListMembers');
-        if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, DistributionListMember::class);
-            /** @var array<DistributionListMember>|null $val */
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'distributionListMembers'");
-    }
-
-    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -60,7 +46,6 @@ class DistributionList extends OutlookItem implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'distributionListMembers' => fn(ParseNode $n) => $o->setDistributionListMembers($n->getCollectionOfObjectValues([DistributionListMember::class, 'createFromDiscriminatorValue'])),
             'members' => fn(ParseNode $n) => $o->setMembers($n->getCollectionOfObjectValues([Member::class, 'createFromDiscriminatorValue'])),
             'notes' => fn(ParseNode $n) => $o->setNotes($n->getStringValue()),
             'personIdentifier' => fn(ParseNode $n) => $o->setPersonIdentifier($n->getStringValue()),
@@ -127,7 +112,6 @@ class DistributionList extends OutlookItem implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->getDisplayName());
-        $writer->writeCollectionOfObjectValues('distributionListMembers', $this->getDistributionListMembers());
         $writer->writeCollectionOfObjectValues('members', $this->getMembers());
         $writer->writeStringValue('notes', $this->getNotes());
         $writer->writeStringValue('personIdentifier', $this->getPersonIdentifier());
@@ -140,14 +124,6 @@ class DistributionList extends OutlookItem implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
-    }
-
-    /**
-     * Sets the distributionListMembers property value. The expanded members of the distribution list. Each member contains detailed information including resolved email addresses. Read-only.
-     * @param array<DistributionListMember>|null $value Value to set for the distributionListMembers property.
-    */
-    public function setDistributionListMembers(?array $value): void {
-        $this->getBackingStore()->set('distributionListMembers', $value);
     }
 
     /**

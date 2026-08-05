@@ -57,7 +57,7 @@ class TeamworkCustomEmoji implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the contentBytes property value. The contentBytes property
+     * Gets the contentBytes property value. The base64-encoded image content of the emoji. Supported formats include PNG and GIF.
      * @return string|null
     */
     public function getContentBytes(): ?string {
@@ -81,7 +81,7 @@ class TeamworkCustomEmoji implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date and time when the emoji was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -93,7 +93,7 @@ class TeamworkCustomEmoji implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The unique display name of the custom emoji. Key. Must be unique and must not conflict with existing emoji names.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -161,7 +161,7 @@ class TeamworkCustomEmoji implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the contentBytes property value. The contentBytes property
+     * Sets the contentBytes property value. The base64-encoded image content of the emoji. Supported formats include PNG and GIF.
      * @param string|null $value Value to set for the contentBytes property.
     */
     public function setContentBytes(?string $value): void {
@@ -177,7 +177,7 @@ class TeamworkCustomEmoji implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date and time when the emoji was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -185,7 +185,7 @@ class TeamworkCustomEmoji implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The unique display name of the custom emoji. Key. Must be unique and must not conflict with existing emoji names.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {

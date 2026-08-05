@@ -50,7 +50,7 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Gets the agentDisplayName property value. Name of the agent.  Supports $filter (eq, startsWith).
+     * Gets the agentDisplayName property value. Name of the agent. Deprecated. Use displayName instead. This property will be removed after 2027-04-28.  Supports $filter (eq, startsWith).
      * @return string|null
     */
     public function getAgentDisplayName(): ?string {
@@ -62,7 +62,7 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Gets the agentId property value. The unique identifier for the agent. This is equivalent to 'id' to the specific agent type. See riskyAgentIdentity, riskyAgentIdentityBlueprintPrincipal, and riskyAgentUser.  Supports $filter (eq, startsWith).
+     * Gets the agentId property value. The unique identifier for the agent. Deprecated. Use identityId instead. This property will be removed after 2027-04-28. See riskyAgentIdentity, riskyAgentIdentityBlueprintPrincipal, and riskyAgentUser.  Supports $filter (eq, startsWith).
      * @return string|null
     */
     public function getAgentId(): ?string {
@@ -122,7 +122,7 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Human-readable name of the identity associated with this risk detection.  Supports $filter (eq, startsWith).
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -165,7 +165,7 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Gets the identityId property value. The identityId property
+     * Gets the identityId property value. Unique identifier of the identity associated with this risk detection.  Supports $filter (eq, startsWith).
      * @return string|null
     */
     public function getIdentityId(): ?string {
@@ -354,7 +354,7 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Sets the agentDisplayName property value. Name of the agent.  Supports $filter (eq, startsWith).
+     * Sets the agentDisplayName property value. Name of the agent. Deprecated. Use displayName instead. This property will be removed after 2027-04-28.  Supports $filter (eq, startsWith).
      * @param string|null $value Value to set for the agentDisplayName property.
     */
     public function setAgentDisplayName(?string $value): void {
@@ -362,7 +362,7 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Sets the agentId property value. The unique identifier for the agent. This is equivalent to 'id' to the specific agent type. See riskyAgentIdentity, riskyAgentIdentityBlueprintPrincipal, and riskyAgentUser.  Supports $filter (eq, startsWith).
+     * Sets the agentId property value. The unique identifier for the agent. Deprecated. Use identityId instead. This property will be removed after 2027-04-28. See riskyAgentIdentity, riskyAgentIdentityBlueprintPrincipal, and riskyAgentUser.  Supports $filter (eq, startsWith).
      * @param string|null $value Value to set for the agentId property.
     */
     public function setAgentId(?string $value): void {
@@ -402,7 +402,7 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. Human-readable name of the identity associated with this risk detection.  Supports $filter (eq, startsWith).
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -410,7 +410,7 @@ class AgentRiskDetection extends Entity implements Parsable
     }
 
     /**
-     * Sets the identityId property value. The identityId property
+     * Sets the identityId property value. Unique identifier of the identity associated with this risk detection.  Supports $filter (eq, startsWith).
      * @param string|null $value Value to set for the identityId property.
     */
     public function setIdentityId(?string $value): void {

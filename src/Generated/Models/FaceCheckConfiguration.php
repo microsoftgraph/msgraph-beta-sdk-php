@@ -69,7 +69,7 @@ class FaceCheckConfiguration implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the isEnabled property value. Defines if Face Check is required. Currently must always be true.
+     * Gets the isEnabled property value. Indicates whether Face Check is required. Currently must be true.
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
@@ -93,7 +93,7 @@ class FaceCheckConfiguration implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the sourcePhotoClaimName property value. Source of photo to validate Face Check against. Currently must always be portrait
+     * Gets the sourcePhotoClaimName property value. The source claim name for the photo used to validate Face Check. Currently must be portrait.
      * @return string|null
     */
     public function getSourcePhotoClaimName(): ?string {
@@ -132,7 +132,7 @@ class FaceCheckConfiguration implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the isEnabled property value. Defines if Face Check is required. Currently must always be true.
+     * Sets the isEnabled property value. Indicates whether Face Check is required. Currently must be true.
      * @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value): void {
@@ -148,7 +148,7 @@ class FaceCheckConfiguration implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the sourcePhotoClaimName property value. Source of photo to validate Face Check against. Currently must always be portrait
+     * Sets the sourcePhotoClaimName property value. The source claim name for the photo used to validate Face Check. Currently must be portrait.
      * @param string|null $value Value to set for the sourcePhotoClaimName property.
     */
     public function setSourcePhotoClaimName(?string $value): void {

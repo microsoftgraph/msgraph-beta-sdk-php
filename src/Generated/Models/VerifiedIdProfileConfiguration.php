@@ -36,7 +36,7 @@ class VerifiedIdProfileConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the acceptedIssuer property value. Trusted Verified ID issuer.
+     * Gets the acceptedIssuer property value. Trusted Verified ID issuer. Required.
      * @return string|null
     */
     public function getAcceptedIssuer(): ?string {
@@ -69,7 +69,7 @@ class VerifiedIdProfileConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the claimBindings property value. Claim bindings from Verified ID to source attributes.
+     * Gets the claimBindings property value. Claim bindings from Verified ID to source attributes. Required.
      * @return array<ClaimBinding>|null
     */
     public function getClaimBindings(): ?array {
@@ -135,7 +135,7 @@ class VerifiedIdProfileConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the type property value. Verified ID type.
+     * Gets the type property value. Verified ID type. Required.
      * @return string|null
     */
     public function getType(): ?string {
@@ -161,7 +161,7 @@ class VerifiedIdProfileConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the acceptedIssuer property value. Trusted Verified ID issuer.
+     * Sets the acceptedIssuer property value. Trusted Verified ID issuer. Required.
      * @param string|null $value Value to set for the acceptedIssuer property.
     */
     public function setAcceptedIssuer(?string $value): void {
@@ -185,7 +185,7 @@ class VerifiedIdProfileConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the claimBindings property value. Claim bindings from Verified ID to source attributes.
+     * Sets the claimBindings property value. Claim bindings from Verified ID to source attributes. Required.
      * @param array<ClaimBinding>|null $value Value to set for the claimBindings property.
     */
     public function setClaimBindings(?array $value): void {
@@ -217,7 +217,7 @@ class VerifiedIdProfileConfiguration implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the type property value. Verified ID type.
+     * Sets the type property value. Verified ID type. Required.
      * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {

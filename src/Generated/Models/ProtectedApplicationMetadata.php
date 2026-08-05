@@ -45,7 +45,20 @@ class ProtectedApplicationMetadata extends IntegratedApplicationMetadata impleme
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'applicationLocation' => fn(ParseNode $n) => $o->setApplicationLocation($n->getObjectValue([PolicyLocation::class, 'createFromDiscriminatorValue'])),
+            'sourceLocation' => fn(ParseNode $n) => $o->setSourceLocation($n->getObjectValue([PolicyLocation::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the sourceLocation property value. The sourceLocation property
+     * @return PolicyLocation|null
+    */
+    public function getSourceLocation(): ?PolicyLocation {
+        $val = $this->getBackingStore()->get('sourceLocation');
+        if (is_null($val) || $val instanceof PolicyLocation) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sourceLocation'");
     }
 
     /**
@@ -55,6 +68,7 @@ class ProtectedApplicationMetadata extends IntegratedApplicationMetadata impleme
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('applicationLocation', $this->getApplicationLocation());
+        $writer->writeObjectValue('sourceLocation', $this->getSourceLocation());
     }
 
     /**
@@ -63,6 +77,14 @@ class ProtectedApplicationMetadata extends IntegratedApplicationMetadata impleme
     */
     public function setApplicationLocation(?PolicyLocation $value): void {
         $this->getBackingStore()->set('applicationLocation', $value);
+    }
+
+    /**
+     * Sets the sourceLocation property value. The sourceLocation property
+     * @param PolicyLocation|null $value Value to set for the sourceLocation property.
+    */
+    public function setSourceLocation(?PolicyLocation $value): void {
+        $this->getBackingStore()->set('sourceLocation', $value);
     }
 
 }

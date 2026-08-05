@@ -4,6 +4,8 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Instan
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Instances\Item\Stages\Item\AcceptRecommendations\AcceptRecommendationsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Instances\Item\Stages\Item\BatchRecordDecisions\BatchRecordDecisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Instances\Item\Stages\Item\Decisions\DecisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Instances\Item\Stages\Item\Stop\StopRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessReviewStage;
@@ -18,6 +20,20 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class AccessReviewStageItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to call the acceptRecommendations method.
+    */
+    public function acceptRecommendations(): AcceptRecommendationsRequestBuilder {
+        return new AcceptRecommendationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the batchRecordDecisions method.
+    */
+    public function batchRecordDecisions(): BatchRecordDecisionsRequestBuilder {
+        return new BatchRecordDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the decisions property of the microsoft.graph.accessReviewStage entity.
     */

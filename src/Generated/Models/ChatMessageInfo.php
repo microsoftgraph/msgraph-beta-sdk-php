@@ -27,11 +27,11 @@ class ChatMessageInfo extends Entity implements Parsable
 
     /**
      * Gets the body property value. Body of the chatMessage. This will still contain markers for @mentions and attachments even though the object doesn't return @mentions and attachments.
-     * @return ItemBody|null
+     * @return ChatMessageBody|null
     */
-    public function getBody(): ?ItemBody {
+    public function getBody(): ?ChatMessageBody {
         $val = $this->getBackingStore()->get('body');
-        if (is_null($val) || $val instanceof ItemBody) {
+        if (is_null($val) || $val instanceof ChatMessageBody) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'body'");
@@ -68,7 +68,7 @@ class ChatMessageInfo extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'body' => fn(ParseNode $n) => $o->setBody($n->getObjectValue([ItemBody::class, 'createFromDiscriminatorValue'])),
+            'body' => fn(ParseNode $n) => $o->setBody($n->getObjectValue([ChatMessageBody::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'eventDetail' => fn(ParseNode $n) => $o->setEventDetail($n->getObjectValue([EventMessageDetail::class, 'createFromDiscriminatorValue'])),
             'from' => fn(ParseNode $n) => $o->setFrom($n->getObjectValue([ChatMessageFromIdentitySet::class, 'createFromDiscriminatorValue'])),
@@ -129,9 +129,9 @@ class ChatMessageInfo extends Entity implements Parsable
 
     /**
      * Sets the body property value. Body of the chatMessage. This will still contain markers for @mentions and attachments even though the object doesn't return @mentions and attachments.
-     * @param ItemBody|null $value Value to set for the body property.
+     * @param ChatMessageBody|null $value Value to set for the body property.
     */
-    public function setBody(?ItemBody $value): void {
+    public function setBody(?ChatMessageBody $value): void {
         $this->getBackingStore()->set('body', $value);
     }
 

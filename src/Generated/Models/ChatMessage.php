@@ -49,11 +49,11 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Gets the body property value. The body property
-     * @return ItemBody|null
+     * @return ChatMessageBody|null
     */
-    public function getBody(): ?ItemBody {
+    public function getBody(): ?ChatMessageBody {
         $val = $this->getBackingStore()->get('body');
-        if (is_null($val) || $val instanceof ItemBody) {
+        if (is_null($val) || $val instanceof ChatMessageBody) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'body'");
@@ -139,7 +139,7 @@ class ChatMessage extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'attachments' => fn(ParseNode $n) => $o->setAttachments($n->getCollectionOfObjectValues([ChatMessageAttachment::class, 'createFromDiscriminatorValue'])),
-            'body' => fn(ParseNode $n) => $o->setBody($n->getObjectValue([ItemBody::class, 'createFromDiscriminatorValue'])),
+            'body' => fn(ParseNode $n) => $o->setBody($n->getObjectValue([ChatMessageBody::class, 'createFromDiscriminatorValue'])),
             'channelIdentity' => fn(ParseNode $n) => $o->setChannelIdentity($n->getObjectValue([ChannelIdentity::class, 'createFromDiscriminatorValue'])),
             'chatId' => fn(ParseNode $n) => $o->setChatId($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
@@ -423,9 +423,9 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the body property value. The body property
-     * @param ItemBody|null $value Value to set for the body property.
+     * @param ChatMessageBody|null $value Value to set for the body property.
     */
-    public function setBody(?ItemBody $value): void {
+    public function setBody(?ChatMessageBody $value): void {
         $this->getBackingStore()->set('body', $value);
     }
 

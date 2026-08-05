@@ -104,7 +104,7 @@ class RelatedTenant extends Entity implements Parsable
     }
 
     /**
-     * Gets the isMicrosoftInfrastructure property value. Indicates whether this tenant is a Microsoft infrastructure tenant.
+     * Gets the isMicrosoftInfrastructure property value. Indicates whether the related tenant is a Microsoft infrastructure tenant. Read-only.
      * @return bool|null
     */
     public function getIsMicrosoftInfrastructure(): ?bool {
@@ -182,7 +182,7 @@ class RelatedTenant extends Entity implements Parsable
     }
 
     /**
-     * Sets the isMicrosoftInfrastructure property value. Indicates whether this tenant is a Microsoft infrastructure tenant.
+     * Sets the isMicrosoftInfrastructure property value. Indicates whether the related tenant is a Microsoft infrastructure tenant. Read-only.
      * @param bool|null $value Value to set for the isMicrosoftInfrastructure property.
     */
     public function setIsMicrosoftInfrastructure(?bool $value): void {

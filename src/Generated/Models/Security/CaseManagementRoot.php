@@ -3,6 +3,7 @@
 namespace Microsoft\Graph\Beta\Generated\Models\Security;
 
 use Microsoft\Graph\Beta\Generated\Models\Entity;
+use Microsoft\Graph\Beta\Generated\Models\Security\CaseManagement\CaseTypeConfiguration;
 use Microsoft\Graph\Beta\Generated\Models\Security\CaseManagement\EscapedCase;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -42,6 +43,20 @@ class CaseManagementRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the caseTypeConfigurations property value. The collection of case type configurations that define the statuses and custom fields available for each case type. Read-only. Supports $select, $count, and $expand of the statuses and customFields relationships.
+     * @return array<CaseTypeConfiguration>|null
+    */
+    public function getCaseTypeConfigurations(): ?array {
+        $val = $this->getBackingStore()->get('caseTypeConfigurations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CaseTypeConfiguration::class);
+            /** @var array<CaseTypeConfiguration>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'caseTypeConfigurations'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -49,6 +64,7 @@ class CaseManagementRoot extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'cases' => fn(ParseNode $n) => $o->setCases($n->getCollectionOfObjectValues([EscapedCase::class, 'createFromDiscriminatorValue'])),
+            'caseTypeConfigurations' => fn(ParseNode $n) => $o->setCaseTypeConfigurations($n->getCollectionOfObjectValues([CaseTypeConfiguration::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -59,6 +75,7 @@ class CaseManagementRoot extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('cases', $this->getCases());
+        $writer->writeCollectionOfObjectValues('caseTypeConfigurations', $this->getCaseTypeConfigurations());
     }
 
     /**
@@ -67,6 +84,14 @@ class CaseManagementRoot extends Entity implements Parsable
     */
     public function setCases(?array $value): void {
         $this->getBackingStore()->set('cases', $value);
+    }
+
+    /**
+     * Sets the caseTypeConfigurations property value. The collection of case type configurations that define the statuses and custom fields available for each case type. Read-only. Supports $select, $count, and $expand of the statuses and customFields relationships.
+     * @param array<CaseTypeConfiguration>|null $value Value to set for the caseTypeConfigurations property.
+    */
+    public function setCaseTypeConfigurations(?array $value): void {
+        $this->getBackingStore()->set('caseTypeConfigurations', $value);
     }
 
 }

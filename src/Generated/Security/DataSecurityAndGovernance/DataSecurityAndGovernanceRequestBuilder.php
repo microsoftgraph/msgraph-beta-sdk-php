@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TenantDataSecurityAndGovernance;
 use Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\PolicyFiles\PolicyFilesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\ProcessContent\ProcessContentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\ProcessContentAsync\ProcessContentAsyncRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\ProtectionScopes\ProtectionScopesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\SensitivityLabels\SensitivityLabelsRequestBuilder;
@@ -25,6 +26,13 @@ class DataSecurityAndGovernanceRequestBuilder extends BaseRequestBuilder
     */
     public function policyFiles(): PolicyFilesRequestBuilder {
         return new PolicyFilesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the processContent method.
+    */
+    public function processContent(): ProcessContentRequestBuilder {
+        return new ProcessContentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

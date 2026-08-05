@@ -197,6 +197,7 @@ class ReportRoot extends Entity implements Parsable
             'dailyPrintUsageSummariesByUser' => fn(ParseNode $n) => $o->setDailyPrintUsageSummariesByUser($n->getCollectionOfObjectValues([PrintUsageByUser::class, 'createFromDiscriminatorValue'])),
             'healthMonitoring' => fn(ParseNode $n) => $o->setHealthMonitoring($n->getObjectValue([HealthMonitoringRoot::class, 'createFromDiscriminatorValue'])),
             'identityAnalytics' => fn(ParseNode $n) => $o->setIdentityAnalytics($n->getObjectValue([IdentityAnalyticsRoot::class, 'createFromDiscriminatorValue'])),
+            'microsoftAppsFileStorageContainerUsageSummary' => fn(ParseNode $n) => $o->setMicrosoftAppsFileStorageContainerUsageSummary($n->getObjectValue([MicrosoftAppsFileStorageContainerUsage::class, 'createFromDiscriminatorValue'])),
             'monthlyPrintUsageByPrinter' => fn(ParseNode $n) => $o->setMonthlyPrintUsageByPrinter($n->getCollectionOfObjectValues([PrintUsageByPrinter::class, 'createFromDiscriminatorValue'])),
             'monthlyPrintUsageByUser' => fn(ParseNode $n) => $o->setMonthlyPrintUsageByUser($n->getCollectionOfObjectValues([PrintUsageByUser::class, 'createFromDiscriminatorValue'])),
             'monthlyPrintUsageSummariesByPrinter' => fn(ParseNode $n) => $o->setMonthlyPrintUsageSummariesByPrinter($n->getCollectionOfObjectValues([PrintUsageByPrinter::class, 'createFromDiscriminatorValue'])),
@@ -233,6 +234,18 @@ class ReportRoot extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'identityAnalytics'");
+    }
+
+    /**
+     * Gets the microsoftAppsFileStorageContainerUsageSummary property value. The microsoftAppsFileStorageContainerUsageSummary property
+     * @return MicrosoftAppsFileStorageContainerUsage|null
+    */
+    public function getMicrosoftAppsFileStorageContainerUsageSummary(): ?MicrosoftAppsFileStorageContainerUsage {
+        $val = $this->getBackingStore()->get('microsoftAppsFileStorageContainerUsageSummary');
+        if (is_null($val) || $val instanceof MicrosoftAppsFileStorageContainerUsage) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'microsoftAppsFileStorageContainerUsageSummary'");
     }
 
     /**
@@ -398,6 +411,7 @@ class ReportRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('dailyPrintUsageSummariesByUser', $this->getDailyPrintUsageSummariesByUser());
         $writer->writeObjectValue('healthMonitoring', $this->getHealthMonitoring());
         $writer->writeObjectValue('identityAnalytics', $this->getIdentityAnalytics());
+        $writer->writeObjectValue('microsoftAppsFileStorageContainerUsageSummary', $this->getMicrosoftAppsFileStorageContainerUsageSummary());
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageByPrinter', $this->getMonthlyPrintUsageByPrinter());
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageByUser', $this->getMonthlyPrintUsageByUser());
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageSummariesByPrinter', $this->getMonthlyPrintUsageSummariesByPrinter());
@@ -513,6 +527,14 @@ class ReportRoot extends Entity implements Parsable
     */
     public function setIdentityAnalytics(?IdentityAnalyticsRoot $value): void {
         $this->getBackingStore()->set('identityAnalytics', $value);
+    }
+
+    /**
+     * Sets the microsoftAppsFileStorageContainerUsageSummary property value. The microsoftAppsFileStorageContainerUsageSummary property
+     * @param MicrosoftAppsFileStorageContainerUsage|null $value Value to set for the microsoftAppsFileStorageContainerUsageSummary property.
+    */
+    public function setMicrosoftAppsFileStorageContainerUsageSummary(?MicrosoftAppsFileStorageContainerUsage $value): void {
+        $this->getBackingStore()->set('microsoftAppsFileStorageContainerUsageSummary', $value);
     }
 
     /**

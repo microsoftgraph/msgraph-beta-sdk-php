@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Participants\Item\AdmitFromLobby\AdmitFromLobbyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Participants\Item\Mute\MuteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Participants\Item\RemoveFromLobby\RemoveFromLobbyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Participants\Item\ReportSyntheticMedia\ReportSyntheticMediaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Participants\Item\StartHoldMusic\StartHoldMusicRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Participants\Item\StopHoldMusic\StopHoldMusicRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -40,6 +41,13 @@ class ParticipantItemRequestBuilder extends BaseRequestBuilder
     */
     public function removeFromLobby(): RemoveFromLobbyRequestBuilder {
         return new RemoveFromLobbyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the reportSyntheticMedia method.
+    */
+    public function reportSyntheticMedia(): ReportSyntheticMediaRequestBuilder {
+        return new ReportSyntheticMediaRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

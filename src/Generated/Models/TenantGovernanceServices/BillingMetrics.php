@@ -6,6 +6,7 @@ use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class BillingMetrics extends Entity implements Parsable 
 {
@@ -33,6 +34,7 @@ class BillingMetrics extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'initial' => fn(ParseNode $n) => $o->setInitial($n->getObjectValue([BillingMetricsInitial::class, 'createFromDiscriminatorValue'])),
+            'investigationHints' => fn(ParseNode $n) => $o->setInvestigationHints($n->getCollectionOfObjectValues([ActionStep::class, 'createFromDiscriminatorValue'])),
             'recent' => fn(ParseNode $n) => $o->setRecent($n->getObjectValue([BillingMetricsRecent::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -47,6 +49,20 @@ class BillingMetrics extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'initial'");
+    }
+
+    /**
+     * Gets the investigationHints property value. Ordered drill-in guidance for investigating billing relationship counts. This collection is returned only when explicitly requested by using a nested $expand query parameter, for example $expand=billingMetrics($expand=investigationHints).
+     * @return array<ActionStep>|null
+    */
+    public function getInvestigationHints(): ?array {
+        $val = $this->getBackingStore()->get('investigationHints');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ActionStep::class);
+            /** @var array<ActionStep>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'investigationHints'");
     }
 
     /**
@@ -68,6 +84,7 @@ class BillingMetrics extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('initial', $this->getInitial());
+        $writer->writeCollectionOfObjectValues('investigationHints', $this->getInvestigationHints());
         $writer->writeObjectValue('recent', $this->getRecent());
     }
 
@@ -77,6 +94,14 @@ class BillingMetrics extends Entity implements Parsable
     */
     public function setInitial(?BillingMetricsInitial $value): void {
         $this->getBackingStore()->set('initial', $value);
+    }
+
+    /**
+     * Sets the investigationHints property value. Ordered drill-in guidance for investigating billing relationship counts. This collection is returned only when explicitly requested by using a nested $expand query parameter, for example $expand=billingMetrics($expand=investigationHints).
+     * @param array<ActionStep>|null $value Value to set for the investigationHints property.
+    */
+    public function setInvestigationHints(?array $value): void {
+        $this->getBackingStore()->set('investigationHints', $value);
     }
 
     /**

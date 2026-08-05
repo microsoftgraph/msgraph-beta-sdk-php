@@ -25,6 +25,7 @@ class BrowsePostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
+        $this->setOptimizedBrowse(false);
     }
 
     /**
@@ -91,6 +92,7 @@ class BrowsePostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
             'browseLocationItemKey' => fn(ParseNode $n) => $o->setBrowseLocationItemKey($n->getStringValue()),
             'browseResourceType' => fn(ParseNode $n) => $o->setBrowseResourceType($n->getEnumValue(BrowsableResourceType::class)),
             'filter' => fn(ParseNode $n) => $o->setFilter($n->getStringValue()),
+            'optimizedBrowse' => fn(ParseNode $n) => $o->setOptimizedBrowse($n->getBooleanValue()),
             'orderBy' => fn(ParseNode $n) => $o->setOrderBy($n->getEnumValue(BrowseQueryOrder::class)),
         ];
     }
@@ -105,6 +107,18 @@ class BrowsePostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'filter'");
+    }
+
+    /**
+     * Gets the optimizedBrowse property value. The optimizedBrowse property
+     * @return bool|null
+    */
+    public function getOptimizedBrowse(): ?bool {
+        $val = $this->getBackingStore()->get('optimizedBrowse');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'optimizedBrowse'");
     }
 
     /**
@@ -127,6 +141,7 @@ class BrowsePostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
         $writer->writeStringValue('browseLocationItemKey', $this->getBrowseLocationItemKey());
         $writer->writeEnumValue('browseResourceType', $this->getBrowseResourceType());
         $writer->writeStringValue('filter', $this->getFilter());
+        $writer->writeBooleanValue('optimizedBrowse', $this->getOptimizedBrowse());
         $writer->writeEnumValue('orderBy', $this->getOrderBy());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -169,6 +184,14 @@ class BrowsePostRequestBody implements AdditionalDataHolder, BackedModel, Parsab
     */
     public function setFilter(?string $value): void {
         $this->getBackingStore()->set('filter', $value);
+    }
+
+    /**
+     * Sets the optimizedBrowse property value. The optimizedBrowse property
+     * @param bool|null $value Value to set for the optimizedBrowse property.
+    */
+    public function setOptimizedBrowse(?bool $value): void {
+        $this->getBackingStore()->set('optimizedBrowse', $value);
     }
 
     /**

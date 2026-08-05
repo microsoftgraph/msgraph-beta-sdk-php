@@ -30,10 +30,11 @@ class MicrosoftGraphSecurityDisablePolicyRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Invoke action disablePolicy
+     * Disable an eDiscovery hold policy (legal hold) to release the hold across all the data sources included in the policy in a single operation. This operation runs asynchronously. To track completion, get the ediscoveryHoldPolicy and review its isEnabled and errors properties.
      * @param MicrosoftGraphSecurityDisablePolicyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-ediscoveryholdpolicy-disablepolicy?view=graph-rest-beta Find more info here
     */
     public function post(?MicrosoftGraphSecurityDisablePolicyRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -44,7 +45,7 @@ class MicrosoftGraphSecurityDisablePolicyRequestBuilder extends BaseRequestBuild
     }
 
     /**
-     * Invoke action disablePolicy
+     * Disable an eDiscovery hold policy (legal hold) to release the hold across all the data sources included in the policy in a single operation. This operation runs asynchronously. To track completion, get the ediscoveryHoldPolicy and review its isEnabled and errors properties.
      * @param MicrosoftGraphSecurityDisablePolicyRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

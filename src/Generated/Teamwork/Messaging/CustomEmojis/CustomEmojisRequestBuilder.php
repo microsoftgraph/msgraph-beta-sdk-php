@@ -52,10 +52,11 @@ class CustomEmojisRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get customEmojis from teamwork
+     * Get a list of custom emojis available in the teamwork messaging of the organization.
      * @param CustomEmojisRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkCustomEmojiCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/teamworkmessaging-list-customemojis?view=graph-rest-beta Find more info here
     */
     public function get(?CustomEmojisRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class CustomEmojisRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to customEmojis for teamwork
+     * Create a new custom emoji in the teamwork messaging of the organization, which adds the custom emoji to Teams for the tenant. The emoji image is provided as base64-encoded content bytes.
      * @param TeamworkCustomEmoji $body The request body
      * @param CustomEmojisRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkCustomEmoji|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/teamworkmessaging-post-customemojis?view=graph-rest-beta Find more info here
     */
     public function post(TeamworkCustomEmoji $body, ?CustomEmojisRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class CustomEmojisRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get customEmojis from teamwork
+     * Get a list of custom emojis available in the teamwork messaging of the organization.
      * @param CustomEmojisRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class CustomEmojisRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to customEmojis for teamwork
+     * Create a new custom emoji in the teamwork messaging of the organization, which adds the custom emoji to Teams for the tenant. The emoji image is provided as base64-encoded content bytes.
      * @param TeamworkCustomEmoji $body The request body
      * @param CustomEmojisRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

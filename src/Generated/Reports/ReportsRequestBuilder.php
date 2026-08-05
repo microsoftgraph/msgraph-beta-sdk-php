@@ -52,9 +52,9 @@ use Microsoft\Graph\Beta\Generated\Reports\GetMailboxUsageDetailWithPeriod\GetMa
 use Microsoft\Graph\Beta\Generated\Reports\GetMailboxUsageMailboxCountsWithPeriod\GetMailboxUsageMailboxCountsWithPeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetMailboxUsageQuotaStatusMailboxCountsWithPeriod\GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetMailboxUsageStorageWithPeriod\GetMailboxUsageStorageWithPeriodRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersion\GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersion\GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\GetMicrosoft365CopilotUserCountTrendWithPeriodWithVersion\GetMicrosoft365CopilotUserCountTrendWithPeriodWithVersionRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersion\GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\GetMicrosoft365CopilotUserCountSummaryWithPeriodversionVersion\GetMicrosoft365CopilotUserCountSummaryWithPeriodversionVersionRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersion\GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetOffice365ActivationCounts\GetOffice365ActivationCountsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetOffice365ActivationsUserCounts\GetOffice365ActivationsUserCountsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetOffice365ActivationsUserDetail\GetOffice365ActivationsUserDetailRequestBuilder;
@@ -84,6 +84,10 @@ use Microsoft\Graph\Beta\Generated\Reports\GetSharePointActivityPagesWithPeriod\
 use Microsoft\Graph\Beta\Generated\Reports\GetSharePointActivityUserCountsWithPeriod\GetSharePointActivityUserCountsWithPeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetSharePointActivityUserDetailWithDate\GetSharePointActivityUserDetailWithDateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetSharePointActivityUserDetailWithPeriod\GetSharePointActivityUserDetailWithPeriodRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\GetSharePointApiUsageWithDatereportTypeReportType\GetSharePointApiUsageWithDatereportTypeReportTypeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\GetSharePointApiUsageWithDateWithAppIdreportTypeReportType\GetSharePointApiUsageWithDateWithAppIdreportTypeReportTypeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\GetSharePointApiUsageWithPeriodreportTypeReportType\GetSharePointApiUsageWithPeriodreportTypeReportTypeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\GetSharePointApiUsageWithPeriodWithAppIdreportTypeReportType\GetSharePointApiUsageWithPeriodWithAppIdreportTypeReportTypeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetSharePointSiteUsageDetailWithDate\GetSharePointSiteUsageDetailWithDateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetSharePointSiteUsageDetailWithPeriod\GetSharePointSiteUsageDetailWithPeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetSharePointSiteUsageFileCountsWithPeriod\GetSharePointSiteUsageFileCountsWithPeriodRequestBuilder;
@@ -149,6 +153,7 @@ use Microsoft\Graph\Beta\Generated\Reports\ManagedDeviceEnrollmentFailureDetails
 use Microsoft\Graph\Beta\Generated\Reports\ManagedDeviceEnrollmentFailureTrends\ManagedDeviceEnrollmentFailureTrendsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\ManagedDeviceEnrollmentTopFailures\ManagedDeviceEnrollmentTopFailuresRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\ManagedDeviceEnrollmentTopFailuresWithPeriod\ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\MicrosoftAppsFileStorageContainerUsageSummary\MicrosoftAppsFileStorageContainerUsageSummaryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageByPrinter\MonthlyPrintUsageByPrinterRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageByUser\MonthlyPrintUsageByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageSummariesByPrinter\MonthlyPrintUsageSummariesByPrinterRequestBuilder;
@@ -351,6 +356,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function managedDeviceEnrollmentTopFailures(): ManagedDeviceEnrollmentTopFailuresRequestBuilder {
         return new ManagedDeviceEnrollmentTopFailuresRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the microsoftAppsFileStorageContainerUsageSummary property of the microsoft.graph.reportRoot entity.
+    */
+    public function microsoftAppsFileStorageContainerUsageSummary(): MicrosoftAppsFileStorageContainerUsageSummaryRequestBuilder {
+        return new MicrosoftAppsFileStorageContainerUsageSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -706,31 +718,28 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the getMicrosoft365CopilotUsageUserDetail method.
      * @param string $period Usage: period='{period}'
-     * @param string $version Usage: version='{version}'
-     * @return GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilder
+     * @return GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder
     */
-    public function getMicrosoft365CopilotUsageUserDetailWithPeriodWithVersion(string $period, string $version): GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilder {
-        return new GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilder($this->pathParameters, $this->requestAdapter, $period, $version);
+    public function getMicrosoft365CopilotUsageUserDetailWithPeriodversionVersion(string $period): GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder {
+        return new GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder($this->pathParameters, $this->requestAdapter, $period);
     }
 
     /**
      * Provides operations to call the getMicrosoft365CopilotUserCountSummary method.
      * @param string $period Usage: period='{period}'
-     * @param string $version Usage: version='{version}'
-     * @return GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder
+     * @return GetMicrosoft365CopilotUserCountSummaryWithPeriodversionVersionRequestBuilder
     */
-    public function getMicrosoft365CopilotUserCountSummaryWithPeriodWithVersion(string $period, string $version): GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder {
-        return new GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder($this->pathParameters, $this->requestAdapter, $period, $version);
+    public function getMicrosoft365CopilotUserCountSummaryWithPeriodversionVersion(string $period): GetMicrosoft365CopilotUserCountSummaryWithPeriodversionVersionRequestBuilder {
+        return new GetMicrosoft365CopilotUserCountSummaryWithPeriodversionVersionRequestBuilder($this->pathParameters, $this->requestAdapter, $period);
     }
 
     /**
      * Provides operations to call the getMicrosoft365CopilotUserCountTrend method.
      * @param string $period Usage: period='{period}'
-     * @param string $version Usage: version='{version}'
-     * @return GetMicrosoft365CopilotUserCountTrendWithPeriodWithVersionRequestBuilder
+     * @return GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilder
     */
-    public function getMicrosoft365CopilotUserCountTrendWithPeriodWithVersion(string $period, string $version): GetMicrosoft365CopilotUserCountTrendWithPeriodWithVersionRequestBuilder {
-        return new GetMicrosoft365CopilotUserCountTrendWithPeriodWithVersionRequestBuilder($this->pathParameters, $this->requestAdapter, $period, $version);
+    public function getMicrosoft365CopilotUserCountTrendWithPeriodversionVersion(string $period): GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilder {
+        return new GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilder($this->pathParameters, $this->requestAdapter, $period);
     }
 
     /**
@@ -967,6 +976,44 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function getSharePointActivityUserDetailWithPeriod(string $period): GetSharePointActivityUserDetailWithPeriodRequestBuilder {
         return new GetSharePointActivityUserDetailWithPeriodRequestBuilder($this->pathParameters, $this->requestAdapter, $period);
+    }
+
+    /**
+     * Provides operations to call the getSharePointApiUsage method.
+     * @param DateTime $date Usage: date={date}
+     * @return GetSharePointApiUsageWithDatereportTypeReportTypeRequestBuilder
+    */
+    public function getSharePointApiUsageWithDatereportTypeReportType(DateTime $date): GetSharePointApiUsageWithDatereportTypeReportTypeRequestBuilder {
+        return new GetSharePointApiUsageWithDatereportTypeReportTypeRequestBuilder($this->pathParameters, $this->requestAdapter, $date);
+    }
+
+    /**
+     * Provides operations to call the getSharePointApiUsage method.
+     * @param string $appId Usage: appId='{appId}'
+     * @param DateTime $date Usage: date={date}
+     * @return GetSharePointApiUsageWithDateWithAppIdreportTypeReportTypeRequestBuilder
+    */
+    public function getSharePointApiUsageWithDateWithAppIdreportTypeReportType(string $appId, DateTime $date): GetSharePointApiUsageWithDateWithAppIdreportTypeReportTypeRequestBuilder {
+        return new GetSharePointApiUsageWithDateWithAppIdreportTypeReportTypeRequestBuilder($this->pathParameters, $this->requestAdapter, $appId, $date);
+    }
+
+    /**
+     * Provides operations to call the getSharePointApiUsage method.
+     * @param string $period Usage: period='{period}'
+     * @return GetSharePointApiUsageWithPeriodreportTypeReportTypeRequestBuilder
+    */
+    public function getSharePointApiUsageWithPeriodreportTypeReportType(string $period): GetSharePointApiUsageWithPeriodreportTypeReportTypeRequestBuilder {
+        return new GetSharePointApiUsageWithPeriodreportTypeReportTypeRequestBuilder($this->pathParameters, $this->requestAdapter, $period);
+    }
+
+    /**
+     * Provides operations to call the getSharePointApiUsage method.
+     * @param string $appId Usage: appId='{appId}'
+     * @param string $period Usage: period='{period}'
+     * @return GetSharePointApiUsageWithPeriodWithAppIdreportTypeReportTypeRequestBuilder
+    */
+    public function getSharePointApiUsageWithPeriodWithAppIdreportTypeReportType(string $appId, string $period): GetSharePointApiUsageWithPeriodWithAppIdreportTypeReportTypeRequestBuilder {
+        return new GetSharePointApiUsageWithPeriodWithAppIdreportTypeReportTypeRequestBuilder($this->pathParameters, $this->requestAdapter, $appId, $period);
     }
 
     /**

@@ -189,6 +189,7 @@ class Directory extends Entity implements Parsable
             'recommendationConfiguration' => fn(ParseNode $n) => $o->setRecommendationConfiguration($n->getObjectValue([RecommendationConfiguration::class, 'createFromDiscriminatorValue'])),
             'recommendations' => fn(ParseNode $n) => $o->setRecommendations($n->getCollectionOfObjectValues([Recommendation::class, 'createFromDiscriminatorValue'])),
             'recovery' => fn(ParseNode $n) => $o->setRecovery($n->getObjectValue([Recovery::class, 'createFromDiscriminatorValue'])),
+            'remoteTenantGroups' => fn(ParseNode $n) => $o->setRemoteTenantGroups($n->getCollectionOfObjectValues([RemoteTenantGroup::class, 'createFromDiscriminatorValue'])),
             'sharedEmailDomains' => fn(ParseNode $n) => $o->setSharedEmailDomains($n->getCollectionOfObjectValues([SharedEmailDomain::class, 'createFromDiscriminatorValue'])),
             'subscriptions' => fn(ParseNode $n) => $o->setSubscriptions($n->getCollectionOfObjectValues([CompanySubscription::class, 'createFromDiscriminatorValue'])),
             'templates' => fn(ParseNode $n) => $o->setTemplates($n->getObjectValue([Template::class, 'createFromDiscriminatorValue'])),
@@ -317,6 +318,20 @@ class Directory extends Entity implements Parsable
     }
 
     /**
+     * Gets the remoteTenantGroups property value. Collection of groups in remote Microsoft Entra tenants that are available in the directory.
+     * @return array<RemoteTenantGroup>|null
+    */
+    public function getRemoteTenantGroups(): ?array {
+        $val = $this->getBackingStore()->get('remoteTenantGroups');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RemoteTenantGroup::class);
+            /** @var array<RemoteTenantGroup>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remoteTenantGroups'");
+    }
+
+    /**
      * Gets the sharedEmailDomains property value. The sharedEmailDomains property
      * @return array<SharedEmailDomain>|null
     */
@@ -393,6 +408,7 @@ class Directory extends Entity implements Parsable
         $writer->writeObjectValue('recommendationConfiguration', $this->getRecommendationConfiguration());
         $writer->writeCollectionOfObjectValues('recommendations', $this->getRecommendations());
         $writer->writeObjectValue('recovery', $this->getRecovery());
+        $writer->writeCollectionOfObjectValues('remoteTenantGroups', $this->getRemoteTenantGroups());
         $writer->writeCollectionOfObjectValues('sharedEmailDomains', $this->getSharedEmailDomains());
         $writer->writeCollectionOfObjectValues('subscriptions', $this->getSubscriptions());
         $writer->writeObjectValue('templates', $this->getTemplates());
@@ -549,6 +565,14 @@ class Directory extends Entity implements Parsable
     */
     public function setRecovery(?Recovery $value): void {
         $this->getBackingStore()->set('recovery', $value);
+    }
+
+    /**
+     * Sets the remoteTenantGroups property value. Collection of groups in remote Microsoft Entra tenants that are available in the directory.
+     * @param array<RemoteTenantGroup>|null $value Value to set for the remoteTenantGroups property.
+    */
+    public function setRemoteTenantGroups(?array $value): void {
+        $this->getBackingStore()->set('remoteTenantGroups', $value);
     }
 
     /**
