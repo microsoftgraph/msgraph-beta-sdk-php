@@ -9,4 +9,5 @@ class VerifiedIdUsageConfigurationPurpose extends Enum {
     public const ONBOARDING = "onboarding";
     public const ALL = "all";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const VERIFICATION = "verification";
 }

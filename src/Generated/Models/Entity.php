@@ -1884,6 +1884,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.plannerBucket': return new PlannerBucket();
                 case '#microsoft.graph.plannerBucketTaskBoardTaskFormat': return new PlannerBucketTaskBoardTaskFormat();
                 case '#microsoft.graph.plannerDelta': return new PlannerDelta();
+                case '#microsoft.graph.plannerGoal': return new PlannerGoal();
                 case '#microsoft.graph.plannerGroup': return new PlannerGroup();
                 case '#microsoft.graph.plannerHistoryItem': return new PlannerHistoryItem();
                 case '#microsoft.graph.plannerPlan': return new PlannerPlan();
@@ -2008,6 +2009,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.reportsRoot': return new ReportsRoot();
                 case '#microsoft.graph.request': return new Request();
                 case '#microsoft.graph.resellerDelegatedAdminRelationship': return new ResellerDelegatedAdminRelationship();
+                case '#microsoft.graph.resourceAccountKeyAuthenticationMethod': return new ResourceAccountKeyAuthenticationMethod();
                 case '#microsoft.graph.resourceOperation': return new ResourceOperation();
                 case '#microsoft.graph.resourceSpecificPermissionGrant': return new ResourceSpecificPermissionGrant();
                 case '#microsoft.graph.restoreArtifactBase': return new RestoreArtifactBase();

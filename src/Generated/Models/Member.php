@@ -56,7 +56,7 @@ class Member implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the contactId property value. The ID of the referenced contact, if applicable. Optional.
+     * Gets the contactId property value. The contactId property
      * @return string|null
     */
     public function getContactId(): ?string {
@@ -96,7 +96,7 @@ class Member implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the key property value. The email address or routing key of the member. Required.
+     * Gets the key property value. The email address or routing key of the member. Optional.
      * @return string|null
     */
     public function getKey(): ?string {
@@ -132,7 +132,7 @@ class Member implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the routingType property value. The routing type for the member, for example, SMTP. Optional.
+     * Gets the routingType property value. The routingType property
      * @return string|null
     */
     public function getRoutingType(): ?string {
@@ -174,7 +174,7 @@ class Member implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the contactId property value. The ID of the referenced contact, if applicable. Optional.
+     * Sets the contactId property value. The contactId property
      * @param string|null $value Value to set for the contactId property.
     */
     public function setContactId(?string $value): void {
@@ -190,7 +190,7 @@ class Member implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the key property value. The email address or routing key of the member. Required.
+     * Sets the key property value. The email address or routing key of the member. Optional.
      * @param string|null $value Value to set for the key property.
     */
     public function setKey(?string $value): void {
@@ -214,7 +214,7 @@ class Member implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the routingType property value. The routing type for the member, for example, SMTP. Optional.
+     * Sets the routingType property value. The routingType property
      * @param string|null $value Value to set for the routingType property.
     */
     public function setRoutingType(?string $value): void {

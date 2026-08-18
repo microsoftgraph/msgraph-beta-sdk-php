@@ -70,7 +70,7 @@ class StreamingMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the frameDropRate property value. The frameDropRate property
+     * Gets the frameDropRate property value. Percentage of frames dropped during streaming, expressed as a value between 0.0 and 1.0.
      * @return float|null
     */
     public function getFrameDropRate(): ?float {
@@ -82,7 +82,7 @@ class StreamingMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the latencyMs property value. The latencyMs property
+     * Gets the latencyMs property value. Network latency in milliseconds.
      * @return int|null
     */
     public function getLatencyMs(): ?int {
@@ -94,7 +94,7 @@ class StreamingMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the networkJitterMs property value. The networkJitterMs property
+     * Gets the networkJitterMs property value. Network jitter in milliseconds.
      * @return int|null
     */
     public function getNetworkJitterMs(): ?int {
@@ -146,7 +146,7 @@ class StreamingMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the frameDropRate property value. The frameDropRate property
+     * Sets the frameDropRate property value. Percentage of frames dropped during streaming, expressed as a value between 0.0 and 1.0.
      * @param float|null $value Value to set for the frameDropRate property.
     */
     public function setFrameDropRate(?float $value): void {
@@ -154,7 +154,7 @@ class StreamingMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the latencyMs property value. The latencyMs property
+     * Sets the latencyMs property value. Network latency in milliseconds.
      * @param int|null $value Value to set for the latencyMs property.
     */
     public function setLatencyMs(?int $value): void {
@@ -162,7 +162,7 @@ class StreamingMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the networkJitterMs property value. The networkJitterMs property
+     * Sets the networkJitterMs property value. Network jitter in milliseconds.
      * @param int|null $value Value to set for the networkJitterMs property.
     */
     public function setNetworkJitterMs(?int $value): void {

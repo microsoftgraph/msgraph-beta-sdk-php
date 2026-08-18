@@ -262,6 +262,14 @@ class PlannerTask extends PlannerDelta implements Parsable
             'creationSource' => fn(ParseNode $n) => $o->setCreationSource($n->getObjectValue([PlannerTaskCreation::class, 'createFromDiscriminatorValue'])),
             'details' => fn(ParseNode $n) => $o->setDetails($n->getObjectValue([PlannerTaskDetails::class, 'createFromDiscriminatorValue'])),
             'dueDateTime' => fn(ParseNode $n) => $o->setDueDateTime($n->getDateTimeValue()),
+            'goalIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setGoalIds($val);
+            },
             'hasChat' => fn(ParseNode $n) => $o->setHasChat($n->getBooleanValue()),
             'hasDescription' => fn(ParseNode $n) => $o->setHasDescription($n->getBooleanValue()),
             'isArchived' => fn(ParseNode $n) => $o->setIsArchived($n->getBooleanValue()),
@@ -282,6 +290,20 @@ class PlannerTask extends PlannerDelta implements Parsable
             'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
             'title' => fn(ParseNode $n) => $o->setTitle($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the goalIds property value. Read-only. The IDs of the goals associated with the task.
+     * @return array<string>|null
+    */
+    public function getGoalIds(): ?array {
+        $val = $this->getBackingStore()->get('goalIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'goalIds'");
     }
 
     /**
@@ -537,6 +559,7 @@ class PlannerTask extends PlannerDelta implements Parsable
         $writer->writeObjectValue('creationSource', $this->getCreationSource());
         $writer->writeObjectValue('details', $this->getDetails());
         $writer->writeDateTimeValue('dueDateTime', $this->getDueDateTime());
+        $writer->writeCollectionOfPrimitiveValues('goalIds', $this->getGoalIds());
         $writer->writeBooleanValue('hasChat', $this->getHasChat());
         $writer->writeBooleanValue('hasDescription', $this->getHasDescription());
         $writer->writeBooleanValue('isArchived', $this->getIsArchived());
@@ -692,6 +715,14 @@ class PlannerTask extends PlannerDelta implements Parsable
     */
     public function setDueDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('dueDateTime', $value);
+    }
+
+    /**
+     * Sets the goalIds property value. Read-only. The IDs of the goals associated with the task.
+     * @param array<string>|null $value Value to set for the goalIds property.
+    */
+    public function setGoalIds(?array $value): void {
+        $this->getBackingStore()->set('goalIds', $value);
     }
 
     /**

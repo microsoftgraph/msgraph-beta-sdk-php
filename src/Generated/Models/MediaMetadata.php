@@ -48,7 +48,7 @@ class MediaMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the audioMetadata property value. The audioMetadata property
+     * Gets the audioMetadata property value. Audio-specific encoding details. Nullable. Set when the analyzed content is audio or multimodal.
      * @return AudioMetadata|null
     */
     public function getAudioMetadata(): ?AudioMetadata {
@@ -68,7 +68,7 @@ class MediaMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the byteSize property value. The byteSize property
+     * Gets the byteSize property value. Size of the content in bytes. Set this value to 0 for live streams where the total size is unknown; for recorded files, specify the actual size.
      * @return int|null
     */
     public function getByteSize(): ?int {
@@ -80,7 +80,7 @@ class MediaMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the duration property value. The duration property
+     * Gets the duration property value. Duration of the analyzed content in whole seconds. Sub-second or millisecond windows are rounded to the nearest second. For a continuous live stream, set this value to the length of the analysis window.
      * @return int|null
     */
     public function getDuration(): ?int {
@@ -111,7 +111,7 @@ class MediaMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isRealTime property value. The isRealTime property
+     * Gets the isRealTime property value. Indicates whether the analysis was performed in real time on a live stream.
      * @return bool|null
     */
     public function getIsRealTime(): ?bool {
@@ -123,7 +123,7 @@ class MediaMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the mimeType property value. The mimeType property
+     * Gets the mimeType property value. MIME type of the analyzed content. Common values for Teams media include audio/pcm, video/mp4, and video/h264.
      * @return string|null
     */
     public function getMimeType(): ?string {
@@ -159,7 +159,7 @@ class MediaMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the streamingMetadata property value. The streamingMetadata property
+     * Gets the streamingMetadata property value. Network and real-time streaming quality metrics. Nullable. Set when the analyzed content was streamed in real time.
      * @return StreamingMetadata|null
     */
     public function getStreamingMetadata(): ?StreamingMetadata {
@@ -171,7 +171,7 @@ class MediaMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the videoMetadata property value. The videoMetadata property
+     * Gets the videoMetadata property value. Video-specific encoding and quality details. Nullable. Set when the analyzed content is video or multimodal.
      * @return VideoMetadata|null
     */
     public function getVideoMetadata(): ?VideoMetadata {
@@ -208,7 +208,7 @@ class MediaMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the audioMetadata property value. The audioMetadata property
+     * Sets the audioMetadata property value. Audio-specific encoding details. Nullable. Set when the analyzed content is audio or multimodal.
      * @param AudioMetadata|null $value Value to set for the audioMetadata property.
     */
     public function setAudioMetadata(?AudioMetadata $value): void {
@@ -224,7 +224,7 @@ class MediaMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the byteSize property value. The byteSize property
+     * Sets the byteSize property value. Size of the content in bytes. Set this value to 0 for live streams where the total size is unknown; for recorded files, specify the actual size.
      * @param int|null $value Value to set for the byteSize property.
     */
     public function setByteSize(?int $value): void {
@@ -232,7 +232,7 @@ class MediaMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the duration property value. The duration property
+     * Sets the duration property value. Duration of the analyzed content in whole seconds. Sub-second or millisecond windows are rounded to the nearest second. For a continuous live stream, set this value to the length of the analysis window.
      * @param int|null $value Value to set for the duration property.
     */
     public function setDuration(?int $value): void {
@@ -240,7 +240,7 @@ class MediaMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isRealTime property value. The isRealTime property
+     * Sets the isRealTime property value. Indicates whether the analysis was performed in real time on a live stream.
      * @param bool|null $value Value to set for the isRealTime property.
     */
     public function setIsRealTime(?bool $value): void {
@@ -248,7 +248,7 @@ class MediaMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the mimeType property value. The mimeType property
+     * Sets the mimeType property value. MIME type of the analyzed content. Common values for Teams media include audio/pcm, video/mp4, and video/h264.
      * @param string|null $value Value to set for the mimeType property.
     */
     public function setMimeType(?string $value): void {
@@ -272,7 +272,7 @@ class MediaMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the streamingMetadata property value. The streamingMetadata property
+     * Sets the streamingMetadata property value. Network and real-time streaming quality metrics. Nullable. Set when the analyzed content was streamed in real time.
      * @param StreamingMetadata|null $value Value to set for the streamingMetadata property.
     */
     public function setStreamingMetadata(?StreamingMetadata $value): void {
@@ -280,7 +280,7 @@ class MediaMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the videoMetadata property value. The videoMetadata property
+     * Sets the videoMetadata property value. Video-specific encoding and quality details. Nullable. Set when the analyzed content is video or multimodal.
      * @param VideoMetadata|null $value Value to set for the videoMetadata property.
     */
     public function setVideoMetadata(?VideoMetadata $value): void {

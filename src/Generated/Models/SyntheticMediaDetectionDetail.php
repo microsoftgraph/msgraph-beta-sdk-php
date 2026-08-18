@@ -57,7 +57,7 @@ class SyntheticMediaDetectionDetail implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the confidence property value. The confidence property
+     * Gets the confidence property value. Confidence score for this specific detection, expressed as a value between 0.0 and 1.0.
      * @return float|null
     */
     public function getConfidence(): ?float {
@@ -104,7 +104,7 @@ class SyntheticMediaDetectionDetail implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the modelName property value. The modelName property
+     * Gets the modelName property value. Name of the detection model used (for example, DeepfakeDetector-v2, VoiceAuthenticator-v1).
      * @return string|null
     */
     public function getModelName(): ?string {
@@ -116,7 +116,7 @@ class SyntheticMediaDetectionDetail implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the modelTasks property value. The modelTasks property
+     * Gets the modelTasks property value. Detection tasks that the model performed. This value is free-form text. The bot can specify any task names that describe its analysis. Common examples include faceSwap, lipSync, and voiceClone.
      * @return array<string>|null
     */
     public function getModelTasks(): ?array {
@@ -184,7 +184,7 @@ class SyntheticMediaDetectionDetail implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the confidence property value. The confidence property
+     * Sets the confidence property value. Confidence score for this specific detection, expressed as a value between 0.0 and 1.0.
      * @param float|null $value Value to set for the confidence property.
     */
     public function setConfidence(?float $value): void {
@@ -200,7 +200,7 @@ class SyntheticMediaDetectionDetail implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the modelName property value. The modelName property
+     * Sets the modelName property value. Name of the detection model used (for example, DeepfakeDetector-v2, VoiceAuthenticator-v1).
      * @param string|null $value Value to set for the modelName property.
     */
     public function setModelName(?string $value): void {
@@ -208,7 +208,7 @@ class SyntheticMediaDetectionDetail implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the modelTasks property value. The modelTasks property
+     * Sets the modelTasks property value. Detection tasks that the model performed. This value is free-form text. The bot can specify any task names that describe its analysis. Common examples include faceSwap, lipSync, and voiceClone.
      * @param array<string>|null $value Value to set for the modelTasks property.
     */
     public function setModelTasks(?array $value): void {

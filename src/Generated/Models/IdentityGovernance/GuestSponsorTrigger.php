@@ -37,7 +37,7 @@ class GuestSponsorTrigger extends WorkflowExecutionTrigger implements Parsable
     }
 
     /**
-     * Gets the minimumRequiredSponsors property value. The minimumRequiredSponsors property
+     * Gets the minimumRequiredSponsors property value. The minimum number of sponsors required for a guest user. When a guest has fewer sponsors than this value, the workflow is triggered.
      * @return int|null
     */
     public function getMinimumRequiredSponsors(): ?int {
@@ -58,7 +58,7 @@ class GuestSponsorTrigger extends WorkflowExecutionTrigger implements Parsable
     }
 
     /**
-     * Sets the minimumRequiredSponsors property value. The minimumRequiredSponsors property
+     * Sets the minimumRequiredSponsors property value. The minimum number of sponsors required for a guest user. When a guest has fewer sponsors than this value, the workflow is triggered.
      * @param int|null $value Value to set for the minimumRequiredSponsors property.
     */
     public function setMinimumRequiredSponsors(?int $value): void {

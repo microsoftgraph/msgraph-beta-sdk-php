@@ -19,6 +19,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PhoneMethods\PhoneM
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\PlatformCredentialMethods\PlatformCredentialMethodsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\QrCodePinMethod\QrCodePinMethodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\Requirements\RequirementsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\ResourceAccountKeyAuthenticationMethods\ResourceAccountKeyAuthenticationMethodsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\SignInPreferences\SignInPreferencesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\SoftwareOathMethods\SoftwareOathMethodsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\TemporaryAccessPassMethods\TemporaryAccessPassMethodsRequestBuilder;
@@ -122,6 +123,13 @@ class AuthenticationRequestBuilder extends BaseRequestBuilder
     */
     public function requirements(): RequirementsRequestBuilder {
         return new RequirementsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the resourceAccountKeyAuthenticationMethods property of the microsoft.graph.authentication entity.
+    */
+    public function resourceAccountKeyAuthenticationMethods(): ResourceAccountKeyAuthenticationMethodsRequestBuilder {
+        return new ResourceAccountKeyAuthenticationMethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

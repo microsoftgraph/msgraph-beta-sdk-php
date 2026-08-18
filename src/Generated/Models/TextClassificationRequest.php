@@ -26,7 +26,7 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the contentMetaData property value. The contentMetaData property
+     * Gets the contentMetaData property value. Metadata that describes the content being classified.
      * @return ClassificationRequestContentMetaData|null
     */
     public function getContentMetaData(): ?ClassificationRequestContentMetaData {
@@ -61,7 +61,7 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the fileExtension property value. The fileExtension property
+     * Gets the fileExtension property value. The file extension of the content being classified.
      * @return string|null
     */
     public function getFileExtension(): ?string {
@@ -73,7 +73,7 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the matchTolerancesToInclude property value. The matchTolerancesToInclude property
+     * Gets the matchTolerancesToInclude property value. The match tolerance levels to include in the classification results. The possible values are: exact, near.
      * @return MlClassificationMatchTolerance|null
     */
     public function getMatchTolerancesToInclude(): ?MlClassificationMatchTolerance {
@@ -85,7 +85,7 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the scopesToRun property value. The scopesToRun property
+     * Gets the scopesToRun property value. The document scopes over which to run classification. The possible values are: fullDocument, partialDocument.
      * @return SensitiveTypeScope|null
     */
     public function getScopesToRun(): ?SensitiveTypeScope {
@@ -97,7 +97,7 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the sensitiveTypeIds property value. The sensitiveTypeIds property
+     * Gets the sensitiveTypeIds property value. The identifiers of the sensitive information types to evaluate against the text.
      * @return array<string>|null
     */
     public function getSensitiveTypeIds(): ?array {
@@ -111,7 +111,7 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the text property value. The text property
+     * Gets the text property value. The text to classify.
      * @return string|null
     */
     public function getText(): ?string {
@@ -137,7 +137,7 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the contentMetaData property value. The contentMetaData property
+     * Sets the contentMetaData property value. Metadata that describes the content being classified.
      * @param ClassificationRequestContentMetaData|null $value Value to set for the contentMetaData property.
     */
     public function setContentMetaData(?ClassificationRequestContentMetaData $value): void {
@@ -145,7 +145,7 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the fileExtension property value. The fileExtension property
+     * Sets the fileExtension property value. The file extension of the content being classified.
      * @param string|null $value Value to set for the fileExtension property.
     */
     public function setFileExtension(?string $value): void {
@@ -153,7 +153,7 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the matchTolerancesToInclude property value. The matchTolerancesToInclude property
+     * Sets the matchTolerancesToInclude property value. The match tolerance levels to include in the classification results. The possible values are: exact, near.
      * @param MlClassificationMatchTolerance|null $value Value to set for the matchTolerancesToInclude property.
     */
     public function setMatchTolerancesToInclude(?MlClassificationMatchTolerance $value): void {
@@ -161,7 +161,7 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the scopesToRun property value. The scopesToRun property
+     * Sets the scopesToRun property value. The document scopes over which to run classification. The possible values are: fullDocument, partialDocument.
      * @param SensitiveTypeScope|null $value Value to set for the scopesToRun property.
     */
     public function setScopesToRun(?SensitiveTypeScope $value): void {
@@ -169,7 +169,7 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the sensitiveTypeIds property value. The sensitiveTypeIds property
+     * Sets the sensitiveTypeIds property value. The identifiers of the sensitive information types to evaluate against the text.
      * @param array<string>|null $value Value to set for the sensitiveTypeIds property.
     */
     public function setSensitiveTypeIds(?array $value): void {
@@ -177,7 +177,7 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the text property value. The text property
+     * Sets the text property value. The text to classify.
      * @param string|null $value Value to set for the text property.
     */
     public function setText(?string $value): void {
