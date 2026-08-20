@@ -56,7 +56,7 @@ class SyntheticMediaDetectionInfo implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the detectionId property value. The detectionId property
+     * Gets the detectionId property value. Unique identifier for the detection event. This property correlates with the id parameter that the detection bot passed to reportSyntheticMedia.
      * @return string|null
     */
     public function getDetectionId(): ?string {
@@ -68,7 +68,7 @@ class SyntheticMediaDetectionInfo implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the detectorBot property value. The detectorBot property
+     * Gets the detectorBot property value. Identifier of the detection bot that produced this result.
      * @return string|null
     */
     public function getDetectorBot(): ?string {
@@ -95,7 +95,7 @@ class SyntheticMediaDetectionInfo implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the isParticipantTrusted property value. The isParticipantTrusted property
+     * Gets the isParticipantTrusted property value. Set to true if the participant is classified as trusted or reliable (for example, a known internal user); otherwise, false.
      * @return bool|null
     */
     public function getIsParticipantTrusted(): ?bool {
@@ -119,7 +119,7 @@ class SyntheticMediaDetectionInfo implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the syntheticConfidence property value. The syntheticConfidence property
+     * Gets the syntheticConfidence property value. Confidence score (0.0 to 1.0) that the participant's media is synthetic.
      * @return float|null
     */
     public function getSyntheticConfidence(): ?float {
@@ -160,7 +160,7 @@ class SyntheticMediaDetectionInfo implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the detectionId property value. The detectionId property
+     * Sets the detectionId property value. Unique identifier for the detection event. This property correlates with the id parameter that the detection bot passed to reportSyntheticMedia.
      * @param string|null $value Value to set for the detectionId property.
     */
     public function setDetectionId(?string $value): void {
@@ -168,7 +168,7 @@ class SyntheticMediaDetectionInfo implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the detectorBot property value. The detectorBot property
+     * Sets the detectorBot property value. Identifier of the detection bot that produced this result.
      * @param string|null $value Value to set for the detectorBot property.
     */
     public function setDetectorBot(?string $value): void {
@@ -176,7 +176,7 @@ class SyntheticMediaDetectionInfo implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the isParticipantTrusted property value. The isParticipantTrusted property
+     * Sets the isParticipantTrusted property value. Set to true if the participant is classified as trusted or reliable (for example, a known internal user); otherwise, false.
      * @param bool|null $value Value to set for the isParticipantTrusted property.
     */
     public function setIsParticipantTrusted(?bool $value): void {
@@ -192,7 +192,7 @@ class SyntheticMediaDetectionInfo implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the syntheticConfidence property value. The syntheticConfidence property
+     * Sets the syntheticConfidence property value. Confidence score (0.0 to 1.0) that the participant's media is synthetic.
      * @param float|null $value Value to set for the syntheticConfidence property.
     */
     public function setSyntheticConfidence(?float $value): void {

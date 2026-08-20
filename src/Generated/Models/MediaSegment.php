@@ -57,7 +57,7 @@ class MediaSegment implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the endTimeSec property value. The endTimeSec property
+     * Gets the endTimeSec property value. End time of the segment, in seconds from the start of the analyzed live stream. Set to 0 for recorded or offline analysis, where a stream-relative time base doesn't apply.
      * @return int|null
     */
     public function getEndTimeSec(): ?int {
@@ -90,7 +90,7 @@ class MediaSegment implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the frameIndices property value. The frameIndices property
+     * Gets the frameIndices property value. Frame indices that identify the video frames in the segment. Applies only to video analysis; pass an empty array for audio-only segments.
      * @return array<int>|null
     */
     public function getFrameIndices(): ?array {
@@ -116,7 +116,7 @@ class MediaSegment implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the startTimeSec property value. The startTimeSec property
+     * Gets the startTimeSec property value. Start time of the segment, in seconds from the start of the analyzed live stream. Set to 0 for recorded or offline analysis, where a stream-relative time base doesn't apply.
      * @return int|null
     */
     public function getStartTimeSec(): ?int {
@@ -156,7 +156,7 @@ class MediaSegment implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the endTimeSec property value. The endTimeSec property
+     * Sets the endTimeSec property value. End time of the segment, in seconds from the start of the analyzed live stream. Set to 0 for recorded or offline analysis, where a stream-relative time base doesn't apply.
      * @param int|null $value Value to set for the endTimeSec property.
     */
     public function setEndTimeSec(?int $value): void {
@@ -164,7 +164,7 @@ class MediaSegment implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the frameIndices property value. The frameIndices property
+     * Sets the frameIndices property value. Frame indices that identify the video frames in the segment. Applies only to video analysis; pass an empty array for audio-only segments.
      * @param array<int>|null $value Value to set for the frameIndices property.
     */
     public function setFrameIndices(?array $value): void {
@@ -180,7 +180,7 @@ class MediaSegment implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the startTimeSec property value. The startTimeSec property
+     * Sets the startTimeSec property value. Start time of the segment, in seconds from the start of the analyzed live stream. Set to 0 for recorded or offline analysis, where a stream-relative time base doesn't apply.
      * @param int|null $value Value to set for the startTimeSec property.
     */
     public function setStartTimeSec(?int $value): void {

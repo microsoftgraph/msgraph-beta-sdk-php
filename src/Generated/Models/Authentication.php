@@ -87,6 +87,7 @@ class Authentication extends Entity implements Parsable
             'platformCredentialMethods' => fn(ParseNode $n) => $o->setPlatformCredentialMethods($n->getCollectionOfObjectValues([PlatformCredentialAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'qrCodePinMethod' => fn(ParseNode $n) => $o->setQrCodePinMethod($n->getObjectValue([QrCodePinAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'requirements' => fn(ParseNode $n) => $o->setRequirements($n->getObjectValue([StrongAuthenticationRequirements::class, 'createFromDiscriminatorValue'])),
+            'resourceAccountKeyAuthenticationMethods' => fn(ParseNode $n) => $o->setResourceAccountKeyAuthenticationMethods($n->getCollectionOfObjectValues([ResourceAccountKeyAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'signInPreferences' => fn(ParseNode $n) => $o->setSignInPreferences($n->getObjectValue([SignInPreferences::class, 'createFromDiscriminatorValue'])),
             'softwareOathMethods' => fn(ParseNode $n) => $o->setSoftwareOathMethods($n->getCollectionOfObjectValues([SoftwareOathAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
             'temporaryAccessPassMethods' => fn(ParseNode $n) => $o->setTemporaryAccessPassMethods($n->getCollectionOfObjectValues([TemporaryAccessPassAuthenticationMethod::class, 'createFromDiscriminatorValue'])),
@@ -231,6 +232,20 @@ class Authentication extends Entity implements Parsable
     }
 
     /**
+     * Gets the resourceAccountKeyAuthenticationMethods property value. Represents the resource account key credentials registered to a user for authentication on shared devices.
+     * @return array<ResourceAccountKeyAuthenticationMethod>|null
+    */
+    public function getResourceAccountKeyAuthenticationMethods(): ?array {
+        $val = $this->getBackingStore()->get('resourceAccountKeyAuthenticationMethods');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ResourceAccountKeyAuthenticationMethod::class);
+            /** @var array<ResourceAccountKeyAuthenticationMethod>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resourceAccountKeyAuthenticationMethods'");
+    }
+
+    /**
      * Gets the signInPreferences property value. The settings and preferences for the sign-in experience of a user. Use this property to configure the user's default multifactor authentication (MFA) method.
      * @return SignInPreferences|null
     */
@@ -303,6 +318,7 @@ class Authentication extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('platformCredentialMethods', $this->getPlatformCredentialMethods());
         $writer->writeObjectValue('qrCodePinMethod', $this->getQrCodePinMethod());
         $writer->writeObjectValue('requirements', $this->getRequirements());
+        $writer->writeCollectionOfObjectValues('resourceAccountKeyAuthenticationMethods', $this->getResourceAccountKeyAuthenticationMethods());
         $writer->writeObjectValue('signInPreferences', $this->getSignInPreferences());
         $writer->writeCollectionOfObjectValues('softwareOathMethods', $this->getSoftwareOathMethods());
         $writer->writeCollectionOfObjectValues('temporaryAccessPassMethods', $this->getTemporaryAccessPassMethods());
@@ -411,6 +427,14 @@ class Authentication extends Entity implements Parsable
     */
     public function setRequirements(?StrongAuthenticationRequirements $value): void {
         $this->getBackingStore()->set('requirements', $value);
+    }
+
+    /**
+     * Sets the resourceAccountKeyAuthenticationMethods property value. Represents the resource account key credentials registered to a user for authentication on shared devices.
+     * @param array<ResourceAccountKeyAuthenticationMethod>|null $value Value to set for the resourceAccountKeyAuthenticationMethods property.
+    */
+    public function setResourceAccountKeyAuthenticationMethods(?array $value): void {
+        $this->getBackingStore()->set('resourceAccountKeyAuthenticationMethods', $value);
     }
 
     /**

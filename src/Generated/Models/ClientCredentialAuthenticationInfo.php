@@ -26,7 +26,7 @@ class ClientCredentialAuthenticationInfo extends AuthenticationInfo implements P
     }
 
     /**
-     * Gets the accessTokenUrl property value. The accessTokenUrl property
+     * Gets the accessTokenUrl property value. The URL endpoint used to obtain access tokens for authentication with the external system.
      * @return string|null
     */
     public function getAccessTokenUrl(): ?string {
@@ -38,7 +38,7 @@ class ClientCredentialAuthenticationInfo extends AuthenticationInfo implements P
     }
 
     /**
-     * Gets the clientId property value. The clientId property
+     * Gets the clientId property value. The client identifier used for authentication with the external system.
      * @return string|null
     */
     public function getClientId(): ?string {
@@ -63,7 +63,7 @@ class ClientCredentialAuthenticationInfo extends AuthenticationInfo implements P
     }
 
     /**
-     * Gets the secretName property value. The secretName property
+     * Gets the secretName property value. The name of the secret in Azure Key Vault that contains the client secret.
      * @return string|null
     */
     public function getSecretName(): ?string {
@@ -86,7 +86,7 @@ class ClientCredentialAuthenticationInfo extends AuthenticationInfo implements P
     }
 
     /**
-     * Sets the accessTokenUrl property value. The accessTokenUrl property
+     * Sets the accessTokenUrl property value. The URL endpoint used to obtain access tokens for authentication with the external system.
      * @param string|null $value Value to set for the accessTokenUrl property.
     */
     public function setAccessTokenUrl(?string $value): void {
@@ -94,7 +94,7 @@ class ClientCredentialAuthenticationInfo extends AuthenticationInfo implements P
     }
 
     /**
-     * Sets the clientId property value. The clientId property
+     * Sets the clientId property value. The client identifier used for authentication with the external system.
      * @param string|null $value Value to set for the clientId property.
     */
     public function setClientId(?string $value): void {
@@ -102,7 +102,7 @@ class ClientCredentialAuthenticationInfo extends AuthenticationInfo implements P
     }
 
     /**
-     * Sets the secretName property value. The secretName property
+     * Sets the secretName property value. The name of the secret in Azure Key Vault that contains the client secret.
      * @param string|null $value Value to set for the secretName property.
     */
     public function setSecretName(?string $value): void {

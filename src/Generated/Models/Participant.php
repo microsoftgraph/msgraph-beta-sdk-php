@@ -182,7 +182,7 @@ class Participant extends Entity implements Parsable
     }
 
     /**
-     * Gets the syntheticMediaDetection property value. The syntheticMediaDetection property
+     * Gets the syntheticMediaDetection property value. The latest synthetic media detection result reported for this participant by an in-call detection bot. Nullable. Set to null when no detection is reported. Populated asynchronously after a successful call to reportSyntheticMedia.
      * @return SyntheticMediaDetectionInfo|null
     */
     public function getSyntheticMediaDetection(): ?SyntheticMediaDetectionInfo {
@@ -302,7 +302,7 @@ class Participant extends Entity implements Parsable
     }
 
     /**
-     * Sets the syntheticMediaDetection property value. The syntheticMediaDetection property
+     * Sets the syntheticMediaDetection property value. The latest synthetic media detection result reported for this participant by an in-call detection bot. Nullable. Set to null when no detection is reported. Populated asynchronously after a successful call to reportSyntheticMedia.
      * @param SyntheticMediaDetectionInfo|null $value Value to set for the syntheticMediaDetection property.
     */
     public function setSyntheticMediaDetection(?SyntheticMediaDetectionInfo $value): void {

@@ -56,7 +56,7 @@ class AudioMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the bitDepth property value. The bitDepth property
+     * Gets the bitDepth property value. Bit depth of the audio samples (for example, 16, 24).
      * @return int|null
     */
     public function getBitDepth(): ?int {
@@ -68,7 +68,7 @@ class AudioMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the channels property value. The channels property
+     * Gets the channels property value. Number of audio channels (for example, 1 for mono, 2 for stereo).
      * @return int|null
     */
     public function getChannels(): ?int {
@@ -106,7 +106,7 @@ class AudioMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the sampleRateHz property value. The sampleRateHz property
+     * Gets the sampleRateHz property value. Sample rate in Hertz (for example, 16000, 48000).
      * @return int|null
     */
     public function getSampleRateHz(): ?int {
@@ -146,7 +146,7 @@ class AudioMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the bitDepth property value. The bitDepth property
+     * Sets the bitDepth property value. Bit depth of the audio samples (for example, 16, 24).
      * @param int|null $value Value to set for the bitDepth property.
     */
     public function setBitDepth(?int $value): void {
@@ -154,7 +154,7 @@ class AudioMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the channels property value. The channels property
+     * Sets the channels property value. Number of audio channels (for example, 1 for mono, 2 for stereo).
      * @param int|null $value Value to set for the channels property.
     */
     public function setChannels(?int $value): void {
@@ -170,7 +170,7 @@ class AudioMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the sampleRateHz property value. The sampleRateHz property
+     * Sets the sampleRateHz property value. Sample rate in Hertz (for example, 16000, 48000).
      * @param int|null $value Value to set for the sampleRateHz property.
     */
     public function setSampleRateHz(?int $value): void {

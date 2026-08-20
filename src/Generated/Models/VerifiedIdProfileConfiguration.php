@@ -117,9 +117,35 @@ class VerifiedIdProfileConfiguration implements AdditionalDataHolder, BackedMode
             'claimBindings' => fn(ParseNode $n) => $o->setClaimBindings($n->getCollectionOfObjectValues([ClaimBinding::class, 'createFromDiscriminatorValue'])),
             'claimBindingSource' => fn(ParseNode $n) => $o->setClaimBindingSource($n->getEnumValue(ClaimBindingSource::class)),
             'claimValidation' => fn(ParseNode $n) => $o->setClaimValidation($n->getObjectValue([ClaimValidation::class, 'createFromDiscriminatorValue'])),
+            'manifestUrl' => fn(ParseNode $n) => $o->setManifestUrl($n->getStringValue()),
+            'methodType' => fn(ParseNode $n) => $o->setMethodType($n->getEnumValue(VerifiedIdMethodType::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
         ];
+    }
+
+    /**
+     * Gets the manifestUrl property value. The URL where the credential issuer's manifest can be found. The manifest defines the credential schema and issuer details. Optional.
+     * @return string|null
+    */
+    public function getManifestUrl(): ?string {
+        $val = $this->getBackingStore()->get('manifestUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'manifestUrl'");
+    }
+
+    /**
+     * Gets the methodType property value. The methodType property
+     * @return VerifiedIdMethodType|null
+    */
+    public function getMethodType(): ?VerifiedIdMethodType {
+        $val = $this->getBackingStore()->get('methodType');
+        if (is_null($val) || $val instanceof VerifiedIdMethodType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'methodType'");
     }
 
     /**
@@ -155,6 +181,8 @@ class VerifiedIdProfileConfiguration implements AdditionalDataHolder, BackedMode
         $writer->writeCollectionOfObjectValues('claimBindings', $this->getClaimBindings());
         $writer->writeEnumValue('claimBindingSource', $this->getClaimBindingSource());
         $writer->writeObjectValue('claimValidation', $this->getClaimValidation());
+        $writer->writeStringValue('manifestUrl', $this->getManifestUrl());
+        $writer->writeEnumValue('methodType', $this->getMethodType());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('type', $this->getType());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -206,6 +234,22 @@ class VerifiedIdProfileConfiguration implements AdditionalDataHolder, BackedMode
     */
     public function setClaimValidation(?ClaimValidation $value): void {
         $this->getBackingStore()->set('claimValidation', $value);
+    }
+
+    /**
+     * Sets the manifestUrl property value. The URL where the credential issuer's manifest can be found. The manifest defines the credential schema and issuer details. Optional.
+     * @param string|null $value Value to set for the manifestUrl property.
+    */
+    public function setManifestUrl(?string $value): void {
+        $this->getBackingStore()->set('manifestUrl', $value);
+    }
+
+    /**
+     * Sets the methodType property value. The methodType property
+     * @param VerifiedIdMethodType|null $value Value to set for the methodType property.
+    */
+    public function setMethodType(?VerifiedIdMethodType $value): void {
+        $this->getBackingStore()->set('methodType', $value);
     }
 
     /**

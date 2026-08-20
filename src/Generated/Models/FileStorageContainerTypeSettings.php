@@ -68,7 +68,7 @@ class FileStorageContainerTypeSettings implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the consumingTenantOverridables property value. A comma-separated list of settings that can be overridden in the consuming tenant. The possible values are: urlTemplate, isDiscoverabilityEnabled, isSearchEnabled, isItemVersioningEnabled, itemMajorVersionLimit, maxStoragePerContainerInBytes, unknownFutureValue.
+     * Gets the consumingTenantOverridables property value. A comma-separated list of settings that can be overridden in the consuming tenant. The possible values are: urlTemplate, isDiscoverabilityEnabled, isSearchEnabled, isItemVersioningEnabled, itemMajorVersionLimit, maxStoragePerContainerInBytes, unknownFutureValue, isOfficeRestricted.
      * @return FileStorageContainerTypeSettingsOverride|null
     */
     public function getConsumingTenantOverridables(): ?FileStorageContainerTypeSettingsOverride {
@@ -252,7 +252,7 @@ class FileStorageContainerTypeSettings implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the consumingTenantOverridables property value. A comma-separated list of settings that can be overridden in the consuming tenant. The possible values are: urlTemplate, isDiscoverabilityEnabled, isSearchEnabled, isItemVersioningEnabled, itemMajorVersionLimit, maxStoragePerContainerInBytes, unknownFutureValue.
+     * Sets the consumingTenantOverridables property value. A comma-separated list of settings that can be overridden in the consuming tenant. The possible values are: urlTemplate, isDiscoverabilityEnabled, isSearchEnabled, isItemVersioningEnabled, itemMajorVersionLimit, maxStoragePerContainerInBytes, unknownFutureValue, isOfficeRestricted.
      * @param FileStorageContainerTypeSettingsOverride|null $value Value to set for the consumingTenantOverridables property.
     */
     public function setConsumingTenantOverridables(?FileStorageContainerTypeSettingsOverride $value): void {

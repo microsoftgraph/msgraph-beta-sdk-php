@@ -54,7 +54,7 @@ class ExternalSapAcConnectionInfo extends ConnectionInfo implements Parsable
     }
 
     /**
-     * Gets the keyVaultName property value. The keyVaultName property
+     * Gets the keyVaultName property value. The name of the Azure Key Vault that stores the credentials used for authentication.
      * @return string|null
     */
     public function getKeyVaultName(): ?string {
@@ -66,7 +66,7 @@ class ExternalSapAcConnectionInfo extends ConnectionInfo implements Parsable
     }
 
     /**
-     * Gets the resourceGroup property value. The resourceGroup property
+     * Gets the resourceGroup property value. The Azure resource group that contains the Key Vault.
      * @return string|null
     */
     public function getResourceGroup(): ?string {
@@ -78,7 +78,7 @@ class ExternalSapAcConnectionInfo extends ConnectionInfo implements Parsable
     }
 
     /**
-     * Gets the subscriptionId property value. The subscriptionId property
+     * Gets the subscriptionId property value. The Azure subscription ID that contains the Key Vault.
      * @return string|null
     */
     public function getSubscriptionId(): ?string {
@@ -90,7 +90,7 @@ class ExternalSapAcConnectionInfo extends ConnectionInfo implements Parsable
     }
 
     /**
-     * Gets the systemId property value. The systemId property
+     * Gets the systemId property value. The identifier of the target SAP AC system.
      * @return string|null
     */
     public function getSystemId(): ?string {
@@ -102,7 +102,7 @@ class ExternalSapAcConnectionInfo extends ConnectionInfo implements Parsable
     }
 
     /**
-     * Gets the userIdentifier property value. The userIdentifier property
+     * Gets the userIdentifier property value. The user identifier used to connect to the SAP AC system.
      * @return string|null
     */
     public function getUserIdentifier(): ?string {
@@ -136,7 +136,7 @@ class ExternalSapAcConnectionInfo extends ConnectionInfo implements Parsable
     }
 
     /**
-     * Sets the keyVaultName property value. The keyVaultName property
+     * Sets the keyVaultName property value. The name of the Azure Key Vault that stores the credentials used for authentication.
      * @param string|null $value Value to set for the keyVaultName property.
     */
     public function setKeyVaultName(?string $value): void {
@@ -144,7 +144,7 @@ class ExternalSapAcConnectionInfo extends ConnectionInfo implements Parsable
     }
 
     /**
-     * Sets the resourceGroup property value. The resourceGroup property
+     * Sets the resourceGroup property value. The Azure resource group that contains the Key Vault.
      * @param string|null $value Value to set for the resourceGroup property.
     */
     public function setResourceGroup(?string $value): void {
@@ -152,7 +152,7 @@ class ExternalSapAcConnectionInfo extends ConnectionInfo implements Parsable
     }
 
     /**
-     * Sets the subscriptionId property value. The subscriptionId property
+     * Sets the subscriptionId property value. The Azure subscription ID that contains the Key Vault.
      * @param string|null $value Value to set for the subscriptionId property.
     */
     public function setSubscriptionId(?string $value): void {
@@ -160,7 +160,7 @@ class ExternalSapAcConnectionInfo extends ConnectionInfo implements Parsable
     }
 
     /**
-     * Sets the systemId property value. The systemId property
+     * Sets the systemId property value. The identifier of the target SAP AC system.
      * @param string|null $value Value to set for the systemId property.
     */
     public function setSystemId(?string $value): void {
@@ -168,7 +168,7 @@ class ExternalSapAcConnectionInfo extends ConnectionInfo implements Parsable
     }
 
     /**
-     * Sets the userIdentifier property value. The userIdentifier property
+     * Sets the userIdentifier property value. The user identifier used to connect to the SAP AC system.
      * @param string|null $value Value to set for the userIdentifier property.
     */
     public function setUserIdentifier(?string $value): void {

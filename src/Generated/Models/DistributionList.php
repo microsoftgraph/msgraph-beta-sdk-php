@@ -54,7 +54,7 @@ class DistributionList extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the members property value. The list of members in the distribution list. Not returned by default; use $select=members to include.
+     * Gets the members property value. The members property
      * @return array<Member>|null
     */
     public function getMembers(): ?array {
@@ -68,7 +68,7 @@ class DistributionList extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the notes property value. The notes property
+     * Gets the notes property value. Notes about the distribution list.
      * @return string|null
     */
     public function getNotes(): ?string {
@@ -80,7 +80,7 @@ class DistributionList extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the personIdentifier property value. The personIdentifier property
+     * Gets the personIdentifier property value. The unique identifier of the distribution list in the mailbox. Read-only.
      * @return string|null
     */
     public function getPersonIdentifier(): ?string {
@@ -92,7 +92,7 @@ class DistributionList extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the singleValueExtendedProperties property value. The singleValueExtendedProperties property
+     * Gets the singleValueExtendedProperties property value. The collection of single-value extended properties defined for the distribution list. Read-only.
      * @return array<SingleValueLegacyExtendedProperty>|null
     */
     public function getSingleValueExtendedProperties(): ?array {
@@ -127,7 +127,7 @@ class DistributionList extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the members property value. The list of members in the distribution list. Not returned by default; use $select=members to include.
+     * Sets the members property value. The members property
      * @param array<Member>|null $value Value to set for the members property.
     */
     public function setMembers(?array $value): void {
@@ -135,7 +135,7 @@ class DistributionList extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the notes property value. The notes property
+     * Sets the notes property value. Notes about the distribution list.
      * @param string|null $value Value to set for the notes property.
     */
     public function setNotes(?string $value): void {
@@ -143,7 +143,7 @@ class DistributionList extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the personIdentifier property value. The personIdentifier property
+     * Sets the personIdentifier property value. The unique identifier of the distribution list in the mailbox. Read-only.
      * @param string|null $value Value to set for the personIdentifier property.
     */
     public function setPersonIdentifier(?string $value): void {
@@ -151,7 +151,7 @@ class DistributionList extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the singleValueExtendedProperties property value. The singleValueExtendedProperties property
+     * Sets the singleValueExtendedProperties property value. The collection of single-value extended properties defined for the distribution list. Read-only.
      * @param array<SingleValueLegacyExtendedProperty>|null $value Value to set for the singleValueExtendedProperties property.
     */
     public function setSingleValueExtendedProperties(?array $value): void {

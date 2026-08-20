@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Planner;
 use Microsoft\Graph\Beta\Generated\Planner\Buckets\BucketsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Planner\Goals\GoalsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Plans\PlansRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Rosters\RostersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Tasks\TasksRequestBuilder;
@@ -25,6 +26,13 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     */
     public function buckets(): BucketsRequestBuilder {
         return new BucketsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the goals property of the microsoft.graph.planner entity.
+    */
+    public function goals(): GoalsRequestBuilder {
+        return new GoalsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -56,7 +56,7 @@ class VideoMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the bitrateKbps property value. The bitrateKbps property
+     * Gets the bitrateKbps property value. Video bitrate in kilobits per second.
      * @return int|null
     */
     public function getBitrateKbps(): ?int {
@@ -68,7 +68,7 @@ class VideoMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the codec property value. The codec property
+     * Gets the codec property value. The video codec used (for example, H.264 or VP9).
      * @return string|null
     */
     public function getCodec(): ?string {
@@ -94,7 +94,7 @@ class VideoMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the frameRate property value. The frameRate property
+     * Gets the frameRate property value. Frame rate in frames per second.
      * @return float|null
     */
     public function getFrameRate(): ?float {
@@ -146,7 +146,7 @@ class VideoMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the bitrateKbps property value. The bitrateKbps property
+     * Sets the bitrateKbps property value. Video bitrate in kilobits per second.
      * @param int|null $value Value to set for the bitrateKbps property.
     */
     public function setBitrateKbps(?int $value): void {
@@ -154,7 +154,7 @@ class VideoMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the codec property value. The codec property
+     * Sets the codec property value. The video codec used (for example, H.264 or VP9).
      * @param string|null $value Value to set for the codec property.
     */
     public function setCodec(?string $value): void {
@@ -162,7 +162,7 @@ class VideoMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the frameRate property value. The frameRate property
+     * Sets the frameRate property value. Frame rate in frames per second.
      * @param float|null $value Value to set for the frameRate property.
     */
     public function setFrameRate(?float $value): void {
