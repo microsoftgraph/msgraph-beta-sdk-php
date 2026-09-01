@@ -32,7 +32,7 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The binary content stream for the attachment.
+     * The binary content stream for the attachment. Use the Upload content and Download content methods to access it.
      * @param ContentRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -46,10 +46,11 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The binary content stream for the attachment.
+     * Download the binary content of an attachment. After an upload completes, the service asynchronously scans the attachment for malware. Poll the attachment metadata by using Get attachment. If scanResult is unscanned, wait and try again later. Download the content only when scanResult is noThreatsFound. Don't download content when scanResult is malicious.
      * @param ContentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-casemanagement-attachment-download-content?view=graph-rest-beta Find more info here
     */
     public function get(?ContentRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -62,11 +63,12 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The binary content stream for the attachment.
+     * Upload binary content for an attachment. Create the attachment metadata first by using Create case attachment. The maximum file size is 100 MB. Upload files in chunks of no more than 1 MB. For files larger than 1 MB, send one PUT request for each chunk until all byte ranges are uploaded.
      * @param StreamInterface $body Binary request body
      * @param ContentRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Attachment|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-casemanagement-attachment-upload-content?view=graph-rest-beta Find more info here
     */
     public function put(StreamInterface $body, ?ContentRequestBuilderPutRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPutRequestInformation($body, $requestConfiguration);
@@ -77,7 +79,7 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The binary content stream for the attachment.
+     * The binary content stream for the attachment. Use the Upload content and Download content methods to access it.
      * @param ContentRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -95,7 +97,7 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The binary content stream for the attachment.
+     * Download the binary content of an attachment. After an upload completes, the service asynchronously scans the attachment for malware. Poll the attachment metadata by using Get attachment. If scanResult is unscanned, wait and try again later. Download the content only when scanResult is noThreatsFound. Don't download content when scanResult is malicious.
      * @param ContentRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +115,7 @@ class ContentRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The binary content stream for the attachment.
+     * Upload binary content for an attachment. Create the attachment metadata first by using Create case attachment. The maximum file size is 100 MB. Upload files in chunks of no more than 1 MB. For files larger than 1 MB, send one PUT request for each chunk until all byte ranges are uploaded.
      * @param StreamInterface $body Binary request body
      * @param ContentRequestBuilderPutRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

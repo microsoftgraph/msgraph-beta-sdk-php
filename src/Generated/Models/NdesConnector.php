@@ -75,6 +75,8 @@ class NdesConnector extends Entity implements Parsable
             'connectorVersion' => fn(ParseNode $n) => $o->setConnectorVersion($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'enrolledDateTime' => fn(ParseNode $n) => $o->setEnrolledDateTime($n->getDateTimeValue()),
+            'healthChecks' => fn(ParseNode $n) => $o->setHealthChecks($n->getCollectionOfObjectValues([ConnectorHealthCheck::class, 'createFromDiscriminatorValue'])),
+            'healthStatus' => fn(ParseNode $n) => $o->setHealthStatus($n->getEnumValue(NdesConnectorHealthStatus::class)),
             'lastConnectionDateTime' => fn(ParseNode $n) => $o->setLastConnectionDateTime($n->getDateTimeValue()),
             'machineName' => fn(ParseNode $n) => $o->setMachineName($n->getStringValue()),
             'roleScopeTagIds' => function (ParseNode $n) {
@@ -87,6 +89,32 @@ class NdesConnector extends Entity implements Parsable
             },
             'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(NdesConnectorState::class)),
         ]);
+    }
+
+    /**
+     * Gets the healthChecks property value. The collection of individual health check results for this connector. Each entry represents an independent health metric with its current status. Empty when the connector is disconnected or when health has not been evaluated yet. Read-only.
+     * @return array<ConnectorHealthCheck>|null
+    */
+    public function getHealthChecks(): ?array {
+        $val = $this->getBackingStore()->get('healthChecks');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ConnectorHealthCheck::class);
+            /** @var array<ConnectorHealthCheck>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'healthChecks'");
+    }
+
+    /**
+     * Gets the healthStatus property value. The overall health status of the connector, representing the worst status across all individual health checks. This value is pre-computed on each connector upload and may be overridden to disconnected at read time if the connector has not connected recently. Read-only.
+     * @return NdesConnectorHealthStatus|null
+    */
+    public function getHealthStatus(): ?NdesConnectorHealthStatus {
+        $val = $this->getBackingStore()->get('healthStatus');
+        if (is_null($val) || $val instanceof NdesConnectorHealthStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'healthStatus'");
     }
 
     /**
@@ -176,6 +204,22 @@ class NdesConnector extends Entity implements Parsable
     */
     public function setEnrolledDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('enrolledDateTime', $value);
+    }
+
+    /**
+     * Sets the healthChecks property value. The collection of individual health check results for this connector. Each entry represents an independent health metric with its current status. Empty when the connector is disconnected or when health has not been evaluated yet. Read-only.
+     * @param array<ConnectorHealthCheck>|null $value Value to set for the healthChecks property.
+    */
+    public function setHealthChecks(?array $value): void {
+        $this->getBackingStore()->set('healthChecks', $value);
+    }
+
+    /**
+     * Sets the healthStatus property value. The overall health status of the connector, representing the worst status across all individual health checks. This value is pre-computed on each connector upload and may be overridden to disconnected at read time if the connector has not connected recently. Read-only.
+     * @param NdesConnectorHealthStatus|null $value Value to set for the healthStatus property.
+    */
+    public function setHealthStatus(?NdesConnectorHealthStatus $value): void {
+        $this->getBackingStore()->set('healthStatus', $value);
     }
 
     /**

@@ -146,6 +146,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
             'history' => fn(ParseNode $n) => $o->setHistory($n->getCollectionOfObjectValues([RequestActivity::class, 'createFromDiscriminatorValue'])),
             'isValidationOnly' => fn(ParseNode $n) => $o->setIsValidationOnly($n->getBooleanValue()),
             'justification' => fn(ParseNode $n) => $o->setJustification($n->getStringValue()),
+            'parameters' => fn(ParseNode $n) => $o->setParameters($n->getObjectValue([AccessPackageAssignmentRequestParameters::class, 'createFromDiscriminatorValue'])),
             'requestor' => fn(ParseNode $n) => $o->setRequestor($n->getObjectValue([AccessPackageSubject::class, 'createFromDiscriminatorValue'])),
             'requestState' => fn(ParseNode $n) => $o->setRequestState($n->getStringValue()),
             'requestStatus' => fn(ParseNode $n) => $o->setRequestStatus($n->getStringValue()),
@@ -191,6 +192,18 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'justification'");
+    }
+
+    /**
+     * Gets the parameters property value. Additional parameters that control how the request is processed, such as bypassing the approval requirement configured on the access package policy.
+     * @return AccessPackageAssignmentRequestParameters|null
+    */
+    public function getParameters(): ?AccessPackageAssignmentRequestParameters {
+        $val = $this->getBackingStore()->get('parameters');
+        if (is_null($val) || $val instanceof AccessPackageAssignmentRequestParameters) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'parameters'");
     }
 
     /**
@@ -284,6 +297,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('history', $this->getHistory());
         $writer->writeBooleanValue('isValidationOnly', $this->getIsValidationOnly());
         $writer->writeStringValue('justification', $this->getJustification());
+        $writer->writeObjectValue('parameters', $this->getParameters());
         $writer->writeObjectValue('requestor', $this->getRequestor());
         $writer->writeStringValue('requestState', $this->getRequestState());
         $writer->writeStringValue('requestStatus', $this->getRequestStatus());
@@ -378,6 +392,14 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
     */
     public function setJustification(?string $value): void {
         $this->getBackingStore()->set('justification', $value);
+    }
+
+    /**
+     * Sets the parameters property value. Additional parameters that control how the request is processed, such as bypassing the approval requirement configured on the access package policy.
+     * @param AccessPackageAssignmentRequestParameters|null $value Value to set for the parameters property.
+    */
+    public function setParameters(?AccessPackageAssignmentRequestParameters $value): void {
+        $this->getBackingStore()->set('parameters', $value);
     }
 
     /**

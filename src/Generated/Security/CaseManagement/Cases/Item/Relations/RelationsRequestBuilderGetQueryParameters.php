@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\CaseManagement\Cases\Item\Rela
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of external resource relation objects for a case.
+ * Get a list of external resource relation objects for a case. Each relation is an incidentRelation, recommendationRelation, or workspaceIndicatorRelation, identified by @odata.type.
 */
 class RelationsRequestBuilderGetQueryParameters 
 {

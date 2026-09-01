@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\D
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\LifecyclePolicies\LifecyclePoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\DeletedItems\Workflows\WorkflowsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeletedItemContainer;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -17,6 +18,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class DeletedItemsRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the lifecyclePolicies property of the microsoft.graph.deletedItemContainer entity.
+    */
+    public function lifecyclePolicies(): LifecyclePoliciesRequestBuilder {
+        return new LifecyclePoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the workflows property of the microsoft.graph.deletedItemContainer entity.
     */

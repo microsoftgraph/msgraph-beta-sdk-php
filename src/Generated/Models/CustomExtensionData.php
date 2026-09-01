@@ -43,6 +43,7 @@ class CustomExtensionData implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.identityGovernance.customTaskExtensionCallbackData': return new CustomTaskExtensionCallbackData();
                 case '#microsoft.graph.identityGovernance.customTaskExtensionCalloutData': return new CustomTaskExtensionCalloutData();
                 case '#microsoft.graph.identityGovernance.customTaskExtensionResponseData': return new CustomTaskExtensionResponseData();
+                case '#microsoft.graph.sapAssignmentRequestCallbackData': return new SapAssignmentRequestCallbackData();
             }
         }
         return new CustomExtensionData();

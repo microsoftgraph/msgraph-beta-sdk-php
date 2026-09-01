@@ -80,6 +80,18 @@ class IosDdmLobAppAssignmentSettings extends MobileAppAssignmentSettings impleme
     }
 
     /**
+     * Gets the ddmAppConfigId property value. The unique identifier of the DDM app configuration to associate with the app.
+     * @return string|null
+    */
+    public function getDdmAppConfigId(): ?string {
+        $val = $this->getBackingStore()->get('ddmAppConfigId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ddmAppConfigId'");
+    }
+
+    /**
      * Gets the dnsProxyConfigurationId property value. The dnsProxyConfigurationId property
      * @return string|null
     */
@@ -109,6 +121,7 @@ class IosDdmLobAppAssignmentSettings extends MobileAppAssignmentSettings impleme
             'associatedDomainsDirectDownloadAllowed' => fn(ParseNode $n) => $o->setAssociatedDomainsDirectDownloadAllowed($n->getBooleanValue()),
             'cellularSliceConfigurationId' => fn(ParseNode $n) => $o->setCellularSliceConfigurationId($n->getStringValue()),
             'contentFilterConfigurationId' => fn(ParseNode $n) => $o->setContentFilterConfigurationId($n->getStringValue()),
+            'ddmAppConfigId' => fn(ParseNode $n) => $o->setDdmAppConfigId($n->getStringValue()),
             'dnsProxyConfigurationId' => fn(ParseNode $n) => $o->setDnsProxyConfigurationId($n->getStringValue()),
             'preventManagedAppBackup' => fn(ParseNode $n) => $o->setPreventManagedAppBackup($n->getBooleanValue()),
             'relayConfigurationId' => fn(ParseNode $n) => $o->setRelayConfigurationId($n->getStringValue()),
@@ -175,6 +188,7 @@ class IosDdmLobAppAssignmentSettings extends MobileAppAssignmentSettings impleme
         $writer->writeBooleanValue('associatedDomainsDirectDownloadAllowed', $this->getAssociatedDomainsDirectDownloadAllowed());
         $writer->writeStringValue('cellularSliceConfigurationId', $this->getCellularSliceConfigurationId());
         $writer->writeStringValue('contentFilterConfigurationId', $this->getContentFilterConfigurationId());
+        $writer->writeStringValue('ddmAppConfigId', $this->getDdmAppConfigId());
         $writer->writeStringValue('dnsProxyConfigurationId', $this->getDnsProxyConfigurationId());
         $writer->writeBooleanValue('preventManagedAppBackup', $this->getPreventManagedAppBackup());
         $writer->writeStringValue('relayConfigurationId', $this->getRelayConfigurationId());
@@ -212,6 +226,14 @@ class IosDdmLobAppAssignmentSettings extends MobileAppAssignmentSettings impleme
     */
     public function setContentFilterConfigurationId(?string $value): void {
         $this->getBackingStore()->set('contentFilterConfigurationId', $value);
+    }
+
+    /**
+     * Sets the ddmAppConfigId property value. The unique identifier of the DDM app configuration to associate with the app.
+     * @param string|null $value Value to set for the ddmAppConfigId property.
+    */
+    public function setDdmAppConfigId(?string $value): void {
+        $this->getBackingStore()->set('ddmAppConfigId', $value);
     }
 
     /**

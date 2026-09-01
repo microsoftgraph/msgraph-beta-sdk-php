@@ -52,7 +52,7 @@ class RelationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of external resource relation objects for a case.
+     * Get a list of external resource relation objects for a case. Each relation is an incidentRelation, recommendationRelation, or workspaceIndicatorRelation, identified by @odata.type.
      * @param RelationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RelationCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class RelationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create an external resource relation for a case.
+     * Create a concrete external resource relation for a case.
      * @param Relation $body The request body
      * @param RelationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Relation|null>
@@ -83,7 +83,7 @@ class RelationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of external resource relation objects for a case.
+     * Get a list of external resource relation objects for a case. Each relation is an incidentRelation, recommendationRelation, or workspaceIndicatorRelation, identified by @odata.type.
      * @param RelationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +104,7 @@ class RelationsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create an external resource relation for a case.
+     * Create a concrete external resource relation for a case.
      * @param Relation $body The request body
      * @param RelationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

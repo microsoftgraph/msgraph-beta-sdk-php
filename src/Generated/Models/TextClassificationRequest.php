@@ -38,6 +38,20 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
+     * Gets the embeddings property value. Optional caller-supplied precomputed embeddings for the text, so the service can skip recomputing them. Embeddings for models outside the allow-list are rejected with a 400.
+     * @return array<EmbeddingInput>|null
+    */
+    public function getEmbeddings(): ?array {
+        $val = $this->getBackingStore()->get('embeddings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, EmbeddingInput::class);
+            /** @var array<EmbeddingInput>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'embeddings'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -45,6 +59,7 @@ class TextClassificationRequest extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'contentMetaData' => fn(ParseNode $n) => $o->setContentMetaData($n->getObjectValue([ClassificationRequestContentMetaData::class, 'createFromDiscriminatorValue'])),
+            'embeddings' => fn(ParseNode $n) => $o->setEmbeddings($n->getCollectionOfObjectValues([EmbeddingInput::class, 'createFromDiscriminatorValue'])),
             'fileExtension' => fn(ParseNode $n) => $o->setFileExtension($n->getStringValue()),
             'matchTolerancesToInclude' => fn(ParseNode $n) => $o->setMatchTolerancesToInclude($n->getEnumValue(MlClassificationMatchTolerance::class)),
             'scopesToRun' => fn(ParseNode $n) => $o->setScopesToRun($n->getEnumValue(SensitiveTypeScope::class)),
@@ -129,6 +144,7 @@ class TextClassificationRequest extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('contentMetaData', $this->getContentMetaData());
+        $writer->writeCollectionOfObjectValues('embeddings', $this->getEmbeddings());
         $writer->writeStringValue('fileExtension', $this->getFileExtension());
         $writer->writeEnumValue('matchTolerancesToInclude', $this->getMatchTolerancesToInclude());
         $writer->writeEnumValue('scopesToRun', $this->getScopesToRun());
@@ -142,6 +158,14 @@ class TextClassificationRequest extends Entity implements Parsable
     */
     public function setContentMetaData(?ClassificationRequestContentMetaData $value): void {
         $this->getBackingStore()->set('contentMetaData', $value);
+    }
+
+    /**
+     * Sets the embeddings property value. Optional caller-supplied precomputed embeddings for the text, so the service can skip recomputing them. Embeddings for models outside the allow-list are rejected with a 400.
+     * @param array<EmbeddingInput>|null $value Value to set for the embeddings property.
+    */
+    public function setEmbeddings(?array $value): void {
+        $this->getBackingStore()->set('embeddings', $value);
     }
 
     /**

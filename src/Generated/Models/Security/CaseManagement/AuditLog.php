@@ -64,7 +64,7 @@ class AuditLog extends Activity implements Parsable
     }
 
     /**
-     * Gets the modifiedProperties property value. The collection of property changes recorded in the audit log.
+     * Gets the modifiedProperties property value. The collection of property changes recorded in the audit log. Supports $filter.
      * @return array<ModifiedProperty>|null
     */
     public function getModifiedProperties(): ?array {
@@ -105,7 +105,7 @@ class AuditLog extends Activity implements Parsable
     }
 
     /**
-     * Sets the modifiedProperties property value. The collection of property changes recorded in the audit log.
+     * Sets the modifiedProperties property value. The collection of property changes recorded in the audit log. Supports $filter.
      * @param array<ModifiedProperty>|null $value Value to set for the modifiedProperties property.
     */
     public function setModifiedProperties(?array $value): void {

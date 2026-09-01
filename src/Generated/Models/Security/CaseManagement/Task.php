@@ -27,7 +27,7 @@ class Task extends CaseManagementEntity implements Parsable
     }
 
     /**
-     * Gets the assignedTo property value. The user assigned to the task.
+     * Gets the assignedTo property value. The user assigned to the task. Supports $filter.
      * @return string|null
     */
     public function getAssignedTo(): ?string {
@@ -51,7 +51,7 @@ class Task extends CaseManagementEntity implements Parsable
     }
 
     /**
-     * Gets the closingNotes property value. Notes recorded when the task is completed.
+     * Gets the closingNotes property value. Notes recorded when the task is completed. Supports $filter.
      * @return string|null
     */
     public function getClosingNotes(): ?string {
@@ -63,7 +63,7 @@ class Task extends CaseManagementEntity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description of the task.
+     * Gets the description property value. The description of the task. Supports $filter.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -75,7 +75,7 @@ class Task extends CaseManagementEntity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The title of the task.
+     * Gets the displayName property value. The title of the task. Supports $filter.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -87,7 +87,7 @@ class Task extends CaseManagementEntity implements Parsable
     }
 
     /**
-     * Gets the dueDateTime property value. The target completion date and time for the task.
+     * Gets the dueDateTime property value. The target completion date and time for the task. Supports $filter.
      * @return DateTime|null
     */
     public function getDueDateTime(): ?DateTime {
@@ -157,7 +157,7 @@ class Task extends CaseManagementEntity implements Parsable
     }
 
     /**
-     * Sets the assignedTo property value. The user assigned to the task.
+     * Sets the assignedTo property value. The user assigned to the task. Supports $filter.
      * @param string|null $value Value to set for the assignedTo property.
     */
     public function setAssignedTo(?string $value): void {
@@ -173,7 +173,7 @@ class Task extends CaseManagementEntity implements Parsable
     }
 
     /**
-     * Sets the closingNotes property value. Notes recorded when the task is completed.
+     * Sets the closingNotes property value. Notes recorded when the task is completed. Supports $filter.
      * @param string|null $value Value to set for the closingNotes property.
     */
     public function setClosingNotes(?string $value): void {
@@ -181,7 +181,7 @@ class Task extends CaseManagementEntity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description of the task.
+     * Sets the description property value. The description of the task. Supports $filter.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -189,7 +189,7 @@ class Task extends CaseManagementEntity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The title of the task.
+     * Sets the displayName property value. The title of the task. Supports $filter.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -197,7 +197,7 @@ class Task extends CaseManagementEntity implements Parsable
     }
 
     /**
-     * Sets the dueDateTime property value. The target completion date and time for the task.
+     * Sets the dueDateTime property value. The target completion date and time for the task. Supports $filter.
      * @param DateTime|null $value Value to set for the dueDateTime property.
     */
     public function setDueDateTime(?DateTime $value): void {

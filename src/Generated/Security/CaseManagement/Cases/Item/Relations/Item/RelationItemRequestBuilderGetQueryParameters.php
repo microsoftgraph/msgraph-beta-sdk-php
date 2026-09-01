@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\CaseManagement\Cases\Item\Rela
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Links from the case to related security resources. Supports $expand.
+ * Read a concrete relation from a case. The response is an incidentRelation, recommendationRelation, or workspaceIndicatorRelation, identified by @odata.type.
 */
 class RelationItemRequestBuilderGetQueryParameters 
 {

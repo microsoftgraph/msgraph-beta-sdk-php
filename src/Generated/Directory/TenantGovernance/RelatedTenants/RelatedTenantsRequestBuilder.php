@@ -6,18 +6,18 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\RelatedTenants\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\RelatedTenants\Item\RelatedTenantItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\RelatedTenants\MicrosoftGraphTenantGovernanceServicesRefresh\MicrosoftGraphTenantGovernanceServicesRefreshRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\RelatedTenants\MicrosoftGraphTenantGovernanceServicesRefreshStatus\MicrosoftGraphTenantGovernanceServicesRefreshStatusRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\RelatedTenants\Refresh\RefreshRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\RelatedTenants\RefreshStatus\RefreshStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\RelatedTenant;
-use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\RelatedTenantCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\RelatedTenant;
+use Microsoft\Graph\Beta\Generated\Models\RelatedTenantCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
 
 /**
- * Provides operations to manage the relatedTenants property of the microsoft.graph.tenantGovernanceServices.tenantGovernance entity.
+ * Provides operations to manage the relatedTenants property of the microsoft.graph.tenantGovernance entity.
 */
 class RelatedTenantsRequestBuilder extends BaseRequestBuilder 
 {
@@ -31,19 +31,19 @@ class RelatedTenantsRequestBuilder extends BaseRequestBuilder
     /**
      * Provides operations to call the refresh method.
     */
-    public function microsoftGraphTenantGovernanceServicesRefresh(): MicrosoftGraphTenantGovernanceServicesRefreshRequestBuilder {
-        return new MicrosoftGraphTenantGovernanceServicesRefreshRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function refresh(): RefreshRequestBuilder {
+        return new RefreshRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
      * Provides operations to call the refreshStatus method.
     */
-    public function microsoftGraphTenantGovernanceServicesRefreshStatus(): MicrosoftGraphTenantGovernanceServicesRefreshStatusRequestBuilder {
-        return new MicrosoftGraphTenantGovernanceServicesRefreshStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function refreshStatus(): RefreshStatusRequestBuilder {
+        return new RefreshStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Provides operations to manage the relatedTenants property of the microsoft.graph.tenantGovernanceServices.tenantGovernance entity.
+     * Provides operations to manage the relatedTenants property of the microsoft.graph.tenantGovernance entity.
      * @param string $relatedTenantId The unique identifier of relatedTenant
      * @return RelatedTenantItemRequestBuilder
     */

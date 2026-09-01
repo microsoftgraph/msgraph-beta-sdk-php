@@ -4,15 +4,15 @@ namespace Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\GovernanceIn
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Models\GovernanceInvitation;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\GovernanceInvitation;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
 
 /**
- * Provides operations to manage the governanceInvitations property of the microsoft.graph.tenantGovernanceServices.tenantGovernance entity.
+ * Provides operations to manage the governanceInvitations property of the microsoft.graph.tenantGovernance entity.
 */
 class GovernanceInvitationItemRequestBuilder extends BaseRequestBuilder 
 {

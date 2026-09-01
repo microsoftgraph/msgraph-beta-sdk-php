@@ -15,4 +15,5 @@ class UserActivityTypes extends Enum {
     public const PASTE_FROM_CLIPBOARD = "pasteFromClipboard";
     public const PRINT = "print";
     public const ACCESS_DEBUG_TOOLS = "accessDebugTools";
+    public const CONTENT_FILTERING = "contentFiltering";
 }

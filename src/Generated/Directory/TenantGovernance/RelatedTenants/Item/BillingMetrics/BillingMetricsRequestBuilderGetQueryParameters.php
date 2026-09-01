@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\RelatedTenan
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Billing metrics for this related tenant. Expanded by default.
+ * Get billingMetrics from directory
 */
 class BillingMetricsRequestBuilderGetQueryParameters 
 {

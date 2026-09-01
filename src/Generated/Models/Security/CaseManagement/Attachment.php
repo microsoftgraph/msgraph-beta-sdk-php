@@ -27,7 +27,7 @@ class Attachment extends CaseManagementEntity implements Parsable
     }
 
     /**
-     * Gets the content property value. The binary content stream for the attachment.
+     * Gets the content property value. The binary content stream for the attachment. Use the Upload content and Download content methods to access it.
      * @return StreamInterface|null
     */
     public function getContent(): ?StreamInterface {
@@ -80,7 +80,7 @@ class Attachment extends CaseManagementEntity implements Parsable
     }
 
     /**
-     * Gets the fileExtension property value. The file extension of the attachment.
+     * Gets the fileExtension property value. The file extension of the attachment. The service normalizes the value to include a leading period.
      * @return string|null
     */
     public function getFileExtension(): ?string {
@@ -92,7 +92,7 @@ class Attachment extends CaseManagementEntity implements Parsable
     }
 
     /**
-     * Gets the fileSize property value. The size of the attachment in bytes.
+     * Gets the fileSize property value. The size of the attachment in bytes. The maximum file size is 100 MB.
      * @return int|null
     */
     public function getFileSize(): ?int {
@@ -143,7 +143,7 @@ class Attachment extends CaseManagementEntity implements Parsable
     }
 
     /**
-     * Sets the content property value. The binary content stream for the attachment.
+     * Sets the content property value. The binary content stream for the attachment. Use the Upload content and Download content methods to access it.
      * @param StreamInterface|null $value Value to set for the content property.
     */
     public function setContent(?StreamInterface $value): void {
@@ -167,7 +167,7 @@ class Attachment extends CaseManagementEntity implements Parsable
     }
 
     /**
-     * Sets the fileExtension property value. The file extension of the attachment.
+     * Sets the fileExtension property value. The file extension of the attachment. The service normalizes the value to include a leading period.
      * @param string|null $value Value to set for the fileExtension property.
     */
     public function setFileExtension(?string $value): void {
@@ -175,7 +175,7 @@ class Attachment extends CaseManagementEntity implements Parsable
     }
 
     /**
-     * Sets the fileSize property value. The size of the attachment in bytes.
+     * Sets the fileSize property value. The size of the attachment in bytes. The maximum file size is 100 MB.
      * @param int|null $value Value to set for the fileSize property.
     */
     public function setFileSize(?int $value): void {

@@ -41,6 +41,18 @@ class MacOsDdmVppAppAssignmentSettings extends MobileAppAssignmentSettings imple
     }
 
     /**
+     * Gets the ddmAppConfigId property value. The unique identifier of the DDM app configuration to associate with the app.
+     * @return string|null
+    */
+    public function getDdmAppConfigId(): ?string {
+        $val = $this->getBackingStore()->get('ddmAppConfigId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'ddmAppConfigId'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -48,6 +60,7 @@ class MacOsDdmVppAppAssignmentSettings extends MobileAppAssignmentSettings imple
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'automaticAppUpdates' => fn(ParseNode $n) => $o->setAutomaticAppUpdates($n->getEnumValue(DdmAppAutomaticAppUpdates::class)),
+            'ddmAppConfigId' => fn(ParseNode $n) => $o->setDdmAppConfigId($n->getStringValue()),
             'isIosApp' => fn(ParseNode $n) => $o->setIsIosApp($n->getBooleanValue()),
             'useDeviceLicensing' => fn(ParseNode $n) => $o->setUseDeviceLicensing($n->getBooleanValue()),
             'version' => fn(ParseNode $n) => $o->setVersion($n->getIntegerValue()),
@@ -97,6 +110,7 @@ class MacOsDdmVppAppAssignmentSettings extends MobileAppAssignmentSettings imple
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('automaticAppUpdates', $this->getAutomaticAppUpdates());
+        $writer->writeStringValue('ddmAppConfigId', $this->getDdmAppConfigId());
         $writer->writeBooleanValue('isIosApp', $this->getIsIosApp());
         $writer->writeBooleanValue('useDeviceLicensing', $this->getUseDeviceLicensing());
         $writer->writeIntegerValue('version', $this->getVersion());
@@ -108,6 +122,14 @@ class MacOsDdmVppAppAssignmentSettings extends MobileAppAssignmentSettings imple
     */
     public function setAutomaticAppUpdates(?DdmAppAutomaticAppUpdates $value): void {
         $this->getBackingStore()->set('automaticAppUpdates', $value);
+    }
+
+    /**
+     * Sets the ddmAppConfigId property value. The unique identifier of the DDM app configuration to associate with the app.
+     * @param string|null $value Value to set for the ddmAppConfigId property.
+    */
+    public function setDdmAppConfigId(?string $value): void {
+        $this->getBackingStore()->set('ddmAppConfigId', $value);
     }
 
     /**

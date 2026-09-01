@@ -3,6 +3,7 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\IdentityLifecycle;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -402,6 +403,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
             'isDisabled' => fn(ParseNode $n) => $o->setIsDisabled($n->getBooleanValue()),
             'keyCredentials' => fn(ParseNode $n) => $o->setKeyCredentials($n->getCollectionOfObjectValues([KeyCredential::class, 'createFromDiscriminatorValue'])),
             'licenseDetails' => fn(ParseNode $n) => $o->setLicenseDetails($n->getCollectionOfObjectValues([LicenseDetails::class, 'createFromDiscriminatorValue'])),
+            'lifecycle' => fn(ParseNode $n) => $o->setLifecycle($n->getObjectValue([IdentityLifecycle::class, 'createFromDiscriminatorValue'])),
             'loginUrl' => fn(ParseNode $n) => $o->setLoginUrl($n->getStringValue()),
             'logoutUrl' => fn(ParseNode $n) => $o->setLogoutUrl($n->getStringValue()),
             'memberOf' => fn(ParseNode $n) => $o->setMemberOf($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
@@ -539,6 +541,18 @@ class ServicePrincipal extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'licenseDetails'");
+    }
+
+    /**
+     * Gets the lifecycle property value. The lifecycle property
+     * @return IdentityLifecycle|null
+    */
+    public function getLifecycle(): ?IdentityLifecycle {
+        $val = $this->getBackingStore()->get('lifecycle');
+        if (is_null($val) || $val instanceof IdentityLifecycle) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lifecycle'");
     }
 
     /**
@@ -966,6 +980,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
         $writer->writeBooleanValue('isDisabled', $this->getIsDisabled());
         $writer->writeCollectionOfObjectValues('keyCredentials', $this->getKeyCredentials());
         $writer->writeCollectionOfObjectValues('licenseDetails', $this->getLicenseDetails());
+        $writer->writeObjectValue('lifecycle', $this->getLifecycle());
         $writer->writeStringValue('loginUrl', $this->getLoginUrl());
         $writer->writeStringValue('logoutUrl', $this->getLogoutUrl());
         $writer->writeCollectionOfObjectValues('memberOf', $this->getMemberOf());
@@ -1244,6 +1259,14 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     */
     public function setLicenseDetails(?array $value): void {
         $this->getBackingStore()->set('licenseDetails', $value);
+    }
+
+    /**
+     * Sets the lifecycle property value. The lifecycle property
+     * @param IdentityLifecycle|null $value Value to set for the lifecycle property.
+    */
+    public function setLifecycle(?IdentityLifecycle $value): void {
+        $this->getBackingStore()->set('lifecycle', $value);
     }
 
     /**

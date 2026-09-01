@@ -37,8 +37,12 @@ class ResultantAppStateDetail extends Enum {
     public const USER_IS_NOT_LOGGED_INTO_APP_STORE = "userIsNotLoggedIntoAppStore";
     public const UNTARGETED_SUPERSEDING_APPS_DETECTED = "untargetedSupersedingAppsDetected";
     public const APP_REMOVED_BY_SUPERSEDENCE = "appRemovedBySupersedence";
+    public const DEPENDENCY_APP_IN_USE = "dependencyAppInUse";
     public const SEE_UNINSTALL_ERROR_CODE = "seeUninstallErrorCode";
     public const PENDING_REBOOT = "pendingReboot";
     public const INSTALLING_DEPENDENCIES = "installingDependencies";
     public const CONTENT_DOWNLOADED = "contentDownloaded";
+    public const IN_USE = "inUse";
+    public const DEFERRED = "deferred";
+    public const AUTO_DEFERRED = "autoDeferred";
 }

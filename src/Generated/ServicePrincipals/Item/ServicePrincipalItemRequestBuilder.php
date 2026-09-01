@@ -26,7 +26,9 @@ use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\GetMemberObjects\GetMe
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\GetPasswordSingleSignOnCredentials\GetPasswordSingleSignOnCredentialsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\HomeRealmDiscoveryPolicies\HomeRealmDiscoveryPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\LicenseDetails\LicenseDetailsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Lifecycle\LifecycleRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\MemberOf\MemberOfRequestBuilder;
+use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\MicrosoftGraphIdentityGovernanceAttest\MicrosoftGraphIdentityGovernanceAttestRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Oauth2PermissionGrants\Oauth2PermissionGrantsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\OwnedObjects\OwnedObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Owners\OwnersRequestBuilder;
@@ -182,10 +184,24 @@ class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the lifecycle property of the microsoft.graph.servicePrincipal entity.
+    */
+    public function lifecycle(): LifecycleRequestBuilder {
+        return new LifecycleRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the memberOf property of the microsoft.graph.servicePrincipal entity.
     */
     public function memberOf(): MemberOfRequestBuilder {
         return new MemberOfRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the attest method.
+    */
+    public function microsoftGraphIdentityGovernanceAttest(): MicrosoftGraphIdentityGovernanceAttestRequestBuilder {
+        return new MicrosoftGraphIdentityGovernanceAttestRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

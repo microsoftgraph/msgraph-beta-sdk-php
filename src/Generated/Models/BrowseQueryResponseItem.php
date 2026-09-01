@@ -57,7 +57,7 @@ class BrowseQueryResponseItem implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the createdBy property value. The createdBy property
+     * Gets the createdBy property value. The identity of the user or application that created the item. Returned only when type is file or folder.
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
@@ -69,7 +69,7 @@ class BrowseQueryResponseItem implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date and time when the item was created. Returned only when type is file or folder. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -126,7 +126,7 @@ class BrowseQueryResponseItem implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the lastModifiedBy property value. The lastModifiedBy property
+     * Gets the lastModifiedBy property value. The identity of the user or application that last modified the item. Returned only when type is file or folder.
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
@@ -138,7 +138,7 @@ class BrowseQueryResponseItem implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. The date and time when the item was last modified. Returned only when type is file or folder. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -245,7 +245,7 @@ class BrowseQueryResponseItem implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the createdBy property value. The createdBy property
+     * Sets the createdBy property value. The identity of the user or application that created the item. Returned only when type is file or folder.
      * @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value): void {
@@ -253,7 +253,7 @@ class BrowseQueryResponseItem implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date and time when the item was created. Returned only when type is file or folder. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -277,7 +277,7 @@ class BrowseQueryResponseItem implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the lastModifiedBy property value. The lastModifiedBy property
+     * Sets the lastModifiedBy property value. The identity of the user or application that last modified the item. Returned only when type is file or folder.
      * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
@@ -285,7 +285,7 @@ class BrowseQueryResponseItem implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. The date and time when the item was last modified. Returned only when type is file or folder. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {

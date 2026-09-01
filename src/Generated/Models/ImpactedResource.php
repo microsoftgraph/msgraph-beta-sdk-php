@@ -97,6 +97,7 @@ class ImpactedResource extends Entity implements Parsable
             'resourceType' => fn(ParseNode $n) => $o->setResourceType($n->getStringValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(RecommendationStatus::class)),
             'subjectId' => fn(ParseNode $n) => $o->setSubjectId($n->getStringValue()),
+            'tags' => fn(ParseNode $n) => $o->setTags($n->getCollectionOfObjectValues([RecommendationTag::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -221,6 +222,20 @@ class ImpactedResource extends Entity implements Parsable
     }
 
     /**
+     * Gets the tags property value. The tags property
+     * @return array<RecommendationTag>|null
+    */
+    public function getTags(): ?array {
+        $val = $this->getBackingStore()->get('tags');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RecommendationTag::class);
+            /** @var array<RecommendationTag>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tags'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -240,6 +255,7 @@ class ImpactedResource extends Entity implements Parsable
         $writer->writeStringValue('resourceType', $this->getResourceType());
         $writer->writeEnumValue('status', $this->getStatus());
         $writer->writeStringValue('subjectId', $this->getSubjectId());
+        $writer->writeCollectionOfObjectValues('tags', $this->getTags());
     }
 
     /**
@@ -352,6 +368,14 @@ class ImpactedResource extends Entity implements Parsable
     */
     public function setSubjectId(?string $value): void {
         $this->getBackingStore()->set('subjectId', $value);
+    }
+
+    /**
+     * Sets the tags property value. The tags property
+     * @param array<RecommendationTag>|null $value Value to set for the tags property.
+    */
+    public function setTags(?array $value): void {
+        $this->getBackingStore()->set('tags', $value);
     }
 
 }

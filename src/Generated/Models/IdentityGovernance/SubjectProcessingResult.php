@@ -65,6 +65,7 @@ class SubjectProcessingResult extends Entity implements Parsable
             'scheduledDateTime' => fn(ParseNode $n) => $o->setScheduledDateTime($n->getDateTimeValue()),
             'startedDateTime' => fn(ParseNode $n) => $o->setStartedDateTime($n->getDateTimeValue()),
             'subject' => fn(ParseNode $n) => $o->setSubject($n->getObjectValue([WorkflowSubject::class, 'createFromDiscriminatorValue'])),
+            'subjectType' => fn(ParseNode $n) => $o->setSubjectType($n->getEnumValue(SubjectType::class)),
             'taskProcessingResults' => fn(ParseNode $n) => $o->setTaskProcessingResults($n->getCollectionOfObjectValues([TaskProcessingResult::class, 'createFromDiscriminatorValue'])),
             'totalTasksCount' => fn(ParseNode $n) => $o->setTotalTasksCount($n->getIntegerValue()),
             'totalUnprocessedTasksCount' => fn(ParseNode $n) => $o->setTotalUnprocessedTasksCount($n->getIntegerValue()),
@@ -133,6 +134,18 @@ class SubjectProcessingResult extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'subject'");
+    }
+
+    /**
+     * Gets the subjectType property value. The subjectType property
+     * @return SubjectType|null
+    */
+    public function getSubjectType(): ?SubjectType {
+        $val = $this->getBackingStore()->get('subjectType');
+        if (is_null($val) || $val instanceof SubjectType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'subjectType'");
     }
 
     /**
@@ -210,6 +223,7 @@ class SubjectProcessingResult extends Entity implements Parsable
         $writer->writeDateTimeValue('scheduledDateTime', $this->getScheduledDateTime());
         $writer->writeDateTimeValue('startedDateTime', $this->getStartedDateTime());
         $writer->writeObjectValue('subject', $this->getSubject());
+        $writer->writeEnumValue('subjectType', $this->getSubjectType());
         $writer->writeCollectionOfObjectValues('taskProcessingResults', $this->getTaskProcessingResults());
         $writer->writeIntegerValue('totalTasksCount', $this->getTotalTasksCount());
         $writer->writeIntegerValue('totalUnprocessedTasksCount', $this->getTotalUnprocessedTasksCount());
@@ -271,6 +285,14 @@ class SubjectProcessingResult extends Entity implements Parsable
     */
     public function setSubject(?WorkflowSubject $value): void {
         $this->getBackingStore()->set('subject', $value);
+    }
+
+    /**
+     * Sets the subjectType property value. The subjectType property
+     * @param SubjectType|null $value Value to set for the subjectType property.
+    */
+    public function setSubjectType(?SubjectType $value): void {
+        $this->getBackingStore()->set('subjectType', $value);
     }
 
     /**

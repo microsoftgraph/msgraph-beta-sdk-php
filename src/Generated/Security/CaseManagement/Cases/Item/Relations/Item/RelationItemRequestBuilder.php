@@ -31,10 +31,11 @@ class RelationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property relations for security
+     * Delete a concrete relation from a case.
      * @param RelationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-casemanagement-relation-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?RelationItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -45,10 +46,11 @@ class RelationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Links from the case to related security resources. Supports $expand.
+     * Read a concrete relation from a case. The response is an incidentRelation, recommendationRelation, or workspaceIndicatorRelation, identified by @odata.type.
      * @param RelationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Relation|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-casemanagement-relation-get?view=graph-rest-beta Find more info here
     */
     public function get(?RelationItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,7 +61,7 @@ class RelationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a relation object.
+     * Update the properties of a concrete relation object.
      * @param Relation $body The request body
      * @param RelationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Relation|null>
@@ -75,7 +77,7 @@ class RelationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property relations for security
+     * Delete a concrete relation from a case.
      * @param RelationItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -93,7 +95,7 @@ class RelationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Links from the case to related security resources. Supports $expand.
+     * Read a concrete relation from a case. The response is an incidentRelation, recommendationRelation, or workspaceIndicatorRelation, identified by @odata.type.
      * @param RelationItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,7 +116,7 @@ class RelationItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a relation object.
+     * Update the properties of a concrete relation object.
      * @param Relation $body The request body
      * @param RelationItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -32,7 +32,7 @@ class PolicyTipAction extends DlpActionInfo implements Parsable
     }
 
     /**
-     * Gets the complianceUrl property value. The complianceUrl property
+     * Gets the complianceUrl property value. A URL that points users to additional compliance guidance or remediation details for the policy tip.
      * @return string|null
     */
     public function getComplianceUrl(): ?string {
@@ -57,7 +57,7 @@ class PolicyTipAction extends DlpActionInfo implements Parsable
     }
 
     /**
-     * Gets the matchedConditionsDescription property value. The matchedConditionsDescription property
+     * Gets the matchedConditionsDescription property value. A user-friendly summary of the matched DLP conditions that triggered the policy tip.
      * @return string|null
     */
     public function getMatchedConditionsDescription(): ?string {
@@ -92,7 +92,7 @@ class PolicyTipAction extends DlpActionInfo implements Parsable
     }
 
     /**
-     * Sets the complianceUrl property value. The complianceUrl property
+     * Sets the complianceUrl property value. A URL that points users to additional compliance guidance or remediation details for the policy tip.
      * @param string|null $value Value to set for the complianceUrl property.
     */
     public function setComplianceUrl(?string $value): void {
@@ -100,7 +100,7 @@ class PolicyTipAction extends DlpActionInfo implements Parsable
     }
 
     /**
-     * Sets the matchedConditionsDescription property value. The matchedConditionsDescription property
+     * Sets the matchedConditionsDescription property value. A user-friendly summary of the matched DLP conditions that triggered the policy tip.
      * @param string|null $value Value to set for the matchedConditionsDescription property.
     */
     public function setMatchedConditionsDescription(?string $value): void {

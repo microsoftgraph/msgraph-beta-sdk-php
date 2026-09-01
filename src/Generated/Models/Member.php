@@ -56,18 +56,6 @@ class Member implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the contactId property value. The contactId property
-     * @return string|null
-    */
-    public function getContactId(): ?string {
-        $val = $this->getBackingStore()->get('contactId');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'contactId'");
-    }
-
-    /**
      * Gets the displayName property value. The display name of the member. Optional.
      * @return string|null
     */
@@ -86,12 +74,11 @@ class Member implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'contactId' => fn(ParseNode $n) => $o->setContactId($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'key' => fn(ParseNode $n) => $o->setKey($n->getStringValue()),
+            'memberId' => fn(ParseNode $n) => $o->setMemberId($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'recipientType' => fn(ParseNode $n) => $o->setRecipientType($n->getEnumValue(RecipientType::class)),
-            'routingType' => fn(ParseNode $n) => $o->setRoutingType($n->getStringValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(RecipientType::class)),
         ];
     }
 
@@ -108,6 +95,18 @@ class Member implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the memberId property value. A unique identifier system-generated for contact, privateDL, and mailbox members. Optional.
+     * @return string|null
+    */
+    public function getMemberId(): ?string {
+        $val = $this->getBackingStore()->get('memberId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'memberId'");
+    }
+
+    /**
      * Gets the @odata.type property value. The OdataType property
      * @return string|null
     */
@@ -120,27 +119,15 @@ class Member implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the recipientType property value. The recipientType property
+     * Gets the type property value. The type property
      * @return RecipientType|null
     */
-    public function getRecipientType(): ?RecipientType {
-        $val = $this->getBackingStore()->get('recipientType');
+    public function getType(): ?RecipientType {
+        $val = $this->getBackingStore()->get('type');
         if (is_null($val) || $val instanceof RecipientType) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'recipientType'");
-    }
-
-    /**
-     * Gets the routingType property value. The routingType property
-     * @return string|null
-    */
-    public function getRoutingType(): ?string {
-        $val = $this->getBackingStore()->get('routingType');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'routingType'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
     }
 
     /**
@@ -148,12 +135,11 @@ class Member implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('contactId', $this->getContactId());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('key', $this->getKey());
+        $writer->writeStringValue('memberId', $this->getMemberId());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
-        $writer->writeEnumValue('recipientType', $this->getRecipientType());
-        $writer->writeStringValue('routingType', $this->getRoutingType());
+        $writer->writeEnumValue('type', $this->getType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -174,14 +160,6 @@ class Member implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the contactId property value. The contactId property
-     * @param string|null $value Value to set for the contactId property.
-    */
-    public function setContactId(?string $value): void {
-        $this->getBackingStore()->set('contactId', $value);
-    }
-
-    /**
      * Sets the displayName property value. The display name of the member. Optional.
      * @param string|null $value Value to set for the displayName property.
     */
@@ -198,6 +176,14 @@ class Member implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Sets the memberId property value. A unique identifier system-generated for contact, privateDL, and mailbox members. Optional.
+     * @param string|null $value Value to set for the memberId property.
+    */
+    public function setMemberId(?string $value): void {
+        $this->getBackingStore()->set('memberId', $value);
+    }
+
+    /**
      * Sets the @odata.type property value. The OdataType property
      * @param string|null $value Value to set for the @odata.type property.
     */
@@ -206,19 +192,11 @@ class Member implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the recipientType property value. The recipientType property
-     * @param RecipientType|null $value Value to set for the recipientType property.
+     * Sets the type property value. The type property
+     * @param RecipientType|null $value Value to set for the type property.
     */
-    public function setRecipientType(?RecipientType $value): void {
-        $this->getBackingStore()->set('recipientType', $value);
-    }
-
-    /**
-     * Sets the routingType property value. The routingType property
-     * @param string|null $value Value to set for the routingType property.
-    */
-    public function setRoutingType(?string $value): void {
-        $this->getBackingStore()->set('routingType', $value);
+    public function setType(?RecipientType $value): void {
+        $this->getBackingStore()->set('type', $value);
     }
 
 }

@@ -116,6 +116,18 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     }
 
     /**
+     * Gets the appActionIfDeveloperOptionsEnabled property value. Defines a managed app behavior, either warn, block, or wipe, if Developer Options are enabled on the Android device. If the admin does not set this action, the default is null, which indicates this setting is not configured.
+     * @return ManagedAppRemediationAction|null
+    */
+    public function getAppActionIfDeveloperOptionsEnabled(): ?ManagedAppRemediationAction {
+        $val = $this->getBackingStore()->get('appActionIfDeveloperOptionsEnabled');
+        if (is_null($val) || $val instanceof ManagedAppRemediationAction) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appActionIfDeveloperOptionsEnabled'");
+    }
+
+    /**
      * Gets the appActionIfDeviceLockNotSet property value. An admin initiated action to be applied on a managed app.
      * @return ManagedAppRemediationAction|null
     */
@@ -382,6 +394,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
             'appActionIfAndroidDeviceModelNotAllowed' => fn(ParseNode $n) => $o->setAppActionIfAndroidDeviceModelNotAllowed($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appActionIfAndroidSafetyNetAppsVerificationFailed' => fn(ParseNode $n) => $o->setAppActionIfAndroidSafetyNetAppsVerificationFailed($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appActionIfAndroidSafetyNetDeviceAttestationFailed' => fn(ParseNode $n) => $o->setAppActionIfAndroidSafetyNetDeviceAttestationFailed($n->getEnumValue(ManagedAppRemediationAction::class)),
+            'appActionIfDeveloperOptionsEnabled' => fn(ParseNode $n) => $o->setAppActionIfDeveloperOptionsEnabled($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appActionIfDeviceLockNotSet' => fn(ParseNode $n) => $o->setAppActionIfDeviceLockNotSet($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appActionIfDevicePasscodeComplexityLessThanHigh' => fn(ParseNode $n) => $o->setAppActionIfDevicePasscodeComplexityLessThanHigh($n->getEnumValue(ManagedAppRemediationAction::class)),
             'appActionIfDevicePasscodeComplexityLessThanLow' => fn(ParseNode $n) => $o->setAppActionIfDevicePasscodeComplexityLessThanLow($n->getEnumValue(ManagedAppRemediationAction::class)),
@@ -652,6 +665,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
         $writer->writeEnumValue('appActionIfAndroidDeviceModelNotAllowed', $this->getAppActionIfAndroidDeviceModelNotAllowed());
         $writer->writeEnumValue('appActionIfAndroidSafetyNetAppsVerificationFailed', $this->getAppActionIfAndroidSafetyNetAppsVerificationFailed());
         $writer->writeEnumValue('appActionIfAndroidSafetyNetDeviceAttestationFailed', $this->getAppActionIfAndroidSafetyNetDeviceAttestationFailed());
+        $writer->writeEnumValue('appActionIfDeveloperOptionsEnabled', $this->getAppActionIfDeveloperOptionsEnabled());
         $writer->writeEnumValue('appActionIfDeviceLockNotSet', $this->getAppActionIfDeviceLockNotSet());
         $writer->writeEnumValue('appActionIfDevicePasscodeComplexityLessThanHigh', $this->getAppActionIfDevicePasscodeComplexityLessThanHigh());
         $writer->writeEnumValue('appActionIfDevicePasscodeComplexityLessThanLow', $this->getAppActionIfDevicePasscodeComplexityLessThanLow());
@@ -746,6 +760,14 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection implement
     */
     public function setAppActionIfAndroidSafetyNetDeviceAttestationFailed(?ManagedAppRemediationAction $value): void {
         $this->getBackingStore()->set('appActionIfAndroidSafetyNetDeviceAttestationFailed', $value);
+    }
+
+    /**
+     * Sets the appActionIfDeveloperOptionsEnabled property value. Defines a managed app behavior, either warn, block, or wipe, if Developer Options are enabled on the Android device. If the admin does not set this action, the default is null, which indicates this setting is not configured.
+     * @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDeveloperOptionsEnabled property.
+    */
+    public function setAppActionIfDeveloperOptionsEnabled(?ManagedAppRemediationAction $value): void {
+        $this->getBackingStore()->set('appActionIfDeveloperOptionsEnabled', $value);
     }
 
     /**

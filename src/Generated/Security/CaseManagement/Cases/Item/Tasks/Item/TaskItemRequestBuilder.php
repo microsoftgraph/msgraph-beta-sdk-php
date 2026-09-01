@@ -31,10 +31,11 @@ class TaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property tasks for security
+     * Delete a task from a case.
      * @param TaskItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-casemanagement-task-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?TaskItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -76,7 +77,7 @@ class TaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property tasks for security
+     * Delete a task from a case.
      * @param TaskItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

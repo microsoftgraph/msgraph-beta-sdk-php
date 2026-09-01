@@ -47,7 +47,7 @@ class AdminRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to manage the configurationManagement property of the microsoft.graph.admin entity.
+     * The configurationManagement property
     */
     public function configurationManagement(): ConfigurationManagementRequestBuilder {
         return new ConfigurationManagementRequestBuilder($this->pathParameters, $this->requestAdapter);

@@ -6,16 +6,16 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\GovernanceInvitations\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\GovernanceInvitations\Item\GovernanceInvitationItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Models\GovernanceInvitation;
+use Microsoft\Graph\Beta\Generated\Models\GovernanceInvitationCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\GovernanceInvitation;
-use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\GovernanceInvitationCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
 
 /**
- * Provides operations to manage the governanceInvitations property of the microsoft.graph.tenantGovernanceServices.tenantGovernance entity.
+ * Provides operations to manage the governanceInvitations property of the microsoft.graph.tenantGovernance entity.
 */
 class GovernanceInvitationsRequestBuilder extends BaseRequestBuilder 
 {
@@ -27,7 +27,7 @@ class GovernanceInvitationsRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to manage the governanceInvitations property of the microsoft.graph.tenantGovernanceServices.tenantGovernance entity.
+     * Provides operations to manage the governanceInvitations property of the microsoft.graph.tenantGovernance entity.
      * @param string $governanceInvitationId The unique identifier of governanceInvitation
      * @return GovernanceInvitationItemRequestBuilder
     */

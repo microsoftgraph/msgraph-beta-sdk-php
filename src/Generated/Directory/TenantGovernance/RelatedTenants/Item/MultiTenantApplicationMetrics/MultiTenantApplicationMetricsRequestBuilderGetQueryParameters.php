@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\RelatedTenan
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Multi-tenant application usage metrics for this related tenant. Expanded by default.
+ * Get multiTenantApplicationMetrics from directory
 */
 class MultiTenantApplicationMetricsRequestBuilderGetQueryParameters 
 {

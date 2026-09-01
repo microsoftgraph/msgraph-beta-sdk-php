@@ -27,12 +27,25 @@ class AgentIdentityBlueprint extends Application implements Parsable
     }
 
     /**
+     * Gets the communicationConfiguration property value. The default communication configuration for agent identities created from this agent identity blueprint. Agent identities inherit this configuration unless they define their own override.
+     * @return AgentCommunicationConfiguration|null
+    */
+    public function getCommunicationConfiguration(): ?AgentCommunicationConfiguration {
+        $val = $this->getBackingStore()->get('communicationConfiguration');
+        if (is_null($val) || $val instanceof AgentCommunicationConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'communicationConfiguration'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'communicationConfiguration' => fn(ParseNode $n) => $o->setCommunicationConfiguration($n->getObjectValue([AgentCommunicationConfiguration::class, 'createFromDiscriminatorValue'])),
             'inheritablePermissions' => fn(ParseNode $n) => $o->setInheritablePermissions($n->getCollectionOfObjectValues([InheritablePermission::class, 'createFromDiscriminatorValue'])),
             'sponsors' => fn(ParseNode $n) => $o->setSponsors($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -72,8 +85,17 @@ class AgentIdentityBlueprint extends Application implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('communicationConfiguration', $this->getCommunicationConfiguration());
         $writer->writeCollectionOfObjectValues('inheritablePermissions', $this->getInheritablePermissions());
         $writer->writeCollectionOfObjectValues('sponsors', $this->getSponsors());
+    }
+
+    /**
+     * Sets the communicationConfiguration property value. The default communication configuration for agent identities created from this agent identity blueprint. Agent identities inherit this configuration unless they define their own override.
+     * @param AgentCommunicationConfiguration|null $value Value to set for the communicationConfiguration property.
+    */
+    public function setCommunicationConfiguration(?AgentCommunicationConfiguration $value): void {
+        $this->getBackingStore()->set('communicationConfiguration', $value);
     }
 
     /**
