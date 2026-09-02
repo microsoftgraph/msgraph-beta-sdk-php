@@ -84,6 +84,20 @@ class ChatMessage extends Entity implements Parsable
     }
 
     /**
+     * Gets the citations property value. Read-only. Inline citations that reference external sources cited in the message. Citations are system-generated for bot messages and appear as a typed collection.
+     * @return array<ChatMessageCitation>|null
+    */
+    public function getCitations(): ?array {
+        $val = $this->getBackingStore()->get('citations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ChatMessageCitation::class);
+            /** @var array<ChatMessageCitation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'citations'");
+    }
+
+    /**
      * Gets the createdDateTime property value. Timestamp of when the chat message was created.
      * @return DateTime|null
     */
@@ -142,11 +156,13 @@ class ChatMessage extends Entity implements Parsable
             'body' => fn(ParseNode $n) => $o->setBody($n->getObjectValue([ChatMessageBody::class, 'createFromDiscriminatorValue'])),
             'channelIdentity' => fn(ParseNode $n) => $o->setChannelIdentity($n->getObjectValue([ChannelIdentity::class, 'createFromDiscriminatorValue'])),
             'chatId' => fn(ParseNode $n) => $o->setChatId($n->getStringValue()),
+            'citations' => fn(ParseNode $n) => $o->setCitations($n->getCollectionOfObjectValues([ChatMessageCitation::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'deletedDateTime' => fn(ParseNode $n) => $o->setDeletedDateTime($n->getDateTimeValue()),
             'etag' => fn(ParseNode $n) => $o->setEtag($n->getStringValue()),
             'eventDetail' => fn(ParseNode $n) => $o->setEventDetail($n->getObjectValue([EventMessageDetail::class, 'createFromDiscriminatorValue'])),
             'from' => fn(ParseNode $n) => $o->setFrom($n->getObjectValue([ChatMessageFromIdentitySet::class, 'createFromDiscriminatorValue'])),
+            'hasReplies' => fn(ParseNode $n) => $o->setHasReplies($n->getBooleanValue()),
             'hostedContents' => fn(ParseNode $n) => $o->setHostedContents($n->getCollectionOfObjectValues([ChatMessageHostedContent::class, 'createFromDiscriminatorValue'])),
             'importance' => fn(ParseNode $n) => $o->setImportance($n->getEnumValue(ChatMessageImportance::class)),
             'lastEditedDateTime' => fn(ParseNode $n) => $o->setLastEditedDateTime($n->getDateTimeValue()),
@@ -176,6 +192,18 @@ class ChatMessage extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'from'");
+    }
+
+    /**
+     * Gets the hasReplies property value. The hasReplies property
+     * @return bool|null
+    */
+    public function getHasReplies(): ?bool {
+        $val = $this->getBackingStore()->get('hasReplies');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hasReplies'");
     }
 
     /**
@@ -390,11 +418,13 @@ class ChatMessage extends Entity implements Parsable
         $writer->writeObjectValue('body', $this->getBody());
         $writer->writeObjectValue('channelIdentity', $this->getChannelIdentity());
         $writer->writeStringValue('chatId', $this->getChatId());
+        $writer->writeCollectionOfObjectValues('citations', $this->getCitations());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeDateTimeValue('deletedDateTime', $this->getDeletedDateTime());
         $writer->writeStringValue('etag', $this->getEtag());
         $writer->writeObjectValue('eventDetail', $this->getEventDetail());
         $writer->writeObjectValue('from', $this->getFrom());
+        $writer->writeBooleanValue('hasReplies', $this->getHasReplies());
         $writer->writeCollectionOfObjectValues('hostedContents', $this->getHostedContents());
         $writer->writeEnumValue('importance', $this->getImportance());
         $writer->writeDateTimeValue('lastEditedDateTime', $this->getLastEditedDateTime());
@@ -446,6 +476,14 @@ class ChatMessage extends Entity implements Parsable
     }
 
     /**
+     * Sets the citations property value. Read-only. Inline citations that reference external sources cited in the message. Citations are system-generated for bot messages and appear as a typed collection.
+     * @param array<ChatMessageCitation>|null $value Value to set for the citations property.
+    */
+    public function setCitations(?array $value): void {
+        $this->getBackingStore()->set('citations', $value);
+    }
+
+    /**
      * Sets the createdDateTime property value. Timestamp of when the chat message was created.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
@@ -483,6 +521,14 @@ class ChatMessage extends Entity implements Parsable
     */
     public function setFrom(?ChatMessageFromIdentitySet $value): void {
         $this->getBackingStore()->set('from', $value);
+    }
+
+    /**
+     * Sets the hasReplies property value. The hasReplies property
+     * @param bool|null $value Value to set for the hasReplies property.
+    */
+    public function setHasReplies(?bool $value): void {
+        $this->getBackingStore()->set('hasReplies', $value);
     }
 
     /**

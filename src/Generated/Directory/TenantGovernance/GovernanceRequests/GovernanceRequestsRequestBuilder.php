@@ -6,16 +6,16 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\GovernanceRequests\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\GovernanceRequests\Item\GovernanceRequestItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Models\GovernanceRequest;
+use Microsoft\Graph\Beta\Generated\Models\GovernanceRequestCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\GovernanceRequest;
-use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\GovernanceRequestCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
 
 /**
- * Provides operations to manage the governanceRequests property of the microsoft.graph.tenantGovernanceServices.tenantGovernance entity.
+ * Provides operations to manage the governanceRequests property of the microsoft.graph.tenantGovernance entity.
 */
 class GovernanceRequestsRequestBuilder extends BaseRequestBuilder 
 {
@@ -27,7 +27,7 @@ class GovernanceRequestsRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to manage the governanceRequests property of the microsoft.graph.tenantGovernanceServices.tenantGovernance entity.
+     * Provides operations to manage the governanceRequests property of the microsoft.graph.tenantGovernance entity.
      * @param string $governanceRequestId The unique identifier of governanceRequest
      * @return GovernanceRequestItemRequestBuilder
     */

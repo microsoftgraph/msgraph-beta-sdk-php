@@ -67,7 +67,7 @@ class AttachmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create an attachment for a case.
+     * Create attachment metadata for a case. This method doesn't upload the file content. After creating the attachment, use Upload attachment content.
      * @param Attachment $body The request body
      * @param AttachmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Attachment|null>
@@ -104,7 +104,7 @@ class AttachmentsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create an attachment for a case.
+     * Create attachment metadata for a case. This method doesn't upload the file content. After creating the attachment, use Upload attachment content.
      * @param Attachment $body The request body
      * @param AttachmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

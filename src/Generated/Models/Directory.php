@@ -3,7 +3,6 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use Microsoft\Graph\Beta\Generated\Models\EntraRecoveryServices\Recovery;
-use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\TenantGovernance;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;

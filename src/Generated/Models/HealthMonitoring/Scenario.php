@@ -11,4 +11,5 @@ class Scenario extends Enum {
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
     public const CONDITIONAL_ACCESS = "conditionalAccess";
     public const SAML = "saml";
+    public const GSA = "gsa";
 }

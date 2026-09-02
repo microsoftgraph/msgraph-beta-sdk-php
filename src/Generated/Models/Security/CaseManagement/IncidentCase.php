@@ -28,7 +28,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the aiAgentIds property value. The list of AI agent identifiers associated with the incident.
+     * Gets the aiAgentIds property value. The list of AI agent identifiers associated with the incident. Supports $filter.
      * @return array<string>|null
     */
     public function getAiAgentIds(): ?array {
@@ -42,7 +42,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the alertCounts property value. A summary of alert counts grouped by severity and status.
+     * Gets the alertCounts property value. A summary of alert counts grouped by severity and status. Supports $filter.
      * @return AlertCounts|null
     */
     public function getAlertCounts(): ?AlertCounts {
@@ -54,7 +54,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the alertPolicyIds property value. The list of alert policy identifiers associated with the incident.
+     * Gets the alertPolicyIds property value. The list of alert policy identifiers associated with the incident. Supports $filter.
      * @return array<string>|null
     */
     public function getAlertPolicyIds(): ?array {
@@ -68,7 +68,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the assignedTo property value. The user assigned to investigate the incident case.
+     * Gets the assignedTo property value. The user assigned to investigate the incident case. Supports $filter and $orderby.
      * @return string|null
     */
     public function getAssignedTo(): ?string {
@@ -80,7 +80,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the associatedThreatIds property value. The list of threat identifiers associated with the incident.
+     * Gets the associatedThreatIds property value. The list of threat identifiers associated with the incident. Supports $filter.
      * @return array<string>|null
     */
     public function getAssociatedThreatIds(): ?array {
@@ -94,7 +94,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the categories property value. The incident categories.
+     * Gets the categories property value. The incident categories. Supports $filter.
      * @return array<string>|null
     */
     public function getCategories(): ?array {
@@ -120,7 +120,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the cloudScopes property value. The cloud scopes associated with the incident.
+     * Gets the cloudScopes property value. The cloud scopes associated with the incident. Supports $filter.
      * @return array<string>|null
     */
     public function getCloudScopes(): ?array {
@@ -134,7 +134,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the dataSensitivityLabels property value. The data sensitivity labels associated with the incident.
+     * Gets the dataSensitivityLabels property value. The data sensitivity labels associated with the incident. Supports $filter.
      * @return array<string>|null
     */
     public function getDataSensitivityLabels(): ?array {
@@ -148,7 +148,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the dataStreams property value. The data streams associated with the incident.
+     * Gets the dataStreams property value. The data streams associated with the incident. Supports $filter.
      * @return array<string>|null
     */
     public function getDataStreams(): ?array {
@@ -162,7 +162,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the detectionSources property value. The detection sources that identified the incident.
+     * Gets the detectionSources property value. The detection sources that identified the incident. Supports $filter.
      * @return array<string>|null
     */
     public function getDetectionSources(): ?array {
@@ -188,7 +188,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the dueDateTime property value. The target completion date and time for the incident case.
+     * Gets the dueDateTime property value. The target completion date and time for the incident case. Supports $filter.
      * @return DateTime|null
     */
     public function getDueDateTime(): ?DateTime {
@@ -200,7 +200,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the emailNotificationRecipients property value. The email notification recipients for the incident case.
+     * Gets the emailNotificationRecipients property value. The email notification recipients for the incident case. Supports $filter.
      * @return array<string>|null
     */
     public function getEmailNotificationRecipients(): ?array {
@@ -385,7 +385,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the firstEventTime property value. The date and time of the first event in the incident.
+     * Gets the firstEventTime property value. The date and time of the first event in the incident. Supports $filter.
      * @return DateTime|null
     */
     public function getFirstEventTime(): ?DateTime {
@@ -397,7 +397,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the impactedAssets property value. A summary of impacted asset counts for the incident.
+     * Gets the impactedAssets property value. A summary of impacted asset counts for the incident. Supports $filter.
      * @return ImpactedAssetsCounts|null
     */
     public function getImpactedAssets(): ?ImpactedAssetsCounts {
@@ -409,7 +409,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the incidentId property value. The Microsoft Security incident identifier.
+     * Gets the incidentId property value. The Microsoft Security incident identifier. Supports $filter.
      * @return int|null
     */
     public function getIncidentId(): ?int {
@@ -421,7 +421,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the incidentWebUrl property value. The URL for the incident in the Microsoft Defender portal.
+     * Gets the incidentWebUrl property value. The URL for the incident in the Microsoft Defender portal. Supports $filter.
      * @return string|null
     */
     public function getIncidentWebUrl(): ?string {
@@ -433,7 +433,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the investigation property value. A summary of investigation details associated with the incident.
+     * Gets the investigation property value. A summary of investigation details associated with the incident. Supports $filter.
      * @return Investigation|null
     */
     public function getInvestigation(): ?Investigation {
@@ -445,7 +445,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the investigationIds property value. The list of investigation identifiers associated with the incident.
+     * Gets the investigationIds property value. The list of investigation identifiers associated with the incident. Supports $filter.
      * @return array<string>|null
     */
     public function getInvestigationIds(): ?array {
@@ -459,7 +459,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the investigationStates property value. The list of investigation states associated with the incident.
+     * Gets the investigationStates property value. The list of investigation states associated with the incident. Supports $filter.
      * @return array<string>|null
     */
     public function getInvestigationStates(): ?array {
@@ -473,7 +473,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the lastEventTime property value. The date and time of the most recent event in the incident.
+     * Gets the lastEventTime property value. The date and time of the most recent event in the incident. Supports $filter.
      * @return DateTime|null
     */
     public function getLastEventTime(): ?DateTime {
@@ -485,7 +485,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the machineGroupIds property value. The list of machine group identifiers associated with the incident.
+     * Gets the machineGroupIds property value. The list of machine group identifiers associated with the incident. Supports $filter.
      * @return array<string>|null
     */
     public function getMachineGroupIds(): ?array {
@@ -499,7 +499,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the osPlatforms property value. The operating system platforms associated with the incident.
+     * Gets the osPlatforms property value. The operating system platforms associated with the incident. Supports $filter.
      * @return array<string>|null
     */
     public function getOsPlatforms(): ?array {
@@ -513,7 +513,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the policyNames property value. The policy names associated with the incident.
+     * Gets the policyNames property value. The policy names associated with the incident. Supports $filter.
      * @return array<string>|null
     */
     public function getPolicyNames(): ?array {
@@ -527,7 +527,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the priorityScore property value. The priority score assigned to the incident.
+     * Gets the priorityScore property value. The priority score assigned to the incident. Supports $filter.
      * @return int|null
     */
     public function getPriorityScore(): ?int {
@@ -539,7 +539,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the productNames property value. The product names associated with the incident.
+     * Gets the productNames property value. The product names associated with the incident. Supports $filter.
      * @return array<string>|null
     */
     public function getProductNames(): ?array {
@@ -553,7 +553,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the redirectCaseId property value. The case identifier to which this case redirects when merged.
+     * Gets the redirectCaseId property value. The redirectCaseId property
      * @return int|null
     */
     public function getRedirectCaseId(): ?int {
@@ -565,7 +565,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the redirectIncidentId property value. The incident identifier to which this incident redirects when merged.
+     * Gets the redirectIncidentId property value. The redirectIncidentId property
      * @return int|null
     */
     public function getRedirectIncidentId(): ?int {
@@ -577,7 +577,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the serviceSources property value. The service sources associated with the incident.
+     * Gets the serviceSources property value. The service sources associated with the incident. Supports $filter.
      * @return array<string>|null
     */
     public function getServiceSources(): ?array {
@@ -603,7 +603,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the summary property value. A summary of the incident.
+     * Gets the summary property value. A summary of the incident. Supports $filter.
      * @return string|null
     */
     public function getSummary(): ?string {
@@ -615,7 +615,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the systemTags property value. The system tags associated with the incident.
+     * Gets the systemTags property value. The system tags associated with the incident. Supports $filter.
      * @return array<string>|null
     */
     public function getSystemTags(): ?array {
@@ -629,7 +629,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the topRiskScore property value. The top risk score associated with the incident.
+     * Gets the topRiskScore property value. The top risk score associated with the incident. Supports $filter.
      * @return int|null
     */
     public function getTopRiskScore(): ?int {
@@ -641,7 +641,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the workspaceIds property value. The list of workspace identifiers associated with the incident.
+     * Gets the workspaceIds property value. The list of workspace identifiers associated with the incident. Supports $filter.
      * @return array<string>|null
     */
     public function getWorkspaceIds(): ?array {
@@ -698,7 +698,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the aiAgentIds property value. The list of AI agent identifiers associated with the incident.
+     * Sets the aiAgentIds property value. The list of AI agent identifiers associated with the incident. Supports $filter.
      * @param array<string>|null $value Value to set for the aiAgentIds property.
     */
     public function setAiAgentIds(?array $value): void {
@@ -706,7 +706,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the alertCounts property value. A summary of alert counts grouped by severity and status.
+     * Sets the alertCounts property value. A summary of alert counts grouped by severity and status. Supports $filter.
      * @param AlertCounts|null $value Value to set for the alertCounts property.
     */
     public function setAlertCounts(?AlertCounts $value): void {
@@ -714,7 +714,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the alertPolicyIds property value. The list of alert policy identifiers associated with the incident.
+     * Sets the alertPolicyIds property value. The list of alert policy identifiers associated with the incident. Supports $filter.
      * @param array<string>|null $value Value to set for the alertPolicyIds property.
     */
     public function setAlertPolicyIds(?array $value): void {
@@ -722,7 +722,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the assignedTo property value. The user assigned to investigate the incident case.
+     * Sets the assignedTo property value. The user assigned to investigate the incident case. Supports $filter and $orderby.
      * @param string|null $value Value to set for the assignedTo property.
     */
     public function setAssignedTo(?string $value): void {
@@ -730,7 +730,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the associatedThreatIds property value. The list of threat identifiers associated with the incident.
+     * Sets the associatedThreatIds property value. The list of threat identifiers associated with the incident. Supports $filter.
      * @param array<string>|null $value Value to set for the associatedThreatIds property.
     */
     public function setAssociatedThreatIds(?array $value): void {
@@ -738,7 +738,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the categories property value. The incident categories.
+     * Sets the categories property value. The incident categories. Supports $filter.
      * @param array<string>|null $value Value to set for the categories property.
     */
     public function setCategories(?array $value): void {
@@ -754,7 +754,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the cloudScopes property value. The cloud scopes associated with the incident.
+     * Sets the cloudScopes property value. The cloud scopes associated with the incident. Supports $filter.
      * @param array<string>|null $value Value to set for the cloudScopes property.
     */
     public function setCloudScopes(?array $value): void {
@@ -762,7 +762,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the dataSensitivityLabels property value. The data sensitivity labels associated with the incident.
+     * Sets the dataSensitivityLabels property value. The data sensitivity labels associated with the incident. Supports $filter.
      * @param array<string>|null $value Value to set for the dataSensitivityLabels property.
     */
     public function setDataSensitivityLabels(?array $value): void {
@@ -770,7 +770,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the dataStreams property value. The data streams associated with the incident.
+     * Sets the dataStreams property value. The data streams associated with the incident. Supports $filter.
      * @param array<string>|null $value Value to set for the dataStreams property.
     */
     public function setDataStreams(?array $value): void {
@@ -778,7 +778,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the detectionSources property value. The detection sources that identified the incident.
+     * Sets the detectionSources property value. The detection sources that identified the incident. Supports $filter.
      * @param array<string>|null $value Value to set for the detectionSources property.
     */
     public function setDetectionSources(?array $value): void {
@@ -794,7 +794,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the dueDateTime property value. The target completion date and time for the incident case.
+     * Sets the dueDateTime property value. The target completion date and time for the incident case. Supports $filter.
      * @param DateTime|null $value Value to set for the dueDateTime property.
     */
     public function setDueDateTime(?DateTime $value): void {
@@ -802,7 +802,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the emailNotificationRecipients property value. The email notification recipients for the incident case.
+     * Sets the emailNotificationRecipients property value. The email notification recipients for the incident case. Supports $filter.
      * @param array<string>|null $value Value to set for the emailNotificationRecipients property.
     */
     public function setEmailNotificationRecipients(?array $value): void {
@@ -810,7 +810,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the firstEventTime property value. The date and time of the first event in the incident.
+     * Sets the firstEventTime property value. The date and time of the first event in the incident. Supports $filter.
      * @param DateTime|null $value Value to set for the firstEventTime property.
     */
     public function setFirstEventTime(?DateTime $value): void {
@@ -818,7 +818,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the impactedAssets property value. A summary of impacted asset counts for the incident.
+     * Sets the impactedAssets property value. A summary of impacted asset counts for the incident. Supports $filter.
      * @param ImpactedAssetsCounts|null $value Value to set for the impactedAssets property.
     */
     public function setImpactedAssets(?ImpactedAssetsCounts $value): void {
@@ -826,7 +826,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the incidentId property value. The Microsoft Security incident identifier.
+     * Sets the incidentId property value. The Microsoft Security incident identifier. Supports $filter.
      * @param int|null $value Value to set for the incidentId property.
     */
     public function setIncidentId(?int $value): void {
@@ -834,7 +834,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the incidentWebUrl property value. The URL for the incident in the Microsoft Defender portal.
+     * Sets the incidentWebUrl property value. The URL for the incident in the Microsoft Defender portal. Supports $filter.
      * @param string|null $value Value to set for the incidentWebUrl property.
     */
     public function setIncidentWebUrl(?string $value): void {
@@ -842,7 +842,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the investigation property value. A summary of investigation details associated with the incident.
+     * Sets the investigation property value. A summary of investigation details associated with the incident. Supports $filter.
      * @param Investigation|null $value Value to set for the investigation property.
     */
     public function setInvestigation(?Investigation $value): void {
@@ -850,7 +850,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the investigationIds property value. The list of investigation identifiers associated with the incident.
+     * Sets the investigationIds property value. The list of investigation identifiers associated with the incident. Supports $filter.
      * @param array<string>|null $value Value to set for the investigationIds property.
     */
     public function setInvestigationIds(?array $value): void {
@@ -858,7 +858,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the investigationStates property value. The list of investigation states associated with the incident.
+     * Sets the investigationStates property value. The list of investigation states associated with the incident. Supports $filter.
      * @param array<string>|null $value Value to set for the investigationStates property.
     */
     public function setInvestigationStates(?array $value): void {
@@ -866,7 +866,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the lastEventTime property value. The date and time of the most recent event in the incident.
+     * Sets the lastEventTime property value. The date and time of the most recent event in the incident. Supports $filter.
      * @param DateTime|null $value Value to set for the lastEventTime property.
     */
     public function setLastEventTime(?DateTime $value): void {
@@ -874,7 +874,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the machineGroupIds property value. The list of machine group identifiers associated with the incident.
+     * Sets the machineGroupIds property value. The list of machine group identifiers associated with the incident. Supports $filter.
      * @param array<string>|null $value Value to set for the machineGroupIds property.
     */
     public function setMachineGroupIds(?array $value): void {
@@ -882,7 +882,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the osPlatforms property value. The operating system platforms associated with the incident.
+     * Sets the osPlatforms property value. The operating system platforms associated with the incident. Supports $filter.
      * @param array<string>|null $value Value to set for the osPlatforms property.
     */
     public function setOsPlatforms(?array $value): void {
@@ -890,7 +890,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the policyNames property value. The policy names associated with the incident.
+     * Sets the policyNames property value. The policy names associated with the incident. Supports $filter.
      * @param array<string>|null $value Value to set for the policyNames property.
     */
     public function setPolicyNames(?array $value): void {
@@ -898,7 +898,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the priorityScore property value. The priority score assigned to the incident.
+     * Sets the priorityScore property value. The priority score assigned to the incident. Supports $filter.
      * @param int|null $value Value to set for the priorityScore property.
     */
     public function setPriorityScore(?int $value): void {
@@ -906,7 +906,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the productNames property value. The product names associated with the incident.
+     * Sets the productNames property value. The product names associated with the incident. Supports $filter.
      * @param array<string>|null $value Value to set for the productNames property.
     */
     public function setProductNames(?array $value): void {
@@ -914,7 +914,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the redirectCaseId property value. The case identifier to which this case redirects when merged.
+     * Sets the redirectCaseId property value. The redirectCaseId property
      * @param int|null $value Value to set for the redirectCaseId property.
     */
     public function setRedirectCaseId(?int $value): void {
@@ -922,7 +922,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the redirectIncidentId property value. The incident identifier to which this incident redirects when merged.
+     * Sets the redirectIncidentId property value. The redirectIncidentId property
      * @param int|null $value Value to set for the redirectIncidentId property.
     */
     public function setRedirectIncidentId(?int $value): void {
@@ -930,7 +930,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the serviceSources property value. The service sources associated with the incident.
+     * Sets the serviceSources property value. The service sources associated with the incident. Supports $filter.
      * @param array<string>|null $value Value to set for the serviceSources property.
     */
     public function setServiceSources(?array $value): void {
@@ -946,7 +946,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the summary property value. A summary of the incident.
+     * Sets the summary property value. A summary of the incident. Supports $filter.
      * @param string|null $value Value to set for the summary property.
     */
     public function setSummary(?string $value): void {
@@ -954,7 +954,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the systemTags property value. The system tags associated with the incident.
+     * Sets the systemTags property value. The system tags associated with the incident. Supports $filter.
      * @param array<string>|null $value Value to set for the systemTags property.
     */
     public function setSystemTags(?array $value): void {
@@ -962,7 +962,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the topRiskScore property value. The top risk score associated with the incident.
+     * Sets the topRiskScore property value. The top risk score associated with the incident. Supports $filter.
      * @param int|null $value Value to set for the topRiskScore property.
     */
     public function setTopRiskScore(?int $value): void {
@@ -970,7 +970,7 @@ class IncidentCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the workspaceIds property value. The list of workspace identifiers associated with the incident.
+     * Sets the workspaceIds property value. The list of workspace identifiers associated with the incident. Supports $filter.
      * @param array<string>|null $value Value to set for the workspaceIds property.
     */
     public function setWorkspaceIds(?array $value): void {

@@ -72,6 +72,42 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
+     * Gets the categoryGroup property value. The categoryGroup property
+     * @return RecommendationCategoryGroup|null
+    */
+    public function getCategoryGroup(): ?RecommendationCategoryGroup {
+        $val = $this->getBackingStore()->get('categoryGroup');
+        if (is_null($val) || $val instanceof RecommendationCategoryGroup) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'categoryGroup'");
+    }
+
+    /**
+     * Gets the completedBySystemDateTime property value. The completedBySystemDateTime property
+     * @return DateTime|null
+    */
+    public function getCompletedBySystemDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('completedBySystemDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'completedBySystemDateTime'");
+    }
+
+    /**
+     * Gets the completedByUserDateTime property value. The completedByUserDateTime property
+     * @return DateTime|null
+    */
+    public function getCompletedByUserDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('completedByUserDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'completedByUserDateTime'");
+    }
+
+    /**
      * Gets the createdDateTime property value. The date and time when the recommendation was detected as applicable to your directory.
      * @return DateTime|null
     */
@@ -108,6 +144,18 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
+     * Gets the failedReviewDateTime property value. The failedReviewDateTime property
+     * @return DateTime|null
+    */
+    public function getFailedReviewDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('failedReviewDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'failedReviewDateTime'");
+    }
+
+    /**
      * Gets the featureAreas property value. The directory feature that the recommendation is related to.
      * @return array<RecommendationFeatureAreas>|null
     */
@@ -131,9 +179,13 @@ class RecommendationBase extends Entity implements Parsable
             'actionSteps' => fn(ParseNode $n) => $o->setActionSteps($n->getCollectionOfObjectValues([ActionStep::class, 'createFromDiscriminatorValue'])),
             'benefits' => fn(ParseNode $n) => $o->setBenefits($n->getStringValue()),
             'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(RecommendationCategory::class)),
+            'categoryGroup' => fn(ParseNode $n) => $o->setCategoryGroup($n->getEnumValue(RecommendationCategoryGroup::class)),
+            'completedBySystemDateTime' => fn(ParseNode $n) => $o->setCompletedBySystemDateTime($n->getDateTimeValue()),
+            'completedByUserDateTime' => fn(ParseNode $n) => $o->setCompletedByUserDateTime($n->getDateTimeValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'currentScore' => fn(ParseNode $n) => $o->setCurrentScore($n->getFloatValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'failedReviewDateTime' => fn(ParseNode $n) => $o->setFailedReviewDateTime($n->getDateTimeValue()),
             'featureAreas' => fn(ParseNode $n) => $o->setFeatureAreas($n->getCollectionOfEnumValues(RecommendationFeatureAreas::class)),
             'impactedResources' => fn(ParseNode $n) => $o->setImpactedResources($n->getCollectionOfObjectValues([ImpactedResource::class, 'createFromDiscriminatorValue'])),
             'impactStartDateTime' => fn(ParseNode $n) => $o->setImpactStartDateTime($n->getDateTimeValue()),
@@ -143,13 +195,18 @@ class RecommendationBase extends Entity implements Parsable
             'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'maxScore' => fn(ParseNode $n) => $o->setMaxScore($n->getFloatValue()),
+            'needsMoreActionResourceCount' => fn(ParseNode $n) => $o->setNeedsMoreActionResourceCount($n->getIntegerValue()),
+            'nistClassifications' => fn(ParseNode $n) => $o->setNistClassifications($n->getCollectionOfObjectValues([NistClassification::class, 'createFromDiscriminatorValue'])),
             'postponeUntilDateTime' => fn(ParseNode $n) => $o->setPostponeUntilDateTime($n->getDateTimeValue()),
             'priority' => fn(ParseNode $n) => $o->setPriority($n->getEnumValue(RecommendationPriority::class)),
             'recommendationType' => fn(ParseNode $n) => $o->setRecommendationType($n->getEnumValue(RecommendationType::class)),
             'releaseType' => fn(ParseNode $n) => $o->setReleaseType($n->getStringValue()),
+            'remediatedDateTime' => fn(ParseNode $n) => $o->setRemediatedDateTime($n->getDateTimeValue()),
             'remediationImpact' => fn(ParseNode $n) => $o->setRemediationImpact($n->getStringValue()),
             'requiredLicenses' => fn(ParseNode $n) => $o->setRequiredLicenses($n->getEnumValue(RequiredLicenses::class)),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(RecommendationStatus::class)),
+            'statusModifiedDateTime' => fn(ParseNode $n) => $o->setStatusModifiedDateTime($n->getDateTimeValue()),
+            'tags' => fn(ParseNode $n) => $o->setTags($n->getCollectionOfObjectValues([RecommendationTag::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -252,6 +309,32 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
+     * Gets the needsMoreActionResourceCount property value. The needsMoreActionResourceCount property
+     * @return int|null
+    */
+    public function getNeedsMoreActionResourceCount(): ?int {
+        $val = $this->getBackingStore()->get('needsMoreActionResourceCount');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'needsMoreActionResourceCount'");
+    }
+
+    /**
+     * Gets the nistClassifications property value. The nistClassifications property
+     * @return array<NistClassification>|null
+    */
+    public function getNistClassifications(): ?array {
+        $val = $this->getBackingStore()->get('nistClassifications');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, NistClassification::class);
+            /** @var array<NistClassification>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'nistClassifications'");
+    }
+
+    /**
      * Gets the postponeUntilDateTime property value. The future date and time when the status of a postponed recommendation will be active again.
      * @return DateTime|null
     */
@@ -300,6 +383,18 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
+     * Gets the remediatedDateTime property value. The remediatedDateTime property
+     * @return DateTime|null
+    */
+    public function getRemediatedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('remediatedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'remediatedDateTime'");
+    }
+
+    /**
      * Gets the remediationImpact property value. Description of the impact on users of the remediation. Only applies to recommendations with category set to identitySecureScore.
      * @return string|null
     */
@@ -336,6 +431,32 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
+     * Gets the statusModifiedDateTime property value. The statusModifiedDateTime property
+     * @return DateTime|null
+    */
+    public function getStatusModifiedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('statusModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'statusModifiedDateTime'");
+    }
+
+    /**
+     * Gets the tags property value. The tags property
+     * @return array<RecommendationTag>|null
+    */
+    public function getTags(): ?array {
+        $val = $this->getBackingStore()->get('tags');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, RecommendationTag::class);
+            /** @var array<RecommendationTag>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tags'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -344,9 +465,13 @@ class RecommendationBase extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('actionSteps', $this->getActionSteps());
         $writer->writeStringValue('benefits', $this->getBenefits());
         $writer->writeEnumValue('category', $this->getCategory());
+        $writer->writeEnumValue('categoryGroup', $this->getCategoryGroup());
+        $writer->writeDateTimeValue('completedBySystemDateTime', $this->getCompletedBySystemDateTime());
+        $writer->writeDateTimeValue('completedByUserDateTime', $this->getCompletedByUserDateTime());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeFloatValue('currentScore', $this->getCurrentScore());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('failedReviewDateTime', $this->getFailedReviewDateTime());
         $writer->writeCollectionOfEnumValues('featureAreas', $this->getFeatureAreas());
         $writer->writeCollectionOfObjectValues('impactedResources', $this->getImpactedResources());
         $writer->writeDateTimeValue('impactStartDateTime', $this->getImpactStartDateTime());
@@ -356,13 +481,18 @@ class RecommendationBase extends Entity implements Parsable
         $writer->writeStringValue('lastModifiedBy', $this->getLastModifiedBy());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeFloatValue('maxScore', $this->getMaxScore());
+        $writer->writeIntegerValue('needsMoreActionResourceCount', $this->getNeedsMoreActionResourceCount());
+        $writer->writeCollectionOfObjectValues('nistClassifications', $this->getNistClassifications());
         $writer->writeDateTimeValue('postponeUntilDateTime', $this->getPostponeUntilDateTime());
         $writer->writeEnumValue('priority', $this->getPriority());
         $writer->writeEnumValue('recommendationType', $this->getRecommendationType());
         $writer->writeStringValue('releaseType', $this->getReleaseType());
+        $writer->writeDateTimeValue('remediatedDateTime', $this->getRemediatedDateTime());
         $writer->writeStringValue('remediationImpact', $this->getRemediationImpact());
         $writer->writeEnumValue('requiredLicenses', $this->getRequiredLicenses());
         $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeDateTimeValue('statusModifiedDateTime', $this->getStatusModifiedDateTime());
+        $writer->writeCollectionOfObjectValues('tags', $this->getTags());
     }
 
     /**
@@ -390,6 +520,30 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
+     * Sets the categoryGroup property value. The categoryGroup property
+     * @param RecommendationCategoryGroup|null $value Value to set for the categoryGroup property.
+    */
+    public function setCategoryGroup(?RecommendationCategoryGroup $value): void {
+        $this->getBackingStore()->set('categoryGroup', $value);
+    }
+
+    /**
+     * Sets the completedBySystemDateTime property value. The completedBySystemDateTime property
+     * @param DateTime|null $value Value to set for the completedBySystemDateTime property.
+    */
+    public function setCompletedBySystemDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('completedBySystemDateTime', $value);
+    }
+
+    /**
+     * Sets the completedByUserDateTime property value. The completedByUserDateTime property
+     * @param DateTime|null $value Value to set for the completedByUserDateTime property.
+    */
+    public function setCompletedByUserDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('completedByUserDateTime', $value);
+    }
+
+    /**
      * Sets the createdDateTime property value. The date and time when the recommendation was detected as applicable to your directory.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
@@ -411,6 +565,14 @@ class RecommendationBase extends Entity implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the failedReviewDateTime property value. The failedReviewDateTime property
+     * @param DateTime|null $value Value to set for the failedReviewDateTime property.
+    */
+    public function setFailedReviewDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('failedReviewDateTime', $value);
     }
 
     /**
@@ -486,6 +648,22 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
+     * Sets the needsMoreActionResourceCount property value. The needsMoreActionResourceCount property
+     * @param int|null $value Value to set for the needsMoreActionResourceCount property.
+    */
+    public function setNeedsMoreActionResourceCount(?int $value): void {
+        $this->getBackingStore()->set('needsMoreActionResourceCount', $value);
+    }
+
+    /**
+     * Sets the nistClassifications property value. The nistClassifications property
+     * @param array<NistClassification>|null $value Value to set for the nistClassifications property.
+    */
+    public function setNistClassifications(?array $value): void {
+        $this->getBackingStore()->set('nistClassifications', $value);
+    }
+
+    /**
      * Sets the postponeUntilDateTime property value. The future date and time when the status of a postponed recommendation will be active again.
      * @param DateTime|null $value Value to set for the postponeUntilDateTime property.
     */
@@ -518,6 +696,14 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
+     * Sets the remediatedDateTime property value. The remediatedDateTime property
+     * @param DateTime|null $value Value to set for the remediatedDateTime property.
+    */
+    public function setRemediatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('remediatedDateTime', $value);
+    }
+
+    /**
      * Sets the remediationImpact property value. Description of the impact on users of the remediation. Only applies to recommendations with category set to identitySecureScore.
      * @param string|null $value Value to set for the remediationImpact property.
     */
@@ -539,6 +725,22 @@ class RecommendationBase extends Entity implements Parsable
     */
     public function setStatus(?RecommendationStatus $value): void {
         $this->getBackingStore()->set('status', $value);
+    }
+
+    /**
+     * Sets the statusModifiedDateTime property value. The statusModifiedDateTime property
+     * @param DateTime|null $value Value to set for the statusModifiedDateTime property.
+    */
+    public function setStatusModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('statusModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the tags property value. The tags property
+     * @param array<RecommendationTag>|null $value Value to set for the tags property.
+    */
+    public function setTags(?array $value): void {
+        $this->getBackingStore()->set('tags', $value);
     }
 
 }

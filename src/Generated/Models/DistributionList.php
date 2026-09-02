@@ -46,7 +46,7 @@ class DistributionList extends OutlookItem implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
-            'members' => fn(ParseNode $n) => $o->setMembers($n->getCollectionOfObjectValues([Member::class, 'createFromDiscriminatorValue'])),
+            'members' => fn(ParseNode $n) => $o->setMembers($n->getCollectionOfObjectValues([DistributionListMember::class, 'createFromDiscriminatorValue'])),
             'notes' => fn(ParseNode $n) => $o->setNotes($n->getStringValue()),
             'personIdentifier' => fn(ParseNode $n) => $o->setPersonIdentifier($n->getStringValue()),
             'singleValueExtendedProperties' => fn(ParseNode $n) => $o->setSingleValueExtendedProperties($n->getCollectionOfObjectValues([SingleValueLegacyExtendedProperty::class, 'createFromDiscriminatorValue'])),
@@ -54,14 +54,14 @@ class DistributionList extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the members property value. The members property
-     * @return array<Member>|null
+     * Gets the members property value. The members of the distribution list. Not returned by default; use $expand=members to include. Read-only.
+     * @return array<DistributionListMember>|null
     */
     public function getMembers(): ?array {
         $val = $this->getBackingStore()->get('members');
         if (is_array($val) || is_null($val)) {
-            TypeUtils::validateCollectionValues($val, Member::class);
-            /** @var array<Member>|null $val */
+            TypeUtils::validateCollectionValues($val, DistributionListMember::class);
+            /** @var array<DistributionListMember>|null $val */
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'members'");
@@ -127,8 +127,8 @@ class DistributionList extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the members property value. The members property
-     * @param array<Member>|null $value Value to set for the members property.
+     * Sets the members property value. The members of the distribution list. Not returned by default; use $expand=members to include. Read-only.
+     * @param array<DistributionListMember>|null $value Value to set for the members property.
     */
     public function setMembers(?array $value): void {
         $this->getBackingStore()->set('members', $value);

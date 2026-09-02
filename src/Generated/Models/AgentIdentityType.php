@@ -10,4 +10,5 @@ class AgentIdentityType extends Enum {
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
     public const AGENT_IDENTITY_BLUEPRINT_PRINCIPAL = "agentIdentityBlueprintPrincipal";
     public const USER = "user";
+    public const DISCOVERED_AGENT_IDENTITY = "discoveredAgentIdentity";
 }

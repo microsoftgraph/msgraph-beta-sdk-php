@@ -132,6 +132,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
             'isAccessibleViaZTNAClient' => fn(ParseNode $n) => $o->setIsAccessibleViaZTNAClient($n->getBooleanValue()),
             'isBackendCertificateValidationEnabled' => fn(ParseNode $n) => $o->setIsBackendCertificateValidationEnabled($n->getBooleanValue()),
             'isContinuousAccessEvaluationEnabled' => fn(ParseNode $n) => $o->setIsContinuousAccessEvaluationEnabled($n->getBooleanValue()),
+            'isDeviceAccessEnabled' => fn(ParseNode $n) => $o->setIsDeviceAccessEnabled($n->getBooleanValue()),
             'isDnsResolutionEnabled' => fn(ParseNode $n) => $o->setIsDnsResolutionEnabled($n->getBooleanValue()),
             'isHttpOnlyCookieEnabled' => fn(ParseNode $n) => $o->setIsHttpOnlyCookieEnabled($n->getBooleanValue()),
             'isOnPremPublishingEnabled' => fn(ParseNode $n) => $o->setIsOnPremPublishingEnabled($n->getBooleanValue()),
@@ -201,6 +202,18 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isContinuousAccessEvaluationEnabled'");
+    }
+
+    /**
+     * Gets the isDeviceAccessEnabled property value. The isDeviceAccessEnabled property
+     * @return bool|null
+    */
+    public function getIsDeviceAccessEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isDeviceAccessEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDeviceAccessEnabled'");
     }
 
     /**
@@ -461,6 +474,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
         $writer->writeBooleanValue('isAccessibleViaZTNAClient', $this->getIsAccessibleViaZTNAClient());
         $writer->writeBooleanValue('isBackendCertificateValidationEnabled', $this->getIsBackendCertificateValidationEnabled());
         $writer->writeBooleanValue('isContinuousAccessEvaluationEnabled', $this->getIsContinuousAccessEvaluationEnabled());
+        $writer->writeBooleanValue('isDeviceAccessEnabled', $this->getIsDeviceAccessEnabled());
         $writer->writeBooleanValue('isDnsResolutionEnabled', $this->getIsDnsResolutionEnabled());
         $writer->writeBooleanValue('isHttpOnlyCookieEnabled', $this->getIsHttpOnlyCookieEnabled());
         $writer->writeBooleanValue('isOnPremPublishingEnabled', $this->getIsOnPremPublishingEnabled());
@@ -570,6 +584,14 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     */
     public function setIsContinuousAccessEvaluationEnabled(?bool $value): void {
         $this->getBackingStore()->set('isContinuousAccessEvaluationEnabled', $value);
+    }
+
+    /**
+     * Sets the isDeviceAccessEnabled property value. The isDeviceAccessEnabled property
+     * @param bool|null $value Value to set for the isDeviceAccessEnabled property.
+    */
+    public function setIsDeviceAccessEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isDeviceAccessEnabled', $value);
     }
 
     /**

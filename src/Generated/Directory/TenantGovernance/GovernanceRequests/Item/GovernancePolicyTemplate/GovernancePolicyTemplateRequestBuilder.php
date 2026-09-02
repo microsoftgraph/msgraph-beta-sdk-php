@@ -5,14 +5,14 @@ namespace Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\GovernanceRe
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\GovernancePolicyTemplate;
+use Microsoft\Graph\Beta\Generated\Models\TenantGovernancePolicyTemplate;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
 
 /**
- * Provides operations to manage the governancePolicyTemplate property of the microsoft.graph.tenantGovernanceServices.governanceRequest entity.
+ * Provides operations to manage the governancePolicyTemplate property of the microsoft.graph.governanceRequest entity.
 */
 class GovernancePolicyTemplateRequestBuilder extends BaseRequestBuilder 
 {
@@ -31,9 +31,9 @@ class GovernancePolicyTemplateRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The governance policy template associated with this request.
+     * Get governancePolicyTemplate from directory
      * @param GovernancePolicyTemplateRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<GovernancePolicyTemplate|null>
+     * @return Promise<TenantGovernancePolicyTemplate|null>
      * @throws Exception
     */
     public function get(?GovernancePolicyTemplateRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
@@ -41,11 +41,11 @@ class GovernancePolicyTemplateRequestBuilder extends BaseRequestBuilder
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        return $this->requestAdapter->sendAsync($requestInfo, [GovernancePolicyTemplate::class, 'createFromDiscriminatorValue'], $errorMappings);
+        return $this->requestAdapter->sendAsync($requestInfo, [TenantGovernancePolicyTemplate::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
-     * The governance policy template associated with this request.
+     * Get governancePolicyTemplate from directory
      * @param GovernancePolicyTemplateRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

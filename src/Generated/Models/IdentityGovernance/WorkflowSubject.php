@@ -35,6 +35,7 @@ class WorkflowSubject implements AdditionalDataHolder, BackedModel, Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.identityGovernance.directoryObjectWorkflowSubject': return new DirectoryObjectWorkflowSubject();
                 case '#microsoft.graph.identityGovernance.provisioningObjectWorkflowSubject': return new ProvisioningObjectWorkflowSubject();
             }
         }

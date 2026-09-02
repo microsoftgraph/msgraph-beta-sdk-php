@@ -64,7 +64,7 @@ class EscapedCase extends CaseManagementEntity implements Parsable
     }
 
     /**
-     * Gets the customFields property value. Tenant-defined custom field values keyed by custom field identifier.
+     * Gets the customFields property value. Tenant-defined custom field values keyed by the exact displayName of each custom field definition. The property and its dynamic fields don't support $filter.
      * @return CustomFieldValues|null
     */
     public function getCustomFields(): ?CustomFieldValues {
@@ -76,7 +76,7 @@ class EscapedCase extends CaseManagementEntity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The display name of the case. Supports $filter (eq, ne) and $orderby.
+     * Gets the displayName property value. The display name of the case. Supports $filter and $orderby.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -119,7 +119,7 @@ class EscapedCase extends CaseManagementEntity implements Parsable
     }
 
     /**
-     * Gets the status property value. The lifecycle status of the case, such as open, in progress, or closed. Supports $filter (eq, ne) and $orderby.
+     * Gets the status property value. The tenant-defined lifecycle status of the case. Use a displayName value returned in the status tree by List statuses from /security/caseManagement/caseTypeConfigurations/genericCase/statuses or /security/caseManagement/caseTypeConfigurations/incidentCase/statuses, depending on the case type. Supports $filter (eq).
      * @return string|null
     */
     public function getStatus(): ?string {
@@ -176,7 +176,7 @@ class EscapedCase extends CaseManagementEntity implements Parsable
     }
 
     /**
-     * Sets the customFields property value. Tenant-defined custom field values keyed by custom field identifier.
+     * Sets the customFields property value. Tenant-defined custom field values keyed by the exact displayName of each custom field definition. The property and its dynamic fields don't support $filter.
      * @param CustomFieldValues|null $value Value to set for the customFields property.
     */
     public function setCustomFields(?CustomFieldValues $value): void {
@@ -184,7 +184,7 @@ class EscapedCase extends CaseManagementEntity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The display name of the case. Supports $filter (eq, ne) and $orderby.
+     * Sets the displayName property value. The display name of the case. Supports $filter and $orderby.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -200,7 +200,7 @@ class EscapedCase extends CaseManagementEntity implements Parsable
     }
 
     /**
-     * Sets the status property value. The lifecycle status of the case, such as open, in progress, or closed. Supports $filter (eq, ne) and $orderby.
+     * Sets the status property value. The tenant-defined lifecycle status of the case. Use a displayName value returned in the status tree by List statuses from /security/caseManagement/caseTypeConfigurations/genericCase/statuses or /security/caseManagement/caseTypeConfigurations/incidentCase/statuses, depending on the case type. Supports $filter (eq).
      * @param string|null $value Value to set for the status property.
     */
     public function setStatus(?string $value): void {

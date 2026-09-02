@@ -2,8 +2,11 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\AllExcludingGroupsSubjectSet;
+use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\AllExcludingSpecificObjectsSubjectSet;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\GroupBasedSubjectSet;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\RuleBasedSubjectSet;
+use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\SelectedObjectsSubjectSet;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -37,8 +40,11 @@ class SubjectSet implements AdditionalDataHolder, BackedModel, Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.identityGovernance.allExcludingGroupsSubjectSet': return new AllExcludingGroupsSubjectSet();
+                case '#microsoft.graph.identityGovernance.allExcludingSpecificObjectsSubjectSet': return new AllExcludingSpecificObjectsSubjectSet();
                 case '#microsoft.graph.identityGovernance.groupBasedSubjectSet': return new GroupBasedSubjectSet();
                 case '#microsoft.graph.identityGovernance.ruleBasedSubjectSet': return new RuleBasedSubjectSet();
+                case '#microsoft.graph.identityGovernance.selectedObjectsSubjectSet': return new SelectedObjectsSubjectSet();
             }
         }
         return new SubjectSet();

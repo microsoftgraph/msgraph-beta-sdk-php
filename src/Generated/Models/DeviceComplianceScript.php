@@ -163,7 +163,7 @@ class DeviceComplianceScript extends Entity implements Parsable
     }
 
     /**
-     * Gets the platform property value. Indicates the operating system platform type that this compliance script targets.
+     * Gets the platform property value. Indicates the device platform on which the device compliance script will be executed. Possible values are: windows10AndLater (default), linux. The default value is windows10AndLater.
      * @return DeviceComplianceScriptPlatformType|null
     */
     public function getPlatform(): ?DeviceComplianceScriptPlatformType {
@@ -334,7 +334,7 @@ class DeviceComplianceScript extends Entity implements Parsable
     }
 
     /**
-     * Sets the platform property value. Indicates the operating system platform type that this compliance script targets.
+     * Sets the platform property value. Indicates the device platform on which the device compliance script will be executed. Possible values are: windows10AndLater (default), linux. The default value is windows10AndLater.
      * @param DeviceComplianceScriptPlatformType|null $value Value to set for the platform property.
     */
     public function setPlatform(?DeviceComplianceScriptPlatformType $value): void {

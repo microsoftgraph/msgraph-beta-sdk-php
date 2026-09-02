@@ -27,7 +27,7 @@ class GenericCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the assignedTo property value. The user assigned to the generic case.
+     * Gets the assignedTo property value. The user assigned to the generic case. Supports $filter and $orderby.
      * @return string|null
     */
     public function getAssignedTo(): ?string {
@@ -39,7 +39,7 @@ class GenericCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the closingNotes property value. Notes recorded when the generic case is closed.
+     * Gets the closingNotes property value. Notes recorded when the generic case is closed. Supports $filter.
      * @return string|null
     */
     public function getClosingNotes(): ?string {
@@ -51,7 +51,7 @@ class GenericCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the description property value. The description of the generic case.
+     * Gets the description property value. The description of the generic case. Supports $filter.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -63,7 +63,7 @@ class GenericCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the dueDateTime property value. The target completion date and time for the generic case.
+     * Gets the dueDateTime property value. The target completion date and time for the generic case. Supports $filter.
      * @return DateTime|null
     */
     public function getDueDateTime(): ?DateTime {
@@ -90,7 +90,7 @@ class GenericCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Gets the priority property value. The priority assigned to the generic case.
+     * Gets the priority property value. The priority assigned to the generic case. Possible values are: veryLow, low, medium, high, and critical. Supports $filter.
      * @return string|null
     */
     public function getPriority(): ?string {
@@ -115,7 +115,7 @@ class GenericCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the assignedTo property value. The user assigned to the generic case.
+     * Sets the assignedTo property value. The user assigned to the generic case. Supports $filter and $orderby.
      * @param string|null $value Value to set for the assignedTo property.
     */
     public function setAssignedTo(?string $value): void {
@@ -123,7 +123,7 @@ class GenericCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the closingNotes property value. Notes recorded when the generic case is closed.
+     * Sets the closingNotes property value. Notes recorded when the generic case is closed. Supports $filter.
      * @param string|null $value Value to set for the closingNotes property.
     */
     public function setClosingNotes(?string $value): void {
@@ -131,7 +131,7 @@ class GenericCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the description property value. The description of the generic case.
+     * Sets the description property value. The description of the generic case. Supports $filter.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -139,7 +139,7 @@ class GenericCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the dueDateTime property value. The target completion date and time for the generic case.
+     * Sets the dueDateTime property value. The target completion date and time for the generic case. Supports $filter.
      * @param DateTime|null $value Value to set for the dueDateTime property.
     */
     public function setDueDateTime(?DateTime $value): void {
@@ -147,7 +147,7 @@ class GenericCase extends EscapedCase implements Parsable
     }
 
     /**
-     * Sets the priority property value. The priority assigned to the generic case.
+     * Sets the priority property value. The priority assigned to the generic case. Possible values are: veryLow, low, medium, high, and critical. Supports $filter.
      * @param string|null $value Value to set for the priority property.
     */
     public function setPriority(?string $value): void {

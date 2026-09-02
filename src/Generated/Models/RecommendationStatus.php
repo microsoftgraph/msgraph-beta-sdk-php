@@ -15,4 +15,5 @@ class RecommendationStatus extends Enum {
     public const THIRD_PARTY = "thirdParty";
     public const PLANNED = "planned";
     public const ALTERNATE_MITIGATION = "alternateMitigation";
+    public const NEEDS_MORE_ACTION = "needsMoreAction";
 }

@@ -64,12 +64,12 @@ class DeleteMembersPostRequestBody implements AdditionalDataHolder, BackedModel,
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'members' => fn(ParseNode $n) => $o->setMembers($n->getCollectionOfObjectValues([Member::class, 'createFromDiscriminatorValue'])),
+            'Members' => fn(ParseNode $n) => $o->setMembers($n->getCollectionOfObjectValues([Member::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
     /**
-     * Gets the members property value. The members property
+     * Gets the Members property value. The Members property
      * @return array<Member>|null
     */
     public function getMembers(): ?array {
@@ -87,7 +87,7 @@ class DeleteMembersPostRequestBody implements AdditionalDataHolder, BackedModel,
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfObjectValues('members', $this->getMembers());
+        $writer->writeCollectionOfObjectValues('Members', $this->getMembers());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -108,8 +108,8 @@ class DeleteMembersPostRequestBody implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Sets the members property value. The members property
-     * @param array<Member>|null $value Value to set for the members property.
+     * Sets the Members property value. The Members property
+     * @param array<Member>|null $value Value to set for the Members property.
     */
     public function setMembers(?array $value): void {
         $this->getBackingStore()->set('members', $value);

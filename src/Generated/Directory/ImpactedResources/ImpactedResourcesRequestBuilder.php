@@ -4,8 +4,10 @@ namespace Microsoft\Graph\Beta\Generated\Directory\ImpactedResources;
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Directory\ImpactedResources\AddTag\AddTagRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\ImpactedResources\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\ImpactedResources\Item\ImpactedResourceItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\ImpactedResources\RemoveTag\RemoveTagRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ImpactedResource;
 use Microsoft\Graph\Beta\Generated\Models\ImpactedResourceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -20,10 +22,24 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 class ImpactedResourcesRequestBuilder extends BaseRequestBuilder 
 {
     /**
+     * Provides operations to call the addTag method.
+    */
+    public function addTag(): AddTagRequestBuilder {
+        return new AddTagRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the removeTag method.
+    */
+    public function removeTag(): RemoveTagRequestBuilder {
+        return new RemoveTagRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

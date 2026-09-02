@@ -26,6 +26,7 @@ class RiskyAgent extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.riskyAgentDiscoveredAgentIdentity': return new RiskyAgentDiscoveredAgentIdentity();
                 case '#microsoft.graph.riskyAgentIdentity': return new RiskyAgentIdentity();
                 case '#microsoft.graph.riskyAgentIdentityBlueprintPrincipal': return new RiskyAgentIdentityBlueprintPrincipal();
                 case '#microsoft.graph.riskyAgentUser': return new RiskyAgentUser();

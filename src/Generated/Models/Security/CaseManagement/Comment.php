@@ -37,7 +37,7 @@ class Comment extends Activity implements Parsable
     }
 
     /**
-     * Gets the message property value. The comment body.
+     * Gets the message property value. The comment body. Supports $filter.
      * @return string|null
     */
     public function getMessage(): ?string {
@@ -58,7 +58,7 @@ class Comment extends Activity implements Parsable
     }
 
     /**
-     * Sets the message property value. The comment body.
+     * Sets the message property value. The comment body. Supports $filter.
      * @param string|null $value Value to set for the message property.
     */
     public function setMessage(?string $value): void {

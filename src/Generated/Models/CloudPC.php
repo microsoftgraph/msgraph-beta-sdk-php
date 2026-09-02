@@ -167,6 +167,7 @@ class CloudPC extends Entity implements Parsable
             'powerState' => fn(ParseNode $n) => $o->setPowerState($n->getEnumValue(CloudPcPowerState::class)),
             'productType' => fn(ParseNode $n) => $o->setProductType($n->getEnumValue(CloudPcProductType::class)),
             'provisionedDateTime' => fn(ParseNode $n) => $o->setProvisionedDateTime($n->getDateTimeValue()),
+            'provisioningConfiguration' => fn(ParseNode $n) => $o->setProvisioningConfiguration($n->getObjectValue([CloudPcProvisioningConfiguration::class, 'createFromDiscriminatorValue'])),
             'provisioningPolicyId' => fn(ParseNode $n) => $o->setProvisioningPolicyId($n->getStringValue()),
             'provisioningPolicyName' => fn(ParseNode $n) => $o->setProvisioningPolicyName($n->getStringValue()),
             'provisioningType' => fn(ParseNode $n) => $o->setProvisioningType($n->getEnumValue(CloudPcProvisioningType::class)),
@@ -399,6 +400,18 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
+     * Gets the provisioningConfiguration property value. The provisioningConfiguration property
+     * @return CloudPcProvisioningConfiguration|null
+    */
+    public function getProvisioningConfiguration(): ?CloudPcProvisioningConfiguration {
+        $val = $this->getBackingStore()->get('provisioningConfiguration');
+        if (is_null($val) || $val instanceof CloudPcProvisioningConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'provisioningConfiguration'");
+    }
+
+    /**
      * Gets the provisioningPolicyId property value. The provisioning policy ID of the Cloud PC.
      * @return string|null
     */
@@ -612,6 +625,7 @@ class CloudPC extends Entity implements Parsable
         $writer->writeEnumValue('powerState', $this->getPowerState());
         $writer->writeEnumValue('productType', $this->getProductType());
         $writer->writeDateTimeValue('provisionedDateTime', $this->getProvisionedDateTime());
+        $writer->writeObjectValue('provisioningConfiguration', $this->getProvisioningConfiguration());
         $writer->writeStringValue('provisioningPolicyId', $this->getProvisioningPolicyId());
         $writer->writeStringValue('provisioningPolicyName', $this->getProvisioningPolicyName());
         $writer->writeEnumValue('provisioningType', $this->getProvisioningType());
@@ -835,6 +849,14 @@ class CloudPC extends Entity implements Parsable
     */
     public function setProvisionedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('provisionedDateTime', $value);
+    }
+
+    /**
+     * Sets the provisioningConfiguration property value. The provisioningConfiguration property
+     * @param CloudPcProvisioningConfiguration|null $value Value to set for the provisioningConfiguration property.
+    */
+    public function setProvisioningConfiguration(?CloudPcProvisioningConfiguration $value): void {
+        $this->getBackingStore()->set('provisioningConfiguration', $value);
     }
 
     /**
