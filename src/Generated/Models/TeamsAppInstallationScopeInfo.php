@@ -89,7 +89,7 @@ class TeamsAppInstallationScopeInfo implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the scope property value. The scope property
+     * Gets the scope property value. The scope in which the Teams app is installed. The possible values are: team, groupChat, personal, unknownFutureValue.
      * @return TeamsAppInstallationScopes|null
     */
     public function getScope(): ?TeamsAppInstallationScopes {
@@ -135,7 +135,7 @@ class TeamsAppInstallationScopeInfo implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the scope property value. The scope property
+     * Sets the scope property value. The scope in which the Teams app is installed. The possible values are: team, groupChat, personal, unknownFutureValue.
      * @param TeamsAppInstallationScopes|null $value Value to set for the scope property.
     */
     public function setScope(?TeamsAppInstallationScopes $value): void {

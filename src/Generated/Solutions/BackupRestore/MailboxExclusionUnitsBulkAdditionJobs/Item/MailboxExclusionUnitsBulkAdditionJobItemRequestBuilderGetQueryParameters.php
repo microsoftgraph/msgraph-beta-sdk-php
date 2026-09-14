@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\MailboxExclusio
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get mailboxExclusionUnitsBulkAdditionJobs from solutions
+ * The list of bulk addition jobs for mailbox exclusion units in the tenant.
 */
 class MailboxExclusionUnitsBulkAdditionJobItemRequestBuilderGetQueryParameters 
 {

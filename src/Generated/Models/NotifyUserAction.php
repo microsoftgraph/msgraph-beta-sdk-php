@@ -8,7 +8,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
-class NotifyUserAction extends DlpActionInfo implements Parsable 
+class NotifyUserAction extends PolicyTipAction implements Parsable 
 {
     /**
      * Instantiates a new NotifyUserAction and sets the default values.
@@ -59,7 +59,6 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'actionLastModifiedDateTime' => fn(ParseNode $n) => $o->setActionLastModifiedDateTime($n->getDateTimeValue()),
             'emailText' => fn(ParseNode $n) => $o->setEmailText($n->getStringValue()),
-            'policyTip' => fn(ParseNode $n) => $o->setPolicyTip($n->getStringValue()),
             'recipients' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -69,18 +68,6 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
                 $this->setRecipients($val);
             },
         ]);
-    }
-
-    /**
-     * Gets the policyTip property value. The text of the policy tip displayed to the user within the application (For example, Outlook, Word).
-     * @return string|null
-    */
-    public function getPolicyTip(): ?string {
-        $val = $this->getBackingStore()->get('policyTip');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyTip'");
     }
 
     /**
@@ -105,7 +92,6 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
         parent::serialize($writer);
         $writer->writeDateTimeValue('actionLastModifiedDateTime', $this->getActionLastModifiedDateTime());
         $writer->writeStringValue('emailText', $this->getEmailText());
-        $writer->writeStringValue('policyTip', $this->getPolicyTip());
         $writer->writeCollectionOfPrimitiveValues('recipients', $this->getRecipients());
     }
 
@@ -123,14 +109,6 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
     */
     public function setEmailText(?string $value): void {
         $this->getBackingStore()->set('emailText', $value);
-    }
-
-    /**
-     * Sets the policyTip property value. The text of the policy tip displayed to the user within the application (For example, Outlook, Word).
-     * @param string|null $value Value to set for the policyTip property.
-    */
-    public function setPolicyTip(?string $value): void {
-        $this->getBackingStore()->set('policyTip', $value);
     }
 
     /**

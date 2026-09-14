@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Provisioning
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assignments\AssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\RetrievePolicyApplyActionResult\RetrievePolicyApplyActionResultRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\RetrievePolicyApplySchedule\RetrievePolicyApplyScheduleRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\RetrievePolicyUpdateStatusResult\RetrievePolicyUpdateStatusResultRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Retry\RetryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\SchedulePolicyApplyTask\SchedulePolicyApplyTaskRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPcProvisioningPolicy;
@@ -56,6 +57,13 @@ class CloudPcProvisioningPolicyItemRequestBuilder extends BaseRequestBuilder
     */
     public function retrievePolicyApplySchedule(): RetrievePolicyApplyScheduleRequestBuilder {
         return new RetrievePolicyApplyScheduleRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retrievePolicyUpdateStatusResult method.
+    */
+    public function retrievePolicyUpdateStatusResult(): RetrievePolicyUpdateStatusResultRequestBuilder {
+        return new RetrievePolicyUpdateStatusResultRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

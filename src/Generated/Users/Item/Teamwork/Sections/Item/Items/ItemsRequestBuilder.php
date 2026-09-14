@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\TeamworkSectionItem;
 use Microsoft\Graph\Beta\Generated\Models\TeamworkSectionItemCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\Sections\Item\Items\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\Sections\Item\Items\Item\TeamworkSectionItemItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Teamwork\Sections\Item\Items\Reorder\ReorderRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -24,6 +25,13 @@ class ItemsRequestBuilder extends BaseRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the reorder method.
+    */
+    public function reorder(): ReorderRequestBuilder {
+        return new ReorderRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

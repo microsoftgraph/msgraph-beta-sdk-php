@@ -25,6 +25,7 @@ class ImportAppleDeviceIdentityListPostRequestBody implements AdditionalDataHold
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
+        $this->setOverwriteImportedDeviceIdentities(false);
     }
 
     /**

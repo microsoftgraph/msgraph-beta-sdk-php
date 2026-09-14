@@ -57,7 +57,7 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the category property value. Category assigned to the alert triggered by the custom detection rule.
+     * Gets the category property value. Indicates the category assigned to the alert triggered by the custom detection rule. Deprecated. Use tactics instead. This property will be removed from this resource on 2026-10-01.
      * @return string|null
     */
     public function getCategory(): ?string {
@@ -66,6 +66,18 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'category'");
+    }
+
+    /**
+     * Gets the customDetails property value. Custom key-value detail pairs to include in the alert. Each value identifies the detection query column that supplies the corresponding custom detail.
+     * @return AlertCustomDetails|null
+    */
+    public function getCustomDetails(): ?AlertCustomDetails {
+        $val = $this->getBackingStore()->get('customDetails');
+        if (is_null($val) || $val instanceof AlertCustomDetails) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customDetails'");
     }
 
     /**
@@ -81,6 +93,18 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the entityMappings property value. The entityMappings property
+     * @return EntityMappingConfiguration|null
+    */
+    public function getEntityMappings(): ?EntityMappingConfiguration {
+        $val = $this->getBackingStore()->get('entityMappings');
+        if (is_null($val) || $val instanceof EntityMappingConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'entityMappings'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -88,7 +112,9 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             'category' => fn(ParseNode $n) => $o->setCategory($n->getStringValue()),
+            'customDetails' => fn(ParseNode $n) => $o->setCustomDetails($n->getObjectValue([AlertCustomDetails::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'entityMappings' => fn(ParseNode $n) => $o->setEntityMappings($n->getObjectValue([EntityMappingConfiguration::class, 'createFromDiscriminatorValue'])),
             'impactedAssets' => fn(ParseNode $n) => $o->setImpactedAssets($n->getCollectionOfObjectValues([ImpactedAsset::class, 'createFromDiscriminatorValue'])),
             'mitreTechniques' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -101,12 +127,13 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'recommendedActions' => fn(ParseNode $n) => $o->setRecommendedActions($n->getStringValue()),
             'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(AlertSeverity::class)),
+            'tactics' => fn(ParseNode $n) => $o->setTactics($n->getCollectionOfObjectValues([MitreTactic::class, 'createFromDiscriminatorValue'])),
             'title' => fn(ParseNode $n) => $o->setTitle($n->getStringValue()),
         ];
     }
 
     /**
-     * Gets the impactedAssets property value. Which asset or assets were impacted based on the alert triggered by the custom detection rule.
+     * Gets the impactedAssets property value. Indicates the impacted assets for the alert triggered by the custom detection rule. Deprecated. Use entityMappings instead. This property will be removed from this resource on 2026-10-01.
      * @return array<ImpactedAsset>|null
     */
     public function getImpactedAssets(): ?array {
@@ -120,7 +147,7 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the mitreTechniques property value. MITRE technique assigned to the alert triggered by the custom detection rule.
+     * Gets the mitreTechniques property value. Indicates the MITRE techniques assigned to the alert triggered by the custom detection rule. Deprecated. Use tactics instead. This property will be removed from this resource on 2026-10-01.
      * @return array<string>|null
     */
     public function getMitreTechniques(): ?array {
@@ -170,6 +197,20 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the tactics property value. The MITRE ATT&CK tactics framing for this alert.
+     * @return array<MitreTactic>|null
+    */
+    public function getTactics(): ?array {
+        $val = $this->getBackingStore()->get('tactics');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, MitreTactic::class);
+            /** @var array<MitreTactic>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tactics'");
+    }
+
+    /**
      * Gets the title property value. Name of the alert triggered by the custom detection rule.
      * @return string|null
     */
@@ -187,12 +228,15 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('category', $this->getCategory());
+        $writer->writeObjectValue('customDetails', $this->getCustomDetails());
         $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeObjectValue('entityMappings', $this->getEntityMappings());
         $writer->writeCollectionOfObjectValues('impactedAssets', $this->getImpactedAssets());
         $writer->writeCollectionOfPrimitiveValues('mitreTechniques', $this->getMitreTechniques());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('recommendedActions', $this->getRecommendedActions());
         $writer->writeEnumValue('severity', $this->getSeverity());
+        $writer->writeCollectionOfObjectValues('tactics', $this->getTactics());
         $writer->writeStringValue('title', $this->getTitle());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -214,11 +258,19 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the category property value. Category assigned to the alert triggered by the custom detection rule.
+     * Sets the category property value. Indicates the category assigned to the alert triggered by the custom detection rule. Deprecated. Use tactics instead. This property will be removed from this resource on 2026-10-01.
      * @param string|null $value Value to set for the category property.
     */
     public function setCategory(?string $value): void {
         $this->getBackingStore()->set('category', $value);
+    }
+
+    /**
+     * Sets the customDetails property value. Custom key-value detail pairs to include in the alert. Each value identifies the detection query column that supplies the corresponding custom detail.
+     * @param AlertCustomDetails|null $value Value to set for the customDetails property.
+    */
+    public function setCustomDetails(?AlertCustomDetails $value): void {
+        $this->getBackingStore()->set('customDetails', $value);
     }
 
     /**
@@ -230,7 +282,15 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the impactedAssets property value. Which asset or assets were impacted based on the alert triggered by the custom detection rule.
+     * Sets the entityMappings property value. The entityMappings property
+     * @param EntityMappingConfiguration|null $value Value to set for the entityMappings property.
+    */
+    public function setEntityMappings(?EntityMappingConfiguration $value): void {
+        $this->getBackingStore()->set('entityMappings', $value);
+    }
+
+    /**
+     * Sets the impactedAssets property value. Indicates the impacted assets for the alert triggered by the custom detection rule. Deprecated. Use entityMappings instead. This property will be removed from this resource on 2026-10-01.
      * @param array<ImpactedAsset>|null $value Value to set for the impactedAssets property.
     */
     public function setImpactedAssets(?array $value): void {
@@ -238,7 +298,7 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the mitreTechniques property value. MITRE technique assigned to the alert triggered by the custom detection rule.
+     * Sets the mitreTechniques property value. Indicates the MITRE techniques assigned to the alert triggered by the custom detection rule. Deprecated. Use tactics instead. This property will be removed from this resource on 2026-10-01.
      * @param array<string>|null $value Value to set for the mitreTechniques property.
     */
     public function setMitreTechniques(?array $value): void {
@@ -267,6 +327,14 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setSeverity(?AlertSeverity $value): void {
         $this->getBackingStore()->set('severity', $value);
+    }
+
+    /**
+     * Sets the tactics property value. The MITRE ATT&CK tactics framing for this alert.
+     * @param array<MitreTactic>|null $value Value to set for the tactics property.
+    */
+    public function setTactics(?array $value): void {
+        $this->getBackingStore()->set('tactics', $value);
     }
 
     /**

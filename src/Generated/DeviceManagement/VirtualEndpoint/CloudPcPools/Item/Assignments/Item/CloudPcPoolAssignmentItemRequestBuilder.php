@@ -31,10 +31,11 @@ class CloudPcPoolAssignmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property assignments for deviceManagement
+     * Delete a cloudPcPoolAssignment object.
      * @param CloudPcPoolAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcpoolassignment-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?CloudPcPoolAssignmentItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -45,10 +46,11 @@ class CloudPcPoolAssignmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get assignments from deviceManagement
+     * Read the properties of a cloudPcPoolAssignment object.
      * @param CloudPcPoolAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcPoolAssignment|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcpoolassignment-get?view=graph-rest-beta Find more info here
     */
     public function get(?CloudPcPoolAssignmentItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,7 +76,7 @@ class CloudPcPoolAssignmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property assignments for deviceManagement
+     * Delete a cloudPcPoolAssignment object.
      * @param CloudPcPoolAssignmentItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -92,7 +94,7 @@ class CloudPcPoolAssignmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get assignments from deviceManagement
+     * Read the properties of a cloudPcPoolAssignment object.
      * @param CloudPcPoolAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

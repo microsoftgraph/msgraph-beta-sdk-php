@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Definitions\
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\HistoryDefinitions\HistoryDefinitionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Instances\InstancesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Policy\PolicyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\Unified\UnifiedRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessReviewSet;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -54,6 +55,13 @@ class AccessReviewsRequestBuilder extends BaseRequestBuilder
     */
     public function policy(): PolicyRequestBuilder {
         return new PolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the unified property of the microsoft.graph.accessReviewSet entity.
+    */
+    public function unified(): UnifiedRequestBuilder {
+        return new UnifiedRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

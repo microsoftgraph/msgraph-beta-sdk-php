@@ -68,7 +68,7 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
-     * Gets the cloudPcPools property value. The cloudPcPools property
+     * Gets the cloudPcPools property value. The Cloud PC pools managed by the virtual endpoint.
      * @return array<CloudPcPool>|null
     */
     public function getCloudPcPools(): ?array {
@@ -396,7 +396,7 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
-     * Sets the cloudPcPools property value. The cloudPcPools property
+     * Sets the cloudPcPools property value. The Cloud PC pools managed by the virtual endpoint.
      * @param array<CloudPcPool>|null $value Value to set for the cloudPcPools property.
     */
     public function setCloudPcPools(?array $value): void {

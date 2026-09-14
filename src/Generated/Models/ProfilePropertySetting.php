@@ -26,7 +26,7 @@ class ProfilePropertySetting extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. Name of the property-level setting.
+     * Gets the displayName property value. Name of the property associated with this setting.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -70,7 +70,7 @@ class ProfilePropertySetting extends Entity implements Parsable
     }
 
     /**
-     * Gets the prioritizedSourceUrls property value. A collection of prioritized profile source URLs ordered by data precedence within an organization.
+     * Gets the prioritizedSourceUrls property value. A collection of prioritized profile source URLs ordered by data precedence within an organization. For details, see Manage profile source precedence in Microsoft 365.
      * @return array<string>|null
     */
     public function getPrioritizedSourceUrls(): ?array {
@@ -95,7 +95,7 @@ class ProfilePropertySetting extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. Name of the property-level setting.
+     * Sets the displayName property value. Name of the property associated with this setting.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -111,7 +111,7 @@ class ProfilePropertySetting extends Entity implements Parsable
     }
 
     /**
-     * Sets the prioritizedSourceUrls property value. A collection of prioritized profile source URLs ordered by data precedence within an organization.
+     * Sets the prioritizedSourceUrls property value. A collection of prioritized profile source URLs ordered by data precedence within an organization. For details, see Manage profile source precedence in Microsoft 365.
      * @param array<string>|null $value Value to set for the prioritizedSourceUrls property.
     */
     public function setPrioritizedSourceUrls(?array $value): void {

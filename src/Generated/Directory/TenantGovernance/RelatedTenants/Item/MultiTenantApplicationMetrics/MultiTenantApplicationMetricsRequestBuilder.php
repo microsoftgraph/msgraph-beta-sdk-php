@@ -4,15 +4,15 @@ namespace Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\RelatedTenan
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Models\MultiTenantApplicationMetrics;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\MultiTenantApplicationMetrics;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
 
 /**
- * Provides operations to manage the multiTenantApplicationMetrics property of the microsoft.graph.tenantGovernanceServices.relatedTenant entity.
+ * Provides operations to manage the multiTenantApplicationMetrics property of the microsoft.graph.relatedTenant entity.
 */
 class MultiTenantApplicationMetricsRequestBuilder extends BaseRequestBuilder 
 {
@@ -31,7 +31,7 @@ class MultiTenantApplicationMetricsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Multi-tenant application usage metrics for this related tenant. Expanded by default.
+     * Get multiTenantApplicationMetrics from directory
      * @param MultiTenantApplicationMetricsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MultiTenantApplicationMetrics|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class MultiTenantApplicationMetricsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Multi-tenant application usage metrics for this related tenant. Expanded by default.
+     * Get multiTenantApplicationMetrics from directory
      * @param MultiTenantApplicationMetricsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -131,6 +131,7 @@ class CrossTenantAccessPolicyConfigurationPartner extends PolicyDeletableItem im
             'm365Capabilities' => fn(ParseNode $n) => $o->setM365Capabilities($n->getCollectionOfObjectValues([M365CapabilityBase::class, 'createFromDiscriminatorValue'])),
             'm365CollaborationInbound' => fn(ParseNode $n) => $o->setM365CollaborationInbound($n->getObjectValue([CrossTenantAccessPolicyM365CollaborationInboundSetting::class, 'createFromDiscriminatorValue'])),
             'm365CollaborationOutbound' => fn(ParseNode $n) => $o->setM365CollaborationOutbound($n->getObjectValue([CrossTenantAccessPolicyM365CollaborationOutboundSetting::class, 'createFromDiscriminatorValue'])),
+            'serviceProviderConstraints' => fn(ParseNode $n) => $o->setServiceProviderConstraints($n->getObjectValue([ServiceProviderConstraints::class, 'createFromDiscriminatorValue'])),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
             'tenantRestrictions' => fn(ParseNode $n) => $o->setTenantRestrictions($n->getObjectValue([CrossTenantAccessPolicyTenantRestrictions::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -223,6 +224,18 @@ class CrossTenantAccessPolicyConfigurationPartner extends PolicyDeletableItem im
     }
 
     /**
+     * Gets the serviceProviderConstraints property value. The serviceProviderConstraints property
+     * @return ServiceProviderConstraints|null
+    */
+    public function getServiceProviderConstraints(): ?ServiceProviderConstraints {
+        $val = $this->getBackingStore()->get('serviceProviderConstraints');
+        if (is_null($val) || $val instanceof ServiceProviderConstraints) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'serviceProviderConstraints'");
+    }
+
+    /**
      * Gets the tenantId property value. The tenant identifier for the partner Microsoft Entra organization. Read-only. Key.
      * @return string|null
     */
@@ -266,6 +279,7 @@ class CrossTenantAccessPolicyConfigurationPartner extends PolicyDeletableItem im
         $writer->writeCollectionOfObjectValues('m365Capabilities', $this->getM365Capabilities());
         $writer->writeObjectValue('m365CollaborationInbound', $this->getM365CollaborationInbound());
         $writer->writeObjectValue('m365CollaborationOutbound', $this->getM365CollaborationOutbound());
+        $writer->writeObjectValue('serviceProviderConstraints', $this->getServiceProviderConstraints());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeObjectValue('tenantRestrictions', $this->getTenantRestrictions());
     }
@@ -380,6 +394,14 @@ class CrossTenantAccessPolicyConfigurationPartner extends PolicyDeletableItem im
     */
     public function setM365CollaborationOutbound(?CrossTenantAccessPolicyM365CollaborationOutboundSetting $value): void {
         $this->getBackingStore()->set('m365CollaborationOutbound', $value);
+    }
+
+    /**
+     * Sets the serviceProviderConstraints property value. The serviceProviderConstraints property
+     * @param ServiceProviderConstraints|null $value Value to set for the serviceProviderConstraints property.
+    */
+    public function setServiceProviderConstraints(?ServiceProviderConstraints $value): void {
+        $this->getBackingStore()->set('serviceProviderConstraints', $value);
     }
 
     /**

@@ -91,7 +91,7 @@ class CloudPcCloudAppDetail implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the filePath property value. Specifies the path to the executable file for the application within the OS of the hosting Cloud PC. The value should be an absolute path to a Windows or Universal app. For example, C:/app.exe or shell:AppsFolder/appname!App. Read-only.
+     * Gets the filePath property value. Specifies the path to the executable file for the application within the OS of the hosting Cloud PC. The value should be an absolute path to a Windows or Universal app. For example, C:/app.exe or shell:AppsFolder/appname!App.
      * @return string|null
     */
     public function getFilePath(): ?string {
@@ -176,7 +176,7 @@ class CloudPcCloudAppDetail implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the filePath property value. Specifies the path to the executable file for the application within the OS of the hosting Cloud PC. The value should be an absolute path to a Windows or Universal app. For example, C:/app.exe or shell:AppsFolder/appname!App. Read-only.
+     * Sets the filePath property value. Specifies the path to the executable file for the application within the OS of the hosting Cloud PC. The value should be an absolute path to a Windows or Universal app. For example, C:/app.exe or shell:AppsFolder/appname!App.
      * @param string|null $value Value to set for the filePath property.
     */
     public function setFilePath(?string $value): void {

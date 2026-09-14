@@ -31,7 +31,7 @@ class RestoreRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Restore a deleted crossTenantAccessPolicyConfigurationPartner object. 
+     * Restore a deleted crossTenantAccessPolicyConfigurationPartner object.
      * @param RestoreRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CrossTenantAccessPolicyConfigurationPartner|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class RestoreRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Restore a deleted crossTenantAccessPolicyConfigurationPartner object. 
+     * Restore a deleted crossTenantAccessPolicyConfigurationPartner object.
      * @param RestoreRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

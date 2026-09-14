@@ -10,47 +10,47 @@ use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\RelatedTenants\Ite
 use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\RelatedTenants\Item\BillingMetrics\BillingMetricsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\RelatedTenants\Item\MultiTenantApplicationMetrics\MultiTenantApplicationMetricsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\RelatedTenant;
+use Microsoft\Graph\Beta\Generated\Models\RelatedTenant;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
 
 /**
- * Provides operations to manage the relatedTenants property of the microsoft.graph.tenantGovernanceServices.tenantGovernance entity.
+ * Provides operations to manage the relatedTenants property of the microsoft.graph.tenantGovernance entity.
 */
 class RelatedTenantItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
-     * Provides operations to manage the appB2BSignInActivityMetrics property of the microsoft.graph.tenantGovernanceServices.relatedTenant entity.
+     * Provides operations to manage the appB2BSignInActivityMetrics property of the microsoft.graph.relatedTenant entity.
     */
     public function appB2BSignInActivityMetrics(): AppB2BSignInActivityMetricsRequestBuilder {
         return new AppB2BSignInActivityMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Provides operations to manage the b2BRegistrationMetrics property of the microsoft.graph.tenantGovernanceServices.relatedTenant entity.
+     * Provides operations to manage the b2BRegistrationMetrics property of the microsoft.graph.relatedTenant entity.
     */
     public function b2BRegistrationMetrics(): B2BRegistrationMetricsRequestBuilder {
         return new B2BRegistrationMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Provides operations to manage the b2BSignInActivityMetrics property of the microsoft.graph.tenantGovernanceServices.relatedTenant entity.
+     * Provides operations to manage the b2BSignInActivityMetrics property of the microsoft.graph.relatedTenant entity.
     */
     public function b2BSignInActivityMetrics(): B2BSignInActivityMetricsRequestBuilder {
         return new B2BSignInActivityMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Provides operations to manage the billingMetrics property of the microsoft.graph.tenantGovernanceServices.relatedTenant entity.
+     * Provides operations to manage the billingMetrics property of the microsoft.graph.relatedTenant entity.
     */
     public function billingMetrics(): BillingMetricsRequestBuilder {
         return new BillingMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Provides operations to manage the multiTenantApplicationMetrics property of the microsoft.graph.tenantGovernanceServices.relatedTenant entity.
+     * Provides operations to manage the multiTenantApplicationMetrics property of the microsoft.graph.relatedTenant entity.
     */
     public function multiTenantApplicationMetrics(): MultiTenantApplicationMetricsRequestBuilder {
         return new MultiTenantApplicationMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);

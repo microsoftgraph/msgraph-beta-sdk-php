@@ -52,7 +52,7 @@ class ProfilePropertySettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a collection of profilePropertySetting objects that define the configuration for user profile properties in an organization. The id property identifies each resource object uniquely.
+     * Get a collection of profilePropertySetting objects that define the configuration for user profile property settings in an organization. The id property identifies each resource object uniquely.
      * @param ProfilePropertySettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProfilePropertySettingCollectionResponse|null>
      * @throws Exception
@@ -83,7 +83,7 @@ class ProfilePropertySettingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a collection of profilePropertySetting objects that define the configuration for user profile properties in an organization. The id property identifies each resource object uniquely.
+     * Get a collection of profilePropertySetting objects that define the configuration for user profile property settings in an organization. The id property identifies each resource object uniquely.
      * @param ProfilePropertySettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\Security\Alert;
 use Microsoft\Graph\Beta\Generated\Models\Security\AlertCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Security\Alerts_v2\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Alerts_v2\Item\AlertItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Alerts_v2\MicrosoftGraphSecurityCreateAlert\MicrosoftGraphSecurityCreateAlertRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Alerts_v2\MicrosoftGraphSecurityMoveAlerts\MicrosoftGraphSecurityMoveAlertsRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -25,6 +26,13 @@ class Alerts_v2RequestBuilder extends BaseRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the createAlert method.
+    */
+    public function microsoftGraphSecurityCreateAlert(): MicrosoftGraphSecurityCreateAlertRequestBuilder {
+        return new MicrosoftGraphSecurityCreateAlertRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -75,11 +83,12 @@ class Alerts_v2RequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to alerts_v2 for security
+     * Create a manual security alert in Microsoft 365 Defender with specified entities and metadata. When the alert is created, the backend automatically creates a new incident to contain the alert, or links the alert to an existing incident if linkToIncident is specified.
      * @param Alert $body The request body
      * @param Alerts_v2RequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Alert|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-alert-post-manualalert?view=graph-rest-beta Find more info here
     */
     public function post(Alert $body, ?Alerts_v2RequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -111,7 +120,7 @@ class Alerts_v2RequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to alerts_v2 for security
+     * Create a manual security alert in Microsoft 365 Defender with specified entities and metadata. When the alert is created, the backend automatically creates a new incident to contain the alert, or links the alert to an existing incident if linkToIncident is specified.
      * @param Alert $body The request body
      * @param Alerts_v2RequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

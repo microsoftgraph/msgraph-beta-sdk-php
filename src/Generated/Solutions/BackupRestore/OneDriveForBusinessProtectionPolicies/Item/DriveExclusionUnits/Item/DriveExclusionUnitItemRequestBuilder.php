@@ -31,10 +31,11 @@ class DriveExclusionUnitItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get driveExclusionUnits from solutions
+     * Get a drive exclusion unit associated with a OneDrive for work or school protection policy.
      * @param DriveExclusionUnitItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DriveExclusionUnit|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/driveexclusionunit-get?view=graph-rest-beta Find more info here
     */
     public function get(?DriveExclusionUnitItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -45,7 +46,7 @@ class DriveExclusionUnitItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get driveExclusionUnits from solutions
+     * Get a drive exclusion unit associated with a OneDrive for work or school protection policy.
      * @param DriveExclusionUnitItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

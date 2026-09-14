@@ -52,10 +52,11 @@ class CloudPcPoolsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get cloudPcPools from deviceManagement
+     * List the properties and relationships of the cloudPcPool objects.
      * @param CloudPcPoolsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcPoolCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualendpoint-list-cloudpcpools?view=graph-rest-beta Find more info here
     */
     public function get(?CloudPcPoolsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -66,11 +67,12 @@ class CloudPcPoolsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to cloudPcPools for deviceManagement
+     * Create a new cloudPcPool object.
      * @param CloudPcPool $body The request body
      * @param CloudPcPoolsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcPool|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/virtualendpoint-post-cloudpcpools?view=graph-rest-beta Find more info here
     */
     public function post(CloudPcPool $body, ?CloudPcPoolsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -81,7 +83,7 @@ class CloudPcPoolsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get cloudPcPools from deviceManagement
+     * List the properties and relationships of the cloudPcPool objects.
      * @param CloudPcPoolsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +104,7 @@ class CloudPcPoolsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create new navigation property to cloudPcPools for deviceManagement
+     * Create a new cloudPcPool object.
      * @param CloudPcPool $body The request body
      * @param CloudPcPoolsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

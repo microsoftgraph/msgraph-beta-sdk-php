@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SiteExclusionUn
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get siteExclusionUnitsBulkAdditionJobs from solutions
+ * The list of bulk addition jobs for site exclusion units in the tenant.
 */
 class SiteExclusionUnitsBulkAdditionJobItemRequestBuilderGetQueryParameters 
 {

@@ -38,6 +38,20 @@ class UnifiedStorageQuota extends Entity implements Parsable
     }
 
     /**
+     * Gets the familyMembersUsage property value. The familyMembersUsage property
+     * @return array<FamilyMemberStorageQuota>|null
+    */
+    public function getFamilyMembersUsage(): ?array {
+        $val = $this->getBackingStore()->get('familyMembersUsage');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, FamilyMemberStorageQuota::class);
+            /** @var array<FamilyMemberStorageQuota>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'familyMembersUsage'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -45,6 +59,8 @@ class UnifiedStorageQuota extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'deleted' => fn(ParseNode $n) => $o->setDeleted($n->getIntegerValue()),
+            'familyMembersUsage' => fn(ParseNode $n) => $o->setFamilyMembersUsage($n->getCollectionOfObjectValues([FamilyMemberStorageQuota::class, 'createFromDiscriminatorValue'])),
+            'isPooledStorageEnabled' => fn(ParseNode $n) => $o->setIsPooledStorageEnabled($n->getBooleanValue()),
             'manageWebUrl' => fn(ParseNode $n) => $o->setManageWebUrl($n->getStringValue()),
             'remaining' => fn(ParseNode $n) => $o->setRemaining($n->getIntegerValue()),
             'services' => fn(ParseNode $n) => $o->setServices($n->getCollectionOfObjectValues([ServiceStorageQuotaBreakdown::class, 'createFromDiscriminatorValue'])),
@@ -52,6 +68,18 @@ class UnifiedStorageQuota extends Entity implements Parsable
             'total' => fn(ParseNode $n) => $o->setTotal($n->getIntegerValue()),
             'used' => fn(ParseNode $n) => $o->setUsed($n->getIntegerValue()),
         ]);
+    }
+
+    /**
+     * Gets the isPooledStorageEnabled property value. The isPooledStorageEnabled property
+     * @return bool|null
+    */
+    public function getIsPooledStorageEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isPooledStorageEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isPooledStorageEnabled'");
     }
 
     /**
@@ -135,6 +163,8 @@ class UnifiedStorageQuota extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeIntegerValue('deleted', $this->getDeleted());
+        $writer->writeCollectionOfObjectValues('familyMembersUsage', $this->getFamilyMembersUsage());
+        $writer->writeBooleanValue('isPooledStorageEnabled', $this->getIsPooledStorageEnabled());
         $writer->writeStringValue('manageWebUrl', $this->getManageWebUrl());
         $writer->writeIntegerValue('remaining', $this->getRemaining());
         $writer->writeCollectionOfObjectValues('services', $this->getServices());
@@ -149,6 +179,22 @@ class UnifiedStorageQuota extends Entity implements Parsable
     */
     public function setDeleted(?int $value): void {
         $this->getBackingStore()->set('deleted', $value);
+    }
+
+    /**
+     * Sets the familyMembersUsage property value. The familyMembersUsage property
+     * @param array<FamilyMemberStorageQuota>|null $value Value to set for the familyMembersUsage property.
+    */
+    public function setFamilyMembersUsage(?array $value): void {
+        $this->getBackingStore()->set('familyMembersUsage', $value);
+    }
+
+    /**
+     * Sets the isPooledStorageEnabled property value. The isPooledStorageEnabled property
+     * @param bool|null $value Value to set for the isPooledStorageEnabled property.
+    */
+    public function setIsPooledStorageEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isPooledStorageEnabled', $value);
     }
 
     /**

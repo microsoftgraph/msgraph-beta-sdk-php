@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\LifecyclePolicy;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\Workflow;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -33,8 +34,23 @@ class DeletedItemContainer extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'lifecyclePolicies' => fn(ParseNode $n) => $o->setLifecyclePolicies($n->getCollectionOfObjectValues([LifecyclePolicy::class, 'createFromDiscriminatorValue'])),
             'workflows' => fn(ParseNode $n) => $o->setWorkflows($n->getCollectionOfObjectValues([Workflow::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the lifecyclePolicies property value. The lifecyclePolicies property
+     * @return array<LifecyclePolicy>|null
+    */
+    public function getLifecyclePolicies(): ?array {
+        $val = $this->getBackingStore()->get('lifecyclePolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, LifecyclePolicy::class);
+            /** @var array<LifecyclePolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lifecyclePolicies'");
     }
 
     /**
@@ -57,7 +73,16 @@ class DeletedItemContainer extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('lifecyclePolicies', $this->getLifecyclePolicies());
         $writer->writeCollectionOfObjectValues('workflows', $this->getWorkflows());
+    }
+
+    /**
+     * Sets the lifecyclePolicies property value. The lifecyclePolicies property
+     * @param array<LifecyclePolicy>|null $value Value to set for the lifecyclePolicies property.
+    */
+    public function setLifecyclePolicies(?array $value): void {
+        $this->getBackingStore()->set('lifecyclePolicies', $value);
     }
 
     /**

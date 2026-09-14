@@ -59,6 +59,7 @@ class CrossTenantIdentitySyncPolicyPartner extends PolicyDeletableItem implement
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'externalCloudAuthorizedApplicationId' => fn(ParseNode $n) => $o->setExternalCloudAuthorizedApplicationId($n->getStringValue()),
             'groupSyncInbound' => fn(ParseNode $n) => $o->setGroupSyncInbound($n->getObjectValue([CrossTenantGroupSyncInbound::class, 'createFromDiscriminatorValue'])),
+            'roleEnabledGroupSyncInbound' => fn(ParseNode $n) => $o->setRoleEnabledGroupSyncInbound($n->getObjectValue([CrossTenantRoleEnabledGroupSyncInbound::class, 'createFromDiscriminatorValue'])),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
             'userSyncInbound' => fn(ParseNode $n) => $o->setUserSyncInbound($n->getObjectValue([CrossTenantUserSyncInbound::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -74,6 +75,18 @@ class CrossTenantIdentitySyncPolicyPartner extends PolicyDeletableItem implement
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'groupSyncInbound'");
+    }
+
+    /**
+     * Gets the roleEnabledGroupSyncInbound property value. The roleEnabledGroupSyncInbound property
+     * @return CrossTenantRoleEnabledGroupSyncInbound|null
+    */
+    public function getRoleEnabledGroupSyncInbound(): ?CrossTenantRoleEnabledGroupSyncInbound {
+        $val = $this->getBackingStore()->get('roleEnabledGroupSyncInbound');
+        if (is_null($val) || $val instanceof CrossTenantRoleEnabledGroupSyncInbound) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'roleEnabledGroupSyncInbound'");
     }
 
     /**
@@ -109,6 +122,7 @@ class CrossTenantIdentitySyncPolicyPartner extends PolicyDeletableItem implement
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('externalCloudAuthorizedApplicationId', $this->getExternalCloudAuthorizedApplicationId());
         $writer->writeObjectValue('groupSyncInbound', $this->getGroupSyncInbound());
+        $writer->writeObjectValue('roleEnabledGroupSyncInbound', $this->getRoleEnabledGroupSyncInbound());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeObjectValue('userSyncInbound', $this->getUserSyncInbound());
     }
@@ -135,6 +149,14 @@ class CrossTenantIdentitySyncPolicyPartner extends PolicyDeletableItem implement
     */
     public function setGroupSyncInbound(?CrossTenantGroupSyncInbound $value): void {
         $this->getBackingStore()->set('groupSyncInbound', $value);
+    }
+
+    /**
+     * Sets the roleEnabledGroupSyncInbound property value. The roleEnabledGroupSyncInbound property
+     * @param CrossTenantRoleEnabledGroupSyncInbound|null $value Value to set for the roleEnabledGroupSyncInbound property.
+    */
+    public function setRoleEnabledGroupSyncInbound(?CrossTenantRoleEnabledGroupSyncInbound $value): void {
+        $this->getBackingStore()->set('roleEnabledGroupSyncInbound', $value);
     }
 
     /**

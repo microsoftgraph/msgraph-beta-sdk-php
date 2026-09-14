@@ -31,12 +31,13 @@ class BeginOnboardingRequestBuilder extends BaseRequestBuilder
 
     /**
      * A request to start onboarding.  Must be coupled with the appropriate TeamViewer account information
+     * @param BeginOnboardingPostRequestBody $body The request body
      * @param BeginOnboardingRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function post(?BeginOnboardingRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
-        $requestInfo = $this->toPostRequestInformation($requestConfiguration);
+    public function post(BeginOnboardingPostRequestBody $body, ?BeginOnboardingRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+        $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
@@ -45,10 +46,11 @@ class BeginOnboardingRequestBuilder extends BaseRequestBuilder
 
     /**
      * A request to start onboarding.  Must be coupled with the appropriate TeamViewer account information
+     * @param BeginOnboardingPostRequestBody $body The request body
      * @param BeginOnboardingRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(?BeginOnboardingRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(BeginOnboardingPostRequestBody $body, ?BeginOnboardingRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -58,6 +60,7 @@ class BeginOnboardingRequestBuilder extends BaseRequestBuilder
             $requestInfo->addRequestOptions(...$requestConfiguration->options);
         }
         $requestInfo->tryAddHeader('Accept', "application/json");
+        $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

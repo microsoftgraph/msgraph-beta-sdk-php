@@ -11,7 +11,7 @@ use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\GovernanceRequests
 use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\RelatedTenants\RelatedTenantsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\TenantGovernance;
+use Microsoft\Graph\Beta\Generated\Models\TenantGovernance;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -23,42 +23,42 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 class TenantGovernanceRequestBuilder extends BaseRequestBuilder 
 {
     /**
-     * Provides operations to manage the governanceInvitations property of the microsoft.graph.tenantGovernanceServices.tenantGovernance entity.
+     * Provides operations to manage the governanceInvitations property of the microsoft.graph.tenantGovernance entity.
     */
     public function governanceInvitations(): GovernanceInvitationsRequestBuilder {
         return new GovernanceInvitationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Provides operations to manage the governancePolicyTemplates property of the microsoft.graph.tenantGovernanceServices.tenantGovernance entity.
+     * Provides operations to manage the governancePolicyTemplates property of the microsoft.graph.tenantGovernance entity.
     */
     public function governancePolicyTemplates(): GovernancePolicyTemplatesRequestBuilder {
         return new GovernancePolicyTemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Provides operations to manage the governanceRelationships property of the microsoft.graph.tenantGovernanceServices.tenantGovernance entity.
+     * Provides operations to manage the governanceRelationships property of the microsoft.graph.tenantGovernance entity.
     */
     public function governanceRelationships(): GovernanceRelationshipsRequestBuilder {
         return new GovernanceRelationshipsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Provides operations to manage the governanceRequests property of the microsoft.graph.tenantGovernanceServices.tenantGovernance entity.
+     * Provides operations to manage the governanceRequests property of the microsoft.graph.tenantGovernance entity.
     */
     public function governanceRequests(): GovernanceRequestsRequestBuilder {
         return new GovernanceRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Provides operations to manage the relatedTenants property of the microsoft.graph.tenantGovernanceServices.tenantGovernance entity.
+     * Provides operations to manage the relatedTenants property of the microsoft.graph.tenantGovernance entity.
     */
     public function relatedTenants(): RelatedTenantsRequestBuilder {
         return new RelatedTenantsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Provides operations to manage the settings property of the microsoft.graph.tenantGovernanceServices.tenantGovernance entity.
+     * Provides operations to manage the settings property of the microsoft.graph.tenantGovernance entity.
     */
     public function settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder($this->pathParameters, $this->requestAdapter);

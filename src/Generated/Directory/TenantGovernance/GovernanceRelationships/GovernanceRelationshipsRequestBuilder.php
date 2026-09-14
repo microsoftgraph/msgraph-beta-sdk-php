@@ -6,16 +6,16 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\GovernanceRelationships\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\GovernanceRelationships\Item\GovernanceRelationshipItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Models\GovernanceRelationship;
+use Microsoft\Graph\Beta\Generated\Models\GovernanceRelationshipCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\GovernanceRelationship;
-use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\GovernanceRelationshipCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
 
 /**
- * Provides operations to manage the governanceRelationships property of the microsoft.graph.tenantGovernanceServices.tenantGovernance entity.
+ * Provides operations to manage the governanceRelationships property of the microsoft.graph.tenantGovernance entity.
 */
 class GovernanceRelationshipsRequestBuilder extends BaseRequestBuilder 
 {
@@ -27,7 +27,7 @@ class GovernanceRelationshipsRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to manage the governanceRelationships property of the microsoft.graph.tenantGovernanceServices.tenantGovernance entity.
+     * Provides operations to manage the governanceRelationships property of the microsoft.graph.tenantGovernance entity.
      * @param string $governanceRelationshipId The unique identifier of governanceRelationship
      * @return GovernanceRelationshipItemRequestBuilder
     */

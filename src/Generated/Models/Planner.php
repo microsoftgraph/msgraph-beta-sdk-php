@@ -47,10 +47,25 @@ class Planner extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'buckets' => fn(ParseNode $n) => $o->setBuckets($n->getCollectionOfObjectValues([PlannerBucket::class, 'createFromDiscriminatorValue'])),
+            'goals' => fn(ParseNode $n) => $o->setGoals($n->getCollectionOfObjectValues([PlannerGoal::class, 'createFromDiscriminatorValue'])),
             'plans' => fn(ParseNode $n) => $o->setPlans($n->getCollectionOfObjectValues([PlannerPlan::class, 'createFromDiscriminatorValue'])),
             'rosters' => fn(ParseNode $n) => $o->setRosters($n->getCollectionOfObjectValues([PlannerRoster::class, 'createFromDiscriminatorValue'])),
             'tasks' => fn(ParseNode $n) => $o->setTasks($n->getCollectionOfObjectValues([PlannerTask::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the goals property value. Read-only. Nullable. Returns a collection of the specified goals
+     * @return array<PlannerGoal>|null
+    */
+    public function getGoals(): ?array {
+        $val = $this->getBackingStore()->get('goals');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PlannerGoal::class);
+            /** @var array<PlannerGoal>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'goals'");
     }
 
     /**
@@ -102,6 +117,7 @@ class Planner extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('buckets', $this->getBuckets());
+        $writer->writeCollectionOfObjectValues('goals', $this->getGoals());
         $writer->writeCollectionOfObjectValues('plans', $this->getPlans());
         $writer->writeCollectionOfObjectValues('rosters', $this->getRosters());
         $writer->writeCollectionOfObjectValues('tasks', $this->getTasks());
@@ -113,6 +129,14 @@ class Planner extends Entity implements Parsable
     */
     public function setBuckets(?array $value): void {
         $this->getBackingStore()->set('buckets', $value);
+    }
+
+    /**
+     * Sets the goals property value. Read-only. Nullable. Returns a collection of the specified goals
+     * @param array<PlannerGoal>|null $value Value to set for the goals property.
+    */
+    public function setGoals(?array $value): void {
+        $this->getBackingStore()->set('goals', $value);
     }
 
     /**

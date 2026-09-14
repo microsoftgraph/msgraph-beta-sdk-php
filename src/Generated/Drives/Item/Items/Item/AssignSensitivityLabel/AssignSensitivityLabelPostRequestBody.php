@@ -3,6 +3,7 @@
 namespace Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\AssignSensitivityLabel;
 
 use Microsoft\Graph\Beta\Generated\Models\SensitivityLabelAssignmentMethod;
+use Microsoft\Graph\Beta\Generated\Models\UserIdentity;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -49,6 +50,18 @@ class AssignSensitivityLabelPostRequestBody implements AdditionalDataHolder, Bac
     }
 
     /**
+     * Gets the appliedByUser property value. The appliedByUser property
+     * @return UserIdentity|null
+    */
+    public function getAppliedByUser(): ?UserIdentity {
+        $val = $this->getBackingStore()->get('appliedByUser');
+        if (is_null($val) || $val instanceof UserIdentity) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appliedByUser'");
+    }
+
+    /**
      * Gets the assignmentMethod property value. The assignmentMethod property
      * @return SensitivityLabelAssignmentMethod|null
     */
@@ -75,6 +88,7 @@ class AssignSensitivityLabelPostRequestBody implements AdditionalDataHolder, Bac
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'appliedByUser' => fn(ParseNode $n) => $o->setAppliedByUser($n->getObjectValue([UserIdentity::class, 'createFromDiscriminatorValue'])),
             'assignmentMethod' => fn(ParseNode $n) => $o->setAssignmentMethod($n->getEnumValue(SensitivityLabelAssignmentMethod::class)),
             'justificationText' => fn(ParseNode $n) => $o->setJustificationText($n->getStringValue()),
             'sensitivityLabelId' => fn(ParseNode $n) => $o->setSensitivityLabelId($n->getStringValue()),
@@ -110,6 +124,7 @@ class AssignSensitivityLabelPostRequestBody implements AdditionalDataHolder, Bac
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('appliedByUser', $this->getAppliedByUser());
         $writer->writeEnumValue('assignmentMethod', $this->getAssignmentMethod());
         $writer->writeStringValue('justificationText', $this->getJustificationText());
         $writer->writeStringValue('sensitivityLabelId', $this->getSensitivityLabelId());
@@ -122,6 +137,14 @@ class AssignSensitivityLabelPostRequestBody implements AdditionalDataHolder, Bac
     */
     public function setAdditionalData(?array $value): void {
         $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the appliedByUser property value. The appliedByUser property
+     * @param UserIdentity|null $value Value to set for the appliedByUser property.
+    */
+    public function setAppliedByUser(?UserIdentity $value): void {
+        $this->getBackingStore()->set('appliedByUser', $value);
     }
 
     /**

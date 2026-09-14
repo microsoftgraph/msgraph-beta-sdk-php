@@ -57,7 +57,7 @@ class RedirectUriPlatformBlockedSchemeConfiguration implements AdditionalDataHol
     }
 
     /**
-     * Gets the blockedSchemes property value. The blockedSchemes property
+     * Gets the blockedSchemes property value. Collection of URI schemes that are blocked for this specific platform. Schemes refer to URI schemes as defined in RFC 3986 §3.1.
      * @return array<string>|null
     */
     public function getBlockedSchemes(): ?array {
@@ -71,7 +71,7 @@ class RedirectUriPlatformBlockedSchemeConfiguration implements AdditionalDataHol
     }
 
     /**
-     * Gets the exemptFormats property value. The exemptFormats property
+     * Gets the exemptFormats property value. Collection of URI patterns that are exempt from the blocked scheme restrictions for this platform. Patterns must follow specific validation rules for standard URI formats or URN formats.
      * @return array<string>|null
     */
     public function getExemptFormats(): ?array {
@@ -151,7 +151,7 @@ class RedirectUriPlatformBlockedSchemeConfiguration implements AdditionalDataHol
     }
 
     /**
-     * Sets the blockedSchemes property value. The blockedSchemes property
+     * Sets the blockedSchemes property value. Collection of URI schemes that are blocked for this specific platform. Schemes refer to URI schemes as defined in RFC 3986 §3.1.
      * @param array<string>|null $value Value to set for the blockedSchemes property.
     */
     public function setBlockedSchemes(?array $value): void {
@@ -159,7 +159,7 @@ class RedirectUriPlatformBlockedSchemeConfiguration implements AdditionalDataHol
     }
 
     /**
-     * Sets the exemptFormats property value. The exemptFormats property
+     * Sets the exemptFormats property value. Collection of URI patterns that are exempt from the blocked scheme restrictions for this platform. Patterns must follow specific validation rules for standard URI formats or URN formats.
      * @param array<string>|null $value Value to set for the exemptFormats property.
     */
     public function setExemptFormats(?array $value): void {

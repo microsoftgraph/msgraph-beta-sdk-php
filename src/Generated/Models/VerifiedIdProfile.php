@@ -60,8 +60,10 @@ class VerifiedIdProfile extends Entity implements Parsable
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'faceCheckConfiguration' => fn(ParseNode $n) => $o->setFaceCheckConfiguration($n->getObjectValue([FaceCheckConfiguration::class, 'createFromDiscriminatorValue'])),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'mobileDriversLicenseConfiguration' => fn(ParseNode $n) => $o->setMobileDriversLicenseConfiguration($n->getObjectValue([MobileDriversLicenseConfiguration::class, 'createFromDiscriminatorValue'])),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
+            'selfServiceIssuance' => fn(ParseNode $n) => $o->setSelfServiceIssuance($n->getObjectValue([VerifiedIdSelfServiceIssuance::class, 'createFromDiscriminatorValue'])),
             'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(VerifiedIdProfileState::class)),
             'verifiedIdProfileConfiguration' => fn(ParseNode $n) => $o->setVerifiedIdProfileConfiguration($n->getObjectValue([VerifiedIdProfileConfiguration::class, 'createFromDiscriminatorValue'])),
             'verifiedIdUsageConfigurations' => fn(ParseNode $n) => $o->setVerifiedIdUsageConfigurations($n->getCollectionOfObjectValues([VerifiedIdUsageConfiguration::class, 'createFromDiscriminatorValue'])),
@@ -79,6 +81,18 @@ class VerifiedIdProfile extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
+    }
+
+    /**
+     * Gets the mobileDriversLicenseConfiguration property value. Configuration for accepting mobile driver's licenses. Optional.
+     * @return MobileDriversLicenseConfiguration|null
+    */
+    public function getMobileDriversLicenseConfiguration(): ?MobileDriversLicenseConfiguration {
+        $val = $this->getBackingStore()->get('mobileDriversLicenseConfiguration');
+        if (is_null($val) || $val instanceof MobileDriversLicenseConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mobileDriversLicenseConfiguration'");
     }
 
     /**
@@ -106,6 +120,18 @@ class VerifiedIdProfile extends Entity implements Parsable
     }
 
     /**
+     * Gets the selfServiceIssuance property value. Configuration for self-service issuance. Optional.
+     * @return VerifiedIdSelfServiceIssuance|null
+    */
+    public function getSelfServiceIssuance(): ?VerifiedIdSelfServiceIssuance {
+        $val = $this->getBackingStore()->get('selfServiceIssuance');
+        if (is_null($val) || $val instanceof VerifiedIdSelfServiceIssuance) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'selfServiceIssuance'");
+    }
+
+    /**
      * Gets the state property value. The state property
      * @return VerifiedIdProfileState|null
     */
@@ -130,7 +156,7 @@ class VerifiedIdProfile extends Entity implements Parsable
     }
 
     /**
-     * Gets the verifiedIdUsageConfigurations property value. Collection defining the usage purpose for the profile. The possible values are: recovery, onboarding, all, unknownFutureValue. Required.
+     * Gets the verifiedIdUsageConfigurations property value. Collection defining the usage purpose for the profile. The possible values are: recovery, onboarding, all, unknownFutureValue, verification. Use the Prefer: include-unknown-enum-members request header to get the following value from this evolvable enum: verification. Required.
      * @return array<VerifiedIdUsageConfiguration>|null
     */
     public function getVerifiedIdUsageConfigurations(): ?array {
@@ -164,8 +190,10 @@ class VerifiedIdProfile extends Entity implements Parsable
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeObjectValue('faceCheckConfiguration', $this->getFaceCheckConfiguration());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeObjectValue('mobileDriversLicenseConfiguration', $this->getMobileDriversLicenseConfiguration());
         $writer->writeStringValue('name', $this->getName());
         $writer->writeIntegerValue('priority', $this->getPriority());
+        $writer->writeObjectValue('selfServiceIssuance', $this->getSelfServiceIssuance());
         $writer->writeEnumValue('state', $this->getState());
         $writer->writeObjectValue('verifiedIdProfileConfiguration', $this->getVerifiedIdProfileConfiguration());
         $writer->writeCollectionOfObjectValues('verifiedIdUsageConfigurations', $this->getVerifiedIdUsageConfigurations());
@@ -197,6 +225,14 @@ class VerifiedIdProfile extends Entity implements Parsable
     }
 
     /**
+     * Sets the mobileDriversLicenseConfiguration property value. Configuration for accepting mobile driver's licenses. Optional.
+     * @param MobileDriversLicenseConfiguration|null $value Value to set for the mobileDriversLicenseConfiguration property.
+    */
+    public function setMobileDriversLicenseConfiguration(?MobileDriversLicenseConfiguration $value): void {
+        $this->getBackingStore()->set('mobileDriversLicenseConfiguration', $value);
+    }
+
+    /**
      * Sets the name property value. Display name for the verified ID profile. Required.
      * @param string|null $value Value to set for the name property.
     */
@@ -210,6 +246,14 @@ class VerifiedIdProfile extends Entity implements Parsable
     */
     public function setPriority(?int $value): void {
         $this->getBackingStore()->set('priority', $value);
+    }
+
+    /**
+     * Sets the selfServiceIssuance property value. Configuration for self-service issuance. Optional.
+     * @param VerifiedIdSelfServiceIssuance|null $value Value to set for the selfServiceIssuance property.
+    */
+    public function setSelfServiceIssuance(?VerifiedIdSelfServiceIssuance $value): void {
+        $this->getBackingStore()->set('selfServiceIssuance', $value);
     }
 
     /**
@@ -229,7 +273,7 @@ class VerifiedIdProfile extends Entity implements Parsable
     }
 
     /**
-     * Sets the verifiedIdUsageConfigurations property value. Collection defining the usage purpose for the profile. The possible values are: recovery, onboarding, all, unknownFutureValue. Required.
+     * Sets the verifiedIdUsageConfigurations property value. Collection defining the usage purpose for the profile. The possible values are: recovery, onboarding, all, unknownFutureValue, verification. Use the Prefer: include-unknown-enum-members request header to get the following value from this evolvable enum: verification. Required.
      * @param array<VerifiedIdUsageConfiguration>|null $value Value to set for the verifiedIdUsageConfigurations property.
     */
     public function setVerifiedIdUsageConfigurations(?array $value): void {

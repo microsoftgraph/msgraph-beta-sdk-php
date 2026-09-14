@@ -41,7 +41,7 @@ class Channel extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. Read only. Timestamp at which the channel was created.
+     * Gets the createdDateTime property value. Read-only. Timestamp at which the channel was created.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -118,6 +118,7 @@ class Channel extends Entity implements Parsable
             'filesFolder' => fn(ParseNode $n) => $o->setFilesFolder($n->getObjectValue([DriveItem::class, 'createFromDiscriminatorValue'])),
             'isArchived' => fn(ParseNode $n) => $o->setIsArchived($n->getBooleanValue()),
             'isFavoriteByDefault' => fn(ParseNode $n) => $o->setIsFavoriteByDefault($n->getBooleanValue()),
+            'joinedUsers' => fn(ParseNode $n) => $o->setJoinedUsers($n->getCollectionOfObjectValues([ConversationMember::class, 'createFromDiscriminatorValue'])),
             'layoutType' => fn(ParseNode $n) => $o->setLayoutType($n->getEnumValue(ChannelLayoutType::class)),
             'members' => fn(ParseNode $n) => $o->setMembers($n->getCollectionOfObjectValues([ConversationMember::class, 'createFromDiscriminatorValue'])),
             'membershipType' => fn(ParseNode $n) => $o->setMembershipType($n->getEnumValue(ChannelMembershipType::class)),
@@ -168,6 +169,20 @@ class Channel extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isFavoriteByDefault'");
+    }
+
+    /**
+     * Gets the joinedUsers property value. The joinedUsers property
+     * @return array<ConversationMember>|null
+    */
+    public function getJoinedUsers(): ?array {
+        $val = $this->getBackingStore()->get('joinedUsers');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ConversationMember::class);
+            /** @var array<ConversationMember>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'joinedUsers'");
     }
 
     /**
@@ -349,6 +364,7 @@ class Channel extends Entity implements Parsable
         $writer->writeObjectValue('filesFolder', $this->getFilesFolder());
         $writer->writeBooleanValue('isArchived', $this->getIsArchived());
         $writer->writeBooleanValue('isFavoriteByDefault', $this->getIsFavoriteByDefault());
+        $writer->writeCollectionOfObjectValues('joinedUsers', $this->getJoinedUsers());
         $writer->writeEnumValue('layoutType', $this->getLayoutType());
         $writer->writeCollectionOfObjectValues('members', $this->getMembers());
         $writer->writeEnumValue('membershipType', $this->getMembershipType());
@@ -373,7 +389,7 @@ class Channel extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. Read only. Timestamp at which the channel was created.
+     * Sets the createdDateTime property value. Read-only. Timestamp at which the channel was created.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -434,6 +450,14 @@ class Channel extends Entity implements Parsable
     */
     public function setIsFavoriteByDefault(?bool $value): void {
         $this->getBackingStore()->set('isFavoriteByDefault', $value);
+    }
+
+    /**
+     * Sets the joinedUsers property value. The joinedUsers property
+     * @param array<ConversationMember>|null $value Value to set for the joinedUsers property.
+    */
+    public function setJoinedUsers(?array $value): void {
+        $this->getBackingStore()->set('joinedUsers', $value);
     }
 
     /**

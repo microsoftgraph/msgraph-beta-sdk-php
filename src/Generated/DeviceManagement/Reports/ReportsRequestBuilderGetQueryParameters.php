@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\Reports;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get reports from deviceManagement
+ * Reports singleton
 */
 class ReportsRequestBuilderGetQueryParameters 
 {

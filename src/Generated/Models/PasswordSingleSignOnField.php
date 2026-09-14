@@ -68,7 +68,7 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Gets the defaultLabel property value. Label that would be used if no customizedLabel is provided. Read only.
+     * Gets the defaultLabel property value. Label that would be used if no customizedLabel is provided. Read-only.
      * @return string|null
     */
     public function getDefaultLabel(): ?string {
@@ -168,7 +168,7 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, BackedModel, Pa
     }
 
     /**
-     * Sets the defaultLabel property value. Label that would be used if no customizedLabel is provided. Read only.
+     * Sets the defaultLabel property value. Label that would be used if no customizedLabel is provided. Read-only.
      * @param string|null $value Value to set for the defaultLabel property.
     */
     public function setDefaultLabel(?string $value): void {

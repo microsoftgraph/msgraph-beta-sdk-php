@@ -68,6 +68,18 @@ class AuthenticationBehaviors implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
+     * Gets the coopEnforcement property value. Indicates whether Cross-Origin-Opener-Policy (COOP) headers are enforced on browser-based authentication responses for the application. Set to true to enable enforcement, false to temporarily suppress enforcement, or null to use the service default. For how-to guidance, see Control Cross-Origin-Opener-Policy enforcement.
+     * @return bool|null
+    */
+    public function getCoopEnforcement(): ?bool {
+        $val = $this->getBackingStore()->get('coopEnforcement');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'coopEnforcement'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -75,6 +87,7 @@ class AuthenticationBehaviors implements AdditionalDataHolder, BackedModel, Pars
         $o = $this;
         return  [
             'blockAzureADGraphAccess' => fn(ParseNode $n) => $o->setBlockAzureADGraphAccess($n->getBooleanValue()),
+            'coopEnforcement' => fn(ParseNode $n) => $o->setCoopEnforcement($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'removeUnverifiedEmailClaim' => fn(ParseNode $n) => $o->setRemoveUnverifiedEmailClaim($n->getBooleanValue()),
             'requireClientServicePrincipal' => fn(ParseNode $n) => $o->setRequireClientServicePrincipal($n->getBooleanValue()),
@@ -123,6 +136,7 @@ class AuthenticationBehaviors implements AdditionalDataHolder, BackedModel, Pars
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('blockAzureADGraphAccess', $this->getBlockAzureADGraphAccess());
+        $writer->writeBooleanValue('coopEnforcement', $this->getCoopEnforcement());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBooleanValue('removeUnverifiedEmailClaim', $this->getRemoveUnverifiedEmailClaim());
         $writer->writeBooleanValue('requireClientServicePrincipal', $this->getRequireClientServicePrincipal());
@@ -151,6 +165,14 @@ class AuthenticationBehaviors implements AdditionalDataHolder, BackedModel, Pars
     */
     public function setBlockAzureADGraphAccess(?bool $value): void {
         $this->getBackingStore()->set('blockAzureADGraphAccess', $value);
+    }
+
+    /**
+     * Sets the coopEnforcement property value. Indicates whether Cross-Origin-Opener-Policy (COOP) headers are enforced on browser-based authentication responses for the application. Set to true to enable enforcement, false to temporarily suppress enforcement, or null to use the service default. For how-to guidance, see Control Cross-Origin-Opener-Policy enforcement.
+     * @param bool|null $value Value to set for the coopEnforcement property.
+    */
+    public function setCoopEnforcement(?bool $value): void {
+        $this->getBackingStore()->set('coopEnforcement', $value);
     }
 
     /**

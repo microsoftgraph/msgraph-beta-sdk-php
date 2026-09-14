@@ -24,6 +24,7 @@ class ApproveAppsPostRequestBody implements AdditionalDataHolder, BackedModel, P
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
+        $this->setApproveAllPermissions(false);
     }
 
     /**

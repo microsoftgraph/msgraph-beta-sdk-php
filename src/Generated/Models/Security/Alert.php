@@ -24,6 +24,13 @@ class Alert extends Entity implements Parsable
      * @return Alert
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): Alert {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.security.manualAlert': return new ManualAlert();
+            }
+        }
         return new Alert();
     }
 
@@ -88,7 +95,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the categories property value. The categories property
+     * Gets the categories property value. The attack kill-chain categories that the alert belongs to. Aligned with the MITRE ATT&CK framework.
      * @return array<string>|null
     */
     public function getCategories(): ?array {
@@ -102,7 +109,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the category property value. The attack kill-chain category that the alert belongs to. Aligned with the MITRE ATT&CK framework.
+     * Gets the category property value. The attack kill-chain category that the alert belongs to. Aligned with the MITRE ATT&CK framework. This property is in the process of being deprecated. Use the categories property instead.
      * @return string|null
     */
     public function getCategory(): ?string {
@@ -200,7 +207,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the determination property value. Specifies the result of the investigation, whether the alert represents a true attack, and if so, the nature of the attack. The possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedAccount, phishing, maliciousUserActivity, notMalicious, notEnoughDataToValidate, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
+     * Gets the determination property value. Specifies the result of the investigation, whether the alert represents a true attack, and if so, the nature of the attack. The possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedAccount, phishing, maliciousUserActivity, notMalicious, notEnoughDataToValidate, confirmedActivity, lineOfBusinessApplication, unknownFutureValue.
      * @return AlertDetermination|null
     */
     public function getDetermination(): ?AlertDetermination {
@@ -607,7 +614,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the categories property value. The categories property
+     * Sets the categories property value. The attack kill-chain categories that the alert belongs to. Aligned with the MITRE ATT&CK framework.
      * @param array<string>|null $value Value to set for the categories property.
     */
     public function setCategories(?array $value): void {
@@ -615,7 +622,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the category property value. The attack kill-chain category that the alert belongs to. Aligned with the MITRE ATT&CK framework.
+     * Sets the category property value. The attack kill-chain category that the alert belongs to. Aligned with the MITRE ATT&CK framework. This property is in the process of being deprecated. Use the categories property instead.
      * @param string|null $value Value to set for the category property.
     */
     public function setCategory(?string $value): void {
@@ -679,7 +686,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the determination property value. Specifies the result of the investigation, whether the alert represents a true attack, and if so, the nature of the attack. The possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedAccount, phishing, maliciousUserActivity, notMalicious, notEnoughDataToValidate, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
+     * Sets the determination property value. Specifies the result of the investigation, whether the alert represents a true attack, and if so, the nature of the attack. The possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedAccount, phishing, maliciousUserActivity, notMalicious, notEnoughDataToValidate, confirmedActivity, lineOfBusinessApplication, unknownFutureValue.
      * @param AlertDetermination|null $value Value to set for the determination property.
     */
     public function setDetermination(?AlertDetermination $value): void {

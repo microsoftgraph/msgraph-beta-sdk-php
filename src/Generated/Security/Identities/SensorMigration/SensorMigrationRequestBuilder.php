@@ -60,10 +60,11 @@ class SensorMigrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sensorMigration from security
+     * Get a list of the sensorMigration objects and their properties.
      * @param SensorMigrationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SensorMigrationCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-identitycontainer-list-sensormigration?view=graph-rest-beta Find more info here
     */
     public function get(?SensorMigrationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -89,7 +90,7 @@ class SensorMigrationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get sensorMigration from security
+     * Get a list of the sensorMigration objects and their properties.
      * @param SensorMigrationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

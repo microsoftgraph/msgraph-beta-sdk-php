@@ -50,7 +50,7 @@ class RedirectUriAllowedSchemeConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the allowedSchemes property value. The allowedSchemes property
+     * Gets the allowedSchemes property value. Collection of URI schemes that are allowed globally across all platforms. Schemes refer to URI schemes as defined in RFC 3986 §3.1. The value '*' can be used to allow any scheme.
      * @return array<string>|null
     */
     public function getAllowedSchemes(): ?array {
@@ -72,7 +72,7 @@ class RedirectUriAllowedSchemeConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the excludeActors property value. The excludeActors property
+     * Gets the excludeActors property value. Applications or service principals that are exempt from this restriction.
      * @return AppManagementPolicyActorExemptions|null
     */
     public function getExcludeActors(): ?AppManagementPolicyActorExemptions {
@@ -110,7 +110,7 @@ class RedirectUriAllowedSchemeConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the isStateSetByMicrosoft property value. The isStateSetByMicrosoft property
+     * Gets the isStateSetByMicrosoft property value. Indicates whether the restriction state was set by Microsoft.
      * @return bool|null
     */
     public function getIsStateSetByMicrosoft(): ?bool {
@@ -134,7 +134,7 @@ class RedirectUriAllowedSchemeConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the publicClient property value. The publicClient property
+     * Gets the publicClient property value. Platform-specific allowed scheme configuration for public client applications (native/mobile apps).
      * @return RedirectUriPlatformAllowedSchemeConfiguration|null
     */
     public function getPublicClient(): ?RedirectUriPlatformAllowedSchemeConfiguration {
@@ -146,7 +146,7 @@ class RedirectUriAllowedSchemeConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the restrictForAppsCreatedAfterDateTime property value. The restrictForAppsCreatedAfterDateTime property
+     * Gets the restrictForAppsCreatedAfterDateTime property value. Date and time when this restriction starts applying to newly created applications. Applications created before this date are not affected.
      * @return DateTime|null
     */
     public function getRestrictForAppsCreatedAfterDateTime(): ?DateTime {
@@ -158,7 +158,7 @@ class RedirectUriAllowedSchemeConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the spa property value. The spa property
+     * Gets the spa property value. Platform-specific allowed scheme configuration for single-page applications (SPAs).
      * @return RedirectUriPlatformAllowedSchemeConfiguration|null
     */
     public function getSpa(): ?RedirectUriPlatformAllowedSchemeConfiguration {
@@ -182,7 +182,7 @@ class RedirectUriAllowedSchemeConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the web property value. The web property
+     * Gets the web property value. Platform-specific allowed scheme configuration for web applications.
      * @return RedirectUriPlatformAllowedSchemeConfiguration|null
     */
     public function getWeb(): ?RedirectUriPlatformAllowedSchemeConfiguration {
@@ -218,7 +218,7 @@ class RedirectUriAllowedSchemeConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the allowedSchemes property value. The allowedSchemes property
+     * Sets the allowedSchemes property value. Collection of URI schemes that are allowed globally across all platforms. Schemes refer to URI schemes as defined in RFC 3986 §3.1. The value '*' can be used to allow any scheme.
      * @param array<string>|null $value Value to set for the allowedSchemes property.
     */
     public function setAllowedSchemes(?array $value): void {
@@ -234,7 +234,7 @@ class RedirectUriAllowedSchemeConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the excludeActors property value. The excludeActors property
+     * Sets the excludeActors property value. Applications or service principals that are exempt from this restriction.
      * @param AppManagementPolicyActorExemptions|null $value Value to set for the excludeActors property.
     */
     public function setExcludeActors(?AppManagementPolicyActorExemptions $value): void {
@@ -242,7 +242,7 @@ class RedirectUriAllowedSchemeConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the isStateSetByMicrosoft property value. The isStateSetByMicrosoft property
+     * Sets the isStateSetByMicrosoft property value. Indicates whether the restriction state was set by Microsoft.
      * @param bool|null $value Value to set for the isStateSetByMicrosoft property.
     */
     public function setIsStateSetByMicrosoft(?bool $value): void {
@@ -258,7 +258,7 @@ class RedirectUriAllowedSchemeConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the publicClient property value. The publicClient property
+     * Sets the publicClient property value. Platform-specific allowed scheme configuration for public client applications (native/mobile apps).
      * @param RedirectUriPlatformAllowedSchemeConfiguration|null $value Value to set for the publicClient property.
     */
     public function setPublicClient(?RedirectUriPlatformAllowedSchemeConfiguration $value): void {
@@ -266,7 +266,7 @@ class RedirectUriAllowedSchemeConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the restrictForAppsCreatedAfterDateTime property value. The restrictForAppsCreatedAfterDateTime property
+     * Sets the restrictForAppsCreatedAfterDateTime property value. Date and time when this restriction starts applying to newly created applications. Applications created before this date are not affected.
      * @param DateTime|null $value Value to set for the restrictForAppsCreatedAfterDateTime property.
     */
     public function setRestrictForAppsCreatedAfterDateTime(?DateTime $value): void {
@@ -274,7 +274,7 @@ class RedirectUriAllowedSchemeConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the spa property value. The spa property
+     * Sets the spa property value. Platform-specific allowed scheme configuration for single-page applications (SPAs).
      * @param RedirectUriPlatformAllowedSchemeConfiguration|null $value Value to set for the spa property.
     */
     public function setSpa(?RedirectUriPlatformAllowedSchemeConfiguration $value): void {
@@ -290,7 +290,7 @@ class RedirectUriAllowedSchemeConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the web property value. The web property
+     * Sets the web property value. Platform-specific allowed scheme configuration for web applications.
      * @param RedirectUriPlatformAllowedSchemeConfiguration|null $value Value to set for the web property.
     */
     public function setWeb(?RedirectUriPlatformAllowedSchemeConfiguration $value): void {

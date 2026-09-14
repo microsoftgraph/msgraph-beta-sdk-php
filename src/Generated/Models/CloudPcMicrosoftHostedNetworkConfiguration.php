@@ -51,7 +51,7 @@ class CloudPcMicrosoftHostedNetworkConfiguration extends CloudPcNetworkConfigura
     }
 
     /**
-     * Gets the regionGroups property value. The regionGroups property
+     * Gets the regionGroups property value. The region group configurations for the network.
      * @return array<CloudPcRegionGroupConfiguration>|null
     */
     public function getRegionGroups(): ?array {
@@ -83,7 +83,7 @@ class CloudPcMicrosoftHostedNetworkConfiguration extends CloudPcNetworkConfigura
     }
 
     /**
-     * Sets the regionGroups property value. The regionGroups property
+     * Sets the regionGroups property value. The region group configurations for the network.
      * @param array<CloudPcRegionGroupConfiguration>|null $value Value to set for the regionGroups property.
     */
     public function setRegionGroups(?array $value): void {

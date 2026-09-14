@@ -39,7 +39,7 @@ class SiteExclusionUnit extends ExclusionUnitBase implements Parsable
     }
 
     /**
-     * Gets the siteId property value. The siteId property
+     * Gets the siteId property value. The unique identifier of the SharePoint site.
      * @return string|null
     */
     public function getSiteId(): ?string {
@@ -51,7 +51,7 @@ class SiteExclusionUnit extends ExclusionUnitBase implements Parsable
     }
 
     /**
-     * Gets the siteName property value. The siteName property
+     * Gets the siteName property value. The display name of the SharePoint site.
      * @return string|null
     */
     public function getSiteName(): ?string {
@@ -63,7 +63,7 @@ class SiteExclusionUnit extends ExclusionUnitBase implements Parsable
     }
 
     /**
-     * Gets the siteWebUrl property value. The siteWebUrl property
+     * Gets the siteWebUrl property value. The URL of the SharePoint site.
      * @return string|null
     */
     public function getSiteWebUrl(): ?string {
@@ -84,7 +84,7 @@ class SiteExclusionUnit extends ExclusionUnitBase implements Parsable
     }
 
     /**
-     * Sets the siteId property value. The siteId property
+     * Sets the siteId property value. The unique identifier of the SharePoint site.
      * @param string|null $value Value to set for the siteId property.
     */
     public function setSiteId(?string $value): void {
@@ -92,7 +92,7 @@ class SiteExclusionUnit extends ExclusionUnitBase implements Parsable
     }
 
     /**
-     * Sets the siteName property value. The siteName property
+     * Sets the siteName property value. The display name of the SharePoint site.
      * @param string|null $value Value to set for the siteName property.
     */
     public function setSiteName(?string $value): void {
@@ -100,7 +100,7 @@ class SiteExclusionUnit extends ExclusionUnitBase implements Parsable
     }
 
     /**
-     * Sets the siteWebUrl property value. The siteWebUrl property
+     * Sets the siteWebUrl property value. The URL of the SharePoint site.
      * @param string|null $value Value to set for the siteWebUrl property.
     */
     public function setSiteWebUrl(?string $value): void {

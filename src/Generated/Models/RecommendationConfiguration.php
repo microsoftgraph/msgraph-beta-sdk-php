@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -32,6 +33,7 @@ class RecommendationConfiguration extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'isNotificationEnabled' => fn(ParseNode $n) => $o->setIsNotificationEnabled($n->getBooleanValue()),
+            'lastRefreshedDateTime' => fn(ParseNode $n) => $o->setLastRefreshedDateTime($n->getDateTimeValue()),
         ]);
     }
 
@@ -45,6 +47,18 @@ class RecommendationConfiguration extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isNotificationEnabled'");
+    }
+
+    /**
+     * Gets the lastRefreshedDateTime property value. The lastRefreshedDateTime property
+     * @return DateTime|null
+    */
+    public function getLastRefreshedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('lastRefreshedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastRefreshedDateTime'");
     }
 
     /**
@@ -62,6 +76,14 @@ class RecommendationConfiguration extends Entity implements Parsable
     */
     public function setIsNotificationEnabled(?bool $value): void {
         $this->getBackingStore()->set('isNotificationEnabled', $value);
+    }
+
+    /**
+     * Sets the lastRefreshedDateTime property value. The lastRefreshedDateTime property
+     * @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
+    */
+    public function setLastRefreshedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastRefreshedDateTime', $value);
     }
 
 }

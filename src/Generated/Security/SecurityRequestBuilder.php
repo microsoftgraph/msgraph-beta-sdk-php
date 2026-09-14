@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Security\Alerts_v2\Alerts_v2RequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Alerts\AlertsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\AttackSimulationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\AuditLog\AuditLogRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\CaseManagement\CaseManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\CasesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\CloudAppSecurityProfiles\CloudAppSecurityProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Collaboration\CollaborationRequestBuilder;
@@ -24,6 +25,8 @@ use Microsoft\Graph\Beta\Generated\Security\IncidentTasks\IncidentTasksRequestBu
 use Microsoft\Graph\Beta\Generated\Security\InformationProtection\InformationProtectionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\IpSecurityProfiles\IpSecurityProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Labels\LabelsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\MicrosoftGraphSecurityGetHuntingSchema\MicrosoftGraphSecurityGetHuntingSchemaRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\MicrosoftGraphSecurityGetRunHuntingQueryWithQuerytimespanTimespanWithWorkspaceId\MicrosoftGraphSecurityGetRunHuntingQueryWithQuerytimespanTimespanWithWorkspaceIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\MicrosoftGraphSecurityRunHuntingQuery\MicrosoftGraphSecurityRunHuntingQueryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Partner\PartnerRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ProviderTenantSettings\ProviderTenantSettingsRequestBuilder;
@@ -76,6 +79,13 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     */
     public function auditLog(): AuditLogRequestBuilder {
         return new AuditLogRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the caseManagement property of the microsoft.graph.security entity.
+    */
+    public function caseManagement(): CaseManagementRequestBuilder {
+        return new CaseManagementRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -174,6 +184,13 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     */
     public function labels(): LabelsRequestBuilder {
         return new LabelsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getHuntingSchema method.
+    */
+    public function microsoftGraphSecurityGetHuntingSchema(): MicrosoftGraphSecurityGetHuntingSchemaRequestBuilder {
+        return new MicrosoftGraphSecurityGetHuntingSchemaRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -314,6 +331,15 @@ class SecurityRequestBuilder extends BaseRequestBuilder
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [Security::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to call the getRunHuntingQuery method.
+     * @param string $query Usage: query='{query}'
+     * @return MicrosoftGraphSecurityGetRunHuntingQueryWithQuerytimespanTimespanWithWorkspaceIdRequestBuilder
+    */
+    public function microsoftGraphSecurityGetRunHuntingQueryWithQuerytimespanTimespanWithWorkspaceId(string $query): MicrosoftGraphSecurityGetRunHuntingQueryWithQuerytimespanTimespanWithWorkspaceIdRequestBuilder {
+        return new MicrosoftGraphSecurityGetRunHuntingQueryWithQuerytimespanTimespanWithWorkspaceIdRequestBuilder($this->pathParameters, $this->requestAdapter, $query);
     }
 
     /**

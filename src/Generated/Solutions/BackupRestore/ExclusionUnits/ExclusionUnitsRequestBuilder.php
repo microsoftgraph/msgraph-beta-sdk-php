@@ -51,7 +51,7 @@ class ExclusionUnitsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get exclusionUnits from solutions
+     * The list of exclusion units in the tenant.
      * @param ExclusionUnitsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExclusionUnitBaseCollectionResponse|null>
      * @throws Exception
@@ -65,7 +65,7 @@ class ExclusionUnitsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get exclusionUnits from solutions
+     * The list of exclusion units in the tenant.
      * @param ExclusionUnitsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -39,7 +39,7 @@ class UsedInsight extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastUsed property value. Information about when the item was last viewed or modified by the user. Read only.
+     * Gets the lastUsed property value. Information about when the item was last viewed or modified by the user. Read-only.
      * @return UsageDetails|null
     */
     public function getLastUsed(): ?UsageDetails {
@@ -97,7 +97,7 @@ class UsedInsight extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastUsed property value. Information about when the item was last viewed or modified by the user. Read only.
+     * Sets the lastUsed property value. Information about when the item was last viewed or modified by the user. Read-only.
      * @param UsageDetails|null $value Value to set for the lastUsed property.
     */
     public function setLastUsed(?UsageDetails $value): void {

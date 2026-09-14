@@ -54,7 +54,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the driveExclusionUnits property value. The driveExclusionUnits property
+     * Gets the driveExclusionUnits property value. The list of drive exclusion units in the tenant.
      * @return array<DriveExclusionUnit>|null
     */
     public function getDriveExclusionUnits(): ?array {
@@ -68,7 +68,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the driveExclusionUnitsBulkAdditionJobs property value. The driveExclusionUnitsBulkAdditionJobs property
+     * Gets the driveExclusionUnitsBulkAdditionJobs property value. The list of bulk addition jobs for drive exclusion units in the tenant.
      * @return array<DriveExclusionUnitsBulkAdditionJob>|null
     */
     public function getDriveExclusionUnitsBulkAdditionJobs(): ?array {
@@ -164,7 +164,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the exclusionUnits property value. The exclusionUnits property
+     * Gets the exclusionUnits property value. The list of exclusion units in the tenant.
      * @return array<ExclusionUnitBase>|null
     */
     public function getExclusionUnits(): ?array {
@@ -222,7 +222,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the mailboxExclusionUnits property value. The mailboxExclusionUnits property
+     * Gets the mailboxExclusionUnits property value. The list of mailbox exclusion units in the tenant.
      * @return array<MailboxExclusionUnit>|null
     */
     public function getMailboxExclusionUnits(): ?array {
@@ -236,7 +236,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the mailboxExclusionUnitsBulkAdditionJobs property value. The mailboxExclusionUnitsBulkAdditionJobs property
+     * Gets the mailboxExclusionUnitsBulkAdditionJobs property value. The list of bulk addition jobs for mailbox exclusion units in the tenant.
      * @return array<MailboxExclusionUnitsBulkAdditionJob>|null
     */
     public function getMailboxExclusionUnitsBulkAdditionJobs(): ?array {
@@ -292,7 +292,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the oneDriveForBusinessBrowseSessions property value. The list of onedriveforbusiness browse sessions in the tenant.
+     * Gets the oneDriveForBusinessBrowseSessions property value. The list of OneDrive for work or school browse sessions in the tenant.
      * @return array<OneDriveForBusinessBrowseSession>|null
     */
     public function getOneDriveForBusinessBrowseSessions(): ?array {
@@ -428,7 +428,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the sharePointBrowseSessions property value. The list of sharepoint browse sessions in the tenant.
+     * Gets the sharePointBrowseSessions property value. The list of SharePoint browse sessions in the tenant.
      * @return array<SharePointBrowseSession>|null
     */
     public function getSharePointBrowseSessions(): ?array {
@@ -470,7 +470,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the siteExclusionUnits property value. The siteExclusionUnits property
+     * Gets the siteExclusionUnits property value. The list of site exclusion units in the tenant.
      * @return array<SiteExclusionUnit>|null
     */
     public function getSiteExclusionUnits(): ?array {
@@ -484,7 +484,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the siteExclusionUnitsBulkAdditionJobs property value. The siteExclusionUnitsBulkAdditionJobs property
+     * Gets the siteExclusionUnitsBulkAdditionJobs property value. The list of bulk addition jobs for site exclusion units in the tenant.
      * @return array<SiteExclusionUnitsBulkAdditionJob>|null
     */
     public function getSiteExclusionUnitsBulkAdditionJobs(): ?array {
@@ -598,7 +598,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the driveExclusionUnits property value. The driveExclusionUnits property
+     * Sets the driveExclusionUnits property value. The list of drive exclusion units in the tenant.
      * @param array<DriveExclusionUnit>|null $value Value to set for the driveExclusionUnits property.
     */
     public function setDriveExclusionUnits(?array $value): void {
@@ -606,7 +606,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the driveExclusionUnitsBulkAdditionJobs property value. The driveExclusionUnitsBulkAdditionJobs property
+     * Sets the driveExclusionUnitsBulkAdditionJobs property value. The list of bulk addition jobs for drive exclusion units in the tenant.
      * @param array<DriveExclusionUnitsBulkAdditionJob>|null $value Value to set for the driveExclusionUnitsBulkAdditionJobs property.
     */
     public function setDriveExclusionUnitsBulkAdditionJobs(?array $value): void {
@@ -662,7 +662,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the exclusionUnits property value. The exclusionUnits property
+     * Sets the exclusionUnits property value. The list of exclusion units in the tenant.
      * @param array<ExclusionUnitBase>|null $value Value to set for the exclusionUnits property.
     */
     public function setExclusionUnits(?array $value): void {
@@ -670,7 +670,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the mailboxExclusionUnits property value. The mailboxExclusionUnits property
+     * Sets the mailboxExclusionUnits property value. The list of mailbox exclusion units in the tenant.
      * @param array<MailboxExclusionUnit>|null $value Value to set for the mailboxExclusionUnits property.
     */
     public function setMailboxExclusionUnits(?array $value): void {
@@ -678,7 +678,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the mailboxExclusionUnitsBulkAdditionJobs property value. The mailboxExclusionUnitsBulkAdditionJobs property
+     * Sets the mailboxExclusionUnitsBulkAdditionJobs property value. The list of bulk addition jobs for mailbox exclusion units in the tenant.
      * @param array<MailboxExclusionUnitsBulkAdditionJob>|null $value Value to set for the mailboxExclusionUnitsBulkAdditionJobs property.
     */
     public function setMailboxExclusionUnitsBulkAdditionJobs(?array $value): void {
@@ -710,7 +710,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the oneDriveForBusinessBrowseSessions property value. The list of onedriveforbusiness browse sessions in the tenant.
+     * Sets the oneDriveForBusinessBrowseSessions property value. The list of OneDrive for work or school browse sessions in the tenant.
      * @param array<OneDriveForBusinessBrowseSession>|null $value Value to set for the oneDriveForBusinessBrowseSessions property.
     */
     public function setOneDriveForBusinessBrowseSessions(?array $value): void {
@@ -790,7 +790,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the sharePointBrowseSessions property value. The list of sharepoint browse sessions in the tenant.
+     * Sets the sharePointBrowseSessions property value. The list of SharePoint browse sessions in the tenant.
      * @param array<SharePointBrowseSession>|null $value Value to set for the sharePointBrowseSessions property.
     */
     public function setSharePointBrowseSessions(?array $value): void {
@@ -814,7 +814,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the siteExclusionUnits property value. The siteExclusionUnits property
+     * Sets the siteExclusionUnits property value. The list of site exclusion units in the tenant.
      * @param array<SiteExclusionUnit>|null $value Value to set for the siteExclusionUnits property.
     */
     public function setSiteExclusionUnits(?array $value): void {
@@ -822,7 +822,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the siteExclusionUnitsBulkAdditionJobs property value. The siteExclusionUnitsBulkAdditionJobs property
+     * Sets the siteExclusionUnitsBulkAdditionJobs property value. The list of bulk addition jobs for site exclusion units in the tenant.
      * @param array<SiteExclusionUnitsBulkAdditionJob>|null $value Value to set for the siteExclusionUnitsBulkAdditionJobs property.
     */
     public function setSiteExclusionUnitsBulkAdditionJobs(?array $value): void {

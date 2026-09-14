@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Teamwork\DeletedChats\DeletedChatsRequestBuil
 use Microsoft\Graph\Beta\Generated\Teamwork\DeletedTeams\DeletedTeamsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\DetermineIfInteractionIsAllowed\DetermineIfInteractionIsAllowedRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\Devices\DevicesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teamwork\Messaging\MessagingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\SendActivityNotificationToRecipients\SendActivityNotificationToRecipientsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamsAppSettings\TeamsAppSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\TeamTemplatesRequestBuilder;
@@ -50,6 +51,13 @@ class TeamworkRequestBuilder extends BaseRequestBuilder
     */
     public function devices(): DevicesRequestBuilder {
         return new DevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the messaging property of the microsoft.graph.teamwork entity.
+    */
+    public function messaging(): MessagingRequestBuilder {
+        return new MessagingRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -27,7 +27,7 @@ class RulesRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the detectionRules property value. The detectionRules property
+     * Gets the detectionRules property value. The custom detection rules configured for the tenant.
      * @return array<DetectionRule>|null
     */
     public function getDetectionRules(): ?array {
@@ -61,7 +61,7 @@ class RulesRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the detectionRules property value. The detectionRules property
+     * Sets the detectionRules property value. The custom detection rules configured for the tenant.
      * @param array<DetectionRule>|null $value Value to set for the detectionRules property.
     */
     public function setDetectionRules(?array $value): void {

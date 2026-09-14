@@ -262,6 +262,14 @@ class PlannerTask extends PlannerDelta implements Parsable
             'creationSource' => fn(ParseNode $n) => $o->setCreationSource($n->getObjectValue([PlannerTaskCreation::class, 'createFromDiscriminatorValue'])),
             'details' => fn(ParseNode $n) => $o->setDetails($n->getObjectValue([PlannerTaskDetails::class, 'createFromDiscriminatorValue'])),
             'dueDateTime' => fn(ParseNode $n) => $o->setDueDateTime($n->getDateTimeValue()),
+            'goalIds' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setGoalIds($val);
+            },
             'hasChat' => fn(ParseNode $n) => $o->setHasChat($n->getBooleanValue()),
             'hasDescription' => fn(ParseNode $n) => $o->setHasDescription($n->getBooleanValue()),
             'isArchived' => fn(ParseNode $n) => $o->setIsArchived($n->getBooleanValue()),
@@ -282,6 +290,20 @@ class PlannerTask extends PlannerDelta implements Parsable
             'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
             'title' => fn(ParseNode $n) => $o->setTitle($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the goalIds property value. Read-only. The IDs of the goals associated with the task.
+     * @return array<string>|null
+    */
+    public function getGoalIds(): ?array {
+        $val = $this->getBackingStore()->get('goalIds');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'goalIds'");
     }
 
     /**
@@ -345,7 +367,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the lastModifiedBy property value. The lastModifiedBy property
+     * Gets the lastModifiedBy property value. Read-only. User ID by which this is last modified.
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
@@ -357,7 +379,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. Read-only. Date and time at which this is last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -537,6 +559,7 @@ class PlannerTask extends PlannerDelta implements Parsable
         $writer->writeObjectValue('creationSource', $this->getCreationSource());
         $writer->writeObjectValue('details', $this->getDetails());
         $writer->writeDateTimeValue('dueDateTime', $this->getDueDateTime());
+        $writer->writeCollectionOfPrimitiveValues('goalIds', $this->getGoalIds());
         $writer->writeBooleanValue('hasChat', $this->getHasChat());
         $writer->writeBooleanValue('hasDescription', $this->getHasDescription());
         $writer->writeBooleanValue('isArchived', $this->getIsArchived());
@@ -695,6 +718,14 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
+     * Sets the goalIds property value. Read-only. The IDs of the goals associated with the task.
+     * @param array<string>|null $value Value to set for the goalIds property.
+    */
+    public function setGoalIds(?array $value): void {
+        $this->getBackingStore()->set('goalIds', $value);
+    }
+
+    /**
      * Sets the hasChat property value. Read-only. This value is true if the task has chat messages associated with it. Otherwise, false.
      * @param bool|null $value Value to set for the hasChat property.
     */
@@ -735,7 +766,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the lastModifiedBy property value. The lastModifiedBy property
+     * Sets the lastModifiedBy property value. Read-only. User ID by which this is last modified.
      * @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value): void {
@@ -743,7 +774,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. Read-only. Date and time at which this is last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {

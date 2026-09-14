@@ -29,6 +29,18 @@ class IosStoreApp extends MobileApp implements Parsable
     }
 
     /**
+     * Gets the appleDeviceAppDeliveryProtocolType property value. The appleDeviceAppDeliveryProtocolType property
+     * @return AppleDeviceDeliveryProtocol|null
+    */
+    public function getAppleDeviceAppDeliveryProtocolType(): ?AppleDeviceDeliveryProtocol {
+        $val = $this->getBackingStore()->get('appleDeviceAppDeliveryProtocolType');
+        if (is_null($val) || $val instanceof AppleDeviceDeliveryProtocol) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appleDeviceAppDeliveryProtocolType'");
+    }
+
+    /**
      * Gets the applicableDeviceType property value. Contains properties of the possible iOS device types the mobile app can run on.
      * @return IosDeviceType|null
     */
@@ -71,6 +83,7 @@ class IosStoreApp extends MobileApp implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'appleDeviceAppDeliveryProtocolType' => fn(ParseNode $n) => $o->setAppleDeviceAppDeliveryProtocolType($n->getEnumValue(AppleDeviceDeliveryProtocol::class)),
             'applicableDeviceType' => fn(ParseNode $n) => $o->setApplicableDeviceType($n->getObjectValue([IosDeviceType::class, 'createFromDiscriminatorValue'])),
             'appStoreUrl' => fn(ParseNode $n) => $o->setAppStoreUrl($n->getStringValue()),
             'bundleId' => fn(ParseNode $n) => $o->setBundleId($n->getStringValue()),
@@ -96,10 +109,19 @@ class IosStoreApp extends MobileApp implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeEnumValue('appleDeviceAppDeliveryProtocolType', $this->getAppleDeviceAppDeliveryProtocolType());
         $writer->writeObjectValue('applicableDeviceType', $this->getApplicableDeviceType());
         $writer->writeStringValue('appStoreUrl', $this->getAppStoreUrl());
         $writer->writeStringValue('bundleId', $this->getBundleId());
         $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->getMinimumSupportedOperatingSystem());
+    }
+
+    /**
+     * Sets the appleDeviceAppDeliveryProtocolType property value. The appleDeviceAppDeliveryProtocolType property
+     * @param AppleDeviceDeliveryProtocol|null $value Value to set for the appleDeviceAppDeliveryProtocolType property.
+    */
+    public function setAppleDeviceAppDeliveryProtocolType(?AppleDeviceDeliveryProtocol $value): void {
+        $this->getBackingStore()->set('appleDeviceAppDeliveryProtocolType', $value);
     }
 
     /**

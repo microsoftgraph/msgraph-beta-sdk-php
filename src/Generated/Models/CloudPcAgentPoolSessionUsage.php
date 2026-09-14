@@ -35,7 +35,7 @@ class CloudPcAgentPoolSessionUsage implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the activeSessionsCount property value. The activeSessionsCount property
+     * Gets the activeSessionsCount property value. The number of active sessions in the pool. Read-only.
      * @return int|null
     */
     public function getActiveSessionsCount(): ?int {
@@ -60,7 +60,7 @@ class CloudPcAgentPoolSessionUsage implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Gets the availableSessionsCount property value. The availableSessionsCount property
+     * Gets the availableSessionsCount property value. The number of available sessions in the pool. Read-only.
      * @return int|null
     */
     public function getAvailableSessionsCount(): ?int {
@@ -116,7 +116,7 @@ class CloudPcAgentPoolSessionUsage implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Sets the activeSessionsCount property value. The activeSessionsCount property
+     * Sets the activeSessionsCount property value. The number of active sessions in the pool. Read-only.
      * @param int|null $value Value to set for the activeSessionsCount property.
     */
     public function setActiveSessionsCount(?int $value): void {
@@ -132,7 +132,7 @@ class CloudPcAgentPoolSessionUsage implements AdditionalDataHolder, BackedModel,
     }
 
     /**
-     * Sets the availableSessionsCount property value. The availableSessionsCount property
+     * Sets the availableSessionsCount property value. The number of available sessions in the pool. Read-only.
      * @param int|null $value Value to set for the availableSessionsCount property.
     */
     public function setAvailableSessionsCount(?int $value): void {

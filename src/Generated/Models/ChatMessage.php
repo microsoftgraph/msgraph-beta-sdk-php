@@ -49,11 +49,11 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Gets the body property value. The body property
-     * @return ItemBody|null
+     * @return ChatMessageBody|null
     */
-    public function getBody(): ?ItemBody {
+    public function getBody(): ?ChatMessageBody {
         $val = $this->getBackingStore()->get('body');
-        if (is_null($val) || $val instanceof ItemBody) {
+        if (is_null($val) || $val instanceof ChatMessageBody) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'body'");
@@ -84,6 +84,20 @@ class ChatMessage extends Entity implements Parsable
     }
 
     /**
+     * Gets the citations property value. Read-only. Inline citations that reference external sources cited in the message. Citations are system-generated for bot messages and appear as a typed collection.
+     * @return array<ChatMessageCitation>|null
+    */
+    public function getCitations(): ?array {
+        $val = $this->getBackingStore()->get('citations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ChatMessageCitation::class);
+            /** @var array<ChatMessageCitation>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'citations'");
+    }
+
+    /**
      * Gets the createdDateTime property value. Timestamp of when the chat message was created.
      * @return DateTime|null
     */
@@ -96,7 +110,7 @@ class ChatMessage extends Entity implements Parsable
     }
 
     /**
-     * Gets the deletedDateTime property value. Read only. Timestamp at which the chat message was deleted, or null if not deleted.
+     * Gets the deletedDateTime property value. Read-only. Timestamp at which the chat message was deleted, or null if not deleted.
      * @return DateTime|null
     */
     public function getDeletedDateTime(): ?DateTime {
@@ -139,14 +153,16 @@ class ChatMessage extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'attachments' => fn(ParseNode $n) => $o->setAttachments($n->getCollectionOfObjectValues([ChatMessageAttachment::class, 'createFromDiscriminatorValue'])),
-            'body' => fn(ParseNode $n) => $o->setBody($n->getObjectValue([ItemBody::class, 'createFromDiscriminatorValue'])),
+            'body' => fn(ParseNode $n) => $o->setBody($n->getObjectValue([ChatMessageBody::class, 'createFromDiscriminatorValue'])),
             'channelIdentity' => fn(ParseNode $n) => $o->setChannelIdentity($n->getObjectValue([ChannelIdentity::class, 'createFromDiscriminatorValue'])),
             'chatId' => fn(ParseNode $n) => $o->setChatId($n->getStringValue()),
+            'citations' => fn(ParseNode $n) => $o->setCitations($n->getCollectionOfObjectValues([ChatMessageCitation::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'deletedDateTime' => fn(ParseNode $n) => $o->setDeletedDateTime($n->getDateTimeValue()),
             'etag' => fn(ParseNode $n) => $o->setEtag($n->getStringValue()),
             'eventDetail' => fn(ParseNode $n) => $o->setEventDetail($n->getObjectValue([EventMessageDetail::class, 'createFromDiscriminatorValue'])),
             'from' => fn(ParseNode $n) => $o->setFrom($n->getObjectValue([ChatMessageFromIdentitySet::class, 'createFromDiscriminatorValue'])),
+            'hasReplies' => fn(ParseNode $n) => $o->setHasReplies($n->getBooleanValue()),
             'hostedContents' => fn(ParseNode $n) => $o->setHostedContents($n->getCollectionOfObjectValues([ChatMessageHostedContent::class, 'createFromDiscriminatorValue'])),
             'importance' => fn(ParseNode $n) => $o->setImportance($n->getEnumValue(ChatMessageImportance::class)),
             'lastEditedDateTime' => fn(ParseNode $n) => $o->setLastEditedDateTime($n->getDateTimeValue()),
@@ -179,6 +195,18 @@ class ChatMessage extends Entity implements Parsable
     }
 
     /**
+     * Gets the hasReplies property value. The hasReplies property
+     * @return bool|null
+    */
+    public function getHasReplies(): ?bool {
+        $val = $this->getBackingStore()->get('hasReplies');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'hasReplies'");
+    }
+
+    /**
      * Gets the hostedContents property value. Content in a message hosted by Microsoft Teams - for example, images or code snippets.
      * @return array<ChatMessageHostedContent>|null
     */
@@ -205,7 +233,7 @@ class ChatMessage extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastEditedDateTime property value. Read only. Timestamp when edits to the chat message were made. Triggers an 'Edited' flag in the Teams UI. If no edits are made the value is null.
+     * Gets the lastEditedDateTime property value. Read-only. Timestamp when edits to the chat message were made. Triggers an 'Edited' flag in the Teams UI. If no edits are made the value is null.
      * @return DateTime|null
     */
     public function getLastEditedDateTime(): ?DateTime {
@@ -217,7 +245,7 @@ class ChatMessage extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. Read only. Timestamp when the chat message is created (initial setting) or modified, including when a reaction is added or removed.
+     * Gets the lastModifiedDateTime property value. Read-only. Timestamp when the chat message is created (initial setting) or modified, including when a reaction is added or removed.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -390,11 +418,13 @@ class ChatMessage extends Entity implements Parsable
         $writer->writeObjectValue('body', $this->getBody());
         $writer->writeObjectValue('channelIdentity', $this->getChannelIdentity());
         $writer->writeStringValue('chatId', $this->getChatId());
+        $writer->writeCollectionOfObjectValues('citations', $this->getCitations());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeDateTimeValue('deletedDateTime', $this->getDeletedDateTime());
         $writer->writeStringValue('etag', $this->getEtag());
         $writer->writeObjectValue('eventDetail', $this->getEventDetail());
         $writer->writeObjectValue('from', $this->getFrom());
+        $writer->writeBooleanValue('hasReplies', $this->getHasReplies());
         $writer->writeCollectionOfObjectValues('hostedContents', $this->getHostedContents());
         $writer->writeEnumValue('importance', $this->getImportance());
         $writer->writeDateTimeValue('lastEditedDateTime', $this->getLastEditedDateTime());
@@ -423,9 +453,9 @@ class ChatMessage extends Entity implements Parsable
 
     /**
      * Sets the body property value. The body property
-     * @param ItemBody|null $value Value to set for the body property.
+     * @param ChatMessageBody|null $value Value to set for the body property.
     */
-    public function setBody(?ItemBody $value): void {
+    public function setBody(?ChatMessageBody $value): void {
         $this->getBackingStore()->set('body', $value);
     }
 
@@ -446,6 +476,14 @@ class ChatMessage extends Entity implements Parsable
     }
 
     /**
+     * Sets the citations property value. Read-only. Inline citations that reference external sources cited in the message. Citations are system-generated for bot messages and appear as a typed collection.
+     * @param array<ChatMessageCitation>|null $value Value to set for the citations property.
+    */
+    public function setCitations(?array $value): void {
+        $this->getBackingStore()->set('citations', $value);
+    }
+
+    /**
      * Sets the createdDateTime property value. Timestamp of when the chat message was created.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
@@ -454,7 +492,7 @@ class ChatMessage extends Entity implements Parsable
     }
 
     /**
-     * Sets the deletedDateTime property value. Read only. Timestamp at which the chat message was deleted, or null if not deleted.
+     * Sets the deletedDateTime property value. Read-only. Timestamp at which the chat message was deleted, or null if not deleted.
      * @param DateTime|null $value Value to set for the deletedDateTime property.
     */
     public function setDeletedDateTime(?DateTime $value): void {
@@ -486,6 +524,14 @@ class ChatMessage extends Entity implements Parsable
     }
 
     /**
+     * Sets the hasReplies property value. The hasReplies property
+     * @param bool|null $value Value to set for the hasReplies property.
+    */
+    public function setHasReplies(?bool $value): void {
+        $this->getBackingStore()->set('hasReplies', $value);
+    }
+
+    /**
      * Sets the hostedContents property value. Content in a message hosted by Microsoft Teams - for example, images or code snippets.
      * @param array<ChatMessageHostedContent>|null $value Value to set for the hostedContents property.
     */
@@ -502,7 +548,7 @@ class ChatMessage extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastEditedDateTime property value. Read only. Timestamp when edits to the chat message were made. Triggers an 'Edited' flag in the Teams UI. If no edits are made the value is null.
+     * Sets the lastEditedDateTime property value. Read-only. Timestamp when edits to the chat message were made. Triggers an 'Edited' flag in the Teams UI. If no edits are made the value is null.
      * @param DateTime|null $value Value to set for the lastEditedDateTime property.
     */
     public function setLastEditedDateTime(?DateTime $value): void {
@@ -510,7 +556,7 @@ class ChatMessage extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. Read only. Timestamp when the chat message is created (initial setting) or modified, including when a reaction is added or removed.
+     * Sets the lastModifiedDateTime property value. Read-only. Timestamp when the chat message is created (initial setting) or modified, including when a reaction is added or removed.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {

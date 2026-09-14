@@ -1870,7 +1870,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the reports property value. The reports property
+     * Gets the reports property value. Reports singleton
      * @return DeviceManagementReports|null
     */
     public function getReports(): ?DeviceManagementReports {
@@ -4083,7 +4083,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the reports property value. The reports property
+     * Sets the reports property value. Reports singleton
      * @param DeviceManagementReports|null $value Value to set for the reports property.
     */
     public function setReports(?DeviceManagementReports $value): void {

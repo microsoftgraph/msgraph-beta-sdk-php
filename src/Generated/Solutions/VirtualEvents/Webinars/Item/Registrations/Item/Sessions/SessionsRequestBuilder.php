@@ -51,7 +51,7 @@ class SessionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of sessions that a registrant registered for in a webinar.
+     * Get a list of sessions that a registrant registered for in a webinar or town hall.
      * @param SessionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<VirtualEventSessionCollectionResponse|null>
      * @throws Exception
@@ -66,7 +66,7 @@ class SessionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of sessions that a registrant registered for in a webinar.
+     * Get a list of sessions that a registrant registered for in a webinar or town hall.
      * @param SessionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

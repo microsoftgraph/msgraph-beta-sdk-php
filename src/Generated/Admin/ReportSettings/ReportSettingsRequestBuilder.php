@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\ReportSettings;
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Admin\ReportSettings\SharePoint\SharePointRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AdminReportSettings;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -16,6 +17,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class ReportSettingsRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the sharePoint property of the microsoft.graph.adminReportSettings entity.
+    */
+    public function sharePoint(): SharePointRequestBuilder {
+        return new SharePointRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new ReportSettingsRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.

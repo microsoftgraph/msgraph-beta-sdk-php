@@ -94,7 +94,7 @@ class ClaimBinding implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the sourceAttribute property value. Source attribute value
+     * Gets the sourceAttribute property value. The source attribute from the directory or credential.
      * @return string|null
     */
     public function getSourceAttribute(): ?string {
@@ -106,7 +106,7 @@ class ClaimBinding implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the verifiedIdClaim property value. Entra ID attribute value
+     * Gets the verifiedIdClaim property value. The claim name in the verified ID credential.
      * @return string|null
     */
     public function getVerifiedIdClaim(): ?string {
@@ -162,7 +162,7 @@ class ClaimBinding implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the sourceAttribute property value. Source attribute value
+     * Sets the sourceAttribute property value. The source attribute from the directory or credential.
      * @param string|null $value Value to set for the sourceAttribute property.
     */
     public function setSourceAttribute(?string $value): void {
@@ -170,7 +170,7 @@ class ClaimBinding implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the verifiedIdClaim property value. Entra ID attribute value
+     * Sets the verifiedIdClaim property value. The claim name in the verified ID credential.
      * @param string|null $value Value to set for the verifiedIdClaim property.
     */
     public function setVerifiedIdClaim(?string $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\CloudPcPools\Item\Assignment
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get assignments from users
+ * The collection of assignments that grant user or service principal identities access to this pool.
 */
 class CloudPcPoolAssignmentItemRequestBuilderGetQueryParameters 
 {

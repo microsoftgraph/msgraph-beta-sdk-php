@@ -30,11 +30,12 @@ class RetryRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action retry
+     * Retry a cloudPcBulkAction object with selected Cloud PCs.
      * @param RetryPostRequestBody $body The request body
      * @param RetryRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcbulkaction-retry?view=graph-rest-beta Find more info here
     */
     public function post(RetryPostRequestBody $body, ?RetryRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -45,7 +46,7 @@ class RetryRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action retry
+     * Retry a cloudPcBulkAction object with selected Cloud PCs.
      * @param RetryPostRequestBody $body The request body
      * @param RetryRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

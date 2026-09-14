@@ -176,6 +176,7 @@ class DriveItem extends BaseItem implements Parsable
             'image' => fn(ParseNode $n) => $o->setImage($n->getObjectValue([Image::class, 'createFromDiscriminatorValue'])),
             'listItem' => fn(ParseNode $n) => $o->setListItem($n->getObjectValue([ListItem::class, 'createFromDiscriminatorValue'])),
             'location' => fn(ParseNode $n) => $o->setLocation($n->getObjectValue([GeoCoordinates::class, 'createFromDiscriminatorValue'])),
+            'lockInfo' => fn(ParseNode $n) => $o->setLockInfo($n->getObjectValue([LockInfo::class, 'createFromDiscriminatorValue'])),
             'malware' => fn(ParseNode $n) => $o->setMalware($n->getObjectValue([Malware::class, 'createFromDiscriminatorValue'])),
             'media' => fn(ParseNode $n) => $o->setMedia($n->getObjectValue([Media::class, 'createFromDiscriminatorValue'])),
             'package' => fn(ParseNode $n) => $o->setPackage($n->getObjectValue([Package::class, 'createFromDiscriminatorValue'])),
@@ -272,6 +273,18 @@ class DriveItem extends BaseItem implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'location'");
+    }
+
+    /**
+     * Gets the lockInfo property value. Lock metadata for the item, including the lock type, when it was created, when it expires, and which users currently hold the lock. Read-only.
+     * @return LockInfo|null
+    */
+    public function getLockInfo(): ?LockInfo {
+        $val = $this->getBackingStore()->get('lockInfo');
+        if (is_null($val) || $val instanceof LockInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lockInfo'");
     }
 
     /**
@@ -580,6 +593,7 @@ class DriveItem extends BaseItem implements Parsable
         $writer->writeObjectValue('image', $this->getImage());
         $writer->writeObjectValue('listItem', $this->getListItem());
         $writer->writeObjectValue('location', $this->getLocation());
+        $writer->writeObjectValue('lockInfo', $this->getLockInfo());
         $writer->writeObjectValue('malware', $this->getMalware());
         $writer->writeObjectValue('media', $this->getMedia());
         $writer->writeObjectValue('package', $this->getPackage());
@@ -731,6 +745,14 @@ class DriveItem extends BaseItem implements Parsable
     */
     public function setLocation(?GeoCoordinates $value): void {
         $this->getBackingStore()->set('location', $value);
+    }
+
+    /**
+     * Sets the lockInfo property value. Lock metadata for the item, including the lock type, when it was created, when it expires, and which users currently hold the lock. Read-only.
+     * @param LockInfo|null $value Value to set for the lockInfo property.
+    */
+    public function setLockInfo(?LockInfo $value): void {
+        $this->getBackingStore()->set('lockInfo', $value);
     }
 
     /**

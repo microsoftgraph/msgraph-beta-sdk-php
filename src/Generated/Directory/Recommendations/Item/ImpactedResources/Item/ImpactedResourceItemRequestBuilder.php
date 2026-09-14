@@ -4,10 +4,16 @@ namespace Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\Impacted
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\ImpactedResources\Item\AcceptRisk\AcceptRiskRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\ImpactedResources\Item\AddTag\AddTagRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\ImpactedResources\Item\ApplyAlternateMitigation\ApplyAlternateMitigationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\ImpactedResources\Item\Complete\CompleteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\ImpactedResources\Item\Dismiss\DismissRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\ImpactedResources\Item\MarkPlanned\MarkPlannedRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\ImpactedResources\Item\Postpone\PostponeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\ImpactedResources\Item\Reactivate\ReactivateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\ImpactedResources\Item\RemoveTag\RemoveTagRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\ImpactedResources\Item\Tags\TagsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ImpactedResource;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -20,6 +26,27 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class ImpactedResourceItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to call the acceptRisk method.
+    */
+    public function acceptRisk(): AcceptRiskRequestBuilder {
+        return new AcceptRiskRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the addTag method.
+    */
+    public function addTag(): AddTagRequestBuilder {
+        return new AddTagRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the applyAlternateMitigation method.
+    */
+    public function applyAlternateMitigation(): ApplyAlternateMitigationRequestBuilder {
+        return new ApplyAlternateMitigationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to call the complete method.
     */
@@ -35,6 +62,13 @@ class ImpactedResourceItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the markPlanned method.
+    */
+    public function markPlanned(): MarkPlannedRequestBuilder {
+        return new MarkPlannedRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the postpone method.
     */
     public function postpone(): PostponeRequestBuilder {
@@ -46,6 +80,20 @@ class ImpactedResourceItemRequestBuilder extends BaseRequestBuilder
     */
     public function reactivate(): ReactivateRequestBuilder {
         return new ReactivateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the removeTag method.
+    */
+    public function removeTag(): RemoveTagRequestBuilder {
+        return new RemoveTagRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the tags property of the microsoft.graph.impactedResource entity.
+    */
+    public function tags(): TagsRequestBuilder {
+        return new TagsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

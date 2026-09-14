@@ -53,7 +53,7 @@ class CloudPcPoolItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get cloudPcPools from users
+     * The user's Cloud PC pools. Read-only. Nullable.
      * @param CloudPcPoolItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcPool|null>
      * @throws Exception
@@ -100,7 +100,7 @@ class CloudPcPoolItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get cloudPcPools from users
+     * The user's Cloud PC pools. Read-only. Nullable.
      * @param CloudPcPoolItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

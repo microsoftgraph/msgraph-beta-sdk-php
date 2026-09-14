@@ -5,17 +5,17 @@ namespace Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\GovernancePo
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\GovernancePolicyTemplates\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\GovernancePolicyTemplates\Item\GovernancePolicyTemplateItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\GovernancePolicyTemplates\Item\TenantGovernancePolicyTemplateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\GovernancePolicyTemplate;
-use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\GovernancePolicyTemplateCollectionResponse;
+use Microsoft\Graph\Beta\Generated\Models\TenantGovernancePolicyTemplate;
+use Microsoft\Graph\Beta\Generated\Models\TenantGovernancePolicyTemplateCollectionResponse;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
 
 /**
- * Provides operations to manage the governancePolicyTemplates property of the microsoft.graph.tenantGovernanceServices.tenantGovernance entity.
+ * Provides operations to manage the governancePolicyTemplates property of the microsoft.graph.tenantGovernance entity.
 */
 class GovernancePolicyTemplatesRequestBuilder extends BaseRequestBuilder 
 {
@@ -27,14 +27,14 @@ class GovernancePolicyTemplatesRequestBuilder extends BaseRequestBuilder
     }
     
     /**
-     * Provides operations to manage the governancePolicyTemplates property of the microsoft.graph.tenantGovernanceServices.tenantGovernance entity.
-     * @param string $governancePolicyTemplateId The unique identifier of governancePolicyTemplate
-     * @return GovernancePolicyTemplateItemRequestBuilder
+     * Provides operations to manage the governancePolicyTemplates property of the microsoft.graph.tenantGovernance entity.
+     * @param string $tenantGovernancePolicyTemplateId The unique identifier of tenantGovernancePolicyTemplate
+     * @return TenantGovernancePolicyTemplateItemRequestBuilder
     */
-    public function byGovernancePolicyTemplateId(string $governancePolicyTemplateId): GovernancePolicyTemplateItemRequestBuilder {
+    public function byTenantGovernancePolicyTemplateId(string $tenantGovernancePolicyTemplateId): TenantGovernancePolicyTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['governancePolicyTemplate%2Did'] = $governancePolicyTemplateId;
-        return new GovernancePolicyTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        $urlTplParams['tenantGovernancePolicyTemplate%2Did'] = $tenantGovernancePolicyTemplateId;
+        return new TenantGovernancePolicyTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -54,7 +54,7 @@ class GovernancePolicyTemplatesRequestBuilder extends BaseRequestBuilder
     /**
      * Get a list of the governancePolicyTemplate objects and their properties. Policy templates define the configuration that is applied when establishing governance relationships.
      * @param GovernancePolicyTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<GovernancePolicyTemplateCollectionResponse|null>
+     * @return Promise<TenantGovernancePolicyTemplateCollectionResponse|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/tenantgovernanceservices-list-governancepolicytemplates?view=graph-rest-beta Find more info here
     */
@@ -63,23 +63,23 @@ class GovernancePolicyTemplatesRequestBuilder extends BaseRequestBuilder
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        return $this->requestAdapter->sendAsync($requestInfo, [GovernancePolicyTemplateCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+        return $this->requestAdapter->sendAsync($requestInfo, [TenantGovernancePolicyTemplateCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
      * Create a new governancePolicyTemplate that defines the configuration for establishing governance relationships, including role assignments and applications to provision.
-     * @param GovernancePolicyTemplate $body The request body
+     * @param TenantGovernancePolicyTemplate $body The request body
      * @param GovernancePolicyTemplatesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return Promise<GovernancePolicyTemplate|null>
+     * @return Promise<TenantGovernancePolicyTemplate|null>
      * @throws Exception
      * @link https://learn.microsoft.com/graph/api/tenantgovernanceservices-post-governancepolicytemplates?view=graph-rest-beta Find more info here
     */
-    public function post(GovernancePolicyTemplate $body, ?GovernancePolicyTemplatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(TenantGovernancePolicyTemplate $body, ?GovernancePolicyTemplatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
-        return $this->requestAdapter->sendAsync($requestInfo, [GovernancePolicyTemplate::class, 'createFromDiscriminatorValue'], $errorMappings);
+        return $this->requestAdapter->sendAsync($requestInfo, [TenantGovernancePolicyTemplate::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
@@ -105,11 +105,11 @@ class GovernancePolicyTemplatesRequestBuilder extends BaseRequestBuilder
 
     /**
      * Create a new governancePolicyTemplate that defines the configuration for establishing governance relationships, including role assignments and applications to provision.
-     * @param GovernancePolicyTemplate $body The request body
+     * @param TenantGovernancePolicyTemplate $body The request body
      * @param GovernancePolicyTemplatesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(GovernancePolicyTemplate $body, ?GovernancePolicyTemplatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(TenantGovernancePolicyTemplate $body, ?GovernancePolicyTemplatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

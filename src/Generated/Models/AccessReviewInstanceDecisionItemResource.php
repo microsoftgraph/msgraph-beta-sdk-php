@@ -36,6 +36,7 @@ class AccessReviewInstanceDecisionItemResource implements AdditionalDataHolder, 
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
                 case '#microsoft.graph.accessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource': return new AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource();
+                case '#microsoft.graph.accessReviewInstanceDecisionItemAccessPackageResource': return new AccessReviewInstanceDecisionItemAccessPackageResource();
                 case '#microsoft.graph.accessReviewInstanceDecisionItemAzureRoleResource': return new AccessReviewInstanceDecisionItemAzureRoleResource();
                 case '#microsoft.graph.accessReviewInstanceDecisionItemCustomDataProvidedResource': return new AccessReviewInstanceDecisionItemCustomDataProvidedResource();
                 case '#microsoft.graph.accessReviewInstanceDecisionItemServicePrincipalResource': return new AccessReviewInstanceDecisionItemServicePrincipalResource();
@@ -129,7 +130,7 @@ class AccessReviewInstanceDecisionItemResource implements AdditionalDataHolder, 
     }
 
     /**
-     * Gets the type property value. Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackageAssignmentPolicy, and CustomDataProvidedResource.
+     * Gets the type property value. Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackage, AccessPackageAssignmentPolicy, and CustomDataProvidedResource.
      * @return string|null
     */
     public function getType(): ?string {
@@ -202,7 +203,7 @@ class AccessReviewInstanceDecisionItemResource implements AdditionalDataHolder, 
     }
 
     /**
-     * Sets the type property value. Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackageAssignmentPolicy, and CustomDataProvidedResource.
+     * Sets the type property value. Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackage, AccessPackageAssignmentPolicy, and CustomDataProvidedResource.
      * @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value): void {

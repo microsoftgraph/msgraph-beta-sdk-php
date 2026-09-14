@@ -3,6 +3,7 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Graph\Beta\Generated\Models\CustomDataProvidedResourcePayloads\Data;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -23,6 +24,13 @@ class CustomDataProvidedResourceUploadSession extends Entity implements Parsable
      * @return CustomDataProvidedResourceUploadSession
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): CustomDataProvidedResourceUploadSession {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.customDataProvidedResourceAccessReviewUploadSession': return new CustomDataProvidedResourceAccessReviewUploadSession();
+            }
+        }
         return new CustomDataProvidedResourceUploadSession();
     }
 
@@ -39,12 +47,12 @@ class CustomDataProvidedResourceUploadSession extends Entity implements Parsable
     }
 
     /**
-     * Gets the data property value. An object containing the context for which this data is being uploaded. Currently the only possible concrete type is accessReviewResourceDataUploadSessionContextData
-     * @return CustomExtensionData|null
+     * Gets the data property value. An object containing the context for which this data is being uploaded.
+     * @return Data|null
     */
-    public function getData(): ?CustomExtensionData {
+    public function getData(): ?Data {
         $val = $this->getBackingStore()->get('data');
-        if (is_null($val) || $val instanceof CustomExtensionData) {
+        if (is_null($val) || $val instanceof Data) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'data'");
@@ -58,14 +66,12 @@ class CustomDataProvidedResourceUploadSession extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
-            'data' => fn(ParseNode $n) => $o->setData($n->getObjectValue([CustomExtensionData::class, 'createFromDiscriminatorValue'])),
+            'data' => fn(ParseNode $n) => $o->setData($n->getObjectValue([Data::class, 'createFromDiscriminatorValue'])),
             'files' => fn(ParseNode $n) => $o->setFiles($n->getCollectionOfObjectValues([CustomDataProvidedResourceFile::class, 'createFromDiscriminatorValue'])),
             'isUploadDone' => fn(ParseNode $n) => $o->setIsUploadDone($n->getBooleanValue()),
             'referenceId' => fn(ParseNode $n) => $o->setReferenceId($n->getStringValue()),
-            'source' => fn(ParseNode $n) => $o->setSource($n->getStringValue()),
             'stats' => fn(ParseNode $n) => $o->setStats($n->getObjectValue([CustomDataProvidedResourceUploadStats::class, 'createFromDiscriminatorValue'])),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CustomDataProvidedResourceUploadStatus::class)),
-            'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
         ]);
     }
 
@@ -108,18 +114,6 @@ class CustomDataProvidedResourceUploadSession extends Entity implements Parsable
     }
 
     /**
-     * Gets the source property value. The source of the access data. This should be set to the customdataprovidedresource's name when creating the session.
-     * @return string|null
-    */
-    public function getSource(): ?string {
-        $val = $this->getBackingStore()->get('source');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'source'");
-    }
-
-    /**
      * Gets the stats property value. The stats property
      * @return CustomDataProvidedResourceUploadStats|null
     */
@@ -144,18 +138,6 @@ class CustomDataProvidedResourceUploadSession extends Entity implements Parsable
     }
 
     /**
-     * Gets the type property value. Schematized form of the expected CSV columns in the uploaded file. The only possible value currently is: accessReviewDataUploadTriggerCallbackData
-     * @return string|null
-    */
-    public function getType(): ?string {
-        $val = $this->getBackingStore()->get('type');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'type'");
-    }
-
-    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -166,10 +148,8 @@ class CustomDataProvidedResourceUploadSession extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('files', $this->getFiles());
         $writer->writeBooleanValue('isUploadDone', $this->getIsUploadDone());
         $writer->writeStringValue('referenceId', $this->getReferenceId());
-        $writer->writeStringValue('source', $this->getSource());
         $writer->writeObjectValue('stats', $this->getStats());
         $writer->writeEnumValue('status', $this->getStatus());
-        $writer->writeStringValue('type', $this->getType());
     }
 
     /**
@@ -181,10 +161,10 @@ class CustomDataProvidedResourceUploadSession extends Entity implements Parsable
     }
 
     /**
-     * Sets the data property value. An object containing the context for which this data is being uploaded. Currently the only possible concrete type is accessReviewResourceDataUploadSessionContextData
-     * @param CustomExtensionData|null $value Value to set for the data property.
+     * Sets the data property value. An object containing the context for which this data is being uploaded.
+     * @param Data|null $value Value to set for the data property.
     */
-    public function setData(?CustomExtensionData $value): void {
+    public function setData(?Data $value): void {
         $this->getBackingStore()->set('data', $value);
     }
 
@@ -213,14 +193,6 @@ class CustomDataProvidedResourceUploadSession extends Entity implements Parsable
     }
 
     /**
-     * Sets the source property value. The source of the access data. This should be set to the customdataprovidedresource's name when creating the session.
-     * @param string|null $value Value to set for the source property.
-    */
-    public function setSource(?string $value): void {
-        $this->getBackingStore()->set('source', $value);
-    }
-
-    /**
      * Sets the stats property value. The stats property
      * @param CustomDataProvidedResourceUploadStats|null $value Value to set for the stats property.
     */
@@ -234,14 +206,6 @@ class CustomDataProvidedResourceUploadSession extends Entity implements Parsable
     */
     public function setStatus(?CustomDataProvidedResourceUploadStatus $value): void {
         $this->getBackingStore()->set('status', $value);
-    }
-
-    /**
-     * Sets the type property value. Schematized form of the expected CSV columns in the uploaded file. The only possible value currently is: accessReviewDataUploadTriggerCallbackData
-     * @param string|null $value Value to set for the type property.
-    */
-    public function setType(?string $value): void {
-        $this->getBackingStore()->set('type', $value);
     }
 
 }

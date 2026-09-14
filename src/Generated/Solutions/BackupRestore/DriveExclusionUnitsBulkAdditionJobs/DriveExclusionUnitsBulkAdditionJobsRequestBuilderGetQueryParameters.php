@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\DriveExclusionU
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get driveExclusionUnitsBulkAdditionJobs from solutions
+ * The list of bulk addition jobs for drive exclusion units in the tenant.
 */
 class DriveExclusionUnitsBulkAdditionJobsRequestBuilderGetQueryParameters 
 {

@@ -9,7 +9,6 @@ use Microsoft\Graph\Beta\Generated\Models\CrossTenantMigrationJobCollectionRespo
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Solutions\Migrations\CrossTenantMigrationJobs\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\Migrations\CrossTenantMigrationJobs\Item\CrossTenantMigrationJobItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Solutions\Migrations\CrossTenantMigrationJobs\Validate\ValidateRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -25,13 +24,6 @@ class CrossTenantMigrationJobsRequestBuilder extends BaseRequestBuilder
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the validate method.
-    */
-    public function validate(): ValidateRequestBuilder {
-        return new ValidateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -75,7 +67,7 @@ class CrossTenantMigrationJobsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new crossTenantMigrationJob.
+     * Create a new crossTenantMigrationJob. A job defines the migration batch but doesn't start validation or migration. After you create the job, call validate to verify tenant and resource configuration, then call migrate to begin the actual migration.
      * @param CrossTenantMigrationJob $body The request body
      * @param CrossTenantMigrationJobsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CrossTenantMigrationJob|null>
@@ -112,7 +104,7 @@ class CrossTenantMigrationJobsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new crossTenantMigrationJob.
+     * Create a new crossTenantMigrationJob. A job defines the migration batch but doesn't start validation or migration. After you create the job, call validate to verify tenant and resource configuration, then call migrate to begin the actual migration.
      * @param CrossTenantMigrationJob $body The request body
      * @param CrossTenantMigrationJobsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

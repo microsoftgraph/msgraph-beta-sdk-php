@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Participants;
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Participants\AdmitAllFromLobby\AdmitAllFromLobbyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Participants\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Participants\Invite\InviteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Participants\Item\ParticipantItemRequestBuilder;
@@ -21,6 +22,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class ParticipantsRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to call the admitAllFromLobby method.
+    */
+    public function admitAllFromLobby(): AdmitAllFromLobbyRequestBuilder {
+        return new AdmitAllFromLobbyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to count the resources in the collection.
     */

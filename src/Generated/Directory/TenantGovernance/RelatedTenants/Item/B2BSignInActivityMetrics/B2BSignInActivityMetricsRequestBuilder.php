@@ -4,15 +4,15 @@ namespace Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\RelatedTenan
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Models\B2BSignInActivityMetrics;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\B2BSignInActivityMetrics;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
 
 /**
- * Provides operations to manage the b2BSignInActivityMetrics property of the microsoft.graph.tenantGovernanceServices.relatedTenant entity.
+ * Provides operations to manage the b2BSignInActivityMetrics property of the microsoft.graph.relatedTenant entity.
 */
 class B2BSignInActivityMetricsRequestBuilder extends BaseRequestBuilder 
 {
@@ -31,7 +31,7 @@ class B2BSignInActivityMetricsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * B2B sign-in activity metrics for this related tenant. Expanded by default.
+     * Get b2BSignInActivityMetrics from directory
      * @param B2BSignInActivityMetricsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<B2BSignInActivityMetrics|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class B2BSignInActivityMetricsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * B2B sign-in activity metrics for this related tenant. Expanded by default.
+     * Get b2BSignInActivityMetrics from directory
      * @param B2BSignInActivityMetricsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

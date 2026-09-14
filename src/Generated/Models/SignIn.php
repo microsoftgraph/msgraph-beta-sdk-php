@@ -104,7 +104,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the appTokenProtectionStatus property value. Token protection creates a cryptographically secure tie between the token and the device it's issued to. This field indicates whether the app token was bound to the device.
+     * Gets the appTokenProtectionStatus property value. Deprecated. Use tokenProtectionStatusDetails instead. Token protection creates a cryptographically secure tie between the token and the device it's issued to. This field indicates whether the app token was bound to the device.
      * @return TokenProtectionStatus|null
     */
     public function getAppTokenProtectionStatus(): ?TokenProtectionStatus {
@@ -284,6 +284,18 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
+     * Gets the clientSessionId property value. The clientSessionId property
+     * @return string|null
+    */
+    public function getClientSessionId(): ?string {
+        $val = $this->getBackingStore()->get('clientSessionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'clientSessionId'");
+    }
+
+    /**
      * Gets the conditionalAccessAudiences property value. A list that indicates the audience that Conditional Access evaluated during a sign-in event.  Supports $filter (eq).
      * @return array<string>|null
     */
@@ -403,6 +415,7 @@ class SignIn extends Entity implements Parsable
             'azureResourceId' => fn(ParseNode $n) => $o->setAzureResourceId($n->getStringValue()),
             'clientAppUsed' => fn(ParseNode $n) => $o->setClientAppUsed($n->getStringValue()),
             'clientCredentialType' => fn(ParseNode $n) => $o->setClientCredentialType($n->getEnumValue(ClientCredentialType::class)),
+            'clientSessionId' => fn(ParseNode $n) => $o->setClientSessionId($n->getStringValue()),
             'conditionalAccessAudiences' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -935,7 +948,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the signInTokenProtectionStatus property value. Token protection creates a cryptographically secure tie between the token and the device it's issued to. This field indicates whether the signin token was bound to the device or not. The possible values are: none, bound, unbound, unknownFutureValue.
+     * Gets the signInTokenProtectionStatus property value. Deprecated. Use tokenProtectionStatusDetails instead. Token protection creates a cryptographically secure tie between the token and the device it's issued to. This field indicates whether the sign-in token was bound to the device. The possible values are: none, bound, unbound, unknownFutureValue.
      * @return TokenProtectionStatus|null
     */
     public function getSignInTokenProtectionStatus(): ?TokenProtectionStatus {
@@ -983,7 +996,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Gets the tokenProtectionStatusDetails property value. The tokenProtectionStatusDetails property
+     * Gets the tokenProtectionStatusDetails property value. The status of the token protection for a request in the sign-in logs. For more information, see Conditional Access: Token Protection.
      * @return TokenProtectionStatusDetails|null
     */
     public function getTokenProtectionStatusDetails(): ?TokenProtectionStatusDetails {
@@ -1092,6 +1105,7 @@ class SignIn extends Entity implements Parsable
         $writer->writeStringValue('azureResourceId', $this->getAzureResourceId());
         $writer->writeStringValue('clientAppUsed', $this->getClientAppUsed());
         $writer->writeEnumValue('clientCredentialType', $this->getClientCredentialType());
+        $writer->writeStringValue('clientSessionId', $this->getClientSessionId());
         $writer->writeCollectionOfPrimitiveValues('conditionalAccessAudiences', $this->getConditionalAccessAudiences());
         $writer->writeEnumValue('conditionalAccessStatus', $this->getConditionalAccessStatus());
         $writer->writeStringValue('correlationId', $this->getCorrelationId());
@@ -1198,7 +1212,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the appTokenProtectionStatus property value. Token protection creates a cryptographically secure tie between the token and the device it's issued to. This field indicates whether the app token was bound to the device.
+     * Sets the appTokenProtectionStatus property value. Deprecated. Use tokenProtectionStatusDetails instead. Token protection creates a cryptographically secure tie between the token and the device it's issued to. This field indicates whether the app token was bound to the device.
      * @param TokenProtectionStatus|null $value Value to set for the appTokenProtectionStatus property.
     */
     public function setAppTokenProtectionStatus(?TokenProtectionStatus $value): void {
@@ -1307,6 +1321,14 @@ class SignIn extends Entity implements Parsable
     */
     public function setClientCredentialType(?ClientCredentialType $value): void {
         $this->getBackingStore()->set('clientCredentialType', $value);
+    }
+
+    /**
+     * Sets the clientSessionId property value. The clientSessionId property
+     * @param string|null $value Value to set for the clientSessionId property.
+    */
+    public function setClientSessionId(?string $value): void {
+        $this->getBackingStore()->set('clientSessionId', $value);
     }
 
     /**
@@ -1662,7 +1684,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the signInTokenProtectionStatus property value. Token protection creates a cryptographically secure tie between the token and the device it's issued to. This field indicates whether the signin token was bound to the device or not. The possible values are: none, bound, unbound, unknownFutureValue.
+     * Sets the signInTokenProtectionStatus property value. Deprecated. Use tokenProtectionStatusDetails instead. Token protection creates a cryptographically secure tie between the token and the device it's issued to. This field indicates whether the sign-in token was bound to the device. The possible values are: none, bound, unbound, unknownFutureValue.
      * @param TokenProtectionStatus|null $value Value to set for the signInTokenProtectionStatus property.
     */
     public function setSignInTokenProtectionStatus(?TokenProtectionStatus $value): void {
@@ -1694,7 +1716,7 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
-     * Sets the tokenProtectionStatusDetails property value. The tokenProtectionStatusDetails property
+     * Sets the tokenProtectionStatusDetails property value. The status of the token protection for a request in the sign-in logs. For more information, see Conditional Access: Token Protection.
      * @param TokenProtectionStatusDetails|null $value Value to set for the tokenProtectionStatusDetails property.
     */
     public function setTokenProtectionStatusDetails(?TokenProtectionStatusDetails $value): void {

@@ -54,11 +54,11 @@ class AiInteraction extends Entity implements Parsable
 
     /**
      * Gets the body property value. The body property
-     * @return ItemBody|null
+     * @return ChatMessageBody|null
     */
-    public function getBody(): ?ItemBody {
+    public function getBody(): ?ChatMessageBody {
         $val = $this->getBackingStore()->get('body');
-        if (is_null($val) || $val instanceof ItemBody) {
+        if (is_null($val) || $val instanceof ChatMessageBody) {
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'body'");
@@ -123,7 +123,7 @@ class AiInteraction extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'appClass' => fn(ParseNode $n) => $o->setAppClass($n->getStringValue()),
             'attachments' => fn(ParseNode $n) => $o->setAttachments($n->getCollectionOfObjectValues([AiInteractionAttachment::class, 'createFromDiscriminatorValue'])),
-            'body' => fn(ParseNode $n) => $o->setBody($n->getObjectValue([ItemBody::class, 'createFromDiscriminatorValue'])),
+            'body' => fn(ParseNode $n) => $o->setBody($n->getObjectValue([ChatMessageBody::class, 'createFromDiscriminatorValue'])),
             'contexts' => fn(ParseNode $n) => $o->setContexts($n->getCollectionOfObjectValues([AiInteractionContext::class, 'createFromDiscriminatorValue'])),
             'conversationType' => fn(ParseNode $n) => $o->setConversationType($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
@@ -266,9 +266,9 @@ class AiInteraction extends Entity implements Parsable
 
     /**
      * Sets the body property value. The body property
-     * @param ItemBody|null $value Value to set for the body property.
+     * @param ChatMessageBody|null $value Value to set for the body property.
     */
-    public function setBody(?ItemBody $value): void {
+    public function setBody(?ChatMessageBody $value): void {
         $this->getBackingStore()->set('body', $value);
     }
 

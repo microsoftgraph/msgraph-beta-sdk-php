@@ -45,7 +45,7 @@ class MailboxExclusionUnitsBulkAdditionJob extends ExclusionUnitBulkAdditionJob 
     }
 
     /**
-     * Gets the mailboxes property value. The mailboxes property
+     * Gets the mailboxes property value. The email addresses of the mailboxes to be added as exclusion units to the protection policy.
      * @return array<string>|null
     */
     public function getMailboxes(): ?array {
@@ -68,7 +68,7 @@ class MailboxExclusionUnitsBulkAdditionJob extends ExclusionUnitBulkAdditionJob 
     }
 
     /**
-     * Sets the mailboxes property value. The mailboxes property
+     * Sets the mailboxes property value. The email addresses of the mailboxes to be added as exclusion units to the protection policy.
      * @param array<string>|null $value Value to set for the mailboxes property.
     */
     public function setMailboxes(?array $value): void {

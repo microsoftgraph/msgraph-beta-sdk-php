@@ -6,6 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\EdiscoveryHoldPolicy;
+use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\LegalHolds\Item\MicrosoftGraphSecurityDisablePolicy\MicrosoftGraphSecurityDisablePolicyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\LegalHolds\Item\MicrosoftGraphSecurityEnablePolicy\MicrosoftGraphSecurityEnablePolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\LegalHolds\Item\MicrosoftGraphSecurityRetryPolicy\MicrosoftGraphSecurityRetryPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\LegalHolds\Item\SiteSources\SiteSourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\EdiscoveryCases\Item\LegalHolds\Item\UserSources\UserSourcesRequestBuilder;
@@ -19,6 +21,20 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class EdiscoveryHoldPolicyItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to call the disablePolicy method.
+    */
+    public function microsoftGraphSecurityDisablePolicy(): MicrosoftGraphSecurityDisablePolicyRequestBuilder {
+        return new MicrosoftGraphSecurityDisablePolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the enablePolicy method.
+    */
+    public function microsoftGraphSecurityEnablePolicy(): MicrosoftGraphSecurityEnablePolicyRequestBuilder {
+        return new MicrosoftGraphSecurityEnablePolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to call the retryPolicy method.
     */

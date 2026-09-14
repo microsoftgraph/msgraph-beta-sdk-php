@@ -69,7 +69,7 @@ class IdentifierUriRestriction implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the excludeAppsReceivingV2Tokens property value. If true, the restriction isn't enforced for applications that are configured to receive V2 tokens in Microsoft Entra ID; else, the restriction isn't enforced for those applications.
+     * Gets the excludeAppsReceivingV2Tokens property value. If true, the restriction isn't enforced for applications that are configured to receive V2 tokens in Microsoft Entra ID; else, the restriction is enforced for those applications.
      * @return bool|null
     */
     public function getExcludeAppsReceivingV2Tokens(): ?bool {
@@ -196,7 +196,7 @@ class IdentifierUriRestriction implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the excludeAppsReceivingV2Tokens property value. If true, the restriction isn't enforced for applications that are configured to receive V2 tokens in Microsoft Entra ID; else, the restriction isn't enforced for those applications.
+     * Sets the excludeAppsReceivingV2Tokens property value. If true, the restriction isn't enforced for applications that are configured to receive V2 tokens in Microsoft Entra ID; else, the restriction is enforced for those applications.
      * @param bool|null $value Value to set for the excludeAppsReceivingV2Tokens property.
     */
     public function setExcludeAppsReceivingV2Tokens(?bool $value): void {

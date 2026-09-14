@@ -27,7 +27,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the completeAfterDateTime property value. DateTime after which the migration should be performed
+     * Gets the completeAfterDateTime property value. Date and time after which the migration should be performed. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getCompleteAfterDateTime(): ?DateTime {
@@ -39,7 +39,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdBy property value. ID of the user that created the job
+     * Gets the createdBy property value. User principal name (UPN) of the user who created the job. Read-only.
      * @return string|null
     */
     public function getCreatedBy(): ?string {
@@ -51,7 +51,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. When the job what created
+     * Gets the createdDateTime property value. When the job was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z. Read-only.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -63,7 +63,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. Display name of the job. Must be unique per tenant
+     * Gets the displayName property value. Display name of the job. Must be unique per tenant.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -75,7 +75,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the exchangeSettings property value. Settings to use for migration of Exchange workload
+     * Gets the exchangeSettings property value. Settings to use for migration of Exchange workload. Nullable.
      * @return ExchangeOnlineCrossTenantMigrationSettings|null
     */
     public function getExchangeSettings(): ?ExchangeOnlineCrossTenantMigrationSettings {
@@ -138,7 +138,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastUpdatedDateTime property value. When this migration job was last updated
+     * Gets the lastUpdatedDateTime property value. When this migration job was last updated. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z. Read-only.
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
@@ -150,7 +150,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the message property value. Status message of the migration job
+     * Gets the message property value. Status message of the migration job. Nullable. Read-only.
      * @return string|null
     */
     public function getMessage(): ?string {
@@ -162,7 +162,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the resources property value. IDs (GUID) of the resources being migrated with the migration job
+     * Gets the resources property value. IDs (GUID) of the resources that are migrated with the migration job.
      * @return array<string>|null
     */
     public function getResources(): ?array {
@@ -176,7 +176,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the resourceType property value. Type of resource being migrated. Only Users is currently supported
+     * Gets the resourceType property value. Type of resource being migrated. Only Users is currently supported.
      * @return string|null
     */
     public function getResourceType(): ?string {
@@ -188,7 +188,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the sourceTenantId property value. ID (GUID) of the tenant that content is being migrated from
+     * Gets the sourceTenantId property value. ID (GUID) of the tenant that content is migrated from.
      * @return string|null
     */
     public function getSourceTenantId(): ?string {
@@ -212,7 +212,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the targetTenantId property value. ID of the tenant that content is being migrated to
+     * Gets the targetTenantId property value. ID of the tenant that content is migrated to. Read-only.
      * @return string|null
     */
     public function getTargetTenantId(): ?string {
@@ -224,7 +224,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the users property value. Details and status of the users being migrated in this migration job
+     * Gets the users property value. Details and status of the users migrated in this migration job.
      * @return array<CrossTenantMigrationTask>|null
     */
     public function getUsers(): ?array {
@@ -238,7 +238,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the workloads property value. Workloads to migrate. Supported workloads are Teams, Exchange, and ODSP (OneDrive/SharePoint)
+     * Gets the workloads property value. Workloads to migrate. Supported workloads are Teams, Exchange, and ODSP (OneDrive/SharePoint).
      * @return array<string>|null
     */
     public function getWorkloads(): ?array {
@@ -275,7 +275,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the completeAfterDateTime property value. DateTime after which the migration should be performed
+     * Sets the completeAfterDateTime property value. Date and time after which the migration should be performed. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the completeAfterDateTime property.
     */
     public function setCompleteAfterDateTime(?DateTime $value): void {
@@ -283,7 +283,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdBy property value. ID of the user that created the job
+     * Sets the createdBy property value. User principal name (UPN) of the user who created the job. Read-only.
      * @param string|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?string $value): void {
@@ -291,7 +291,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. When the job what created
+     * Sets the createdDateTime property value. When the job was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z. Read-only.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -299,7 +299,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. Display name of the job. Must be unique per tenant
+     * Sets the displayName property value. Display name of the job. Must be unique per tenant.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -307,7 +307,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the exchangeSettings property value. Settings to use for migration of Exchange workload
+     * Sets the exchangeSettings property value. Settings to use for migration of Exchange workload. Nullable.
      * @param ExchangeOnlineCrossTenantMigrationSettings|null $value Value to set for the exchangeSettings property.
     */
     public function setExchangeSettings(?ExchangeOnlineCrossTenantMigrationSettings $value): void {
@@ -323,7 +323,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastUpdatedDateTime property value. When this migration job was last updated
+     * Sets the lastUpdatedDateTime property value. When this migration job was last updated. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z. Read-only.
      * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {
@@ -331,7 +331,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the message property value. Status message of the migration job
+     * Sets the message property value. Status message of the migration job. Nullable. Read-only.
      * @param string|null $value Value to set for the message property.
     */
     public function setMessage(?string $value): void {
@@ -339,7 +339,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the resources property value. IDs (GUID) of the resources being migrated with the migration job
+     * Sets the resources property value. IDs (GUID) of the resources that are migrated with the migration job.
      * @param array<string>|null $value Value to set for the resources property.
     */
     public function setResources(?array $value): void {
@@ -347,7 +347,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the resourceType property value. Type of resource being migrated. Only Users is currently supported
+     * Sets the resourceType property value. Type of resource being migrated. Only Users is currently supported.
      * @param string|null $value Value to set for the resourceType property.
     */
     public function setResourceType(?string $value): void {
@@ -355,7 +355,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the sourceTenantId property value. ID (GUID) of the tenant that content is being migrated from
+     * Sets the sourceTenantId property value. ID (GUID) of the tenant that content is migrated from.
      * @param string|null $value Value to set for the sourceTenantId property.
     */
     public function setSourceTenantId(?string $value): void {
@@ -371,7 +371,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the targetTenantId property value. ID of the tenant that content is being migrated to
+     * Sets the targetTenantId property value. ID of the tenant that content is migrated to. Read-only.
      * @param string|null $value Value to set for the targetTenantId property.
     */
     public function setTargetTenantId(?string $value): void {
@@ -379,7 +379,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the users property value. Details and status of the users being migrated in this migration job
+     * Sets the users property value. Details and status of the users migrated in this migration job.
      * @param array<CrossTenantMigrationTask>|null $value Value to set for the users property.
     */
     public function setUsers(?array $value): void {
@@ -387,7 +387,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the workloads property value. Workloads to migrate. Supported workloads are Teams, Exchange, and ODSP (OneDrive/SharePoint)
+     * Sets the workloads property value. Workloads to migrate. Supported workloads are Teams, Exchange, and ODSP (OneDrive/SharePoint).
      * @param array<string>|null $value Value to set for the workloads property.
     */
     public function setWorkloads(?array $value): void {

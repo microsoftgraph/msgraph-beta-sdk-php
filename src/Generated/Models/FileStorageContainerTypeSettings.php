@@ -48,18 +48,6 @@ class FileStorageContainerTypeSettings implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the agent property value. Contains agent-related settings. Optional
-     * @return FileStorageContainerTypeAgentSettings|null
-    */
-    public function getAgent(): ?FileStorageContainerTypeAgentSettings {
-        $val = $this->getBackingStore()->get('agent');
-        if (is_null($val) || $val instanceof FileStorageContainerTypeAgentSettings) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'agent'");
-    }
-
-    /**
      * Gets the BackingStore property value. Stores model information.
      * @return BackingStore
     */
@@ -68,7 +56,7 @@ class FileStorageContainerTypeSettings implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Gets the consumingTenantOverridables property value. A comma-separated list of settings that can be overridden in the consuming tenant. The possible values are: urlTemplate, isDiscoverabilityEnabled, isSearchEnabled, isItemVersioningEnabled, itemMajorVersionLimit, maxStoragePerContainerInBytes, unknownFutureValue.
+     * Gets the consumingTenantOverridables property value. A comma-separated list of settings that can be overridden in the consuming tenant. The possible values are: urlTemplate, isDiscoverabilityEnabled, isSearchEnabled, isItemVersioningEnabled, itemMajorVersionLimit, maxStoragePerContainerInBytes, unknownFutureValue, isOfficeRestricted.
      * @return FileStorageContainerTypeSettingsOverride|null
     */
     public function getConsumingTenantOverridables(): ?FileStorageContainerTypeSettingsOverride {
@@ -86,10 +74,10 @@ class FileStorageContainerTypeSettings implements AdditionalDataHolder, BackedMo
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'agent' => fn(ParseNode $n) => $o->setAgent($n->getObjectValue([FileStorageContainerTypeAgentSettings::class, 'createFromDiscriminatorValue'])),
             'consumingTenantOverridables' => fn(ParseNode $n) => $o->setConsumingTenantOverridables($n->getEnumValue(FileStorageContainerTypeSettingsOverride::class)),
             'isDiscoverabilityEnabled' => fn(ParseNode $n) => $o->setIsDiscoverabilityEnabled($n->getBooleanValue()),
             'isItemVersioningEnabled' => fn(ParseNode $n) => $o->setIsItemVersioningEnabled($n->getBooleanValue()),
+            'isOfficeRestricted' => fn(ParseNode $n) => $o->setIsOfficeRestricted($n->getBooleanValue()),
             'isSearchEnabled' => fn(ParseNode $n) => $o->setIsSearchEnabled($n->getBooleanValue()),
             'isSharingRestricted' => fn(ParseNode $n) => $o->setIsSharingRestricted($n->getBooleanValue()),
             'itemMajorVersionLimit' => fn(ParseNode $n) => $o->setItemMajorVersionLimit($n->getIntegerValue()),
@@ -122,6 +110,18 @@ class FileStorageContainerTypeSettings implements AdditionalDataHolder, BackedMo
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isItemVersioningEnabled'");
+    }
+
+    /**
+     * Gets the isOfficeRestricted property value. Indicates whether Office apps (Word, Excel, and PowerPoint) for desktop and web are restricted for containers of this container type.
+     * @return bool|null
+    */
+    public function getIsOfficeRestricted(): ?bool {
+        $val = $this->getBackingStore()->get('isOfficeRestricted');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isOfficeRestricted'");
     }
 
     /**
@@ -213,10 +213,10 @@ class FileStorageContainerTypeSettings implements AdditionalDataHolder, BackedMo
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('agent', $this->getAgent());
         $writer->writeEnumValue('consumingTenantOverridables', $this->getConsumingTenantOverridables());
         $writer->writeBooleanValue('isDiscoverabilityEnabled', $this->getIsDiscoverabilityEnabled());
         $writer->writeBooleanValue('isItemVersioningEnabled', $this->getIsItemVersioningEnabled());
+        $writer->writeBooleanValue('isOfficeRestricted', $this->getIsOfficeRestricted());
         $writer->writeBooleanValue('isSearchEnabled', $this->getIsSearchEnabled());
         $writer->writeBooleanValue('isSharingRestricted', $this->getIsSharingRestricted());
         $writer->writeIntegerValue('itemMajorVersionLimit', $this->getItemMajorVersionLimit());
@@ -236,14 +236,6 @@ class FileStorageContainerTypeSettings implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the agent property value. Contains agent-related settings. Optional
-     * @param FileStorageContainerTypeAgentSettings|null $value Value to set for the agent property.
-    */
-    public function setAgent(?FileStorageContainerTypeAgentSettings $value): void {
-        $this->getBackingStore()->set('agent', $value);
-    }
-
-    /**
      * Sets the BackingStore property value. Stores model information.
      * @param BackingStore $value Value to set for the BackingStore property.
     */
@@ -252,7 +244,7 @@ class FileStorageContainerTypeSettings implements AdditionalDataHolder, BackedMo
     }
 
     /**
-     * Sets the consumingTenantOverridables property value. A comma-separated list of settings that can be overridden in the consuming tenant. The possible values are: urlTemplate, isDiscoverabilityEnabled, isSearchEnabled, isItemVersioningEnabled, itemMajorVersionLimit, maxStoragePerContainerInBytes, unknownFutureValue.
+     * Sets the consumingTenantOverridables property value. A comma-separated list of settings that can be overridden in the consuming tenant. The possible values are: urlTemplate, isDiscoverabilityEnabled, isSearchEnabled, isItemVersioningEnabled, itemMajorVersionLimit, maxStoragePerContainerInBytes, unknownFutureValue, isOfficeRestricted.
      * @param FileStorageContainerTypeSettingsOverride|null $value Value to set for the consumingTenantOverridables property.
     */
     public function setConsumingTenantOverridables(?FileStorageContainerTypeSettingsOverride $value): void {
@@ -273,6 +265,14 @@ class FileStorageContainerTypeSettings implements AdditionalDataHolder, BackedMo
     */
     public function setIsItemVersioningEnabled(?bool $value): void {
         $this->getBackingStore()->set('isItemVersioningEnabled', $value);
+    }
+
+    /**
+     * Sets the isOfficeRestricted property value. Indicates whether Office apps (Word, Excel, and PowerPoint) for desktop and web are restricted for containers of this container type.
+     * @param bool|null $value Value to set for the isOfficeRestricted property.
+    */
+    public function setIsOfficeRestricted(?bool $value): void {
+        $this->getBackingStore()->set('isOfficeRestricted', $value);
     }
 
     /**

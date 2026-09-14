@@ -31,10 +31,11 @@ class MailboxExclusionUnitItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get mailboxExclusionUnits from solutions
+     * Get a mailbox exclusion unit associated with an Exchange protection policy.
      * @param MailboxExclusionUnitItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MailboxExclusionUnit|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/mailboxexclusionunit-get?view=graph-rest-beta Find more info here
     */
     public function get(?MailboxExclusionUnitItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -45,7 +46,7 @@ class MailboxExclusionUnitItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get mailboxExclusionUnits from solutions
+     * Get a mailbox exclusion unit associated with an Exchange protection policy.
      * @param MailboxExclusionUnitItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

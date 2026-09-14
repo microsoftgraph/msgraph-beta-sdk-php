@@ -152,12 +152,42 @@ class PlannerPlan extends PlannerDelta implements Parsable
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'creationSource' => fn(ParseNode $n) => $o->setCreationSource($n->getObjectValue([PlannerPlanCreation::class, 'createFromDiscriminatorValue'])),
             'details' => fn(ParseNode $n) => $o->setDetails($n->getObjectValue([PlannerPlanDetails::class, 'createFromDiscriminatorValue'])),
+            'goals' => fn(ParseNode $n) => $o->setGoals($n->getCollectionOfObjectValues([PlannerGoal::class, 'createFromDiscriminatorValue'])),
+            'historyItems' => fn(ParseNode $n) => $o->setHistoryItems($n->getCollectionOfObjectValues([PlannerHistoryItem::class, 'createFromDiscriminatorValue'])),
             'isArchived' => fn(ParseNode $n) => $o->setIsArchived($n->getBooleanValue()),
             'owner' => fn(ParseNode $n) => $o->setOwner($n->getStringValue()),
             'sharedWithContainers' => fn(ParseNode $n) => $o->setSharedWithContainers($n->getCollectionOfObjectValues([PlannerSharedWithContainer::class, 'createFromDiscriminatorValue'])),
             'tasks' => fn(ParseNode $n) => $o->setTasks($n->getCollectionOfObjectValues([PlannerTask::class, 'createFromDiscriminatorValue'])),
             'title' => fn(ParseNode $n) => $o->setTitle($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the goals property value. Collection of goals in the plan. Read-only. Nullable.
+     * @return array<PlannerGoal>|null
+    */
+    public function getGoals(): ?array {
+        $val = $this->getBackingStore()->get('goals');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PlannerGoal::class);
+            /** @var array<PlannerGoal>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'goals'");
+    }
+
+    /**
+     * Gets the historyItems property value. Collection of history items for entities in the plan. Read-only. Nullable.
+     * @return array<PlannerHistoryItem>|null
+    */
+    public function getHistoryItems(): ?array {
+        $val = $this->getBackingStore()->get('historyItems');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, PlannerHistoryItem::class);
+            /** @var array<PlannerHistoryItem>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'historyItems'");
     }
 
     /**
@@ -239,6 +269,8 @@ class PlannerPlan extends PlannerDelta implements Parsable
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeObjectValue('creationSource', $this->getCreationSource());
         $writer->writeObjectValue('details', $this->getDetails());
+        $writer->writeCollectionOfObjectValues('goals', $this->getGoals());
+        $writer->writeCollectionOfObjectValues('historyItems', $this->getHistoryItems());
         $writer->writeBooleanValue('isArchived', $this->getIsArchived());
         $writer->writeStringValue('owner', $this->getOwner());
         $writer->writeCollectionOfObjectValues('sharedWithContainers', $this->getSharedWithContainers());
@@ -316,6 +348,22 @@ class PlannerPlan extends PlannerDelta implements Parsable
     */
     public function setDetails(?PlannerPlanDetails $value): void {
         $this->getBackingStore()->set('details', $value);
+    }
+
+    /**
+     * Sets the goals property value. Collection of goals in the plan. Read-only. Nullable.
+     * @param array<PlannerGoal>|null $value Value to set for the goals property.
+    */
+    public function setGoals(?array $value): void {
+        $this->getBackingStore()->set('goals', $value);
+    }
+
+    /**
+     * Sets the historyItems property value. Collection of history items for entities in the plan. Read-only. Nullable.
+     * @param array<PlannerHistoryItem>|null $value Value to set for the historyItems property.
+    */
+    public function setHistoryItems(?array $value): void {
+        $this->getBackingStore()->set('historyItems', $value);
     }
 
     /**

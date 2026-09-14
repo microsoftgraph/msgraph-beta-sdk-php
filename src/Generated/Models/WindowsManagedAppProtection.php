@@ -31,6 +31,18 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
     }
 
     /**
+     * Gets the allowedInboundDataTransferSourceApps property value. Windows MAM data transfer locations
+     * @return WindowsManagedAppDataTransferLocations|null
+    */
+    public function getAllowedInboundDataTransferSourceApps(): ?WindowsManagedAppDataTransferLocations {
+        $val = $this->getBackingStore()->get('allowedInboundDataTransferSourceApps');
+        if (is_null($val) || $val instanceof WindowsManagedAppDataTransferLocations) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedInboundDataTransferSourceApps'");
+    }
+
+    /**
      * Gets the allowedInboundDataTransferSources property value. Data can be transferred from/to these classes of apps
      * @return WindowsManagedAppDataTransferLevel|null
     */
@@ -52,6 +64,18 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedOutboundClipboardSharingLevel'");
+    }
+
+    /**
+     * Gets the allowedOutboundDataTransferDestinationApps property value. Windows MAM data transfer locations
+     * @return WindowsManagedAppDataTransferLocations|null
+    */
+    public function getAllowedOutboundDataTransferDestinationApps(): ?WindowsManagedAppDataTransferLocations {
+        $val = $this->getBackingStore()->get('allowedOutboundDataTransferDestinationApps');
+        if (is_null($val) || $val instanceof WindowsManagedAppDataTransferLocations) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'allowedOutboundDataTransferDestinationApps'");
     }
 
     /**
@@ -137,8 +161,10 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'allowedInboundDataTransferSourceApps' => fn(ParseNode $n) => $o->setAllowedInboundDataTransferSourceApps($n->getEnumValue(WindowsManagedAppDataTransferLocations::class)),
             'allowedInboundDataTransferSources' => fn(ParseNode $n) => $o->setAllowedInboundDataTransferSources($n->getEnumValue(WindowsManagedAppDataTransferLevel::class)),
             'allowedOutboundClipboardSharingLevel' => fn(ParseNode $n) => $o->setAllowedOutboundClipboardSharingLevel($n->getEnumValue(WindowsManagedAppClipboardSharingLevel::class)),
+            'allowedOutboundDataTransferDestinationApps' => fn(ParseNode $n) => $o->setAllowedOutboundDataTransferDestinationApps($n->getEnumValue(WindowsManagedAppDataTransferLocations::class)),
             'allowedOutboundDataTransferDestinations' => fn(ParseNode $n) => $o->setAllowedOutboundDataTransferDestinations($n->getEnumValue(WindowsManagedAppDataTransferLevel::class)),
             'appActionIfUnableToAuthenticateUser' => fn(ParseNode $n) => $o->setAppActionIfUnableToAuthenticateUser($n->getEnumValue(ManagedAppRemediationAction::class)),
             'apps' => fn(ParseNode $n) => $o->setApps($n->getCollectionOfObjectValues([ManagedMobileApp::class, 'createFromDiscriminatorValue'])),
@@ -375,8 +401,10 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeEnumValue('allowedInboundDataTransferSourceApps', $this->getAllowedInboundDataTransferSourceApps());
         $writer->writeEnumValue('allowedInboundDataTransferSources', $this->getAllowedInboundDataTransferSources());
         $writer->writeEnumValue('allowedOutboundClipboardSharingLevel', $this->getAllowedOutboundClipboardSharingLevel());
+        $writer->writeEnumValue('allowedOutboundDataTransferDestinationApps', $this->getAllowedOutboundDataTransferDestinationApps());
         $writer->writeEnumValue('allowedOutboundDataTransferDestinations', $this->getAllowedOutboundDataTransferDestinations());
         $writer->writeEnumValue('appActionIfUnableToAuthenticateUser', $this->getAppActionIfUnableToAuthenticateUser());
         $writer->writeCollectionOfObjectValues('apps', $this->getApps());
@@ -403,6 +431,14 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
     }
 
     /**
+     * Sets the allowedInboundDataTransferSourceApps property value. Windows MAM data transfer locations
+     * @param WindowsManagedAppDataTransferLocations|null $value Value to set for the allowedInboundDataTransferSourceApps property.
+    */
+    public function setAllowedInboundDataTransferSourceApps(?WindowsManagedAppDataTransferLocations $value): void {
+        $this->getBackingStore()->set('allowedInboundDataTransferSourceApps', $value);
+    }
+
+    /**
      * Sets the allowedInboundDataTransferSources property value. Data can be transferred from/to these classes of apps
      * @param WindowsManagedAppDataTransferLevel|null $value Value to set for the allowedInboundDataTransferSources property.
     */
@@ -416,6 +452,14 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
     */
     public function setAllowedOutboundClipboardSharingLevel(?WindowsManagedAppClipboardSharingLevel $value): void {
         $this->getBackingStore()->set('allowedOutboundClipboardSharingLevel', $value);
+    }
+
+    /**
+     * Sets the allowedOutboundDataTransferDestinationApps property value. Windows MAM data transfer locations
+     * @param WindowsManagedAppDataTransferLocations|null $value Value to set for the allowedOutboundDataTransferDestinationApps property.
+    */
+    public function setAllowedOutboundDataTransferDestinationApps(?WindowsManagedAppDataTransferLocations $value): void {
+        $this->getBackingStore()->set('allowedOutboundDataTransferDestinationApps', $value);
     }
 
     /**

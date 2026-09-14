@@ -181,6 +181,7 @@ class ColumnDefinition extends Entity implements Parsable
             'isDeletable' => fn(ParseNode $n) => $o->setIsDeletable($n->getBooleanValue()),
             'isReorderable' => fn(ParseNode $n) => $o->setIsReorderable($n->getBooleanValue()),
             'isSealed' => fn(ParseNode $n) => $o->setIsSealed($n->getBooleanValue()),
+            'isSearchable' => fn(ParseNode $n) => $o->setIsSearchable($n->getBooleanValue()),
             'lookup' => fn(ParseNode $n) => $o->setLookup($n->getObjectValue([LookupColumn::class, 'createFromDiscriminatorValue'])),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'number' => fn(ParseNode $n) => $o->setNumber($n->getObjectValue([NumberColumn::class, 'createFromDiscriminatorValue'])),
@@ -235,7 +236,7 @@ class ColumnDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the indexed property value. Specifies whether the column values can used for sorting and searching.
+     * Gets the indexed property value. Specifies whether the column values can be used for sorting and searching.
      * @return bool|null
     */
     public function getIndexed(): ?bool {
@@ -280,6 +281,18 @@ class ColumnDefinition extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isSealed'");
+    }
+
+    /**
+     * Gets the isSearchable property value. Specifies whether the column values can be used for searching. Currently supported only for columns in a fileStorageContainer.
+     * @return bool|null
+    */
+    public function getIsSearchable(): ?bool {
+        $val = $this->getBackingStore()->get('isSearchable');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isSearchable'");
     }
 
     /**
@@ -474,6 +487,7 @@ class ColumnDefinition extends Entity implements Parsable
         $writer->writeBooleanValue('isDeletable', $this->getIsDeletable());
         $writer->writeBooleanValue('isReorderable', $this->getIsReorderable());
         $writer->writeBooleanValue('isSealed', $this->getIsSealed());
+        $writer->writeBooleanValue('isSearchable', $this->getIsSearchable());
         $writer->writeObjectValue('lookup', $this->getLookup());
         $writer->writeStringValue('name', $this->getName());
         $writer->writeObjectValue('number', $this->getNumber());
@@ -603,7 +617,7 @@ class ColumnDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the indexed property value. Specifies whether the column values can used for sorting and searching.
+     * Sets the indexed property value. Specifies whether the column values can be used for sorting and searching.
      * @param bool|null $value Value to set for the indexed property.
     */
     public function setIndexed(?bool $value): void {
@@ -632,6 +646,14 @@ class ColumnDefinition extends Entity implements Parsable
     */
     public function setIsSealed(?bool $value): void {
         $this->getBackingStore()->set('isSealed', $value);
+    }
+
+    /**
+     * Sets the isSearchable property value. Specifies whether the column values can be used for searching. Currently supported only for columns in a fileStorageContainer.
+     * @param bool|null $value Value to set for the isSearchable property.
+    */
+    public function setIsSearchable(?bool $value): void {
+        $this->getBackingStore()->set('isSearchable', $value);
     }
 
     /**

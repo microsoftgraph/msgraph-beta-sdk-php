@@ -37,7 +37,7 @@ class CloudPcAgentPoolUserAssignment extends CloudPcPoolAssignment implements Pa
     }
 
     /**
-     * Gets the userPrincipalId property value. The userPrincipalId property
+     * Gets the userPrincipalId property value. The unique identifier of the user principal.
      * @return string|null
     */
     public function getUserPrincipalId(): ?string {
@@ -58,7 +58,7 @@ class CloudPcAgentPoolUserAssignment extends CloudPcPoolAssignment implements Pa
     }
 
     /**
-     * Sets the userPrincipalId property value. The userPrincipalId property
+     * Sets the userPrincipalId property value. The unique identifier of the user principal.
      * @param string|null $value Value to set for the userPrincipalId property.
     */
     public function setUserPrincipalId(?string $value): void {

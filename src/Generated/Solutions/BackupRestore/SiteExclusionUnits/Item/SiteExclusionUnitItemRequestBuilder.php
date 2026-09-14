@@ -45,7 +45,7 @@ class SiteExclusionUnitItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get siteExclusionUnits from solutions
+     * The list of site exclusion units in the tenant.
      * @param SiteExclusionUnitItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<SiteExclusionUnit|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class SiteExclusionUnitItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get siteExclusionUnits from solutions
+     * The list of site exclusion units in the tenant.
      * @param SiteExclusionUnitItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

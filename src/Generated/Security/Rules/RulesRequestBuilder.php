@@ -53,7 +53,7 @@ class RulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get rules from security
+     * Container for the security rules configured in Microsoft Defender XDR, including custom detection rules.
      * @param RulesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RulesRoot|null>
      * @throws Exception
@@ -100,7 +100,7 @@ class RulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get rules from security
+     * Container for the security rules configured in Microsoft Defender XDR, including custom detection rules.
      * @param RulesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

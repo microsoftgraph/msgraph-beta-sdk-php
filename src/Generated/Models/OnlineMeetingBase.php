@@ -267,7 +267,7 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the cloudVideoInteropInfo property value. The cloudVideoInteropInfo property
+     * Gets the cloudVideoInteropInfo property value. Conferencing device integration settings for Cloud Video Interop (CVI). Read-only.
      * @return CloudVideoInteropInfo|null
     */
     public function getCloudVideoInteropInfo(): ?CloudVideoInteropInfo {
@@ -326,6 +326,7 @@ class OnlineMeetingBase extends Entity implements Parsable
             'lobbyBypassSettings' => fn(ParseNode $n) => $o->setLobbyBypassSettings($n->getObjectValue([LobbyBypassSettings::class, 'createFromDiscriminatorValue'])),
             'meetingOptionsWebUrl' => fn(ParseNode $n) => $o->setMeetingOptionsWebUrl($n->getStringValue()),
             'meetingSpokenLanguageTag' => fn(ParseNode $n) => $o->setMeetingSpokenLanguageTag($n->getStringValue()),
+            'meetingType' => fn(ParseNode $n) => $o->setMeetingType($n->getEnumValue(OnlineMeetingType::class)),
             'recordAutomatically' => fn(ParseNode $n) => $o->setRecordAutomatically($n->getBooleanValue()),
             'sensitivityLabelAssignment' => fn(ParseNode $n) => $o->setSensitivityLabelAssignment($n->getObjectValue([OnlineMeetingSensitivityLabelAssignment::class, 'createFromDiscriminatorValue'])),
             'shareMeetingChatHistoryDefault' => fn(ParseNode $n) => $o->setShareMeetingChatHistoryDefault($n->getEnumValue(MeetingChatHistoryDefaultMode::class)),
@@ -429,6 +430,18 @@ class OnlineMeetingBase extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'meetingSpokenLanguageTag'");
+    }
+
+    /**
+     * Gets the meetingType property value. The type of the online meeting. The possible values are: adhoc, scheduled, recurring, broadcast, meetnow, unknownFutureValue. Read-only.
+     * @return OnlineMeetingType|null
+    */
+    public function getMeetingType(): ?OnlineMeetingType {
+        $val = $this->getBackingStore()->get('meetingType');
+        if (is_null($val) || $val instanceof OnlineMeetingType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'meetingType'");
     }
 
     /**
@@ -538,6 +551,7 @@ class OnlineMeetingBase extends Entity implements Parsable
         $writer->writeObjectValue('lobbyBypassSettings', $this->getLobbyBypassSettings());
         $writer->writeStringValue('meetingOptionsWebUrl', $this->getMeetingOptionsWebUrl());
         $writer->writeStringValue('meetingSpokenLanguageTag', $this->getMeetingSpokenLanguageTag());
+        $writer->writeEnumValue('meetingType', $this->getMeetingType());
         $writer->writeBooleanValue('recordAutomatically', $this->getRecordAutomatically());
         $writer->writeObjectValue('sensitivityLabelAssignment', $this->getSensitivityLabelAssignment());
         $writer->writeEnumValue('shareMeetingChatHistoryDefault', $this->getShareMeetingChatHistoryDefault());
@@ -699,7 +713,7 @@ class OnlineMeetingBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the cloudVideoInteropInfo property value. The cloudVideoInteropInfo property
+     * Sets the cloudVideoInteropInfo property value. Conferencing device integration settings for Cloud Video Interop (CVI). Read-only.
      * @param CloudVideoInteropInfo|null $value Value to set for the cloudVideoInteropInfo property.
     */
     public function setCloudVideoInteropInfo(?CloudVideoInteropInfo $value): void {
@@ -776,6 +790,14 @@ class OnlineMeetingBase extends Entity implements Parsable
     */
     public function setMeetingSpokenLanguageTag(?string $value): void {
         $this->getBackingStore()->set('meetingSpokenLanguageTag', $value);
+    }
+
+    /**
+     * Sets the meetingType property value. The type of the online meeting. The possible values are: adhoc, scheduled, recurring, broadcast, meetnow, unknownFutureValue. Read-only.
+     * @param OnlineMeetingType|null $value Value to set for the meetingType property.
+    */
+    public function setMeetingType(?OnlineMeetingType $value): void {
+        $this->getBackingStore()->set('meetingType', $value);
     }
 
     /**

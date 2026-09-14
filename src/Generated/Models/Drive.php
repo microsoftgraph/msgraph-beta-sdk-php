@@ -94,6 +94,7 @@ class Drive extends BaseItem implements Parsable
             'owner' => fn(ParseNode $n) => $o->setOwner($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'quota' => fn(ParseNode $n) => $o->setQuota($n->getObjectValue([Quota::class, 'createFromDiscriminatorValue'])),
             'root' => fn(ParseNode $n) => $o->setRoot($n->getObjectValue([DriveItem::class, 'createFromDiscriminatorValue'])),
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([DriveSettings::class, 'createFromDiscriminatorValue'])),
             'sharePointIds' => fn(ParseNode $n) => $o->setSharePointIds($n->getObjectValue([SharepointIds::class, 'createFromDiscriminatorValue'])),
             'special' => fn(ParseNode $n) => $o->setSpecial($n->getCollectionOfObjectValues([DriveItem::class, 'createFromDiscriminatorValue'])),
             'system' => fn(ParseNode $n) => $o->setSystem($n->getObjectValue([SystemFacet::class, 'createFromDiscriminatorValue'])),
@@ -165,6 +166,18 @@ class Drive extends BaseItem implements Parsable
     }
 
     /**
+     * Gets the settings property value. The settings associated with the drive. Read-only. This property isn't returned by default and must be selected using the $select query parameter.
+     * @return DriveSettings|null
+    */
+    public function getSettings(): ?DriveSettings {
+        $val = $this->getBackingStore()->get('settings');
+        if (is_null($val) || $val instanceof DriveSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settings'");
+    }
+
+    /**
      * Gets the sharePointIds property value. The sharePointIds property
      * @return SharepointIds|null
     */
@@ -217,6 +230,7 @@ class Drive extends BaseItem implements Parsable
         $writer->writeObjectValue('owner', $this->getOwner());
         $writer->writeObjectValue('quota', $this->getQuota());
         $writer->writeObjectValue('root', $this->getRoot());
+        $writer->writeObjectValue('settings', $this->getSettings());
         $writer->writeObjectValue('sharePointIds', $this->getSharePointIds());
         $writer->writeCollectionOfObjectValues('special', $this->getSpecial());
         $writer->writeObjectValue('system', $this->getSystem());
@@ -292,6 +306,14 @@ class Drive extends BaseItem implements Parsable
     */
     public function setRoot(?DriveItem $value): void {
         $this->getBackingStore()->set('root', $value);
+    }
+
+    /**
+     * Sets the settings property value. The settings associated with the drive. Read-only. This property isn't returned by default and must be selected using the $select query parameter.
+     * @param DriveSettings|null $value Value to set for the settings property.
+    */
+    public function setSettings(?DriveSettings $value): void {
+        $this->getBackingStore()->set('settings', $value);
     }
 
     /**

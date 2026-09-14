@@ -23,6 +23,7 @@ class ClearEnrollmentTimeDeviceMembershipTargetPostResponse implements Additiona
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
+        $this->setValue(false);
     }
 
     /**

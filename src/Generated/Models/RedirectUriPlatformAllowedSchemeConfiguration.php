@@ -49,7 +49,7 @@ class RedirectUriPlatformAllowedSchemeConfiguration implements AdditionalDataHol
     }
 
     /**
-     * Gets the allowedSchemes property value. The allowedSchemes property
+     * Gets the allowedSchemes property value. Collection of URI schemes that are allowed for this specific platform. Schemes refer to URI schemes as defined in RFC 3986 §3.1. The value '*' can be used to allow any scheme for this platform.
      * @return array<string>|null
     */
     public function getAllowedSchemes(): ?array {
@@ -120,7 +120,7 @@ class RedirectUriPlatformAllowedSchemeConfiguration implements AdditionalDataHol
     }
 
     /**
-     * Sets the allowedSchemes property value. The allowedSchemes property
+     * Sets the allowedSchemes property value. Collection of URI schemes that are allowed for this specific platform. Schemes refer to URI schemes as defined in RFC 3986 §3.1. The value '*' can be used to allow any scheme for this platform.
      * @param array<string>|null $value Value to set for the allowedSchemes property.
     */
     public function setAllowedSchemes(?array $value): void {

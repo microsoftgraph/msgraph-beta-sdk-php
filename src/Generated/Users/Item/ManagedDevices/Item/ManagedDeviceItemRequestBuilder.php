@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\ActivateDeviceEsim\ActivateDeviceEsimRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\AssignmentFilterEvaluationStatusDetails\AssignmentFilterEvaluationStatusDetailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\BypassActivationLock\BypassActivationLockRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\CancelEnhancedLogCollection\CancelEnhancedLogCollectionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\ChangeAssignments\ChangeAssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\CleanWindowsDevice\CleanWindowsDeviceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\CreateDeviceLogCollectionRequest\CreateDeviceLogCollectionRequestRequestBuilder;
@@ -25,6 +26,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\EnableLostMode
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\EnrollNowAction\EnrollNowActionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\GetFileVaultKey\GetFileVaultKeyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\GetNonCompliantSettings\GetNonCompliantSettingsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\GetSyncStatus\GetSyncStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\InitiateDeviceAttestation\InitiateDeviceAttestationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\InitiateMobileDeviceManagementKeyRecovery\InitiateMobileDeviceManagementKeyRecoveryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\InitiateOnDemandProactiveRemediation\InitiateOnDemandProactiveRemediationRequestBuilder;
@@ -39,6 +41,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RebootNow\Rebo
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RecoverPasscode\RecoverPasscodeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\Reenable\ReenableRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RemoteLock\RemoteLockRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RemoveDeviceEsim\RemoveDeviceEsimRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RemoveDeviceFirmwareConfigurationInterfaceManagement\RemoveDeviceFirmwareConfigurationInterfaceManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\RequestRemoteAssistance\RequestRemoteAssistanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\ResetPasscode\ResetPasscodeRequestBuilder;
@@ -59,6 +62,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\ShutDown\ShutD
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\SuspendManagedHomeScreen\SuspendManagedHomeScreenRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\SyncDevice\SyncDeviceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\TriggerConfigurationManagerAction\TriggerConfigurationManagerActionRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\TriggerEnhancedLogCollection\TriggerEnhancedLogCollectionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\UpdateWindowsDeviceAccount\UpdateWindowsDeviceAccountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\Users\UsersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\WindowsDefenderScan\WindowsDefenderScanRequestBuilder;
@@ -94,6 +98,13 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     */
     public function bypassActivationLock(): BypassActivationLockRequestBuilder {
         return new BypassActivationLockRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the cancelEnhancedLogCollection method.
+    */
+    public function cancelEnhancedLogCollection(): CancelEnhancedLogCollectionRequestBuilder {
+        return new CancelEnhancedLogCollectionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -209,6 +220,13 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the getSyncStatus method.
+    */
+    public function getSyncStatus(): GetSyncStatusRequestBuilder {
+        return new GetSyncStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the initiateDeviceAttestation method.
     */
     public function initiateDeviceAttestation(): InitiateDeviceAttestationRequestBuilder {
@@ -304,6 +322,13 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     */
     public function remoteLock(): RemoteLockRequestBuilder {
         return new RemoteLockRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the removeDeviceEsim method.
+    */
+    public function removeDeviceEsim(): RemoveDeviceEsimRequestBuilder {
+        return new RemoveDeviceEsimRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -444,6 +469,13 @@ class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder
     */
     public function triggerConfigurationManagerAction(): TriggerConfigurationManagerActionRequestBuilder {
         return new TriggerConfigurationManagerActionRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the triggerEnhancedLogCollection method.
+    */
+    public function triggerEnhancedLogCollection(): TriggerEnhancedLogCollectionRequestBuilder {
+        return new TriggerEnhancedLogCollectionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

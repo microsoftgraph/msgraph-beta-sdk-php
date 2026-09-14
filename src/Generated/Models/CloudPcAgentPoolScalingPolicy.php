@@ -69,7 +69,7 @@ class CloudPcAgentPoolScalingPolicy implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the maximumCount property value. The maximumCount property
+     * Gets the maximumCount property value. The maximum number of Cloud PCs in the pool. The valid values are 1 to 900, and must be greater than or equal to minimumCount.
      * @return int|null
     */
     public function getMaximumCount(): ?int {
@@ -81,7 +81,7 @@ class CloudPcAgentPoolScalingPolicy implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Gets the minimumCount property value. The minimumCount property
+     * Gets the minimumCount property value. The minimum number of Cloud PCs in the pool. The valid values are 0 to 900, and must be less than or equal to maximumCount.
      * @return int|null
     */
     public function getMinimumCount(): ?int {
@@ -132,7 +132,7 @@ class CloudPcAgentPoolScalingPolicy implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the maximumCount property value. The maximumCount property
+     * Sets the maximumCount property value. The maximum number of Cloud PCs in the pool. The valid values are 1 to 900, and must be greater than or equal to minimumCount.
      * @param int|null $value Value to set for the maximumCount property.
     */
     public function setMaximumCount(?int $value): void {
@@ -140,7 +140,7 @@ class CloudPcAgentPoolScalingPolicy implements AdditionalDataHolder, BackedModel
     }
 
     /**
-     * Sets the minimumCount property value. The minimumCount property
+     * Sets the minimumCount property value. The minimum number of Cloud PCs in the pool. The valid values are 0 to 900, and must be less than or equal to maximumCount.
      * @param int|null $value Value to set for the minimumCount property.
     */
     public function setMinimumCount(?int $value): void {

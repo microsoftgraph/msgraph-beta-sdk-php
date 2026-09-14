@@ -82,6 +82,7 @@ class MobileAppContentFile extends Entity implements Parsable
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'size' => fn(ParseNode $n) => $o->setSize($n->getIntegerValue()),
             'sizeEncrypted' => fn(ParseNode $n) => $o->setSizeEncrypted($n->getIntegerValue()),
+            'uploadErrorCode' => fn(ParseNode $n) => $o->setUploadErrorCode($n->getEnumValue(MobileAppContentFileUploadErrorCode::class)),
             'uploadState' => fn(ParseNode $n) => $o->setUploadState($n->getEnumValue(MobileAppContentFileUploadState::class)),
         ]);
     }
@@ -168,6 +169,18 @@ class MobileAppContentFile extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'sizeEncrypted'");
+    }
+
+    /**
+     * Gets the uploadErrorCode property value. Indicates optional error details when uploadState is indicating an error. For example, when uploadState has commitFileFailed value, this field may have the error code of apkIsInvalid. Read-only.
+     * @return MobileAppContentFileUploadErrorCode|null
+    */
+    public function getUploadErrorCode(): ?MobileAppContentFileUploadErrorCode {
+        $val = $this->getBackingStore()->get('uploadErrorCode');
+        if (is_null($val) || $val instanceof MobileAppContentFileUploadErrorCode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'uploadErrorCode'");
     }
 
     /**
@@ -275,6 +288,14 @@ class MobileAppContentFile extends Entity implements Parsable
     */
     public function setSizeEncrypted(?int $value): void {
         $this->getBackingStore()->set('sizeEncrypted', $value);
+    }
+
+    /**
+     * Sets the uploadErrorCode property value. Indicates optional error details when uploadState is indicating an error. For example, when uploadState has commitFileFailed value, this field may have the error code of apkIsInvalid. Read-only.
+     * @param MobileAppContentFileUploadErrorCode|null $value Value to set for the uploadErrorCode property.
+    */
+    public function setUploadErrorCode(?MobileAppContentFileUploadErrorCode $value): void {
+        $this->getBackingStore()->set('uploadErrorCode', $value);
     }
 
     /**

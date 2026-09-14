@@ -31,6 +31,18 @@ class IosVppApp extends MobileApp implements Parsable
     }
 
     /**
+     * Gets the appleDeviceAppDeliveryProtocolType property value. The appleDeviceAppDeliveryProtocolType property
+     * @return AppleDeviceDeliveryProtocol|null
+    */
+    public function getAppleDeviceAppDeliveryProtocolType(): ?AppleDeviceDeliveryProtocol {
+        $val = $this->getBackingStore()->get('appleDeviceAppDeliveryProtocolType');
+        if (is_null($val) || $val instanceof AppleDeviceDeliveryProtocol) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appleDeviceAppDeliveryProtocolType'");
+    }
+
+    /**
      * Gets the applicableDeviceType property value. The applicable iOS Device Type.
      * @return IosDeviceType|null
     */
@@ -87,6 +99,7 @@ class IosVppApp extends MobileApp implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'appleDeviceAppDeliveryProtocolType' => fn(ParseNode $n) => $o->setAppleDeviceAppDeliveryProtocolType($n->getEnumValue(AppleDeviceDeliveryProtocol::class)),
             'applicableDeviceType' => fn(ParseNode $n) => $o->setApplicableDeviceType($n->getObjectValue([IosDeviceType::class, 'createFromDiscriminatorValue'])),
             'appStoreUrl' => fn(ParseNode $n) => $o->setAppStoreUrl($n->getStringValue()),
             'assignedLicenses' => fn(ParseNode $n) => $o->setAssignedLicenses($n->getCollectionOfObjectValues([IosVppAppAssignedLicense::class, 'createFromDiscriminatorValue'])),
@@ -232,6 +245,7 @@ class IosVppApp extends MobileApp implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeEnumValue('appleDeviceAppDeliveryProtocolType', $this->getAppleDeviceAppDeliveryProtocolType());
         $writer->writeObjectValue('applicableDeviceType', $this->getApplicableDeviceType());
         $writer->writeStringValue('appStoreUrl', $this->getAppStoreUrl());
         $writer->writeCollectionOfObjectValues('assignedLicenses', $this->getAssignedLicenses());
@@ -246,6 +260,14 @@ class IosVppApp extends MobileApp implements Parsable
         $writer->writeStringValue('vppTokenDisplayName', $this->getVppTokenDisplayName());
         $writer->writeStringValue('vppTokenId', $this->getVppTokenId());
         $writer->writeStringValue('vppTokenOrganizationName', $this->getVppTokenOrganizationName());
+    }
+
+    /**
+     * Sets the appleDeviceAppDeliveryProtocolType property value. The appleDeviceAppDeliveryProtocolType property
+     * @param AppleDeviceDeliveryProtocol|null $value Value to set for the appleDeviceAppDeliveryProtocolType property.
+    */
+    public function setAppleDeviceAppDeliveryProtocolType(?AppleDeviceDeliveryProtocol $value): void {
+        $this->getBackingStore()->set('appleDeviceAppDeliveryProtocolType', $value);
     }
 
     /**

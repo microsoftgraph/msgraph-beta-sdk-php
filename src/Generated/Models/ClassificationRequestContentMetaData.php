@@ -80,7 +80,7 @@ class ClassificationRequestContentMetaData implements AdditionalDataHolder, Back
     }
 
     /**
-     * Gets the sourceId property value. The sourceId property
+     * Gets the sourceId property value. An identifier for the source of the content being classified.
      * @return string|null
     */
     public function getSourceId(): ?string {
@@ -126,7 +126,7 @@ class ClassificationRequestContentMetaData implements AdditionalDataHolder, Back
     }
 
     /**
-     * Sets the sourceId property value. The sourceId property
+     * Sets the sourceId property value. An identifier for the source of the content being classified.
      * @param string|null $value Value to set for the sourceId property.
     */
     public function setSourceId(?string $value): void {

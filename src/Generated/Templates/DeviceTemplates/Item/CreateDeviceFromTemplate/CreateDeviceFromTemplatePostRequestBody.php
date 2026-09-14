@@ -24,6 +24,7 @@ class CreateDeviceFromTemplatePostRequestBody implements AdditionalDataHolder, B
     */
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
+        $this->setAccountEnabled(false);
         $this->setAdditionalData([]);
     }
 

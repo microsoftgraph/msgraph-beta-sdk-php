@@ -55,6 +55,18 @@ class UsageRight extends Entity implements Parsable
     }
 
     /**
+     * Gets the externalServiceIdentifier property value. The externalServiceIdentifier property
+     * @return string|null
+    */
+    public function getExternalServiceIdentifier(): ?string {
+        $val = $this->getBackingStore()->get('externalServiceIdentifier');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'externalServiceIdentifier'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -63,6 +75,7 @@ class UsageRight extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'allotments' => fn(ParseNode $n) => $o->setAllotments($n->getCollectionOfObjectValues([Allotment::class, 'createFromDiscriminatorValue'])),
             'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([Assignment::class, 'createFromDiscriminatorValue'])),
+            'externalServiceIdentifier' => fn(ParseNode $n) => $o->setExternalServiceIdentifier($n->getStringValue()),
             'services' => fn(ParseNode $n) => $o->setServices($n->getCollectionOfObjectValues([Service::class, 'createFromDiscriminatorValue'])),
             'skuId' => fn(ParseNode $n) => $o->setSkuId($n->getStringValue()),
             'skuPartNumber' => fn(ParseNode $n) => $o->setSkuPartNumber($n->getStringValue()),
@@ -115,6 +128,7 @@ class UsageRight extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('allotments', $this->getAllotments());
         $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
+        $writer->writeStringValue('externalServiceIdentifier', $this->getExternalServiceIdentifier());
         $writer->writeCollectionOfObjectValues('services', $this->getServices());
         $writer->writeStringValue('skuId', $this->getSkuId());
         $writer->writeStringValue('skuPartNumber', $this->getSkuPartNumber());
@@ -134,6 +148,14 @@ class UsageRight extends Entity implements Parsable
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
+    }
+
+    /**
+     * Sets the externalServiceIdentifier property value. The externalServiceIdentifier property
+     * @param string|null $value Value to set for the externalServiceIdentifier property.
+    */
+    public function setExternalServiceIdentifier(?string $value): void {
+        $this->getBackingStore()->set('externalServiceIdentifier', $value);
     }
 
     /**

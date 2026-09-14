@@ -26,7 +26,7 @@ class DriveExclusionUnit extends ExclusionUnitBase implements Parsable
     }
 
     /**
-     * Gets the directoryObjectId property value. The directoryObjectId property
+     * Gets the directoryObjectId property value. The unique identifier of the directory object (user) associated with the drive.
      * @return string|null
     */
     public function getDirectoryObjectId(): ?string {
@@ -38,7 +38,7 @@ class DriveExclusionUnit extends ExclusionUnitBase implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name of the user associated with the drive.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -50,7 +50,7 @@ class DriveExclusionUnit extends ExclusionUnitBase implements Parsable
     }
 
     /**
-     * Gets the email property value. The email property
+     * Gets the email property value. The email address of the user associated with the drive.
      * @return string|null
     */
     public function getEmail(): ?string {
@@ -84,7 +84,7 @@ class DriveExclusionUnit extends ExclusionUnitBase implements Parsable
     }
 
     /**
-     * Sets the directoryObjectId property value. The directoryObjectId property
+     * Sets the directoryObjectId property value. The unique identifier of the directory object (user) associated with the drive.
      * @param string|null $value Value to set for the directoryObjectId property.
     */
     public function setDirectoryObjectId(?string $value): void {
@@ -92,7 +92,7 @@ class DriveExclusionUnit extends ExclusionUnitBase implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name of the user associated with the drive.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -100,7 +100,7 @@ class DriveExclusionUnit extends ExclusionUnitBase implements Parsable
     }
 
     /**
-     * Sets the email property value. The email property
+     * Sets the email property value. The email address of the user associated with the drive.
      * @param string|null $value Value to set for the email property.
     */
     public function setEmail(?string $value): void {

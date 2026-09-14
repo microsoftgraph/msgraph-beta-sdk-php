@@ -88,6 +88,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
             'proxyManualPort' => fn(ParseNode $n) => $o->setProxyManualPort($n->getIntegerValue()),
             'proxySettings' => fn(ParseNode $n) => $o->setProxySettings($n->getEnumValue(WiFiProxySetting::class)),
             'ssid' => fn(ParseNode $n) => $o->setSsid($n->getStringValue()),
+            'wifiRequirePhysicalMacAddressEnabled' => fn(ParseNode $n) => $o->setWifiRequirePhysicalMacAddressEnabled($n->getBooleanValue()),
             'wiFiSecurityType' => fn(ParseNode $n) => $o->setWiFiSecurityType($n->getEnumValue(WiFiSecurityType::class)),
         ]);
     }
@@ -177,6 +178,18 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
+     * Gets the wifiRequirePhysicalMacAddressEnabled property value. Indicates whether devices connecting with this Wi-Fi profile must use their physical MAC address instead of a randomized MAC address. When TRUE, it uses the actual Wi-Fi MAC address. When FALSE, it enables the MAC address randomization. Applies to macOS 15 and later. Default is false.
+     * @return bool|null
+    */
+    public function getWifiRequirePhysicalMacAddressEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('wifiRequirePhysicalMacAddressEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'wifiRequirePhysicalMacAddressEnabled'");
+    }
+
+    /**
      * Gets the wiFiSecurityType property value. Wi-Fi Security Types.
      * @return WiFiSecurityType|null
     */
@@ -204,6 +217,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
         $writer->writeIntegerValue('proxyManualPort', $this->getProxyManualPort());
         $writer->writeEnumValue('proxySettings', $this->getProxySettings());
         $writer->writeStringValue('ssid', $this->getSsid());
+        $writer->writeBooleanValue('wifiRequirePhysicalMacAddressEnabled', $this->getWifiRequirePhysicalMacAddressEnabled());
         $writer->writeEnumValue('wiFiSecurityType', $this->getWiFiSecurityType());
     }
 
@@ -285,6 +299,14 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     */
     public function setSsid(?string $value): void {
         $this->getBackingStore()->set('ssid', $value);
+    }
+
+    /**
+     * Sets the wifiRequirePhysicalMacAddressEnabled property value. Indicates whether devices connecting with this Wi-Fi profile must use their physical MAC address instead of a randomized MAC address. When TRUE, it uses the actual Wi-Fi MAC address. When FALSE, it enables the MAC address randomization. Applies to macOS 15 and later. Default is false.
+     * @param bool|null $value Value to set for the wifiRequirePhysicalMacAddressEnabled property.
+    */
+    public function setWifiRequirePhysicalMacAddressEnabled(?bool $value): void {
+        $this->getBackingStore()->set('wifiRequirePhysicalMacAddressEnabled', $value);
     }
 
     /**

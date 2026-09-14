@@ -27,9 +27,11 @@ use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\GetActivitiesByInterva
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Invite\InviteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\LastModifiedByUser\LastModifiedByUserRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\ListItem\ListItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Lock\LockRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\PermanentDelete\PermanentDeleteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Permissions\PermissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Preview\PreviewRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\ReleaseLock\ReleaseLockRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\Restore\RestoreRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\RetentionLabel\RetentionLabelRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\Items\Item\SearchWithQ\SearchWithQRequestBuilder;
@@ -200,6 +202,13 @@ class DriveItemItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the lock method.
+    */
+    public function lock(): LockRequestBuilder {
+        return new LockRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the permanentDelete method.
     */
     public function permanentDelete(): PermanentDeleteRequestBuilder {
@@ -218,6 +227,13 @@ class DriveItemItemRequestBuilder extends BaseRequestBuilder
     */
     public function preview(): PreviewRequestBuilder {
         return new PreviewRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the releaseLock method.
+    */
+    public function releaseLock(): ReleaseLockRequestBuilder {
+        return new ReleaseLockRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

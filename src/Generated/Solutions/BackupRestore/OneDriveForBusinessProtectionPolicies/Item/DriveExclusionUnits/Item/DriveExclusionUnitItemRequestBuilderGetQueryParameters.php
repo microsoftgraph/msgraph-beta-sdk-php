@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\OneDriveForBusi
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get driveExclusionUnits from solutions
+ * Get a drive exclusion unit associated with a OneDrive for work or school protection policy.
 */
 class DriveExclusionUnitItemRequestBuilderGetQueryParameters 
 {

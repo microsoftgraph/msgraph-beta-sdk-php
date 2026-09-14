@@ -78,10 +78,23 @@ class Win32LobAppInstallExperience implements AdditionalDataHolder, BackedModel,
         $o = $this;
         return  [
             'deviceRestartBehavior' => fn(ParseNode $n) => $o->setDeviceRestartBehavior($n->getEnumValue(Win32LobAppRestartBehavior::class)),
+            'inUseBehavior' => fn(ParseNode $n) => $o->setInUseBehavior($n->getEnumValue(Win32LobAppInUseActionType::class)),
             'maxRunTimeInMinutes' => fn(ParseNode $n) => $o->setMaxRunTimeInMinutes($n->getIntegerValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'runAsAccount' => fn(ParseNode $n) => $o->setRunAsAccount($n->getEnumValue(RunAsAccountType::class)),
         ];
+    }
+
+    /**
+     * Gets the inUseBehavior property value. Indicates whether app-in-use detection is enabled before app enforcement, and if enabled, the action to take when the app is detected to be in-use. Null indicates the feature is not enabled. Possible values are: `notEnabled`, `fail`, `terminateWithoutUserInteraction`, `terminateWithUserInteraction`.
+     * @return Win32LobAppInUseActionType|null
+    */
+    public function getInUseBehavior(): ?Win32LobAppInUseActionType {
+        $val = $this->getBackingStore()->get('inUseBehavior');
+        if (is_null($val) || $val instanceof Win32LobAppInUseActionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inUseBehavior'");
     }
 
     /**
@@ -126,6 +139,7 @@ class Win32LobAppInstallExperience implements AdditionalDataHolder, BackedModel,
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('deviceRestartBehavior', $this->getDeviceRestartBehavior());
+        $writer->writeEnumValue('inUseBehavior', $this->getInUseBehavior());
         $writer->writeIntegerValue('maxRunTimeInMinutes', $this->getMaxRunTimeInMinutes());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('runAsAccount', $this->getRunAsAccount());
@@ -154,6 +168,14 @@ class Win32LobAppInstallExperience implements AdditionalDataHolder, BackedModel,
     */
     public function setDeviceRestartBehavior(?Win32LobAppRestartBehavior $value): void {
         $this->getBackingStore()->set('deviceRestartBehavior', $value);
+    }
+
+    /**
+     * Sets the inUseBehavior property value. Indicates whether app-in-use detection is enabled before app enforcement, and if enabled, the action to take when the app is detected to be in-use. Null indicates the feature is not enabled. Possible values are: `notEnabled`, `fail`, `terminateWithoutUserInteraction`, `terminateWithUserInteraction`.
+     * @param Win32LobAppInUseActionType|null $value Value to set for the inUseBehavior property.
+    */
+    public function setInUseBehavior(?Win32LobAppInUseActionType $value): void {
+        $this->getBackingStore()->set('inUseBehavior', $value);
     }
 
     /**

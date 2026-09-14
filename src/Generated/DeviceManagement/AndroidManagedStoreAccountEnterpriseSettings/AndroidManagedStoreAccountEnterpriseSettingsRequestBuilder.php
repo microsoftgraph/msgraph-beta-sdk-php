@@ -8,6 +8,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAccountEn
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAccountEnterpriseSettings\ApproveApps\ApproveAppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAccountEnterpriseSettings\CompleteSignup\CompleteSignupRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAccountEnterpriseSettings\CreateGooglePlayWebToken\CreateGooglePlayWebTokenRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAccountEnterpriseSettings\CreateZeroTouchWebToken\CreateZeroTouchWebTokenRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAccountEnterpriseSettings\RequestEnterpriseUpgradeUrl\RequestEnterpriseUpgradeUrlRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAccountEnterpriseSettings\RequestSignupUrl\RequestSignupUrlRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\AndroidManagedStoreAccountEnterpriseSettings\RetrieveStoreLayout\RetrieveStoreLayoutRequestBuilder;
@@ -53,6 +54,13 @@ class AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder extends BaseReq
     */
     public function createGooglePlayWebToken(): CreateGooglePlayWebTokenRequestBuilder {
         return new CreateGooglePlayWebTokenRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the createZeroTouchWebToken method.
+    */
+    public function createZeroTouchWebToken(): CreateZeroTouchWebTokenRequestBuilder {
+        return new CreateZeroTouchWebTokenRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

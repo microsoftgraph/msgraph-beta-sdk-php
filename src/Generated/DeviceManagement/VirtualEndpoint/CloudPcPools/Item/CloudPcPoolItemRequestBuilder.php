@@ -39,10 +39,11 @@ class CloudPcPoolItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property cloudPcPools for deviceManagement
+     * Delete a cloudPcPool object.
      * @param CloudPcPoolItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcpool-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?CloudPcPoolItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -53,10 +54,11 @@ class CloudPcPoolItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get cloudPcPools from deviceManagement
+     * Read the properties and relationships of a cloudPcPool object.
      * @param CloudPcPoolItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcPool|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcpool-get?view=graph-rest-beta Find more info here
     */
     public function get(?CloudPcPoolItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,11 +69,12 @@ class CloudPcPoolItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property cloudPcPools in deviceManagement
+     * Update the properties of a cloudPcPool object.
      * @param CloudPcPool $body The request body
      * @param CloudPcPoolItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CloudPcPool|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcpool-update?view=graph-rest-beta Find more info here
     */
     public function patch(CloudPcPool $body, ?CloudPcPoolItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -82,7 +85,7 @@ class CloudPcPoolItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property cloudPcPools for deviceManagement
+     * Delete a cloudPcPool object.
      * @param CloudPcPoolItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -100,7 +103,7 @@ class CloudPcPoolItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get cloudPcPools from deviceManagement
+     * Read the properties and relationships of a cloudPcPool object.
      * @param CloudPcPoolItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +124,7 @@ class CloudPcPoolItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property cloudPcPools in deviceManagement
+     * Update the properties of a cloudPcPool object.
      * @param CloudPcPool $body The request body
      * @param CloudPcPoolItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -30,6 +30,18 @@ class VppToken extends Entity implements Parsable
     }
 
     /**
+     * Gets the appleDeviceAppDeliveryProtocolType property value. Enum of the supported types of Apple delivery protocols, representing the available protocols to deliver payloads to Apple devices
+     * @return AppleDeviceDeliveryProtocol|null
+    */
+    public function getAppleDeviceAppDeliveryProtocolType(): ?AppleDeviceDeliveryProtocol {
+        $val = $this->getBackingStore()->get('appleDeviceAppDeliveryProtocolType');
+        if (is_null($val) || $val instanceof AppleDeviceDeliveryProtocol) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appleDeviceAppDeliveryProtocolType'");
+    }
+
+    /**
      * Gets the appleId property value. The apple Id associated with the given Apple Volume Purchase Program Token.
      * @return string|null
     */
@@ -120,6 +132,7 @@ class VppToken extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'appleDeviceAppDeliveryProtocolType' => fn(ParseNode $n) => $o->setAppleDeviceAppDeliveryProtocolType($n->getEnumValue(AppleDeviceDeliveryProtocol::class)),
             'appleId' => fn(ParseNode $n) => $o->setAppleId($n->getStringValue()),
             'automaticallyUpdateApps' => fn(ParseNode $n) => $o->setAutomaticallyUpdateApps($n->getBooleanValue()),
             'claimTokenManagementFromExternalMdm' => fn(ParseNode $n) => $o->setClaimTokenManagementFromExternalMdm($n->getBooleanValue()),
@@ -277,6 +290,7 @@ class VppToken extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeEnumValue('appleDeviceAppDeliveryProtocolType', $this->getAppleDeviceAppDeliveryProtocolType());
         $writer->writeStringValue('appleId', $this->getAppleId());
         $writer->writeBooleanValue('automaticallyUpdateApps', $this->getAutomaticallyUpdateApps());
         $writer->writeBooleanValue('claimTokenManagementFromExternalMdm', $this->getClaimTokenManagementFromExternalMdm());
@@ -294,6 +308,14 @@ class VppToken extends Entity implements Parsable
         $writer->writeStringValue('token', $this->getToken());
         $writer->writeCollectionOfObjectValues('tokenActionResults', $this->getTokenActionResults());
         $writer->writeEnumValue('vppTokenAccountType', $this->getVppTokenAccountType());
+    }
+
+    /**
+     * Sets the appleDeviceAppDeliveryProtocolType property value. Enum of the supported types of Apple delivery protocols, representing the available protocols to deliver payloads to Apple devices
+     * @param AppleDeviceDeliveryProtocol|null $value Value to set for the appleDeviceAppDeliveryProtocolType property.
+    */
+    public function setAppleDeviceAppDeliveryProtocolType(?AppleDeviceDeliveryProtocol $value): void {
+        $this->getBackingStore()->set('appleDeviceAppDeliveryProtocolType', $value);
     }
 
     /**

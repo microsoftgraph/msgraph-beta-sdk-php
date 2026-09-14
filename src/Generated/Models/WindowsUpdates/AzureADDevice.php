@@ -27,7 +27,7 @@ class AzureADDevice extends UpdatableAsset implements Parsable
     }
 
     /**
-     * Gets the enrollment property value. The enrollment property
+     * Gets the enrollment property value. Specifies the update management enrollment for the device. Read-only. Returned by default.
      * @return UpdateManagementEnrollment|null
     */
     public function getEnrollment(): ?UpdateManagementEnrollment {
@@ -39,7 +39,7 @@ class AzureADDevice extends UpdatableAsset implements Parsable
     }
 
     /**
-     * Gets the errors property value. Specifies any errors that prevent the device from being enrolled in update management or receving deployed content. Read-only. Returned by default.
+     * Gets the errors property value. Specifies any errors that prevent the device from being enrolled in update management or receiving deployed content. Read-only. Returned by default.
      * @return array<UpdatableAssetError>|null
     */
     public function getErrors(): ?array {
@@ -75,7 +75,7 @@ class AzureADDevice extends UpdatableAsset implements Parsable
     }
 
     /**
-     * Sets the enrollment property value. The enrollment property
+     * Sets the enrollment property value. Specifies the update management enrollment for the device. Read-only. Returned by default.
      * @param UpdateManagementEnrollment|null $value Value to set for the enrollment property.
     */
     public function setEnrollment(?UpdateManagementEnrollment $value): void {
@@ -83,7 +83,7 @@ class AzureADDevice extends UpdatableAsset implements Parsable
     }
 
     /**
-     * Sets the errors property value. Specifies any errors that prevent the device from being enrolled in update management or receving deployed content. Read-only. Returned by default.
+     * Sets the errors property value. Specifies any errors that prevent the device from being enrolled in update management or receiving deployed content. Read-only. Returned by default.
      * @param array<UpdatableAssetError>|null $value Value to set for the errors property.
     */
     public function setErrors(?array $value): void {

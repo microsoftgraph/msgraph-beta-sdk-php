@@ -70,7 +70,7 @@ class CloudVideoInteropInfo implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the moreInfoWebUrl property value. The moreInfoWebUrl property
+     * Gets the moreInfoWebUrl property value. Provides other video teleconferencing (VTC) dial-in options. Read-only.
      * @return string|null
     */
     public function getMoreInfoWebUrl(): ?string {
@@ -94,7 +94,7 @@ class CloudVideoInteropInfo implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the tenantKey property value. The tenantKey property
+     * Gets the tenantKey property value. The tenant key that is used to dial into the interactive voice response (IVR) of the partner CVI service.
      * @return string|null
     */
     public function getTenantKey(): ?string {
@@ -106,7 +106,7 @@ class CloudVideoInteropInfo implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the videoTeleconferenceId property value. The videoTeleconferenceId property
+     * Gets the videoTeleconferenceId property value. The video teleconferencing ID. Read-only.
      * @return string|null
     */
     public function getVideoTeleconferenceId(): ?string {
@@ -146,7 +146,7 @@ class CloudVideoInteropInfo implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the moreInfoWebUrl property value. The moreInfoWebUrl property
+     * Sets the moreInfoWebUrl property value. Provides other video teleconferencing (VTC) dial-in options. Read-only.
      * @param string|null $value Value to set for the moreInfoWebUrl property.
     */
     public function setMoreInfoWebUrl(?string $value): void {
@@ -162,7 +162,7 @@ class CloudVideoInteropInfo implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the tenantKey property value. The tenantKey property
+     * Sets the tenantKey property value. The tenant key that is used to dial into the interactive voice response (IVR) of the partner CVI service.
      * @param string|null $value Value to set for the tenantKey property.
     */
     public function setTenantKey(?string $value): void {
@@ -170,7 +170,7 @@ class CloudVideoInteropInfo implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the videoTeleconferenceId property value. The videoTeleconferenceId property
+     * Sets the videoTeleconferenceId property value. The video teleconferencing ID. Read-only.
      * @param string|null $value Value to set for the videoTeleconferenceId property.
     */
     public function setVideoTeleconferenceId(?string $value): void {

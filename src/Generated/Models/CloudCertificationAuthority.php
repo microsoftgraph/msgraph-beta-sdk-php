@@ -274,6 +274,7 @@ class CloudCertificationAuthority extends Entity implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'eTag' => fn(ParseNode $n) => $o->setETag($n->getStringValue()),
             'extendedKeyUsages' => fn(ParseNode $n) => $o->setExtendedKeyUsages($n->getCollectionOfObjectValues([ExtendedKeyUsage::class, 'createFromDiscriminatorValue'])),
+            'geographicRegion' => fn(ParseNode $n) => $o->setGeographicRegion($n->getStringValue()),
             'issuerCommonName' => fn(ParseNode $n) => $o->setIssuerCommonName($n->getStringValue()),
             'keyPlatform' => fn(ParseNode $n) => $o->setKeyPlatform($n->getEnumValue(CloudCertificationAuthorityKeyPlatformType::class)),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
@@ -301,6 +302,18 @@ class CloudCertificationAuthority extends Entity implements Parsable
             'versionNumber' => fn(ParseNode $n) => $o->setVersionNumber($n->getIntegerValue()),
             'versions' => fn(ParseNode $n) => $o->setVersions($n->getCollectionOfObjectValues([CloudCertificationAuthorityVersion::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the geographicRegion property value. The geographic region where a cloud certification authority (CA) is hosted. Read-only.
+     * @return string|null
+    */
+    public function getGeographicRegion(): ?string {
+        $val = $this->getBackingStore()->get('geographicRegion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'geographicRegion'");
     }
 
     /**
@@ -559,6 +572,7 @@ class CloudCertificationAuthority extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('eTag', $this->getETag());
         $writer->writeCollectionOfObjectValues('extendedKeyUsages', $this->getExtendedKeyUsages());
+        $writer->writeStringValue('geographicRegion', $this->getGeographicRegion());
         $writer->writeStringValue('issuerCommonName', $this->getIssuerCommonName());
         $writer->writeEnumValue('keyPlatform', $this->getKeyPlatform());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
@@ -722,6 +736,14 @@ class CloudCertificationAuthority extends Entity implements Parsable
     */
     public function setExtendedKeyUsages(?array $value): void {
         $this->getBackingStore()->set('extendedKeyUsages', $value);
+    }
+
+    /**
+     * Sets the geographicRegion property value. The geographic region where a cloud certification authority (CA) is hosted. Read-only.
+     * @param string|null $value Value to set for the geographicRegion property.
+    */
+    public function setGeographicRegion(?string $value): void {
+        $this->getBackingStore()->set('geographicRegion', $value);
     }
 
     /**

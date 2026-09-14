@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\People\ProfilePropertySettings;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a collection of profilePropertySetting objects that define the configuration for user profile properties in an organization. The id property identifies each resource object uniquely.
+ * Get a collection of profilePropertySetting objects that define the configuration for user profile property settings in an organization. The id property identifies each resource object uniquely.
 */
 class ProfilePropertySettingsRequestBuilderGetQueryParameters 
 {

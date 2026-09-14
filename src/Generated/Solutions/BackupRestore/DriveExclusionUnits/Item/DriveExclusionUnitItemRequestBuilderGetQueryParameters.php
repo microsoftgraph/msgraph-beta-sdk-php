@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\DriveExclusionU
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get driveExclusionUnits from solutions
+ * The list of drive exclusion units in the tenant.
 */
 class DriveExclusionUnitItemRequestBuilderGetQueryParameters 
 {

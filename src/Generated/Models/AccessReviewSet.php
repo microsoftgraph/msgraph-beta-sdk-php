@@ -65,6 +65,7 @@ class AccessReviewSet extends Entity implements Parsable
             'historyDefinitions' => fn(ParseNode $n) => $o->setHistoryDefinitions($n->getCollectionOfObjectValues([AccessReviewHistoryDefinition::class, 'createFromDiscriminatorValue'])),
             'instances' => fn(ParseNode $n) => $o->setInstances($n->getCollectionOfObjectValues([AccessReviewInstance::class, 'createFromDiscriminatorValue'])),
             'policy' => fn(ParseNode $n) => $o->setPolicy($n->getObjectValue([AccessReviewPolicy::class, 'createFromDiscriminatorValue'])),
+            'unified' => fn(ParseNode $n) => $o->setUnified($n->getObjectValue([UnifiedRoot::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -109,6 +110,18 @@ class AccessReviewSet extends Entity implements Parsable
     }
 
     /**
+     * Gets the unified property value. Entry point for the unified (vNext) access reviews API surface. Requests under this path are routed to the vNext service through the dedicated accessReviews/unified path segment.
+     * @return UnifiedRoot|null
+    */
+    public function getUnified(): ?UnifiedRoot {
+        $val = $this->getBackingStore()->get('unified');
+        if (is_null($val) || $val instanceof UnifiedRoot) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'unified'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -119,6 +132,7 @@ class AccessReviewSet extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('historyDefinitions', $this->getHistoryDefinitions());
         $writer->writeCollectionOfObjectValues('instances', $this->getInstances());
         $writer->writeObjectValue('policy', $this->getPolicy());
+        $writer->writeObjectValue('unified', $this->getUnified());
     }
 
     /**
@@ -159,6 +173,14 @@ class AccessReviewSet extends Entity implements Parsable
     */
     public function setPolicy(?AccessReviewPolicy $value): void {
         $this->getBackingStore()->set('policy', $value);
+    }
+
+    /**
+     * Sets the unified property value. Entry point for the unified (vNext) access reviews API surface. Requests under this path are routed to the vNext service through the dedicated accessReviews/unified path segment.
+     * @param UnifiedRoot|null $value Value to set for the unified property.
+    */
+    public function setUnified(?UnifiedRoot $value): void {
+        $this->getBackingStore()->set('unified', $value);
     }
 
 }

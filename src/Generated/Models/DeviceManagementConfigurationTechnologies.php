@@ -22,4 +22,5 @@ class DeviceManagementConfigurationTechnologies extends Enum {
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
     public const WINDOWS_OS_RECOVERY = "windowsOsRecovery";
     public const ANDROID = "android";
+    public const INTUNE_OPEN_EXTENSIBILITY = "intuneOpenExtensibility";
 }

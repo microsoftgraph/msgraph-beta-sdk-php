@@ -51,7 +51,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the connectionSetting property value. The connection setting of the Cloud PC. Possible values: enableSingleSignOn. Read Only.
+     * Gets the connectionSetting property value. The connection setting of the Cloud PC. Possible values: enableSingleSignOn. Read-only.
      * @return CloudPcConnectionSetting|null
     */
     public function getConnectionSetting(): ?CloudPcConnectionSetting {
@@ -154,7 +154,9 @@ class CloudPC extends Entity implements Parsable
             'gracePeriodEndDateTime' => fn(ParseNode $n) => $o->setGracePeriodEndDateTime($n->getDateTimeValue()),
             'groupDetail' => fn(ParseNode $n) => $o->setGroupDetail($n->getObjectValue([CloudPcEntraGroupDetail::class, 'createFromDiscriminatorValue'])),
             'imageDisplayName' => fn(ParseNode $n) => $o->setImageDisplayName($n->getStringValue()),
+            'isDisasterRecoveryActive' => fn(ParseNode $n) => $o->setIsDisasterRecoveryActive($n->getBooleanValue()),
             'lastLoginResult' => fn(ParseNode $n) => $o->setLastLoginResult($n->getObjectValue([CloudPcLoginResult::class, 'createFromDiscriminatorValue'])),
+            'lastLogoffDateTime' => fn(ParseNode $n) => $o->setLastLogoffDateTime($n->getDateTimeValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'lastRemoteActionResult' => fn(ParseNode $n) => $o->setLastRemoteActionResult($n->getObjectValue([CloudPcRemoteActionResult::class, 'createFromDiscriminatorValue'])),
             'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getStringValue()),
@@ -165,6 +167,7 @@ class CloudPC extends Entity implements Parsable
             'powerState' => fn(ParseNode $n) => $o->setPowerState($n->getEnumValue(CloudPcPowerState::class)),
             'productType' => fn(ParseNode $n) => $o->setProductType($n->getEnumValue(CloudPcProductType::class)),
             'provisionedDateTime' => fn(ParseNode $n) => $o->setProvisionedDateTime($n->getDateTimeValue()),
+            'provisioningConfiguration' => fn(ParseNode $n) => $o->setProvisioningConfiguration($n->getObjectValue([CloudPcProvisioningConfiguration::class, 'createFromDiscriminatorValue'])),
             'provisioningPolicyId' => fn(ParseNode $n) => $o->setProvisioningPolicyId($n->getStringValue()),
             'provisioningPolicyName' => fn(ParseNode $n) => $o->setProvisioningPolicyName($n->getStringValue()),
             'provisioningType' => fn(ParseNode $n) => $o->setProvisioningType($n->getEnumValue(CloudPcProvisioningType::class)),
@@ -239,6 +242,18 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
+     * Gets the isDisasterRecoveryActive property value. The isDisasterRecoveryActive property
+     * @return bool|null
+    */
+    public function getIsDisasterRecoveryActive(): ?bool {
+        $val = $this->getBackingStore()->get('isDisasterRecoveryActive');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isDisasterRecoveryActive'");
+    }
+
+    /**
      * Gets the lastLoginResult property value. The last login result of the Cloud PC. For example, { 'time': '2014-01-01T00:00:00Z'}.
      * @return CloudPcLoginResult|null
     */
@@ -248,6 +263,18 @@ class CloudPC extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastLoginResult'");
+    }
+
+    /**
+     * Gets the lastLogoffDateTime property value. The date and time when the user last logged off from the Cloud PC session. Returns null if the user has never established a session or if a session is currently active. The timestamp is shown in ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Returned only when explicitly selected with $select.
+     * @return DateTime|null
+    */
+    public function getLastLogoffDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('lastLogoffDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastLogoffDateTime'");
     }
 
     /**
@@ -373,6 +400,18 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
+     * Gets the provisioningConfiguration property value. The provisioningConfiguration property
+     * @return CloudPcProvisioningConfiguration|null
+    */
+    public function getProvisioningConfiguration(): ?CloudPcProvisioningConfiguration {
+        $val = $this->getBackingStore()->get('provisioningConfiguration');
+        if (is_null($val) || $val instanceof CloudPcProvisioningConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'provisioningConfiguration'");
+    }
+
+    /**
      * Gets the provisioningPolicyId property value. The provisioning policy ID of the Cloud PC.
      * @return string|null
     */
@@ -409,7 +448,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the scopeIds property value. The scopeIds property
+     * Gets the scopeIds property value. The scope IDs of the corresponding permission. Currently, it's the Intune scope tag ID. Read-only.
      * @return array<string>|null
     */
     public function getScopeIds(): ?array {
@@ -573,7 +612,9 @@ class CloudPC extends Entity implements Parsable
         $writer->writeDateTimeValue('gracePeriodEndDateTime', $this->getGracePeriodEndDateTime());
         $writer->writeObjectValue('groupDetail', $this->getGroupDetail());
         $writer->writeStringValue('imageDisplayName', $this->getImageDisplayName());
+        $writer->writeBooleanValue('isDisasterRecoveryActive', $this->getIsDisasterRecoveryActive());
         $writer->writeObjectValue('lastLoginResult', $this->getLastLoginResult());
+        $writer->writeDateTimeValue('lastLogoffDateTime', $this->getLastLogoffDateTime());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeObjectValue('lastRemoteActionResult', $this->getLastRemoteActionResult());
         $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
@@ -584,6 +625,7 @@ class CloudPC extends Entity implements Parsable
         $writer->writeEnumValue('powerState', $this->getPowerState());
         $writer->writeEnumValue('productType', $this->getProductType());
         $writer->writeDateTimeValue('provisionedDateTime', $this->getProvisionedDateTime());
+        $writer->writeObjectValue('provisioningConfiguration', $this->getProvisioningConfiguration());
         $writer->writeStringValue('provisioningPolicyId', $this->getProvisioningPolicyId());
         $writer->writeStringValue('provisioningPolicyName', $this->getProvisioningPolicyName());
         $writer->writeEnumValue('provisioningType', $this->getProvisioningType());
@@ -618,7 +660,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the connectionSetting property value. The connection setting of the Cloud PC. Possible values: enableSingleSignOn. Read Only.
+     * Sets the connectionSetting property value. The connection setting of the Cloud PC. Possible values: enableSingleSignOn. Read-only.
      * @param CloudPcConnectionSetting|null $value Value to set for the connectionSetting property.
     */
     public function setConnectionSetting(?CloudPcConnectionSetting $value): void {
@@ -706,11 +748,27 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
+     * Sets the isDisasterRecoveryActive property value. The isDisasterRecoveryActive property
+     * @param bool|null $value Value to set for the isDisasterRecoveryActive property.
+    */
+    public function setIsDisasterRecoveryActive(?bool $value): void {
+        $this->getBackingStore()->set('isDisasterRecoveryActive', $value);
+    }
+
+    /**
      * Sets the lastLoginResult property value. The last login result of the Cloud PC. For example, { 'time': '2014-01-01T00:00:00Z'}.
      * @param CloudPcLoginResult|null $value Value to set for the lastLoginResult property.
     */
     public function setLastLoginResult(?CloudPcLoginResult $value): void {
         $this->getBackingStore()->set('lastLoginResult', $value);
+    }
+
+    /**
+     * Sets the lastLogoffDateTime property value. The date and time when the user last logged off from the Cloud PC session. Returns null if the user has never established a session or if a session is currently active. The timestamp is shown in ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Returned only when explicitly selected with $select.
+     * @param DateTime|null $value Value to set for the lastLogoffDateTime property.
+    */
+    public function setLastLogoffDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastLogoffDateTime', $value);
     }
 
     /**
@@ -794,6 +852,14 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
+     * Sets the provisioningConfiguration property value. The provisioningConfiguration property
+     * @param CloudPcProvisioningConfiguration|null $value Value to set for the provisioningConfiguration property.
+    */
+    public function setProvisioningConfiguration(?CloudPcProvisioningConfiguration $value): void {
+        $this->getBackingStore()->set('provisioningConfiguration', $value);
+    }
+
+    /**
      * Sets the provisioningPolicyId property value. The provisioning policy ID of the Cloud PC.
      * @param string|null $value Value to set for the provisioningPolicyId property.
     */
@@ -818,7 +884,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the scopeIds property value. The scopeIds property
+     * Sets the scopeIds property value. The scope IDs of the corresponding permission. Currently, it's the Intune scope tag ID. Read-only.
      * @param array<string>|null $value Value to set for the scopeIds property.
     */
     public function setScopeIds(?array $value): void {

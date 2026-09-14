@@ -48,7 +48,7 @@ class IdentityGovernanceUserSettings implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Gets the approverDelegate property value. The approverDelegate property
+     * Gets the approverDelegate property value. The approver delegate configuration for the user, including the delegate identity and delegation schedule. Nullable.
      * @return ApproverDelegate|null
     */
     public function getApproverDelegate(): ?ApproverDelegate {
@@ -110,7 +110,7 @@ class IdentityGovernanceUserSettings implements AdditionalDataHolder, BackedMode
     }
 
     /**
-     * Sets the approverDelegate property value. The approverDelegate property
+     * Sets the approverDelegate property value. The approver delegate configuration for the user, including the delegate identity and delegation schedule. Nullable.
      * @param ApproverDelegate|null $value Value to set for the approverDelegate property.
     */
     public function setApproverDelegate(?ApproverDelegate $value): void {

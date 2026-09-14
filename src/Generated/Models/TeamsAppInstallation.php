@@ -58,7 +58,7 @@ class TeamsAppInstallation extends Entity implements Parsable
     }
 
     /**
-     * Gets the scopeInfo property value. The scopeInfo property
+     * Gets the scopeInfo property value. The details of the scope in which the app is installed.
      * @return TeamsAppInstallationScopeInfo|null
     */
     public function getScopeInfo(): ?TeamsAppInstallationScopeInfo {
@@ -114,7 +114,7 @@ class TeamsAppInstallation extends Entity implements Parsable
     }
 
     /**
-     * Sets the scopeInfo property value. The scopeInfo property
+     * Sets the scopeInfo property value. The details of the scope in which the app is installed.
      * @param TeamsAppInstallationScopeInfo|null $value Value to set for the scopeInfo property.
     */
     public function setScopeInfo(?TeamsAppInstallationScopeInfo $value): void {

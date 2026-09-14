@@ -31,10 +31,11 @@ class DetectionRuleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property detectionRules for security
+     * Delete a detectionRule object.
      * @param DetectionRuleItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/security-rulesroot-delete-detectionrules?view=graph-rest-beta Find more info here
     */
     public function delete(?DetectionRuleItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -45,7 +46,7 @@ class DetectionRuleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get detectionRules from security
+     * The custom detection rules configured for the tenant.
      * @param DetectionRuleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DetectionRule|null>
      * @throws Exception
@@ -74,7 +75,7 @@ class DetectionRuleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property detectionRules for security
+     * Delete a detectionRule object.
      * @param DetectionRuleItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -92,7 +93,7 @@ class DetectionRuleItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get detectionRules from security
+     * The custom detection rules configured for the tenant.
      * @param DetectionRuleItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

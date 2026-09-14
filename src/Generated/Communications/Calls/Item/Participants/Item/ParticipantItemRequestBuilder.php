@@ -4,7 +4,10 @@ namespace Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Participants\
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Participants\Item\AdmitFromLobby\AdmitFromLobbyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Participants\Item\Mute\MuteRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Participants\Item\RemoveFromLobby\RemoveFromLobbyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Participants\Item\ReportSyntheticMedia\ReportSyntheticMediaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Participants\Item\StartHoldMusic\StartHoldMusicRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Communications\Calls\Item\Participants\Item\StopHoldMusic\StopHoldMusicRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -20,10 +23,31 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 class ParticipantItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
+     * Provides operations to call the admitFromLobby method.
+    */
+    public function admitFromLobby(): AdmitFromLobbyRequestBuilder {
+        return new AdmitFromLobbyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the mute method.
     */
     public function mute(): MuteRequestBuilder {
         return new MuteRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the removeFromLobby method.
+    */
+    public function removeFromLobby(): RemoveFromLobbyRequestBuilder {
+        return new RemoveFromLobbyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the reportSyntheticMedia method.
+    */
+    public function reportSyntheticMedia(): ReportSyntheticMediaRequestBuilder {
+        return new ReportSyntheticMediaRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

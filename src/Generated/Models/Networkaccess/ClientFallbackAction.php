@@ -7,5 +7,6 @@ use Microsoft\Kiota\Abstractions\Enum;
 class ClientFallbackAction extends Enum {
     public const BYPASS = "bypass";
     public const BLOCK = "block";
+    public const DEFAULT = "default";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

@@ -30,7 +30,7 @@ class MicrosoftGraphWindowsUpdatesAddMembersRequestBuilder extends BaseRequestBu
     }
 
     /**
-     * Add members to an updatableAssetGroup. You can add azureADDevice resources as members, but may not add updatableAssetGroup resources as members. Adding a Microsoft Entra device as a member of an updatable asset group automatically creates an azureADDevice object, if it does not already exist. You can also use the method addMembersById to add members.
+     * Add members to an updatableAssetGroup. You can add azureADDevice resources as members, but may not add updatableAssetGroup resources as members. Adding a Microsoft Entra device as a member of an updatable asset group automatically creates an azureADDevice object, if it doesn't already exist. You can also use the method addMembersById to add members.
      * @param AddMembersPostRequestBody $body The request body
      * @param MicrosoftGraphWindowsUpdatesAddMembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
@@ -46,7 +46,7 @@ class MicrosoftGraphWindowsUpdatesAddMembersRequestBuilder extends BaseRequestBu
     }
 
     /**
-     * Add members to an updatableAssetGroup. You can add azureADDevice resources as members, but may not add updatableAssetGroup resources as members. Adding a Microsoft Entra device as a member of an updatable asset group automatically creates an azureADDevice object, if it does not already exist. You can also use the method addMembersById to add members.
+     * Add members to an updatableAssetGroup. You can add azureADDevice resources as members, but may not add updatableAssetGroup resources as members. Adding a Microsoft Entra device as a member of an updatable asset group automatically creates an azureADDevice object, if it doesn't already exist. You can also use the method addMembersById to add members.
      * @param AddMembersPostRequestBody $body The request body
      * @param MicrosoftGraphWindowsUpdatesAddMembersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

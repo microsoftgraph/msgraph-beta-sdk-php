@@ -56,7 +56,7 @@ class ApproverDelegate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the delegate property value. The delegate property
+     * Gets the delegate property value. The identity that receives the approval delegation. Only singleUser and groupMembers are currently supported.
      * @return UserSet|null
     */
     public function getDelegate(): ?UserSet {
@@ -93,7 +93,7 @@ class ApproverDelegate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the schedule property value. The schedule property
+     * Gets the schedule property value. The schedule for the delegation, including start date and expiration pattern (duration, end date, or no expiration).
      * @return RequestSchedule|null
     */
     public function getSchedule(): ?RequestSchedule {
@@ -132,7 +132,7 @@ class ApproverDelegate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the delegate property value. The delegate property
+     * Sets the delegate property value. The identity that receives the approval delegation. Only singleUser and groupMembers are currently supported.
      * @param UserSet|null $value Value to set for the delegate property.
     */
     public function setDelegate(?UserSet $value): void {
@@ -148,7 +148,7 @@ class ApproverDelegate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the schedule property value. The schedule property
+     * Sets the schedule property value. The schedule for the delegation, including start date and expiration pattern (duration, end date, or no expiration).
      * @param RequestSchedule|null $value Value to set for the schedule property.
     */
     public function setSchedule(?RequestSchedule $value): void {

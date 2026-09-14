@@ -60,7 +60,7 @@ class ApprovalStepItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Apply approve or deny decision on an approvalStep object.
+     * Apply an approve or deny decision on an approvalStep object.
      * @param ApprovalStep $body The request body
      * @param ApprovalStepItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApprovalStep|null>
@@ -115,7 +115,7 @@ class ApprovalStepItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Apply approve or deny decision on an approvalStep object.
+     * Apply an approve or deny decision on an approvalStep object.
      * @param ApprovalStep $body The request body
      * @param ApprovalStepItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

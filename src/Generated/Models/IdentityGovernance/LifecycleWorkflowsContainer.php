@@ -63,6 +63,8 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
             'customTaskExtensions' => fn(ParseNode $n) => $o->setCustomTaskExtensions($n->getCollectionOfObjectValues([CustomTaskExtension::class, 'createFromDiscriminatorValue'])),
             'deletedItems' => fn(ParseNode $n) => $o->setDeletedItems($n->getObjectValue([DeletedItemContainer::class, 'createFromDiscriminatorValue'])),
             'insights' => fn(ParseNode $n) => $o->setInsights($n->getObjectValue([Insights::class, 'createFromDiscriminatorValue'])),
+            'lifecyclePolicies' => fn(ParseNode $n) => $o->setLifecyclePolicies($n->getCollectionOfObjectValues([LifecyclePolicy::class, 'createFromDiscriminatorValue'])),
+            'lifecyclePolicyPriorityConfigurations' => fn(ParseNode $n) => $o->setLifecyclePolicyPriorityConfigurations($n->getCollectionOfObjectValues([LifecyclePolicyPriorityConfiguration::class, 'createFromDiscriminatorValue'])),
             'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([LifecycleManagementSettings::class, 'createFromDiscriminatorValue'])),
             'taskDefinitions' => fn(ParseNode $n) => $o->setTaskDefinitions($n->getCollectionOfObjectValues([TaskDefinition::class, 'createFromDiscriminatorValue'])),
             'workflows' => fn(ParseNode $n) => $o->setWorkflows($n->getCollectionOfObjectValues([Workflow::class, 'createFromDiscriminatorValue'])),
@@ -80,6 +82,34 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'insights'");
+    }
+
+    /**
+     * Gets the lifecyclePolicies property value. The lifecyclePolicies property
+     * @return array<LifecyclePolicy>|null
+    */
+    public function getLifecyclePolicies(): ?array {
+        $val = $this->getBackingStore()->get('lifecyclePolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, LifecyclePolicy::class);
+            /** @var array<LifecyclePolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lifecyclePolicies'");
+    }
+
+    /**
+     * Gets the lifecyclePolicyPriorityConfigurations property value. The lifecyclePolicyPriorityConfigurations property
+     * @return array<LifecyclePolicyPriorityConfiguration>|null
+    */
+    public function getLifecyclePolicyPriorityConfigurations(): ?array {
+        $val = $this->getBackingStore()->get('lifecyclePolicyPriorityConfigurations');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, LifecyclePolicyPriorityConfiguration::class);
+            /** @var array<LifecyclePolicyPriorityConfiguration>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lifecyclePolicyPriorityConfigurations'");
     }
 
     /**
@@ -145,6 +175,8 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('customTaskExtensions', $this->getCustomTaskExtensions());
         $writer->writeObjectValue('deletedItems', $this->getDeletedItems());
         $writer->writeObjectValue('insights', $this->getInsights());
+        $writer->writeCollectionOfObjectValues('lifecyclePolicies', $this->getLifecyclePolicies());
+        $writer->writeCollectionOfObjectValues('lifecyclePolicyPriorityConfigurations', $this->getLifecyclePolicyPriorityConfigurations());
         $writer->writeObjectValue('settings', $this->getSettings());
         $writer->writeCollectionOfObjectValues('taskDefinitions', $this->getTaskDefinitions());
         $writer->writeCollectionOfObjectValues('workflows', $this->getWorkflows());
@@ -173,6 +205,22 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
     */
     public function setInsights(?Insights $value): void {
         $this->getBackingStore()->set('insights', $value);
+    }
+
+    /**
+     * Sets the lifecyclePolicies property value. The lifecyclePolicies property
+     * @param array<LifecyclePolicy>|null $value Value to set for the lifecyclePolicies property.
+    */
+    public function setLifecyclePolicies(?array $value): void {
+        $this->getBackingStore()->set('lifecyclePolicies', $value);
+    }
+
+    /**
+     * Sets the lifecyclePolicyPriorityConfigurations property value. The lifecyclePolicyPriorityConfigurations property
+     * @param array<LifecyclePolicyPriorityConfiguration>|null $value Value to set for the lifecyclePolicyPriorityConfigurations property.
+    */
+    public function setLifecyclePolicyPriorityConfigurations(?array $value): void {
+        $this->getBackingStore()->set('lifecyclePolicyPriorityConfigurations', $value);
     }
 
     /**

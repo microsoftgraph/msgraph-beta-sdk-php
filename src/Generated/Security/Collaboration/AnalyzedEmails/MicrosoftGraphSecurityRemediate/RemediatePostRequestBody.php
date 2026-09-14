@@ -27,6 +27,7 @@ class RemediatePostRequestBody implements AdditionalDataHolder, BackedModel, Par
     public function __construct() {
         $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
+        $this->setRemediateSendersCopy(false);
     }
 
     /**

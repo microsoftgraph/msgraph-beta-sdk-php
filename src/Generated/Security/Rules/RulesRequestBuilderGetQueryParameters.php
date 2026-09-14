@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\Rules;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get rules from security
+ * Container for the security rules configured in Microsoft Defender XDR, including custom detection rules.
 */
 class RulesRequestBuilderGetQueryParameters 
 {

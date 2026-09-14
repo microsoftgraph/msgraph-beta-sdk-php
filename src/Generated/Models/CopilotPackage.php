@@ -35,6 +35,18 @@ class CopilotPackage extends Entity implements Parsable
     }
 
     /**
+     * Gets the agentIdentityId property value. The agentIdentityId property
+     * @return string|null
+    */
+    public function getAgentIdentityId(): ?string {
+        $val = $this->getBackingStore()->get('agentIdentityId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'agentIdentityId'");
+    }
+
+    /**
      * Gets the appId property value. The appId property
      * @return string|null
     */
@@ -68,6 +80,18 @@ class CopilotPackage extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'availableTo'");
+    }
+
+    /**
+     * Gets the createdDateTime property value. The createdDateTime property
+     * @return DateTime|null
+    */
+    public function getCreatedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('createdDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'createdDateTime'");
     }
 
     /**
@@ -115,9 +139,11 @@ class CopilotPackage extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'agentIdentityId' => fn(ParseNode $n) => $o->setAgentIdentityId($n->getStringValue()),
             'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
             'assetId' => fn(ParseNode $n) => $o->setAssetId($n->getStringValue()),
             'availableTo' => fn(ParseNode $n) => $o->setAvailableTo($n->getEnumValue(PackageStatus::class)),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'deployedTo' => fn(ParseNode $n) => $o->setDeployedTo($n->getEnumValue(PackageStatus::class)),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'elementTypes' => function (ParseNode $n) {
@@ -302,9 +328,11 @@ class CopilotPackage extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('agentIdentityId', $this->getAgentIdentityId());
         $writer->writeStringValue('appId', $this->getAppId());
         $writer->writeStringValue('assetId', $this->getAssetId());
         $writer->writeEnumValue('availableTo', $this->getAvailableTo());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeEnumValue('deployedTo', $this->getDeployedTo());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeCollectionOfPrimitiveValues('elementTypes', $this->getElementTypes());
@@ -320,6 +348,14 @@ class CopilotPackage extends Entity implements Parsable
         $writer->writeEnumValue('type', $this->getType());
         $writer->writeStringValue('version', $this->getVersion());
         $writer->writeBinaryContent('zipFile', $this->getZipFile());
+    }
+
+    /**
+     * Sets the agentIdentityId property value. The agentIdentityId property
+     * @param string|null $value Value to set for the agentIdentityId property.
+    */
+    public function setAgentIdentityId(?string $value): void {
+        $this->getBackingStore()->set('agentIdentityId', $value);
     }
 
     /**
@@ -344,6 +380,14 @@ class CopilotPackage extends Entity implements Parsable
     */
     public function setAvailableTo(?PackageStatus $value): void {
         $this->getBackingStore()->set('availableTo', $value);
+    }
+
+    /**
+     * Sets the createdDateTime property value. The createdDateTime property
+     * @param DateTime|null $value Value to set for the createdDateTime property.
+    */
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**

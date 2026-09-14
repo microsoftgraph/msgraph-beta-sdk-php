@@ -57,12 +57,34 @@ class OrganizationalScope implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the deviceGroups property value. List of device groups to which the custom detection rule applies.
+     * @return array<string>|null
+    */
+    public function getDeviceGroups(): ?array {
+        $val = $this->getBackingStore()->get('deviceGroups');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, 'string');
+            /** @var array<string>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deviceGroups'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'deviceGroups' => function (ParseNode $n) {
+                $val = $n->getCollectionOfPrimitiveValues();
+                if (is_array($val)) {
+                    TypeUtils::validateCollectionValues($val, 'string');
+                }
+                /** @var array<string>|null $val */
+                $this->setDeviceGroups($val);
+            },
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'scopeNames' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -89,7 +111,7 @@ class OrganizationalScope implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the scopeNames property value. List of groups to which the custom detection rule applies.
+     * Gets the scopeNames property value. List of groups to which the custom detection rule applies. Deprecated. Use deviceGroups instead. This property will be removed from this resource on October 1, 2026.
      * @return array<string>|null
     */
     public function getScopeNames(): ?array {
@@ -119,6 +141,7 @@ class OrganizationalScope implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeCollectionOfPrimitiveValues('deviceGroups', $this->getDeviceGroups());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfPrimitiveValues('scopeNames', $this->getScopeNames());
         $writer->writeEnumValue('scopeType', $this->getScopeType());
@@ -142,6 +165,14 @@ class OrganizationalScope implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Sets the deviceGroups property value. List of device groups to which the custom detection rule applies.
+     * @param array<string>|null $value Value to set for the deviceGroups property.
+    */
+    public function setDeviceGroups(?array $value): void {
+        $this->getBackingStore()->set('deviceGroups', $value);
+    }
+
+    /**
      * Sets the @odata.type property value. The OdataType property
      * @param string|null $value Value to set for the @odata.type property.
     */
@@ -150,7 +181,7 @@ class OrganizationalScope implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the scopeNames property value. List of groups to which the custom detection rule applies.
+     * Sets the scopeNames property value. List of groups to which the custom detection rule applies. Deprecated. Use deviceGroups instead. This property will be removed from this resource on October 1, 2026.
      * @param array<string>|null $value Value to set for the scopeNames property.
     */
     public function setScopeNames(?array $value): void {

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\SiteExclusionUn
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get siteExclusionUnits from solutions
+ * The list of site exclusion units in the tenant.
 */
 class SiteExclusionUnitsRequestBuilderGetQueryParameters 
 {

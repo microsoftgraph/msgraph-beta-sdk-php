@@ -35,6 +35,7 @@ class ConnectionInfo implements AdditionalDataHolder, BackedModel, Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.externalSapAcConnectionInfo': return new ExternalSapAcConnectionInfo();
                 case '#microsoft.graph.externalTokenBasedSapIagConnectionInfo': return new ExternalTokenBasedSapIagConnectionInfo();
             }
         }

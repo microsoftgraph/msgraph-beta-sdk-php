@@ -4,11 +4,17 @@ namespace Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item;
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\AcceptRisk\AcceptRiskRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\AddTag\AddTagRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\ApplyAlternateMitigation\ApplyAlternateMitigationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\Complete\CompleteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\Dismiss\DismissRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\ImpactedResources\ImpactedResourcesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\MarkPlanned\MarkPlannedRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\Postpone\PostponeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\Reactivate\ReactivateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\RemoveTag\RemoveTagRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\Tags\TagsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Recommendation;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -21,6 +27,27 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class RecommendationItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to call the acceptRisk method.
+    */
+    public function acceptRisk(): AcceptRiskRequestBuilder {
+        return new AcceptRiskRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the addTag method.
+    */
+    public function addTag(): AddTagRequestBuilder {
+        return new AddTagRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the applyAlternateMitigation method.
+    */
+    public function applyAlternateMitigation(): ApplyAlternateMitigationRequestBuilder {
+        return new ApplyAlternateMitigationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to call the complete method.
     */
@@ -43,6 +70,13 @@ class RecommendationItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the markPlanned method.
+    */
+    public function markPlanned(): MarkPlannedRequestBuilder {
+        return new MarkPlannedRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the postpone method.
     */
     public function postpone(): PostponeRequestBuilder {
@@ -54,6 +88,20 @@ class RecommendationItemRequestBuilder extends BaseRequestBuilder
     */
     public function reactivate(): ReactivateRequestBuilder {
         return new ReactivateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the removeTag method.
+    */
+    public function removeTag(): RemoveTagRequestBuilder {
+        return new RemoveTagRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the tags property of the microsoft.graph.recommendationBase entity.
+    */
+    public function tags(): TagsRequestBuilder {
+        return new TagsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

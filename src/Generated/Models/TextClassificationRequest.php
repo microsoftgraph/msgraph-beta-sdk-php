@@ -26,7 +26,7 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the contentMetaData property value. The contentMetaData property
+     * Gets the contentMetaData property value. Metadata that describes the content being classified.
      * @return ClassificationRequestContentMetaData|null
     */
     public function getContentMetaData(): ?ClassificationRequestContentMetaData {
@@ -38,6 +38,20 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
+     * Gets the embeddings property value. Optional caller-supplied precomputed embeddings for the text, so the service can skip recomputing them. Embeddings for models outside the allow-list are rejected with a 400.
+     * @return array<EmbeddingInput>|null
+    */
+    public function getEmbeddings(): ?array {
+        $val = $this->getBackingStore()->get('embeddings');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, EmbeddingInput::class);
+            /** @var array<EmbeddingInput>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'embeddings'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -45,6 +59,7 @@ class TextClassificationRequest extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'contentMetaData' => fn(ParseNode $n) => $o->setContentMetaData($n->getObjectValue([ClassificationRequestContentMetaData::class, 'createFromDiscriminatorValue'])),
+            'embeddings' => fn(ParseNode $n) => $o->setEmbeddings($n->getCollectionOfObjectValues([EmbeddingInput::class, 'createFromDiscriminatorValue'])),
             'fileExtension' => fn(ParseNode $n) => $o->setFileExtension($n->getStringValue()),
             'matchTolerancesToInclude' => fn(ParseNode $n) => $o->setMatchTolerancesToInclude($n->getEnumValue(MlClassificationMatchTolerance::class)),
             'scopesToRun' => fn(ParseNode $n) => $o->setScopesToRun($n->getEnumValue(SensitiveTypeScope::class)),
@@ -61,7 +76,7 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the fileExtension property value. The fileExtension property
+     * Gets the fileExtension property value. The file extension of the content being classified.
      * @return string|null
     */
     public function getFileExtension(): ?string {
@@ -73,7 +88,7 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the matchTolerancesToInclude property value. The matchTolerancesToInclude property
+     * Gets the matchTolerancesToInclude property value. The match tolerance levels to include in the classification results. The possible values are: exact, near.
      * @return MlClassificationMatchTolerance|null
     */
     public function getMatchTolerancesToInclude(): ?MlClassificationMatchTolerance {
@@ -85,7 +100,7 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the scopesToRun property value. The scopesToRun property
+     * Gets the scopesToRun property value. The document scopes over which to run classification. The possible values are: fullDocument, partialDocument.
      * @return SensitiveTypeScope|null
     */
     public function getScopesToRun(): ?SensitiveTypeScope {
@@ -97,7 +112,7 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the sensitiveTypeIds property value. The sensitiveTypeIds property
+     * Gets the sensitiveTypeIds property value. The identifiers of the sensitive information types to evaluate against the text.
      * @return array<string>|null
     */
     public function getSensitiveTypeIds(): ?array {
@@ -111,7 +126,7 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the text property value. The text property
+     * Gets the text property value. The text to classify.
      * @return string|null
     */
     public function getText(): ?string {
@@ -129,6 +144,7 @@ class TextClassificationRequest extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('contentMetaData', $this->getContentMetaData());
+        $writer->writeCollectionOfObjectValues('embeddings', $this->getEmbeddings());
         $writer->writeStringValue('fileExtension', $this->getFileExtension());
         $writer->writeEnumValue('matchTolerancesToInclude', $this->getMatchTolerancesToInclude());
         $writer->writeEnumValue('scopesToRun', $this->getScopesToRun());
@@ -137,7 +153,7 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the contentMetaData property value. The contentMetaData property
+     * Sets the contentMetaData property value. Metadata that describes the content being classified.
      * @param ClassificationRequestContentMetaData|null $value Value to set for the contentMetaData property.
     */
     public function setContentMetaData(?ClassificationRequestContentMetaData $value): void {
@@ -145,7 +161,15 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the fileExtension property value. The fileExtension property
+     * Sets the embeddings property value. Optional caller-supplied precomputed embeddings for the text, so the service can skip recomputing them. Embeddings for models outside the allow-list are rejected with a 400.
+     * @param array<EmbeddingInput>|null $value Value to set for the embeddings property.
+    */
+    public function setEmbeddings(?array $value): void {
+        $this->getBackingStore()->set('embeddings', $value);
+    }
+
+    /**
+     * Sets the fileExtension property value. The file extension of the content being classified.
      * @param string|null $value Value to set for the fileExtension property.
     */
     public function setFileExtension(?string $value): void {
@@ -153,7 +177,7 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the matchTolerancesToInclude property value. The matchTolerancesToInclude property
+     * Sets the matchTolerancesToInclude property value. The match tolerance levels to include in the classification results. The possible values are: exact, near.
      * @param MlClassificationMatchTolerance|null $value Value to set for the matchTolerancesToInclude property.
     */
     public function setMatchTolerancesToInclude(?MlClassificationMatchTolerance $value): void {
@@ -161,7 +185,7 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the scopesToRun property value. The scopesToRun property
+     * Sets the scopesToRun property value. The document scopes over which to run classification. The possible values are: fullDocument, partialDocument.
      * @param SensitiveTypeScope|null $value Value to set for the scopesToRun property.
     */
     public function setScopesToRun(?SensitiveTypeScope $value): void {
@@ -169,7 +193,7 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the sensitiveTypeIds property value. The sensitiveTypeIds property
+     * Sets the sensitiveTypeIds property value. The identifiers of the sensitive information types to evaluate against the text.
      * @param array<string>|null $value Value to set for the sensitiveTypeIds property.
     */
     public function setSensitiveTypeIds(?array $value): void {
@@ -177,7 +201,7 @@ class TextClassificationRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the text property value. The text property
+     * Sets the text property value. The text to classify.
      * @param string|null $value Value to set for the text property.
     */
     public function setText(?string $value): void {

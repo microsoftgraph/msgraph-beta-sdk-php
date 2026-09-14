@@ -126,10 +126,12 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
             'androidDeviceBlockedOnMissingPartnerData' => fn(ParseNode $n) => $o->setAndroidDeviceBlockedOnMissingPartnerData($n->getBooleanValue()),
             'androidEnabled' => fn(ParseNode $n) => $o->setAndroidEnabled($n->getBooleanValue()),
             'androidMobileApplicationManagementEnabled' => fn(ParseNode $n) => $o->setAndroidMobileApplicationManagementEnabled($n->getBooleanValue()),
+            'grantMobileThreatDefensePartnerRole' => fn(ParseNode $n) => $o->setGrantMobileThreatDefensePartnerRole($n->getBooleanValue()),
             'iosDeviceBlockedOnMissingPartnerData' => fn(ParseNode $n) => $o->setIosDeviceBlockedOnMissingPartnerData($n->getBooleanValue()),
             'iosEnabled' => fn(ParseNode $n) => $o->setIosEnabled($n->getBooleanValue()),
             'iosMobileApplicationManagementEnabled' => fn(ParseNode $n) => $o->setIosMobileApplicationManagementEnabled($n->getBooleanValue()),
             'lastHeartbeatDateTime' => fn(ParseNode $n) => $o->setLastHeartbeatDateTime($n->getDateTimeValue()),
+            'launchMobileThreatDefensePartnerOnSetupEnabled' => fn(ParseNode $n) => $o->setLaunchMobileThreatDefensePartnerOnSetupEnabled($n->getBooleanValue()),
             'macDeviceBlockedOnMissingPartnerData' => fn(ParseNode $n) => $o->setMacDeviceBlockedOnMissingPartnerData($n->getBooleanValue()),
             'macEnabled' => fn(ParseNode $n) => $o->setMacEnabled($n->getBooleanValue()),
             'microsoftDefenderForEndpointAttachEnabled' => fn(ParseNode $n) => $o->setMicrosoftDefenderForEndpointAttachEnabled($n->getBooleanValue()),
@@ -140,6 +142,18 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
             'windowsEnabled' => fn(ParseNode $n) => $o->setWindowsEnabled($n->getBooleanValue()),
             'windowsMobileApplicationManagementEnabled' => fn(ParseNode $n) => $o->setWindowsMobileApplicationManagementEnabled($n->getBooleanValue()),
         ]);
+    }
+
+    /**
+     * Gets the grantMobileThreatDefensePartnerRole property value. When TRUE, indicates that the Mobile Threat Defense partner is granted the Mobile Threat Defense role on enrolled Android Corporate Owned Business Only and Corporate Owned Personally Enabled devices. When FALSE, indicates that the Mobile Threat Defense partner is not granted the Mobile Threat Defense role. Default value is FALSE.
+     * @return bool|null
+    */
+    public function getGrantMobileThreatDefensePartnerRole(): ?bool {
+        $val = $this->getBackingStore()->get('grantMobileThreatDefensePartnerRole');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'grantMobileThreatDefensePartnerRole'");
     }
 
     /**
@@ -188,6 +202,18 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastHeartbeatDateTime'");
+    }
+
+    /**
+     * Gets the launchMobileThreatDefensePartnerOnSetupEnabled property value. When TRUE, indicates that the Mobile Threat Defense partner will be automatically launched during Android Corporate Owned Business Only and Corporate Owned Personally Enabled device setup. When FALSE, indicates that the Mobile Threat Defense partner will not be automatically launched during setup. Default value is FALSE.
+     * @return bool|null
+    */
+    public function getLaunchMobileThreatDefensePartnerOnSetupEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('launchMobileThreatDefensePartnerOnSetupEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'launchMobileThreatDefensePartnerOnSetupEnabled'");
     }
 
     /**
@@ -311,10 +337,12 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
         $writer->writeBooleanValue('androidDeviceBlockedOnMissingPartnerData', $this->getAndroidDeviceBlockedOnMissingPartnerData());
         $writer->writeBooleanValue('androidEnabled', $this->getAndroidEnabled());
         $writer->writeBooleanValue('androidMobileApplicationManagementEnabled', $this->getAndroidMobileApplicationManagementEnabled());
+        $writer->writeBooleanValue('grantMobileThreatDefensePartnerRole', $this->getGrantMobileThreatDefensePartnerRole());
         $writer->writeBooleanValue('iosDeviceBlockedOnMissingPartnerData', $this->getIosDeviceBlockedOnMissingPartnerData());
         $writer->writeBooleanValue('iosEnabled', $this->getIosEnabled());
         $writer->writeBooleanValue('iosMobileApplicationManagementEnabled', $this->getIosMobileApplicationManagementEnabled());
         $writer->writeDateTimeValue('lastHeartbeatDateTime', $this->getLastHeartbeatDateTime());
+        $writer->writeBooleanValue('launchMobileThreatDefensePartnerOnSetupEnabled', $this->getLaunchMobileThreatDefensePartnerOnSetupEnabled());
         $writer->writeBooleanValue('macDeviceBlockedOnMissingPartnerData', $this->getMacDeviceBlockedOnMissingPartnerData());
         $writer->writeBooleanValue('macEnabled', $this->getMacEnabled());
         $writer->writeBooleanValue('microsoftDefenderForEndpointAttachEnabled', $this->getMicrosoftDefenderForEndpointAttachEnabled());
@@ -383,6 +411,14 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
+     * Sets the grantMobileThreatDefensePartnerRole property value. When TRUE, indicates that the Mobile Threat Defense partner is granted the Mobile Threat Defense role on enrolled Android Corporate Owned Business Only and Corporate Owned Personally Enabled devices. When FALSE, indicates that the Mobile Threat Defense partner is not granted the Mobile Threat Defense role. Default value is FALSE.
+     * @param bool|null $value Value to set for the grantMobileThreatDefensePartnerRole property.
+    */
+    public function setGrantMobileThreatDefensePartnerRole(?bool $value): void {
+        $this->getBackingStore()->set('grantMobileThreatDefensePartnerRole', $value);
+    }
+
+    /**
      * Sets the iosDeviceBlockedOnMissingPartnerData property value. When TRUE, indicates that Intune must receive data from the Mobile Threat Defense partner prior to marking a device compliant. When FALSE, indicates that Intune may not recieve data from Mobile Threat Defense partner prior to making device compliant. Default value is FALSE.
      * @param bool|null $value Value to set for the iosDeviceBlockedOnMissingPartnerData property.
     */
@@ -412,6 +448,14 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     */
     public function setLastHeartbeatDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastHeartbeatDateTime', $value);
+    }
+
+    /**
+     * Sets the launchMobileThreatDefensePartnerOnSetupEnabled property value. When TRUE, indicates that the Mobile Threat Defense partner will be automatically launched during Android Corporate Owned Business Only and Corporate Owned Personally Enabled device setup. When FALSE, indicates that the Mobile Threat Defense partner will not be automatically launched during setup. Default value is FALSE.
+     * @param bool|null $value Value to set for the launchMobileThreatDefensePartnerOnSetupEnabled property.
+    */
+    public function setLaunchMobileThreatDefensePartnerOnSetupEnabled(?bool $value): void {
+        $this->getBackingStore()->set('launchMobileThreatDefensePartnerOnSetupEnabled', $value);
     }
 
     /**

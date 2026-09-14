@@ -56,7 +56,7 @@ class CloudPcAgentPoolBillingConfiguration implements AdditionalDataHolder, Back
     }
 
     /**
-     * Gets the billingPlanId property value. The billingPlanId property
+     * Gets the billingPlanId property value. The identifier of the billing plan.
      * @return string|null
     */
     public function getBillingPlanId(): ?string {
@@ -132,7 +132,7 @@ class CloudPcAgentPoolBillingConfiguration implements AdditionalDataHolder, Back
     }
 
     /**
-     * Sets the billingPlanId property value. The billingPlanId property
+     * Sets the billingPlanId property value. The identifier of the billing plan.
      * @param string|null $value Value to set for the billingPlanId property.
     */
     public function setBillingPlanId(?string $value): void {

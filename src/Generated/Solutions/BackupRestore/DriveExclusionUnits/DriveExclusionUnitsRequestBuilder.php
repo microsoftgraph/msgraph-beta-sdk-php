@@ -52,7 +52,7 @@ class DriveExclusionUnitsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get driveExclusionUnits from solutions
+     * The list of drive exclusion units in the tenant.
      * @param DriveExclusionUnitsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<DriveExclusionUnitCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class DriveExclusionUnitsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get driveExclusionUnits from solutions
+     * The list of drive exclusion units in the tenant.
      * @param DriveExclusionUnitsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

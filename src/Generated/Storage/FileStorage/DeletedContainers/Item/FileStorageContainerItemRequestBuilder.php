@@ -18,6 +18,7 @@ use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\Pr
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\RecycleBin\RecycleBinRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\Restore\RestoreRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\SharePointGroups\SharePointGroupsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\TransferPrincipalOwnership\TransferPrincipalOwnershipRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\Unarchive\UnarchiveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\Unlock\UnlockRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -112,6 +113,13 @@ class FileStorageContainerItemRequestBuilder extends BaseRequestBuilder
     */
     public function sharePointGroups(): SharePointGroupsRequestBuilder {
         return new SharePointGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the transferPrincipalOwnership method.
+    */
+    public function transferPrincipalOwnership(): TransferPrincipalOwnershipRequestBuilder {
+        return new TransferPrincipalOwnershipRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

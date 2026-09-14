@@ -46,4 +46,6 @@ class RemoteAction extends Enum {
     public const DELETE = "delete";
     public const SUSPEND_MANAGED_HOME_SCREEN = "suspendManagedHomeScreen";
     public const RESTORE_MANAGED_HOME_SCREEN = "restoreManagedHomeScreen";
+    public const TRIGGER_ENHANCED_LOG_COLLECTION = "triggerEnhancedLogCollection";
+    public const CANCEL_ENHANCED_LOG_COLLECTION = "cancelEnhancedLogCollection";
 }

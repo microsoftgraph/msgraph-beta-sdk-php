@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models\Security;
 
+use DateInterval;
 use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -63,6 +64,7 @@ class RuleSchedule implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'frequency' => fn(ParseNode $n) => $o->setFrequency($n->getDateIntervalValue()),
             'nextRunDateTime' => fn(ParseNode $n) => $o->setNextRunDateTime($n->getDateTimeValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'period' => fn(ParseNode $n) => $o->setPeriod($n->getStringValue()),
@@ -70,7 +72,19 @@ class RuleSchedule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the nextRunDateTime property value. Timestamp of the custom detection rule's next scheduled run.
+     * Gets the frequency property value. The recurring time interval at which the rule runs (ISO 8601 duration, for example P1D for daily, PT1H for hourly).
+     * @return DateInterval|null
+    */
+    public function getFrequency(): ?DateInterval {
+        $val = $this->getBackingStore()->get('frequency');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'frequency'");
+    }
+
+    /**
+     * Gets the nextRunDateTime property value. Timestamp of the custom detection rule's next scheduled run. Deprecated. This property will be removed from this resource on 2026-10-01.
      * @return DateTime|null
     */
     public function getNextRunDateTime(): ?DateTime {
@@ -94,7 +108,7 @@ class RuleSchedule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the period property value. How often the detection rule is set to run. The allowed values are: 0, 1H, 3H, 12H, or 24H. '0' signifies the rule is run continuously.
+     * Gets the period property value. How often the detection rule is set to run. The allowed values are: 0, 1H, 3H, 12H, or 24H. 0 signifies the rule is run continuously. Deprecated. Use frequency instead. This property will be removed from this resource on 2026-10-01.
      * @return string|null
     */
     public function getPeriod(): ?string {
@@ -110,6 +124,7 @@ class RuleSchedule implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeDateIntervalValue('frequency', $this->getFrequency());
         $writer->writeDateTimeValue('nextRunDateTime', $this->getNextRunDateTime());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('period', $this->getPeriod());
@@ -133,7 +148,15 @@ class RuleSchedule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the nextRunDateTime property value. Timestamp of the custom detection rule's next scheduled run.
+     * Sets the frequency property value. The recurring time interval at which the rule runs (ISO 8601 duration, for example P1D for daily, PT1H for hourly).
+     * @param DateInterval|null $value Value to set for the frequency property.
+    */
+    public function setFrequency(?DateInterval $value): void {
+        $this->getBackingStore()->set('frequency', $value);
+    }
+
+    /**
+     * Sets the nextRunDateTime property value. Timestamp of the custom detection rule's next scheduled run. Deprecated. This property will be removed from this resource on 2026-10-01.
      * @param DateTime|null $value Value to set for the nextRunDateTime property.
     */
     public function setNextRunDateTime(?DateTime $value): void {
@@ -149,7 +172,7 @@ class RuleSchedule implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the period property value. How often the detection rule is set to run. The allowed values are: 0, 1H, 3H, 12H, or 24H. '0' signifies the rule is run continuously.
+     * Sets the period property value. How often the detection rule is set to run. The allowed values are: 0, 1H, 3H, 12H, or 24H. 0 signifies the rule is run continuously. Deprecated. Use frequency instead. This property will be removed from this resource on 2026-10-01.
      * @param string|null $value Value to set for the period property.
     */
     public function setPeriod(?string $value): void {

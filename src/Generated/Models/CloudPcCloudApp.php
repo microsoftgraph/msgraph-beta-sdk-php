@@ -27,7 +27,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the actionFailedErrorCode property value. The error code if publishing, unpublishing, or resetting a cloud app fails. The possible values are: cloudAppQuotaExceeded, cloudPcLicenseNotFound, internalServerError, appDiscoveryFailed, unknownFutureValue. The default value is null. Supports $filter, $select, $orderBy. Read-only.
+     * Gets the actionFailedErrorCode property value. The error code if publishing, unpublishing, or resetting a cloud app fails. The possible values are: cloudAppQuotaExceeded, cloudPcLicenseNotFound, internalServerError, appDiscoveryFailed, unknownFutureValue, iconPathInvalid, filePathInvalid. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: iconPathInvalid, filePathInvalid. The default value is null. Supports $filter, $select, $orderBy. Read-only.
      * @return CloudPcCloudAppActionFailedErrorCode|null
     */
     public function getActionFailedErrorCode(): ?CloudPcCloudAppActionFailedErrorCode {
@@ -176,7 +176,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the provisioningPolicyId property value. The ID of the provisioning policy associated with this cloud app. For example, 96133506-c05b-4dbb-a150-ed4adc59895f. Supports $filter, $select, and $orderBy. Read-only. Required.
+     * Gets the provisioningPolicyId property value. The ID of the provisioning policy associated with this cloud app. For example, 96133506-c05b-4dbb-a150-ed4adc59895f. Supports $filter, $select, and $orderBy. Required.
      * @return string|null
     */
     public function getProvisioningPolicyId(): ?string {
@@ -222,7 +222,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the actionFailedErrorCode property value. The error code if publishing, unpublishing, or resetting a cloud app fails. The possible values are: cloudAppQuotaExceeded, cloudPcLicenseNotFound, internalServerError, appDiscoveryFailed, unknownFutureValue. The default value is null. Supports $filter, $select, $orderBy. Read-only.
+     * Sets the actionFailedErrorCode property value. The error code if publishing, unpublishing, or resetting a cloud app fails. The possible values are: cloudAppQuotaExceeded, cloudPcLicenseNotFound, internalServerError, appDiscoveryFailed, unknownFutureValue, iconPathInvalid, filePathInvalid. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: iconPathInvalid, filePathInvalid. The default value is null. Supports $filter, $select, $orderBy. Read-only.
      * @param CloudPcCloudAppActionFailedErrorCode|null $value Value to set for the actionFailedErrorCode property.
     */
     public function setActionFailedErrorCode(?CloudPcCloudAppActionFailedErrorCode $value): void {
@@ -302,7 +302,7 @@ class CloudPcCloudApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the provisioningPolicyId property value. The ID of the provisioning policy associated with this cloud app. For example, 96133506-c05b-4dbb-a150-ed4adc59895f. Supports $filter, $select, and $orderBy. Read-only. Required.
+     * Sets the provisioningPolicyId property value. The ID of the provisioning policy associated with this cloud app. For example, 96133506-c05b-4dbb-a150-ed4adc59895f. Supports $filter, $select, and $orderBy. Required.
      * @param string|null $value Value to set for the provisioningPolicyId property.
     */
     public function setProvisioningPolicyId(?string $value): void {

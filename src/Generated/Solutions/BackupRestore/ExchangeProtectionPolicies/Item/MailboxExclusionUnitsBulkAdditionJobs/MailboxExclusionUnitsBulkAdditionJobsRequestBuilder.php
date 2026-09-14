@@ -51,10 +51,11 @@ class MailboxExclusionUnitsBulkAdditionJobsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Get mailboxExclusionUnitsBulkAdditionJobs from solutions
+     * Get a list of mailbox exclusion units bulk addition jobs associated with an Exchange protection policy.
      * @param MailboxExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MailboxExclusionUnitsBulkAdditionJobCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/exchangeprotectionpolicy-list-mailboxexclusionunitsbulkadditionjobs?view=graph-rest-beta Find more info here
     */
     public function get(?MailboxExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -65,7 +66,7 @@ class MailboxExclusionUnitsBulkAdditionJobsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Get mailboxExclusionUnitsBulkAdditionJobs from solutions
+     * Get a list of mailbox exclusion units bulk addition jobs associated with an Exchange protection policy.
      * @param MailboxExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

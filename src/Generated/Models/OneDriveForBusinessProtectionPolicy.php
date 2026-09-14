@@ -27,7 +27,7 @@ class OneDriveForBusinessProtectionPolicy extends ProtectionPolicyBase implement
     }
 
     /**
-     * Gets the driveExclusionUnits property value. The driveExclusionUnits property
+     * Gets the driveExclusionUnits property value. The drive exclusion units associated with the OneDrive for work or school protection policy.
      * @return array<DriveExclusionUnit>|null
     */
     public function getDriveExclusionUnits(): ?array {
@@ -41,7 +41,7 @@ class OneDriveForBusinessProtectionPolicy extends ProtectionPolicyBase implement
     }
 
     /**
-     * Gets the driveExclusionUnitsBulkAdditionJobs property value. The driveExclusionUnitsBulkAdditionJobs property
+     * Gets the driveExclusionUnitsBulkAdditionJobs property value. The list of bulk addition jobs for drive exclusion units associated with the OneDrive for work or school protection policy.
      * @return array<DriveExclusionUnitsBulkAdditionJob>|null
     */
     public function getDriveExclusionUnitsBulkAdditionJobs(): ?array {
@@ -125,7 +125,7 @@ class OneDriveForBusinessProtectionPolicy extends ProtectionPolicyBase implement
     }
 
     /**
-     * Sets the driveExclusionUnits property value. The driveExclusionUnits property
+     * Sets the driveExclusionUnits property value. The drive exclusion units associated with the OneDrive for work or school protection policy.
      * @param array<DriveExclusionUnit>|null $value Value to set for the driveExclusionUnits property.
     */
     public function setDriveExclusionUnits(?array $value): void {
@@ -133,7 +133,7 @@ class OneDriveForBusinessProtectionPolicy extends ProtectionPolicyBase implement
     }
 
     /**
-     * Sets the driveExclusionUnitsBulkAdditionJobs property value. The driveExclusionUnitsBulkAdditionJobs property
+     * Sets the driveExclusionUnitsBulkAdditionJobs property value. The list of bulk addition jobs for drive exclusion units associated with the OneDrive for work or school protection policy.
      * @param array<DriveExclusionUnitsBulkAdditionJob>|null $value Value to set for the driveExclusionUnitsBulkAdditionJobs property.
     */
     public function setDriveExclusionUnitsBulkAdditionJobs(?array $value): void {

@@ -52,7 +52,7 @@ class TaskProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the failureReason property value. Describes why the taskProcessingResult has failed.
+     * Gets the failureReason property value. Describes why the taskProcessingResult failed.
      * @return string|null
     */
     public function getFailureReason(): ?string {
@@ -78,11 +78,12 @@ class TaskProcessingResult extends Entity implements Parsable
             'startedDateTime' => fn(ParseNode $n) => $o->setStartedDateTime($n->getDateTimeValue()),
             'subject' => fn(ParseNode $n) => $o->setSubject($n->getObjectValue([User::class, 'createFromDiscriminatorValue'])),
             'task' => fn(ParseNode $n) => $o->setTask($n->getObjectValue([Task::class, 'createFromDiscriminatorValue'])),
+            'workflowSubject' => fn(ParseNode $n) => $o->setWorkflowSubject($n->getObjectValue([WorkflowSubject::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
-     * Gets the processingInfo property value. The processingInfo property
+     * Gets the processingInfo property value. Additional human-readable context about the task processing outcome. This property contains information about edge cases where the task completed successfully but the expected action wasn't performed because the target was already in the desired state, such as when the user was already a member of the specified group. Returns null when no additional context is needed. Nullable.
      * @return string|null
     */
     public function getProcessingInfo(): ?string {
@@ -106,7 +107,7 @@ class TaskProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the startedDateTime property value. The date time when taskProcessingResult execution started. Value is null if task execution has not yet started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
+     * Gets the startedDateTime property value. The date time when taskProcessingResult execution started. Value is null if task execution hasn't started yet.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      * @return DateTime|null
     */
     public function getStartedDateTime(): ?DateTime {
@@ -142,6 +143,18 @@ class TaskProcessingResult extends Entity implements Parsable
     }
 
     /**
+     * Gets the workflowSubject property value. The workflow subject associated with this task processing result. Populated for extensibility and provisioning workflows.
+     * @return WorkflowSubject|null
+    */
+    public function getWorkflowSubject(): ?WorkflowSubject {
+        $val = $this->getBackingStore()->get('workflowSubject');
+        if (is_null($val) || $val instanceof WorkflowSubject) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'workflowSubject'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -155,6 +168,7 @@ class TaskProcessingResult extends Entity implements Parsable
         $writer->writeDateTimeValue('startedDateTime', $this->getStartedDateTime());
         $writer->writeObjectValue('subject', $this->getSubject());
         $writer->writeObjectValue('task', $this->getTask());
+        $writer->writeObjectValue('workflowSubject', $this->getWorkflowSubject());
     }
 
     /**
@@ -174,7 +188,7 @@ class TaskProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the failureReason property value. Describes why the taskProcessingResult has failed.
+     * Sets the failureReason property value. Describes why the taskProcessingResult failed.
      * @param string|null $value Value to set for the failureReason property.
     */
     public function setFailureReason(?string $value): void {
@@ -182,7 +196,7 @@ class TaskProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the processingInfo property value. The processingInfo property
+     * Sets the processingInfo property value. Additional human-readable context about the task processing outcome. This property contains information about edge cases where the task completed successfully but the expected action wasn't performed because the target was already in the desired state, such as when the user was already a member of the specified group. Returns null when no additional context is needed. Nullable.
      * @param string|null $value Value to set for the processingInfo property.
     */
     public function setProcessingInfo(?string $value): void {
@@ -198,7 +212,7 @@ class TaskProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the startedDateTime property value. The date time when taskProcessingResult execution started. Value is null if task execution has not yet started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
+     * Sets the startedDateTime property value. The date time when taskProcessingResult execution started. Value is null if task execution hasn't started yet.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      * @param DateTime|null $value Value to set for the startedDateTime property.
     */
     public function setStartedDateTime(?DateTime $value): void {
@@ -219,6 +233,14 @@ class TaskProcessingResult extends Entity implements Parsable
     */
     public function setTask(?Task $value): void {
         $this->getBackingStore()->set('task', $value);
+    }
+
+    /**
+     * Sets the workflowSubject property value. The workflow subject associated with this task processing result. Populated for extensibility and provisioning workflows.
+     * @param WorkflowSubject|null $value Value to set for the workflowSubject property.
+    */
+    public function setWorkflowSubject(?WorkflowSubject $value): void {
+        $this->getBackingStore()->set('workflowSubject', $value);
     }
 
 }

@@ -52,7 +52,7 @@ class MailboxExclusionUnitsBulkAdditionJobsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Get mailboxExclusionUnitsBulkAdditionJobs from solutions
+     * The list of bulk addition jobs for mailbox exclusion units in the tenant.
      * @param MailboxExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MailboxExclusionUnitsBulkAdditionJobCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class MailboxExclusionUnitsBulkAdditionJobsRequestBuilder extends BaseRequestBui
     }
 
     /**
-     * Get mailboxExclusionUnitsBulkAdditionJobs from solutions
+     * The list of bulk addition jobs for mailbox exclusion units in the tenant.
      * @param MailboxExclusionUnitsBulkAdditionJobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -60,8 +60,21 @@ class ExternalItem extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'acl' => fn(ParseNode $n) => $o->setAcl($n->getCollectionOfObjectValues([Acl::class, 'createFromDiscriminatorValue'])),
             'content' => fn(ParseNode $n) => $o->setContent($n->getObjectValue([ExternalItemContent::class, 'createFromDiscriminatorValue'])),
+            'informationProtectionLabel' => fn(ParseNode $n) => $o->setInformationProtectionLabel($n->getObjectValue([ExternalItemInformationProtectionLabel::class, 'createFromDiscriminatorValue'])),
             'properties' => fn(ParseNode $n) => $o->setProperties($n->getObjectValue([Properties::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the informationProtectionLabel property value. The informationProtectionLabel property
+     * @return ExternalItemInformationProtectionLabel|null
+    */
+    public function getInformationProtectionLabel(): ?ExternalItemInformationProtectionLabel {
+        $val = $this->getBackingStore()->get('informationProtectionLabel');
+        if (is_null($val) || $val instanceof ExternalItemInformationProtectionLabel) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'informationProtectionLabel'");
     }
 
     /**
@@ -84,6 +97,7 @@ class ExternalItem extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('acl', $this->getAcl());
         $writer->writeObjectValue('content', $this->getContent());
+        $writer->writeObjectValue('informationProtectionLabel', $this->getInformationProtectionLabel());
         $writer->writeObjectValue('properties', $this->getProperties());
     }
 
@@ -101,6 +115,14 @@ class ExternalItem extends Entity implements Parsable
     */
     public function setContent(?ExternalItemContent $value): void {
         $this->getBackingStore()->set('content', $value);
+    }
+
+    /**
+     * Sets the informationProtectionLabel property value. The informationProtectionLabel property
+     * @param ExternalItemInformationProtectionLabel|null $value Value to set for the informationProtectionLabel property.
+    */
+    public function setInformationProtectionLabel(?ExternalItemInformationProtectionLabel $value): void {
+        $this->getBackingStore()->set('informationProtectionLabel', $value);
     }
 
     /**

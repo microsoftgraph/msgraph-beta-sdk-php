@@ -57,7 +57,7 @@ class RedirectUriPlatformBlockedDomainConfiguration implements AdditionalDataHol
     }
 
     /**
-     * Gets the blockedDomains property value. The blockedDomains property
+     * Gets the blockedDomains property value. Collection of domain names that are blocked for this specific platform. Domain validation follows RFC 3986 (URI syntax, section 3.2.2 for the host component). Domain matching is case-insensitive and exact; wildcards are not supported.
      * @return array<string>|null
     */
     public function getBlockedDomains(): ?array {
@@ -128,7 +128,7 @@ class RedirectUriPlatformBlockedDomainConfiguration implements AdditionalDataHol
     }
 
     /**
-     * Sets the blockedDomains property value. The blockedDomains property
+     * Sets the blockedDomains property value. Collection of domain names that are blocked for this specific platform. Domain validation follows RFC 3986 (URI syntax, section 3.2.2 for the host component). Domain matching is case-insensitive and exact; wildcards are not supported.
      * @param array<string>|null $value Value to set for the blockedDomains property.
     */
     public function setBlockedDomains(?array $value): void {

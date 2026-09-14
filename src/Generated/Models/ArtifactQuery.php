@@ -77,6 +77,7 @@ class ArtifactQuery implements AdditionalDataHolder, BackedModel, Parsable
             'artifactType' => fn(ParseNode $n) => $o->setArtifactType($n->getEnumValue(RestorableArtifact::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'queryExpression' => fn(ParseNode $n) => $o->setQueryExpression($n->getStringValue()),
+            'structuredQueryExpression' => fn(ParseNode $n) => $o->setStructuredQueryExpression($n->getObjectValue([RestoreSearchArtifactQueryExpression::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
@@ -93,7 +94,7 @@ class ArtifactQuery implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the queryExpression property value. Specifies criteria to retrieve artifacts.
+     * Gets the queryExpression property value. Deprecated. Going forward, use the structuredQueryExpression property instead. Specifies criteria to retrieve artifacts.
      * @return string|null
     */
     public function getQueryExpression(): ?string {
@@ -105,6 +106,18 @@ class ArtifactQuery implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the structuredQueryExpression property value. Contains a structured query expression for searching artifacts.
+     * @return RestoreSearchArtifactQueryExpression|null
+    */
+    public function getStructuredQueryExpression(): ?RestoreSearchArtifactQueryExpression {
+        $val = $this->getBackingStore()->get('structuredQueryExpression');
+        if (is_null($val) || $val instanceof RestoreSearchArtifactQueryExpression) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'structuredQueryExpression'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -112,6 +125,7 @@ class ArtifactQuery implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeEnumValue('artifactType', $this->getArtifactType());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('queryExpression', $this->getQueryExpression());
+        $writer->writeObjectValue('structuredQueryExpression', $this->getStructuredQueryExpression());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -148,11 +162,19 @@ class ArtifactQuery implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the queryExpression property value. Specifies criteria to retrieve artifacts.
+     * Sets the queryExpression property value. Deprecated. Going forward, use the structuredQueryExpression property instead. Specifies criteria to retrieve artifacts.
      * @param string|null $value Value to set for the queryExpression property.
     */
     public function setQueryExpression(?string $value): void {
         $this->getBackingStore()->set('queryExpression', $value);
+    }
+
+    /**
+     * Sets the structuredQueryExpression property value. Contains a structured query expression for searching artifacts.
+     * @param RestoreSearchArtifactQueryExpression|null $value Value to set for the structuredQueryExpression property.
+    */
+    public function setStructuredQueryExpression(?RestoreSearchArtifactQueryExpression $value): void {
+        $this->getBackingStore()->set('structuredQueryExpression', $value);
     }
 
 }

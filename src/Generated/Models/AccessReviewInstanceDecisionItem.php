@@ -99,6 +99,20 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     }
 
     /**
+     * Gets the delegatedBy property value. The identities of users who delegated this decision item to the current reviewer. Null if the item wasn't delegated. A collection because multiple reviewers can delegate to the same user. Only returned via filterByCurrentUser when explicitly requested via $select. Read-only.
+     * @return array<UserIdentity>|null
+    */
+    public function getDelegatedBy(): ?array {
+        $val = $this->getBackingStore()->get('delegatedBy');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserIdentity::class);
+            /** @var array<UserIdentity>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'delegatedBy'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -111,6 +125,7 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
             'applyDescription' => fn(ParseNode $n) => $o->setApplyDescription($n->getStringValue()),
             'applyResult' => fn(ParseNode $n) => $o->setApplyResult($n->getStringValue()),
             'decision' => fn(ParseNode $n) => $o->setDecision($n->getStringValue()),
+            'delegatedBy' => fn(ParseNode $n) => $o->setDelegatedBy($n->getCollectionOfObjectValues([UserIdentity::class, 'createFromDiscriminatorValue'])),
             'insights' => fn(ParseNode $n) => $o->setInsights($n->getCollectionOfObjectValues([GovernanceInsight::class, 'createFromDiscriminatorValue'])),
             'instance' => fn(ParseNode $n) => $o->setInstance($n->getObjectValue([AccessReviewInstance::class, 'createFromDiscriminatorValue'])),
             'justification' => fn(ParseNode $n) => $o->setJustification($n->getStringValue()),
@@ -297,6 +312,7 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
         $writer->writeStringValue('applyDescription', $this->getApplyDescription());
         $writer->writeStringValue('applyResult', $this->getApplyResult());
         $writer->writeStringValue('decision', $this->getDecision());
+        $writer->writeCollectionOfObjectValues('delegatedBy', $this->getDelegatedBy());
         $writer->writeCollectionOfObjectValues('insights', $this->getInsights());
         $writer->writeObjectValue('instance', $this->getInstance());
         $writer->writeStringValue('justification', $this->getJustification());
@@ -358,6 +374,14 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     */
     public function setDecision(?string $value): void {
         $this->getBackingStore()->set('decision', $value);
+    }
+
+    /**
+     * Sets the delegatedBy property value. The identities of users who delegated this decision item to the current reviewer. Null if the item wasn't delegated. A collection because multiple reviewers can delegate to the same user. Only returned via filterByCurrentUser when explicitly requested via $select. Read-only.
+     * @param array<UserIdentity>|null $value Value to set for the delegatedBy property.
+    */
+    public function setDelegatedBy(?array $value): void {
+        $this->getBackingStore()->set('delegatedBy', $value);
     }
 
     /**

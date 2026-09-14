@@ -31,6 +31,18 @@ class MacOsVppApp extends MobileApp implements Parsable
     }
 
     /**
+     * Gets the appleDeviceAppDeliveryProtocolType property value. Enum of the supported types of Apple delivery protocols, representing the available protocols to deliver payloads to Apple devices
+     * @return AppleDeviceDeliveryProtocol|null
+    */
+    public function getAppleDeviceAppDeliveryProtocolType(): ?AppleDeviceDeliveryProtocol {
+        $val = $this->getBackingStore()->get('appleDeviceAppDeliveryProtocolType');
+        if (is_null($val) || $val instanceof AppleDeviceDeliveryProtocol) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'appleDeviceAppDeliveryProtocolType'");
+    }
+
+    /**
      * Gets the appStoreUrl property value. The store URL.
      * @return string|null
     */
@@ -75,6 +87,7 @@ class MacOsVppApp extends MobileApp implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'appleDeviceAppDeliveryProtocolType' => fn(ParseNode $n) => $o->setAppleDeviceAppDeliveryProtocolType($n->getEnumValue(AppleDeviceDeliveryProtocol::class)),
             'appStoreUrl' => fn(ParseNode $n) => $o->setAppStoreUrl($n->getStringValue()),
             'assignedLicenses' => fn(ParseNode $n) => $o->setAssignedLicenses($n->getCollectionOfObjectValues([MacOsVppAppAssignedLicense::class, 'createFromDiscriminatorValue'])),
             'bundleId' => fn(ParseNode $n) => $o->setBundleId($n->getStringValue()),
@@ -219,6 +232,7 @@ class MacOsVppApp extends MobileApp implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeEnumValue('appleDeviceAppDeliveryProtocolType', $this->getAppleDeviceAppDeliveryProtocolType());
         $writer->writeStringValue('appStoreUrl', $this->getAppStoreUrl());
         $writer->writeCollectionOfObjectValues('assignedLicenses', $this->getAssignedLicenses());
         $writer->writeStringValue('bundleId', $this->getBundleId());
@@ -232,6 +246,14 @@ class MacOsVppApp extends MobileApp implements Parsable
         $writer->writeStringValue('vppTokenDisplayName', $this->getVppTokenDisplayName());
         $writer->writeStringValue('vppTokenId', $this->getVppTokenId());
         $writer->writeStringValue('vppTokenOrganizationName', $this->getVppTokenOrganizationName());
+    }
+
+    /**
+     * Sets the appleDeviceAppDeliveryProtocolType property value. Enum of the supported types of Apple delivery protocols, representing the available protocols to deliver payloads to Apple devices
+     * @param AppleDeviceDeliveryProtocol|null $value Value to set for the appleDeviceAppDeliveryProtocolType property.
+    */
+    public function setAppleDeviceAppDeliveryProtocolType(?AppleDeviceDeliveryProtocol $value): void {
+        $this->getBackingStore()->set('appleDeviceAppDeliveryProtocolType', $value);
     }
 
     /**

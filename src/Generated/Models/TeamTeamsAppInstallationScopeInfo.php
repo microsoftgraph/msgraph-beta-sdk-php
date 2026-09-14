@@ -37,7 +37,7 @@ class TeamTeamsAppInstallationScopeInfo extends TeamsAppInstallationScopeInfo im
     }
 
     /**
-     * Gets the teamId property value. The teamId property
+     * Gets the teamId property value. The ID of the team where the Teams app is installed.
      * @return string|null
     */
     public function getTeamId(): ?string {
@@ -58,7 +58,7 @@ class TeamTeamsAppInstallationScopeInfo extends TeamsAppInstallationScopeInfo im
     }
 
     /**
-     * Sets the teamId property value. The teamId property
+     * Sets the teamId property value. The ID of the team where the Teams app is installed.
      * @param string|null $value Value to set for the teamId property.
     */
     public function setTeamId(?string $value): void {

@@ -78,6 +78,7 @@ class DeviceCompliancePolicyScript implements AdditionalDataHolder, BackedModel,
             'deviceComplianceScriptId' => fn(ParseNode $n) => $o->setDeviceComplianceScriptId($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'rulesContent' => fn(ParseNode $n) => $o->setRulesContent($n->getBinaryContent()),
+            'runIntervalInMinutes' => fn(ParseNode $n) => $o->setRunIntervalInMinutes($n->getIntegerValue()),
         ];
     }
 
@@ -106,6 +107,18 @@ class DeviceCompliancePolicyScript implements AdditionalDataHolder, BackedModel,
     }
 
     /**
+     * Gets the runIntervalInMinutes property value. Indicates the interval, in minutes, at which the custom compliance script is evaluated on the device. Allowed range from 1 to 480. Nullable.
+     * @return int|null
+    */
+    public function getRunIntervalInMinutes(): ?int {
+        $val = $this->getBackingStore()->get('runIntervalInMinutes');
+        if (is_null($val) || is_int($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'runIntervalInMinutes'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -113,6 +126,7 @@ class DeviceCompliancePolicyScript implements AdditionalDataHolder, BackedModel,
         $writer->writeStringValue('deviceComplianceScriptId', $this->getDeviceComplianceScriptId());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeBinaryContent('rulesContent', $this->getRulesContent());
+        $writer->writeIntegerValue('runIntervalInMinutes', $this->getRunIntervalInMinutes());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -154,6 +168,14 @@ class DeviceCompliancePolicyScript implements AdditionalDataHolder, BackedModel,
     */
     public function setRulesContent(?StreamInterface $value): void {
         $this->getBackingStore()->set('rulesContent', $value);
+    }
+
+    /**
+     * Sets the runIntervalInMinutes property value. Indicates the interval, in minutes, at which the custom compliance script is evaluated on the device. Allowed range from 1 to 480. Nullable.
+     * @param int|null $value Value to set for the runIntervalInMinutes property.
+    */
+    public function setRunIntervalInMinutes(?int $value): void {
+        $this->getBackingStore()->set('runIntervalInMinutes', $value);
     }
 
 }

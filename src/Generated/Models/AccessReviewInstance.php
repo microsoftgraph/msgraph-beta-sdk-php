@@ -67,6 +67,20 @@ class AccessReviewInstance extends Entity implements Parsable
     }
 
     /**
+     * Gets the delegatedBy property value. The identities of users who delegated this review instance to the current reviewer. Null if the instance wasn't delegated. Only returned via filterByCurrentUser when explicitly requested via $select. Read-only.
+     * @return array<UserIdentity>|null
+    */
+    public function getDelegatedBy(): ?array {
+        $val = $this->getBackingStore()->get('delegatedBy');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, UserIdentity::class);
+            /** @var array<UserIdentity>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'delegatedBy'");
+    }
+
+    /**
      * Gets the endDateTime property value. DateTime when review instance is scheduled to end. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $select. Read-only.
      * @return DateTime|null
     */
@@ -116,6 +130,7 @@ class AccessReviewInstance extends Entity implements Parsable
             'contactedReviewers' => fn(ParseNode $n) => $o->setContactedReviewers($n->getCollectionOfObjectValues([AccessReviewReviewer::class, 'createFromDiscriminatorValue'])),
             'decisions' => fn(ParseNode $n) => $o->setDecisions($n->getCollectionOfObjectValues([AccessReviewInstanceDecisionItem::class, 'createFromDiscriminatorValue'])),
             'definition' => fn(ParseNode $n) => $o->setDefinition($n->getObjectValue([AccessReviewScheduleDefinition::class, 'createFromDiscriminatorValue'])),
+            'delegatedBy' => fn(ParseNode $n) => $o->setDelegatedBy($n->getCollectionOfObjectValues([UserIdentity::class, 'createFromDiscriminatorValue'])),
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
             'errors' => fn(ParseNode $n) => $o->setErrors($n->getCollectionOfObjectValues([AccessReviewError::class, 'createFromDiscriminatorValue'])),
             'fallbackReviewers' => fn(ParseNode $n) => $o->setFallbackReviewers($n->getCollectionOfObjectValues([AccessReviewReviewerScope::class, 'createFromDiscriminatorValue'])),
@@ -200,6 +215,7 @@ class AccessReviewInstance extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('contactedReviewers', $this->getContactedReviewers());
         $writer->writeCollectionOfObjectValues('decisions', $this->getDecisions());
         $writer->writeObjectValue('definition', $this->getDefinition());
+        $writer->writeCollectionOfObjectValues('delegatedBy', $this->getDelegatedBy());
         $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
         $writer->writeCollectionOfObjectValues('errors', $this->getErrors());
         $writer->writeCollectionOfObjectValues('fallbackReviewers', $this->getFallbackReviewers());
@@ -232,6 +248,14 @@ class AccessReviewInstance extends Entity implements Parsable
     */
     public function setDefinition(?AccessReviewScheduleDefinition $value): void {
         $this->getBackingStore()->set('definition', $value);
+    }
+
+    /**
+     * Sets the delegatedBy property value. The identities of users who delegated this review instance to the current reviewer. Null if the instance wasn't delegated. Only returned via filterByCurrentUser when explicitly requested via $select. Read-only.
+     * @param array<UserIdentity>|null $value Value to set for the delegatedBy property.
+    */
+    public function setDelegatedBy(?array $value): void {
+        $this->getBackingStore()->set('delegatedBy', $value);
     }
 
     /**

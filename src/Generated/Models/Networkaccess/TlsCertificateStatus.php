@@ -13,4 +13,6 @@ class TlsCertificateStatus extends Enum {
     public const EXPIRED = "expired";
     public const ENABLED = "enabled";
     public const DISABLED = "disabled";
+    public const CREATING = "creating";
+    public const REVOKED = "revoked";
 }

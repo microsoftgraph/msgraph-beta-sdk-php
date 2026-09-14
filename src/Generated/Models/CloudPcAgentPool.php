@@ -52,7 +52,7 @@ class CloudPcAgentPool extends CloudPcPool implements Parsable
     }
 
     /**
-     * Gets the poolUrl property value. The poolUrl property
+     * Gets the poolUrl property value. The endpoint URL used to check out and check in agent sessions. This value becomes available after the pool reaches the active status. Read-only.
      * @return string|null
     */
     public function getPoolUrl(): ?string {
@@ -108,7 +108,7 @@ class CloudPcAgentPool extends CloudPcPool implements Parsable
     }
 
     /**
-     * Sets the poolUrl property value. The poolUrl property
+     * Sets the poolUrl property value. The endpoint URL used to check out and check in agent sessions. This value becomes available after the pool reaches the active status. Read-only.
      * @param string|null $value Value to set for the poolUrl property.
     */
     public function setPoolUrl(?string $value): void {

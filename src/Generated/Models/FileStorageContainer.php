@@ -101,6 +101,18 @@ class FileStorageContainer extends Entity implements Parsable
     }
 
     /**
+     * Gets the dataLocationCode property value. The geographic location of the data for multi-geo tenants. This property is only returned when explicitly selected by using $select. Read-only.
+     * @return string|null
+    */
+    public function getDataLocationCode(): ?string {
+        $val = $this->getBackingStore()->get('dataLocationCode');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'dataLocationCode'");
+    }
+
+    /**
      * Gets the description property value. Provides a user-visible description of the fileStorageContainer. Read-write.
      * @return string|null
     */
@@ -161,6 +173,7 @@ class FileStorageContainer extends Entity implements Parsable
             'containerTypeId' => fn(ParseNode $n) => $o->setContainerTypeId($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'customProperties' => fn(ParseNode $n) => $o->setCustomProperties($n->getObjectValue([FileStorageContainerCustomPropertyDictionary::class, 'createFromDiscriminatorValue'])),
+            'dataLocationCode' => fn(ParseNode $n) => $o->setDataLocationCode($n->getStringValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'drive' => fn(ParseNode $n) => $o->setDrive($n->getObjectValue([Drive::class, 'createFromDiscriminatorValue'])),
@@ -344,6 +357,7 @@ class FileStorageContainer extends Entity implements Parsable
         $writer->writeStringValue('containerTypeId', $this->getContainerTypeId());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeObjectValue('customProperties', $this->getCustomProperties());
+        $writer->writeStringValue('dataLocationCode', $this->getDataLocationCode());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeObjectValue('drive', $this->getDrive());
@@ -408,6 +422,14 @@ class FileStorageContainer extends Entity implements Parsable
     */
     public function setCustomProperties(?FileStorageContainerCustomPropertyDictionary $value): void {
         $this->getBackingStore()->set('customProperties', $value);
+    }
+
+    /**
+     * Sets the dataLocationCode property value. The geographic location of the data for multi-geo tenants. This property is only returned when explicitly selected by using $select. Read-only.
+     * @param string|null $value Value to set for the dataLocationCode property.
+    */
+    public function setDataLocationCode(?string $value): void {
+        $this->getBackingStore()->set('dataLocationCode', $value);
     }
 
     /**

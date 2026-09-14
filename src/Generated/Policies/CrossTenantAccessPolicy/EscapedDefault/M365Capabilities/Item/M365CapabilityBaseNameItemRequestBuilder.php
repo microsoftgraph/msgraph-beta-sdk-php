@@ -59,11 +59,12 @@ class M365CapabilityBaseNameItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property m365Capabilities in policies
+     * Update an existing Microsoft 365 cross-tenant capability for the default cross-tenant access policy.
      * @param M365CapabilityBase $body The request body
      * @param M365CapabilityBaseNameItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<M365CapabilityBase|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationdefault-update-m365capabilities?view=graph-rest-beta Find more info here
     */
     public function patch(M365CapabilityBase $body, ?M365CapabilityBaseNameItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -113,7 +114,7 @@ class M365CapabilityBaseNameItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property m365Capabilities in policies
+     * Update an existing Microsoft 365 cross-tenant capability for the default cross-tenant access policy.
      * @param M365CapabilityBase $body The request body
      * @param M365CapabilityBaseNameItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

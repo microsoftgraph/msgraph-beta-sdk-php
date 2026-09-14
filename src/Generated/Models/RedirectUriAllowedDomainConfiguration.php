@@ -50,7 +50,7 @@ class RedirectUriAllowedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the allowedDomains property value. The allowedDomains property
+     * Gets the allowedDomains property value. Collection of domain names that are allowed globally across all platforms. Domain validation follows RFC 3986 (URI syntax, section 3.2.2 for the host component). Domain matching is case-insensitive and exact; wildcards are not supported.
      * @return array<string>|null
     */
     public function getAllowedDomains(): ?array {
@@ -72,7 +72,7 @@ class RedirectUriAllowedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the excludeActors property value. The excludeActors property
+     * Gets the excludeActors property value. Applications or service principals that are exempt from this restriction.
      * @return AppManagementPolicyActorExemptions|null
     */
     public function getExcludeActors(): ?AppManagementPolicyActorExemptions {
@@ -110,7 +110,7 @@ class RedirectUriAllowedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the isStateSetByMicrosoft property value. The isStateSetByMicrosoft property
+     * Gets the isStateSetByMicrosoft property value. Indicates whether the restriction state was set by Microsoft.
      * @return bool|null
     */
     public function getIsStateSetByMicrosoft(): ?bool {
@@ -134,7 +134,7 @@ class RedirectUriAllowedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the publicClient property value. The publicClient property
+     * Gets the publicClient property value. Platform-specific allowed domain configuration for public client applications (native/mobile apps).
      * @return RedirectUriPlatformAllowedDomainConfiguration|null
     */
     public function getPublicClient(): ?RedirectUriPlatformAllowedDomainConfiguration {
@@ -146,7 +146,7 @@ class RedirectUriAllowedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the restrictForAppsCreatedAfterDateTime property value. The restrictForAppsCreatedAfterDateTime property
+     * Gets the restrictForAppsCreatedAfterDateTime property value. Date and time when this restriction starts applying to newly created applications. Applications created before this date are not affected.
      * @return DateTime|null
     */
     public function getRestrictForAppsCreatedAfterDateTime(): ?DateTime {
@@ -158,7 +158,7 @@ class RedirectUriAllowedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the spa property value. The spa property
+     * Gets the spa property value. Platform-specific allowed domain configuration for single-page applications (SPAs).
      * @return RedirectUriPlatformAllowedDomainConfiguration|null
     */
     public function getSpa(): ?RedirectUriPlatformAllowedDomainConfiguration {
@@ -182,7 +182,7 @@ class RedirectUriAllowedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the web property value. The web property
+     * Gets the web property value. Platform-specific allowed domain configuration for web applications.
      * @return RedirectUriPlatformAllowedDomainConfiguration|null
     */
     public function getWeb(): ?RedirectUriPlatformAllowedDomainConfiguration {
@@ -218,7 +218,7 @@ class RedirectUriAllowedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the allowedDomains property value. The allowedDomains property
+     * Sets the allowedDomains property value. Collection of domain names that are allowed globally across all platforms. Domain validation follows RFC 3986 (URI syntax, section 3.2.2 for the host component). Domain matching is case-insensitive and exact; wildcards are not supported.
      * @param array<string>|null $value Value to set for the allowedDomains property.
     */
     public function setAllowedDomains(?array $value): void {
@@ -234,7 +234,7 @@ class RedirectUriAllowedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the excludeActors property value. The excludeActors property
+     * Sets the excludeActors property value. Applications or service principals that are exempt from this restriction.
      * @param AppManagementPolicyActorExemptions|null $value Value to set for the excludeActors property.
     */
     public function setExcludeActors(?AppManagementPolicyActorExemptions $value): void {
@@ -242,7 +242,7 @@ class RedirectUriAllowedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the isStateSetByMicrosoft property value. The isStateSetByMicrosoft property
+     * Sets the isStateSetByMicrosoft property value. Indicates whether the restriction state was set by Microsoft.
      * @param bool|null $value Value to set for the isStateSetByMicrosoft property.
     */
     public function setIsStateSetByMicrosoft(?bool $value): void {
@@ -258,7 +258,7 @@ class RedirectUriAllowedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the publicClient property value. The publicClient property
+     * Sets the publicClient property value. Platform-specific allowed domain configuration for public client applications (native/mobile apps).
      * @param RedirectUriPlatformAllowedDomainConfiguration|null $value Value to set for the publicClient property.
     */
     public function setPublicClient(?RedirectUriPlatformAllowedDomainConfiguration $value): void {
@@ -266,7 +266,7 @@ class RedirectUriAllowedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the restrictForAppsCreatedAfterDateTime property value. The restrictForAppsCreatedAfterDateTime property
+     * Sets the restrictForAppsCreatedAfterDateTime property value. Date and time when this restriction starts applying to newly created applications. Applications created before this date are not affected.
      * @param DateTime|null $value Value to set for the restrictForAppsCreatedAfterDateTime property.
     */
     public function setRestrictForAppsCreatedAfterDateTime(?DateTime $value): void {
@@ -274,7 +274,7 @@ class RedirectUriAllowedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the spa property value. The spa property
+     * Sets the spa property value. Platform-specific allowed domain configuration for single-page applications (SPAs).
      * @param RedirectUriPlatformAllowedDomainConfiguration|null $value Value to set for the spa property.
     */
     public function setSpa(?RedirectUriPlatformAllowedDomainConfiguration $value): void {
@@ -290,7 +290,7 @@ class RedirectUriAllowedDomainConfiguration implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the web property value. The web property
+     * Sets the web property value. Platform-specific allowed domain configuration for web applications.
      * @param RedirectUriPlatformAllowedDomainConfiguration|null $value Value to set for the web property.
     */
     public function setWeb(?RedirectUriPlatformAllowedDomainConfiguration $value): void {

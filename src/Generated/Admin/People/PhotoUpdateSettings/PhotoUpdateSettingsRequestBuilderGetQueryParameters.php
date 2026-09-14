@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\People\PhotoUpdateSettings;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of a photoUpdateSettings object.
+ * Get the properties of a photoUpdateSettings object.
 */
 class PhotoUpdateSettingsRequestBuilderGetQueryParameters 
 {

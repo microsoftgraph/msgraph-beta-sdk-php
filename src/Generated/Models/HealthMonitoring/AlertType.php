@@ -12,4 +12,8 @@ class AlertType extends Enum {
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
     public const CONDITIONAL_ACCESS_BLOCKED_SIGN_IN = "conditionalAccessBlockedSignIn";
     public const SAML_SIGN_IN_FAILURE = "samlSignInFailure";
+    public const INTERNET_APP_BLOCKED_BY_POLICY = "internetAppBlockedByPolicy";
+    public const PRIVATE_APP_BLOCKED_BY_CONNECTOR = "privateAppBlockedByConnector";
+    public const REMOTE_NETWORK_TUNNEL_CONNECTIVITY = "remoteNetworkTunnelConnectivity";
+    public const REMOTE_NETWORK_BGP_CONNECTIVITY = "remoteNetworkBgpConnectivity";
 }

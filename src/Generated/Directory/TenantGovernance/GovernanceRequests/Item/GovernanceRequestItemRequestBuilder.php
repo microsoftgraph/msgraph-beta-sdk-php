@@ -5,20 +5,20 @@ namespace Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\GovernanceRe
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Directory\TenantGovernance\GovernanceRequests\Item\GovernancePolicyTemplate\GovernancePolicyTemplateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Models\GovernanceRequest;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\TenantGovernanceServices\GovernanceRequest;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
 
 /**
- * Provides operations to manage the governanceRequests property of the microsoft.graph.tenantGovernanceServices.tenantGovernance entity.
+ * Provides operations to manage the governanceRequests property of the microsoft.graph.tenantGovernance entity.
 */
 class GovernanceRequestItemRequestBuilder extends BaseRequestBuilder 
 {
     /**
-     * Provides operations to manage the governancePolicyTemplate property of the microsoft.graph.tenantGovernanceServices.governanceRequest entity.
+     * Provides operations to manage the governancePolicyTemplate property of the microsoft.graph.governanceRequest entity.
     */
     public function governancePolicyTemplate(): GovernancePolicyTemplateRequestBuilder {
         return new GovernancePolicyTemplateRequestBuilder($this->pathParameters, $this->requestAdapter);

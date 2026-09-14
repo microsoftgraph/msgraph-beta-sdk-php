@@ -106,6 +106,7 @@ class Place extends Entity implements Parsable
             'label' => fn(ParseNode $n) => $o->setLabel($n->getStringValue()),
             'parentId' => fn(ParseNode $n) => $o->setParentId($n->getStringValue()),
             'phone' => fn(ParseNode $n) => $o->setPhone($n->getStringValue()),
+            'placeId' => fn(ParseNode $n) => $o->setPlaceId($n->getStringValue()),
             'tags' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -178,6 +179,18 @@ class Place extends Entity implements Parsable
     }
 
     /**
+     * Gets the placeId property value. A stable service-level identifier for the place object used by Places workloads.
+     * @return string|null
+    */
+    public function getPlaceId(): ?string {
+        $val = $this->getBackingStore()->get('placeId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'placeId'");
+    }
+
+    /**
      * Gets the tags property value. Custom tags that are associated with the place for categorization or filtering.
      * @return array<string>|null
     */
@@ -206,6 +219,7 @@ class Place extends Entity implements Parsable
         $writer->writeStringValue('label', $this->getLabel());
         $writer->writeStringValue('parentId', $this->getParentId());
         $writer->writeStringValue('phone', $this->getPhone());
+        $writer->writeStringValue('placeId', $this->getPlaceId());
         $writer->writeCollectionOfPrimitiveValues('tags', $this->getTags());
     }
 
@@ -279,6 +293,14 @@ class Place extends Entity implements Parsable
     */
     public function setPhone(?string $value): void {
         $this->getBackingStore()->set('phone', $value);
+    }
+
+    /**
+     * Sets the placeId property value. A stable service-level identifier for the place object used by Places workloads.
+     * @param string|null $value Value to set for the placeId property.
+    */
+    public function setPlaceId(?string $value): void {
+        $this->getBackingStore()->set('placeId', $value);
     }
 
     /**
