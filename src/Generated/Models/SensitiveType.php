@@ -26,7 +26,7 @@ class SensitiveType extends Entity implements Parsable
     }
 
     /**
-     * Gets the classificationMethod property value. The classificationMethod property
+     * Gets the classificationMethod property value. The classification method. The possible values are: patternMatch, exactDataMatch, fingerprint, machineLearning, privacyDataMatch, aiPowered, unknownFutureValue. privacyDataMatch performs privacy data matching based on tenant data. aiPowered performs AI-powered classification and can benefit from supported caller-supplied embeddings. unknownFutureValue is an evolvable enumeration sentinel value. Don't use it.
      * @return ClassificationMethod|null
     */
     public function getClassificationMethod(): ?ClassificationMethod {
@@ -38,7 +38,7 @@ class SensitiveType extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. The description of the sensitive information type.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -70,7 +70,7 @@ class SensitiveType extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. The date and time when the sensitive information type was last modified.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -82,7 +82,7 @@ class SensitiveType extends Entity implements Parsable
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. The name of the sensitive information type.
      * @return string|null
     */
     public function getName(): ?string {
@@ -94,7 +94,7 @@ class SensitiveType extends Entity implements Parsable
     }
 
     /**
-     * Gets the publisherName property value. The publisherName property
+     * Gets the publisherName property value. The name of the publisher.
      * @return string|null
     */
     public function getPublisherName(): ?string {
@@ -106,7 +106,7 @@ class SensitiveType extends Entity implements Parsable
     }
 
     /**
-     * Gets the rulePackageId property value. The rulePackageId property
+     * Gets the rulePackageId property value. The identifier of the rule package.
      * @return string|null
     */
     public function getRulePackageId(): ?string {
@@ -118,7 +118,7 @@ class SensitiveType extends Entity implements Parsable
     }
 
     /**
-     * Gets the rulePackageType property value. The rulePackageType property
+     * Gets the rulePackageType property value. The type of the rule package.
      * @return string|null
     */
     public function getRulePackageType(): ?string {
@@ -130,7 +130,7 @@ class SensitiveType extends Entity implements Parsable
     }
 
     /**
-     * Gets the scope property value. The scope property
+     * Gets the scope property value. The scope of the sensitive information type. The possible values are: fullDocument, partialDocument.
      * @return SensitiveTypeScope|null
     */
     public function getScope(): ?SensitiveTypeScope {
@@ -142,7 +142,7 @@ class SensitiveType extends Entity implements Parsable
     }
 
     /**
-     * Gets the sensitiveTypeSource property value. The sensitiveTypeSource property
+     * Gets the sensitiveTypeSource property value. The source of sensitive type. The possible values are: outOfBox, tenant.
      * @return SensitiveTypeSource|null
     */
     public function getSensitiveTypeSource(): ?SensitiveTypeSource {
@@ -154,7 +154,7 @@ class SensitiveType extends Entity implements Parsable
     }
 
     /**
-     * Gets the state property value. The state property
+     * Gets the state property value. The state of the sensitive information type.
      * @return string|null
     */
     public function getState(): ?string {
@@ -184,7 +184,7 @@ class SensitiveType extends Entity implements Parsable
     }
 
     /**
-     * Sets the classificationMethod property value. The classificationMethod property
+     * Sets the classificationMethod property value. The classification method. The possible values are: patternMatch, exactDataMatch, fingerprint, machineLearning, privacyDataMatch, aiPowered, unknownFutureValue. privacyDataMatch performs privacy data matching based on tenant data. aiPowered performs AI-powered classification and can benefit from supported caller-supplied embeddings. unknownFutureValue is an evolvable enumeration sentinel value. Don't use it.
      * @param ClassificationMethod|null $value Value to set for the classificationMethod property.
     */
     public function setClassificationMethod(?ClassificationMethod $value): void {
@@ -192,7 +192,7 @@ class SensitiveType extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. The description of the sensitive information type.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -200,7 +200,7 @@ class SensitiveType extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. The date and time when the sensitive information type was last modified.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
@@ -208,7 +208,7 @@ class SensitiveType extends Entity implements Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. The name of the sensitive information type.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {
@@ -216,7 +216,7 @@ class SensitiveType extends Entity implements Parsable
     }
 
     /**
-     * Sets the publisherName property value. The publisherName property
+     * Sets the publisherName property value. The name of the publisher.
      * @param string|null $value Value to set for the publisherName property.
     */
     public function setPublisherName(?string $value): void {
@@ -224,7 +224,7 @@ class SensitiveType extends Entity implements Parsable
     }
 
     /**
-     * Sets the rulePackageId property value. The rulePackageId property
+     * Sets the rulePackageId property value. The identifier of the rule package.
      * @param string|null $value Value to set for the rulePackageId property.
     */
     public function setRulePackageId(?string $value): void {
@@ -232,7 +232,7 @@ class SensitiveType extends Entity implements Parsable
     }
 
     /**
-     * Sets the rulePackageType property value. The rulePackageType property
+     * Sets the rulePackageType property value. The type of the rule package.
      * @param string|null $value Value to set for the rulePackageType property.
     */
     public function setRulePackageType(?string $value): void {
@@ -240,7 +240,7 @@ class SensitiveType extends Entity implements Parsable
     }
 
     /**
-     * Sets the scope property value. The scope property
+     * Sets the scope property value. The scope of the sensitive information type. The possible values are: fullDocument, partialDocument.
      * @param SensitiveTypeScope|null $value Value to set for the scope property.
     */
     public function setScope(?SensitiveTypeScope $value): void {
@@ -248,7 +248,7 @@ class SensitiveType extends Entity implements Parsable
     }
 
     /**
-     * Sets the sensitiveTypeSource property value. The sensitiveTypeSource property
+     * Sets the sensitiveTypeSource property value. The source of sensitive type. The possible values are: outOfBox, tenant.
      * @param SensitiveTypeSource|null $value Value to set for the sensitiveTypeSource property.
     */
     public function setSensitiveTypeSource(?SensitiveTypeSource $value): void {
@@ -256,7 +256,7 @@ class SensitiveType extends Entity implements Parsable
     }
 
     /**
-     * Sets the state property value. The state property
+     * Sets the state property value. The state of the sensitive information type.
      * @param string|null $value Value to set for the state property.
     */
     public function setState(?string $value): void {

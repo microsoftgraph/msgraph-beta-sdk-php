@@ -23,4 +23,5 @@ class DeviceManagementConfigurationTemplateFamily extends Enum {
     public const WINDOWS_OS_RECOVERY_POLICIES = "windowsOsRecoveryPolicies";
     public const COMPANY_PORTAL = "companyPortal";
     public const WINDOWS_RECOVERY_AND_REMEDIATION_CONFIGURATION = "windowsRecoveryAndRemediationConfiguration";
+    public const MAINTENANCE_WINDOWS = "maintenanceWindows";
 }

@@ -78,7 +78,7 @@ class BackupCountStatistics implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the lastComputedDateTime property value. The lastComputedDateTime property
+     * Gets the lastComputedDateTime property value. The date and time when this metric was calculated. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastComputedDateTime(): ?DateTime {
@@ -102,7 +102,7 @@ class BackupCountStatistics implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the offboardRequested property value. The offboardRequested property
+     * Gets the offboardRequested property value. The count of artifacts in offboardRequested state. This metric captures artifacts in protection‑unit–level offboarding and artifacts offboarded due to an unhealthy billing profile.
      * @return int|null
     */
     public function getOffboardRequested(): ?int {
@@ -114,7 +114,7 @@ class BackupCountStatistics implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the protectedCompleted property value. The protectedCompleted property
+     * Gets the protectedCompleted property value. The count of artifacts in protected state.
      * @return int|null
     */
     public function getProtectedCompleted(): ?int {
@@ -126,7 +126,7 @@ class BackupCountStatistics implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the protectedFailed property value. The protectedFailed property
+     * Gets the protectedFailed property value. The count of artifacts whose protection was attempted but failed. These artifacts typically have unprotected as their status.
      * @return int|null
     */
     public function getProtectedFailed(): ?int {
@@ -138,7 +138,7 @@ class BackupCountStatistics implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the protectedInProgress property value. The protectedInProgress property
+     * Gets the protectedInProgress property value. The count of artifacts whose protection attempt is currently in progress. This metric applies to artifacts for which the process to start or resume taking backups is still required.
      * @return int|null
     */
     public function getProtectedInProgress(): ?int {
@@ -150,7 +150,7 @@ class BackupCountStatistics implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the removed property value. The removed property
+     * Gets the removed property value. The count of artifacts not associated with any policy. This property is always null for a policy-level report. Nullable.
      * @return int|null
     */
     public function getRemoved(): ?int {
@@ -162,7 +162,7 @@ class BackupCountStatistics implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the total property value. The total property
+     * Gets the total property value. The count of artifacts in the specified entity. The currently supported entity is a backup policy.
      * @return int|null
     */
     public function getTotal(): ?int {
@@ -174,7 +174,7 @@ class BackupCountStatistics implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the unprotectedCompleted property value. The unprotectedCompleted property
+     * Gets the unprotectedCompleted property value. The count of artifacts that are no longer actively protected. These artifacts have historical restore points, but no new backups are being taken.
      * @return int|null
     */
     public function getUnprotectedCompleted(): ?int {
@@ -186,7 +186,7 @@ class BackupCountStatistics implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the unprotectedFailed property value. The unprotectedFailed property
+     * Gets the unprotectedFailed property value. The count of artifacts for which unprotection was attempted but didn't complete. These artifacts are typically in the protected state.
      * @return int|null
     */
     public function getUnprotectedFailed(): ?int {
@@ -198,7 +198,7 @@ class BackupCountStatistics implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the unprotectedInProgress property value. The unprotectedInProgress property
+     * Gets the unprotectedInProgress property value. The count of artifacts for which unprotection is currently in progress.
      * @return int|null
     */
     public function getUnprotectedInProgress(): ?int {
@@ -245,7 +245,7 @@ class BackupCountStatistics implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the lastComputedDateTime property value. The lastComputedDateTime property
+     * Sets the lastComputedDateTime property value. The date and time when this metric was calculated. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the lastComputedDateTime property.
     */
     public function setLastComputedDateTime(?DateTime $value): void {
@@ -261,7 +261,7 @@ class BackupCountStatistics implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the offboardRequested property value. The offboardRequested property
+     * Sets the offboardRequested property value. The count of artifacts in offboardRequested state. This metric captures artifacts in protection‑unit–level offboarding and artifacts offboarded due to an unhealthy billing profile.
      * @param int|null $value Value to set for the offboardRequested property.
     */
     public function setOffboardRequested(?int $value): void {
@@ -269,7 +269,7 @@ class BackupCountStatistics implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the protectedCompleted property value. The protectedCompleted property
+     * Sets the protectedCompleted property value. The count of artifacts in protected state.
      * @param int|null $value Value to set for the protectedCompleted property.
     */
     public function setProtectedCompleted(?int $value): void {
@@ -277,7 +277,7 @@ class BackupCountStatistics implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the protectedFailed property value. The protectedFailed property
+     * Sets the protectedFailed property value. The count of artifacts whose protection was attempted but failed. These artifacts typically have unprotected as their status.
      * @param int|null $value Value to set for the protectedFailed property.
     */
     public function setProtectedFailed(?int $value): void {
@@ -285,7 +285,7 @@ class BackupCountStatistics implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the protectedInProgress property value. The protectedInProgress property
+     * Sets the protectedInProgress property value. The count of artifacts whose protection attempt is currently in progress. This metric applies to artifacts for which the process to start or resume taking backups is still required.
      * @param int|null $value Value to set for the protectedInProgress property.
     */
     public function setProtectedInProgress(?int $value): void {
@@ -293,7 +293,7 @@ class BackupCountStatistics implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the removed property value. The removed property
+     * Sets the removed property value. The count of artifacts not associated with any policy. This property is always null for a policy-level report. Nullable.
      * @param int|null $value Value to set for the removed property.
     */
     public function setRemoved(?int $value): void {
@@ -301,7 +301,7 @@ class BackupCountStatistics implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the total property value. The total property
+     * Sets the total property value. The count of artifacts in the specified entity. The currently supported entity is a backup policy.
      * @param int|null $value Value to set for the total property.
     */
     public function setTotal(?int $value): void {
@@ -309,7 +309,7 @@ class BackupCountStatistics implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the unprotectedCompleted property value. The unprotectedCompleted property
+     * Sets the unprotectedCompleted property value. The count of artifacts that are no longer actively protected. These artifacts have historical restore points, but no new backups are being taken.
      * @param int|null $value Value to set for the unprotectedCompleted property.
     */
     public function setUnprotectedCompleted(?int $value): void {
@@ -317,7 +317,7 @@ class BackupCountStatistics implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the unprotectedFailed property value. The unprotectedFailed property
+     * Sets the unprotectedFailed property value. The count of artifacts for which unprotection was attempted but didn't complete. These artifacts are typically in the protected state.
      * @param int|null $value Value to set for the unprotectedFailed property.
     */
     public function setUnprotectedFailed(?int $value): void {
@@ -325,7 +325,7 @@ class BackupCountStatistics implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the unprotectedInProgress property value. The unprotectedInProgress property
+     * Sets the unprotectedInProgress property value. The count of artifacts for which unprotection is currently in progress.
      * @param int|null $value Value to set for the unprotectedInProgress property.
     */
     public function setUnprotectedInProgress(?int $value): void {

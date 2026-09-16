@@ -242,7 +242,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the isDisasterRecoveryActive property value. The isDisasterRecoveryActive property
+     * Gets the isDisasterRecoveryActive property value. Indicates whether the Cloud PC currently runs in its disaster recovery region after a failover event. true if the Cloud PC is currently running in its disaster recovery region; otherwise, false. Read-only.
      * @return bool|null
     */
     public function getIsDisasterRecoveryActive(): ?bool {
@@ -400,7 +400,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the provisioningConfiguration property value. The provisioningConfiguration property
+     * Gets the provisioningConfiguration property value. The policy-derived configuration of the Cloud PC. Contains properties inherited from the provisioning policy that were applied during the most recent provisioning or reprovisioning. Returned only when explicitly selected with $select. Read-only.
      * @return CloudPcProvisioningConfiguration|null
     */
     public function getProvisioningConfiguration(): ?CloudPcProvisioningConfiguration {
@@ -748,7 +748,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the isDisasterRecoveryActive property value. The isDisasterRecoveryActive property
+     * Sets the isDisasterRecoveryActive property value. Indicates whether the Cloud PC currently runs in its disaster recovery region after a failover event. true if the Cloud PC is currently running in its disaster recovery region; otherwise, false. Read-only.
      * @param bool|null $value Value to set for the isDisasterRecoveryActive property.
     */
     public function setIsDisasterRecoveryActive(?bool $value): void {
@@ -852,7 +852,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the provisioningConfiguration property value. The provisioningConfiguration property
+     * Sets the provisioningConfiguration property value. The policy-derived configuration of the Cloud PC. Contains properties inherited from the provisioning policy that were applied during the most recent provisioning or reprovisioning. Returned only when explicitly selected with $select. Read-only.
      * @param CloudPcProvisioningConfiguration|null $value Value to set for the provisioningConfiguration property.
     */
     public function setProvisioningConfiguration(?CloudPcProvisioningConfiguration $value): void {

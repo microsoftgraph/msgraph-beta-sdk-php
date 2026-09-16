@@ -135,7 +135,16 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
             'macDeviceBlockedOnMissingPartnerData' => fn(ParseNode $n) => $o->setMacDeviceBlockedOnMissingPartnerData($n->getBooleanValue()),
             'macEnabled' => fn(ParseNode $n) => $o->setMacEnabled($n->getBooleanValue()),
             'microsoftDefenderForEndpointAttachEnabled' => fn(ParseNode $n) => $o->setMicrosoftDefenderForEndpointAttachEnabled($n->getBooleanValue()),
+            'partnerDisplayName' => fn(ParseNode $n) => $o->setPartnerDisplayName($n->getStringValue()),
+            'partnerMinimumSupportedAndroidVersion' => fn(ParseNode $n) => $o->setPartnerMinimumSupportedAndroidVersion($n->getStringValue()),
+            'partnerMinimumSupportedIosVersion' => fn(ParseNode $n) => $o->setPartnerMinimumSupportedIosVersion($n->getStringValue()),
+            'partnerMinimumSupportedMacVersion' => fn(ParseNode $n) => $o->setPartnerMinimumSupportedMacVersion($n->getStringValue()),
+            'partnerMinimumSupportedWindowsVersion' => fn(ParseNode $n) => $o->setPartnerMinimumSupportedWindowsVersion($n->getStringValue()),
             'partnerState' => fn(ParseNode $n) => $o->setPartnerState($n->getEnumValue(MobileThreatPartnerTenantState::class)),
+            'partnerSupportsAndroidMam' => fn(ParseNode $n) => $o->setPartnerSupportsAndroidMam($n->getBooleanValue()),
+            'partnerSupportsIosCertificateSync' => fn(ParseNode $n) => $o->setPartnerSupportsIosCertificateSync($n->getBooleanValue()),
+            'partnerSupportsIosMam' => fn(ParseNode $n) => $o->setPartnerSupportsIosMam($n->getBooleanValue()),
+            'partnerSupportsWindowsMam' => fn(ParseNode $n) => $o->setPartnerSupportsWindowsMam($n->getBooleanValue()),
             'partnerUnresponsivenessThresholdInDays' => fn(ParseNode $n) => $o->setPartnerUnresponsivenessThresholdInDays($n->getIntegerValue()),
             'partnerUnsupportedOsVersionBlocked' => fn(ParseNode $n) => $o->setPartnerUnsupportedOsVersionBlocked($n->getBooleanValue()),
             'windowsDeviceBlockedOnMissingPartnerData' => fn(ParseNode $n) => $o->setWindowsDeviceBlockedOnMissingPartnerData($n->getBooleanValue()),
@@ -253,6 +262,66 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
+     * Gets the partnerDisplayName property value. The display name of the Mobile Threat Defense partner. This is a read-only property determined by the partner metadata.
+     * @return string|null
+    */
+    public function getPartnerDisplayName(): ?string {
+        $val = $this->getBackingStore()->get('partnerDisplayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'partnerDisplayName'");
+    }
+
+    /**
+     * Gets the partnerMinimumSupportedAndroidVersion property value. The minimum Android version supported by the Mobile Threat Defense partner.
+     * @return string|null
+    */
+    public function getPartnerMinimumSupportedAndroidVersion(): ?string {
+        $val = $this->getBackingStore()->get('partnerMinimumSupportedAndroidVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'partnerMinimumSupportedAndroidVersion'");
+    }
+
+    /**
+     * Gets the partnerMinimumSupportedIosVersion property value. The minimum iOS version supported by the Mobile Threat Defense partner.
+     * @return string|null
+    */
+    public function getPartnerMinimumSupportedIosVersion(): ?string {
+        $val = $this->getBackingStore()->get('partnerMinimumSupportedIosVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'partnerMinimumSupportedIosVersion'");
+    }
+
+    /**
+     * Gets the partnerMinimumSupportedMacVersion property value. The minimum macOS version supported by the Mobile Threat Defense partner.
+     * @return string|null
+    */
+    public function getPartnerMinimumSupportedMacVersion(): ?string {
+        $val = $this->getBackingStore()->get('partnerMinimumSupportedMacVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'partnerMinimumSupportedMacVersion'");
+    }
+
+    /**
+     * Gets the partnerMinimumSupportedWindowsVersion property value. The minimum Windows version supported by the Mobile Threat Defense partner.
+     * @return string|null
+    */
+    public function getPartnerMinimumSupportedWindowsVersion(): ?string {
+        $val = $this->getBackingStore()->get('partnerMinimumSupportedWindowsVersion');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'partnerMinimumSupportedWindowsVersion'");
+    }
+
+    /**
      * Gets the partnerState property value. Partner state of this tenant.
      * @return MobileThreatPartnerTenantState|null
     */
@@ -262,6 +331,54 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'partnerState'");
+    }
+
+    /**
+     * Gets the partnerSupportsAndroidMam property value. When TRUE, indicates that the Mobile Threat Defense partner supports Android Mobile Application Management.
+     * @return bool|null
+    */
+    public function getPartnerSupportsAndroidMam(): ?bool {
+        $val = $this->getBackingStore()->get('partnerSupportsAndroidMam');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'partnerSupportsAndroidMam'");
+    }
+
+    /**
+     * Gets the partnerSupportsIosCertificateSync property value. When TRUE, indicates that the Mobile Threat Defense partner supports iOS certificate sync.
+     * @return bool|null
+    */
+    public function getPartnerSupportsIosCertificateSync(): ?bool {
+        $val = $this->getBackingStore()->get('partnerSupportsIosCertificateSync');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'partnerSupportsIosCertificateSync'");
+    }
+
+    /**
+     * Gets the partnerSupportsIosMam property value. When TRUE, indicates that the Mobile Threat Defense partner supports iOS Mobile Application Management.
+     * @return bool|null
+    */
+    public function getPartnerSupportsIosMam(): ?bool {
+        $val = $this->getBackingStore()->get('partnerSupportsIosMam');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'partnerSupportsIosMam'");
+    }
+
+    /**
+     * Gets the partnerSupportsWindowsMam property value. When TRUE, indicates that the Mobile Threat Defense partner supports Windows Mobile Application Management.
+     * @return bool|null
+    */
+    public function getPartnerSupportsWindowsMam(): ?bool {
+        $val = $this->getBackingStore()->get('partnerSupportsWindowsMam');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'partnerSupportsWindowsMam'");
     }
 
     /**
@@ -346,7 +463,16 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
         $writer->writeBooleanValue('macDeviceBlockedOnMissingPartnerData', $this->getMacDeviceBlockedOnMissingPartnerData());
         $writer->writeBooleanValue('macEnabled', $this->getMacEnabled());
         $writer->writeBooleanValue('microsoftDefenderForEndpointAttachEnabled', $this->getMicrosoftDefenderForEndpointAttachEnabled());
+        $writer->writeStringValue('partnerDisplayName', $this->getPartnerDisplayName());
+        $writer->writeStringValue('partnerMinimumSupportedAndroidVersion', $this->getPartnerMinimumSupportedAndroidVersion());
+        $writer->writeStringValue('partnerMinimumSupportedIosVersion', $this->getPartnerMinimumSupportedIosVersion());
+        $writer->writeStringValue('partnerMinimumSupportedMacVersion', $this->getPartnerMinimumSupportedMacVersion());
+        $writer->writeStringValue('partnerMinimumSupportedWindowsVersion', $this->getPartnerMinimumSupportedWindowsVersion());
         $writer->writeEnumValue('partnerState', $this->getPartnerState());
+        $writer->writeBooleanValue('partnerSupportsAndroidMam', $this->getPartnerSupportsAndroidMam());
+        $writer->writeBooleanValue('partnerSupportsIosCertificateSync', $this->getPartnerSupportsIosCertificateSync());
+        $writer->writeBooleanValue('partnerSupportsIosMam', $this->getPartnerSupportsIosMam());
+        $writer->writeBooleanValue('partnerSupportsWindowsMam', $this->getPartnerSupportsWindowsMam());
         $writer->writeIntegerValue('partnerUnresponsivenessThresholdInDays', $this->getPartnerUnresponsivenessThresholdInDays());
         $writer->writeBooleanValue('partnerUnsupportedOsVersionBlocked', $this->getPartnerUnsupportedOsVersionBlocked());
         $writer->writeBooleanValue('windowsDeviceBlockedOnMissingPartnerData', $this->getWindowsDeviceBlockedOnMissingPartnerData());
@@ -483,11 +609,83 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
+     * Sets the partnerDisplayName property value. The display name of the Mobile Threat Defense partner. This is a read-only property determined by the partner metadata.
+     * @param string|null $value Value to set for the partnerDisplayName property.
+    */
+    public function setPartnerDisplayName(?string $value): void {
+        $this->getBackingStore()->set('partnerDisplayName', $value);
+    }
+
+    /**
+     * Sets the partnerMinimumSupportedAndroidVersion property value. The minimum Android version supported by the Mobile Threat Defense partner.
+     * @param string|null $value Value to set for the partnerMinimumSupportedAndroidVersion property.
+    */
+    public function setPartnerMinimumSupportedAndroidVersion(?string $value): void {
+        $this->getBackingStore()->set('partnerMinimumSupportedAndroidVersion', $value);
+    }
+
+    /**
+     * Sets the partnerMinimumSupportedIosVersion property value. The minimum iOS version supported by the Mobile Threat Defense partner.
+     * @param string|null $value Value to set for the partnerMinimumSupportedIosVersion property.
+    */
+    public function setPartnerMinimumSupportedIosVersion(?string $value): void {
+        $this->getBackingStore()->set('partnerMinimumSupportedIosVersion', $value);
+    }
+
+    /**
+     * Sets the partnerMinimumSupportedMacVersion property value. The minimum macOS version supported by the Mobile Threat Defense partner.
+     * @param string|null $value Value to set for the partnerMinimumSupportedMacVersion property.
+    */
+    public function setPartnerMinimumSupportedMacVersion(?string $value): void {
+        $this->getBackingStore()->set('partnerMinimumSupportedMacVersion', $value);
+    }
+
+    /**
+     * Sets the partnerMinimumSupportedWindowsVersion property value. The minimum Windows version supported by the Mobile Threat Defense partner.
+     * @param string|null $value Value to set for the partnerMinimumSupportedWindowsVersion property.
+    */
+    public function setPartnerMinimumSupportedWindowsVersion(?string $value): void {
+        $this->getBackingStore()->set('partnerMinimumSupportedWindowsVersion', $value);
+    }
+
+    /**
      * Sets the partnerState property value. Partner state of this tenant.
      * @param MobileThreatPartnerTenantState|null $value Value to set for the partnerState property.
     */
     public function setPartnerState(?MobileThreatPartnerTenantState $value): void {
         $this->getBackingStore()->set('partnerState', $value);
+    }
+
+    /**
+     * Sets the partnerSupportsAndroidMam property value. When TRUE, indicates that the Mobile Threat Defense partner supports Android Mobile Application Management.
+     * @param bool|null $value Value to set for the partnerSupportsAndroidMam property.
+    */
+    public function setPartnerSupportsAndroidMam(?bool $value): void {
+        $this->getBackingStore()->set('partnerSupportsAndroidMam', $value);
+    }
+
+    /**
+     * Sets the partnerSupportsIosCertificateSync property value. When TRUE, indicates that the Mobile Threat Defense partner supports iOS certificate sync.
+     * @param bool|null $value Value to set for the partnerSupportsIosCertificateSync property.
+    */
+    public function setPartnerSupportsIosCertificateSync(?bool $value): void {
+        $this->getBackingStore()->set('partnerSupportsIosCertificateSync', $value);
+    }
+
+    /**
+     * Sets the partnerSupportsIosMam property value. When TRUE, indicates that the Mobile Threat Defense partner supports iOS Mobile Application Management.
+     * @param bool|null $value Value to set for the partnerSupportsIosMam property.
+    */
+    public function setPartnerSupportsIosMam(?bool $value): void {
+        $this->getBackingStore()->set('partnerSupportsIosMam', $value);
+    }
+
+    /**
+     * Sets the partnerSupportsWindowsMam property value. When TRUE, indicates that the Mobile Threat Defense partner supports Windows Mobile Application Management.
+     * @param bool|null $value Value to set for the partnerSupportsWindowsMam property.
+    */
+    public function setPartnerSupportsWindowsMam(?bool $value): void {
+        $this->getBackingStore()->set('partnerSupportsWindowsMam', $value);
     }
 
     /**

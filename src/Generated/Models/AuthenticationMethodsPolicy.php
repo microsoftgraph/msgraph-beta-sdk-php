@@ -8,13 +8,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
-class AuthenticationMethodsPolicy extends Entity implements Parsable 
+class AuthenticationMethodsPolicy extends PolicyDeletableItem implements Parsable 
 {
     /**
      * Instantiates a new AuthenticationMethodsPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.authenticationMethodsPolicy');
     }
 
     /**
@@ -74,6 +75,7 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
             'authenticationMethodConfigurations' => fn(ParseNode $n) => $o->setAuthenticationMethodConfigurations($n->getCollectionOfObjectValues([AuthenticationMethodConfiguration::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'microsoftAuthenticatorPlatformSettings' => fn(ParseNode $n) => $o->setMicrosoftAuthenticatorPlatformSettings($n->getObjectValue([MicrosoftAuthenticatorPlatformSettings::class, 'createFromDiscriminatorValue'])),
             'policyMigrationState' => fn(ParseNode $n) => $o->setPolicyMigrationState($n->getEnumValue(AuthenticationMethodsPolicyMigrationState::class)),
@@ -83,6 +85,18 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
             'reportSuspiciousActivitySettings' => fn(ParseNode $n) => $o->setReportSuspiciousActivitySettings($n->getObjectValue([ReportSuspiciousActivitySettings::class, 'createFromDiscriminatorValue'])),
             'systemCredentialPreferences' => fn(ParseNode $n) => $o->setSystemCredentialPreferences($n->getObjectValue([SystemCredentialPreferences::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the id property value. The id property
+     * @return string|null
+    */
+    public function getId(): ?string {
+        $val = $this->getBackingStore()->get('id');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'id'");
     }
 
     /**
@@ -190,6 +204,7 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('authenticationMethodConfigurations', $this->getAuthenticationMethodConfigurations());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('id', $this->getId());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeObjectValue('microsoftAuthenticatorPlatformSettings', $this->getMicrosoftAuthenticatorPlatformSettings());
         $writer->writeEnumValue('policyMigrationState', $this->getPolicyMigrationState());
@@ -222,6 +237,14 @@ class AuthenticationMethodsPolicy extends Entity implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the id property value. The id property
+     * @param string|null $value Value to set for the id property.
+    */
+    public function setId(?string $value): void {
+        $this->getBackingStore()->set('id', $value);
     }
 
     /**
