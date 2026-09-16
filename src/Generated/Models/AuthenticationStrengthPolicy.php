@@ -8,13 +8,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
-class AuthenticationStrengthPolicy extends Entity implements Parsable 
+class AuthenticationStrengthPolicy extends PolicyDeletableItem implements Parsable 
 {
     /**
      * Instantiates a new AuthenticationStrengthPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.authenticationStrengthPolicy');
     }
 
     /**
@@ -102,10 +103,23 @@ class AuthenticationStrengthPolicy extends Entity implements Parsable
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
             'modifiedDateTime' => fn(ParseNode $n) => $o->setModifiedDateTime($n->getDateTimeValue()),
             'policyType' => fn(ParseNode $n) => $o->setPolicyType($n->getEnumValue(AuthenticationStrengthPolicyType::class)),
             'requirementsSatisfied' => fn(ParseNode $n) => $o->setRequirementsSatisfied($n->getEnumValue(AuthenticationStrengthRequirements::class)),
         ]);
+    }
+
+    /**
+     * Gets the id property value. The id property
+     * @return string|null
+    */
+    public function getId(): ?string {
+        $val = $this->getBackingStore()->get('id');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'id'");
     }
 
     /**
@@ -155,6 +169,7 @@ class AuthenticationStrengthPolicy extends Entity implements Parsable
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('id', $this->getId());
         $writer->writeDateTimeValue('modifiedDateTime', $this->getModifiedDateTime());
         $writer->writeEnumValue('policyType', $this->getPolicyType());
         $writer->writeEnumValue('requirementsSatisfied', $this->getRequirementsSatisfied());
@@ -198,6 +213,14 @@ class AuthenticationStrengthPolicy extends Entity implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the id property value. The id property
+     * @param string|null $value Value to set for the id property.
+    */
+    public function setId(?string $value): void {
+        $this->getBackingStore()->set('id', $value);
     }
 
     /**

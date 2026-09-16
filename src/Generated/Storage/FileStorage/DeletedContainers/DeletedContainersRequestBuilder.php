@@ -8,6 +8,8 @@ use Microsoft\Graph\Beta\Generated\Models\FileStorageContainer;
 use Microsoft\Graph\Beta\Generated\Models\FileStorageContainerCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\GetByUserWithUserObjectId\GetByUserWithUserObjectIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\GetByUserWithUserObjectIdWithRole\GetByUserWithUserObjectIdWithRoleRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\GetByUserWithUserPrincipalName\GetByUserWithUserPrincipalNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\GetByUserWithUserPrincipalNameWithRole\GetByUserWithUserPrincipalNameWithRoleRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Storage\FileStorage\DeletedContainers\Item\FileStorageContainerItemRequestBuilder;
@@ -65,6 +67,25 @@ class DeletedContainersRequestBuilder extends BaseRequestBuilder
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
         ];
         return $this->requestAdapter->sendAsync($requestInfo, [FileStorageContainerCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+    }
+
+    /**
+     * Provides operations to call the getByUser method.
+     * @param string $userObjectId Usage: userObjectId={userObjectId}
+     * @return GetByUserWithUserObjectIdRequestBuilder
+    */
+    public function getByUserWithUserObjectId(string $userObjectId): GetByUserWithUserObjectIdRequestBuilder {
+        return new GetByUserWithUserObjectIdRequestBuilder($this->pathParameters, $this->requestAdapter, $userObjectId);
+    }
+
+    /**
+     * Provides operations to call the getByUser method.
+     * @param string $role Usage: role='{role}'
+     * @param string $userObjectId Usage: userObjectId={userObjectId}
+     * @return GetByUserWithUserObjectIdWithRoleRequestBuilder
+    */
+    public function getByUserWithUserObjectIdWithRole(string $role, string $userObjectId): GetByUserWithUserObjectIdWithRoleRequestBuilder {
+        return new GetByUserWithUserObjectIdWithRoleRequestBuilder($this->pathParameters, $this->requestAdapter, $role, $userObjectId);
     }
 
     /**

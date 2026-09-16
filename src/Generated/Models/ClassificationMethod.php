@@ -9,4 +9,7 @@ class ClassificationMethod extends Enum {
     public const EXACT_DATA_MATCH = "exactDataMatch";
     public const FINGERPRINT = "fingerprint";
     public const MACHINE_LEARNING = "machineLearning";
+    public const PRIVACY_DATA_MATCH = "privacyDataMatch";
+    public const AI_POWERED = "aiPowered";
+    public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

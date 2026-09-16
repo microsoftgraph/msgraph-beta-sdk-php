@@ -107,7 +107,7 @@ class ProcessContentRequest implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the evaluationScope property value. The evaluationScope property
+     * Gets the evaluationScope property value. Specifies the evaluation context for the request. Optional generally; required for the tenant-scoped processContent action, where type must be agent. When omitted from other actions, the request uses the default tenant evaluation context.
      * @return EvaluationScope|null
     */
     public function getEvaluationScope(): ?EvaluationScope {
@@ -237,7 +237,7 @@ class ProcessContentRequest implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the evaluationScope property value. The evaluationScope property
+     * Sets the evaluationScope property value. Specifies the evaluation context for the request. Optional generally; required for the tenant-scoped processContent action, where type must be agent. When omitted from other actions, the request uses the default tenant evaluation context.
      * @param EvaluationScope|null $value Value to set for the evaluationScope property.
     */
     public function setEvaluationScope(?EvaluationScope $value): void {
