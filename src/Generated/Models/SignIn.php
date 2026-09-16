@@ -465,6 +465,7 @@ class SignIn extends Entity implements Parsable
             'riskLevelAggregated' => fn(ParseNode $n) => $o->setRiskLevelAggregated($n->getEnumValue(RiskLevel::class)),
             'riskLevelDuringSignIn' => fn(ParseNode $n) => $o->setRiskLevelDuringSignIn($n->getEnumValue(RiskLevel::class)),
             'riskState' => fn(ParseNode $n) => $o->setRiskState($n->getEnumValue(RiskState::class)),
+            'rootActorId' => fn(ParseNode $n) => $o->setRootActorId($n->getStringValue()),
             'servicePrincipalCredentialKeyId' => fn(ParseNode $n) => $o->setServicePrincipalCredentialKeyId($n->getStringValue()),
             'servicePrincipalCredentialThumbprint' => fn(ParseNode $n) => $o->setServicePrincipalCredentialThumbprint($n->getStringValue()),
             'servicePrincipalId' => fn(ParseNode $n) => $o->setServicePrincipalId($n->getStringValue()),
@@ -836,6 +837,18 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
+     * Gets the rootActorId property value. The rootActorId property
+     * @return string|null
+    */
+    public function getRootActorId(): ?string {
+        $val = $this->getBackingStore()->get('rootActorId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rootActorId'");
+    }
+
+    /**
      * Gets the servicePrincipalCredentialKeyId property value. The unique identifier of the key credential used by the service principal to authenticate.
      * @return string|null
     */
@@ -1141,6 +1154,7 @@ class SignIn extends Entity implements Parsable
         $writer->writeEnumValue('riskLevelAggregated', $this->getRiskLevelAggregated());
         $writer->writeEnumValue('riskLevelDuringSignIn', $this->getRiskLevelDuringSignIn());
         $writer->writeEnumValue('riskState', $this->getRiskState());
+        $writer->writeStringValue('rootActorId', $this->getRootActorId());
         $writer->writeStringValue('servicePrincipalCredentialKeyId', $this->getServicePrincipalCredentialKeyId());
         $writer->writeStringValue('servicePrincipalCredentialThumbprint', $this->getServicePrincipalCredentialThumbprint());
         $writer->writeStringValue('servicePrincipalId', $this->getServicePrincipalId());
@@ -1609,6 +1623,14 @@ class SignIn extends Entity implements Parsable
     */
     public function setRiskState(?RiskState $value): void {
         $this->getBackingStore()->set('riskState', $value);
+    }
+
+    /**
+     * Sets the rootActorId property value. The rootActorId property
+     * @param string|null $value Value to set for the rootActorId property.
+    */
+    public function setRootActorId(?string $value): void {
+        $this->getBackingStore()->set('rootActorId', $value);
     }
 
     /**

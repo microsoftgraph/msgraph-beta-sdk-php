@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -63,8 +64,8 @@ class RelatedTenantsRefreshStatus implements AdditionalDataHolder, BackedModel, 
         $o = $this;
         return  [
             'isFirstRefresh' => fn(ParseNode $n) => $o->setIsFirstRefresh($n->getBooleanValue()),
+            'mostRecentRefreshDateTime' => fn(ParseNode $n) => $o->setMostRecentRefreshDateTime($n->getDateTimeValue()),
             'mostRecentRefreshRequestStatus' => fn(ParseNode $n) => $o->setMostRecentRefreshRequestStatus($n->getStringValue()),
-            'mostRecentRefreshTime' => fn(ParseNode $n) => $o->setMostRecentRefreshTime($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -82,6 +83,18 @@ class RelatedTenantsRefreshStatus implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
+     * Gets the mostRecentRefreshDateTime property value. The mostRecentRefreshDateTime property
+     * @return DateTime|null
+    */
+    public function getMostRecentRefreshDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('mostRecentRefreshDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'mostRecentRefreshDateTime'");
+    }
+
+    /**
      * Gets the mostRecentRefreshRequestStatus property value. The mostRecentRefreshRequestStatus property
      * @return string|null
     */
@@ -91,18 +104,6 @@ class RelatedTenantsRefreshStatus implements AdditionalDataHolder, BackedModel, 
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'mostRecentRefreshRequestStatus'");
-    }
-
-    /**
-     * Gets the mostRecentRefreshTime property value. The mostRecentRefreshTime property
-     * @return string|null
-    */
-    public function getMostRecentRefreshTime(): ?string {
-        $val = $this->getBackingStore()->get('mostRecentRefreshTime');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'mostRecentRefreshTime'");
     }
 
     /**
@@ -123,8 +124,8 @@ class RelatedTenantsRefreshStatus implements AdditionalDataHolder, BackedModel, 
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('isFirstRefresh', $this->getIsFirstRefresh());
+        $writer->writeDateTimeValue('mostRecentRefreshDateTime', $this->getMostRecentRefreshDateTime());
         $writer->writeStringValue('mostRecentRefreshRequestStatus', $this->getMostRecentRefreshRequestStatus());
-        $writer->writeStringValue('mostRecentRefreshTime', $this->getMostRecentRefreshTime());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -154,19 +155,19 @@ class RelatedTenantsRefreshStatus implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
+     * Sets the mostRecentRefreshDateTime property value. The mostRecentRefreshDateTime property
+     * @param DateTime|null $value Value to set for the mostRecentRefreshDateTime property.
+    */
+    public function setMostRecentRefreshDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('mostRecentRefreshDateTime', $value);
+    }
+
+    /**
      * Sets the mostRecentRefreshRequestStatus property value. The mostRecentRefreshRequestStatus property
      * @param string|null $value Value to set for the mostRecentRefreshRequestStatus property.
     */
     public function setMostRecentRefreshRequestStatus(?string $value): void {
         $this->getBackingStore()->set('mostRecentRefreshRequestStatus', $value);
-    }
-
-    /**
-     * Sets the mostRecentRefreshTime property value. The mostRecentRefreshTime property
-     * @param string|null $value Value to set for the mostRecentRefreshTime property.
-    */
-    public function setMostRecentRefreshTime(?string $value): void {
-        $this->getBackingStore()->set('mostRecentRefreshTime', $value);
     }
 
     /**

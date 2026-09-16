@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\Reports;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get reports from solutions
+ * Report corresponding to a protection policy.
 */
 class ReportsRequestBuilderGetQueryParameters 
 {

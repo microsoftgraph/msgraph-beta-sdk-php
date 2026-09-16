@@ -46,7 +46,7 @@ class NetworkRequestBuilder extends BaseRequestBuilder
 
     /**
      * Update network
-     * @param Network $body Singleton for network operations on Microsoft Graph.
+     * @param Network $body The request body
      * @param NetworkRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Network|null>
      * @throws Exception
@@ -82,7 +82,7 @@ class NetworkRequestBuilder extends BaseRequestBuilder
 
     /**
      * Update network
-     * @param Network $body Singleton for network operations on Microsoft Graph.
+     * @param Network $body The request body
      * @param NetworkRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

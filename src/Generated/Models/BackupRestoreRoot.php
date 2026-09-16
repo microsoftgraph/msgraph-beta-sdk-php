@@ -362,7 +362,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the reports property value. The reports property
+     * Gets the reports property value. Report corresponding to a protection policy.
      * @return BackupReport|null
     */
     public function getReports(): ?BackupReport {
@@ -750,7 +750,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the reports property value. The reports property
+     * Sets the reports property value. Report corresponding to a protection policy.
      * @param BackupReport|null $value Value to set for the reports property.
     */
     public function setReports(?BackupReport $value): void {

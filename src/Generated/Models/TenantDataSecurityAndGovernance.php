@@ -27,12 +27,25 @@ class TenantDataSecurityAndGovernance extends DataSecurityAndGovernance implemen
     }
 
     /**
+     * Gets the activities property value. The activities property
+     * @return TenantActivitiesContainer|null
+    */
+    public function getActivities(): ?TenantActivitiesContainer {
+        $val = $this->getBackingStore()->get('activities');
+        if (is_null($val) || $val instanceof TenantActivitiesContainer) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'activities'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'activities' => fn(ParseNode $n) => $o->setActivities($n->getObjectValue([TenantActivitiesContainer::class, 'createFromDiscriminatorValue'])),
             'policyFiles' => fn(ParseNode $n) => $o->setPolicyFiles($n->getCollectionOfObjectValues([PolicyFile::class, 'createFromDiscriminatorValue'])),
             'protectionScopes' => fn(ParseNode $n) => $o->setProtectionScopes($n->getObjectValue([TenantProtectionScopeContainer::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -70,8 +83,17 @@ class TenantDataSecurityAndGovernance extends DataSecurityAndGovernance implemen
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('activities', $this->getActivities());
         $writer->writeCollectionOfObjectValues('policyFiles', $this->getPolicyFiles());
         $writer->writeObjectValue('protectionScopes', $this->getProtectionScopes());
+    }
+
+    /**
+     * Sets the activities property value. The activities property
+     * @param TenantActivitiesContainer|null $value Value to set for the activities property.
+    */
+    public function setActivities(?TenantActivitiesContainer $value): void {
+        $this->getBackingStore()->set('activities', $value);
     }
 
     /**
