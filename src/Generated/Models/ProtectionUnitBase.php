@@ -141,7 +141,7 @@ class ProtectionUnitBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the offboardRequestedDateTime property value. The time when protection unit offboard was requested.
+     * Gets the offboardRequestedDateTime property value. The time when protection unit offboard was requested. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getOffboardRequestedDateTime(): ?DateTime {
@@ -153,7 +153,7 @@ class ProtectionUnitBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the pendingRetentionPeriodChange property value. The pendingRetentionPeriodChange property
+     * Gets the pendingRetentionPeriodChange property value. The retention period change to be applied to the protection unit.
      * @return RetentionPeriodChange|null
     */
     public function getPendingRetentionPeriodChange(): ?RetentionPeriodChange {
@@ -276,7 +276,7 @@ class ProtectionUnitBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the offboardRequestedDateTime property value. The time when protection unit offboard was requested.
+     * Sets the offboardRequestedDateTime property value. The time when protection unit offboard was requested. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the offboardRequestedDateTime property.
     */
     public function setOffboardRequestedDateTime(?DateTime $value): void {
@@ -284,7 +284,7 @@ class ProtectionUnitBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the pendingRetentionPeriodChange property value. The pendingRetentionPeriodChange property
+     * Sets the pendingRetentionPeriodChange property value. The retention period change to be applied to the protection unit.
      * @param RetentionPeriodChange|null $value Value to set for the pendingRetentionPeriodChange property.
     */
     public function setPendingRetentionPeriodChange(?RetentionPeriodChange $value): void {

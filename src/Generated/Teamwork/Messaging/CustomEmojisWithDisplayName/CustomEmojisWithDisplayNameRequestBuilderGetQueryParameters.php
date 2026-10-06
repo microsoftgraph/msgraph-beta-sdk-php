@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teamwork\Messaging\CustomEmojis\Item;
+namespace Microsoft\Graph\Beta\Generated\Teamwork\Messaging\CustomEmojisWithDisplayName;
 
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
  * The collection of custom emojis available in organization messaging.
 */
-class TeamworkCustomEmojiDisplayNameItemRequestBuilderGetQueryParameters 
+class CustomEmojisWithDisplayNameRequestBuilderGetQueryParameters 
 {
     /**
      * @QueryParameter("%24expand")
@@ -22,7 +22,7 @@ class TeamworkCustomEmojiDisplayNameItemRequestBuilderGetQueryParameters
     public ?array $select = null;
     
     /**
-     * Instantiates a new TeamworkCustomEmojiDisplayNameItemRequestBuilderGetQueryParameters and sets the default values.
+     * Instantiates a new CustomEmojisWithDisplayNameRequestBuilderGetQueryParameters and sets the default values.
      * @param array<string>|null $expand Expand related entities
      * @param array<string>|null $select Select properties to be returned
     */

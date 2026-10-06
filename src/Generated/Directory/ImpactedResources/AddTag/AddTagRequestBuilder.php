@@ -35,6 +35,7 @@ class AddTagRequestBuilder extends BaseRequestBuilder
      * @param AddTagRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<AddTagPostResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/impactedresource-addtag-collection?view=graph-rest-beta Find more info here
     */
     public function post(AddTagPostRequestBody $body, ?AddTagRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

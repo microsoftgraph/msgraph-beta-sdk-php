@@ -26,6 +26,7 @@ use Microsoft\Graph\Beta\Generated\Security\InformationProtection\InformationPro
 use Microsoft\Graph\Beta\Generated\Security\IpSecurityProfiles\IpSecurityProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Labels\LabelsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\MicrosoftGraphSecurityGetHuntingSchema\MicrosoftGraphSecurityGetHuntingSchemaRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\MicrosoftGraphSecurityGetHuntingSchemaTablesWithWorkspaceId\MicrosoftGraphSecurityGetHuntingSchemaTablesWithWorkspaceIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\MicrosoftGraphSecurityGetRunHuntingQueryWithQuerytimespanTimespanWithWorkspaceId\MicrosoftGraphSecurityGetRunHuntingQueryWithQuerytimespanTimespanWithWorkspaceIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\MicrosoftGraphSecurityRunHuntingQuery\MicrosoftGraphSecurityRunHuntingQueryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Partner\PartnerRequestBuilder;
@@ -191,6 +192,13 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     */
     public function microsoftGraphSecurityGetHuntingSchema(): MicrosoftGraphSecurityGetHuntingSchemaRequestBuilder {
         return new MicrosoftGraphSecurityGetHuntingSchemaRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getHuntingSchemaTables method.
+    */
+    public function microsoftGraphSecurityGetHuntingSchemaTablesWithWorkspaceId(): MicrosoftGraphSecurityGetHuntingSchemaTablesWithWorkspaceIdRequestBuilder {
+        return new MicrosoftGraphSecurityGetHuntingSchemaTablesWithWorkspaceIdRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

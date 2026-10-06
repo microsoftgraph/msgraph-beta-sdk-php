@@ -56,7 +56,7 @@ class ProvisionResponse implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the challenge property value. The challenge property
+     * Gets the challenge property value. The cryptographic challenge that the device uses to complete its registration with the directory.
      * @return string|null
     */
     public function getChallenge(): ?string {
@@ -68,7 +68,7 @@ class ProvisionResponse implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the deviceId property value. The deviceId property
+     * Gets the deviceId property value. The unique identifier of the provisioned device.
      * @return string|null
     */
     public function getDeviceId(): ?string {
@@ -132,7 +132,7 @@ class ProvisionResponse implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the challenge property value. The challenge property
+     * Sets the challenge property value. The cryptographic challenge that the device uses to complete its registration with the directory.
      * @param string|null $value Value to set for the challenge property.
     */
     public function setChallenge(?string $value): void {
@@ -140,7 +140,7 @@ class ProvisionResponse implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the deviceId property value. The deviceId property
+     * Sets the deviceId property value. The unique identifier of the provisioned device.
      * @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {

@@ -31,10 +31,11 @@ class ApplyAlternateMitigationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action applyAlternateMitigation
+     * Apply an alternate mitigation for a recommendation object and update its status to alternateMitigation.
      * @param ApplyAlternateMitigationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Recommendation|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/recommendation-applyalternatemitigation?view=graph-rest-beta Find more info here
     */
     public function post(?ApplyAlternateMitigationRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -45,7 +46,7 @@ class ApplyAlternateMitigationRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action applyAlternateMitigation
+     * Apply an alternate mitigation for a recommendation object and update its status to alternateMitigation.
      * @param ApplyAlternateMitigationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

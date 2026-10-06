@@ -51,7 +51,7 @@ class BillingMetrics extends Entity implements Parsable
     }
 
     /**
-     * Gets the investigationHints property value. The investigationHints property
+     * Gets the investigationHints property value. Ordered drill-in guidance for investigating billing relationship counts. This collection is returned only when explicitly requested by using a nested $expand query parameter, for example $expand=billingMetrics($expand=investigationHints).
      * @return array<InvestigationActionStep>|null
     */
     public function getInvestigationHints(): ?array {
@@ -96,7 +96,7 @@ class BillingMetrics extends Entity implements Parsable
     }
 
     /**
-     * Sets the investigationHints property value. The investigationHints property
+     * Sets the investigationHints property value. Ordered drill-in guidance for investigating billing relationship counts. This collection is returned only when explicitly requested by using a nested $expand query parameter, for example $expand=billingMetrics($expand=investigationHints).
      * @param array<InvestigationActionStep>|null $value Value to set for the investigationHints property.
     */
     public function setInvestigationHints(?array $value): void {

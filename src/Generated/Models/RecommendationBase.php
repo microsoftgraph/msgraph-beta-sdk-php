@@ -84,7 +84,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the completedBySystemDateTime property value. The completedBySystemDateTime property
+     * Gets the completedBySystemDateTime property value. The date and time when the recommendations service verified that the recommendation was fully remediated and set its status to completedBySystem. Is null if the recommendation wasn't completed by the system. Supports $filter.
      * @return DateTime|null
     */
     public function getCompletedBySystemDateTime(): ?DateTime {
@@ -96,7 +96,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the completedByUserDateTime property value. The completedByUserDateTime property
+     * Gets the completedByUserDateTime property value. The date and time when the recommendation was marked as completed by the user for the current review cycle, including when the value is rolled up from all impacted resources being marked as completed by the user. Is null if the recommendation wasn't completed by a user in the current cycle. Supports $filter.
      * @return DateTime|null
     */
     public function getCompletedByUserDateTime(): ?DateTime {
@@ -144,7 +144,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the failedReviewDateTime property value. The failedReviewDateTime property
+     * Gets the failedReviewDateTime property value. The date and time when the recommendations service most recently verified that one or more impacted resources the user marked as completed are still impacted, moving them to needsMoreAction. Is cleared when the reviewed resources are remediated, so it's mutually exclusive with remediatedDateTime. Is null when no user-reviewed resource is currently failing verification. Supports $filter.
      * @return DateTime|null
     */
     public function getFailedReviewDateTime(): ?DateTime {
@@ -309,7 +309,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the needsMoreActionResourceCount property value. The needsMoreActionResourceCount property
+     * Gets the needsMoreActionResourceCount property value. The number of impacted resources that the user marked as completed and that the recommendations service subsequently verified are still impacted (moved to needsMoreAction). This value is greater than zero exactly when failedReviewDateTime is set. Is null when the recommendation doesn't participate in the review lifecycle.
      * @return int|null
     */
     public function getNeedsMoreActionResourceCount(): ?int {
@@ -321,7 +321,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the nistClassifications property value. The nistClassifications property
+     * Gets the nistClassifications property value. The NIST Cybersecurity Framework (CSF) 2.0 categories that the recommendation maps to. Read-only.
      * @return array<NistClassification>|null
     */
     public function getNistClassifications(): ?array {
@@ -383,7 +383,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the remediatedDateTime property value. The remediatedDateTime property
+     * Gets the remediatedDateTime property value. The date and time when the recommendations service verified that the impacted resources the user marked as completed were remediated, meaning the user-reviewed resources reached completedBySystem. Is superseded by failedReviewDateTime if a reviewed resource subsequently fails verification. Is null if the system hasn't verified a user-driven remediation in the current cycle. Supports $filter.
      * @return DateTime|null
     */
     public function getRemediatedDateTime(): ?DateTime {
@@ -407,7 +407,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the requiredLicenses property value. The required licenses to view the recommendation. The possible values are: notApplicable, microsoftEntraIdFree, microsoftEntraIdP1, microsoftEntraIdP2, microsoftEntraIdGovernance, microsoftEntraWorkloadId, unknownFutureValue, aatp. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: aatp.
+     * Gets the requiredLicenses property value. The required licenses to view the recommendation. The possible values are: notApplicable, microsoftEntraIdFree, microsoftEntraIdP1, microsoftEntraIdP2, microsoftEntraIdGovernance, microsoftEntraWorkloadId, unknownFutureValue, aatp, microsoftEntraSuite. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: aatp, microsoftEntraSuite.
      * @return RequiredLicenses|null
     */
     public function getRequiredLicenses(): ?RequiredLicenses {
@@ -431,7 +431,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the statusModifiedDateTime property value. The statusModifiedDateTime property
+     * Gets the statusModifiedDateTime property value. The date and time when the recommendation's status last changed, for example from active to completedByUser, dismissed, postponed, or needsMoreAction. Unlike lastModifiedDateTime, this value isn't updated when only the recommendation's insight data changes while the status stays the same. Is null until the recommendation's status changes for the first time. Supports $filter.
      * @return DateTime|null
     */
     public function getStatusModifiedDateTime(): ?DateTime {
@@ -443,7 +443,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the tags property value. The tags property
+     * Gets the tags property value. The user-defined free-form labels applied to the recommendation. The collection isn't directly writable; tags are created and removed through the addTag and removeTag actions.
      * @return array<RecommendationTag>|null
     */
     public function getTags(): ?array {
@@ -528,7 +528,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the completedBySystemDateTime property value. The completedBySystemDateTime property
+     * Sets the completedBySystemDateTime property value. The date and time when the recommendations service verified that the recommendation was fully remediated and set its status to completedBySystem. Is null if the recommendation wasn't completed by the system. Supports $filter.
      * @param DateTime|null $value Value to set for the completedBySystemDateTime property.
     */
     public function setCompletedBySystemDateTime(?DateTime $value): void {
@@ -536,7 +536,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the completedByUserDateTime property value. The completedByUserDateTime property
+     * Sets the completedByUserDateTime property value. The date and time when the recommendation was marked as completed by the user for the current review cycle, including when the value is rolled up from all impacted resources being marked as completed by the user. Is null if the recommendation wasn't completed by a user in the current cycle. Supports $filter.
      * @param DateTime|null $value Value to set for the completedByUserDateTime property.
     */
     public function setCompletedByUserDateTime(?DateTime $value): void {
@@ -568,7 +568,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the failedReviewDateTime property value. The failedReviewDateTime property
+     * Sets the failedReviewDateTime property value. The date and time when the recommendations service most recently verified that one or more impacted resources the user marked as completed are still impacted, moving them to needsMoreAction. Is cleared when the reviewed resources are remediated, so it's mutually exclusive with remediatedDateTime. Is null when no user-reviewed resource is currently failing verification. Supports $filter.
      * @param DateTime|null $value Value to set for the failedReviewDateTime property.
     */
     public function setFailedReviewDateTime(?DateTime $value): void {
@@ -648,7 +648,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the needsMoreActionResourceCount property value. The needsMoreActionResourceCount property
+     * Sets the needsMoreActionResourceCount property value. The number of impacted resources that the user marked as completed and that the recommendations service subsequently verified are still impacted (moved to needsMoreAction). This value is greater than zero exactly when failedReviewDateTime is set. Is null when the recommendation doesn't participate in the review lifecycle.
      * @param int|null $value Value to set for the needsMoreActionResourceCount property.
     */
     public function setNeedsMoreActionResourceCount(?int $value): void {
@@ -656,7 +656,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the nistClassifications property value. The nistClassifications property
+     * Sets the nistClassifications property value. The NIST Cybersecurity Framework (CSF) 2.0 categories that the recommendation maps to. Read-only.
      * @param array<NistClassification>|null $value Value to set for the nistClassifications property.
     */
     public function setNistClassifications(?array $value): void {
@@ -696,7 +696,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the remediatedDateTime property value. The remediatedDateTime property
+     * Sets the remediatedDateTime property value. The date and time when the recommendations service verified that the impacted resources the user marked as completed were remediated, meaning the user-reviewed resources reached completedBySystem. Is superseded by failedReviewDateTime if a reviewed resource subsequently fails verification. Is null if the system hasn't verified a user-driven remediation in the current cycle. Supports $filter.
      * @param DateTime|null $value Value to set for the remediatedDateTime property.
     */
     public function setRemediatedDateTime(?DateTime $value): void {
@@ -712,7 +712,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the requiredLicenses property value. The required licenses to view the recommendation. The possible values are: notApplicable, microsoftEntraIdFree, microsoftEntraIdP1, microsoftEntraIdP2, microsoftEntraIdGovernance, microsoftEntraWorkloadId, unknownFutureValue, aatp. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: aatp.
+     * Sets the requiredLicenses property value. The required licenses to view the recommendation. The possible values are: notApplicable, microsoftEntraIdFree, microsoftEntraIdP1, microsoftEntraIdP2, microsoftEntraIdGovernance, microsoftEntraWorkloadId, unknownFutureValue, aatp, microsoftEntraSuite. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: aatp, microsoftEntraSuite.
      * @param RequiredLicenses|null $value Value to set for the requiredLicenses property.
     */
     public function setRequiredLicenses(?RequiredLicenses $value): void {
@@ -728,7 +728,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the statusModifiedDateTime property value. The statusModifiedDateTime property
+     * Sets the statusModifiedDateTime property value. The date and time when the recommendation's status last changed, for example from active to completedByUser, dismissed, postponed, or needsMoreAction. Unlike lastModifiedDateTime, this value isn't updated when only the recommendation's insight data changes while the status stays the same. Is null until the recommendation's status changes for the first time. Supports $filter.
      * @param DateTime|null $value Value to set for the statusModifiedDateTime property.
     */
     public function setStatusModifiedDateTime(?DateTime $value): void {
@@ -736,7 +736,7 @@ class RecommendationBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the tags property value. The tags property
+     * Sets the tags property value. The user-defined free-form labels applied to the recommendation. The collection isn't directly writable; tags are created and removed through the addTag and removeTag actions.
      * @param array<RecommendationTag>|null $value Value to set for the tags property.
     */
     public function setTags(?array $value): void {

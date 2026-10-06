@@ -32,7 +32,20 @@ class EntraDriftIdentityInfo extends DriftIdentityInfo implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'identityType' => fn(ParseNode $n) => $o->setIdentityType($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the identityType property value. The identityType property
+     * @return string|null
+    */
+    public function getIdentityType(): ?string {
+        $val = $this->getBackingStore()->get('identityType');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityType'");
     }
 
     /**
@@ -41,6 +54,15 @@ class EntraDriftIdentityInfo extends DriftIdentityInfo implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('identityType', $this->getIdentityType());
+    }
+
+    /**
+     * Sets the identityType property value. The identityType property
+     * @param string|null $value Value to set for the identityType property.
+    */
+    public function setIdentityType(?string $value): void {
+        $this->getBackingStore()->set('identityType', $value);
     }
 
 }

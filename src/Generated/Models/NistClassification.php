@@ -56,7 +56,7 @@ class NistClassification implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the category property value. The category property
+     * Gets the category property value. The NIST CSF 2.0 category name, for example Adverse Event Analysis.
      * @return string|null
     */
     public function getCategory(): ?string {
@@ -68,7 +68,7 @@ class NistClassification implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. A description of the NIST CSF 2.0 category.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -80,7 +80,7 @@ class NistClassification implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the function property value. The function property
+     * Gets the function property value. The NIST CSF 2.0 function, for example Detect (DE).
      * @return string|null
     */
     public function getEscapedFunction(): ?string {
@@ -107,7 +107,7 @@ class NistClassification implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. The NIST CSF 2.0 category identifier, for example DE.AE.
      * @return string|null
     */
     public function getName(): ?string {
@@ -160,7 +160,7 @@ class NistClassification implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the category property value. The category property
+     * Sets the category property value. The NIST CSF 2.0 category name, for example Adverse Event Analysis.
      * @param string|null $value Value to set for the category property.
     */
     public function setCategory(?string $value): void {
@@ -168,7 +168,7 @@ class NistClassification implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. A description of the NIST CSF 2.0 category.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -176,7 +176,7 @@ class NistClassification implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the function property value. The function property
+     * Sets the function property value. The NIST CSF 2.0 function, for example Detect (DE).
      * @param string|null $value Value to set for the function property.
     */
     public function setEscapedFunction(?string $value): void {
@@ -184,7 +184,7 @@ class NistClassification implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. The NIST CSF 2.0 category identifier, for example DE.AE.
      * @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value): void {

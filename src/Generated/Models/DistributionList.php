@@ -48,7 +48,7 @@ class DistributionList extends OutlookItem implements Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'members' => fn(ParseNode $n) => $o->setMembers($n->getCollectionOfObjectValues([DistributionListMember::class, 'createFromDiscriminatorValue'])),
             'notes' => fn(ParseNode $n) => $o->setNotes($n->getStringValue()),
-            'personIdentifier' => fn(ParseNode $n) => $o->setPersonIdentifier($n->getStringValue()),
+            'personId' => fn(ParseNode $n) => $o->setPersonId($n->getStringValue()),
             'singleValueExtendedProperties' => fn(ParseNode $n) => $o->setSingleValueExtendedProperties($n->getCollectionOfObjectValues([SingleValueLegacyExtendedProperty::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -80,15 +80,15 @@ class DistributionList extends OutlookItem implements Parsable
     }
 
     /**
-     * Gets the personIdentifier property value. The unique identifier of the distribution list in the mailbox. Read-only.
+     * Gets the personId property value. The personId property
      * @return string|null
     */
-    public function getPersonIdentifier(): ?string {
-        $val = $this->getBackingStore()->get('personIdentifier');
+    public function getPersonId(): ?string {
+        $val = $this->getBackingStore()->get('personId');
         if (is_null($val) || is_string($val)) {
             return $val;
         }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'personIdentifier'");
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'personId'");
     }
 
     /**
@@ -114,7 +114,7 @@ class DistributionList extends OutlookItem implements Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeCollectionOfObjectValues('members', $this->getMembers());
         $writer->writeStringValue('notes', $this->getNotes());
-        $writer->writeStringValue('personIdentifier', $this->getPersonIdentifier());
+        $writer->writeStringValue('personId', $this->getPersonId());
         $writer->writeCollectionOfObjectValues('singleValueExtendedProperties', $this->getSingleValueExtendedProperties());
     }
 
@@ -143,11 +143,11 @@ class DistributionList extends OutlookItem implements Parsable
     }
 
     /**
-     * Sets the personIdentifier property value. The unique identifier of the distribution list in the mailbox. Read-only.
-     * @param string|null $value Value to set for the personIdentifier property.
+     * Sets the personId property value. The personId property
+     * @param string|null $value Value to set for the personId property.
     */
-    public function setPersonIdentifier(?string $value): void {
-        $this->getBackingStore()->set('personIdentifier', $value);
+    public function setPersonId(?string $value): void {
+        $this->getBackingStore()->set('personId', $value);
     }
 
     /**

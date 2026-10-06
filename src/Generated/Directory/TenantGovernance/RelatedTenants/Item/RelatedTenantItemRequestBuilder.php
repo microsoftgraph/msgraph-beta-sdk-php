@@ -85,7 +85,7 @@ class RelatedTenantItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of microsoft.graph.tenantGovernanceServices.relatedTenant object.
+     * Read the properties and relationships of microsoft.graph.relatedTenant object.
      * @param RelatedTenantItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RelatedTenant|null>
      * @throws Exception
@@ -133,7 +133,7 @@ class RelatedTenantItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of microsoft.graph.tenantGovernanceServices.relatedTenant object.
+     * Read the properties and relationships of microsoft.graph.relatedTenant object.
      * @param RelatedTenantItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

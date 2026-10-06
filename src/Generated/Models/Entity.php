@@ -2380,6 +2380,7 @@ class Entity implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.teamTemplateDefinition': return new TeamTemplateDefinition();
                 case '#microsoft.graph.teamwork': return new Teamwork();
                 case '#microsoft.graph.teamworkBot': return new TeamworkBot();
+                case '#microsoft.graph.teamworkCustomEmoji': return new TeamworkCustomEmoji();
                 case '#microsoft.graph.teamworkDevice': return new TeamworkDevice();
                 case '#microsoft.graph.teamworkDeviceActivity': return new TeamworkDeviceActivity();
                 case '#microsoft.graph.teamworkDeviceConfiguration': return new TeamworkDeviceConfiguration();

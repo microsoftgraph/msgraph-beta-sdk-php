@@ -63,12 +63,25 @@ class CloudPcPoolCapabilityConfiguration implements AdditionalDataHolder, Backed
     }
 
     /**
+     * Gets the enableSingleSignOn property value. The enableSingleSignOn property
+     * @return bool|null
+    */
+    public function getEnableSingleSignOn(): ?bool {
+        $val = $this->getBackingStore()->get('enableSingleSignOn');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'enableSingleSignOn'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'enableSingleSignOn' => fn(ParseNode $n) => $o->setEnableSingleSignOn($n->getBooleanValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
@@ -90,6 +103,7 @@ class CloudPcPoolCapabilityConfiguration implements AdditionalDataHolder, Backed
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeBooleanValue('enableSingleSignOn', $this->getEnableSingleSignOn());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -108,6 +122,14 @@ class CloudPcPoolCapabilityConfiguration implements AdditionalDataHolder, Backed
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the enableSingleSignOn property value. The enableSingleSignOn property
+     * @param bool|null $value Value to set for the enableSingleSignOn property.
+    */
+    public function setEnableSingleSignOn(?bool $value): void {
+        $this->getBackingStore()->set('enableSingleSignOn', $value);
     }
 
     /**
