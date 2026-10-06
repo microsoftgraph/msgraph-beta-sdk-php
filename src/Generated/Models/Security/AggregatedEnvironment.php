@@ -10,6 +10,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Aggregated count of environments of a given kind within a zone.
+*/
 class AggregatedEnvironment implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**

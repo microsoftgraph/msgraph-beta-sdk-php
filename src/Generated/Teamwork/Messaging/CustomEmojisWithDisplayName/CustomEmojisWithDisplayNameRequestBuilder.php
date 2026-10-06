@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Teamwork\Messaging\CustomEmojis\Item;
+namespace Microsoft\Graph\Beta\Generated\Teamwork\Messaging\CustomEmojisWithDisplayName;
 
 use Exception;
 use Http\Promise\Promise;
@@ -14,17 +14,20 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 /**
  * Provides operations to manage the customEmojis property of the microsoft.graph.teamworkMessaging entity.
 */
-class TeamworkCustomEmojiDisplayNameItemRequestBuilder extends BaseRequestBuilder 
+class CustomEmojisWithDisplayNameRequestBuilder extends BaseRequestBuilder 
 {
     /**
-     * Instantiates a new TeamworkCustomEmojiDisplayNameItemRequestBuilder and sets the default values.
+     * Instantiates a new CustomEmojisWithDisplayNameRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+     * @param string|null $displayName Alternate key of teamworkCustomEmoji
     */
-    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter) {
-        parent::__construct($requestAdapter, [], '{+baseurl}/teamwork/messaging/customEmojis/{teamworkCustomEmoji%2DdisplayName}{?%24expand,%24select}');
+    public function __construct($pathParametersOrRawUrl, RequestAdapter $requestAdapter, ?string $displayName = null) {
+        parent::__construct($requestAdapter, [], '{+baseurl}/teamwork/messaging/customEmojis(displayName=\'{displayName}\'){?%24expand,%24select}');
         if (is_array($pathParametersOrRawUrl)) {
-            $this->pathParameters = $pathParametersOrRawUrl;
+            $urlTplParams = $pathParametersOrRawUrl;
+            $urlTplParams['displayName'] = $displayName;
+            $this->pathParameters = $urlTplParams;
         } else {
             $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
         }
@@ -32,11 +35,11 @@ class TeamworkCustomEmojiDisplayNameItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property customEmojis for teamwork
-     * @param TeamworkCustomEmojiDisplayNameItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomEmojisWithDisplayNameRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
     */
-    public function delete(?TeamworkCustomEmojiDisplayNameItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CustomEmojisWithDisplayNameRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -46,11 +49,11 @@ class TeamworkCustomEmojiDisplayNameItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * The collection of custom emojis available in organization messaging.
-     * @param TeamworkCustomEmojiDisplayNameItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomEmojisWithDisplayNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkCustomEmoji|null>
      * @throws Exception
     */
-    public function get(?TeamworkCustomEmojiDisplayNameItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CustomEmojisWithDisplayNameRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -61,11 +64,11 @@ class TeamworkCustomEmojiDisplayNameItemRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property customEmojis in teamwork
      * @param TeamworkCustomEmoji $body The request body
-     * @param TeamworkCustomEmojiDisplayNameItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomEmojisWithDisplayNameRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkCustomEmoji|null>
      * @throws Exception
     */
-    public function patch(TeamworkCustomEmoji $body, ?TeamworkCustomEmojiDisplayNameItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(TeamworkCustomEmoji $body, ?CustomEmojisWithDisplayNameRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         $errorMappings = [
                 'XXX' => [ODataError::class, 'createFromDiscriminatorValue'],
@@ -75,10 +78,10 @@ class TeamworkCustomEmojiDisplayNameItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * Delete navigation property customEmojis for teamwork
-     * @param TeamworkCustomEmojiDisplayNameItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomEmojisWithDisplayNameRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toDeleteRequestInformation(?TeamworkCustomEmojiDisplayNameItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toDeleteRequestInformation(?CustomEmojisWithDisplayNameRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -93,10 +96,10 @@ class TeamworkCustomEmojiDisplayNameItemRequestBuilder extends BaseRequestBuilde
 
     /**
      * The collection of custom emojis available in organization messaging.
-     * @param TeamworkCustomEmojiDisplayNameItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomEmojisWithDisplayNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toGetRequestInformation(?TeamworkCustomEmojiDisplayNameItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toGetRequestInformation(?CustomEmojisWithDisplayNameRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -115,10 +118,10 @@ class TeamworkCustomEmojiDisplayNameItemRequestBuilder extends BaseRequestBuilde
     /**
      * Update the navigation property customEmojis in teamwork
      * @param TeamworkCustomEmoji $body The request body
-     * @param TeamworkCustomEmojiDisplayNameItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param CustomEmojisWithDisplayNameRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(TeamworkCustomEmoji $body, ?TeamworkCustomEmojiDisplayNameItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(TeamworkCustomEmoji $body, ?CustomEmojisWithDisplayNameRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
@@ -135,10 +138,10 @@ class TeamworkCustomEmojiDisplayNameItemRequestBuilder extends BaseRequestBuilde
     /**
      * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
      * @param string $rawUrl The raw URL to use for the request builder.
-     * @return TeamworkCustomEmojiDisplayNameItemRequestBuilder
+     * @return CustomEmojisWithDisplayNameRequestBuilder
     */
-    public function withUrl(string $rawUrl): TeamworkCustomEmojiDisplayNameItemRequestBuilder {
-        return new TeamworkCustomEmojiDisplayNameItemRequestBuilder($rawUrl, $this->requestAdapter);
+    public function withUrl(string $rawUrl): CustomEmojisWithDisplayNameRequestBuilder {
+        return new CustomEmojisWithDisplayNameRequestBuilder($rawUrl, $this->requestAdapter);
     }
 
 }

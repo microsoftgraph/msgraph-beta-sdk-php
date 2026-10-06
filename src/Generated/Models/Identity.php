@@ -37,6 +37,7 @@ class Identity implements AdditionalDataHolder, BackedModel, Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.applicationIdentity': return new ApplicationIdentity();
                 case '#microsoft.graph.auditUserIdentity': return new AuditUserIdentity();
                 case '#microsoft.graph.azureCommunicationServicesUserIdentity': return new AzureCommunicationServicesUserIdentity();
                 case '#microsoft.graph.callRecords.userIdentity': return new UserIdentity();

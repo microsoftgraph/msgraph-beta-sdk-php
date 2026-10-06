@@ -56,7 +56,7 @@ class InvestigationActionUrl implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. A machine-readable directive that describes how a client should run the step, in the form metricPath§operation§input§output (for example, b2BRegistrationMetrics.recent.inboundTotalUsers§single§§$verifiedDomains). Clients use this value to chain steps together and to interpret the output of the associated url.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -93,7 +93,7 @@ class InvestigationActionUrl implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the url property value. The url property
+     * Gets the url property value. A Microsoft Graph or Azure Resource Manager (ARM) URL template that the client invokes to retrieve the drill-in data for the step. The template can include placeholders such as {@id}, {startDate}, {endDate}, or {sourceDomain} that the client resolves from the related tenant, the caller context, or the output of earlier steps. This value can be empty for steps that only transform data returned by a previous step.
      * @return string|null
     */
     public function getUrl(): ?string {
@@ -132,7 +132,7 @@ class InvestigationActionUrl implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. A machine-readable directive that describes how a client should run the step, in the form metricPath§operation§input§output (for example, b2BRegistrationMetrics.recent.inboundTotalUsers§single§§$verifiedDomains). Clients use this value to chain steps together and to interpret the output of the associated url.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -148,7 +148,7 @@ class InvestigationActionUrl implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the url property value. The url property
+     * Sets the url property value. A Microsoft Graph or Azure Resource Manager (ARM) URL template that the client invokes to retrieve the drill-in data for the step. The template can include placeholders such as {@id}, {startDate}, {endDate}, or {sourceDomain} that the client resolves from the related tenant, the caller context, or the output of earlier steps. This value can be empty for steps that only transform data returned by a previous step.
      * @param string|null $value Value to set for the url property.
     */
     public function setUrl(?string $value): void {

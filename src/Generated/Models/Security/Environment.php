@@ -7,6 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * Represents a single cloud environment onboarded for security posture management.
+*/
 class Environment extends Entity implements Parsable 
 {
     /**
@@ -37,7 +40,7 @@ class Environment extends Entity implements Parsable
     }
 
     /**
-     * Gets the kind property value. The kind property
+     * Gets the kind property value. The kind of cloud environment onboarded to security posture management.
      * @return EnvironmentKind|null
     */
     public function getKind(): ?EnvironmentKind {
@@ -58,7 +61,7 @@ class Environment extends Entity implements Parsable
     }
 
     /**
-     * Sets the kind property value. The kind property
+     * Sets the kind property value. The kind of cloud environment onboarded to security posture management.
      * @param EnvironmentKind|null $value Value to set for the kind property.
     */
     public function setKind(?EnvironmentKind $value): void {

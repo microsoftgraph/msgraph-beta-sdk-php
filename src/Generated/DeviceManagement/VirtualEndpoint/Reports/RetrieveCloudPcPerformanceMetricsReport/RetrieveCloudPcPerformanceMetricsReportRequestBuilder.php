@@ -31,11 +31,12 @@ class RetrieveCloudPcPerformanceMetricsReportRequestBuilder extends BaseRequestB
     }
 
     /**
-     * Invoke action retrieveCloudPcPerformanceMetricsReport
+     * Get VM-level utilization and performance metrics for a specific Cloud PC from the cloudPcReports resource, including CPU, memory, and network metrics. The metrics are returned as flattened time-series data. This API supports only Windows 365 Enterprise Cloud PCs and Windows 365 Frontline Cloud PCs in dedicated mode.
      * @param RetrieveCloudPcPerformanceMetricsReportPostRequestBody $body The request body
      * @param RetrieveCloudPcPerformanceMetricsReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<StreamInterface|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/cloudpcreports-retrievecloudpcperformancemetricsreport?view=graph-rest-beta Find more info here
     */
     public function post(RetrieveCloudPcPerformanceMetricsReportPostRequestBody $body, ?RetrieveCloudPcPerformanceMetricsReportRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -48,7 +49,7 @@ class RetrieveCloudPcPerformanceMetricsReportRequestBuilder extends BaseRequestB
     }
 
     /**
-     * Invoke action retrieveCloudPcPerformanceMetricsReport
+     * Get VM-level utilization and performance metrics for a specific Cloud PC from the cloudPcReports resource, including CPU, memory, and network metrics. The metrics are returned as flattened time-series data. This API supports only Windows 365 Enterprise Cloud PCs and Windows 365 Frontline Cloud PCs in dedicated mode.
      * @param RetrieveCloudPcPerformanceMetricsReportPostRequestBody $body The request body
      * @param RetrieveCloudPcPerformanceMetricsReportRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

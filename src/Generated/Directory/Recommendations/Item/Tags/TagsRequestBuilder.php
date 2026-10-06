@@ -52,7 +52,7 @@ class TagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get tags from directory
+     * The user-defined free-form labels applied to the recommendation. The collection isn't directly writable; tags are created and removed through the addTag and removeTag actions.
      * @param TagsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RecommendationTagCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class TagsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get tags from directory
+     * The user-defined free-form labels applied to the recommendation. The collection isn't directly writable; tags are created and removed through the addTag and removeTag actions.
      * @param TagsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

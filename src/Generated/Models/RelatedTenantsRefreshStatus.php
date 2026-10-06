@@ -71,7 +71,7 @@ class RelatedTenantsRefreshStatus implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the isFirstRefresh property value. The isFirstRefresh property
+     * Gets the isFirstRefresh property value. Describes whether the related tenants refresh was the initial aggregation done by our service or not.
      * @return bool|null
     */
     public function getIsFirstRefresh(): ?bool {
@@ -95,7 +95,7 @@ class RelatedTenantsRefreshStatus implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Gets the mostRecentRefreshRequestStatus property value. The mostRecentRefreshRequestStatus property
+     * Gets the mostRecentRefreshRequestStatus property value. The status of the refresh operation
      * @return string|null
     */
     public function getMostRecentRefreshRequestStatus(): ?string {
@@ -147,7 +147,7 @@ class RelatedTenantsRefreshStatus implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the isFirstRefresh property value. The isFirstRefresh property
+     * Sets the isFirstRefresh property value. Describes whether the related tenants refresh was the initial aggregation done by our service or not.
      * @param bool|null $value Value to set for the isFirstRefresh property.
     */
     public function setIsFirstRefresh(?bool $value): void {
@@ -163,7 +163,7 @@ class RelatedTenantsRefreshStatus implements AdditionalDataHolder, BackedModel, 
     }
 
     /**
-     * Sets the mostRecentRefreshRequestStatus property value. The mostRecentRefreshRequestStatus property
+     * Sets the mostRecentRefreshRequestStatus property value. The status of the refresh operation
      * @param string|null $value Value to set for the mostRecentRefreshRequestStatus property.
     */
     public function setMostRecentRefreshRequestStatus(?string $value): void {

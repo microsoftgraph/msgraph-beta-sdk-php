@@ -31,10 +31,11 @@ class MarkPlannedRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action markPlanned
+     * Mark a recommendation object as planned and update its status to planned.
      * @param MarkPlannedRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Recommendation|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/recommendation-markplanned?view=graph-rest-beta Find more info here
     */
     public function post(?MarkPlannedRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -45,7 +46,7 @@ class MarkPlannedRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action markPlanned
+     * Mark a recommendation object as planned and update its status to planned.
      * @param MarkPlannedRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -69,7 +69,7 @@ class ProcessContentRequest implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the contentEntries property value. A collection of content entries to be processed. Each entry contains the content itself and its metadata. Use conversation metadata for content like prompts and responses, file metadata for files, and content activity metadata for enforcement result status entries. Required.
+     * Gets the contentEntries property value. A collection of content entries to be processed. Each entry contains the content itself and its metadata. Use conversation metadata for content like prompts and responses and file metadata for files. For the ContentActivity API only, use content activity metadata for DLP enforcement results or evaluation incomplete activity metadata when policy evaluation couldn't be completed. The ContentActivity-specific types aren't supported by the processContent or processContentAsync APIs. Required.
      * @return array<ProcessContentMetadataBase>|null
     */
     public function getContentEntries(): ?array {
@@ -213,7 +213,7 @@ class ProcessContentRequest implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the contentEntries property value. A collection of content entries to be processed. Each entry contains the content itself and its metadata. Use conversation metadata for content like prompts and responses, file metadata for files, and content activity metadata for enforcement result status entries. Required.
+     * Sets the contentEntries property value. A collection of content entries to be processed. Each entry contains the content itself and its metadata. Use conversation metadata for content like prompts and responses and file metadata for files. For the ContentActivity API only, use content activity metadata for DLP enforcement results or evaluation incomplete activity metadata when policy evaluation couldn't be completed. The ContentActivity-specific types aren't supported by the processContent or processContentAsync APIs. Required.
      * @param array<ProcessContentMetadataBase>|null $value Value to set for the contentEntries property.
     */
     public function setContentEntries(?array $value): void {
