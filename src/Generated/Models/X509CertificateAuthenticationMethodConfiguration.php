@@ -78,6 +78,7 @@ class X509CertificateAuthenticationMethodConfiguration extends AuthenticationMet
             'certificateUserBindings' => fn(ParseNode $n) => $o->setCertificateUserBindings($n->getCollectionOfObjectValues([X509CertificateUserBinding::class, 'createFromDiscriminatorValue'])),
             'includeTargets' => fn(ParseNode $n) => $o->setIncludeTargets($n->getCollectionOfObjectValues([AuthenticationMethodTarget::class, 'createFromDiscriminatorValue'])),
             'issuerHintsConfiguration' => fn(ParseNode $n) => $o->setIssuerHintsConfiguration($n->getObjectValue([X509CertificateIssuerHintsConfiguration::class, 'createFromDiscriminatorValue'])),
+            'requireCertificateSidAlignment' => fn(ParseNode $n) => $o->setRequireCertificateSidAlignment($n->getBooleanValue()),
         ]);
     }
 
@@ -108,6 +109,18 @@ class X509CertificateAuthenticationMethodConfiguration extends AuthenticationMet
     }
 
     /**
+     * Gets the requireCertificateSidAlignment property value. When set to true, Microsoft Entra ID matches the SID in the Security Identifier (SID) extension or the SAN URI SID value from the user's X.509 certificate to the user's on-premises SID attribute for hybrid users and cloud SID for cloud-only users. Certificate-based authentication fails if the values don't match. The value can't be null. The default value is false.
+     * @return bool|null
+    */
+    public function getRequireCertificateSidAlignment(): ?bool {
+        $val = $this->getBackingStore()->get('requireCertificateSidAlignment');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'requireCertificateSidAlignment'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -118,6 +131,7 @@ class X509CertificateAuthenticationMethodConfiguration extends AuthenticationMet
         $writer->writeCollectionOfObjectValues('certificateUserBindings', $this->getCertificateUserBindings());
         $writer->writeCollectionOfObjectValues('includeTargets', $this->getIncludeTargets());
         $writer->writeObjectValue('issuerHintsConfiguration', $this->getIssuerHintsConfiguration());
+        $writer->writeBooleanValue('requireCertificateSidAlignment', $this->getRequireCertificateSidAlignment());
     }
 
     /**
@@ -158,6 +172,14 @@ class X509CertificateAuthenticationMethodConfiguration extends AuthenticationMet
     */
     public function setIssuerHintsConfiguration(?X509CertificateIssuerHintsConfiguration $value): void {
         $this->getBackingStore()->set('issuerHintsConfiguration', $value);
+    }
+
+    /**
+     * Sets the requireCertificateSidAlignment property value. When set to true, Microsoft Entra ID matches the SID in the Security Identifier (SID) extension or the SAN URI SID value from the user's X.509 certificate to the user's on-premises SID attribute for hybrid users and cloud SID for cloud-only users. Certificate-based authentication fails if the values don't match. The value can't be null. The default value is false.
+     * @param bool|null $value Value to set for the requireCertificateSidAlignment property.
+    */
+    public function setRequireCertificateSidAlignment(?bool $value): void {
+        $this->getBackingStore()->set('requireCertificateSidAlignment', $value);
     }
 
 }

@@ -56,7 +56,7 @@ class DriftAccessPackageInfo implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name of the access package.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -81,7 +81,7 @@ class DriftAccessPackageInfo implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the identifier property value. The identifier property
+     * Gets the identifier property value. The unique identifier of the access package.
      * @return string|null
     */
     public function getIdentifier(): ?string {
@@ -132,7 +132,7 @@ class DriftAccessPackageInfo implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name of the access package.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -140,7 +140,7 @@ class DriftAccessPackageInfo implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the identifier property value. The identifier property
+     * Sets the identifier property value. The unique identifier of the access package.
      * @param string|null $value Value to set for the identifier property.
     */
     public function setIdentifier(?string $value): void {

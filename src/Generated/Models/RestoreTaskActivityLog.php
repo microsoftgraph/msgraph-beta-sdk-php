@@ -55,7 +55,7 @@ class RestoreTaskActivityLog extends ActivityLogBase implements Parsable
     }
 
     /**
-     * Gets the restoreArtifactDetails property value. The restoreArtifactDetails property
+     * Gets the restoreArtifactDetails property value. Contains detailed information about the artifacts being restored, including counts and status of restored items.
      * @return RestoreArtifactDetails|null
     */
     public function getRestoreArtifactDetails(): ?RestoreArtifactDetails {
@@ -67,7 +67,7 @@ class RestoreTaskActivityLog extends ActivityLogBase implements Parsable
     }
 
     /**
-     * Gets the restoreCompletionDateTime property value. The restoreCompletionDateTime property
+     * Gets the restoreCompletionDateTime property value. The date and time when the restore task was completed.
      * @return DateTime|null
     */
     public function getRestoreCompletionDateTime(): ?DateTime {
@@ -79,7 +79,7 @@ class RestoreTaskActivityLog extends ActivityLogBase implements Parsable
     }
 
     /**
-     * Gets the restoreSessionId property value. The restoreSessionId property
+     * Gets the restoreSessionId property value. The unique identifier of the restore session associated with this activity log.
      * @return string|null
     */
     public function getRestoreSessionId(): ?string {
@@ -137,7 +137,7 @@ class RestoreTaskActivityLog extends ActivityLogBase implements Parsable
     }
 
     /**
-     * Sets the restoreArtifactDetails property value. The restoreArtifactDetails property
+     * Sets the restoreArtifactDetails property value. Contains detailed information about the artifacts being restored, including counts and status of restored items.
      * @param RestoreArtifactDetails|null $value Value to set for the restoreArtifactDetails property.
     */
     public function setRestoreArtifactDetails(?RestoreArtifactDetails $value): void {
@@ -145,7 +145,7 @@ class RestoreTaskActivityLog extends ActivityLogBase implements Parsable
     }
 
     /**
-     * Sets the restoreCompletionDateTime property value. The restoreCompletionDateTime property
+     * Sets the restoreCompletionDateTime property value. The date and time when the restore task was completed.
      * @param DateTime|null $value Value to set for the restoreCompletionDateTime property.
     */
     public function setRestoreCompletionDateTime(?DateTime $value): void {
@@ -153,7 +153,7 @@ class RestoreTaskActivityLog extends ActivityLogBase implements Parsable
     }
 
     /**
-     * Sets the restoreSessionId property value. The restoreSessionId property
+     * Sets the restoreSessionId property value. The unique identifier of the restore session associated with this activity log.
      * @param string|null $value Value to set for the restoreSessionId property.
     */
     public function setRestoreSessionId(?string $value): void {

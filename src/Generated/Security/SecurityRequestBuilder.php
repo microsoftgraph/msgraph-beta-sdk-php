@@ -43,6 +43,7 @@ use Microsoft\Graph\Beta\Generated\Security\TiIndicators\TiIndicatorsRequestBuil
 use Microsoft\Graph\Beta\Generated\Security\Triggers\TriggersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\TriggerTypes\TriggerTypesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\UserSecurityProfiles\UserSecurityProfilesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Workbooks\WorkbooksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Zones\ZonesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -304,6 +305,13 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     */
     public function userSecurityProfiles(): UserSecurityProfilesRequestBuilder {
         return new UserSecurityProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the workbooks property of the microsoft.graph.security entity.
+    */
+    public function workbooks(): WorkbooksRequestBuilder {
+        return new WorkbooksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

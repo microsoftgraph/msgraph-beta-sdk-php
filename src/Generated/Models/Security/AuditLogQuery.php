@@ -187,7 +187,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Gets the keywordFilter property value. Free text field to search non-indexed properties of the audit log.
+     * Gets the keywordFilter property value. Free text to match against the non-indexed content of each record: the workload-specific properties inside auditData, including its AppAccessContext object. The indexed common-schema properties, such as the operation name, aren't matched by keyword; use their own filters, such as operationFilters, for those.
      * @return string|null
     */
     public function getKeywordFilter(): ?string {
@@ -384,7 +384,7 @@ class AuditLogQuery extends Entity implements Parsable
     }
 
     /**
-     * Sets the keywordFilter property value. Free text field to search non-indexed properties of the audit log.
+     * Sets the keywordFilter property value. Free text to match against the non-indexed content of each record: the workload-specific properties inside auditData, including its AppAccessContext object. The indexed common-schema properties, such as the operation name, aren't matched by keyword; use their own filters, such as operationFilters, for those.
      * @param string|null $value Value to set for the keywordFilter property.
     */
     public function setKeywordFilter(?string $value): void {

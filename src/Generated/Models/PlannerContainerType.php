@@ -14,4 +14,7 @@ class PlannerContainerType extends Enum {
     public const TEAMS_CHANNEL = "teamsChannel";
     public const ONLINE_MEETING = "onlineMeeting";
     public const PLANNER_TASK = "plannerTask";
+    public const OFFICE_DOCUMENT = "officeDocument";
+    public const MEETING = "meeting";
+    public const DATAVERSE_PROJECT = "dataverseProject";
 }

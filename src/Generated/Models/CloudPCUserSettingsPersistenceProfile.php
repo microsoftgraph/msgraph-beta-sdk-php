@@ -65,9 +65,11 @@ class CloudPCUserSettingsPersistenceProfile implements AdditionalDataHolder, Bac
         return  [
             'lastProfileAttachedDateTime' => fn(ParseNode $n) => $o->setLastProfileAttachedDateTime($n->getDateTimeValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'profileDiskEncryptionType' => fn(ParseNode $n) => $o->setProfileDiskEncryptionType($n->getEnumValue(CloudPcDiskEncryptionType::class)),
             'profileId' => fn(ParseNode $n) => $o->setProfileId($n->getStringValue()),
             'profileSizeInGB' => fn(ParseNode $n) => $o->setProfileSizeInGB($n->getIntegerValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CloudPCUserSettingsPersistenceProfileStatus::class)),
+            'usageDetail' => fn(ParseNode $n) => $o->setUsageDetail($n->getObjectValue([CloudPCUserSettingsPersistenceProfileUsageDetail::class, 'createFromDiscriminatorValue'])),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ];
     }
@@ -94,6 +96,18 @@ class CloudPCUserSettingsPersistenceProfile implements AdditionalDataHolder, Bac
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'odataType'");
+    }
+
+    /**
+     * Gets the profileDiskEncryptionType property value. The profileDiskEncryptionType property
+     * @return CloudPcDiskEncryptionType|null
+    */
+    public function getProfileDiskEncryptionType(): ?CloudPcDiskEncryptionType {
+        $val = $this->getBackingStore()->get('profileDiskEncryptionType');
+        if (is_null($val) || $val instanceof CloudPcDiskEncryptionType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'profileDiskEncryptionType'");
     }
 
     /**
@@ -133,6 +147,18 @@ class CloudPCUserSettingsPersistenceProfile implements AdditionalDataHolder, Bac
     }
 
     /**
+     * Gets the usageDetail property value. The usageDetail property
+     * @return CloudPCUserSettingsPersistenceProfileUsageDetail|null
+    */
+    public function getUsageDetail(): ?CloudPCUserSettingsPersistenceProfileUsageDetail {
+        $val = $this->getBackingStore()->get('usageDetail');
+        if (is_null($val) || $val instanceof CloudPCUserSettingsPersistenceProfileUsageDetail) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'usageDetail'");
+    }
+
+    /**
      * Gets the userPrincipalName property value. The user principal name of the owner of the cloud profile. For example, connie@contoso.com. Required. Read-only.
      * @return string|null
     */
@@ -151,9 +177,11 @@ class CloudPCUserSettingsPersistenceProfile implements AdditionalDataHolder, Bac
     public function serialize(SerializationWriter $writer): void {
         $writer->writeDateTimeValue('lastProfileAttachedDateTime', $this->getLastProfileAttachedDateTime());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('profileDiskEncryptionType', $this->getProfileDiskEncryptionType());
         $writer->writeStringValue('profileId', $this->getProfileId());
         $writer->writeIntegerValue('profileSizeInGB', $this->getProfileSizeInGB());
         $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeObjectValue('usageDetail', $this->getUsageDetail());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -191,6 +219,14 @@ class CloudPCUserSettingsPersistenceProfile implements AdditionalDataHolder, Bac
     }
 
     /**
+     * Sets the profileDiskEncryptionType property value. The profileDiskEncryptionType property
+     * @param CloudPcDiskEncryptionType|null $value Value to set for the profileDiskEncryptionType property.
+    */
+    public function setProfileDiskEncryptionType(?CloudPcDiskEncryptionType $value): void {
+        $this->getBackingStore()->set('profileDiskEncryptionType', $value);
+    }
+
+    /**
      * Sets the profileId property value. Indicates the unique identifier of the Cloud PC user settings persistence profile for the selected Cloud PC user settings persistence. Required. Read-only.
      * @param string|null $value Value to set for the profileId property.
     */
@@ -212,6 +248,14 @@ class CloudPCUserSettingsPersistenceProfile implements AdditionalDataHolder, Bac
     */
     public function setStatus(?CloudPCUserSettingsPersistenceProfileStatus $value): void {
         $this->getBackingStore()->set('status', $value);
+    }
+
+    /**
+     * Sets the usageDetail property value. The usageDetail property
+     * @param CloudPCUserSettingsPersistenceProfileUsageDetail|null $value Value to set for the usageDetail property.
+    */
+    public function setUsageDetail(?CloudPCUserSettingsPersistenceProfileUsageDetail $value): void {
+        $this->getBackingStore()->set('usageDetail', $value);
     }
 
     /**

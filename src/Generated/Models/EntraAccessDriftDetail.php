@@ -25,7 +25,7 @@ class EntraAccessDriftDetail extends AccessDriftDetail implements Parsable
     }
 
     /**
-     * Gets the accessPackage property value. The accessPackage property
+     * Gets the accessPackage property value. The access package associated with this drift record.
      * @return DriftAccessPackageInfo|null
     */
     public function getAccessPackage(): ?DriftAccessPackageInfo {
@@ -37,7 +37,7 @@ class EntraAccessDriftDetail extends AccessDriftDetail implements Parsable
     }
 
     /**
-     * Gets the assignedRole property value. The assignedRole property
+     * Gets the assignedRole property value. The role currently assigned to the identity on the resource.
      * @return string|null
     */
     public function getAssignedRole(): ?string {
@@ -49,7 +49,7 @@ class EntraAccessDriftDetail extends AccessDriftDetail implements Parsable
     }
 
     /**
-     * Gets the expectedRole property value. The expectedRole property
+     * Gets the expectedRole property value. The role expected based on the access package assignment.
      * @return string|null
     */
     public function getExpectedRole(): ?string {
@@ -82,7 +82,7 @@ class EntraAccessDriftDetail extends AccessDriftDetail implements Parsable
     }
 
     /**
-     * Sets the accessPackage property value. The accessPackage property
+     * Sets the accessPackage property value. The access package associated with this drift record.
      * @param DriftAccessPackageInfo|null $value Value to set for the accessPackage property.
     */
     public function setAccessPackage(?DriftAccessPackageInfo $value): void {
@@ -90,7 +90,7 @@ class EntraAccessDriftDetail extends AccessDriftDetail implements Parsable
     }
 
     /**
-     * Sets the assignedRole property value. The assignedRole property
+     * Sets the assignedRole property value. The role currently assigned to the identity on the resource.
      * @param string|null $value Value to set for the assignedRole property.
     */
     public function setAssignedRole(?string $value): void {
@@ -98,7 +98,7 @@ class EntraAccessDriftDetail extends AccessDriftDetail implements Parsable
     }
 
     /**
-     * Sets the expectedRole property value. The expectedRole property
+     * Sets the expectedRole property value. The role expected based on the access package assignment.
      * @param string|null $value Value to set for the expectedRole property.
     */
     public function setExpectedRole(?string $value): void {

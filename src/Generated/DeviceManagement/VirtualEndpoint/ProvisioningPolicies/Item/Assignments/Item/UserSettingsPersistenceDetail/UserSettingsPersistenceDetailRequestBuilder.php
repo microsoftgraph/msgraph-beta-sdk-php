@@ -5,8 +5,11 @@ namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Provis
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assignments\Item\UserSettingsPersistenceDetail\BatchCleanupUserSettingsPersistenceProfile\BatchCleanupUserSettingsPersistenceProfileRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assignments\Item\UserSettingsPersistenceDetail\BulkCreateUserProfileSnapshot\BulkCreateUserProfileSnapshotRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assignments\Item\UserSettingsPersistenceDetail\BulkExportUserProfileSnapshot\BulkExportUserProfileSnapshotRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assignments\Item\UserSettingsPersistenceDetail\RetrieveUserSettingsPersistenceProfilesWithConfigurationId\RetrieveUserSettingsPersistenceProfilesWithConfigurationIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assignments\Item\UserSettingsPersistenceDetail\RetrieveUserSettingsPersistenceProfileUsageWithConfigurationId\RetrieveUserSettingsPersistenceProfileUsageWithConfigurationIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ProvisioningPolicies\Item\Assignments\Item\UserSettingsPersistenceDetail\UserProfileSnapshots\UserProfileSnapshotsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\CloudPCUserSettingsPersistenceDetail;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -24,6 +27,27 @@ class UserSettingsPersistenceDetailRequestBuilder extends BaseRequestBuilder
     */
     public function batchCleanupUserSettingsPersistenceProfile(): BatchCleanupUserSettingsPersistenceProfileRequestBuilder {
         return new BatchCleanupUserSettingsPersistenceProfileRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the bulkCreateUserProfileSnapshot method.
+    */
+    public function bulkCreateUserProfileSnapshot(): BulkCreateUserProfileSnapshotRequestBuilder {
+        return new BulkCreateUserProfileSnapshotRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the bulkExportUserProfileSnapshot method.
+    */
+    public function bulkExportUserProfileSnapshot(): BulkExportUserProfileSnapshotRequestBuilder {
+        return new BulkExportUserProfileSnapshotRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the userProfileSnapshots property of the microsoft.graph.cloudPCUserSettingsPersistenceDetail entity.
+    */
+    public function userProfileSnapshots(): UserProfileSnapshotsRequestBuilder {
+        return new UserProfileSnapshotsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

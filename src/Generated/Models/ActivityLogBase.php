@@ -48,7 +48,7 @@ class ActivityLogBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the error property value. The error property
+     * Gets the error property value. Contains error details if an error occurred while processing this activity.
      * @return PublicError|null
     */
     public function getError(): ?PublicError {
@@ -60,7 +60,7 @@ class ActivityLogBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the eventDateTime property value. The eventDateTime property
+     * Gets the eventDateTime property value. Timestamp of activity completion.
      * @return DateTime|null
     */
     public function getEventDateTime(): ?DateTime {
@@ -89,7 +89,7 @@ class ActivityLogBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the performedBy property value. The performedBy property
+     * Gets the performedBy property value. The identity of the person who performed the activity.
      * @return string|null
     */
     public function getPerformedBy(): ?string {
@@ -160,7 +160,7 @@ class ActivityLogBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the error property value. The error property
+     * Sets the error property value. Contains error details if an error occurred while processing this activity.
      * @param PublicError|null $value Value to set for the error property.
     */
     public function setError(?PublicError $value): void {
@@ -168,7 +168,7 @@ class ActivityLogBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the eventDateTime property value. The eventDateTime property
+     * Sets the eventDateTime property value. Timestamp of activity completion.
      * @param DateTime|null $value Value to set for the eventDateTime property.
     */
     public function setEventDateTime(?DateTime $value): void {
@@ -176,7 +176,7 @@ class ActivityLogBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the performedBy property value. The performedBy property
+     * Sets the performedBy property value. The identity of the person who performed the activity.
      * @param string|null $value Value to set for the performedBy property.
     */
     public function setPerformedBy(?string $value): void {

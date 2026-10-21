@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\PlannerPlan;
 use Microsoft\Graph\Beta\Generated\Planner\Plans\Item\Archive\ArchiveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Plans\Item\Buckets\BucketsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Plans\Item\Details\DetailsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Planner\Plans\Item\ExtendExpiry\ExtendExpiryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Plans\Item\GetUsageRights\GetUsageRightsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Plans\Item\Goals\GoalsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Plans\Item\HistoryItems\HistoryItemsRequestBuilder;
@@ -44,6 +45,13 @@ class PlannerPlanItemRequestBuilder extends BaseRequestBuilder
     */
     public function details(): DetailsRequestBuilder {
         return new DetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the extendExpiry method.
+    */
+    public function extendExpiry(): ExtendExpiryRequestBuilder {
+        return new ExtendExpiryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

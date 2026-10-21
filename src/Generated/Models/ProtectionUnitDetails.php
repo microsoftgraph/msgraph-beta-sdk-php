@@ -35,7 +35,7 @@ class ProtectionUnitDetails implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the addedCount property value. The addedCount property
+     * Gets the addedCount property value. The number of protection units that were successfully added to the backup policy.
      * @return int|null
     */
     public function getAddedCount(): ?int {
@@ -68,7 +68,7 @@ class ProtectionUnitDetails implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the backupConfigurationType property value. The backupConfigurationType property
+     * Gets the backupConfigurationType property value. The type of backup configuration applied to the protection units.
      * @return string|null
     */
     public function getBackupConfigurationType(): ?string {
@@ -80,7 +80,7 @@ class ProtectionUnitDetails implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the failedCount property value. The failedCount property
+     * Gets the failedCount property value. The number of protection unit operations that failed during processing.
      * @return int|null
     */
     public function getFailedCount(): ?int {
@@ -121,7 +121,7 @@ class ProtectionUnitDetails implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the removedCount property value. The removedCount property
+     * Gets the removedCount property value. The number of protection units that were successfully removed from the backup policy.
      * @return int|null
     */
     public function getRemovedCount(): ?int {
@@ -133,7 +133,7 @@ class ProtectionUnitDetails implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the requestedToAddCount property value. The requestedToAddCount property
+     * Gets the requestedToAddCount property value. The number of protection units that were requested to be added to the backup policy.
      * @return int|null
     */
     public function getRequestedToAddCount(): ?int {
@@ -145,7 +145,7 @@ class ProtectionUnitDetails implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the requestedToRemoveCount property value. The requestedToRemoveCount property
+     * Gets the requestedToRemoveCount property value. The number of protection units that were requested to be removed from the backup policy.
      * @return int|null
     */
     public function getRequestedToRemoveCount(): ?int {
@@ -172,7 +172,7 @@ class ProtectionUnitDetails implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the addedCount property value. The addedCount property
+     * Sets the addedCount property value. The number of protection units that were successfully added to the backup policy.
      * @param int|null $value Value to set for the addedCount property.
     */
     public function setAddedCount(?int $value): void {
@@ -196,7 +196,7 @@ class ProtectionUnitDetails implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the backupConfigurationType property value. The backupConfigurationType property
+     * Sets the backupConfigurationType property value. The type of backup configuration applied to the protection units.
      * @param string|null $value Value to set for the backupConfigurationType property.
     */
     public function setBackupConfigurationType(?string $value): void {
@@ -204,7 +204,7 @@ class ProtectionUnitDetails implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the failedCount property value. The failedCount property
+     * Sets the failedCount property value. The number of protection unit operations that failed during processing.
      * @param int|null $value Value to set for the failedCount property.
     */
     public function setFailedCount(?int $value): void {
@@ -220,7 +220,7 @@ class ProtectionUnitDetails implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the removedCount property value. The removedCount property
+     * Sets the removedCount property value. The number of protection units that were successfully removed from the backup policy.
      * @param int|null $value Value to set for the removedCount property.
     */
     public function setRemovedCount(?int $value): void {
@@ -228,7 +228,7 @@ class ProtectionUnitDetails implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the requestedToAddCount property value. The requestedToAddCount property
+     * Sets the requestedToAddCount property value. The number of protection units that were requested to be added to the backup policy.
      * @param int|null $value Value to set for the requestedToAddCount property.
     */
     public function setRequestedToAddCount(?int $value): void {
@@ -236,7 +236,7 @@ class ProtectionUnitDetails implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the requestedToRemoveCount property value. The requestedToRemoveCount property
+     * Sets the requestedToRemoveCount property value. The number of protection units that were requested to be removed from the backup policy.
      * @param int|null $value Value to set for the requestedToRemoveCount property.
     */
     public function setRequestedToRemoveCount(?int $value): void {

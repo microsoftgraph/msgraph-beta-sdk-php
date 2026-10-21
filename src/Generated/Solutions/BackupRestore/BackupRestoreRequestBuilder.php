@@ -15,6 +15,7 @@ use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\DriveProtectionUnits\
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\DriveProtectionUnitsBulkAdditionJobs\DriveProtectionUnitsBulkAdditionJobsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\EmailNotificationsSetting\EmailNotificationsSettingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\Enable\EnableRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\EntraProtectionPolicies\EntraProtectionPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ExchangeProtectionPolicies\ExchangeProtectionPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ExchangeRestoreSessions\ExchangeRestoreSessionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ExclusionUnits\ExclusionUnitsRequestBuilder;
@@ -111,6 +112,13 @@ class BackupRestoreRequestBuilder extends BaseRequestBuilder
     */
     public function enable(): EnableRequestBuilder {
         return new EnableRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the entraProtectionPolicies property of the microsoft.graph.backupRestoreRoot entity.
+    */
+    public function entraProtectionPolicies(): EntraProtectionPoliciesRequestBuilder {
+        return new EntraProtectionPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

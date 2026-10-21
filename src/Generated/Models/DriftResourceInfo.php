@@ -64,7 +64,7 @@ class DriftResourceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the catalogIdentifier property value. The catalogIdentifier property
+     * Gets the catalogIdentifier property value. The identifier of the entitlement management catalog that contains the resource.
      * @return string|null
     */
     public function getCatalogIdentifier(): ?string {
@@ -76,7 +76,7 @@ class DriftResourceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the catalogName property value. The catalogName property
+     * Gets the catalogName property value. The display name of the entitlement management catalog.
      * @return string|null
     */
     public function getCatalogName(): ?string {
@@ -88,7 +88,7 @@ class DriftResourceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name of the governed resource.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -116,7 +116,7 @@ class DriftResourceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the identifier property value. The identifier property
+     * Gets the identifier property value. The unique identifier of the governed resource.
      * @return string|null
     */
     public function getIdentifier(): ?string {
@@ -182,7 +182,7 @@ class DriftResourceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the catalogIdentifier property value. The catalogIdentifier property
+     * Sets the catalogIdentifier property value. The identifier of the entitlement management catalog that contains the resource.
      * @param string|null $value Value to set for the catalogIdentifier property.
     */
     public function setCatalogIdentifier(?string $value): void {
@@ -190,7 +190,7 @@ class DriftResourceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the catalogName property value. The catalogName property
+     * Sets the catalogName property value. The display name of the entitlement management catalog.
      * @param string|null $value Value to set for the catalogName property.
     */
     public function setCatalogName(?string $value): void {
@@ -198,7 +198,7 @@ class DriftResourceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name of the governed resource.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -206,7 +206,7 @@ class DriftResourceInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the identifier property value. The identifier property
+     * Sets the identifier property value. The unique identifier of the governed resource.
      * @param string|null $value Value to set for the identifier property.
     */
     public function setIdentifier(?string $value): void {

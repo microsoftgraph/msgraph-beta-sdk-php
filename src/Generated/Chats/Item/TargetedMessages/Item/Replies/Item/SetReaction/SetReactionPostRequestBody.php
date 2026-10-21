@@ -56,14 +56,40 @@ class SetReactionPostRequestBody implements AdditionalDataHolder, BackedModel, P
     }
 
     /**
+     * Gets the displayName property value. The displayName property
+     * @return string|null
+    */
+    public function getDisplayName(): ?string {
+        $val = $this->getBackingStore()->get('displayName');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'displayName'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'reactionId' => fn(ParseNode $n) => $o->setReactionId($n->getStringValue()),
             'reactionType' => fn(ParseNode $n) => $o->setReactionType($n->getStringValue()),
         ];
+    }
+
+    /**
+     * Gets the reactionId property value. The reactionId property
+     * @return string|null
+    */
+    public function getReactionId(): ?string {
+        $val = $this->getBackingStore()->get('reactionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reactionId'");
     }
 
     /**
@@ -83,6 +109,8 @@ class SetReactionPostRequestBody implements AdditionalDataHolder, BackedModel, P
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('reactionId', $this->getReactionId());
         $writer->writeStringValue('reactionType', $this->getReactionType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -101,6 +129,22 @@ class SetReactionPostRequestBody implements AdditionalDataHolder, BackedModel, P
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the displayName property value. The displayName property
+     * @param string|null $value Value to set for the displayName property.
+    */
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the reactionId property value. The reactionId property
+     * @param string|null $value Value to set for the reactionId property.
+    */
+    public function setReactionId(?string $value): void {
+        $this->getBackingStore()->set('reactionId', $value);
     }
 
     /**

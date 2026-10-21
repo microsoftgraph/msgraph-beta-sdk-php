@@ -26,12 +26,25 @@ class RbacApplication extends Entity implements Parsable
     }
 
     /**
+     * Gets the deletedItems property value. Container for soft-deleted directory role management resources.
+     * @return DirectoryRoleManagementDeletedItemContainer|null
+    */
+    public function getDeletedItems(): ?DirectoryRoleManagementDeletedItemContainer {
+        $val = $this->getBackingStore()->get('deletedItems');
+        if (is_null($val) || $val instanceof DirectoryRoleManagementDeletedItemContainer) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deletedItems'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'deletedItems' => fn(ParseNode $n) => $o->setDeletedItems($n->getObjectValue([DirectoryRoleManagementDeletedItemContainer::class, 'createFromDiscriminatorValue'])),
             'resourceNamespaces' => fn(ParseNode $n) => $o->setResourceNamespaces($n->getCollectionOfObjectValues([UnifiedRbacResourceNamespace::class, 'createFromDiscriminatorValue'])),
             'roleAssignmentApprovals' => fn(ParseNode $n) => $o->setRoleAssignmentApprovals($n->getCollectionOfObjectValues([Approval::class, 'createFromDiscriminatorValue'])),
             'roleAssignments' => fn(ParseNode $n) => $o->setRoleAssignments($n->getCollectionOfObjectValues([UnifiedRoleAssignment::class, 'createFromDiscriminatorValue'])),
@@ -206,6 +219,7 @@ class RbacApplication extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('deletedItems', $this->getDeletedItems());
         $writer->writeCollectionOfObjectValues('resourceNamespaces', $this->getResourceNamespaces());
         $writer->writeCollectionOfObjectValues('roleAssignmentApprovals', $this->getRoleAssignmentApprovals());
         $writer->writeCollectionOfObjectValues('roleAssignments', $this->getRoleAssignments());
@@ -217,6 +231,14 @@ class RbacApplication extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('roleEligibilityScheduleRequests', $this->getRoleEligibilityScheduleRequests());
         $writer->writeCollectionOfObjectValues('roleEligibilitySchedules', $this->getRoleEligibilitySchedules());
         $writer->writeCollectionOfObjectValues('transitiveRoleAssignments', $this->getTransitiveRoleAssignments());
+    }
+
+    /**
+     * Sets the deletedItems property value. Container for soft-deleted directory role management resources.
+     * @param DirectoryRoleManagementDeletedItemContainer|null $value Value to set for the deletedItems property.
+    */
+    public function setDeletedItems(?DirectoryRoleManagementDeletedItemContainer $value): void {
+        $this->getBackingStore()->set('deletedItems', $value);
     }
 
     /**

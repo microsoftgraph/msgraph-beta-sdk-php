@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TeamsChannelPlanner;
+use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\PrimaryChannel\Planner\Plans_v2\Plans_v2RequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\PrimaryChannel\Planner\Plans\PlansRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -22,6 +23,13 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     */
     public function plans(): PlansRequestBuilder {
         return new PlansRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the plans_v2 property of the microsoft.graph.teamsChannelPlanner entity.
+    */
+    public function plans_v2(): Plans_v2RequestBuilder {
+        return new Plans_v2RequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

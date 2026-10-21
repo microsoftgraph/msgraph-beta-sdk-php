@@ -26,7 +26,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the activityLogs property value. The activityLogs property
+     * Gets the activityLogs property value. The list of activity logs in the tenant.
      * @return array<ActivityLogBase>|null
     */
     public function getActivityLogs(): ?array {
@@ -136,6 +136,20 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the entraProtectionPolicies property value. The entraProtectionPolicies property
+     * @return array<EntraProtectionPolicy>|null
+    */
+    public function getEntraProtectionPolicies(): ?array {
+        $val = $this->getBackingStore()->get('entraProtectionPolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, EntraProtectionPolicy::class);
+            /** @var array<EntraProtectionPolicy>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'entraProtectionPolicies'");
+    }
+
+    /**
      * Gets the exchangeProtectionPolicies property value. The list of Exchange protection policies in the tenant.
      * @return array<ExchangeProtectionPolicy>|null
     */
@@ -192,6 +206,7 @@ class BackupRestoreRoot extends Entity implements Parsable
             'driveProtectionUnits' => fn(ParseNode $n) => $o->setDriveProtectionUnits($n->getCollectionOfObjectValues([DriveProtectionUnit::class, 'createFromDiscriminatorValue'])),
             'driveProtectionUnitsBulkAdditionJobs' => fn(ParseNode $n) => $o->setDriveProtectionUnitsBulkAdditionJobs($n->getCollectionOfObjectValues([DriveProtectionUnitsBulkAdditionJob::class, 'createFromDiscriminatorValue'])),
             'emailNotificationsSetting' => fn(ParseNode $n) => $o->setEmailNotificationsSetting($n->getObjectValue([EmailNotificationsSetting::class, 'createFromDiscriminatorValue'])),
+            'entraProtectionPolicies' => fn(ParseNode $n) => $o->setEntraProtectionPolicies($n->getCollectionOfObjectValues([EntraProtectionPolicy::class, 'createFromDiscriminatorValue'])),
             'exchangeProtectionPolicies' => fn(ParseNode $n) => $o->setExchangeProtectionPolicies($n->getCollectionOfObjectValues([ExchangeProtectionPolicy::class, 'createFromDiscriminatorValue'])),
             'exchangeRestoreSessions' => fn(ParseNode $n) => $o->setExchangeRestoreSessions($n->getCollectionOfObjectValues([ExchangeRestoreSession::class, 'createFromDiscriminatorValue'])),
             'exclusionUnits' => fn(ParseNode $n) => $o->setExclusionUnits($n->getCollectionOfObjectValues([ExclusionUnitBase::class, 'createFromDiscriminatorValue'])),
@@ -553,6 +568,7 @@ class BackupRestoreRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('driveProtectionUnits', $this->getDriveProtectionUnits());
         $writer->writeCollectionOfObjectValues('driveProtectionUnitsBulkAdditionJobs', $this->getDriveProtectionUnitsBulkAdditionJobs());
         $writer->writeObjectValue('emailNotificationsSetting', $this->getEmailNotificationsSetting());
+        $writer->writeCollectionOfObjectValues('entraProtectionPolicies', $this->getEntraProtectionPolicies());
         $writer->writeCollectionOfObjectValues('exchangeProtectionPolicies', $this->getExchangeProtectionPolicies());
         $writer->writeCollectionOfObjectValues('exchangeRestoreSessions', $this->getExchangeRestoreSessions());
         $writer->writeCollectionOfObjectValues('exclusionUnits', $this->getExclusionUnits());
@@ -582,7 +598,7 @@ class BackupRestoreRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the activityLogs property value. The activityLogs property
+     * Sets the activityLogs property value. The list of activity logs in the tenant.
      * @param array<ActivityLogBase>|null $value Value to set for the activityLogs property.
     */
     public function setActivityLogs(?array $value): void {
@@ -643,6 +659,14 @@ class BackupRestoreRoot extends Entity implements Parsable
     */
     public function setEmailNotificationsSetting(?EmailNotificationsSetting $value): void {
         $this->getBackingStore()->set('emailNotificationsSetting', $value);
+    }
+
+    /**
+     * Sets the entraProtectionPolicies property value. The entraProtectionPolicies property
+     * @param array<EntraProtectionPolicy>|null $value Value to set for the entraProtectionPolicies property.
+    */
+    public function setEntraProtectionPolicies(?array $value): void {
+        $this->getBackingStore()->set('entraProtectionPolicies', $value);
     }
 
     /**

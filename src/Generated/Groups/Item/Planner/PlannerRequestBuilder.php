@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Planner;
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Planner\Plans_v2\Plans_v2RequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Planner\Plans\PlansRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PlannerGroup;
@@ -25,6 +26,13 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the plans_v2 property of the microsoft.graph.plannerGroup entity.
+    */
+    public function plans_v2(): Plans_v2RequestBuilder {
+        return new Plans_v2RequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Instantiates a new PlannerRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -39,10 +47,11 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property planner for groups
+     * Delete a plannerGroup object.
      * @param PlannerRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/group-delete-planner?view=graph-rest-beta Find more info here
     */
     public function delete(?PlannerRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -53,10 +62,11 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Selective Planner services available to the group. Read-only. Nullable.
+     * Read the properties and relationships of plannerGroup object.
      * @param PlannerRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerGroup|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/plannergroup-get?view=graph-rest-beta Find more info here
     */
     public function get(?PlannerRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -67,11 +77,12 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property planner in groups
+     * Update the properties of a plannerGroup object.
      * @param PlannerGroup $body The request body
      * @param PlannerRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerGroup|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/plannergroup-update?view=graph-rest-beta Find more info here
     */
     public function patch(PlannerGroup $body, ?PlannerRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -82,7 +93,7 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property planner for groups
+     * Delete a plannerGroup object.
      * @param PlannerRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -100,7 +111,7 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Selective Planner services available to the group. Read-only. Nullable.
+     * Read the properties and relationships of plannerGroup object.
      * @param PlannerRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +132,7 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property planner in groups
+     * Update the properties of a plannerGroup object.
      * @param PlannerGroup $body The request body
      * @param PlannerRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -88,7 +88,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the offer property value. The offer name of this gallery image that is passed to ARM to retrieve the image resource. Read-only. The offer property is deprecated and will stop returning data on January 31, 2024. Going forward, use the offerName property.
+     * Gets the offer property value. The offer name of this gallery image that is passed to ARM to retrieve the image resource. Read-only. The offer property is deprecated and will stop returning data on December 7, 2026. Going forward, use the offerName property.
      * @return string|null
     */
     public function getOffer(): ?string {
@@ -100,7 +100,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the offerDisplayName property value. The official display offer name of this gallery image. For example, Windows 11 Enterprise. The offerDisplayName property is deprecated and will stop returning data on January 31, 2024.
+     * Gets the offerDisplayName property value. The official display offer name of this gallery image. For example, Windows 11 Enterprise + Microsoft 365 Apps. The offerDisplayName property is deprecated and will stop returning data on December 7, 2026. Going forward, use the displayName property.
      * @return string|null
     */
     public function getOfferDisplayName(): ?string {
@@ -136,7 +136,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the publisher property value. The publisher name of this gallery image that is passed to ARM to retrieve the image resource. Read-only. The publisher property is deprecated and will stop returning data on January 31, 2024. Going forward, use the publisherName property.
+     * Gets the publisher property value. The publisher name of this gallery image that is passed to ARM to retrieve the image resource. Read-only. The publisher property is deprecated and will stop returning data on December 7, 2026. Going forward, use the publisherName property.
      * @return string|null
     */
     public function getPublisher(): ?string {
@@ -160,7 +160,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the recommendedSku property value. The recommended Cloud PC SKU for this gallery image. Read-only. The recommendedSku property is deprecated and will stop returning data on January 31, 2024.
+     * Gets the recommendedSku property value. The recommended Cloud PC SKU for this gallery image. Read-only. The recommendedSku property is deprecated and will stop returning data on December 7, 2026. No replacement is planned.
      * @return string|null
     */
     public function getRecommendedSku(): ?string {
@@ -184,7 +184,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the sku property value. The SKU name of this image that is passed to ARM to retrieve the image resource. Read-only. The sku property is deprecated and will stop returning data on January 31, 2024. Going forward, use the skuName property.
+     * Gets the sku property value. The SKU name of this image that is passed to ARM to retrieve the image resource. Read-only. The sku property is deprecated and will stop returning data on December 7, 2026. Going forward, use the skuName property.
      * @return string|null
     */
     public function getSku(): ?string {
@@ -196,7 +196,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Gets the skuDisplayName property value. The official display SKU name of this gallery image. For example, 2004. Read-only. The skuDisplayName property is deprecated and will stop returning data on January 31, 2024.
+     * Gets the skuDisplayName property value. The official display SKU name of this gallery image. For example, 22H2. Read-only. The skuDisplayName property is deprecated and will stop returning data on December 7, 2026. Going forward, use the displayName property.
      * @return string|null
     */
     public function getSkuDisplayName(): ?string {
@@ -292,7 +292,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the offer property value. The offer name of this gallery image that is passed to ARM to retrieve the image resource. Read-only. The offer property is deprecated and will stop returning data on January 31, 2024. Going forward, use the offerName property.
+     * Sets the offer property value. The offer name of this gallery image that is passed to ARM to retrieve the image resource. Read-only. The offer property is deprecated and will stop returning data on December 7, 2026. Going forward, use the offerName property.
      * @param string|null $value Value to set for the offer property.
     */
     public function setOffer(?string $value): void {
@@ -300,7 +300,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the offerDisplayName property value. The official display offer name of this gallery image. For example, Windows 11 Enterprise. The offerDisplayName property is deprecated and will stop returning data on January 31, 2024.
+     * Sets the offerDisplayName property value. The official display offer name of this gallery image. For example, Windows 11 Enterprise + Microsoft 365 Apps. The offerDisplayName property is deprecated and will stop returning data on December 7, 2026. Going forward, use the displayName property.
      * @param string|null $value Value to set for the offerDisplayName property.
     */
     public function setOfferDisplayName(?string $value): void {
@@ -324,7 +324,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the publisher property value. The publisher name of this gallery image that is passed to ARM to retrieve the image resource. Read-only. The publisher property is deprecated and will stop returning data on January 31, 2024. Going forward, use the publisherName property.
+     * Sets the publisher property value. The publisher name of this gallery image that is passed to ARM to retrieve the image resource. Read-only. The publisher property is deprecated and will stop returning data on December 7, 2026. Going forward, use the publisherName property.
      * @param string|null $value Value to set for the publisher property.
     */
     public function setPublisher(?string $value): void {
@@ -340,7 +340,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the recommendedSku property value. The recommended Cloud PC SKU for this gallery image. Read-only. The recommendedSku property is deprecated and will stop returning data on January 31, 2024.
+     * Sets the recommendedSku property value. The recommended Cloud PC SKU for this gallery image. Read-only. The recommendedSku property is deprecated and will stop returning data on December 7, 2026. No replacement is planned.
      * @param string|null $value Value to set for the recommendedSku property.
     */
     public function setRecommendedSku(?string $value): void {
@@ -356,7 +356,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the sku property value. The SKU name of this image that is passed to ARM to retrieve the image resource. Read-only. The sku property is deprecated and will stop returning data on January 31, 2024. Going forward, use the skuName property.
+     * Sets the sku property value. The SKU name of this image that is passed to ARM to retrieve the image resource. Read-only. The sku property is deprecated and will stop returning data on December 7, 2026. Going forward, use the skuName property.
      * @param string|null $value Value to set for the sku property.
     */
     public function setSku(?string $value): void {
@@ -364,7 +364,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     }
 
     /**
-     * Sets the skuDisplayName property value. The official display SKU name of this gallery image. For example, 2004. Read-only. The skuDisplayName property is deprecated and will stop returning data on January 31, 2024.
+     * Sets the skuDisplayName property value. The official display SKU name of this gallery image. For example, 22H2. Read-only. The skuDisplayName property is deprecated and will stop returning data on December 7, 2026. Going forward, use the displayName property.
      * @param string|null $value Value to set for the skuDisplayName property.
     */
     public function setSkuDisplayName(?string $value): void {

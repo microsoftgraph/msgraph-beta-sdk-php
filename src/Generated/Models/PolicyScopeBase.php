@@ -101,6 +101,7 @@ class PolicyScopeBase implements AdditionalDataHolder, BackedModel, Parsable
             'locations' => fn(ParseNode $n) => $o->setLocations($n->getCollectionOfObjectValues([PolicyLocation::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'policyActions' => fn(ParseNode $n) => $o->setPolicyActions($n->getCollectionOfObjectValues([DlpActionInfo::class, 'createFromDiscriminatorValue'])),
+            'policyConfiguration' => fn(ParseNode $n) => $o->setPolicyConfiguration($n->getObjectValue([PolicyConfiguration::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
@@ -159,6 +160,18 @@ class PolicyScopeBase implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the policyConfiguration property value. The effective configuration for policy evaluation scenarios. This property can be omitted or null when no configuration is available or applicable.
+     * @return PolicyConfiguration|null
+    */
+    public function getPolicyConfiguration(): ?PolicyConfiguration {
+        $val = $this->getBackingStore()->get('policyConfiguration');
+        if (is_null($val) || $val instanceof PolicyConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'policyConfiguration'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -169,6 +182,7 @@ class PolicyScopeBase implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeCollectionOfObjectValues('locations', $this->getLocations());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('policyActions', $this->getPolicyActions());
+        $writer->writeObjectValue('policyConfiguration', $this->getPolicyConfiguration());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -234,6 +248,14 @@ class PolicyScopeBase implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setPolicyActions(?array $value): void {
         $this->getBackingStore()->set('policyActions', $value);
+    }
+
+    /**
+     * Sets the policyConfiguration property value. The effective configuration for policy evaluation scenarios. This property can be omitted or null when no configuration is available or applicable.
+     * @param PolicyConfiguration|null $value Value to set for the policyConfiguration property.
+    */
+    public function setPolicyConfiguration(?PolicyConfiguration $value): void {
+        $this->getBackingStore()->set('policyConfiguration', $value);
     }
 
 }

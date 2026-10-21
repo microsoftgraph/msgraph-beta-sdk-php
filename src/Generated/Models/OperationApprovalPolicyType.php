@@ -14,4 +14,5 @@ class OperationApprovalPolicyType extends Enum {
     public const ROLE = "role";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
     public const TENANT_CONFIGURATION = "tenantConfiguration";
+    public const DEVICE_DEPROVISION = "deviceDeprovision";
 }

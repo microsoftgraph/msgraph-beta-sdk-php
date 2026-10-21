@@ -74,6 +74,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\IsManagedAppUserBlocked\IsManagedA
 use Microsoft\Graph\Beta\Generated\Users\Item\JoinedGroups\JoinedGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\JoinedTeams\JoinedTeamsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\LicenseDetails\LicenseDetailsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Lifecycle\LifecycleRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailboxSettings\MailboxSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\MailFoldersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedAppLogCollectionRequests\ManagedAppLogCollectionRequestsRequestBuilder;
@@ -82,6 +83,9 @@ use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\ManagedDevicesReque
 use Microsoft\Graph\Beta\Generated\Users\Item\Manager\ManagerRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MemberOf\MemberOfRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Messages\MessagesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\MicrosoftGraphIdentityGovernanceAddSelfAsSponsor\MicrosoftGraphIdentityGovernanceAddSelfAsSponsorRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\MicrosoftGraphIdentityGovernanceAttest\MicrosoftGraphIdentityGovernanceAttestRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\MicrosoftGraphIdentityGovernanceRemoveSelfAsSponsor\MicrosoftGraphIdentityGovernanceRemoveSelfAsSponsorRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MobileAppIntentAndStates\MobileAppIntentAndStatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MobileAppTroubleshootingEvents\MobileAppTroubleshootingEventsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Notifications\NotificationsRequestBuilder;
@@ -589,6 +593,13 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the lifecycle property of the microsoft.graph.user entity.
+    */
+    public function lifecycle(): LifecycleRequestBuilder {
+        return new LifecycleRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * The mailboxSettings property
     */
     public function mailboxSettings(): MailboxSettingsRequestBuilder {
@@ -642,6 +653,27 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     */
     public function messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the addSelfAsSponsor method.
+    */
+    public function microsoftGraphIdentityGovernanceAddSelfAsSponsor(): MicrosoftGraphIdentityGovernanceAddSelfAsSponsorRequestBuilder {
+        return new MicrosoftGraphIdentityGovernanceAddSelfAsSponsorRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the attest method.
+    */
+    public function microsoftGraphIdentityGovernanceAttest(): MicrosoftGraphIdentityGovernanceAttestRequestBuilder {
+        return new MicrosoftGraphIdentityGovernanceAttestRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the removeSelfAsSponsor method.
+    */
+    public function microsoftGraphIdentityGovernanceRemoveSelfAsSponsor(): MicrosoftGraphIdentityGovernanceRemoveSelfAsSponsorRequestBuilder {
+        return new MicrosoftGraphIdentityGovernanceRemoveSelfAsSponsorRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

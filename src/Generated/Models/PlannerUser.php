@@ -77,10 +77,12 @@ class PlannerUser extends PlannerDelta implements Parsable
             'favoritePlans' => fn(ParseNode $n) => $o->setFavoritePlans($n->getCollectionOfObjectValues([PlannerPlan::class, 'createFromDiscriminatorValue'])),
             'myDayTasks' => fn(ParseNode $n) => $o->setMyDayTasks($n->getCollectionOfObjectValues([PlannerTask::class, 'createFromDiscriminatorValue'])),
             'plans' => fn(ParseNode $n) => $o->setPlans($n->getCollectionOfObjectValues([PlannerPlan::class, 'createFromDiscriminatorValue'])),
+            'plans_v2' => fn(ParseNode $n) => $o->setPlansV2($n->getCollectionOfObjectValues([Plan::class, 'createFromDiscriminatorValue'])),
             'recentPlanReferences' => fn(ParseNode $n) => $o->setRecentPlanReferences($n->getObjectValue([PlannerRecentPlanReferenceCollection::class, 'createFromDiscriminatorValue'])),
             'recentPlans' => fn(ParseNode $n) => $o->setRecentPlans($n->getCollectionOfObjectValues([PlannerPlan::class, 'createFromDiscriminatorValue'])),
             'rosterPlans' => fn(ParseNode $n) => $o->setRosterPlans($n->getCollectionOfObjectValues([PlannerPlan::class, 'createFromDiscriminatorValue'])),
             'tasks' => fn(ParseNode $n) => $o->setTasks($n->getCollectionOfObjectValues([PlannerTask::class, 'createFromDiscriminatorValue'])),
+            'tasks_v2' => fn(ParseNode $n) => $o->setTasksV2($n->getCollectionOfObjectValues([Task::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -110,6 +112,20 @@ class PlannerUser extends PlannerDelta implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'plans'");
+    }
+
+    /**
+     * Gets the plans_v2 property value. Read-only. Nullable. The collection of Planner Graph V4 plans associated with the user.
+     * @return array<Plan>|null
+    */
+    public function getPlansV2(): ?array {
+        $val = $this->getBackingStore()->get('plans_v2');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Plan::class);
+            /** @var array<Plan>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'plans_v2'");
     }
 
     /**
@@ -167,6 +183,20 @@ class PlannerUser extends PlannerDelta implements Parsable
     }
 
     /**
+     * Gets the tasks_v2 property value. Read-only. Nullable. The collection of Planner Graph V4 tasks assigned to the user.
+     * @return array<Task>|null
+    */
+    public function getTasksV2(): ?array {
+        $val = $this->getBackingStore()->get('tasks_v2');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Task::class);
+            /** @var array<Task>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tasks_v2'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -177,10 +207,12 @@ class PlannerUser extends PlannerDelta implements Parsable
         $writer->writeCollectionOfObjectValues('favoritePlans', $this->getFavoritePlans());
         $writer->writeCollectionOfObjectValues('myDayTasks', $this->getMyDayTasks());
         $writer->writeCollectionOfObjectValues('plans', $this->getPlans());
+        $writer->writeCollectionOfObjectValues('plans_v2', $this->getPlansV2());
         $writer->writeObjectValue('recentPlanReferences', $this->getRecentPlanReferences());
         $writer->writeCollectionOfObjectValues('recentPlans', $this->getRecentPlans());
         $writer->writeCollectionOfObjectValues('rosterPlans', $this->getRosterPlans());
         $writer->writeCollectionOfObjectValues('tasks', $this->getTasks());
+        $writer->writeCollectionOfObjectValues('tasks_v2', $this->getTasksV2());
     }
 
     /**
@@ -224,6 +256,14 @@ class PlannerUser extends PlannerDelta implements Parsable
     }
 
     /**
+     * Sets the plans_v2 property value. Read-only. Nullable. The collection of Planner Graph V4 plans associated with the user.
+     * @param array<Plan>|null $value Value to set for the plans_v2 property.
+    */
+    public function setPlansV2(?array $value): void {
+        $this->getBackingStore()->set('plans_v2', $value);
+    }
+
+    /**
      * Sets the recentPlanReferences property value. A collection that contains references to the plans that the user recently viewed in apps that support recent plans.
      * @param PlannerRecentPlanReferenceCollection|null $value Value to set for the recentPlanReferences property.
     */
@@ -253,6 +293,14 @@ class PlannerUser extends PlannerDelta implements Parsable
     */
     public function setTasks(?array $value): void {
         $this->getBackingStore()->set('tasks', $value);
+    }
+
+    /**
+     * Sets the tasks_v2 property value. Read-only. Nullable. The collection of Planner Graph V4 tasks assigned to the user.
+     * @param array<Task>|null $value Value to set for the tasks_v2 property.
+    */
+    public function setTasksV2(?array $value): void {
+        $this->getBackingStore()->set('tasks_v2', $value);
     }
 
 }

@@ -70,7 +70,7 @@ class DriftCounts implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the missing property value. The missing property
+     * Gets the missing property value. The number of assignments that are expected but not present on the resource.
      * @return int|null
     */
     public function getMissing(): ?int {
@@ -94,7 +94,7 @@ class DriftCounts implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the total property value. The total property
+     * Gets the total property value. The total number of unauthorized and missing access assignments.
      * @return int|null
     */
     public function getTotal(): ?int {
@@ -106,7 +106,7 @@ class DriftCounts implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the unauthorized property value. The unauthorized property
+     * Gets the unauthorized property value. The number of assignments that exist on the resource but are not expected.
      * @return int|null
     */
     public function getUnauthorized(): ?int {
@@ -146,7 +146,7 @@ class DriftCounts implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the missing property value. The missing property
+     * Sets the missing property value. The number of assignments that are expected but not present on the resource.
      * @param int|null $value Value to set for the missing property.
     */
     public function setMissing(?int $value): void {
@@ -162,7 +162,7 @@ class DriftCounts implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the total property value. The total property
+     * Sets the total property value. The total number of unauthorized and missing access assignments.
      * @param int|null $value Value to set for the total property.
     */
     public function setTotal(?int $value): void {
@@ -170,7 +170,7 @@ class DriftCounts implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the unauthorized property value. The unauthorized property
+     * Sets the unauthorized property value. The number of assignments that exist on the resource but are not expected.
      * @param int|null $value Value to set for the unauthorized property.
     */
     public function setUnauthorized(?int $value): void {

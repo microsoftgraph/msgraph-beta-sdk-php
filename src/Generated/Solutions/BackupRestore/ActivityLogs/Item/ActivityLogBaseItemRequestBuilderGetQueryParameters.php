@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\BackupRestore\ActivityLogs\It
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get activityLogs from solutions
+ * The list of activity logs in the tenant.
 */
 class ActivityLogBaseItemRequestBuilderGetQueryParameters 
 {

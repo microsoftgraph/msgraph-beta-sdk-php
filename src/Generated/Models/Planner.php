@@ -49,8 +49,10 @@ class Planner extends Entity implements Parsable
             'buckets' => fn(ParseNode $n) => $o->setBuckets($n->getCollectionOfObjectValues([PlannerBucket::class, 'createFromDiscriminatorValue'])),
             'goals' => fn(ParseNode $n) => $o->setGoals($n->getCollectionOfObjectValues([PlannerGoal::class, 'createFromDiscriminatorValue'])),
             'plans' => fn(ParseNode $n) => $o->setPlans($n->getCollectionOfObjectValues([PlannerPlan::class, 'createFromDiscriminatorValue'])),
+            'plans_v2' => fn(ParseNode $n) => $o->setPlansV2($n->getCollectionOfObjectValues([Plan::class, 'createFromDiscriminatorValue'])),
             'rosters' => fn(ParseNode $n) => $o->setRosters($n->getCollectionOfObjectValues([PlannerRoster::class, 'createFromDiscriminatorValue'])),
             'tasks' => fn(ParseNode $n) => $o->setTasks($n->getCollectionOfObjectValues([PlannerTask::class, 'createFromDiscriminatorValue'])),
+            'tasks_v2' => fn(ParseNode $n) => $o->setTasksV2($n->getCollectionOfObjectValues([Task::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -83,6 +85,20 @@ class Planner extends Entity implements Parsable
     }
 
     /**
+     * Gets the plans_v2 property value. Read-only. Nullable. The collection of Planner Graph V4 plans.
+     * @return array<Plan>|null
+    */
+    public function getPlansV2(): ?array {
+        $val = $this->getBackingStore()->get('plans_v2');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Plan::class);
+            /** @var array<Plan>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'plans_v2'");
+    }
+
+    /**
      * Gets the rosters property value. Read-only. Nullable. Returns a collection of the specified rosters
      * @return array<PlannerRoster>|null
     */
@@ -111,6 +127,20 @@ class Planner extends Entity implements Parsable
     }
 
     /**
+     * Gets the tasks_v2 property value. Read-only. Nullable. The collection of Planner Graph V4 tasks.
+     * @return array<Task>|null
+    */
+    public function getTasksV2(): ?array {
+        $val = $this->getBackingStore()->get('tasks_v2');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, Task::class);
+            /** @var array<Task>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tasks_v2'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -119,8 +149,10 @@ class Planner extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('buckets', $this->getBuckets());
         $writer->writeCollectionOfObjectValues('goals', $this->getGoals());
         $writer->writeCollectionOfObjectValues('plans', $this->getPlans());
+        $writer->writeCollectionOfObjectValues('plans_v2', $this->getPlansV2());
         $writer->writeCollectionOfObjectValues('rosters', $this->getRosters());
         $writer->writeCollectionOfObjectValues('tasks', $this->getTasks());
+        $writer->writeCollectionOfObjectValues('tasks_v2', $this->getTasksV2());
     }
 
     /**
@@ -148,6 +180,14 @@ class Planner extends Entity implements Parsable
     }
 
     /**
+     * Sets the plans_v2 property value. Read-only. Nullable. The collection of Planner Graph V4 plans.
+     * @param array<Plan>|null $value Value to set for the plans_v2 property.
+    */
+    public function setPlansV2(?array $value): void {
+        $this->getBackingStore()->set('plans_v2', $value);
+    }
+
+    /**
      * Sets the rosters property value. Read-only. Nullable. Returns a collection of the specified rosters
      * @param array<PlannerRoster>|null $value Value to set for the rosters property.
     */
@@ -161,6 +201,14 @@ class Planner extends Entity implements Parsable
     */
     public function setTasks(?array $value): void {
         $this->getBackingStore()->set('tasks', $value);
+    }
+
+    /**
+     * Sets the tasks_v2 property value. Read-only. Nullable. The collection of Planner Graph V4 tasks.
+     * @param array<Task>|null $value Value to set for the tasks_v2 property.
+    */
+    public function setTasksV2(?array $value): void {
+        $this->getBackingStore()->set('tasks_v2', $value);
     }
 
 }

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Planner;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Selective Planner services available to the group. Read-only. Nullable.
+ * Read the properties and relationships of plannerGroup object.
 */
 class PlannerRequestBuilderGetQueryParameters 
 {
