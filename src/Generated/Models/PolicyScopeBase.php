@@ -105,7 +105,7 @@ class PolicyScopeBase implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the locationExclusions property value. The locationExclusions property
+     * Gets the locationExclusions property value. Locations excluded from the policy scope. When specified, the effective scope is the set of locations in locations minus the locations in locationExclusions. Required.
      * @return array<PolicyLocation>|null
     */
     public function getLocationExclusions(): ?array {
@@ -205,7 +205,7 @@ class PolicyScopeBase implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the locationExclusions property value. The locationExclusions property
+     * Sets the locationExclusions property value. Locations excluded from the policy scope. When specified, the effective scope is the set of locations in locations minus the locations in locationExclusions. Required.
      * @param array<PolicyLocation>|null $value Value to set for the locationExclusions property.
     */
     public function setLocationExclusions(?array $value): void {

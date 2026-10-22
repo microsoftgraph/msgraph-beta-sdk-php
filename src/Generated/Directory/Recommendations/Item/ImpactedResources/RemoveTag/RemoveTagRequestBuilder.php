@@ -35,6 +35,7 @@ class RemoveTagRequestBuilder extends BaseRequestBuilder
      * @param RemoveTagRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RemoveTagPostResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/impactedresource-removetag-collection?view=graph-rest-beta Find more info here
     */
     public function post(RemoveTagPostRequestBody $body, ?RemoveTagRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

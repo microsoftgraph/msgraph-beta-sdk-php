@@ -31,11 +31,12 @@ class ProvisionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action provision
+     * Provision a device on behalf of an approved Virtual Desktop Infrastructure (VDI) provider. This action wraps the Zero Touch Deployment (ZTD) protocol to create a device in a pending state in the customer's directory. The device can't be used for authentication until it completes its registration. The created device is stamped with a system label that identifies the approved VDI provider. Only VDI applications on Microsoft's approved list of VDI providers can successfully call this action. Calls from other applications are blocked even when the application is granted the required permission.
      * @param ProvisionPostRequestBody $body The request body
      * @param ProvisionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProvisionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/device-provision?view=graph-rest-beta Find more info here
     */
     public function post(ProvisionPostRequestBody $body, ?ProvisionRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -46,7 +47,7 @@ class ProvisionRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action provision
+     * Provision a device on behalf of an approved Virtual Desktop Infrastructure (VDI) provider. This action wraps the Zero Touch Deployment (ZTD) protocol to create a device in a pending state in the customer's directory. The device can't be used for authentication until it completes its registration. The created device is stamped with a system label that identifies the approved VDI provider. Only VDI applications on Microsoft's approved list of VDI providers can successfully call this action. Calls from other applications are blocked even when the application is granted the required permission.
      * @param ProvisionPostRequestBody $body The request body
      * @param ProvisionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

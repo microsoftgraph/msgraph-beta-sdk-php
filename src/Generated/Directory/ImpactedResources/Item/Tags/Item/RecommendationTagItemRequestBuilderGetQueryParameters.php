@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\ImpactedResources\Item\Tags\I
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get tags from directory
+ * The user-defined free-form labels applied to the impactedResource. The collection isn't directly writable; tags are created and removed through the addTag and removeTag actions.
 */
 class RecommendationTagItemRequestBuilderGetQueryParameters 
 {

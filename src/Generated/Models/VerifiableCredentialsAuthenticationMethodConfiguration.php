@@ -33,8 +33,21 @@ class VerifiableCredentialsAuthenticationMethodConfiguration extends Authenticat
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'identityVerificationEventsConfiguration' => fn(ParseNode $n) => $o->setIdentityVerificationEventsConfiguration($n->getObjectValue([IdentityVerificationEventsConfiguration::class, 'createFromDiscriminatorValue'])),
             'includeTargets' => fn(ParseNode $n) => $o->setIncludeTargets($n->getCollectionOfObjectValues([VerifiableCredentialAuthenticationMethodTarget::class, 'createFromDiscriminatorValue'])),
         ]);
+    }
+
+    /**
+     * Gets the identityVerificationEventsConfiguration property value. The identityVerificationEventsConfiguration property
+     * @return IdentityVerificationEventsConfiguration|null
+    */
+    public function getIdentityVerificationEventsConfiguration(): ?IdentityVerificationEventsConfiguration {
+        $val = $this->getBackingStore()->get('identityVerificationEventsConfiguration');
+        if (is_null($val) || $val instanceof IdentityVerificationEventsConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityVerificationEventsConfiguration'");
     }
 
     /**
@@ -57,7 +70,16 @@ class VerifiableCredentialsAuthenticationMethodConfiguration extends Authenticat
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('identityVerificationEventsConfiguration', $this->getIdentityVerificationEventsConfiguration());
         $writer->writeCollectionOfObjectValues('includeTargets', $this->getIncludeTargets());
+    }
+
+    /**
+     * Sets the identityVerificationEventsConfiguration property value. The identityVerificationEventsConfiguration property
+     * @param IdentityVerificationEventsConfiguration|null $value Value to set for the identityVerificationEventsConfiguration property.
+    */
+    public function setIdentityVerificationEventsConfiguration(?IdentityVerificationEventsConfiguration $value): void {
+        $this->getBackingStore()->set('identityVerificationEventsConfiguration', $value);
     }
 
     /**

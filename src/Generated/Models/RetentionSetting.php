@@ -94,7 +94,7 @@ class RetentionSetting implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the period property value. The period of time to retain the protected data for a single Microsoft 365 service.
+     * Gets the period property value. The period of time to retain the protected data for a single Microsoft 365 service. The possible values are: P90D, P180D, P365D, P730D, P1095D, P1460D, P1825D, P2190D, P2555D, P2920D, P3285D, and P3650D. Other values aren't supported.
      * @return DateInterval|null
     */
     public function getPeriod(): ?DateInterval {
@@ -149,7 +149,7 @@ class RetentionSetting implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the period property value. The period of time to retain the protected data for a single Microsoft 365 service.
+     * Sets the period property value. The period of time to retain the protected data for a single Microsoft 365 service. The possible values are: P90D, P180D, P365D, P730D, P1095D, P1460D, P1825D, P2190D, P2555D, P2920D, P3285D, and P3650D. Other values aren't supported.
      * @param DateInterval|null $value Value to set for the period property.
     */
     public function setPeriod(?DateInterval $value): void {

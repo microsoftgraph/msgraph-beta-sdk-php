@@ -31,10 +31,11 @@ class AcceptRiskRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action acceptRisk
+     * Accept the risk for an impactedResource object and update its status to riskAccepted.
      * @param AcceptRiskRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ImpactedResource|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/impactedresource-acceptrisk?view=graph-rest-beta Find more info here
     */
     public function post(?AcceptRiskRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
@@ -45,7 +46,7 @@ class AcceptRiskRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action acceptRisk
+     * Accept the risk for an impactedResource object and update its status to riskAccepted.
      * @param AcceptRiskRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

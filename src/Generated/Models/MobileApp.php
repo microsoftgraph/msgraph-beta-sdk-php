@@ -30,6 +30,7 @@ class MobileApp extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.androidAospReferencedApp': return new AndroidAospReferencedApp();
                 case '#microsoft.graph.androidForWorkApp': return new AndroidForWorkApp();
                 case '#microsoft.graph.androidLobApp': return new AndroidLobApp();
                 case '#microsoft.graph.androidManagedStoreApp': return new AndroidManagedStoreApp();

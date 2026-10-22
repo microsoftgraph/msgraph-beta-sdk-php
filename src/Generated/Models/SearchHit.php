@@ -84,6 +84,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
             'resultTemplateId' => fn(ParseNode $n) => $o->setResultTemplateId($n->getStringValue()),
             '_score' => fn(ParseNode $n) => $o->setScore($n->getIntegerValue()),
             '_summary' => fn(ParseNode $n) => $o->setSearchHitSummary($n->getStringValue()),
+            'sensitivityLabel' => fn(ParseNode $n) => $o->setSensitivityLabel($n->getObjectValue([SensitivityLabelInfo::class, 'createFromDiscriminatorValue'])),
             '_source' => fn(ParseNode $n) => $o->setSource($n->getObjectValue([Entity::class, 'createFromDiscriminatorValue'])),
             'summary' => fn(ParseNode $n) => $o->setSummary($n->getStringValue()),
         ];
@@ -114,7 +115,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isCollapsed property value. Indicates whether the current result is collapses when the collapseProperties property in the searchRequest is used.
+     * Gets the isCollapsed property value. Indicates whether the current result is collapsed when the collapseProperties property in the searchRequest is used.
      * @return bool|null
     */
     public function getIsCollapsed(): ?bool {
@@ -162,7 +163,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the resultTemplateId property value. ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well.
+     * Gets the resultTemplateId property value. ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchResponse as well.
      * @return string|null
     */
     public function getResultTemplateId(): ?string {
@@ -195,6 +196,18 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'searchHitSummary'");
+    }
+
+    /**
+     * Gets the sensitivityLabel property value. The sensitivity label applied to the search result resource, or null if the resource has no sensitivity label.
+     * @return SensitivityLabelInfo|null
+    */
+    public function getSensitivityLabel(): ?SensitivityLabelInfo {
+        $val = $this->getBackingStore()->get('sensitivityLabel');
+        if (is_null($val) || $val instanceof SensitivityLabelInfo) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'sensitivityLabel'");
     }
 
     /**
@@ -236,6 +249,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('resultTemplateId', $this->getResultTemplateId());
         $writer->writeIntegerValue('_score', $this->getScore());
         $writer->writeStringValue('_summary', $this->getSearchHitSummary());
+        $writer->writeObjectValue('sensitivityLabel', $this->getSensitivityLabel());
         $writer->writeObjectValue('_source', $this->getSource());
         $writer->writeStringValue('summary', $this->getSummary());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -282,7 +296,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isCollapsed property value. Indicates whether the current result is collapses when the collapseProperties property in the searchRequest is used.
+     * Sets the isCollapsed property value. Indicates whether the current result is collapsed when the collapseProperties property in the searchRequest is used.
      * @param bool|null $value Value to set for the isCollapsed property.
     */
     public function setIsCollapsed(?bool $value): void {
@@ -314,7 +328,7 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the resultTemplateId property value. ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well.
+     * Sets the resultTemplateId property value. ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchResponse as well.
      * @param string|null $value Value to set for the resultTemplateId property.
     */
     public function setResultTemplateId(?string $value): void {
@@ -335,6 +349,14 @@ class SearchHit implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setSearchHitSummary(?string $value): void {
         $this->getBackingStore()->set('searchHitSummary', $value);
+    }
+
+    /**
+     * Sets the sensitivityLabel property value. The sensitivity label applied to the search result resource, or null if the resource has no sensitivity label.
+     * @param SensitivityLabelInfo|null $value Value to set for the sensitivityLabel property.
+    */
+    public function setSensitivityLabel(?SensitivityLabelInfo $value): void {
+        $this->getBackingStore()->set('sensitivityLabel', $value);
     }
 
     /**

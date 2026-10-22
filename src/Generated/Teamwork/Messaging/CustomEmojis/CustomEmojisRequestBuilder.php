@@ -8,7 +8,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TeamworkCustomEmoji;
 use Microsoft\Graph\Beta\Generated\Models\TeamworkCustomEmojiCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Teamwork\Messaging\CustomEmojis\Count\CountRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Teamwork\Messaging\CustomEmojis\Item\TeamworkCustomEmojiDisplayNameItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teamwork\Messaging\CustomEmojis\Item\TeamworkCustomEmojiItemRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -28,13 +28,13 @@ class CustomEmojisRequestBuilder extends BaseRequestBuilder
     
     /**
      * Provides operations to manage the customEmojis property of the microsoft.graph.teamworkMessaging entity.
-     * @param string $teamworkCustomEmojiDisplayName The unique identifier of teamworkCustomEmoji
-     * @return TeamworkCustomEmojiDisplayNameItemRequestBuilder
+     * @param string $teamworkCustomEmojiId The unique identifier of teamworkCustomEmoji
+     * @return TeamworkCustomEmojiItemRequestBuilder
     */
-    public function byTeamworkCustomEmojiDisplayName(string $teamworkCustomEmojiDisplayName): TeamworkCustomEmojiDisplayNameItemRequestBuilder {
+    public function byTeamworkCustomEmojiId(string $teamworkCustomEmojiId): TeamworkCustomEmojiItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['teamworkCustomEmoji%2DdisplayName'] = $teamworkCustomEmojiDisplayName;
-        return new TeamworkCustomEmojiDisplayNameItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        $urlTplParams['teamworkCustomEmoji%2Did'] = $teamworkCustomEmojiId;
+        return new TeamworkCustomEmojiItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

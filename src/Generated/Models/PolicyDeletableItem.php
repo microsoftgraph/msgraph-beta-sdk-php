@@ -36,6 +36,8 @@ class PolicyDeletableItem implements AdditionalDataHolder, BackedModel, Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.authenticationMethodsPolicy': return new AuthenticationMethodsPolicy();
+                case '#microsoft.graph.authenticationStrengthPolicy': return new AuthenticationStrengthPolicy();
                 case '#microsoft.graph.compliantNetworkNamedLocation': return new CompliantNetworkNamedLocation();
                 case '#microsoft.graph.conditionalAccessPolicy': return new ConditionalAccessPolicy();
                 case '#microsoft.graph.countryNamedLocation': return new CountryNamedLocation();

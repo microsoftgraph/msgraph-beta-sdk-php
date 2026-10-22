@@ -18,6 +18,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetR
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetRemoteConnectionHistoricalReports\GetRemoteConnectionHistoricalReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\GetTotalAggregatedRemoteConnectionReports\GetTotalAggregatedRemoteConnectionReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\RetrieveBulkActionStatusReport\RetrieveBulkActionStatusReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\RetrieveCloudPcPerformanceMetricsReport\RetrieveCloudPcPerformanceMetricsReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\RetrieveCloudPcRecommendationReports\RetrieveCloudPcRecommendationReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\RetrieveCloudPcTenantMetricsReport\RetrieveCloudPcTenantMetricsReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\RetrieveCloudPcTroubleshootReports\RetrieveCloudPcTroubleshootReportsRequestBuilder;
@@ -118,6 +119,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function retrieveBulkActionStatusReport(): RetrieveBulkActionStatusReportRequestBuilder {
         return new RetrieveBulkActionStatusReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retrieveCloudPcPerformanceMetricsReport method.
+    */
+    public function retrieveCloudPcPerformanceMetricsReport(): RetrieveCloudPcPerformanceMetricsReportRequestBuilder {
+        return new RetrieveCloudPcPerformanceMetricsReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

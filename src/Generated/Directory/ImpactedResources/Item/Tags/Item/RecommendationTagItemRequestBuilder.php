@@ -45,7 +45,7 @@ class RecommendationTagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get tags from directory
+     * The user-defined free-form labels applied to the impactedResource. The collection isn't directly writable; tags are created and removed through the addTag and removeTag actions.
      * @param RecommendationTagItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RecommendationTag|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class RecommendationTagItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get tags from directory
+     * The user-defined free-form labels applied to the impactedResource. The collection isn't directly writable; tags are created and removed through the addTag and removeTag actions.
      * @param RecommendationTagItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

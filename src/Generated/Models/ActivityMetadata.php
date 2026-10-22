@@ -9,6 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
+use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 class ActivityMetadata implements AdditionalDataHolder, BackedModel, Parsable 
 {
@@ -76,6 +77,7 @@ class ActivityMetadata implements AdditionalDataHolder, BackedModel, Parsable
         return  [
             'activity' => fn(ParseNode $n) => $o->setActivity($n->getEnumValue(UserActivityType::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'participants' => fn(ParseNode $n) => $o->setParticipants($n->getCollectionOfObjectValues([InteractionParticipant::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
@@ -92,12 +94,27 @@ class ActivityMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the participants property value. The participants property
+     * @return array<InteractionParticipant>|null
+    */
+    public function getParticipants(): ?array {
+        $val = $this->getBackingStore()->get('participants');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, InteractionParticipant::class);
+            /** @var array<InteractionParticipant>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'participants'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('activity', $this->getActivity());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeCollectionOfObjectValues('participants', $this->getParticipants());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -131,6 +148,14 @@ class ActivityMetadata implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setOdataType(?string $value): void {
         $this->getBackingStore()->set('odataType', $value);
+    }
+
+    /**
+     * Sets the participants property value. The participants property
+     * @param array<InteractionParticipant>|null $value Value to set for the participants property.
+    */
+    public function setParticipants(?array $value): void {
+        $this->getBackingStore()->set('participants', $value);
     }
 
 }

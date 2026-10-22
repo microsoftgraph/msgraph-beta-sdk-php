@@ -35,7 +35,7 @@ class InvestigationActionStep implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the actionUrl property value. The actionUrl property
+     * Gets the actionUrl property value. The follow-on API reference for the step, containing the URL template and a machine-readable execution directive that a client uses to retrieve the drill-in data.
      * @return InvestigationActionUrl|null
     */
     public function getActionUrl(): ?InvestigationActionUrl {
@@ -94,7 +94,7 @@ class InvestigationActionStep implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the stepNumber property value. The stepNumber property
+     * Gets the stepNumber property value. The one-based order, as a string, in which the step should be evaluated by a client. Steps are intended to be run in ascending stepNumber order because later steps can depend on the output of earlier steps. This value is the key of the resource.
      * @return string|null
     */
     public function getStepNumber(): ?string {
@@ -106,7 +106,7 @@ class InvestigationActionStep implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Gets the text property value. The text property
+     * Gets the text property value. Human-readable guidance that explains what the step does and why it's useful for investigating the related metric.
      * @return string|null
     */
     public function getText(): ?string {
@@ -130,7 +130,7 @@ class InvestigationActionStep implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the actionUrl property value. The actionUrl property
+     * Sets the actionUrl property value. The follow-on API reference for the step, containing the URL template and a machine-readable execution directive that a client uses to retrieve the drill-in data.
      * @param InvestigationActionUrl|null $value Value to set for the actionUrl property.
     */
     public function setActionUrl(?InvestigationActionUrl $value): void {
@@ -162,7 +162,7 @@ class InvestigationActionStep implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the stepNumber property value. The stepNumber property
+     * Sets the stepNumber property value. The one-based order, as a string, in which the step should be evaluated by a client. Steps are intended to be run in ascending stepNumber order because later steps can depend on the output of earlier steps. This value is the key of the resource.
      * @param string|null $value Value to set for the stepNumber property.
     */
     public function setStepNumber(?string $value): void {
@@ -170,7 +170,7 @@ class InvestigationActionStep implements AdditionalDataHolder, BackedModel, Pars
     }
 
     /**
-     * Sets the text property value. The text property
+     * Sets the text property value. Human-readable guidance that explains what the step does and why it's useful for investigating the related metric.
      * @param string|null $value Value to set for the text property.
     */
     public function setText(?string $value): void {

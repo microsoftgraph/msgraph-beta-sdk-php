@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Storage\FileStorage\Containers\GetByUse
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of fileStorageContainer objects that are owned by a user (either as owner or as principalOwner). You can also filter the results to only list containers for which the user is the principalOwner.
+ * Invoke function getByUser
 */
 class GetByUserWithUserPrincipalNameRequestBuilderGetQueryParameters 
 {

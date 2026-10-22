@@ -10,9 +10,6 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-/**
- * Singleton for network operations on Microsoft Graph.
-*/
 class Network implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**

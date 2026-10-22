@@ -11,6 +11,9 @@ use Microsoft\Kiota\Abstractions\Store\BackedModel;
 use Microsoft\Kiota\Abstractions\Store\BackingStore;
 use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
+/**
+ * Captures who performed an action and when.
+*/
 class AuditInfo implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**

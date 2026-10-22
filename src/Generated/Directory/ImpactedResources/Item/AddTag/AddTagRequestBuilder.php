@@ -31,11 +31,12 @@ class AddTagRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action addTag
+     * Add a user-defined tag to an impactedResource object. To add the same tag to multiple impacted resources in a single request, use the addTag action on the impactedResources collection.
      * @param AddTagPostRequestBody $body The request body
      * @param AddTagRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RecommendationTag|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/impactedresource-addtag?view=graph-rest-beta Find more info here
     */
     public function post(AddTagPostRequestBody $body, ?AddTagRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -46,7 +47,7 @@ class AddTagRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action addTag
+     * Add a user-defined tag to an impactedResource object. To add the same tag to multiple impacted resources in a single request, use the addTag action on the impactedResources collection.
      * @param AddTagPostRequestBody $body The request body
      * @param AddTagRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

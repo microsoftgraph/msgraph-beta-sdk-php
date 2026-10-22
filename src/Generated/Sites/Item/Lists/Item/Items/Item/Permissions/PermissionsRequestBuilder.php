@@ -52,10 +52,11 @@ class PermissionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The set of permissions for the item. Read-only. Nullable.
+     * Get a list of the permission objects associated with a listItem.
      * @param PermissionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PermissionCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/listitem-list-permissions?view=graph-rest-beta Find more info here
     */
     public function get(?PermissionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class PermissionsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The set of permissions for the item. Read-only. Nullable.
+     * Get a list of the permission objects associated with a listItem.
      * @param PermissionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -35,9 +35,9 @@ class PolicyLocation implements AdditionalDataHolder, BackedModel, Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.policyLocationAgent': return new PolicyLocationAgent();
                 case '#microsoft.graph.policyLocationApplication': return new PolicyLocationApplication();
                 case '#microsoft.graph.policyLocationDomain': return new PolicyLocationDomain();
-                case '#microsoft.graph.policyLocationTool': return new PolicyLocationTool();
                 case '#microsoft.graph.policyLocationUrl': return new PolicyLocationUrl();
             }
         }

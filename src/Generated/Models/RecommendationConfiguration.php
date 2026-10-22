@@ -50,7 +50,7 @@ class RecommendationConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastRefreshedDateTime property value. The lastRefreshedDateTime property
+     * Gets the lastRefreshedDateTime property value. The date and time of the most recent refresh cycle in which every pipeline that populates Microsoft Entra recommendations completed successfully for the tenant's region. The value advances only when all contributing pipelines succeed and remains at the last fully successful cycle if any contributing pipeline is unhealthy. A successful refresh doesn't imply that any individual recommendation changed. Is null when no fully successful refresh has been recorded yet. Read-only.
      * @return DateTime|null
     */
     public function getLastRefreshedDateTime(): ?DateTime {
@@ -79,7 +79,7 @@ class RecommendationConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastRefreshedDateTime property value. The lastRefreshedDateTime property
+     * Sets the lastRefreshedDateTime property value. The date and time of the most recent refresh cycle in which every pipeline that populates Microsoft Entra recommendations completed successfully for the tenant's region. The value advances only when all contributing pipelines succeed and remains at the last fully successful cycle if any contributing pipeline is unhealthy. A successful refresh doesn't imply that any individual recommendation changed. Is null when no fully successful refresh has been recorded yet. Read-only.
      * @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
     */
     public function setLastRefreshedDateTime(?DateTime $value): void {

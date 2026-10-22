@@ -3,6 +3,7 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Graph\Beta\Generated\Models\CloudLicensing\DeviceCloudLicensing;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -77,6 +78,18 @@ class Device extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'approximateLastSignInDateTime'");
+    }
+
+    /**
+     * Gets the cloudLicensing property value. The cloud licensing relationships for this device, including assignments, usage rights, and waiting members.
+     * @return DeviceCloudLicensing|null
+    */
+    public function getCloudLicensing(): ?DeviceCloudLicensing {
+        $val = $this->getBackingStore()->get('cloudLicensing');
+        if (is_null($val) || $val instanceof DeviceCloudLicensing) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'cloudLicensing'");
     }
 
     /**
@@ -271,6 +284,7 @@ class Device extends DirectoryObject implements Parsable
             },
             'alternativeSecurityIds' => fn(ParseNode $n) => $o->setAlternativeSecurityIds($n->getCollectionOfObjectValues([AlternativeSecurityId::class, 'createFromDiscriminatorValue'])),
             'approximateLastSignInDateTime' => fn(ParseNode $n) => $o->setApproximateLastSignInDateTime($n->getDateTimeValue()),
+            'cloudLicensing' => fn(ParseNode $n) => $o->setCloudLicensing($n->getObjectValue([DeviceCloudLicensing::class, 'createFromDiscriminatorValue'])),
             'commands' => fn(ParseNode $n) => $o->setCommands($n->getCollectionOfObjectValues([Command::class, 'createFromDiscriminatorValue'])),
             'complianceExpirationDateTime' => fn(ParseNode $n) => $o->setComplianceExpirationDateTime($n->getDateTimeValue()),
             'deviceCategory' => fn(ParseNode $n) => $o->setDeviceCategory($n->getStringValue()),
@@ -699,6 +713,7 @@ class Device extends DirectoryObject implements Parsable
         $writer->writeCollectionOfPrimitiveValues('alternativeNames', $this->getAlternativeNames());
         $writer->writeCollectionOfObjectValues('alternativeSecurityIds', $this->getAlternativeSecurityIds());
         $writer->writeDateTimeValue('approximateLastSignInDateTime', $this->getApproximateLastSignInDateTime());
+        $writer->writeObjectValue('cloudLicensing', $this->getCloudLicensing());
         $writer->writeCollectionOfObjectValues('commands', $this->getCommands());
         $writer->writeDateTimeValue('complianceExpirationDateTime', $this->getComplianceExpirationDateTime());
         $writer->writeStringValue('deviceCategory', $this->getDeviceCategory());
@@ -773,6 +788,14 @@ class Device extends DirectoryObject implements Parsable
     */
     public function setApproximateLastSignInDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('approximateLastSignInDateTime', $value);
+    }
+
+    /**
+     * Sets the cloudLicensing property value. The cloud licensing relationships for this device, including assignments, usage rights, and waiting members.
+     * @param DeviceCloudLicensing|null $value Value to set for the cloudLicensing property.
+    */
+    public function setCloudLicensing(?DeviceCloudLicensing $value): void {
+        $this->getBackingStore()->set('cloudLicensing', $value);
     }
 
     /**

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\Tags\Ite
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get tags from directory
+ * The user-defined free-form labels applied to the recommendation. The collection isn't directly writable; tags are created and removed through the addTag and removeTag actions.
 */
 class RecommendationTagItemRequestBuilderGetQueryParameters 
 {

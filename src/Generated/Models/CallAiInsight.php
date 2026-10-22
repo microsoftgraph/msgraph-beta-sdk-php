@@ -101,6 +101,7 @@ class CallAiInsight extends Entity implements Parsable
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
             'meetingNotes' => fn(ParseNode $n) => $o->setMeetingNotes($n->getCollectionOfObjectValues([MeetingNote::class, 'createFromDiscriminatorValue'])),
+            'recapUrl' => fn(ParseNode $n) => $o->setRecapUrl($n->getStringValue()),
             'viewpoint' => fn(ParseNode $n) => $o->setViewpoint($n->getObjectValue([CallAiInsightViewPoint::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -117,6 +118,18 @@ class CallAiInsight extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'meetingNotes'");
+    }
+
+    /**
+     * Gets the recapUrl property value. The recapUrl property
+     * @return string|null
+    */
+    public function getRecapUrl(): ?string {
+        $val = $this->getBackingStore()->get('recapUrl');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'recapUrl'");
     }
 
     /**
@@ -143,6 +156,7 @@ class CallAiInsight extends Entity implements Parsable
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
         $writer->writeCollectionOfObjectValues('meetingNotes', $this->getMeetingNotes());
+        $writer->writeStringValue('recapUrl', $this->getRecapUrl());
         $writer->writeObjectValue('viewpoint', $this->getViewpoint());
     }
 
@@ -192,6 +206,14 @@ class CallAiInsight extends Entity implements Parsable
     */
     public function setMeetingNotes(?array $value): void {
         $this->getBackingStore()->set('meetingNotes', $value);
+    }
+
+    /**
+     * Sets the recapUrl property value. The recapUrl property
+     * @param string|null $value Value to set for the recapUrl property.
+    */
+    public function setRecapUrl(?string $value): void {
+        $this->getBackingStore()->set('recapUrl', $value);
     }
 
     /**

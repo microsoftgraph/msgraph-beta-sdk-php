@@ -233,6 +233,18 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the disableNesting property value. Indicates whether other groups can be added as members of this group. The default value is false. When set to true, other groups can't be added as members. You can set this property only for security groups that have isAssignableToRole set to false. The property is read-only for Microsoft 365 groups and groups that have isAssignableToRole set to true. Not nullable. Requires $select to retrieve. Supports $filter (eq). The least privileged permission to read or write this property is Group-NestingSupport.ReadWrite.All.
+     * @return bool|null
+    */
+    public function getDisableNesting(): ?bool {
+        $val = $this->getBackingStore()->get('disableNesting');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'disableNesting'");
+    }
+
+    /**
      * Gets the displayName property value. The display name for the group. Required. Maximum length is 256 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderby.
      * @return string|null
     */
@@ -347,6 +359,7 @@ class Group extends DirectoryObject implements Parsable
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'createdOnBehalfOf' => fn(ParseNode $n) => $o->setCreatedOnBehalfOf($n->getObjectValue([DirectoryObject::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'disableNesting' => fn(ParseNode $n) => $o->setDisableNesting($n->getBooleanValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'drive' => fn(ParseNode $n) => $o->setDrive($n->getObjectValue([Drive::class, 'createFromDiscriminatorValue'])),
             'drives' => fn(ParseNode $n) => $o->setDrives($n->getCollectionOfObjectValues([Drive::class, 'createFromDiscriminatorValue'])),
@@ -1247,6 +1260,7 @@ class Group extends DirectoryObject implements Parsable
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeObjectValue('createdOnBehalfOf', $this->getCreatedOnBehalfOf());
         $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeBooleanValue('disableNesting', $this->getDisableNesting());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeObjectValue('drive', $this->getDrive());
         $writer->writeCollectionOfObjectValues('drives', $this->getDrives());
@@ -1443,6 +1457,14 @@ class Group extends DirectoryObject implements Parsable
     */
     public function setDescription(?string $value): void {
         $this->getBackingStore()->set('description', $value);
+    }
+
+    /**
+     * Sets the disableNesting property value. Indicates whether other groups can be added as members of this group. The default value is false. When set to true, other groups can't be added as members. You can set this property only for security groups that have isAssignableToRole set to false. The property is read-only for Microsoft 365 groups and groups that have isAssignableToRole set to true. Not nullable. Requires $select to retrieve. Supports $filter (eq). The least privileged permission to read or write this property is Group-NestingSupport.ReadWrite.All.
+     * @param bool|null $value Value to set for the disableNesting property.
+    */
+    public function setDisableNesting(?bool $value): void {
+        $this->getBackingStore()->set('disableNesting', $value);
     }
 
     /**

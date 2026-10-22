@@ -38,6 +38,18 @@ class CloudPcAgentPool extends CloudPcPool implements Parsable
     }
 
     /**
+     * Gets the capabilities property value. The capabilities property
+     * @return CloudPcAgentPoolCapabilityConfiguration|null
+    */
+    public function getCapabilities(): ?CloudPcAgentPoolCapabilityConfiguration {
+        $val = $this->getBackingStore()->get('capabilities');
+        if (is_null($val) || $val instanceof CloudPcAgentPoolCapabilityConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'capabilities'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -45,6 +57,7 @@ class CloudPcAgentPool extends CloudPcPool implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'billingConfiguration' => fn(ParseNode $n) => $o->setBillingConfiguration($n->getObjectValue([CloudPcAgentPoolBillingConfiguration::class, 'createFromDiscriminatorValue'])),
+            'capabilities' => fn(ParseNode $n) => $o->setCapabilities($n->getObjectValue([CloudPcAgentPoolCapabilityConfiguration::class, 'createFromDiscriminatorValue'])),
             'poolUrl' => fn(ParseNode $n) => $o->setPoolUrl($n->getStringValue()),
             'scalingPolicy' => fn(ParseNode $n) => $o->setScalingPolicy($n->getObjectValue([CloudPcAgentPoolScalingPolicy::class, 'createFromDiscriminatorValue'])),
             'sessionUsage' => fn(ParseNode $n) => $o->setSessionUsage($n->getObjectValue([CloudPcAgentPoolSessionUsage::class, 'createFromDiscriminatorValue'])),
@@ -94,6 +107,7 @@ class CloudPcAgentPool extends CloudPcPool implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('billingConfiguration', $this->getBillingConfiguration());
+        $writer->writeObjectValue('capabilities', $this->getCapabilities());
         $writer->writeStringValue('poolUrl', $this->getPoolUrl());
         $writer->writeObjectValue('scalingPolicy', $this->getScalingPolicy());
         $writer->writeObjectValue('sessionUsage', $this->getSessionUsage());
@@ -105,6 +119,14 @@ class CloudPcAgentPool extends CloudPcPool implements Parsable
     */
     public function setBillingConfiguration(?CloudPcAgentPoolBillingConfiguration $value): void {
         $this->getBackingStore()->set('billingConfiguration', $value);
+    }
+
+    /**
+     * Sets the capabilities property value. The capabilities property
+     * @param CloudPcAgentPoolCapabilityConfiguration|null $value Value to set for the capabilities property.
+    */
+    public function setCapabilities(?CloudPcAgentPoolCapabilityConfiguration $value): void {
+        $this->getBackingStore()->set('capabilities', $value);
     }
 
     /**

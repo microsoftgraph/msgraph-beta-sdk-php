@@ -34,10 +34,11 @@ class GetStatisticsByPolicyWithPolicyIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function getStatisticsByPolicy
+     * Get the statistics that correspond to the specified policy ID of a backupPolicyReport.
      * @param GetStatisticsByPolicyWithPolicyIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BackupPolicyReport|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/backupreport-getstatisticsbypolicy?view=graph-rest-beta Find more info here
     */
     public function get(?GetStatisticsByPolicyWithPolicyIdRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -48,7 +49,7 @@ class GetStatisticsByPolicyWithPolicyIdRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke function getStatisticsByPolicy
+     * Get the statistics that correspond to the specified policy ID of a backupPolicyReport.
      * @param GetStatisticsByPolicyWithPolicyIdRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

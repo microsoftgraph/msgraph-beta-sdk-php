@@ -31,11 +31,12 @@ class AddTagRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action addTag
+     * Add a user-defined tag to a recommendation object. Tags help you organize, group, and filter recommendations in the Microsoft Entra admin center.
      * @param AddTagPostRequestBody $body The request body
      * @param AddTagRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RecommendationTag|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/recommendation-addtag?view=graph-rest-beta Find more info here
     */
     public function post(AddTagPostRequestBody $body, ?AddTagRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -46,7 +47,7 @@ class AddTagRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action addTag
+     * Add a user-defined tag to a recommendation object. Tags help you organize, group, and filter recommendations in the Microsoft Entra admin center.
      * @param AddTagPostRequestBody $body The request body
      * @param AddTagRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -26,6 +26,7 @@ use Microsoft\Graph\Beta\Generated\Security\InformationProtection\InformationPro
 use Microsoft\Graph\Beta\Generated\Security\IpSecurityProfiles\IpSecurityProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Labels\LabelsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\MicrosoftGraphSecurityGetHuntingSchema\MicrosoftGraphSecurityGetHuntingSchemaRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\MicrosoftGraphSecurityGetHuntingSchemaTablesWithWorkspaceId\MicrosoftGraphSecurityGetHuntingSchemaTablesWithWorkspaceIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\MicrosoftGraphSecurityGetRunHuntingQueryWithQuerytimespanTimespanWithWorkspaceId\MicrosoftGraphSecurityGetRunHuntingQueryWithQuerytimespanTimespanWithWorkspaceIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\MicrosoftGraphSecurityRunHuntingQuery\MicrosoftGraphSecurityRunHuntingQueryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Partner\PartnerRequestBuilder;
@@ -194,6 +195,13 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the getHuntingSchemaTables method.
+    */
+    public function microsoftGraphSecurityGetHuntingSchemaTablesWithWorkspaceId(): MicrosoftGraphSecurityGetHuntingSchemaTablesWithWorkspaceIdRequestBuilder {
+        return new MicrosoftGraphSecurityGetHuntingSchemaTablesWithWorkspaceIdRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the runHuntingQuery method.
     */
     public function microsoftGraphSecurityRunHuntingQuery(): MicrosoftGraphSecurityRunHuntingQueryRequestBuilder {
@@ -344,7 +352,7 @@ class SecurityRequestBuilder extends BaseRequestBuilder
 
     /**
      * Update security
-     * @param Security $body Security singleton providing access to audit log resources.
+     * @param Security $body The request body
      * @param SecurityRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Security|null>
      * @throws Exception
@@ -380,7 +388,7 @@ class SecurityRequestBuilder extends BaseRequestBuilder
 
     /**
      * Update security
-     * @param Security $body Security singleton providing access to audit log resources.
+     * @param Security $body The request body
      * @param SecurityRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

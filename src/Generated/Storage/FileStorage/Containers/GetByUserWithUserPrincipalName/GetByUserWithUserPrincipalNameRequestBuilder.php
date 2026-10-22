@@ -33,11 +33,10 @@ class GetByUserWithUserPrincipalNameRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of fileStorageContainer objects that are owned by a user (either as owner or as principalOwner). You can also filter the results to only list containers for which the user is the principalOwner.
+     * Invoke function getByUser
      * @param GetByUserWithUserPrincipalNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<GetByUserWithUserPrincipalNameGetResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/filestoragecontainer-getbyuser?view=graph-rest-beta Find more info here
     */
     public function get(?GetByUserWithUserPrincipalNameRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -48,7 +47,7 @@ class GetByUserWithUserPrincipalNameRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of fileStorageContainer objects that are owned by a user (either as owner or as principalOwner). You can also filter the results to only list containers for which the user is the principalOwner.
+     * Invoke function getByUser
      * @param GetByUserWithUserPrincipalNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

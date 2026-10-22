@@ -99,6 +99,7 @@ class EscapedCase extends CaseManagementEntity implements Parsable
             'customFields' => fn(ParseNode $n) => $o->setCustomFields($n->getObjectValue([CustomFieldValues::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'relations' => fn(ParseNode $n) => $o->setRelations($n->getCollectionOfObjectValues([Relation::class, 'createFromDiscriminatorValue'])),
+            'slaPolicies' => fn(ParseNode $n) => $o->setSlaPolicies($n->getCollectionOfObjectValues([CaseSlaPolicyEntry::class, 'createFromDiscriminatorValue'])),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getStringValue()),
             'tasks' => fn(ParseNode $n) => $o->setTasks($n->getCollectionOfObjectValues([Task::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -116,6 +117,20 @@ class EscapedCase extends CaseManagementEntity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'relations'");
+    }
+
+    /**
+     * Gets the slaPolicies property value. A denormalized, read-only collection of SLA (service level agreement) policy status entries for the case. Each entry represents one SLA policy applied to the case, including its current status and breach target time. Computed by the service; any value supplied in a create or update request is silently ignored. Supports $filter using the any() lambda operator only, for example, $filter=slaPolicies/any(p: p/status eq 'breached'). The all() lambda operator and other collection functions aren't supported. Doesn't support $orderby.
+     * @return array<CaseSlaPolicyEntry>|null
+    */
+    public function getSlaPolicies(): ?array {
+        $val = $this->getBackingStore()->get('slaPolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CaseSlaPolicyEntry::class);
+            /** @var array<CaseSlaPolicyEntry>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'slaPolicies'");
     }
 
     /**
@@ -197,6 +212,14 @@ class EscapedCase extends CaseManagementEntity implements Parsable
     */
     public function setRelations(?array $value): void {
         $this->getBackingStore()->set('relations', $value);
+    }
+
+    /**
+     * Sets the slaPolicies property value. A denormalized, read-only collection of SLA (service level agreement) policy status entries for the case. Each entry represents one SLA policy applied to the case, including its current status and breach target time. Computed by the service; any value supplied in a create or update request is silently ignored. Supports $filter using the any() lambda operator only, for example, $filter=slaPolicies/any(p: p/status eq 'breached'). The all() lambda operator and other collection functions aren't supported. Doesn't support $orderby.
+     * @param array<CaseSlaPolicyEntry>|null $value Value to set for the slaPolicies property.
+    */
+    public function setSlaPolicies(?array $value): void {
+        $this->getBackingStore()->set('slaPolicies', $value);
     }
 
     /**

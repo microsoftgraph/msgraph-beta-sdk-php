@@ -49,6 +49,18 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
     }
 
     /**
+     * Gets the agentContext property value. The agentContext property
+     * @return ConditionalAccessAgentContext|null
+    */
+    public function getAgentContext(): ?ConditionalAccessAgentContext {
+        $val = $this->getBackingStore()->get('agentContext');
+        if (is_null($val) || $val instanceof ConditionalAccessAgentContext) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'agentContext'");
+    }
+
+    /**
      * Gets the agentIdRiskLevels property value. Agent identity risk levels included in the policy. The possible values are: low, medium, high, unknownFutureValue. This enumeration is multivalued.
      * @return ConditionalAccessAgentIdRiskLevels|null
     */
@@ -58,6 +70,18 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'agentIdRiskLevels'");
+    }
+
+    /**
+     * Gets the agents property value. The agents property
+     * @return ConditionalAccessAgents|null
+    */
+    public function getAgents(): ?ConditionalAccessAgents {
+        $val = $this->getBackingStore()->get('agents');
+        if (is_null($val) || $val instanceof ConditionalAccessAgents) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'agents'");
     }
 
     /**
@@ -149,7 +173,9 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'agentContext' => fn(ParseNode $n) => $o->setAgentContext($n->getObjectValue([ConditionalAccessAgentContext::class, 'createFromDiscriminatorValue'])),
             'agentIdRiskLevels' => fn(ParseNode $n) => $o->setAgentIdRiskLevels($n->getEnumValue(ConditionalAccessAgentIdRiskLevels::class)),
+            'agents' => fn(ParseNode $n) => $o->setAgents($n->getObjectValue([ConditionalAccessAgents::class, 'createFromDiscriminatorValue'])),
             'applications' => fn(ParseNode $n) => $o->setApplications($n->getObjectValue([ConditionalAccessApplications::class, 'createFromDiscriminatorValue'])),
             'authenticationFlows' => fn(ParseNode $n) => $o->setAuthenticationFlows($n->getObjectValue([ConditionalAccessAuthenticationFlows::class, 'createFromDiscriminatorValue'])),
             'clientApplications' => fn(ParseNode $n) => $o->setClientApplications($n->getObjectValue([ConditionalAccessClientApplications::class, 'createFromDiscriminatorValue'])),
@@ -274,7 +300,9 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('agentContext', $this->getAgentContext());
         $writer->writeEnumValue('agentIdRiskLevels', $this->getAgentIdRiskLevels());
+        $writer->writeObjectValue('agents', $this->getAgents());
         $writer->writeObjectValue('applications', $this->getApplications());
         $writer->writeObjectValue('authenticationFlows', $this->getAuthenticationFlows());
         $writer->writeObjectValue('clientApplications', $this->getClientApplications());
@@ -301,11 +329,27 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, BackedModel
     }
 
     /**
+     * Sets the agentContext property value. The agentContext property
+     * @param ConditionalAccessAgentContext|null $value Value to set for the agentContext property.
+    */
+    public function setAgentContext(?ConditionalAccessAgentContext $value): void {
+        $this->getBackingStore()->set('agentContext', $value);
+    }
+
+    /**
      * Sets the agentIdRiskLevels property value. Agent identity risk levels included in the policy. The possible values are: low, medium, high, unknownFutureValue. This enumeration is multivalued.
      * @param ConditionalAccessAgentIdRiskLevels|null $value Value to set for the agentIdRiskLevels property.
     */
     public function setAgentIdRiskLevels(?ConditionalAccessAgentIdRiskLevels $value): void {
         $this->getBackingStore()->set('agentIdRiskLevels', $value);
+    }
+
+    /**
+     * Sets the agents property value. The agents property
+     * @param ConditionalAccessAgents|null $value Value to set for the agents property.
+    */
+    public function setAgents(?ConditionalAccessAgents $value): void {
+        $this->getBackingStore()->set('agents', $value);
     }
 
     /**

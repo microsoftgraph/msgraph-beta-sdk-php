@@ -31,7 +31,7 @@ class TenantGovernancePolicyTemplateItemRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Delete a governancePolicyTemplate object. You can't delete the default template or templates currently used by active relationships.
+     * Delete a tenantGovernancePolicyTemplate object. You can't delete the default template or templates currently used by active relationships.
      * @param TenantGovernancePolicyTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class TenantGovernancePolicyTemplateItemRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Read the properties of a governancePolicyTemplate object.
+     * Read the properties of a tenantGovernancePolicyTemplate object.
      * @param TenantGovernancePolicyTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantGovernancePolicyTemplate|null>
      * @throws Exception
@@ -61,7 +61,7 @@ class TenantGovernancePolicyTemplateItemRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Update the properties of a governancePolicyTemplate object.
+     * Update the properties of a tenantGovernancePolicyTemplate object.
      * @param TenantGovernancePolicyTemplate $body The request body
      * @param TenantGovernancePolicyTemplateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantGovernancePolicyTemplate|null>
@@ -77,7 +77,7 @@ class TenantGovernancePolicyTemplateItemRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Delete a governancePolicyTemplate object. You can't delete the default template or templates currently used by active relationships.
+     * Delete a tenantGovernancePolicyTemplate object. You can't delete the default template or templates currently used by active relationships.
      * @param TenantGovernancePolicyTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -95,7 +95,7 @@ class TenantGovernancePolicyTemplateItemRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Read the properties of a governancePolicyTemplate object.
+     * Read the properties of a tenantGovernancePolicyTemplate object.
      * @param TenantGovernancePolicyTemplateItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -116,7 +116,7 @@ class TenantGovernancePolicyTemplateItemRequestBuilder extends BaseRequestBuilde
     }
 
     /**
-     * Update the properties of a governancePolicyTemplate object.
+     * Update the properties of a tenantGovernancePolicyTemplate object.
      * @param TenantGovernancePolicyTemplate $body The request body
      * @param TenantGovernancePolicyTemplateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

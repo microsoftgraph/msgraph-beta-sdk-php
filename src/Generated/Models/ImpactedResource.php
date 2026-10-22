@@ -222,7 +222,7 @@ class ImpactedResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the tags property value. The tags property
+     * Gets the tags property value. The user-defined free-form labels applied to the impactedResource. The collection isn't directly writable; tags are created and removed through the addTag and removeTag actions.
      * @return array<RecommendationTag>|null
     */
     public function getTags(): ?array {
@@ -371,7 +371,7 @@ class ImpactedResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the tags property value. The tags property
+     * Sets the tags property value. The user-defined free-form labels applied to the impactedResource. The collection isn't directly writable; tags are created and removed through the addTag and removeTag actions.
      * @param array<RecommendationTag>|null $value Value to set for the tags property.
     */
     public function setTags(?array $value): void {

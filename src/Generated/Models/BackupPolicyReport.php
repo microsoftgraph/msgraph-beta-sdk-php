@@ -56,7 +56,7 @@ class BackupPolicyReport implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the backupPolicyId property value. The backupPolicyId property
+     * Gets the backupPolicyId property value. The ID of the backup policy.
      * @return string|null
     */
     public function getBackupPolicyId(): ?string {
@@ -80,7 +80,7 @@ class BackupPolicyReport implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name of the backup policy.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -146,7 +146,7 @@ class BackupPolicyReport implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the backupPolicyId property value. The backupPolicyId property
+     * Sets the backupPolicyId property value. The ID of the backup policy.
      * @param string|null $value Value to set for the backupPolicyId property.
     */
     public function setBackupPolicyId(?string $value): void {
@@ -162,7 +162,7 @@ class BackupPolicyReport implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name of the backup policy.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {

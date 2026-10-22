@@ -30,6 +30,18 @@ class AgentRegistration extends Entity implements Parsable
     }
 
     /**
+     * Gets the a2aAuthorization property value. Authentication configuration used to invoke the Agent2Agent server.
+     * @return A2aAuthorization|null
+    */
+    public function getA2aAuthorization(): ?A2aAuthorization {
+        $val = $this->getBackingStore()->get('a2aAuthorization');
+        if (is_null($val) || $val instanceof A2aAuthorization) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'a2aAuthorization'");
+    }
+
+    /**
      * Gets the agentIdentityBlueprintId property value. Agent identity blueprint identifier.
      * @return string|null
     */
@@ -96,6 +108,7 @@ class AgentRegistration extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'a2aAuthorization' => fn(ParseNode $n) => $o->setA2aAuthorization($n->getObjectValue([A2aAuthorization::class, 'createFromDiscriminatorValue'])),
             'agentIdentityBlueprintId' => fn(ParseNode $n) => $o->setAgentIdentityBlueprintId($n->getStringValue()),
             'agentIdentityId' => fn(ParseNode $n) => $o->setAgentIdentityId($n->getStringValue()),
             'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getStringValue()),
@@ -210,6 +223,7 @@ class AgentRegistration extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('a2aAuthorization', $this->getA2aAuthorization());
         $writer->writeStringValue('agentIdentityBlueprintId', $this->getAgentIdentityBlueprintId());
         $writer->writeStringValue('agentIdentityId', $this->getAgentIdentityId());
         $writer->writeStringValue('createdBy', $this->getCreatedBy());
@@ -222,6 +236,14 @@ class AgentRegistration extends Entity implements Parsable
         $writer->writeStringValue('sourceAgentId', $this->getSourceAgentId());
         $writer->writeDateTimeValue('sourceCreatedDateTime', $this->getSourceCreatedDateTime());
         $writer->writeDateTimeValue('sourceLastModifiedDateTime', $this->getSourceLastModifiedDateTime());
+    }
+
+    /**
+     * Sets the a2aAuthorization property value. Authentication configuration used to invoke the Agent2Agent server.
+     * @param A2aAuthorization|null $value Value to set for the a2aAuthorization property.
+    */
+    public function setA2aAuthorization(?A2aAuthorization $value): void {
+        $this->getBackingStore()->set('a2aAuthorization', $value);
     }
 
     /**

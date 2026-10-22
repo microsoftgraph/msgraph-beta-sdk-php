@@ -46,7 +46,7 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get reports from solutions
+     * Report corresponding to a protection policy.
      * @param ReportsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<BackupReport|null>
      * @throws Exception
@@ -102,7 +102,7 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get reports from solutions
+     * Report corresponding to a protection policy.
      * @param ReportsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -103,6 +103,7 @@ class SummarizedSignIn extends Entity implements Parsable
             'managedServiceIdentity' => fn(ParseNode $n) => $o->setManagedServiceIdentity($n->getObjectValue([ManagedIdentity::class, 'createFromDiscriminatorValue'])),
             'resourceDisplayName' => fn(ParseNode $n) => $o->setResourceDisplayName($n->getStringValue()),
             'resourceId' => fn(ParseNode $n) => $o->setResourceId($n->getStringValue()),
+            'rootActorId' => fn(ParseNode $n) => $o->setRootActorId($n->getStringValue()),
             'servicePrincipalId' => fn(ParseNode $n) => $o->setServicePrincipalId($n->getStringValue()),
             'servicePrincipalName' => fn(ParseNode $n) => $o->setServicePrincipalName($n->getStringValue()),
             'signInCount' => fn(ParseNode $n) => $o->setSignInCount($n->getIntegerValue()),
@@ -171,6 +172,18 @@ class SummarizedSignIn extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'resourceId'");
+    }
+
+    /**
+     * Gets the rootActorId property value. The rootActorId property
+     * @return string|null
+    */
+    public function getRootActorId(): ?string {
+        $val = $this->getBackingStore()->get('rootActorId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'rootActorId'");
     }
 
     /**
@@ -273,6 +286,7 @@ class SummarizedSignIn extends Entity implements Parsable
         $writer->writeObjectValue('managedServiceIdentity', $this->getManagedServiceIdentity());
         $writer->writeStringValue('resourceDisplayName', $this->getResourceDisplayName());
         $writer->writeStringValue('resourceId', $this->getResourceId());
+        $writer->writeStringValue('rootActorId', $this->getRootActorId());
         $writer->writeStringValue('servicePrincipalId', $this->getServicePrincipalId());
         $writer->writeStringValue('servicePrincipalName', $this->getServicePrincipalName());
         $writer->writeIntegerValue('signInCount', $this->getSignInCount());
@@ -360,6 +374,14 @@ class SummarizedSignIn extends Entity implements Parsable
     */
     public function setResourceId(?string $value): void {
         $this->getBackingStore()->set('resourceId', $value);
+    }
+
+    /**
+     * Sets the rootActorId property value. The rootActorId property
+     * @param string|null $value Value to set for the rootActorId property.
+    */
+    public function setRootActorId(?string $value): void {
+        $this->getBackingStore()->set('rootActorId', $value);
     }
 
     /**

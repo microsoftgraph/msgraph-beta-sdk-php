@@ -52,7 +52,7 @@ class GovernancePolicyTemplatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the governancePolicyTemplate objects and their properties. Policy templates define the configuration that is applied when establishing governance relationships.
+     * Get a list of the tenantGovernancePolicyTemplate objects and their properties. Policy templates define the configuration that is applied when establishing governance relationships.
      * @param GovernancePolicyTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantGovernancePolicyTemplateCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class GovernancePolicyTemplatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new governancePolicyTemplate that defines the configuration for establishing governance relationships, including role assignments and applications to provision.
+     * Create a new tenantGovernancePolicyTemplate that defines the configuration for establishing governance relationships, including role assignments and applications to provision.
      * @param TenantGovernancePolicyTemplate $body The request body
      * @param GovernancePolicyTemplatesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantGovernancePolicyTemplate|null>
@@ -83,7 +83,7 @@ class GovernancePolicyTemplatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the governancePolicyTemplate objects and their properties. Policy templates define the configuration that is applied when establishing governance relationships.
+     * Get a list of the tenantGovernancePolicyTemplate objects and their properties. Policy templates define the configuration that is applied when establishing governance relationships.
      * @param GovernancePolicyTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +104,7 @@ class GovernancePolicyTemplatesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new governancePolicyTemplate that defines the configuration for establishing governance relationships, including role assignments and applications to provision.
+     * Create a new tenantGovernancePolicyTemplate that defines the configuration for establishing governance relationships, including role assignments and applications to provision.
      * @param TenantGovernancePolicyTemplate $body The request body
      * @param GovernancePolicyTemplatesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

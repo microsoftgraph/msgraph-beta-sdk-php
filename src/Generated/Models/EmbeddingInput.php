@@ -56,6 +56,18 @@ class EmbeddingInput implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the chunkOffsets property value. Optional offset metadata for the text chunks that produced this embedding data. The starts property is required when chunkOffsets is present. When lengths is also present, the decoded element counts must match and pair by index.
+     * @return ChunkOffsets|null
+    */
+    public function getChunkOffsets(): ?ChunkOffsets {
+        $val = $this->getBackingStore()->get('chunkOffsets');
+        if (is_null($val) || $val instanceof ChunkOffsets) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'chunkOffsets'");
+    }
+
+    /**
      * Gets the data property value. The embedding vectors the model produced for the text, encoded as a base64 string of little-endian 32-bit floats. Every vector the model emitted (for example, one per text chunk) is concatenated in order; each contributes exactly the modelType's embedding dimension worth of float components, so the decoded length must be a whole multiple of that dimension.
      * @return string|null
     */
@@ -74,6 +86,7 @@ class EmbeddingInput implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'chunkOffsets' => fn(ParseNode $n) => $o->setChunkOffsets($n->getObjectValue([ChunkOffsets::class, 'createFromDiscriminatorValue'])),
             'data' => fn(ParseNode $n) => $o->setData($n->getStringValue()),
             'modelType' => fn(ParseNode $n) => $o->setModelType($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -109,6 +122,7 @@ class EmbeddingInput implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('chunkOffsets', $this->getChunkOffsets());
         $writer->writeStringValue('data', $this->getData());
         $writer->writeStringValue('modelType', $this->getModelType());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -129,6 +143,14 @@ class EmbeddingInput implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the chunkOffsets property value. Optional offset metadata for the text chunks that produced this embedding data. The starts property is required when chunkOffsets is present. When lengths is also present, the decoded element counts must match and pair by index.
+     * @param ChunkOffsets|null $value Value to set for the chunkOffsets property.
+    */
+    public function setChunkOffsets(?ChunkOffsets $value): void {
+        $this->getBackingStore()->set('chunkOffsets', $value);
     }
 
     /**

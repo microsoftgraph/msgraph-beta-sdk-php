@@ -237,6 +237,7 @@ class Organization extends DirectoryObject implements Parsable
             'preferredLanguage' => fn(ParseNode $n) => $o->setPreferredLanguage($n->getStringValue()),
             'privacyProfile' => fn(ParseNode $n) => $o->setPrivacyProfile($n->getObjectValue([PrivacyProfile::class, 'createFromDiscriminatorValue'])),
             'provisionedPlans' => fn(ParseNode $n) => $o->setProvisionedPlans($n->getCollectionOfObjectValues([ProvisionedPlan::class, 'createFromDiscriminatorValue'])),
+            'resourceQuotas' => fn(ParseNode $n) => $o->setResourceQuotas($n->getCollectionOfObjectValues([ResourceQuota::class, 'createFromDiscriminatorValue'])),
             'securityComplianceNotificationMails' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -418,6 +419,20 @@ class Organization extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the resourceQuotas property value. The resourceQuotas property
+     * @return array<ResourceQuota>|null
+    */
+    public function getResourceQuotas(): ?array {
+        $val = $this->getBackingStore()->get('resourceQuotas');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ResourceQuota::class);
+            /** @var array<ResourceQuota>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resourceQuotas'");
+    }
+
+    /**
      * Gets the securityComplianceNotificationMails property value. Not nullable.
      * @return array<string>|null
     */
@@ -552,6 +567,7 @@ class Organization extends DirectoryObject implements Parsable
         $writer->writeStringValue('preferredLanguage', $this->getPreferredLanguage());
         $writer->writeObjectValue('privacyProfile', $this->getPrivacyProfile());
         $writer->writeCollectionOfObjectValues('provisionedPlans', $this->getProvisionedPlans());
+        $writer->writeCollectionOfObjectValues('resourceQuotas', $this->getResourceQuotas());
         $writer->writeCollectionOfPrimitiveValues('securityComplianceNotificationMails', $this->getSecurityComplianceNotificationMails());
         $writer->writeCollectionOfPrimitiveValues('securityComplianceNotificationPhones', $this->getSecurityComplianceNotificationPhones());
         $writer->writeObjectValue('settings', $this->getSettings());
@@ -760,6 +776,14 @@ class Organization extends DirectoryObject implements Parsable
     */
     public function setProvisionedPlans(?array $value): void {
         $this->getBackingStore()->set('provisionedPlans', $value);
+    }
+
+    /**
+     * Sets the resourceQuotas property value. The resourceQuotas property
+     * @param array<ResourceQuota>|null $value Value to set for the resourceQuotas property.
+    */
+    public function setResourceQuotas(?array $value): void {
+        $this->getBackingStore()->set('resourceQuotas', $value);
     }
 
     /**

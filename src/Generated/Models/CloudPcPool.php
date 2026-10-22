@@ -48,18 +48,6 @@ class CloudPcPool extends Entity implements Parsable
     }
 
     /**
-     * Gets the capabilities property value. The capabilities property
-     * @return CloudPcPoolCapabilityConfiguration|null
-    */
-    public function getCapabilities(): ?CloudPcPoolCapabilityConfiguration {
-        $val = $this->getBackingStore()->get('capabilities');
-        if (is_null($val) || $val instanceof CloudPcPoolCapabilityConfiguration) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'capabilities'");
-    }
-
-    /**
      * Gets the cloudPcConfiguration property value. The cloudPcConfiguration property
      * @return CloudPcConfiguration|null
     */
@@ -115,7 +103,6 @@ class CloudPcPool extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([CloudPcPoolAssignment::class, 'createFromDiscriminatorValue'])),
-            'capabilities' => fn(ParseNode $n) => $o->setCapabilities($n->getObjectValue([CloudPcPoolCapabilityConfiguration::class, 'createFromDiscriminatorValue'])),
             'cloudPcConfiguration' => fn(ParseNode $n) => $o->setCloudPcConfiguration($n->getObjectValue([CloudPcConfiguration::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
@@ -156,7 +143,6 @@ class CloudPcPool extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
-        $writer->writeObjectValue('capabilities', $this->getCapabilities());
         $writer->writeObjectValue('cloudPcConfiguration', $this->getCloudPcConfiguration());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('description', $this->getDescription());
@@ -171,14 +157,6 @@ class CloudPcPool extends Entity implements Parsable
     */
     public function setAssignments(?array $value): void {
         $this->getBackingStore()->set('assignments', $value);
-    }
-
-    /**
-     * Sets the capabilities property value. The capabilities property
-     * @param CloudPcPoolCapabilityConfiguration|null $value Value to set for the capabilities property.
-    */
-    public function setCapabilities(?CloudPcPoolCapabilityConfiguration $value): void {
-        $this->getBackingStore()->set('capabilities', $value);
     }
 
     /**

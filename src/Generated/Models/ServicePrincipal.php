@@ -3,7 +3,6 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
-use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\IdentityLifecycle;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -191,7 +190,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the appRoles property value. The roles exposed by the application, which this service principal represents. For more information, see the appRoles property definition on the application entity. Not nullable.
+     * Gets the appRoles property value. The roles exposed by the application, which this service principal represents. For more information, see the appRoles property definition on the application entity. Not nullable. App roles and exposed delegated permission scopes (publishedPermissionScopes) share a default limit of 700 permission definitions per service principal, including definitions inherited from the application and definitions added directly to the service principal. Enabled and disabled definitions both count. This limit counts definitions, not app role assignments. For counting rules, behavior for existing objects above the limit, and design guidance, see App role limits.
      * @return array<AppRole>|null
     */
     public function getAppRoles(): ?array {
@@ -403,7 +402,6 @@ class ServicePrincipal extends DirectoryObject implements Parsable
             'isDisabled' => fn(ParseNode $n) => $o->setIsDisabled($n->getBooleanValue()),
             'keyCredentials' => fn(ParseNode $n) => $o->setKeyCredentials($n->getCollectionOfObjectValues([KeyCredential::class, 'createFromDiscriminatorValue'])),
             'licenseDetails' => fn(ParseNode $n) => $o->setLicenseDetails($n->getCollectionOfObjectValues([LicenseDetails::class, 'createFromDiscriminatorValue'])),
-            'lifecycle' => fn(ParseNode $n) => $o->setLifecycle($n->getObjectValue([IdentityLifecycle::class, 'createFromDiscriminatorValue'])),
             'loginUrl' => fn(ParseNode $n) => $o->setLoginUrl($n->getStringValue()),
             'logoutUrl' => fn(ParseNode $n) => $o->setLogoutUrl($n->getStringValue()),
             'memberOf' => fn(ParseNode $n) => $o->setMemberOf($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
@@ -541,18 +539,6 @@ class ServicePrincipal extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'licenseDetails'");
-    }
-
-    /**
-     * Gets the lifecycle property value. The lifecycle property
-     * @return IdentityLifecycle|null
-    */
-    public function getLifecycle(): ?IdentityLifecycle {
-        $val = $this->getBackingStore()->get('lifecycle');
-        if (is_null($val) || $val instanceof IdentityLifecycle) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'lifecycle'");
     }
 
     /**
@@ -738,7 +724,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the publishedPermissionScopes property value. The delegated permissions exposed by the application. For more information, see the oauth2PermissionScopes property on the application entity's api property. Not nullable. Note: This property is named oauth2PermissionScopes in v1.0.
+     * Gets the publishedPermissionScopes property value. The delegated permissions exposed by the application. For more information, see the oauth2PermissionScopes property on the application entity's api property. Not nullable. Note: This property is named oauth2PermissionScopes in v1.0. These scopes and appRoles share a default limit of 700 permission definitions per service principal. Enabled and disabled definitions both count. For counting rules, behavior for existing objects above the limit, and design guidance, see App role limits.
      * @return array<PermissionScope>|null
     */
     public function getPublishedPermissionScopes(): ?array {
@@ -980,7 +966,6 @@ class ServicePrincipal extends DirectoryObject implements Parsable
         $writer->writeBooleanValue('isDisabled', $this->getIsDisabled());
         $writer->writeCollectionOfObjectValues('keyCredentials', $this->getKeyCredentials());
         $writer->writeCollectionOfObjectValues('licenseDetails', $this->getLicenseDetails());
-        $writer->writeObjectValue('lifecycle', $this->getLifecycle());
         $writer->writeStringValue('loginUrl', $this->getLoginUrl());
         $writer->writeStringValue('logoutUrl', $this->getLogoutUrl());
         $writer->writeCollectionOfObjectValues('memberOf', $this->getMemberOf());
@@ -1110,7 +1095,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the appRoles property value. The roles exposed by the application, which this service principal represents. For more information, see the appRoles property definition on the application entity. Not nullable.
+     * Sets the appRoles property value. The roles exposed by the application, which this service principal represents. For more information, see the appRoles property definition on the application entity. Not nullable. App roles and exposed delegated permission scopes (publishedPermissionScopes) share a default limit of 700 permission definitions per service principal, including definitions inherited from the application and definitions added directly to the service principal. Enabled and disabled definitions both count. This limit counts definitions, not app role assignments. For counting rules, behavior for existing objects above the limit, and design guidance, see App role limits.
      * @param array<AppRole>|null $value Value to set for the appRoles property.
     */
     public function setAppRoles(?array $value): void {
@@ -1262,14 +1247,6 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the lifecycle property value. The lifecycle property
-     * @param IdentityLifecycle|null $value Value to set for the lifecycle property.
-    */
-    public function setLifecycle(?IdentityLifecycle $value): void {
-        $this->getBackingStore()->set('lifecycle', $value);
-    }
-
-    /**
      * Sets the loginUrl property value. Specifies the URL where the service provider redirects the user to Microsoft Entra ID to authenticate. Microsoft Entra ID uses the URL to launch the application from Microsoft 365 or the Microsoft Entra My Apps. When blank, Microsoft Entra ID performs IdP-initiated sign-on for applications configured with SAML-based single sign-on. The user launches the application from Microsoft 365, the Microsoft Entra My Apps, or the Microsoft Entra SSO URL.
      * @param string|null $value Value to set for the loginUrl property.
     */
@@ -1382,7 +1359,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the publishedPermissionScopes property value. The delegated permissions exposed by the application. For more information, see the oauth2PermissionScopes property on the application entity's api property. Not nullable. Note: This property is named oauth2PermissionScopes in v1.0.
+     * Sets the publishedPermissionScopes property value. The delegated permissions exposed by the application. For more information, see the oauth2PermissionScopes property on the application entity's api property. Not nullable. Note: This property is named oauth2PermissionScopes in v1.0. These scopes and appRoles share a default limit of 700 permission definitions per service principal. Enabled and disabled definitions both count. For counting rules, behavior for existing objects above the limit, and design guidance, see App role limits.
      * @param array<PermissionScope>|null $value Value to set for the publishedPermissionScopes property.
     */
     public function setPublishedPermissionScopes(?array $value): void {

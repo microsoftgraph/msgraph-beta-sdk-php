@@ -31,11 +31,12 @@ class RemoveTagRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action removeTag
+     * Remove a user-defined tag from a recommendation object.
      * @param RemoveTagPostRequestBody $body The request body
      * @param RemoveTagRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Recommendation|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/recommendation-removetag?view=graph-rest-beta Find more info here
     */
     public function post(RemoveTagPostRequestBody $body, ?RemoveTagRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -46,7 +47,7 @@ class RemoveTagRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action removeTag
+     * Remove a user-defined tag from a recommendation object.
      * @param RemoveTagPostRequestBody $body The request body
      * @param RemoveTagRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

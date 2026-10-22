@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -79,6 +80,18 @@ class Place extends Entity implements Parsable
     }
 
     /**
+     * Gets the customProperties property value. Custom properties for the place. Each property has a string key and a string value. Nullable.
+     * @return StringDictionary|null
+    */
+    public function getCustomProperties(): ?StringDictionary {
+        $val = $this->getBackingStore()->get('customProperties');
+        if (is_null($val) || $val instanceof StringDictionary) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'customProperties'");
+    }
+
+    /**
      * Gets the displayName property value. The name that is associated with the place.
      * @return string|null
     */
@@ -100,10 +113,12 @@ class Place extends Entity implements Parsable
             'address' => fn(ParseNode $n) => $o->setAddress($n->getObjectValue([PhysicalAddress::class, 'createFromDiscriminatorValue'])),
             'checkIns' => fn(ParseNode $n) => $o->setCheckIns($n->getCollectionOfObjectValues([CheckInClaim::class, 'createFromDiscriminatorValue'])),
             'children' => fn(ParseNode $n) => $o->setChildren($n->getCollectionOfObjectValues([Place::class, 'createFromDiscriminatorValue'])),
+            'customProperties' => fn(ParseNode $n) => $o->setCustomProperties($n->getObjectValue([StringDictionary::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'geoCoordinates' => fn(ParseNode $n) => $o->setGeoCoordinates($n->getObjectValue([OutlookGeoCoordinates::class, 'createFromDiscriminatorValue'])),
             'isWheelChairAccessible' => fn(ParseNode $n) => $o->setIsWheelChairAccessible($n->getBooleanValue()),
             'label' => fn(ParseNode $n) => $o->setLabel($n->getStringValue()),
+            'lastUpdatedTime' => fn(ParseNode $n) => $o->setLastUpdatedTime($n->getDateTimeValue()),
             'parentId' => fn(ParseNode $n) => $o->setParentId($n->getStringValue()),
             'phone' => fn(ParseNode $n) => $o->setPhone($n->getStringValue()),
             'placeId' => fn(ParseNode $n) => $o->setPlaceId($n->getStringValue()),
@@ -152,6 +167,18 @@ class Place extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'label'");
+    }
+
+    /**
+     * Gets the lastUpdatedTime property value. The date and time when the place was last updated. The timestamp is in ISO 8601 format and is always in UTC. Read-only. Nullable.
+     * @return DateTime|null
+    */
+    public function getLastUpdatedTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('lastUpdatedTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lastUpdatedTime'");
     }
 
     /**
@@ -213,6 +240,7 @@ class Place extends Entity implements Parsable
         $writer->writeObjectValue('address', $this->getAddress());
         $writer->writeCollectionOfObjectValues('checkIns', $this->getCheckIns());
         $writer->writeCollectionOfObjectValues('children', $this->getChildren());
+        $writer->writeObjectValue('customProperties', $this->getCustomProperties());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeObjectValue('geoCoordinates', $this->getGeoCoordinates());
         $writer->writeBooleanValue('isWheelChairAccessible', $this->getIsWheelChairAccessible());
@@ -248,6 +276,14 @@ class Place extends Entity implements Parsable
     }
 
     /**
+     * Sets the customProperties property value. Custom properties for the place. Each property has a string key and a string value. Nullable.
+     * @param StringDictionary|null $value Value to set for the customProperties property.
+    */
+    public function setCustomProperties(?StringDictionary $value): void {
+        $this->getBackingStore()->set('customProperties', $value);
+    }
+
+    /**
      * Sets the displayName property value. The name that is associated with the place.
      * @param string|null $value Value to set for the displayName property.
     */
@@ -277,6 +313,14 @@ class Place extends Entity implements Parsable
     */
     public function setLabel(?string $value): void {
         $this->getBackingStore()->set('label', $value);
+    }
+
+    /**
+     * Sets the lastUpdatedTime property value. The date and time when the place was last updated. The timestamp is in ISO 8601 format and is always in UTC. Read-only. Nullable.
+     * @param DateTime|null $value Value to set for the lastUpdatedTime property.
+    */
+    public function setLastUpdatedTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastUpdatedTime', $value);
     }
 
     /**

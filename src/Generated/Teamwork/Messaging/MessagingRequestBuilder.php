@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TeamworkMessaging;
 use Microsoft\Graph\Beta\Generated\Teamwork\Messaging\CustomEmojis\CustomEmojisRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teamwork\Messaging\CustomEmojisWithDisplayName\CustomEmojisWithDisplayNameRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -36,6 +37,15 @@ class MessagingRequestBuilder extends BaseRequestBuilder
         } else {
             $this->pathParameters = ['request-raw-url' => $pathParametersOrRawUrl];
         }
+    }
+
+    /**
+     * Provides operations to manage the customEmojis property of the microsoft.graph.teamworkMessaging entity.
+     * @param string $displayName Alternate key of teamworkCustomEmoji
+     * @return CustomEmojisWithDisplayNameRequestBuilder
+    */
+    public function customEmojisWithDisplayName(string $displayName): CustomEmojisWithDisplayNameRequestBuilder {
+        return new CustomEmojisWithDisplayNameRequestBuilder($this->pathParameters, $this->requestAdapter, $displayName);
     }
 
     /**

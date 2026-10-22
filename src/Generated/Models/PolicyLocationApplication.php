@@ -22,6 +22,13 @@ class PolicyLocationApplication extends PolicyLocation implements Parsable
      * @return PolicyLocationApplication
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): PolicyLocationApplication {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.policyLocationAgent': return new PolicyLocationAgent();
+            }
+        }
         return new PolicyLocationApplication();
     }
 
