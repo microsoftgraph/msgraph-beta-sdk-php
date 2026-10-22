@@ -91,6 +91,7 @@ class ChatMessageReaction implements AdditionalDataHolder, BackedModel, Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'reactionContentUrl' => fn(ParseNode $n) => $o->setReactionContentUrl($n->getStringValue()),
+            'reactionId' => fn(ParseNode $n) => $o->setReactionId($n->getStringValue()),
             'reactionType' => fn(ParseNode $n) => $o->setReactionType($n->getStringValue()),
             'user' => fn(ParseNode $n) => $o->setUser($n->getObjectValue([ChatMessageReactionIdentitySet::class, 'createFromDiscriminatorValue'])),
         ];
@@ -118,6 +119,18 @@ class ChatMessageReaction implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'reactionContentUrl'");
+    }
+
+    /**
+     * Gets the reactionId property value. The service-issued identifier for a custom emoji reaction. The identifier is scoped to the tenant.
+     * @return string|null
+    */
+    public function getReactionId(): ?string {
+        $val = $this->getBackingStore()->get('reactionId');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'reactionId'");
     }
 
     /**
@@ -153,6 +166,7 @@ class ChatMessageReaction implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('reactionContentUrl', $this->getReactionContentUrl());
+        $writer->writeStringValue('reactionId', $this->getReactionId());
         $writer->writeStringValue('reactionType', $this->getReactionType());
         $writer->writeObjectValue('user', $this->getUser());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -204,6 +218,14 @@ class ChatMessageReaction implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setReactionContentUrl(?string $value): void {
         $this->getBackingStore()->set('reactionContentUrl', $value);
+    }
+
+    /**
+     * Sets the reactionId property value. The service-issued identifier for a custom emoji reaction. The identifier is scoped to the tenant.
+     * @param string|null $value Value to set for the reactionId property.
+    */
+    public function setReactionId(?string $value): void {
+        $this->getBackingStore()->set('reactionId', $value);
     }
 
     /**

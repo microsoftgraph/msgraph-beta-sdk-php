@@ -64,7 +64,7 @@ class DriftIdentityInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name of the identity.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -90,7 +90,7 @@ class DriftIdentityInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the identifier property value. The identifier property
+     * Gets the identifier property value. The unique identifier for the identity within the drift record.
      * @return string|null
     */
     public function getIdentifier(): ?string {
@@ -114,7 +114,7 @@ class DriftIdentityInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the principalName property value. The principalName property
+     * Gets the principalName property value. The principal name of the identity.
      * @return string|null
     */
     public function getPrincipalName(): ?string {
@@ -154,7 +154,7 @@ class DriftIdentityInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name of the identity.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -162,7 +162,7 @@ class DriftIdentityInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the identifier property value. The identifier property
+     * Sets the identifier property value. The unique identifier for the identity within the drift record.
      * @param string|null $value Value to set for the identifier property.
     */
     public function setIdentifier(?string $value): void {
@@ -178,7 +178,7 @@ class DriftIdentityInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the principalName property value. The principalName property
+     * Sets the principalName property value. The principal name of the identity.
      * @param string|null $value Value to set for the principalName property.
     */
     public function setPrincipalName(?string $value): void {

@@ -52,10 +52,11 @@ class ActivityLogsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get activityLogs from solutions
+     * Get a list of activityLogBase objects and their properties.
      * @param ActivityLogsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ActivityLogBaseCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/backuprestoreroot-list-activitylogs?view=graph-rest-beta Find more info here
     */
     public function get(?ActivityLogsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class ActivityLogsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get activityLogs from solutions
+     * Get a list of activityLogBase objects and their properties.
      * @param ActivityLogsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

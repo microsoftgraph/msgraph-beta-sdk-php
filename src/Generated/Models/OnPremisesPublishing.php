@@ -205,7 +205,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the isDeviceAccessEnabled property value. The isDeviceAccessEnabled property
+     * Gets the isDeviceAccessEnabled property value. Indicates whether the Microsoft Entra Private Access application is accessible or available in device access mode. false by default.
      * @return bool|null
     */
     public function getIsDeviceAccessEnabled(): ?bool {
@@ -587,7 +587,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the isDeviceAccessEnabled property value. The isDeviceAccessEnabled property
+     * Sets the isDeviceAccessEnabled property value. Indicates whether the Microsoft Entra Private Access application is accessible or available in device access mode. false by default.
      * @param bool|null $value Value to set for the isDeviceAccessEnabled property.
     */
     public function setIsDeviceAccessEnabled(?bool $value): void {

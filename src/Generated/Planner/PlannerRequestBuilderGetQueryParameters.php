@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Planner;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get planner
+ * Read the properties and relationships of planner object.
 */
 class PlannerRequestBuilderGetQueryParameters 
 {

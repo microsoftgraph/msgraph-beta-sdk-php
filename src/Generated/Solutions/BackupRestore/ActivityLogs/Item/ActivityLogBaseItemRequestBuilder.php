@@ -45,7 +45,7 @@ class ActivityLogBaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get activityLogs from solutions
+     * The list of activity logs in the tenant.
      * @param ActivityLogBaseItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ActivityLogBase|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class ActivityLogBaseItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get activityLogs from solutions
+     * The list of activity logs in the tenant.
      * @param ActivityLogBaseItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

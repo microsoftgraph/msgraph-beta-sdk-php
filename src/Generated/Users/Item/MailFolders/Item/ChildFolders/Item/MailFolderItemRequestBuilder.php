@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\MailFolder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\Copy\CopyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\ImportMime\ImportMimeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\MessageRules\MessageRulesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\Messages\MessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\MailFolders\Item\ChildFolders\Item\Move\MoveRequestBuilder;
@@ -29,6 +30,13 @@ class MailFolderItemRequestBuilder extends BaseRequestBuilder
     */
     public function copy(): CopyRequestBuilder {
         return new CopyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the importMime method.
+    */
+    public function importMime(): ImportMimeRequestBuilder {
+        return new ImportMimeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

@@ -27,6 +27,7 @@ class ProtectionPolicyBase extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.entraProtectionPolicy': return new EntraProtectionPolicy();
                 case '#microsoft.graph.exchangeProtectionPolicy': return new ExchangeProtectionPolicy();
                 case '#microsoft.graph.oneDriveForBusinessProtectionPolicy': return new OneDriveForBusinessProtectionPolicy();
                 case '#microsoft.graph.sharePointProtectionPolicy': return new SharePointProtectionPolicy();

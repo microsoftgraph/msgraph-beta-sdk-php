@@ -8,8 +8,10 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Planner;
 use Microsoft\Graph\Beta\Generated\Planner\Buckets\BucketsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Goals\GoalsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Planner\Plans_v2\Plans_v2RequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Plans\PlansRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Rosters\RostersRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Planner\Tasks_v2\Tasks_v2RequestBuilder;
 use Microsoft\Graph\Beta\Generated\Planner\Tasks\TasksRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -43,6 +45,13 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the plans_v2 property of the microsoft.graph.planner entity.
+    */
+    public function plans_v2(): Plans_v2RequestBuilder {
+        return new Plans_v2RequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the rosters property of the microsoft.graph.planner entity.
     */
     public function rosters(): RostersRequestBuilder {
@@ -54,6 +63,13 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     */
     public function tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the tasks_v2 property of the microsoft.graph.planner entity.
+    */
+    public function tasks_v2(): Tasks_v2RequestBuilder {
+        return new Tasks_v2RequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -71,10 +87,11 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get planner
+     * Read the properties and relationships of planner object.
      * @param PlannerRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Planner|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/planner-get?view=graph-rest-beta Find more info here
     */
     public function get(?PlannerRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -85,11 +102,12 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update planner
+     * Update the properties of a planner object.
      * @param Planner $body The request body
      * @param PlannerRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Planner|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/planner-update?view=graph-rest-beta Find more info here
     */
     public function patch(Planner $body, ?PlannerRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -100,7 +118,7 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get planner
+     * Read the properties and relationships of planner object.
      * @param PlannerRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -121,7 +139,7 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update planner
+     * Update the properties of a planner object.
      * @param Planner $body The request body
      * @param PlannerRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

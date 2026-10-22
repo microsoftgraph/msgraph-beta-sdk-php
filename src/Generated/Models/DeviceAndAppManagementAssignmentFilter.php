@@ -85,6 +85,18 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
+     * Gets the evaluationMode property value. Represents the mode used by the service to evaluate an assignment filter.
+     * @return AssignmentFilterEvaluationMode|null
+    */
+    public function getEvaluationMode(): ?AssignmentFilterEvaluationMode {
+        $val = $this->getBackingStore()->get('evaluationMode');
+        if (is_null($val) || $val instanceof AssignmentFilterEvaluationMode) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'evaluationMode'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -95,6 +107,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'evaluationMode' => fn(ParseNode $n) => $o->setEvaluationMode($n->getEnumValue(AssignmentFilterEvaluationMode::class)),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'payloads' => fn(ParseNode $n) => $o->setPayloads($n->getCollectionOfObjectValues([PayloadByFilter::class, 'createFromDiscriminatorValue'])),
             'platform' => fn(ParseNode $n) => $o->setPlatform($n->getEnumValue(DevicePlatformType::class)),
@@ -184,6 +197,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeEnumValue('evaluationMode', $this->getEvaluationMode());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
         $writer->writeCollectionOfObjectValues('payloads', $this->getPayloads());
         $writer->writeEnumValue('platform', $this->getPlatform());
@@ -221,6 +235,14 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     */
     public function setDisplayName(?string $value): void {
         $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the evaluationMode property value. Represents the mode used by the service to evaluate an assignment filter.
+     * @param AssignmentFilterEvaluationMode|null $value Value to set for the evaluationMode property.
+    */
+    public function setEvaluationMode(?AssignmentFilterEvaluationMode $value): void {
+        $this->getBackingStore()->set('evaluationMode', $value);
     }
 
     /**

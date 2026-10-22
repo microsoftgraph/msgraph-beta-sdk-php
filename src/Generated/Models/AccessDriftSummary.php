@@ -27,7 +27,7 @@ class AccessDriftSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date and time when the drift snapshot was created.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -39,7 +39,7 @@ class AccessDriftSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the details property value. The details property
+     * Gets the details property value. The collection of access drift details for this summary.
      * @return array<AccessDriftDetail>|null
     */
     public function getDetails(): ?array {
@@ -116,7 +116,7 @@ class AccessDriftSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date and time when the drift snapshot was created.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -124,7 +124,7 @@ class AccessDriftSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the details property value. The details property
+     * Sets the details property value. The collection of access drift details for this summary.
      * @param array<AccessDriftDetail>|null $value Value to set for the details property.
     */
     public function setDetails(?array $value): void {

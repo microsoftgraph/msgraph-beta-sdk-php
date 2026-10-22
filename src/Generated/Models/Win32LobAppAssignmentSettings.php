@@ -69,6 +69,7 @@ class Win32LobAppAssignmentSettings extends MobileAppAssignmentSettings implemen
             'autoUpdateSettings' => fn(ParseNode $n) => $o->setAutoUpdateSettings($n->getObjectValue([Win32LobAppAutoUpdateSettings::class, 'createFromDiscriminatorValue'])),
             'deliveryOptimizationPriority' => fn(ParseNode $n) => $o->setDeliveryOptimizationPriority($n->getEnumValue(Win32LobAppDeliveryOptimizationPriority::class)),
             'installTimeSettings' => fn(ParseNode $n) => $o->setInstallTimeSettings($n->getObjectValue([MobileAppInstallTimeSettings::class, 'createFromDiscriminatorValue'])),
+            'inUseSettings' => fn(ParseNode $n) => $o->setInUseSettings($n->getObjectValue([Win32LobAppInUseSettings::class, 'createFromDiscriminatorValue'])),
             'notifications' => fn(ParseNode $n) => $o->setNotifications($n->getEnumValue(Win32LobAppNotification::class)),
             'restartSettings' => fn(ParseNode $n) => $o->setRestartSettings($n->getObjectValue([Win32LobAppRestartSettings::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -84,6 +85,18 @@ class Win32LobAppAssignmentSettings extends MobileAppAssignmentSettings implemen
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'installTimeSettings'");
+    }
+
+    /**
+     * Gets the inUseSettings property value. The in-use deferral and countdown settings for the associated app assignment. These settings are only applied when the app's `installExperience.inUseBehavior` is set to `terminateWithUserInteraction`. When `inUseBehavior` is set to any other value, this property is ignored.
+     * @return Win32LobAppInUseSettings|null
+    */
+    public function getInUseSettings(): ?Win32LobAppInUseSettings {
+        $val = $this->getBackingStore()->get('inUseSettings');
+        if (is_null($val) || $val instanceof Win32LobAppInUseSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'inUseSettings'");
     }
 
     /**
@@ -119,6 +132,7 @@ class Win32LobAppAssignmentSettings extends MobileAppAssignmentSettings implemen
         $writer->writeObjectValue('autoUpdateSettings', $this->getAutoUpdateSettings());
         $writer->writeEnumValue('deliveryOptimizationPriority', $this->getDeliveryOptimizationPriority());
         $writer->writeObjectValue('installTimeSettings', $this->getInstallTimeSettings());
+        $writer->writeObjectValue('inUseSettings', $this->getInUseSettings());
         $writer->writeEnumValue('notifications', $this->getNotifications());
         $writer->writeObjectValue('restartSettings', $this->getRestartSettings());
     }
@@ -145,6 +159,14 @@ class Win32LobAppAssignmentSettings extends MobileAppAssignmentSettings implemen
     */
     public function setInstallTimeSettings(?MobileAppInstallTimeSettings $value): void {
         $this->getBackingStore()->set('installTimeSettings', $value);
+    }
+
+    /**
+     * Sets the inUseSettings property value. The in-use deferral and countdown settings for the associated app assignment. These settings are only applied when the app's `installExperience.inUseBehavior` is set to `terminateWithUserInteraction`. When `inUseBehavior` is set to any other value, this property is ignored.
+     * @param Win32LobAppInUseSettings|null $value Value to set for the inUseSettings property.
+    */
+    public function setInUseSettings(?Win32LobAppInUseSettings $value): void {
+        $this->getBackingStore()->set('inUseSettings', $value);
     }
 
     /**

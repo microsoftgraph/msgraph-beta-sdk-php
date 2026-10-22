@@ -42,7 +42,7 @@ class BackupPolicyActivityLog extends ActivityLogBase implements Parsable
     }
 
     /**
-     * Gets the oldPolicyName property value. The oldPolicyName property
+     * Gets the oldPolicyName property value. The previous policy name, if applicable.
      * @return string|null
     */
     public function getOldPolicyName(): ?string {
@@ -54,7 +54,7 @@ class BackupPolicyActivityLog extends ActivityLogBase implements Parsable
     }
 
     /**
-     * Gets the policyId property value. The policyId property
+     * Gets the policyId property value. The unique identifier of the protection policy associated with the activity log.
      * @return string|null
     */
     public function getPolicyId(): ?string {
@@ -66,7 +66,7 @@ class BackupPolicyActivityLog extends ActivityLogBase implements Parsable
     }
 
     /**
-     * Gets the policyName property value. The policyName property
+     * Gets the policyName property value. Name of the protection policy.
      * @return string|null
     */
     public function getPolicyName(): ?string {
@@ -90,7 +90,7 @@ class BackupPolicyActivityLog extends ActivityLogBase implements Parsable
     }
 
     /**
-     * Gets the protectionUnitDetails property value. The protectionUnitDetails property
+     * Gets the protectionUnitDetails property value. Contains Protection unit counts information.
      * @return ProtectionUnitDetails|null
     */
     public function getProtectionUnitDetails(): ?ProtectionUnitDetails {
@@ -102,7 +102,7 @@ class BackupPolicyActivityLog extends ActivityLogBase implements Parsable
     }
 
     /**
-     * Gets the retentionPeriod property value. The retentionPeriod property
+     * Gets the retentionPeriod property value. The period of time to retain the protected data for a single Microsoft 365 service.
      * @return string|null
     */
     public function getRetentionPeriod(): ?string {
@@ -128,7 +128,7 @@ class BackupPolicyActivityLog extends ActivityLogBase implements Parsable
     }
 
     /**
-     * Sets the oldPolicyName property value. The oldPolicyName property
+     * Sets the oldPolicyName property value. The previous policy name, if applicable.
      * @param string|null $value Value to set for the oldPolicyName property.
     */
     public function setOldPolicyName(?string $value): void {
@@ -136,7 +136,7 @@ class BackupPolicyActivityLog extends ActivityLogBase implements Parsable
     }
 
     /**
-     * Sets the policyId property value. The policyId property
+     * Sets the policyId property value. The unique identifier of the protection policy associated with the activity log.
      * @param string|null $value Value to set for the policyId property.
     */
     public function setPolicyId(?string $value): void {
@@ -144,7 +144,7 @@ class BackupPolicyActivityLog extends ActivityLogBase implements Parsable
     }
 
     /**
-     * Sets the policyName property value. The policyName property
+     * Sets the policyName property value. Name of the protection policy.
      * @param string|null $value Value to set for the policyName property.
     */
     public function setPolicyName(?string $value): void {
@@ -160,7 +160,7 @@ class BackupPolicyActivityLog extends ActivityLogBase implements Parsable
     }
 
     /**
-     * Sets the protectionUnitDetails property value. The protectionUnitDetails property
+     * Sets the protectionUnitDetails property value. Contains Protection unit counts information.
      * @param ProtectionUnitDetails|null $value Value to set for the protectionUnitDetails property.
     */
     public function setProtectionUnitDetails(?ProtectionUnitDetails $value): void {
@@ -168,7 +168,7 @@ class BackupPolicyActivityLog extends ActivityLogBase implements Parsable
     }
 
     /**
-     * Sets the retentionPeriod property value. The retentionPeriod property
+     * Sets the retentionPeriod property value. The period of time to retain the protected data for a single Microsoft 365 service.
      * @param string|null $value Value to set for the retentionPeriod property.
     */
     public function setRetentionPeriod(?string $value): void {

@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
 use Microsoft\Graph\Beta\Generated\Models\CloudLicensing\UserCloudLicensing;
+use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\UserIdentityLifecycle;
 use Microsoft\Graph\Beta\Generated\Models\Security\Security;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -956,6 +957,7 @@ class User extends DirectoryObject implements Parsable
             'legalAgeGroupClassification' => fn(ParseNode $n) => $o->setLegalAgeGroupClassification($n->getStringValue()),
             'licenseAssignmentStates' => fn(ParseNode $n) => $o->setLicenseAssignmentStates($n->getCollectionOfObjectValues([LicenseAssignmentState::class, 'createFromDiscriminatorValue'])),
             'licenseDetails' => fn(ParseNode $n) => $o->setLicenseDetails($n->getCollectionOfObjectValues([LicenseDetails::class, 'createFromDiscriminatorValue'])),
+            'lifecycle' => fn(ParseNode $n) => $o->setLifecycle($n->getObjectValue([UserIdentityLifecycle::class, 'createFromDiscriminatorValue'])),
             'mail' => fn(ParseNode $n) => $o->setMail($n->getStringValue()),
             'mailboxSettings' => fn(ParseNode $n) => $o->setMailboxSettings($n->getObjectValue([MailboxSettings::class, 'createFromDiscriminatorValue'])),
             'mailFolders' => fn(ParseNode $n) => $o->setMailFolders($n->getCollectionOfObjectValues([MailFolder::class, 'createFromDiscriminatorValue'])),
@@ -1374,6 +1376,18 @@ class User extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'licenseDetails'");
+    }
+
+    /**
+     * Gets the lifecycle property value. Lifecycle information for the user. Read-only.
+     * @return UserIdentityLifecycle|null
+    */
+    public function getLifecycle(): ?UserIdentityLifecycle {
+        $val = $this->getBackingStore()->get('lifecycle');
+        if (is_null($val) || $val instanceof UserIdentityLifecycle) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lifecycle'");
     }
 
     /**
@@ -2507,6 +2521,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeStringValue('legalAgeGroupClassification', $this->getLegalAgeGroupClassification());
         $writer->writeCollectionOfObjectValues('licenseAssignmentStates', $this->getLicenseAssignmentStates());
         $writer->writeCollectionOfObjectValues('licenseDetails', $this->getLicenseDetails());
+        $writer->writeObjectValue('lifecycle', $this->getLifecycle());
         $writer->writeStringValue('mail', $this->getMail());
         $writer->writeObjectValue('mailboxSettings', $this->getMailboxSettings());
         $writer->writeCollectionOfObjectValues('mailFolders', $this->getMailFolders());
@@ -3268,6 +3283,14 @@ class User extends DirectoryObject implements Parsable
     */
     public function setLicenseDetails(?array $value): void {
         $this->getBackingStore()->set('licenseDetails', $value);
+    }
+
+    /**
+     * Sets the lifecycle property value. Lifecycle information for the user. Read-only.
+     * @param UserIdentityLifecycle|null $value Value to set for the lifecycle property.
+    */
+    public function setLifecycle(?UserIdentityLifecycle $value): void {
+        $this->getBackingStore()->set('lifecycle', $value);
     }
 
     /**

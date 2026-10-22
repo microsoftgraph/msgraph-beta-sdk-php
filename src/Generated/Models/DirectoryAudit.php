@@ -23,6 +23,13 @@ class DirectoryAudit extends Entity implements Parsable
      * @return DirectoryAudit
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DirectoryAudit {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.appManagementAudit': return new AppManagementAudit();
+            }
+        }
         return new DirectoryAudit();
     }
 

@@ -37,7 +37,7 @@ class EntraDriftIdentityInfo extends DriftIdentityInfo implements Parsable
     }
 
     /**
-     * Gets the identityType property value. The identityType property
+     * Gets the identityType property value. The type of identity. The possible values are user and group.
      * @return string|null
     */
     public function getIdentityType(): ?string {
@@ -58,7 +58,7 @@ class EntraDriftIdentityInfo extends DriftIdentityInfo implements Parsable
     }
 
     /**
-     * Sets the identityType property value. The identityType property
+     * Sets the identityType property value. The type of identity. The possible values are user and group.
      * @param string|null $value Value to set for the identityType property.
     */
     public function setIdentityType(?string $value): void {

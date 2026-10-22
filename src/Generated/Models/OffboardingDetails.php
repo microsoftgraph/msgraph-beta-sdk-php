@@ -57,7 +57,7 @@ class OffboardingDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the cancelledCount property value. The cancelledCount property
+     * Gets the cancelledCount property value. The number of protection units whose offboarding was cancelled during the operation.
      * @return int|null
     */
     public function getCancelledCount(): ?int {
@@ -69,7 +69,7 @@ class OffboardingDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the failedCount property value. The failedCount property
+     * Gets the failedCount property value. The number of protection units that failed to be offboarded during the operation.
      * @return int|null
     */
     public function getFailedCount(): ?int {
@@ -111,7 +111,7 @@ class OffboardingDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the offboardedCount property value. The offboardedCount property
+     * Gets the offboardedCount property value. The number of protection units that were successfully offboarded during the operation.
      * @return int|null
     */
     public function getOffboardedCount(): ?int {
@@ -123,7 +123,7 @@ class OffboardingDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the offboardEndDateTime property value. The offboardEndDateTime property
+     * Gets the offboardEndDateTime property value. The date and time when the offboarding operation ended.
      * @return DateTime|null
     */
     public function getOffboardEndDateTime(): ?DateTime {
@@ -135,7 +135,7 @@ class OffboardingDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the offboardingStatus property value. The offboardingStatus property
+     * Gets the offboardingStatus property value. The current status of the offboarding operation.
      * @return string|null
     */
     public function getOffboardingStatus(): ?string {
@@ -147,7 +147,7 @@ class OffboardingDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the offboardStartDateTime property value. The offboardStartDateTime property
+     * Gets the offboardStartDateTime property value. The date and time when the offboarding operation started.
      * @return DateTime|null
     */
     public function getOffboardStartDateTime(): ?DateTime {
@@ -159,7 +159,7 @@ class OffboardingDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the totalRequestedCount property value. The totalRequestedCount property
+     * Gets the totalRequestedCount property value. The total number of protection units that were requested to be offboarded in this operation.
      * @return int|null
     */
     public function getTotalRequestedCount(): ?int {
@@ -203,7 +203,7 @@ class OffboardingDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the cancelledCount property value. The cancelledCount property
+     * Sets the cancelledCount property value. The number of protection units whose offboarding was cancelled during the operation.
      * @param int|null $value Value to set for the cancelledCount property.
     */
     public function setCancelledCount(?int $value): void {
@@ -211,7 +211,7 @@ class OffboardingDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the failedCount property value. The failedCount property
+     * Sets the failedCount property value. The number of protection units that failed to be offboarded during the operation.
      * @param int|null $value Value to set for the failedCount property.
     */
     public function setFailedCount(?int $value): void {
@@ -227,7 +227,7 @@ class OffboardingDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the offboardedCount property value. The offboardedCount property
+     * Sets the offboardedCount property value. The number of protection units that were successfully offboarded during the operation.
      * @param int|null $value Value to set for the offboardedCount property.
     */
     public function setOffboardedCount(?int $value): void {
@@ -235,7 +235,7 @@ class OffboardingDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the offboardEndDateTime property value. The offboardEndDateTime property
+     * Sets the offboardEndDateTime property value. The date and time when the offboarding operation ended.
      * @param DateTime|null $value Value to set for the offboardEndDateTime property.
     */
     public function setOffboardEndDateTime(?DateTime $value): void {
@@ -243,7 +243,7 @@ class OffboardingDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the offboardingStatus property value. The offboardingStatus property
+     * Sets the offboardingStatus property value. The current status of the offboarding operation.
      * @param string|null $value Value to set for the offboardingStatus property.
     */
     public function setOffboardingStatus(?string $value): void {
@@ -251,7 +251,7 @@ class OffboardingDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the offboardStartDateTime property value. The offboardStartDateTime property
+     * Sets the offboardStartDateTime property value. The date and time when the offboarding operation started.
      * @param DateTime|null $value Value to set for the offboardStartDateTime property.
     */
     public function setOffboardStartDateTime(?DateTime $value): void {
@@ -259,7 +259,7 @@ class OffboardingDetails implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the totalRequestedCount property value. The totalRequestedCount property
+     * Sets the totalRequestedCount property value. The total number of protection units that were requested to be offboarded in this operation.
      * @param int|null $value Value to set for the totalRequestedCount property.
     */
     public function setTotalRequestedCount(?int $value): void {

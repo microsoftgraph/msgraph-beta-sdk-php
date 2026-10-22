@@ -72,6 +72,18 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, BackedM
     }
 
     /**
+     * Gets the evaluationSource property value. Identifies the data source used to evaluate an assignment filter property.
+     * @return AssignmentFilterPropertyEvaluationSource|null
+    */
+    public function getEvaluationSource(): ?AssignmentFilterPropertyEvaluationSource {
+        $val = $this->getBackingStore()->get('evaluationSource');
+        if (is_null($val) || $val instanceof AssignmentFilterPropertyEvaluationSource) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'evaluationSource'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -79,6 +91,7 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, BackedM
         $o = $this;
         return  [
             'dataType' => fn(ParseNode $n) => $o->setDataType($n->getStringValue()),
+            'evaluationSource' => fn(ParseNode $n) => $o->setEvaluationSource($n->getEnumValue(AssignmentFilterPropertyEvaluationSource::class)),
             'isCollection' => fn(ParseNode $n) => $o->setIsCollection($n->getBooleanValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -177,6 +190,7 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, BackedM
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('dataType', $this->getDataType());
+        $writer->writeEnumValue('evaluationSource', $this->getEvaluationSource());
         $writer->writeBooleanValue('isCollection', $this->getIsCollection());
         $writer->writeStringValue('name', $this->getName());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -208,6 +222,14 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, BackedM
     */
     public function setDataType(?string $value): void {
         $this->getBackingStore()->set('dataType', $value);
+    }
+
+    /**
+     * Sets the evaluationSource property value. Identifies the data source used to evaluate an assignment filter property.
+     * @param AssignmentFilterPropertyEvaluationSource|null $value Value to set for the evaluationSource property.
+    */
+    public function setEvaluationSource(?AssignmentFilterPropertyEvaluationSource $value): void {
+        $this->getBackingStore()->set('evaluationSource', $value);
     }
 
     /**

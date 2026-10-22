@@ -77,6 +77,7 @@ class RelatedPerson implements AdditionalDataHolder, BackedModel, Parsable
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'relationship' => fn(ParseNode $n) => $o->setRelationship($n->getEnumValue(PersonRelationship::class)),
+            'relationshipLabel' => fn(ParseNode $n) => $o->setRelationshipLabel($n->getStringValue()),
             'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
             'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ];
@@ -104,6 +105,18 @@ class RelatedPerson implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'relationship'");
+    }
+
+    /**
+     * Gets the relationshipLabel property value. Information (free-text) describing the relationship between the user and the related person. This property provides additional context beyond the predefined relationship values and can be used by clients, including AI-powered experiences, to better understand and reason about the relationship.
+     * @return string|null
+    */
+    public function getRelationshipLabel(): ?string {
+        $val = $this->getBackingStore()->get('relationshipLabel');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'relationshipLabel'");
     }
 
     /**
@@ -138,6 +151,7 @@ class RelatedPerson implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeEnumValue('relationship', $this->getRelationship());
+        $writer->writeStringValue('relationshipLabel', $this->getRelationshipLabel());
         $writer->writeStringValue('userId', $this->getUserId());
         $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -181,6 +195,14 @@ class RelatedPerson implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setRelationship(?PersonRelationship $value): void {
         $this->getBackingStore()->set('relationship', $value);
+    }
+
+    /**
+     * Sets the relationshipLabel property value. Information (free-text) describing the relationship between the user and the related person. This property provides additional context beyond the predefined relationship values and can be used by clients, including AI-powered experiences, to better understand and reason about the relationship.
+     * @param string|null $value Value to set for the relationshipLabel property.
+    */
+    public function setRelationshipLabel(?string $value): void {
+        $this->getBackingStore()->set('relationshipLabel', $value);
     }
 
     /**

@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teams\Item\Channels\Item\Planner;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Selective Planner services available to this channel. Currently, only shared channels are supported. Read-only. Nullable.
+ * Read the properties and relationships of teamsChannelPlanner object.
 */
 class PlannerRequestBuilderGetQueryParameters 
 {

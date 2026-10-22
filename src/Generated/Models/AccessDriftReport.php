@@ -26,7 +26,7 @@ class AccessDriftReport extends Entity implements Parsable
     }
 
     /**
-     * Gets the downloadUri property value. The downloadUri property
+     * Gets the downloadUri property value. The time-limited SAS URI for downloading the report file. This property is populated only in the response of the generateDownloadUri action.
      * @return string|null
     */
     public function getDownloadUri(): ?string {
@@ -38,7 +38,7 @@ class AccessDriftReport extends Entity implements Parsable
     }
 
     /**
-     * Gets the expiresAt property value. The expiresAt property
+     * Gets the expiresAt property value. The date and time when the download URI expires. This property is populated only in the response of the generateDownloadUri action.
      * @return DateTime|null
     */
     public function getExpiresAt(): ?DateTime {
@@ -84,7 +84,7 @@ class AccessDriftReport extends Entity implements Parsable
     }
 
     /**
-     * Sets the downloadUri property value. The downloadUri property
+     * Sets the downloadUri property value. The time-limited SAS URI for downloading the report file. This property is populated only in the response of the generateDownloadUri action.
      * @param string|null $value Value to set for the downloadUri property.
     */
     public function setDownloadUri(?string $value): void {
@@ -92,7 +92,7 @@ class AccessDriftReport extends Entity implements Parsable
     }
 
     /**
-     * Sets the expiresAt property value. The expiresAt property
+     * Sets the expiresAt property value. The date and time when the download URI expires. This property is populated only in the response of the generateDownloadUri action.
      * @param DateTime|null $value Value to set for the expiresAt property.
     */
     public function setExpiresAt(?DateTime $value): void {

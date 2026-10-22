@@ -9,9 +9,11 @@ use Microsoft\Graph\Beta\Generated\Models\PlannerUser;
 use Microsoft\Graph\Beta\Generated\Users\Item\Planner\All\AllRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Planner\FavoritePlans\FavoritePlansRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Planner\MyDayTasks\MyDayTasksRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Planner\Plans_v2\Plans_v2RequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Planner\Plans\PlansRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Planner\RecentPlans\RecentPlansRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Planner\RosterPlans\RosterPlansRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Planner\Tasks_v2\Tasks_v2RequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Planner\Tasks\TasksRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -52,6 +54,13 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to manage the plans_v2 property of the microsoft.graph.plannerUser entity.
+    */
+    public function plans_v2(): Plans_v2RequestBuilder {
+        return new Plans_v2RequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the recentPlans property of the microsoft.graph.plannerUser entity.
     */
     public function recentPlans(): RecentPlansRequestBuilder {
@@ -70,6 +79,13 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     */
     public function tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the tasks_v2 property of the microsoft.graph.plannerUser entity.
+    */
+    public function tasks_v2(): Tasks_v2RequestBuilder {
+        return new Tasks_v2RequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

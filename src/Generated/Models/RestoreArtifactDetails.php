@@ -56,7 +56,7 @@ class RestoreArtifactDetails implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the failedCount property value. The failedCount property
+     * Gets the failedCount property value. The number of artifacts that failed to be restored during the restore operation.
      * @return int|null
     */
     public function getFailedCount(): ?int {
@@ -94,7 +94,7 @@ class RestoreArtifactDetails implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the restoredCount property value. The restoredCount property
+     * Gets the restoredCount property value. The number of artifacts that were successfully restored during the restore operation.
      * @return int|null
     */
     public function getRestoredCount(): ?int {
@@ -106,7 +106,7 @@ class RestoreArtifactDetails implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the totalArtifactsCount property value. The totalArtifactsCount property
+     * Gets the totalArtifactsCount property value. The total number of artifacts included in the restore operation.
      * @return int|null
     */
     public function getTotalArtifactsCount(): ?int {
@@ -146,7 +146,7 @@ class RestoreArtifactDetails implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the failedCount property value. The failedCount property
+     * Sets the failedCount property value. The number of artifacts that failed to be restored during the restore operation.
      * @param int|null $value Value to set for the failedCount property.
     */
     public function setFailedCount(?int $value): void {
@@ -162,7 +162,7 @@ class RestoreArtifactDetails implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the restoredCount property value. The restoredCount property
+     * Sets the restoredCount property value. The number of artifacts that were successfully restored during the restore operation.
      * @param int|null $value Value to set for the restoredCount property.
     */
     public function setRestoredCount(?int $value): void {
@@ -170,7 +170,7 @@ class RestoreArtifactDetails implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the totalArtifactsCount property value. The totalArtifactsCount property
+     * Sets the totalArtifactsCount property value. The total number of artifacts included in the restore operation.
      * @param int|null $value Value to set for the totalArtifactsCount property.
     */
     public function setTotalArtifactsCount(?int $value): void {

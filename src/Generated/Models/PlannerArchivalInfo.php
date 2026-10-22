@@ -63,11 +63,26 @@ class PlannerArchivalInfo implements AdditionalDataHolder, BackedModel, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'isArchived' => fn(ParseNode $n) => $o->setIsArchived($n->getBooleanValue()),
             'justification' => fn(ParseNode $n) => $o->setJustification($n->getStringValue()),
+            'modifiedBy' => fn(ParseNode $n) => $o->setModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'modifiedDateTime' => fn(ParseNode $n) => $o->setModifiedDateTime($n->getDateTimeValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'statusChangedBy' => fn(ParseNode $n) => $o->setStatusChangedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'statusChangedDateTime' => fn(ParseNode $n) => $o->setStatusChangedDateTime($n->getDateTimeValue()),
         ];
+    }
+
+    /**
+     * Gets the isArchived property value. Read-only. Indicates whether the entity is archived.
+     * @return bool|null
+    */
+    public function getIsArchived(): ?bool {
+        $val = $this->getBackingStore()->get('isArchived');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isArchived'");
     }
 
     /**
@@ -80,6 +95,30 @@ class PlannerArchivalInfo implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'justification'");
+    }
+
+    /**
+     * Gets the modifiedBy property value. Read-only. Identity of the user who archived or unarchived the entity.
+     * @return IdentitySet|null
+    */
+    public function getModifiedBy(): ?IdentitySet {
+        $val = $this->getBackingStore()->get('modifiedBy');
+        if (is_null($val) || $val instanceof IdentitySet) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'modifiedBy'");
+    }
+
+    /**
+     * Gets the modifiedDateTime property value. Read-only. Date and time at which the entity's archive status changed.
+     * @return DateTime|null
+    */
+    public function getModifiedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('modifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'modifiedDateTime'");
     }
 
     /**
@@ -123,7 +162,10 @@ class PlannerArchivalInfo implements AdditionalDataHolder, BackedModel, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeBooleanValue('isArchived', $this->getIsArchived());
         $writer->writeStringValue('justification', $this->getJustification());
+        $writer->writeObjectValue('modifiedBy', $this->getModifiedBy());
+        $writer->writeDateTimeValue('modifiedDateTime', $this->getModifiedDateTime());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('statusChangedBy', $this->getStatusChangedBy());
         $writer->writeDateTimeValue('statusChangedDateTime', $this->getStatusChangedDateTime());
@@ -147,11 +189,35 @@ class PlannerArchivalInfo implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Sets the isArchived property value. Read-only. Indicates whether the entity is archived.
+     * @param bool|null $value Value to set for the isArchived property.
+    */
+    public function setIsArchived(?bool $value): void {
+        $this->getBackingStore()->set('isArchived', $value);
+    }
+
+    /**
      * Sets the justification property value. Read-only. Reason why the entity was archived or unarchived.
      * @param string|null $value Value to set for the justification property.
     */
     public function setJustification(?string $value): void {
         $this->getBackingStore()->set('justification', $value);
+    }
+
+    /**
+     * Sets the modifiedBy property value. Read-only. Identity of the user who archived or unarchived the entity.
+     * @param IdentitySet|null $value Value to set for the modifiedBy property.
+    */
+    public function setModifiedBy(?IdentitySet $value): void {
+        $this->getBackingStore()->set('modifiedBy', $value);
+    }
+
+    /**
+     * Sets the modifiedDateTime property value. Read-only. Date and time at which the entity's archive status changed.
+     * @param DateTime|null $value Value to set for the modifiedDateTime property.
+    */
+    public function setModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('modifiedDateTime', $value);
     }
 
     /**

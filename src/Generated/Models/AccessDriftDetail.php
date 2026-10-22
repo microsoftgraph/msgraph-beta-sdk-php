@@ -34,7 +34,7 @@ class AccessDriftDetail extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date and time when the drift record was created.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -85,7 +85,7 @@ class AccessDriftDetail extends Entity implements Parsable
     }
 
     /**
-     * Gets the identities property value. The identities property
+     * Gets the identities property value. The identities affected by this drift record.
      * @return array<DriftIdentityInfo>|null
     */
     public function getIdentities(): ?array {
@@ -123,7 +123,7 @@ class AccessDriftDetail extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date and time when the drift record was created.
      * @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value): void {
@@ -147,7 +147,7 @@ class AccessDriftDetail extends Entity implements Parsable
     }
 
     /**
-     * Sets the identities property value. The identities property
+     * Sets the identities property value. The identities affected by this drift record.
      * @param array<DriftIdentityInfo>|null $value Value to set for the identities property.
     */
     public function setIdentities(?array $value): void {

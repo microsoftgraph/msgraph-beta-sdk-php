@@ -75,6 +75,10 @@ class AgentIdentity extends ServicePrincipal implements Parsable
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'inheritedAppRoleAssignments' => fn(ParseNode $n) => $o->setInheritedAppRoleAssignments($n->getCollectionOfObjectValues([AppRoleAssignment::class, 'createFromDiscriminatorValue'])),
             'inheritedOauth2PermissionGrants' => fn(ParseNode $n) => $o->setInheritedOauth2PermissionGrants($n->getCollectionOfObjectValues([OAuth2PermissionGrant::class, 'createFromDiscriminatorValue'])),
+            'lifecyclePolicyComplianceState' => fn(ParseNode $n) => $o->setLifecyclePolicyComplianceState($n->getEnumValue(LifecyclePolicyComplianceState::class)),
+            'lifecyclePolicyComplianceStateLastModifiedDateTime' => fn(ParseNode $n) => $o->setLifecyclePolicyComplianceStateLastModifiedDateTime($n->getDateTimeValue()),
+            'lifecyclePolicyComplianceStateReason' => fn(ParseNode $n) => $o->setLifecyclePolicyComplianceStateReason($n->getStringValue()),
+            'lifecyclePolicyNonComplianceDisablementDateTime' => fn(ParseNode $n) => $o->setLifecyclePolicyNonComplianceDisablementDateTime($n->getDateTimeValue()),
             'managerApplications' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -116,6 +120,54 @@ class AgentIdentity extends ServicePrincipal implements Parsable
     }
 
     /**
+     * Gets the lifecyclePolicyComplianceState property value. The lifecyclePolicyComplianceState property
+     * @return LifecyclePolicyComplianceState|null
+    */
+    public function getLifecyclePolicyComplianceState(): ?LifecyclePolicyComplianceState {
+        $val = $this->getBackingStore()->get('lifecyclePolicyComplianceState');
+        if (is_null($val) || $val instanceof LifecyclePolicyComplianceState) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lifecyclePolicyComplianceState'");
+    }
+
+    /**
+     * Gets the lifecyclePolicyComplianceStateLastModifiedDateTime property value. The lifecyclePolicyComplianceStateLastModifiedDateTime property
+     * @return DateTime|null
+    */
+    public function getLifecyclePolicyComplianceStateLastModifiedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('lifecyclePolicyComplianceStateLastModifiedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lifecyclePolicyComplianceStateLastModifiedDateTime'");
+    }
+
+    /**
+     * Gets the lifecyclePolicyComplianceStateReason property value. The lifecyclePolicyComplianceStateReason property
+     * @return string|null
+    */
+    public function getLifecyclePolicyComplianceStateReason(): ?string {
+        $val = $this->getBackingStore()->get('lifecyclePolicyComplianceStateReason');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lifecyclePolicyComplianceStateReason'");
+    }
+
+    /**
+     * Gets the lifecyclePolicyNonComplianceDisablementDateTime property value. The lifecyclePolicyNonComplianceDisablementDateTime property
+     * @return DateTime|null
+    */
+    public function getLifecyclePolicyNonComplianceDisablementDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('lifecyclePolicyNonComplianceDisablementDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lifecyclePolicyNonComplianceDisablementDateTime'");
+    }
+
+    /**
      * Gets the managerApplications property value. The collection of application IDs designated as managers of this agent identity's backing agentIdentityBlueprint. Read-only; the value is server-managed and reflects the managerApplications of the backing agentIdentityBlueprint. To change the managers, an owner or administrator must update the managerApplications property on the backing agentIdentityBlueprint in the tenant where it's registered. For multitenant agent identity blueprints, admins in a tenant where the blueprint is only consumed can't make this change — they must ask an owner or administrator in the blueprint's home tenant. Not nullable. Returned only on $select.
      * @return array<string>|null
     */
@@ -154,6 +206,10 @@ class AgentIdentity extends ServicePrincipal implements Parsable
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeCollectionOfObjectValues('inheritedAppRoleAssignments', $this->getInheritedAppRoleAssignments());
         $writer->writeCollectionOfObjectValues('inheritedOauth2PermissionGrants', $this->getInheritedOauth2PermissionGrants());
+        $writer->writeEnumValue('lifecyclePolicyComplianceState', $this->getLifecyclePolicyComplianceState());
+        $writer->writeDateTimeValue('lifecyclePolicyComplianceStateLastModifiedDateTime', $this->getLifecyclePolicyComplianceStateLastModifiedDateTime());
+        $writer->writeStringValue('lifecyclePolicyComplianceStateReason', $this->getLifecyclePolicyComplianceStateReason());
+        $writer->writeDateTimeValue('lifecyclePolicyNonComplianceDisablementDateTime', $this->getLifecyclePolicyNonComplianceDisablementDateTime());
         $writer->writeCollectionOfObjectValues('sponsors', $this->getSponsors());
     }
 
@@ -195,6 +251,38 @@ class AgentIdentity extends ServicePrincipal implements Parsable
     */
     public function setInheritedOauth2PermissionGrants(?array $value): void {
         $this->getBackingStore()->set('inheritedOauth2PermissionGrants', $value);
+    }
+
+    /**
+     * Sets the lifecyclePolicyComplianceState property value. The lifecyclePolicyComplianceState property
+     * @param LifecyclePolicyComplianceState|null $value Value to set for the lifecyclePolicyComplianceState property.
+    */
+    public function setLifecyclePolicyComplianceState(?LifecyclePolicyComplianceState $value): void {
+        $this->getBackingStore()->set('lifecyclePolicyComplianceState', $value);
+    }
+
+    /**
+     * Sets the lifecyclePolicyComplianceStateLastModifiedDateTime property value. The lifecyclePolicyComplianceStateLastModifiedDateTime property
+     * @param DateTime|null $value Value to set for the lifecyclePolicyComplianceStateLastModifiedDateTime property.
+    */
+    public function setLifecyclePolicyComplianceStateLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lifecyclePolicyComplianceStateLastModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the lifecyclePolicyComplianceStateReason property value. The lifecyclePolicyComplianceStateReason property
+     * @param string|null $value Value to set for the lifecyclePolicyComplianceStateReason property.
+    */
+    public function setLifecyclePolicyComplianceStateReason(?string $value): void {
+        $this->getBackingStore()->set('lifecyclePolicyComplianceStateReason', $value);
+    }
+
+    /**
+     * Sets the lifecyclePolicyNonComplianceDisablementDateTime property value. The lifecyclePolicyNonComplianceDisablementDateTime property
+     * @param DateTime|null $value Value to set for the lifecyclePolicyNonComplianceDisablementDateTime property.
+    */
+    public function setLifecyclePolicyNonComplianceDisablementDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lifecyclePolicyNonComplianceDisablementDateTime', $value);
     }
 
     /**
