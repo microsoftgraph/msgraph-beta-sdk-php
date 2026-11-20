@@ -45,7 +45,7 @@ class ChecklistItemV4ItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of checklist items on the task. Read-only. Nullable.
+     * Checklist items on the task. Can be supplied when creating a task by using a deep insert. Nullable.
      * @param ChecklistItemV4ItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ChecklistItemV4|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class ChecklistItemV4ItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of checklist items on the task. Read-only. Nullable.
+     * Checklist items on the task. Can be supplied when creating a task by using a deep insert. Nullable.
      * @param ChecklistItemV4ItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

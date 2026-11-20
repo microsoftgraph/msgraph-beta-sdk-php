@@ -45,7 +45,7 @@ class ContentLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of content links attached to the plan. Read-only. Nullable.
+     * Content links attached to the plan. Can be supplied when creating a plan by using a deep insert. Nullable.
      * @param ContentLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ContentLink|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class ContentLinkItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of content links attached to the plan. Read-only. Nullable.
+     * Content links attached to the plan. Can be supplied when creating a plan by using a deep insert. Nullable.
      * @param ContentLinkItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

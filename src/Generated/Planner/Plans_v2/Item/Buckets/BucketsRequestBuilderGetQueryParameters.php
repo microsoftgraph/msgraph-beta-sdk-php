@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Planner\Plans_v2\Item\Buckets;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The collection of buckets in the plan. Read-only. Nullable.
+ * Get a list of the bucket objects and their properties.
 */
 class BucketsRequestBuilderGetQueryParameters 
 {

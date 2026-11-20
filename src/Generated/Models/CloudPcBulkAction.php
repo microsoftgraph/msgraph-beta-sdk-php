@@ -36,10 +36,12 @@ class CloudPcBulkAction extends Entity implements Parsable
                 case '#microsoft.graph.cloudPcBulkPowerOff': return new CloudPcBulkPowerOff();
                 case '#microsoft.graph.cloudPcBulkPowerOn': return new CloudPcBulkPowerOn();
                 case '#microsoft.graph.cloudPcBulkReinstallAgent': return new CloudPcBulkReinstallAgent();
+                case '#microsoft.graph.cloudPcBulkRelocate': return new CloudPcBulkRelocate();
                 case '#microsoft.graph.cloudPcBulkReprovision': return new CloudPcBulkReprovision();
                 case '#microsoft.graph.cloudPcBulkResize': return new CloudPcBulkResize();
                 case '#microsoft.graph.cloudPcBulkRestart': return new CloudPcBulkRestart();
                 case '#microsoft.graph.cloudPcBulkRestore': return new CloudPcBulkRestore();
+                case '#microsoft.graph.cloudPcBulkSetDeviceName': return new CloudPcBulkSetDeviceName();
                 case '#microsoft.graph.cloudPcBulkSetReviewStatus': return new CloudPcBulkSetReviewStatus();
                 case '#microsoft.graph.cloudPcBulkTroubleshoot': return new CloudPcBulkTroubleshoot();
             }
@@ -60,7 +62,7 @@ class CloudPcBulkAction extends Entity implements Parsable
     }
 
     /**
-     * Gets the cloudPcIds property value. The cloudPcIds property
+     * Gets the cloudPcIds property value. IDs of the Cloud PCs the bulk action applies to. Individual Cloud PC IDs are GUID-formatted strings.
      * @return array<string>|null
     */
     public function getCloudPcIds(): ?array {
@@ -181,7 +183,7 @@ class CloudPcBulkAction extends Entity implements Parsable
     }
 
     /**
-     * Sets the cloudPcIds property value. The cloudPcIds property
+     * Sets the cloudPcIds property value. IDs of the Cloud PCs the bulk action applies to. Individual Cloud PC IDs are GUID-formatted strings.
      * @param array<string>|null $value Value to set for the cloudPcIds property.
     */
     public function setCloudPcIds(?array $value): void {

@@ -7,6 +7,7 @@ use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\AllExcludingGroupsS
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\AllExcludingSpecificObjectsSubjectSet;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\GroupBasedSubjectSet;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\RuleBasedSubjectSet;
+use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\SelectedAgentBuilderPlatformsSubjectSet;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance\SelectedObjectsSubjectSet;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
@@ -46,6 +47,7 @@ class SubjectSet implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.identityGovernance.allExcludingSpecificObjectsSubjectSet': return new AllExcludingSpecificObjectsSubjectSet();
                 case '#microsoft.graph.identityGovernance.groupBasedSubjectSet': return new GroupBasedSubjectSet();
                 case '#microsoft.graph.identityGovernance.ruleBasedSubjectSet': return new RuleBasedSubjectSet();
+                case '#microsoft.graph.identityGovernance.selectedAgentBuilderPlatformsSubjectSet': return new SelectedAgentBuilderPlatformsSubjectSet();
                 case '#microsoft.graph.identityGovernance.selectedObjectsSubjectSet': return new SelectedObjectsSubjectSet();
             }
         }

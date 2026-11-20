@@ -29,7 +29,7 @@ class CaseManagementRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the cases property value. The collection of security cases managed through the case management entry point. Supports $filter, $orderby, $select, $top, and $skip.
+     * Gets the cases property value. The collection of security cases managed through the case management entry point. Supports $filter, $orderby, $select, and $top.
      * @return array<EscapedCase>|null
     */
     public function getCases(): ?array {
@@ -79,7 +79,7 @@ class CaseManagementRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the cases property value. The collection of security cases managed through the case management entry point. Supports $filter, $orderby, $select, $top, and $skip.
+     * Sets the cases property value. The collection of security cases managed through the case management entry point. Supports $filter, $orderby, $select, and $top.
      * @param array<EscapedCase>|null $value Value to set for the cases property.
     */
     public function setCases(?array $value): void {

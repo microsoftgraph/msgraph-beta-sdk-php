@@ -174,7 +174,7 @@ class BackupCountStatistics implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the unprotectedCompleted property value. The count of artifacts that are no longer actively protected. These artifacts have historical restore points, but no new backups are being taken.
+     * Gets the unprotectedCompleted property value. The count of artifacts that are no longer actively protected. These artifacts have historical restore points, but no new backups are taken.
      * @return int|null
     */
     public function getUnprotectedCompleted(): ?int {
@@ -309,7 +309,7 @@ class BackupCountStatistics implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Sets the unprotectedCompleted property value. The count of artifacts that are no longer actively protected. These artifacts have historical restore points, but no new backups are being taken.
+     * Sets the unprotectedCompleted property value. The count of artifacts that are no longer actively protected. These artifacts have historical restore points, but no new backups are taken.
      * @param int|null $value Value to set for the unprotectedCompleted property.
     */
     public function setUnprotectedCompleted(?int $value): void {

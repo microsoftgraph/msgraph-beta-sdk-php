@@ -27,6 +27,7 @@ class AccessReviewResourceScope extends AccessReviewScope implements Parsable
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
                 case '#microsoft.graph.accessReviewAccessPackageAssignmentPolicyScope': return new AccessReviewAccessPackageAssignmentPolicyScope();
+                case '#microsoft.graph.accessReviewCatalogScope': return new AccessReviewCatalogScope();
             }
         }
         return new AccessReviewResourceScope();

@@ -52,10 +52,11 @@ class MessagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of chat messages associated with the task. Read-only. Nullable.
+     * Get a list of the plannerChatMessage objects associated with the task.
      * @param MessagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlannerChatMessageCollectionResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/task-list-messages?view=graph-rest-beta Find more info here
     */
     public function get(?MessagesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -81,7 +82,7 @@ class MessagesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of chat messages associated with the task. Read-only. Nullable.
+     * Get a list of the plannerChatMessage objects associated with the task.
      * @param MessagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

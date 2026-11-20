@@ -260,6 +260,7 @@ class Application extends DirectoryObject implements Parsable
             'federatedIdentityCredentials' => fn(ParseNode $n) => $o->setFederatedIdentityCredentials($n->getCollectionOfObjectValues([FederatedIdentityCredential::class, 'createFromDiscriminatorValue'])),
             'groupMembershipClaims' => fn(ParseNode $n) => $o->setGroupMembershipClaims($n->getStringValue()),
             'homeRealmDiscoveryPolicies' => fn(ParseNode $n) => $o->setHomeRealmDiscoveryPolicies($n->getCollectionOfObjectValues([HomeRealmDiscoveryPolicy::class, 'createFromDiscriminatorValue'])),
+            'identifierUriConfiguration' => fn(ParseNode $n) => $o->setIdentifierUriConfiguration($n->getObjectValue([ApplicationIdentifierUriConfiguration::class, 'createFromDiscriminatorValue'])),
             'identifierUris' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -268,10 +269,12 @@ class Application extends DirectoryObject implements Parsable
                 /** @var array<string>|null $val */
                 $this->setIdentifierUris($val);
             },
+            'idJag' => fn(ParseNode $n) => $o->setIdJag($n->getObjectValue([IdJagApplicationConfiguration::class, 'createFromDiscriminatorValue'])),
             'info' => fn(ParseNode $n) => $o->setInfo($n->getObjectValue([InformationalUrl::class, 'createFromDiscriminatorValue'])),
             'isDeviceOnlyAuthSupported' => fn(ParseNode $n) => $o->setIsDeviceOnlyAuthSupported($n->getBooleanValue()),
             'isDisabled' => fn(ParseNode $n) => $o->setIsDisabled($n->getBooleanValue()),
             'isFallbackPublicClient' => fn(ParseNode $n) => $o->setIsFallbackPublicClient($n->getBooleanValue()),
+            'isHardDeleteProtectionEnabled' => fn(ParseNode $n) => $o->setIsHardDeleteProtectionEnabled($n->getBooleanValue()),
             'keyCredentials' => fn(ParseNode $n) => $o->setKeyCredentials($n->getCollectionOfObjectValues([KeyCredential::class, 'createFromDiscriminatorValue'])),
             'logo' => fn(ParseNode $n) => $o->setLogo($n->getBinaryContent()),
             'managerApplications' => function (ParseNode $n) {
@@ -345,6 +348,18 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the identifierUriConfiguration property value. The identifierUriConfiguration property
+     * @return ApplicationIdentifierUriConfiguration|null
+    */
+    public function getIdentifierUriConfiguration(): ?ApplicationIdentifierUriConfiguration {
+        $val = $this->getBackingStore()->get('identifierUriConfiguration');
+        if (is_null($val) || $val instanceof ApplicationIdentifierUriConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identifierUriConfiguration'");
+    }
+
+    /**
      * Gets the identifierUris property value. Also known as App ID URI, this value is set when an application is used as a resource app. The identifierUris acts as the prefix for the scopes you reference in your API's code, and it must be globally unique across Microsoft Entra ID. For more information on valid identifierUris patterns and best practices, see Microsoft Entra application registration security best practices. Not nullable. Supports $filter (eq, ne, ge, le, startsWith).
      * @return array<string>|null
     */
@@ -356,6 +371,18 @@ class Application extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'identifierUris'");
+    }
+
+    /**
+     * Gets the idJag property value. The idJag property
+     * @return IdJagApplicationConfiguration|null
+    */
+    public function getIdJag(): ?IdJagApplicationConfiguration {
+        $val = $this->getBackingStore()->get('idJag');
+        if (is_null($val) || $val instanceof IdJagApplicationConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'idJag'");
     }
 
     /**
@@ -404,6 +431,18 @@ class Application extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isFallbackPublicClient'");
+    }
+
+    /**
+     * Gets the isHardDeleteProtectionEnabled property value. Indicates whether hard deletion protection is enabled for the application. When true, permanent deletion is blocked for seven days after soft deletion. The application can still be soft deleted and restored. Once enabled, protection can't be disabled or set to null. Enable protection on an existing application by using Update application; enabling it during creation isn't supported. Setting this property to true requires the Microsoft Entra Backup Administrator role. Nullable. Requires $select to retrieve. Supports $filter (eq).
+     * @return bool|null
+    */
+    public function getIsHardDeleteProtectionEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isHardDeleteProtectionEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isHardDeleteProtectionEnabled'");
     }
 
     /**
@@ -794,11 +833,14 @@ class Application extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('federatedIdentityCredentials', $this->getFederatedIdentityCredentials());
         $writer->writeStringValue('groupMembershipClaims', $this->getGroupMembershipClaims());
         $writer->writeCollectionOfObjectValues('homeRealmDiscoveryPolicies', $this->getHomeRealmDiscoveryPolicies());
+        $writer->writeObjectValue('identifierUriConfiguration', $this->getIdentifierUriConfiguration());
         $writer->writeCollectionOfPrimitiveValues('identifierUris', $this->getIdentifierUris());
+        $writer->writeObjectValue('idJag', $this->getIdJag());
         $writer->writeObjectValue('info', $this->getInfo());
         $writer->writeBooleanValue('isDeviceOnlyAuthSupported', $this->getIsDeviceOnlyAuthSupported());
         $writer->writeBooleanValue('isDisabled', $this->getIsDisabled());
         $writer->writeBooleanValue('isFallbackPublicClient', $this->getIsFallbackPublicClient());
+        $writer->writeBooleanValue('isHardDeleteProtectionEnabled', $this->getIsHardDeleteProtectionEnabled());
         $writer->writeCollectionOfObjectValues('keyCredentials', $this->getKeyCredentials());
         $writer->writeBinaryContent('logo', $this->getLogo());
         $writer->writeCollectionOfPrimitiveValues('managerApplications', $this->getManagerApplications());
@@ -975,11 +1017,27 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
+     * Sets the identifierUriConfiguration property value. The identifierUriConfiguration property
+     * @param ApplicationIdentifierUriConfiguration|null $value Value to set for the identifierUriConfiguration property.
+    */
+    public function setIdentifierUriConfiguration(?ApplicationIdentifierUriConfiguration $value): void {
+        $this->getBackingStore()->set('identifierUriConfiguration', $value);
+    }
+
+    /**
      * Sets the identifierUris property value. Also known as App ID URI, this value is set when an application is used as a resource app. The identifierUris acts as the prefix for the scopes you reference in your API's code, and it must be globally unique across Microsoft Entra ID. For more information on valid identifierUris patterns and best practices, see Microsoft Entra application registration security best practices. Not nullable. Supports $filter (eq, ne, ge, le, startsWith).
      * @param array<string>|null $value Value to set for the identifierUris property.
     */
     public function setIdentifierUris(?array $value): void {
         $this->getBackingStore()->set('identifierUris', $value);
+    }
+
+    /**
+     * Sets the idJag property value. The idJag property
+     * @param IdJagApplicationConfiguration|null $value Value to set for the idJag property.
+    */
+    public function setIdJag(?IdJagApplicationConfiguration $value): void {
+        $this->getBackingStore()->set('idJag', $value);
     }
 
     /**
@@ -1012,6 +1070,14 @@ class Application extends DirectoryObject implements Parsable
     */
     public function setIsFallbackPublicClient(?bool $value): void {
         $this->getBackingStore()->set('isFallbackPublicClient', $value);
+    }
+
+    /**
+     * Sets the isHardDeleteProtectionEnabled property value. Indicates whether hard deletion protection is enabled for the application. When true, permanent deletion is blocked for seven days after soft deletion. The application can still be soft deleted and restored. Once enabled, protection can't be disabled or set to null. Enable protection on an existing application by using Update application; enabling it during creation isn't supported. Setting this property to true requires the Microsoft Entra Backup Administrator role. Nullable. Requires $select to retrieve. Supports $filter (eq).
+     * @param bool|null $value Value to set for the isHardDeleteProtectionEnabled property.
+    */
+    public function setIsHardDeleteProtectionEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isHardDeleteProtectionEnabled', $value);
     }
 
     /**

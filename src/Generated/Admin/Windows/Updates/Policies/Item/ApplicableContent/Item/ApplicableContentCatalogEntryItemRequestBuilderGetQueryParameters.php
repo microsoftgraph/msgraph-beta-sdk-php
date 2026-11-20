@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Policies\Item\App
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Represents content applicable for offering to the related collection of devices.
+ * The existing applicable-content collection. For driver and feature update applicability, use applicableCatalogs.
 */
 class ApplicableContentCatalogEntryItemRequestBuilderGetQueryParameters 
 {

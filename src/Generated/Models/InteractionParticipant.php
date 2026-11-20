@@ -89,7 +89,7 @@ class InteractionParticipant implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. The identifier of the participant. Required.
      * @return string|null
     */
     public function getValue(): ?string {
@@ -135,7 +135,7 @@ class InteractionParticipant implements AdditionalDataHolder, BackedModel, Parsa
     }
 
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. The identifier of the participant. Required.
      * @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value): void {

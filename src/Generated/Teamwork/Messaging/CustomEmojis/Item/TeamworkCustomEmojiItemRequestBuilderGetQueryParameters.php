@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Teamwork\Messaging\CustomEmojis\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The collection of custom emojis available in organization messaging.
+ * Get a single custom emoji or the raw image content of a custom emoji by display name from the teamwork messaging of the organization.
 */
 class TeamworkCustomEmojiItemRequestBuilderGetQueryParameters 
 {

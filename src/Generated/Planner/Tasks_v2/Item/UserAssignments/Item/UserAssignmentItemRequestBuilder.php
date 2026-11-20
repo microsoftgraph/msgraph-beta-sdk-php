@@ -45,7 +45,7 @@ class UserAssignmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of user assignments on the task. Read-only. Nullable.
+     * User assignments on the task. Can be supplied when creating a task by using a deep insert. Nullable.
      * @param UserAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<UserAssignment|null>
      * @throws Exception
@@ -92,7 +92,7 @@ class UserAssignmentItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of user assignments on the task. Read-only. Nullable.
+     * User assignments on the task. Can be supplied when creating a task by using a deep insert. Nullable.
      * @param UserAssignmentItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

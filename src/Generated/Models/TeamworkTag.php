@@ -22,6 +22,13 @@ class TeamworkTag extends Entity implements Parsable
      * @return TeamworkTag
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkTag {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.teamworkChannelTag': return new TeamworkChannelTag();
+            }
+        }
         return new TeamworkTag();
     }
 
@@ -92,7 +99,7 @@ class TeamworkTag extends Entity implements Parsable
     }
 
     /**
-     * Gets the tagType property value. The type of tag. Default is standard.
+     * Gets the tagType property value. The type of tag. The possible values are: standard, unknownFutureValue. The default value is standard.
      * @return TeamworkTagType|null
     */
     public function getTagType(): ?TeamworkTagType {
@@ -162,7 +169,7 @@ class TeamworkTag extends Entity implements Parsable
     }
 
     /**
-     * Sets the tagType property value. The type of tag. Default is standard.
+     * Sets the tagType property value. The type of tag. The possible values are: standard, unknownFutureValue. The default value is standard.
      * @param TeamworkTagType|null $value Value to set for the tagType property.
     */
     public function setTagType(?TeamworkTagType $value): void {

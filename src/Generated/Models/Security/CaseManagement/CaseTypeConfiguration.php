@@ -27,7 +27,7 @@ class CaseTypeConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the customFields property value. The contained custom-field definitions that make up the blank-form schema for this case type. Read-only. Supports $count, $expand, $filter, $orderby, $select, $skip, and $top.
+     * Gets the customFields property value. The contained custom-field definitions that make up the blank-form schema for this case type. Read-only. Supports $count, $expand, $filter, $orderby, $select, and $top.
      * @return array<CustomFieldDefinition>|null
     */
     public function getCustomFields(): ?array {
@@ -74,12 +74,27 @@ class CaseTypeConfiguration extends Entity implements Parsable
             'customFields' => fn(ParseNode $n) => $o->setCustomFields($n->getCollectionOfObjectValues([CustomFieldDefinition::class, 'createFromDiscriminatorValue'])),
             'defaultStatusId' => fn(ParseNode $n) => $o->setDefaultStatusId($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'slaPolicies' => fn(ParseNode $n) => $o->setSlaPolicies($n->getCollectionOfObjectValues([SlaPolicyDefinition::class, 'createFromDiscriminatorValue'])),
             'statuses' => fn(ParseNode $n) => $o->setStatuses($n->getCollectionOfObjectValues([StatusDefinition::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
-     * Gets the statuses property value. The contained top-level statuses that a case of this type can be set to. Read-only. Supports $count, $expand, $filter, $orderby, $select, $skip, and $top.
+     * Gets the slaPolicies property value. The contained SLA policy definitions configured for this case type. Supports $filter and $orderby on createdBy, createdDateTime, description, displayName, id, isActive, lastModifiedBy, and lastModifiedDateTime on the collection endpoint. For information about supported query parameters, see List slaPolicies. Also supports $count, $select, and $top on the collection endpoint. Supports $expand=slaPolicies when getting a case type configuration.
+     * @return array<SlaPolicyDefinition>|null
+    */
+    public function getSlaPolicies(): ?array {
+        $val = $this->getBackingStore()->get('slaPolicies');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, SlaPolicyDefinition::class);
+            /** @var array<SlaPolicyDefinition>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'slaPolicies'");
+    }
+
+    /**
+     * Gets the statuses property value. The contained top-level statuses that a case of this type can be set to. Read-only. Supports $count, $expand, $filter, $orderby, $select, and $top.
      * @return array<StatusDefinition>|null
     */
     public function getStatuses(): ?array {
@@ -101,11 +116,12 @@ class CaseTypeConfiguration extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('customFields', $this->getCustomFields());
         $writer->writeStringValue('defaultStatusId', $this->getDefaultStatusId());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfObjectValues('slaPolicies', $this->getSlaPolicies());
         $writer->writeCollectionOfObjectValues('statuses', $this->getStatuses());
     }
 
     /**
-     * Sets the customFields property value. The contained custom-field definitions that make up the blank-form schema for this case type. Read-only. Supports $count, $expand, $filter, $orderby, $select, $skip, and $top.
+     * Sets the customFields property value. The contained custom-field definitions that make up the blank-form schema for this case type. Read-only. Supports $count, $expand, $filter, $orderby, $select, and $top.
      * @param array<CustomFieldDefinition>|null $value Value to set for the customFields property.
     */
     public function setCustomFields(?array $value): void {
@@ -129,7 +145,15 @@ class CaseTypeConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the statuses property value. The contained top-level statuses that a case of this type can be set to. Read-only. Supports $count, $expand, $filter, $orderby, $select, $skip, and $top.
+     * Sets the slaPolicies property value. The contained SLA policy definitions configured for this case type. Supports $filter and $orderby on createdBy, createdDateTime, description, displayName, id, isActive, lastModifiedBy, and lastModifiedDateTime on the collection endpoint. For information about supported query parameters, see List slaPolicies. Also supports $count, $select, and $top on the collection endpoint. Supports $expand=slaPolicies when getting a case type configuration.
+     * @param array<SlaPolicyDefinition>|null $value Value to set for the slaPolicies property.
+    */
+    public function setSlaPolicies(?array $value): void {
+        $this->getBackingStore()->set('slaPolicies', $value);
+    }
+
+    /**
+     * Sets the statuses property value. The contained top-level statuses that a case of this type can be set to. Read-only. Supports $count, $expand, $filter, $orderby, $select, and $top.
      * @param array<StatusDefinition>|null $value Value to set for the statuses property.
     */
     public function setStatuses(?array $value): void {

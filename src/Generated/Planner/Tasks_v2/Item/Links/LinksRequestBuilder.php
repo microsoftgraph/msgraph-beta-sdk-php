@@ -52,7 +52,7 @@ class LinksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of content links attached to the task. Read-only. Nullable.
+     * Content links attached to the task. Can be supplied when creating a task by using a deep insert. Nullable.
      * @param LinksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ContentLinkCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class LinksRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of content links attached to the task. Read-only. Nullable.
+     * Content links attached to the task. Can be supplied when creating a task by using a deep insert. Nullable.
      * @param LinksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

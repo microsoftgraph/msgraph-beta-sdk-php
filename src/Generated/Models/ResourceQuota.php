@@ -70,7 +70,7 @@ class ResourceQuota implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the maxPercentage property value. The maxPercentage property
+     * Gets the maxPercentage property value. The maximum percentage of the organization's directorySizeQuota.total that this resource type can consume. The value must be between 0 and 100. A value of 0 blocks creation of new resources of this type. If omitted for supported resource types, the default is 80.
      * @return int|null
     */
     public function getMaxPercentage(): ?int {
@@ -106,7 +106,7 @@ class ResourceQuota implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the total property value. The total property
+     * Gets the total property value. The effective maximum number of resources allowed, calculated from directorySizeQuota.total and maxPercentage. This value is read-only and changes when the organization's overall quota changes.
      * @return int|null
     */
     public function getTotal(): ?int {
@@ -146,7 +146,7 @@ class ResourceQuota implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the maxPercentage property value. The maxPercentage property
+     * Sets the maxPercentage property value. The maximum percentage of the organization's directorySizeQuota.total that this resource type can consume. The value must be between 0 and 100. A value of 0 blocks creation of new resources of this type. If omitted for supported resource types, the default is 80.
      * @param int|null $value Value to set for the maxPercentage property.
     */
     public function setMaxPercentage(?int $value): void {
@@ -170,7 +170,7 @@ class ResourceQuota implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the total property value. The total property
+     * Sets the total property value. The effective maximum number of resources allowed, calculated from directorySizeQuota.total and maxPercentage. This value is read-only and changes when the organization's overall quota changes.
      * @param int|null $value Value to set for the total property.
     */
     public function setTotal(?int $value): void {

@@ -31,7 +31,7 @@ class BaselineRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a configurationBaseline object that is attached to a specific monitor.
+     * Get the configurationBaseline attached to a monitor or a configurationTemplateVersion.
      * @param BaselineRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConfigurationBaseline|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class BaselineRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a configurationBaseline object that is attached to a specific monitor.
+     * Get the configurationBaseline attached to a monitor or a configurationTemplateVersion.
      * @param BaselineRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

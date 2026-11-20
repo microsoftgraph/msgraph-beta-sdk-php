@@ -62,7 +62,7 @@ class ContentLink extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the extensions property value. Custom extension field values set on the entity. Supports $select.
+     * Gets the extensions property value. Custom extension field values set at creation. Can't be changed afterward. Supports $select.
      * @return ExtensionFieldCollection|null
     */
     public function getExtensions(): ?ExtensionFieldCollection {
@@ -116,7 +116,7 @@ class ContentLink extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the linkType property value. Type of content the link points to. The possible values are: documentReference, webReference, unknownFutureValue.
+     * Gets the linkType property value. Type of content the link points to. Required at creation and immutable afterward. The possible values are: documentReference, webReference, unknownFutureValue.
      * @return ContentLinkType|null
     */
     public function getLinkType(): ?ContentLinkType {
@@ -128,7 +128,7 @@ class ContentLink extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the webUrl property value. URL the link points to.
+     * Gets the webUrl property value. URL the link points to. Required at creation and immutable afterward.
      * @return string|null
     */
     public function getWebUrl(): ?string {
@@ -178,7 +178,7 @@ class ContentLink extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the extensions property value. Custom extension field values set on the entity. Supports $select.
+     * Sets the extensions property value. Custom extension field values set at creation. Can't be changed afterward. Supports $select.
      * @param ExtensionFieldCollection|null $value Value to set for the extensions property.
     */
     public function setExtensions(?ExtensionFieldCollection $value): void {
@@ -202,7 +202,7 @@ class ContentLink extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the linkType property value. Type of content the link points to. The possible values are: documentReference, webReference, unknownFutureValue.
+     * Sets the linkType property value. Type of content the link points to. Required at creation and immutable afterward. The possible values are: documentReference, webReference, unknownFutureValue.
      * @param ContentLinkType|null $value Value to set for the linkType property.
     */
     public function setLinkType(?ContentLinkType $value): void {
@@ -210,7 +210,7 @@ class ContentLink extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the webUrl property value. URL the link points to.
+     * Sets the webUrl property value. URL the link points to. Required at creation and immutable afterward.
      * @param string|null $value Value to set for the webUrl property.
     */
     public function setWebUrl(?string $value): void {

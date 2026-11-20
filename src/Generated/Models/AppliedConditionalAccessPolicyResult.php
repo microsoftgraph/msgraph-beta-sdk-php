@@ -15,4 +15,6 @@ class AppliedConditionalAccessPolicyResult extends Enum {
     public const REPORT_ONLY_FAILURE = "reportOnlyFailure";
     public const REPORT_ONLY_NOT_APPLIED = "reportOnlyNotApplied";
     public const REPORT_ONLY_INTERRUPTED = "reportOnlyInterrupted";
+    public const NOT_APPLIED_ALL_APPS_EXCLUSION = "notAppliedAllAppsExclusion";
+    public const REPORT_ONLY_NOT_APPLIED_ALL_APPS_EXCLUSION = "reportOnlyNotAppliedAllAppsExclusion";
 }

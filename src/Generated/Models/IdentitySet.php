@@ -43,6 +43,7 @@ class IdentitySet implements AdditionalDataHolder, BackedModel, Parsable
                 case '#microsoft.graph.communicationsIdentitySet': return new CommunicationsIdentitySet();
                 case '#microsoft.graph.customEmojiFromIdentitySet': return new CustomEmojiFromIdentitySet();
                 case '#microsoft.graph.engagementIdentitySet': return new EngagementIdentitySet();
+                case '#microsoft.graph.investigationIdentitySet': return new InvestigationIdentitySet();
                 case '#microsoft.graph.sharePointIdentitySet': return new SharePointIdentitySet();
             }
         }

@@ -45,12 +45,27 @@ class SynchronizationJob extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'bulkUpload' => fn(ParseNode $n) => $o->setBulkUpload($n->getObjectValue([BulkUpload::class, 'createFromDiscriminatorValue'])),
+            'objectConnections' => fn(ParseNode $n) => $o->setObjectConnections($n->getCollectionOfObjectValues([ObjectConnection::class, 'createFromDiscriminatorValue'])),
             'schedule' => fn(ParseNode $n) => $o->setSchedule($n->getObjectValue([SynchronizationSchedule::class, 'createFromDiscriminatorValue'])),
             'schema' => fn(ParseNode $n) => $o->setSchema($n->getObjectValue([SynchronizationSchema::class, 'createFromDiscriminatorValue'])),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getObjectValue([SynchronizationStatus::class, 'createFromDiscriminatorValue'])),
             'synchronizationJobSettings' => fn(ParseNode $n) => $o->setSynchronizationJobSettings($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
             'templateId' => fn(ParseNode $n) => $o->setTemplateId($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the objectConnections property value. Connector data store linkage records contained by the job. During public preview, retrieve an individual connection using a known objectId, or delete it to clear its cached linkage. Collection listing isn't supported and returns 400 Bad Request.
+     * @return array<ObjectConnection>|null
+    */
+    public function getObjectConnections(): ?array {
+        $val = $this->getBackingStore()->get('objectConnections');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ObjectConnection::class);
+            /** @var array<ObjectConnection>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'objectConnections'");
     }
 
     /**
@@ -122,6 +137,7 @@ class SynchronizationJob extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('bulkUpload', $this->getBulkUpload());
+        $writer->writeCollectionOfObjectValues('objectConnections', $this->getObjectConnections());
         $writer->writeObjectValue('schedule', $this->getSchedule());
         $writer->writeObjectValue('schema', $this->getSchema());
         $writer->writeObjectValue('status', $this->getStatus());
@@ -135,6 +151,14 @@ class SynchronizationJob extends Entity implements Parsable
     */
     public function setBulkUpload(?BulkUpload $value): void {
         $this->getBackingStore()->set('bulkUpload', $value);
+    }
+
+    /**
+     * Sets the objectConnections property value. Connector data store linkage records contained by the job. During public preview, retrieve an individual connection using a known objectId, or delete it to clear its cached linkage. Collection listing isn't supported and returns 400 Bad Request.
+     * @param array<ObjectConnection>|null $value Value to set for the objectConnections property.
+    */
+    public function setObjectConnections(?array $value): void {
+        $this->getBackingStore()->set('objectConnections', $value);
     }
 
     /**

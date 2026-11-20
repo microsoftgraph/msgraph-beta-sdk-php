@@ -116,7 +116,7 @@ class Dependency extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the sourceItemId property value. ID of the source item in the dependency.
+     * Gets the sourceItemId property value. ID of the source item in the dependency. Immutable after creation.
      * @return string|null
     */
     public function getSourceItemId(): ?string {
@@ -128,7 +128,7 @@ class Dependency extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the targetItemId property value. ID of the target item in the dependency.
+     * Gets the targetItemId property value. ID of the target item in the dependency. Immutable after creation.
      * @return string|null
     */
     public function getTargetItemId(): ?string {
@@ -203,7 +203,7 @@ class Dependency extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the sourceItemId property value. ID of the source item in the dependency.
+     * Sets the sourceItemId property value. ID of the source item in the dependency. Immutable after creation.
      * @param string|null $value Value to set for the sourceItemId property.
     */
     public function setSourceItemId(?string $value): void {
@@ -211,7 +211,7 @@ class Dependency extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the targetItemId property value. ID of the target item in the dependency.
+     * Sets the targetItemId property value. ID of the target item in the dependency. Immutable after creation.
      * @param string|null $value Value to set for the targetItemId property.
     */
     public function setTargetItemId(?string $value): void {

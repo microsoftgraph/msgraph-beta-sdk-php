@@ -105,6 +105,18 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the eventGroupingKind property value. The eventGroupingKind property
+     * @return EventGroupingKind|null
+    */
+    public function getEventGroupingKind(): ?EventGroupingKind {
+        $val = $this->getBackingStore()->get('eventGroupingKind');
+        if (is_null($val) || $val instanceof EventGroupingKind) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'eventGroupingKind'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -115,6 +127,7 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
             'customDetails' => fn(ParseNode $n) => $o->setCustomDetails($n->getObjectValue([AlertCustomDetails::class, 'createFromDiscriminatorValue'])),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'entityMappings' => fn(ParseNode $n) => $o->setEntityMappings($n->getObjectValue([EntityMappingConfiguration::class, 'createFromDiscriminatorValue'])),
+            'eventGroupingKind' => fn(ParseNode $n) => $o->setEventGroupingKind($n->getEnumValue(EventGroupingKind::class)),
             'impactedAssets' => fn(ParseNode $n) => $o->setImpactedAssets($n->getCollectionOfObjectValues([ImpactedAsset::class, 'createFromDiscriminatorValue'])),
             'mitreTechniques' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
@@ -231,6 +244,7 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeObjectValue('customDetails', $this->getCustomDetails());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeObjectValue('entityMappings', $this->getEntityMappings());
+        $writer->writeEnumValue('eventGroupingKind', $this->getEventGroupingKind());
         $writer->writeCollectionOfObjectValues('impactedAssets', $this->getImpactedAssets());
         $writer->writeCollectionOfPrimitiveValues('mitreTechniques', $this->getMitreTechniques());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
@@ -287,6 +301,14 @@ class AlertTemplate implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setEntityMappings(?EntityMappingConfiguration $value): void {
         $this->getBackingStore()->set('entityMappings', $value);
+    }
+
+    /**
+     * Sets the eventGroupingKind property value. The eventGroupingKind property
+     * @param EventGroupingKind|null $value Value to set for the eventGroupingKind property.
+    */
+    public function setEventGroupingKind(?EventGroupingKind $value): void {
+        $this->getBackingStore()->set('eventGroupingKind', $value);
     }
 
     /**

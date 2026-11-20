@@ -29,13 +29,29 @@ class CostManagementRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the creditRequests property value. The collection of credit requests for this tenant. Excludes audit-only requests by default.A list or requested-count dependency failure returns a Graph serviceNotAvailable error.Supports $filter on state and serviceId (eq), $select, $count=true, and $top (default 50, maximum 200).Results are ordered newest-first; $orderby is not supported.Server-driven paging returns an OData nextLink when additional pages are available.
+     * @return array<CreditRequest>|null
+    */
+    public function getCreditRequests(): ?array {
+        $val = $this->getBackingStore()->get('creditRequests');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, CreditRequest::class);
+            /** @var array<CreditRequest>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'creditRequests'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'creditRequests' => fn(ParseNode $n) => $o->setCreditRequests($n->getCollectionOfObjectValues([CreditRequest::class, 'createFromDiscriminatorValue'])),
             'spendingPolicies' => fn(ParseNode $n) => $o->setSpendingPolicies($n->getCollectionOfObjectValues([SpendingPolicy::class, 'createFromDiscriminatorValue'])),
+            'usageReports' => fn(ParseNode $n) => $o->setUsageReports($n->getObjectValue([CostManagementUsageReportRoot::class, 'createFromDiscriminatorValue'])),
             'userBalances' => fn(ParseNode $n) => $o->setUserBalances($n->getCollectionOfObjectValues([CostManagementUserBalance::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -52,6 +68,18 @@ class CostManagementRoot extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'spendingPolicies'");
+    }
+
+    /**
+     * Gets the usageReports property value. Reported consumption of Copilot Credits, split by user, group, service and funding.
+     * @return CostManagementUsageReportRoot|null
+    */
+    public function getUsageReports(): ?CostManagementUsageReportRoot {
+        $val = $this->getBackingStore()->get('usageReports');
+        if (is_null($val) || $val instanceof CostManagementUsageReportRoot) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'usageReports'");
     }
 
     /**
@@ -74,8 +102,18 @@ class CostManagementRoot extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('creditRequests', $this->getCreditRequests());
         $writer->writeCollectionOfObjectValues('spendingPolicies', $this->getSpendingPolicies());
+        $writer->writeObjectValue('usageReports', $this->getUsageReports());
         $writer->writeCollectionOfObjectValues('userBalances', $this->getUserBalances());
+    }
+
+    /**
+     * Sets the creditRequests property value. The collection of credit requests for this tenant. Excludes audit-only requests by default.A list or requested-count dependency failure returns a Graph serviceNotAvailable error.Supports $filter on state and serviceId (eq), $select, $count=true, and $top (default 50, maximum 200).Results are ordered newest-first; $orderby is not supported.Server-driven paging returns an OData nextLink when additional pages are available.
+     * @param array<CreditRequest>|null $value Value to set for the creditRequests property.
+    */
+    public function setCreditRequests(?array $value): void {
+        $this->getBackingStore()->set('creditRequests', $value);
     }
 
     /**
@@ -84,6 +122,14 @@ class CostManagementRoot extends Entity implements Parsable
     */
     public function setSpendingPolicies(?array $value): void {
         $this->getBackingStore()->set('spendingPolicies', $value);
+    }
+
+    /**
+     * Sets the usageReports property value. Reported consumption of Copilot Credits, split by user, group, service and funding.
+     * @param CostManagementUsageReportRoot|null $value Value to set for the usageReports property.
+    */
+    public function setUsageReports(?CostManagementUsageReportRoot $value): void {
+        $this->getBackingStore()->set('usageReports', $value);
     }
 
     /**

@@ -57,7 +57,7 @@ class CrossTenantMigrationServiceStatusDetails implements AdditionalDataHolder, 
     }
 
     /**
-     * Gets the errors property value. Errors associated with the migration for this service
+     * Gets the errors property value. Errors associated with the migration for this service.
      * @return array<Error>|null
     */
     public function getErrors(): ?array {
@@ -86,7 +86,7 @@ class CrossTenantMigrationServiceStatusDetails implements AdditionalDataHolder, 
     }
 
     /**
-     * Gets the message property value. Service status message
+     * Gets the message property value. Service status message.
      * @return string|null
     */
     public function getMessage(): ?string {
@@ -110,7 +110,7 @@ class CrossTenantMigrationServiceStatusDetails implements AdditionalDataHolder, 
     }
 
     /**
-     * Gets the service property value. Service or workload the status details are associated with
+     * Gets the service property value. Service or workload associated with the status details.
      * @return string|null
     */
     public function getService(): ?string {
@@ -163,7 +163,7 @@ class CrossTenantMigrationServiceStatusDetails implements AdditionalDataHolder, 
     }
 
     /**
-     * Sets the errors property value. Errors associated with the migration for this service
+     * Sets the errors property value. Errors associated with the migration for this service.
      * @param array<Error>|null $value Value to set for the errors property.
     */
     public function setErrors(?array $value): void {
@@ -171,7 +171,7 @@ class CrossTenantMigrationServiceStatusDetails implements AdditionalDataHolder, 
     }
 
     /**
-     * Sets the message property value. Service status message
+     * Sets the message property value. Service status message.
      * @param string|null $value Value to set for the message property.
     */
     public function setMessage(?string $value): void {
@@ -187,7 +187,7 @@ class CrossTenantMigrationServiceStatusDetails implements AdditionalDataHolder, 
     }
 
     /**
-     * Sets the service property value. Service or workload the status details are associated with
+     * Sets the service property value. Service or workload associated with the status details.
      * @param string|null $value Value to set for the service property.
     */
     public function setService(?string $value): void {

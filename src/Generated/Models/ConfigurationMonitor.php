@@ -157,7 +157,7 @@ class ConfigurationMonitor extends Entity implements Parsable
     }
 
     /**
-     * Gets the monitorRunFrequencyInHours property value. Frequency at which the monitor runs. The default frequency is six hours. Regardless of when you create or update a monitor, it gets triggered within the next 6 hours. Currently, monitors are picked up at fixed times: 6 AM, 12 PM, 6 PM, and 12 AM (all in GMT). For example, if you create a monitor at 9 AM, it gets triggered around 12 PM. If you update a monitor at 4 PM, it gets triggered around 6 PM.
+     * Gets the monitorRunFrequencyInHours property value. Frequency at which a monitorOnly monitor runs. The default frequency is six hours. Regardless of when you create or update a monitorOnly monitor, it gets triggered within the next 6 hours. Currently, monitors are picked up at fixed times: 6 AM, 12 PM, 6 PM, and 12 AM (all in GMT). For example, if you create a monitor at 9 AM, it gets triggered around 12 PM. If you update a monitor at 4 PM, it gets triggered around 6 PM. This schedule doesn't apply to applyOnce monitors.
      * @return int|null
     */
     public function getMonitorRunFrequencyInHours(): ?int {
@@ -293,7 +293,7 @@ class ConfigurationMonitor extends Entity implements Parsable
     }
 
     /**
-     * Sets the monitorRunFrequencyInHours property value. Frequency at which the monitor runs. The default frequency is six hours. Regardless of when you create or update a monitor, it gets triggered within the next 6 hours. Currently, monitors are picked up at fixed times: 6 AM, 12 PM, 6 PM, and 12 AM (all in GMT). For example, if you create a monitor at 9 AM, it gets triggered around 12 PM. If you update a monitor at 4 PM, it gets triggered around 6 PM.
+     * Sets the monitorRunFrequencyInHours property value. Frequency at which a monitorOnly monitor runs. The default frequency is six hours. Regardless of when you create or update a monitorOnly monitor, it gets triggered within the next 6 hours. Currently, monitors are picked up at fixed times: 6 AM, 12 PM, 6 PM, and 12 AM (all in GMT). For example, if you create a monitor at 9 AM, it gets triggered around 12 PM. If you update a monitor at 4 PM, it gets triggered around 6 PM. This schedule doesn't apply to applyOnce monitors.
      * @param int|null $value Value to set for the monitorRunFrequencyInHours property.
     */
     public function setMonitorRunFrequencyInHours(?int $value): void {

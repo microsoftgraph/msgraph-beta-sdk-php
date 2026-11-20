@@ -16,5 +16,6 @@ class ActivityLogOperationType extends Enum {
     public const POLICY_LEVEL_OFFBOARDING = "policyLevelOffboarding";
     public const RESTORE_TASK_CREATED = "restoreTaskCreated";
     public const RESTORE_TASK_COMPLETED = "restoreTaskCompleted";
+    public const BACKUP_POLICY_DELETED = "backupPolicyDeleted";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

@@ -12,6 +12,7 @@ use Microsoft\Graph\Beta\Generated\AuditLogs\GetSummarizedMSISignInsWithAggregat
 use Microsoft\Graph\Beta\Generated\AuditLogs\GetSummarizedNonInteractiveSignInsWithAggregationWindow\GetSummarizedNonInteractiveSignInsWithAggregationWindowRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\GetSummarizedServicePrincipalSignInsWithAggregationWindow\GetSummarizedServicePrincipalSignInsWithAggregationWindowRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\Provisioning\ProvisioningRequestBuilder;
+use Microsoft\Graph\Beta\Generated\AuditLogs\ResourcePolicy\ResourcePolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\SignInEventsAppSummary\SignInEventsAppSummaryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\SignInEventsSummary\SignInEventsSummaryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\SignInsRequestBuilder;
@@ -61,6 +62,13 @@ class AuditLogsRequestBuilder extends BaseRequestBuilder
     */
     public function provisioning(): ProvisioningRequestBuilder {
         return new ProvisioningRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the resourcePolicy property of the microsoft.graph.auditLogRoot entity.
+    */
+    public function resourcePolicy(): ResourcePolicyRequestBuilder {
+        return new ResourcePolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

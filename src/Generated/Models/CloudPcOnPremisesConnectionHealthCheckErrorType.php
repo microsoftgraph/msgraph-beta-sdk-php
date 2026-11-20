@@ -64,6 +64,14 @@ class CloudPcOnPremisesConnectionHealthCheckErrorType extends Enum {
     public const PERMISSION_CHECK_NO_WINDOWS365_NETWORK_INTERFACE_CONTRIBUTOR_ROLE = "permissionCheckNoWindows365NetworkInterfaceContributorRole";
     public const PERMISSION_CHECK_TRANSIENT_SERVICE_ERROR = "permissionCheckTransientServiceError";
     public const PERMISSION_CHECK_UNKNOWN_ERROR = "permissionCheckUnknownError";
+    public const KEY_VAULT_SECRET_CHECK_ACCESS_DENIED = "keyVaultSecretCheckAccessDenied";
+    public const KEY_VAULT_SECRET_CHECK_VAULT_NOT_REACHABLE = "keyVaultSecretCheckVaultNotReachable";
+    public const KEY_VAULT_SECRET_CHECK_NOT_FOUND = "keyVaultSecretCheckNotFound";
+    public const KEY_VAULT_SECRET_CHECK_DISABLED = "keyVaultSecretCheckDisabled";
+    public const KEY_VAULT_SECRET_CHECK_EXPIRED = "keyVaultSecretCheckExpired";
+    public const KEY_VAULT_SECRET_CHECK_EMPTY_VALUE = "keyVaultSecretCheckEmptyValue";
+    public const KEY_VAULT_SECRET_CHECK_TRANSIENT_SERVICE_ERROR = "keyVaultSecretCheckTransientServiceError";
+    public const KEY_VAULT_SECRET_CHECK_UNKNOWN_ERROR = "keyVaultSecretCheckUnknownError";
     public const UDP_CONNECTIVITY_CHECK_STUN_URL_NOT_ALLOW_LISTED = "udpConnectivityCheckStunUrlNotAllowListed";
     public const UDP_CONNECTIVITY_CHECK_TURN_URL_NOT_ALLOW_LISTED = "udpConnectivityCheckTurnUrlNotAllowListed";
     public const UDP_CONNECTIVITY_CHECK_URLS_NOT_ALLOW_LISTED = "udpConnectivityCheckUrlsNotAllowListed";

@@ -51,7 +51,7 @@ class Plans_v2RequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read-only. Nullable. The collection of Planner Graph V4 plans owned by the Teams channel. Currently, only shared channels are supported.
+     * Read-only. Nullable. The collection of plans in the Planner Unified plans Graph API owned by the Teams channel. Currently, only shared channels are supported.
      * @param Plans_v2RequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlanCollectionResponse|null>
      * @throws Exception
@@ -65,7 +65,7 @@ class Plans_v2RequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read-only. Nullable. The collection of Planner Graph V4 plans owned by the Teams channel. Currently, only shared channels are supported.
+     * Read-only. Nullable. The collection of plans in the Planner Unified plans Graph API owned by the Teams channel. Currently, only shared channels are supported.
      * @param Plans_v2RequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

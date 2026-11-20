@@ -111,7 +111,7 @@ class AppliedAppManagementPolicyRestriction implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the policyId property value. The policyId property
+     * Gets the policyId property value. The unique identifier of the policy that contains the restriction.
      * @return string|null
     */
     public function getPolicyId(): ?string {
@@ -171,7 +171,7 @@ class AppliedAppManagementPolicyRestriction implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Gets the restrictionType property value. The restrictionType property
+     * Gets the restrictionType property value. The type of restriction applied to the activity.
      * @return string|null
     */
     public function getRestrictionType(): ?string {
@@ -240,7 +240,7 @@ class AppliedAppManagementPolicyRestriction implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the policyId property value. The policyId property
+     * Sets the policyId property value. The unique identifier of the policy that contains the restriction.
      * @param string|null $value Value to set for the policyId property.
     */
     public function setPolicyId(?string $value): void {
@@ -280,7 +280,7 @@ class AppliedAppManagementPolicyRestriction implements AdditionalDataHolder, Bac
     }
 
     /**
-     * Sets the restrictionType property value. The restrictionType property
+     * Sets the restrictionType property value. The type of restriction applied to the activity.
      * @param string|null $value Value to set for the restrictionType property.
     */
     public function setRestrictionType(?string $value): void {

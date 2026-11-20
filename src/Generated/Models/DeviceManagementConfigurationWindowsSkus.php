@@ -20,4 +20,7 @@ class DeviceManagementConfigurationWindowsSkus extends Enum {
     public const HOLOGRAPHIC_FOR_BUSINESS = "holographicForBusiness";
     public const WINDOWS_MULTI_SESSION = "windowsMultiSession";
     public const SURFACE_HUB = "surfaceHub";
+    public const WINDOWS_C_P_C = "windowsCPC";
+    public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    public const WINDOWS_SERVER = "windowsServer";
 }

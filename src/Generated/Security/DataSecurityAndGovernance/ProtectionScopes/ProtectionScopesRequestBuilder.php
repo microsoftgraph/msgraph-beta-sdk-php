@@ -53,7 +53,7 @@ class ProtectionScopesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Container for actions related to computing tenant-wide data protection scopes.
+     * The container for actions related to computing tenant-wide data protection scopes.
      * @param ProtectionScopesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TenantProtectionScopeContainer|null>
      * @throws Exception
@@ -100,7 +100,7 @@ class ProtectionScopesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Container for actions related to computing tenant-wide data protection scopes.
+     * The container for actions related to computing tenant-wide data protection scopes.
      * @param ProtectionScopesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

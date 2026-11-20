@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Planner\Tasks_v2\Item\UserAssignments\I
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The collection of user assignments on the task. Read-only. Nullable.
+ * User assignments on the task. Can be supplied when creating a task by using a deep insert. Nullable.
 */
 class UserAssignmentItemRequestBuilderGetQueryParameters 
 {

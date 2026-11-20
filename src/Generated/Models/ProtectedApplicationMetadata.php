@@ -26,7 +26,7 @@ class ProtectedApplicationMetadata extends IntegratedApplicationMetadata impleme
     }
 
     /**
-     * Gets the applicationLocation property value. The location of the application being protected. For Agent-to-Tool (A2T) scenarios, this represents the tool receiving the content. Required.
+     * Gets the applicationLocation property value. The location that identifies the protected application. For agent evaluation, use policyLocationAgent. Optional.
      * @return PolicyLocation|null
     */
     public function getApplicationLocation(): ?PolicyLocation {
@@ -58,7 +58,7 @@ class ProtectedApplicationMetadata extends IntegratedApplicationMetadata impleme
     }
 
     /**
-     * Sets the applicationLocation property value. The location of the application being protected. For Agent-to-Tool (A2T) scenarios, this represents the tool receiving the content. Required.
+     * Sets the applicationLocation property value. The location that identifies the protected application. For agent evaluation, use policyLocationAgent. Optional.
      * @param PolicyLocation|null $value Value to set for the applicationLocation property.
     */
     public function setApplicationLocation(?PolicyLocation $value): void {

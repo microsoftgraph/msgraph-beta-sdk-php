@@ -37,7 +37,7 @@ class AzureAdTokenAuthentication extends CustomExtensionAuthenticationConfigurat
     }
 
     /**
-     * Gets the resourceId property value. The appID of the Microsoft Entra application to use to authenticate a logic app with a custom access package workflow extension.
+     * Gets the resourceId property value. The app ID or identifier URI of the Microsoft Entra application used to authenticate calls to the external app.
      * @return string|null
     */
     public function getResourceId(): ?string {
@@ -58,7 +58,7 @@ class AzureAdTokenAuthentication extends CustomExtensionAuthenticationConfigurat
     }
 
     /**
-     * Sets the resourceId property value. The appID of the Microsoft Entra application to use to authenticate a logic app with a custom access package workflow extension.
+     * Sets the resourceId property value. The app ID or identifier URI of the Microsoft Entra application used to authenticate calls to the external app.
      * @param string|null $value Value to set for the resourceId property.
     */
     public function setResourceId(?string $value): void {

@@ -160,6 +160,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'people' => fn(ParseNode $n) => $o->setPeople($n->getObjectValue([PeopleAdminSettings::class, 'createFromDiscriminatorValue'])),
             'reportSettings' => fn(ParseNode $n) => $o->setReportSettings($n->getObjectValue([AdminReportSettings::class, 'createFromDiscriminatorValue'])),
+            'resourcePolicy' => fn(ParseNode $n) => $o->setResourcePolicy($n->getObjectValue([ResourcePolicyRoot::class, 'createFromDiscriminatorValue'])),
             'serviceAnnouncement' => fn(ParseNode $n) => $o->setServiceAnnouncement($n->getObjectValue([ServiceAnnouncement::class, 'createFromDiscriminatorValue'])),
             'sharepoint' => fn(ParseNode $n) => $o->setSharepoint($n->getObjectValue([Sharepoint::class, 'createFromDiscriminatorValue'])),
             'teams' => fn(ParseNode $n) => $o->setTeams($n->getObjectValue([TeamsAdminRoot::class, 'createFromDiscriminatorValue'])),
@@ -226,6 +227,18 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'reportSettings'");
+    }
+
+    /**
+     * Gets the resourcePolicy property value. The resourcePolicy property
+     * @return ResourcePolicyRoot|null
+    */
+    public function getResourcePolicy(): ?ResourcePolicyRoot {
+        $val = $this->getBackingStore()->get('resourcePolicy');
+        if (is_null($val) || $val instanceof ResourcePolicyRoot) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resourcePolicy'");
     }
 
     /**
@@ -305,6 +318,7 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeObjectValue('people', $this->getPeople());
         $writer->writeObjectValue('reportSettings', $this->getReportSettings());
+        $writer->writeObjectValue('resourcePolicy', $this->getResourcePolicy());
         $writer->writeObjectValue('serviceAnnouncement', $this->getServiceAnnouncement());
         $writer->writeObjectValue('sharepoint', $this->getSharepoint());
         $writer->writeObjectValue('teams', $this->getTeams());
@@ -423,6 +437,14 @@ class Admin implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setReportSettings(?AdminReportSettings $value): void {
         $this->getBackingStore()->set('reportSettings', $value);
+    }
+
+    /**
+     * Sets the resourcePolicy property value. The resourcePolicy property
+     * @param ResourcePolicyRoot|null $value Value to set for the resourcePolicy property.
+    */
+    public function setResourcePolicy(?ResourcePolicyRoot $value): void {
+        $this->getBackingStore()->set('resourcePolicy', $value);
     }
 
     /**

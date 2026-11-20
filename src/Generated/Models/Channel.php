@@ -53,6 +53,18 @@ class Channel extends Entity implements Parsable
     }
 
     /**
+     * Gets the deletedDateTime property value. The deletedDateTime property
+     * @return DateTime|null
+    */
+    public function getDeletedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('deletedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deletedDateTime'");
+    }
+
+    /**
      * Gets the description property value. Optional textual description for the channel.
      * @return string|null
     */
@@ -111,6 +123,7 @@ class Channel extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'allMembers' => fn(ParseNode $n) => $o->setAllMembers($n->getCollectionOfObjectValues([ConversationMember::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'deletedDateTime' => fn(ParseNode $n) => $o->setDeletedDateTime($n->getDateTimeValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'email' => fn(ParseNode $n) => $o->setEmail($n->getStringValue()),
@@ -130,6 +143,7 @@ class Channel extends Entity implements Parsable
             'sharedWithTeams' => fn(ParseNode $n) => $o->setSharedWithTeams($n->getCollectionOfObjectValues([SharedWithChannelTeamInfo::class, 'createFromDiscriminatorValue'])),
             'summary' => fn(ParseNode $n) => $o->setSummary($n->getObjectValue([ChannelSummary::class, 'createFromDiscriminatorValue'])),
             'tabs' => fn(ParseNode $n) => $o->setTabs($n->getCollectionOfObjectValues([TeamsTab::class, 'createFromDiscriminatorValue'])),
+            'tags' => fn(ParseNode $n) => $o->setTags($n->getCollectionOfObjectValues([TeamworkChannelTag::class, 'createFromDiscriminatorValue'])),
             'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
             'webUrl' => fn(ParseNode $n) => $o->setWebUrl($n->getStringValue()),
         ]);
@@ -326,6 +340,20 @@ class Channel extends Entity implements Parsable
     }
 
     /**
+     * Gets the tags property value. The tags owned by the channel.
+     * @return array<TeamworkChannelTag>|null
+    */
+    public function getTags(): ?array {
+        $val = $this->getBackingStore()->get('tags');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, TeamworkChannelTag::class);
+            /** @var array<TeamworkChannelTag>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tags'");
+    }
+
+    /**
      * Gets the tenantId property value. The ID of the Microsoft Entra tenant.
      * @return string|null
     */
@@ -357,6 +385,7 @@ class Channel extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('allMembers', $this->getAllMembers());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeDateTimeValue('deletedDateTime', $this->getDeletedDateTime());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeStringValue('email', $this->getEmail());
@@ -376,6 +405,7 @@ class Channel extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('sharedWithTeams', $this->getSharedWithTeams());
         $writer->writeObjectValue('summary', $this->getSummary());
         $writer->writeCollectionOfObjectValues('tabs', $this->getTabs());
+        $writer->writeCollectionOfObjectValues('tags', $this->getTags());
         $writer->writeStringValue('tenantId', $this->getTenantId());
         $writer->writeStringValue('webUrl', $this->getWebUrl());
     }
@@ -394,6 +424,14 @@ class Channel extends Entity implements Parsable
     */
     public function setCreatedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('createdDateTime', $value);
+    }
+
+    /**
+     * Sets the deletedDateTime property value. The deletedDateTime property
+     * @param DateTime|null $value Value to set for the deletedDateTime property.
+    */
+    public function setDeletedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('deletedDateTime', $value);
     }
 
     /**
@@ -546,6 +584,14 @@ class Channel extends Entity implements Parsable
     */
     public function setTabs(?array $value): void {
         $this->getBackingStore()->set('tabs', $value);
+    }
+
+    /**
+     * Sets the tags property value. The tags owned by the channel.
+     * @param array<TeamworkChannelTag>|null $value Value to set for the tags property.
+    */
+    public function setTags(?array $value): void {
+        $this->getBackingStore()->set('tags', $value);
     }
 
     /**

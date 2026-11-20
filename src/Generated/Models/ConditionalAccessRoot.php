@@ -88,6 +88,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
             'deletedItems' => fn(ParseNode $n) => $o->setDeletedItems($n->getObjectValue([CaPoliciesDeletableRoot::class, 'createFromDiscriminatorValue'])),
             'namedLocations' => fn(ParseNode $n) => $o->setNamedLocations($n->getCollectionOfObjectValues([NamedLocation::class, 'createFromDiscriminatorValue'])),
             'policies' => fn(ParseNode $n) => $o->setPolicies($n->getCollectionOfObjectValues([ConditionalAccessPolicy::class, 'createFromDiscriminatorValue'])),
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([ConditionalAccessSettings::class, 'createFromDiscriminatorValue'])),
             'templates' => fn(ParseNode $n) => $o->setTemplates($n->getCollectionOfObjectValues([ConditionalAccessTemplate::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -121,6 +122,18 @@ class ConditionalAccessRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the settings property value. The tenant-wide Conditional Access settings, including user-action exclusions.
+     * @return ConditionalAccessSettings|null
+    */
+    public function getSettings(): ?ConditionalAccessSettings {
+        $val = $this->getBackingStore()->get('settings');
+        if (is_null($val) || $val instanceof ConditionalAccessSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'settings'");
+    }
+
+    /**
      * Gets the templates property value. Read-only. Nullable. Returns a collection of the specified Conditional Access templates.
      * @return array<ConditionalAccessTemplate>|null
     */
@@ -146,6 +159,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
         $writer->writeObjectValue('deletedItems', $this->getDeletedItems());
         $writer->writeCollectionOfObjectValues('namedLocations', $this->getNamedLocations());
         $writer->writeCollectionOfObjectValues('policies', $this->getPolicies());
+        $writer->writeObjectValue('settings', $this->getSettings());
         $writer->writeCollectionOfObjectValues('templates', $this->getTemplates());
     }
 
@@ -195,6 +209,14 @@ class ConditionalAccessRoot extends Entity implements Parsable
     */
     public function setPolicies(?array $value): void {
         $this->getBackingStore()->set('policies', $value);
+    }
+
+    /**
+     * Sets the settings property value. The tenant-wide Conditional Access settings, including user-action exclusions.
+     * @param ConditionalAccessSettings|null $value Value to set for the settings property.
+    */
+    public function setSettings(?ConditionalAccessSettings $value): void {
+        $this->getBackingStore()->set('settings', $value);
     }
 
     /**

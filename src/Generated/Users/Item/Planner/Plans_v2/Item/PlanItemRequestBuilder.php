@@ -31,7 +31,7 @@ class PlanItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read-only. Nullable. The collection of Planner Graph V4 plans associated with the user.
+     * Read-only. Nullable. The collection of plans in the Planner Unified plans Graph API associated with the user.
      * @param PlanItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Plan|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class PlanItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read-only. Nullable. The collection of Planner Graph V4 plans associated with the user.
+     * Read-only. Nullable. The collection of plans in the Planner Unified plans Graph API associated with the user.
      * @param PlanItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

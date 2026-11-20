@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\Security;
+use Microsoft\Graph\Beta\Generated\Security\AgenticSecurity\AgenticSecurityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Alerts_v2\Alerts_v2RequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Alerts\AlertsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\AttackSimulationRequestBuilder;
@@ -14,6 +15,7 @@ use Microsoft\Graph\Beta\Generated\Security\CaseManagement\CaseManagementRequest
 use Microsoft\Graph\Beta\Generated\Security\Cases\CasesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\CloudAppSecurityProfiles\CloudAppSecurityProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Collaboration\CollaborationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\ContentManagement\ContentManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\DataDiscovery\DataDiscoveryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\DataSecurityAndGovernanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\DomainSecurityProfiles\DomainSecurityProfilesRequestBuilder;
@@ -55,6 +57,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class SecurityRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * The agenticSecurity property
+    */
+    public function agenticSecurity(): AgenticSecurityRequestBuilder {
+        return new AgenticSecurityRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the alerts property of the microsoft.graph.security entity.
     */
@@ -109,6 +118,13 @@ class SecurityRequestBuilder extends BaseRequestBuilder
     */
     public function collaboration(): CollaborationRequestBuilder {
         return new CollaborationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The contentManagement property
+    */
+    public function contentManagement(): ContentManagementRequestBuilder {
+        return new ContentManagementRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

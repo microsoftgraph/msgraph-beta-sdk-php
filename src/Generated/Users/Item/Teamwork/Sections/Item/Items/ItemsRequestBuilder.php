@@ -75,7 +75,7 @@ class ItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add an item, such as a chat, channel, meeting, or community, to a user-defined section in a user's teamwork. Each item can belong to only one section at a time. You can only add items that are currently in a system-defined section. If the item is already in another user-defined section, use the move action to relocate it.
+     * Add an item, such as a chat, channel, meeting, or community, to a user-defined section in a user's teamwork. An item can belong to only one section at a time. If the item is in a different user-defined section, this request moves it to the target section. If the item is already in the target section, the request succeeds without making changes.
      * @param TeamworkSectionItem $body The request body
      * @param ItemsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkSectionItem|null>
@@ -112,7 +112,7 @@ class ItemsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Add an item, such as a chat, channel, meeting, or community, to a user-defined section in a user's teamwork. Each item can belong to only one section at a time. You can only add items that are currently in a system-defined section. If the item is already in another user-defined section, use the move action to relocate it.
+     * Add an item, such as a chat, channel, meeting, or community, to a user-defined section in a user's teamwork. An item can belong to only one section at a time. If the item is in a different user-defined section, this request moves it to the target section. If the item is already in the target section, the request succeeds without making changes.
      * @param TeamworkSectionItem $body The request body
      * @param ItemsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

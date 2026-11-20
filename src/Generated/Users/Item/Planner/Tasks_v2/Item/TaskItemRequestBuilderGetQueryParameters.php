@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Users\Item\Planner\Tasks_v2\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read-only. Nullable. The collection of Planner Graph V4 tasks assigned to the user.
+ * Read-only. Nullable. The collection of tasks in the Planner Unified plans Graph API assigned to the user.
 */
 class TaskItemRequestBuilderGetQueryParameters 
 {

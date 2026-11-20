@@ -5,11 +5,13 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates;
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Catalog\CatalogRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Data\DataRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\DeploymentAudiences\DeploymentAudiencesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Deployments\DeploymentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Policies\PoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Products\ProductsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\ResourceConnections\ResourceConnectionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\TenantSettings\TenantSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatableAssets\UpdatableAssetsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\UpdatePolicies\UpdatePoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AdminWindowsUpdates;
@@ -29,6 +31,13 @@ class UpdatesRequestBuilder extends BaseRequestBuilder
     */
     public function catalog(): CatalogRequestBuilder {
         return new CatalogRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the data property of the microsoft.graph.adminWindowsUpdates entity.
+    */
+    public function data(): DataRequestBuilder {
+        return new DataRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -64,6 +73,13 @@ class UpdatesRequestBuilder extends BaseRequestBuilder
     */
     public function resourceConnections(): ResourceConnectionsRequestBuilder {
         return new ResourceConnectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the tenantSettings property of the microsoft.graph.adminWindowsUpdates entity.
+    */
+    public function tenantSettings(): TenantSettingsRequestBuilder {
+        return new TenantSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

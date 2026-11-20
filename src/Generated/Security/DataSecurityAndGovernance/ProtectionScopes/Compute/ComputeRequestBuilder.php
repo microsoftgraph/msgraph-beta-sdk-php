@@ -30,11 +30,12 @@ class ComputeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action compute
+     * Compute tenant-wide data protection policies and actions, including user, group, or agent policy scopes.
      * @param ComputePostRequestBody $body The request body
      * @param ComputeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ComputePostResponse|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/tenantprotectionscopecontainer-compute?view=graph-rest-beta Find more info here
     */
     public function post(ComputePostRequestBody $body, ?ComputeRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
@@ -45,7 +46,7 @@ class ComputeRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Invoke action compute
+     * Compute tenant-wide data protection policies and actions, including user, group, or agent policy scopes.
      * @param ComputePostRequestBody $body The request body
      * @param ComputeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

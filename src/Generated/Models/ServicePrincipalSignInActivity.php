@@ -37,7 +37,7 @@ class ServicePrincipalSignInActivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the applicationAuthenticationClientSignInActivity property value. The sign-in activity of the application in a app-only authentication flow (app-to-app tokens) where the application acts like a client.
+     * Gets the applicationAuthenticationClientSignInActivity property value. The sign-in activity reported as app-only authentication where the application acts as a client. Subject to the preview classification limitation described above.
      * @return SignInActivity|null
     */
     public function getApplicationAuthenticationClientSignInActivity(): ?SignInActivity {
@@ -49,7 +49,7 @@ class ServicePrincipalSignInActivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the applicationAuthenticationResourceSignInActivity property value. The sign-in activity of the application in a app-only authentication flow (app-to-app tokens) where the application acts like a resource.
+     * Gets the applicationAuthenticationResourceSignInActivity property value. The sign-in activity reported as app-only authentication where the application acts as a resource. Subject to the preview classification limitation described above.
      * @return SignInActivity|null
     */
     public function getApplicationAuthenticationResourceSignInActivity(): ?SignInActivity {
@@ -135,7 +135,7 @@ class ServicePrincipalSignInActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the applicationAuthenticationClientSignInActivity property value. The sign-in activity of the application in a app-only authentication flow (app-to-app tokens) where the application acts like a client.
+     * Sets the applicationAuthenticationClientSignInActivity property value. The sign-in activity reported as app-only authentication where the application acts as a client. Subject to the preview classification limitation described above.
      * @param SignInActivity|null $value Value to set for the applicationAuthenticationClientSignInActivity property.
     */
     public function setApplicationAuthenticationClientSignInActivity(?SignInActivity $value): void {
@@ -143,7 +143,7 @@ class ServicePrincipalSignInActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the applicationAuthenticationResourceSignInActivity property value. The sign-in activity of the application in a app-only authentication flow (app-to-app tokens) where the application acts like a resource.
+     * Sets the applicationAuthenticationResourceSignInActivity property value. The sign-in activity reported as app-only authentication where the application acts as a resource. Subject to the preview classification limitation described above.
      * @param SignInActivity|null $value Value to set for the applicationAuthenticationResourceSignInActivity property.
     */
     public function setApplicationAuthenticationResourceSignInActivity(?SignInActivity $value): void {

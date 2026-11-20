@@ -4,6 +4,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Policies\Item;
 
 use Exception;
 use Http\Promise\Promise;
+use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Policies\Item\ApplicableCatalogs\ApplicableCatalogsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Policies\Item\ApplicableContent\ApplicableContentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Policies\Item\Approvals\ApprovalsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Policies\Item\Rings\RingsRequestBuilder;
@@ -19,6 +20,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class PolicyItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the applicableCatalogs property of the microsoft.graph.windowsUpdates.policy entity.
+    */
+    public function applicableCatalogs(): ApplicableCatalogsRequestBuilder {
+        return new ApplicableCatalogsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to manage the applicableContent property of the microsoft.graph.windowsUpdates.policy entity.
     */
@@ -55,7 +63,7 @@ class PolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a Windows update policy object. You can use this method with the following child object type: qualityUpdatePolicy.
+     * Delete a Windows update policy object. You can use this method with the following child object types: driverUpdatePolicy, featureUpdatePolicy, and qualityUpdatePolicy.
      * @param PolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -70,7 +78,7 @@ class PolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a policy object. You can use this method with the following child object type: qualityUpdatePolicy.
+     * Read the properties and relationships of a policy object. You can use this method with the following child object types: driverUpdatePolicy, featureUpdatePolicy, and qualityUpdatePolicy.
      * @param PolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Policy|null>
      * @throws Exception
@@ -85,7 +93,7 @@ class PolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a policy object. You can use this method with the following child object type: qualityUpdatePolicy.
+     * Update the properties of a policy object. You can use this method with the following child object types: driverUpdatePolicy, featureUpdatePolicy, and qualityUpdatePolicy.
      * @param Policy $body The request body
      * @param PolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Policy|null>
@@ -101,7 +109,7 @@ class PolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a Windows update policy object. You can use this method with the following child object type: qualityUpdatePolicy.
+     * Delete a Windows update policy object. You can use this method with the following child object types: driverUpdatePolicy, featureUpdatePolicy, and qualityUpdatePolicy.
      * @param PolicyItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -119,7 +127,7 @@ class PolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of a policy object. You can use this method with the following child object type: qualityUpdatePolicy.
+     * Read the properties and relationships of a policy object. You can use this method with the following child object types: driverUpdatePolicy, featureUpdatePolicy, and qualityUpdatePolicy.
      * @param PolicyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -140,7 +148,7 @@ class PolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a policy object. You can use this method with the following child object type: qualityUpdatePolicy.
+     * Update the properties of a policy object. You can use this method with the following child object types: driverUpdatePolicy, featureUpdatePolicy, and qualityUpdatePolicy.
      * @param Policy $body The request body
      * @param PolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

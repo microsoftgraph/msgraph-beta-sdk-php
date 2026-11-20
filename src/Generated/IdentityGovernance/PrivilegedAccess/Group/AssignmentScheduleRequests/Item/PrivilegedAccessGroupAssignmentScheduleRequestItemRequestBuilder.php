@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Group\Ass
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Group\AssignmentScheduleRequests\Item\Group\GroupRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Group\AssignmentScheduleRequests\Item\Principal\PrincipalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Group\AssignmentScheduleRequests\Item\TargetSchedule\TargetScheduleRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\PrivilegedAccess\Group\AssignmentScheduleRequests\Item\UpdateRequest\UpdateRequestRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\PrivilegedAccessGroupAssignmentScheduleRequest;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -54,6 +55,13 @@ class PrivilegedAccessGroupAssignmentScheduleRequestItemRequestBuilder extends B
     */
     public function targetSchedule(): TargetScheduleRequestBuilder {
         return new TargetScheduleRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the updateRequest method.
+    */
+    public function updateRequest(): UpdateRequestRequestBuilder {
+        return new UpdateRequestRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

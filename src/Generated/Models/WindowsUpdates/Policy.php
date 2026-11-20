@@ -28,6 +28,8 @@ class Policy extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.windowsUpdates.driverUpdatePolicy': return new DriverUpdatePolicy();
+                case '#microsoft.graph.windowsUpdates.featureUpdatePolicy': return new FeatureUpdatePolicy();
                 case '#microsoft.graph.windowsUpdates.qualityUpdatePolicy': return new QualityUpdatePolicy();
             }
         }
@@ -35,7 +37,21 @@ class Policy extends Entity implements Parsable
     }
 
     /**
-     * Gets the applicableContent property value. Represents content applicable for offering to the related collection of devices.
+     * Gets the applicableCatalogs property value. The catalog entries that apply to devices targeted by the policy.
+     * @return array<ApplicableCatalog>|null
+    */
+    public function getApplicableCatalogs(): ?array {
+        $val = $this->getBackingStore()->get('applicableCatalogs');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ApplicableCatalog::class);
+            /** @var array<ApplicableCatalog>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'applicableCatalogs'");
+    }
+
+    /**
+     * Gets the applicableContent property value. The existing applicable-content collection. For driver and feature update applicability, use applicableCatalogs.
      * @return array<ApplicableContent>|null
     */
     public function getApplicableContent(): ?array {
@@ -63,7 +79,7 @@ class Policy extends Entity implements Parsable
     }
 
     /**
-     * Gets the approvals property value. Represents a set of quality updates policy approval types.
+     * Gets the approvals property value. The update content approvals associated with the policy.
      * @return array<PolicyApproval>|null
     */
     public function getApprovals(): ?array {
@@ -119,6 +135,7 @@ class Policy extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'applicableCatalogs' => fn(ParseNode $n) => $o->setApplicableCatalogs($n->getCollectionOfObjectValues([ApplicableCatalog::class, 'createFromDiscriminatorValue'])),
             'applicableContent' => fn(ParseNode $n) => $o->setApplicableContent($n->getCollectionOfObjectValues([ApplicableContent::class, 'createFromDiscriminatorValue'])),
             'approvalRules' => fn(ParseNode $n) => $o->setApprovalRules($n->getCollectionOfObjectValues([ApprovalRule::class, 'createFromDiscriminatorValue'])),
             'approvals' => fn(ParseNode $n) => $o->setApprovals($n->getCollectionOfObjectValues([PolicyApproval::class, 'createFromDiscriminatorValue'])),
@@ -143,7 +160,7 @@ class Policy extends Entity implements Parsable
     }
 
     /**
-     * Gets the rings property value. Represents a set of deployment rings that contains update deployment settings.
+     * Gets the rings property value. The deployment rings that define targeting, deferral, and pause settings for the policy.
      * @return array<Ring>|null
     */
     public function getRings(): ?array {
@@ -162,6 +179,7 @@ class Policy extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('applicableCatalogs', $this->getApplicableCatalogs());
         $writer->writeCollectionOfObjectValues('applicableContent', $this->getApplicableContent());
         $writer->writeCollectionOfObjectValues('approvalRules', $this->getApprovalRules());
         $writer->writeCollectionOfObjectValues('approvals', $this->getApprovals());
@@ -173,7 +191,15 @@ class Policy extends Entity implements Parsable
     }
 
     /**
-     * Sets the applicableContent property value. Represents content applicable for offering to the related collection of devices.
+     * Sets the applicableCatalogs property value. The catalog entries that apply to devices targeted by the policy.
+     * @param array<ApplicableCatalog>|null $value Value to set for the applicableCatalogs property.
+    */
+    public function setApplicableCatalogs(?array $value): void {
+        $this->getBackingStore()->set('applicableCatalogs', $value);
+    }
+
+    /**
+     * Sets the applicableContent property value. The existing applicable-content collection. For driver and feature update applicability, use applicableCatalogs.
      * @param array<ApplicableContent>|null $value Value to set for the applicableContent property.
     */
     public function setApplicableContent(?array $value): void {
@@ -189,7 +215,7 @@ class Policy extends Entity implements Parsable
     }
 
     /**
-     * Sets the approvals property value. Represents a set of quality updates policy approval types.
+     * Sets the approvals property value. The update content approvals associated with the policy.
      * @param array<PolicyApproval>|null $value Value to set for the approvals property.
     */
     public function setApprovals(?array $value): void {
@@ -229,7 +255,7 @@ class Policy extends Entity implements Parsable
     }
 
     /**
-     * Sets the rings property value. Represents a set of deployment rings that contains update deployment settings.
+     * Sets the rings property value. The deployment rings that define targeting, deferral, and pause settings for the policy.
      * @param array<Ring>|null $value Value to set for the rings property.
     */
     public function setRings(?array $value): void {

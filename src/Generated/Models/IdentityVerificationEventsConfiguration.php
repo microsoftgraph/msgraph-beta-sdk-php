@@ -68,7 +68,7 @@ class IdentityVerificationEventsConfiguration implements AdditionalDataHolder, B
     }
 
     /**
-     * Gets the isEnabled property value. The isEnabled property
+     * Gets the isEnabled property value. Indicates whether identity verification events and credential provenance information are collected and exposed for Verified ID verification across the tenant. The default value is false when this property is omitted from the configuration object.
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
@@ -118,7 +118,7 @@ class IdentityVerificationEventsConfiguration implements AdditionalDataHolder, B
     }
 
     /**
-     * Sets the isEnabled property value. The isEnabled property
+     * Sets the isEnabled property value. Indicates whether identity verification events and credential provenance information are collected and exposed for Verified ID verification across the tenant. The default value is false when this property is omitted from the configuration object.
      * @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value): void {

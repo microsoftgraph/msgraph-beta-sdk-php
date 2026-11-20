@@ -77,7 +77,7 @@ class CustomFieldDefinition extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the deletedBy property value. Identity of the user who deleted the custom field definition, if it was deleted.
+     * Gets the deletedBy property value. Identity of the user who deleted the custom field definition, if it was deleted. Read-only.
      * @return IdentitySet|null
     */
     public function getDeletedBy(): ?IdentitySet {
@@ -89,7 +89,7 @@ class CustomFieldDefinition extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the deletedDateTime property value. Date and time the custom field definition was deleted, if applicable.
+     * Gets the deletedDateTime property value. Date and time the custom field definition was deleted, if applicable. Read-only.
      * @return DateTime|null
     */
     public function getDeletedDateTime(): ?DateTime {
@@ -183,7 +183,7 @@ class CustomFieldDefinition extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the valueType property value. Data type of the custom field's values.. The possible values are: text, date, utcDateTime, number, decimal, flag, singleChoiceText, multipleChoiceText, unknownFutureValue.
+     * Gets the valueType property value. Data type of the custom field's values. Immutable after creation. The possible values are: text, date, utcDateTime, number, decimal, flag, singleChoiceText, multipleChoiceText, unknownFutureValue. The values utcDateTime, decimal, and multipleChoiceText can occur on existing fields; they aren't supported types for new field definitions.
      * @return CustomFieldValueType|null
     */
     public function getValueType(): ?CustomFieldValueType {
@@ -243,7 +243,7 @@ class CustomFieldDefinition extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the deletedBy property value. Identity of the user who deleted the custom field definition, if it was deleted.
+     * Sets the deletedBy property value. Identity of the user who deleted the custom field definition, if it was deleted. Read-only.
      * @param IdentitySet|null $value Value to set for the deletedBy property.
     */
     public function setDeletedBy(?IdentitySet $value): void {
@@ -251,7 +251,7 @@ class CustomFieldDefinition extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the deletedDateTime property value. Date and time the custom field definition was deleted, if applicable.
+     * Sets the deletedDateTime property value. Date and time the custom field definition was deleted, if applicable. Read-only.
      * @param DateTime|null $value Value to set for the deletedDateTime property.
     */
     public function setDeletedDateTime(?DateTime $value): void {
@@ -299,7 +299,7 @@ class CustomFieldDefinition extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the valueType property value. Data type of the custom field's values.. The possible values are: text, date, utcDateTime, number, decimal, flag, singleChoiceText, multipleChoiceText, unknownFutureValue.
+     * Sets the valueType property value. Data type of the custom field's values. Immutable after creation. The possible values are: text, date, utcDateTime, number, decimal, flag, singleChoiceText, multipleChoiceText, unknownFutureValue. The values utcDateTime, decimal, and multipleChoiceText can occur on existing fields; they aren't supported types for new field definitions.
      * @param CustomFieldValueType|null $value Value to set for the valueType property.
     */
     public function setValueType(?CustomFieldValueType $value): void {

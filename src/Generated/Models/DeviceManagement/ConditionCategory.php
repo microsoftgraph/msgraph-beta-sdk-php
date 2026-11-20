@@ -19,4 +19,7 @@ class ConditionCategory extends Enum {
     public const CLOUD_PC_USER_SETTINGS_PERSISTENCE_USAGE_THRESHOLD = "cloudPcUserSettingsPersistenceUsageThreshold";
     public const CLOUD_PC_DEPROVISIONED_THRESHOLD = "cloudPcDeprovisionedThreshold";
     public const CLOUD_PC_RESERVE_DEPROVISION_FAILED_THRESHOLD = "cloudPcReserveDeprovisionFailedThreshold";
+    public const CLOUD_PC_RESERVE_LICENSES_AVAILABILITY_BELOW_THRESHOLD = "cloudPcReserveLicensesAvailabilityBelowThreshold";
+    public const RESERVE_CLOUD_PC_UNLICENSED_USERS_ASSIGNMENT = "reserveCloudPcUnlicensedUsersAssignment";
+    public const CLOUD_PC_MAX_USER_STORAGE_USAGE_THRESHOLD_EXCEEDED = "cloudPcMaxUserStorageUsageThresholdExceeded";
 }

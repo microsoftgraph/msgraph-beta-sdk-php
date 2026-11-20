@@ -38,6 +38,7 @@ class CaseManagementEntity extends Entity implements Parsable
                 case '#microsoft.graph.security.caseManagement.incidentRelation': return new IncidentRelation();
                 case '#microsoft.graph.security.caseManagement.recommendationRelation': return new RecommendationRelation();
                 case '#microsoft.graph.security.caseManagement.relation': return new Relation();
+                case '#microsoft.graph.security.caseManagement.slaPolicyDefinition': return new SlaPolicyDefinition();
                 case '#microsoft.graph.security.caseManagement.task': return new Task();
                 case '#microsoft.graph.security.caseManagement.workspaceIndicatorRelation': return new WorkspaceIndicatorRelation();
             }

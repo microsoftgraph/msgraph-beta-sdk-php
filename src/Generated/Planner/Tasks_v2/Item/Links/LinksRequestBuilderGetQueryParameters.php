@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Planner\Tasks_v2\Item\Links;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The collection of content links attached to the task. Read-only. Nullable.
+ * Content links attached to the task. Can be supplied when creating a task by using a deep insert. Nullable.
 */
 class LinksRequestBuilderGetQueryParameters 
 {

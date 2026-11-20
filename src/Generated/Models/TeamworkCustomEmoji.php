@@ -7,13 +7,14 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TeamworkCustomEmoji extends Entity implements Parsable 
+class TeamworkCustomEmoji extends TeamworkHostedContent implements Parsable 
 {
     /**
      * Instantiates a new TeamworkCustomEmoji and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.teamworkCustomEmoji');
     }
 
     /**
@@ -23,18 +24,6 @@ class TeamworkCustomEmoji extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkCustomEmoji {
         return new TeamworkCustomEmoji();
-    }
-
-    /**
-     * Gets the contentBytes property value. The base64-encoded image content of the emoji. Supported formats include PNG and GIF.
-     * @return string|null
-    */
-    public function getContentBytes(): ?string {
-        $val = $this->getBackingStore()->get('contentBytes');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'contentBytes'");
     }
 
     /**
@@ -62,7 +51,7 @@ class TeamworkCustomEmoji extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The unique display name of the custom emoji. Key. Must be unique and must not conflict with existing emoji names.
+     * Gets the displayName property value. The unique display name of the custom emoji. This property is an alternate key and must not conflict with existing emoji names.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -80,7 +69,6 @@ class TeamworkCustomEmoji extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'contentBytes' => fn(ParseNode $n) => $o->setContentBytes($n->getStringValue()),
             'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([CustomEmojiFromIdentitySet::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
@@ -93,18 +81,9 @@ class TeamworkCustomEmoji extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('contentBytes', $this->getContentBytes());
         $writer->writeObjectValue('createdBy', $this->getCreatedBy());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeStringValue('displayName', $this->getDisplayName());
-    }
-
-    /**
-     * Sets the contentBytes property value. The base64-encoded image content of the emoji. Supported formats include PNG and GIF.
-     * @param string|null $value Value to set for the contentBytes property.
-    */
-    public function setContentBytes(?string $value): void {
-        $this->getBackingStore()->set('contentBytes', $value);
     }
 
     /**
@@ -124,7 +103,7 @@ class TeamworkCustomEmoji extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The unique display name of the custom emoji. Key. Must be unique and must not conflict with existing emoji names.
+     * Sets the displayName property value. The unique display name of the custom emoji. This property is an alternate key and must not conflict with existing emoji names.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {

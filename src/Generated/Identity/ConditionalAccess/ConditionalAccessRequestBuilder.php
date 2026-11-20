@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\DeletedItems\Delet
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Evaluate\EvaluateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\NamedLocations\NamedLocationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Policies\PoliciesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Templates\TemplatesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -65,6 +66,13 @@ class ConditionalAccessRequestBuilder extends BaseRequestBuilder
     */
     public function policies(): PoliciesRequestBuilder {
         return new PoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the settings property of the microsoft.graph.conditionalAccessRoot entity.
+    */
+    public function settings(): SettingsRequestBuilder {
+        return new SettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

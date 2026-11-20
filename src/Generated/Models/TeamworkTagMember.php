@@ -25,7 +25,7 @@ class TeamworkTagMember extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The member's display name.
+     * Gets the displayName property value. The member's display name. For channel-owned tags, the value can be null if the user can't be resolved.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -50,7 +50,7 @@ class TeamworkTagMember extends Entity implements Parsable
     }
 
     /**
-     * Gets the tenantId property value. The ID of the tenant that the tag member is a part of.
+     * Gets the tenantId property value. The ID of the tenant that the tag member is a part of. For channel-owned tags, this is the request tenant, not a separately resolved home tenant.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -85,7 +85,7 @@ class TeamworkTagMember extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The member's display name.
+     * Sets the displayName property value. The member's display name. For channel-owned tags, the value can be null if the user can't be resolved.
      * @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value): void {
@@ -93,7 +93,7 @@ class TeamworkTagMember extends Entity implements Parsable
     }
 
     /**
-     * Sets the tenantId property value. The ID of the tenant that the tag member is a part of.
+     * Sets the tenantId property value. The ID of the tenant that the tag member is a part of. For channel-owned tags, this is the request tenant, not a separately resolved home tenant.
      * @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value): void {

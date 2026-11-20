@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Policies;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the policy objects and their properties.  You can use this method with the following child object type: qualityUpdatePolicy.
+ * Get a list of the policy objects and their properties.  You can use this method with the following child object types: driverUpdatePolicy, featureUpdatePolicy, and qualityUpdatePolicy.
 */
 class PoliciesRequestBuilderGetQueryParameters 
 {

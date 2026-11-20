@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\TeamworkCustomEmoji;
+use Microsoft\Graph\Beta\Generated\Teamwork\Messaging\CustomEmojis\Item\Value\ContentRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -16,6 +17,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class TeamworkCustomEmojiItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to manage the media for the teamwork entity.
+    */
+    public function content(): ContentRequestBuilder {
+        return new ContentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Instantiates a new TeamworkCustomEmojiItemRequestBuilder and sets the default values.
      * @param array<string, mixed>|string $pathParametersOrRawUrl Path parameters for the request or a String representing the raw URL.
@@ -31,10 +39,11 @@ class TeamworkCustomEmojiItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property customEmojis for teamwork
+     * Delete a custom emoji by display name from the teamwork messaging of the organization.
      * @param TeamworkCustomEmojiItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/teamworkcustomemoji-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?TeamworkCustomEmojiItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -45,10 +54,11 @@ class TeamworkCustomEmojiItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of custom emojis available in organization messaging.
+     * Get a single custom emoji or the raw image content of a custom emoji by display name from the teamwork messaging of the organization.
      * @param TeamworkCustomEmojiItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkCustomEmoji|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/teamworkcustomemoji-get?view=graph-rest-beta Find more info here
     */
     public function get(?TeamworkCustomEmojiItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -74,7 +84,7 @@ class TeamworkCustomEmojiItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property customEmojis for teamwork
+     * Delete a custom emoji by display name from the teamwork messaging of the organization.
      * @param TeamworkCustomEmojiItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -92,7 +102,7 @@ class TeamworkCustomEmojiItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of custom emojis available in organization messaging.
+     * Get a single custom emoji or the raw image content of a custom emoji by display name from the teamwork messaging of the organization.
      * @param TeamworkCustomEmojiItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

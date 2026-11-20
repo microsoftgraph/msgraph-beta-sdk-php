@@ -31,7 +31,7 @@ class CancelRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Cancel a specific crossTenantMigrationTask for a User within a CrossTenantMigrationJob.  If the User migration can't be canceled or is in a terminal state, a 409 CONFLICT response code is returned, and the migration continues.
+     * Cancel a specific crossTenantMigrationTask for a user in a crossTenantMigrationJob. If the user migration can't be canceled or is in a terminal state, a 409 Conflict response code is returned, and the migration continues.
      * @param CancelRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<CrossTenantMigrationCancelResponse|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class CancelRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Cancel a specific crossTenantMigrationTask for a User within a CrossTenantMigrationJob.  If the User migration can't be canceled or is in a terminal state, a 409 CONFLICT response code is returned, and the migration continues.
+     * Cancel a specific crossTenantMigrationTask for a user in a crossTenantMigrationJob. If the user migration can't be canceled or is in a terminal state, a 409 Conflict response code is returned, and the migration continues.
      * @param CancelRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -31,7 +31,7 @@ class TaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read-only. Nullable. The collection of Planner Graph V4 tasks assigned to the user.
+     * Read-only. Nullable. The collection of tasks in the Planner Unified plans Graph API assigned to the user.
      * @param TaskItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Task|null>
      * @throws Exception
@@ -45,7 +45,7 @@ class TaskItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read-only. Nullable. The collection of Planner Graph V4 tasks assigned to the user.
+     * Read-only. Nullable. The collection of tasks in the Planner Unified plans Graph API assigned to the user.
      * @param TaskItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -48,6 +48,7 @@ class VoiceAuthenticationMethodConfiguration extends AuthenticationMethodConfigu
             'callerIdNumber' => fn(ParseNode $n) => $o->setCallerIdNumber($n->getStringValue()),
             'includeTargets' => fn(ParseNode $n) => $o->setIncludeTargets($n->getCollectionOfObjectValues([VoiceAuthenticationMethodTarget::class, 'createFromDiscriminatorValue'])),
             'isOfficePhoneAllowed' => fn(ParseNode $n) => $o->setIsOfficePhoneAllowed($n->getBooleanValue()),
+            'telecomProviderSettings' => fn(ParseNode $n) => $o->setTelecomProviderSettings($n->getObjectValue([TelecomProviderSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -78,6 +79,18 @@ class VoiceAuthenticationMethodConfiguration extends AuthenticationMethodConfigu
     }
 
     /**
+     * Gets the telecomProviderSettings property value. Settings for routing voice authentication traffic through a telecom provider integration.
+     * @return TelecomProviderSettings|null
+    */
+    public function getTelecomProviderSettings(): ?TelecomProviderSettings {
+        $val = $this->getBackingStore()->get('telecomProviderSettings');
+        if (is_null($val) || $val instanceof TelecomProviderSettings) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'telecomProviderSettings'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -86,6 +99,7 @@ class VoiceAuthenticationMethodConfiguration extends AuthenticationMethodConfigu
         $writer->writeStringValue('callerIdNumber', $this->getCallerIdNumber());
         $writer->writeCollectionOfObjectValues('includeTargets', $this->getIncludeTargets());
         $writer->writeBooleanValue('isOfficePhoneAllowed', $this->getIsOfficePhoneAllowed());
+        $writer->writeObjectValue('telecomProviderSettings', $this->getTelecomProviderSettings());
     }
 
     /**
@@ -110,6 +124,14 @@ class VoiceAuthenticationMethodConfiguration extends AuthenticationMethodConfigu
     */
     public function setIsOfficePhoneAllowed(?bool $value): void {
         $this->getBackingStore()->set('isOfficePhoneAllowed', $value);
+    }
+
+    /**
+     * Sets the telecomProviderSettings property value. Settings for routing voice authentication traffic through a telecom provider integration.
+     * @param TelecomProviderSettings|null $value Value to set for the telecomProviderSettings property.
+    */
+    public function setTelecomProviderSettings(?TelecomProviderSettings $value): void {
+        $this->getBackingStore()->set('telecomProviderSettings', $value);
     }
 
 }

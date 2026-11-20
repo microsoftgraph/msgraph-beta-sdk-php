@@ -9,4 +9,5 @@ class ChannelMembershipType extends Enum {
     public const PRIVATE = "private";
     public const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
     public const SHARED = "shared";
+    public const UN_TYPED = "unTyped";
 }

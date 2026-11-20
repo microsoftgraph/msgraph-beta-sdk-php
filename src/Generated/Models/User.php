@@ -919,6 +919,7 @@ class User extends DirectoryObject implements Parsable
             'identities' => fn(ParseNode $n) => $o->setIdentities($n->getCollectionOfObjectValues([ObjectIdentity::class, 'createFromDiscriminatorValue'])),
             'identityGovernance' => fn(ParseNode $n) => $o->setIdentityGovernance($n->getObjectValue([IdentityGovernanceUserSettings::class, 'createFromDiscriminatorValue'])),
             'identityParentId' => fn(ParseNode $n) => $o->setIdentityParentId($n->getStringValue()),
+            'identityVerificationStatus' => fn(ParseNode $n) => $o->setIdentityVerificationStatus($n->getObjectValue([IdentityVerificationStatus::class, 'createFromDiscriminatorValue'])),
             'imAddresses' => function (ParseNode $n) {
                 $val = $n->getCollectionOfPrimitiveValues();
                 if (is_array($val)) {
@@ -947,6 +948,7 @@ class User extends DirectoryObject implements Parsable
                 $this->setInterests($val);
             },
             'invitedBy' => fn(ParseNode $n) => $o->setInvitedBy($n->getObjectValue([DirectoryObject::class, 'createFromDiscriminatorValue'])),
+            'isHardDeleteProtectionEnabled' => fn(ParseNode $n) => $o->setIsHardDeleteProtectionEnabled($n->getBooleanValue()),
             'isLicenseReconciliationNeeded' => fn(ParseNode $n) => $o->setIsLicenseReconciliationNeeded($n->getBooleanValue()),
             'isManagementRestricted' => fn(ParseNode $n) => $o->setIsManagementRestricted($n->getBooleanValue()),
             'isResourceAccount' => fn(ParseNode $n) => $o->setIsResourceAccount($n->getBooleanValue()),
@@ -1137,7 +1139,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the identityGovernance property value. The identity governance settings for the user, including the approver delegate configuration. Nullable. Returned only on $select. Supports $expand.
+     * Gets the identityGovernance property value. The identity governance settings for the user, including the approver delegate configuration. You can get or update the user's approver delegate through the approverDelegate property. Nullable. Returned only on $select. Supports $expand.
      * @return IdentityGovernanceUserSettings|null
     */
     public function getIdentityGovernance(): ?IdentityGovernanceUserSettings {
@@ -1158,6 +1160,18 @@ class User extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'identityParentId'");
+    }
+
+    /**
+     * Gets the identityVerificationStatus property value. The user's overall identity verification state and recent verification events. Retrieve through the get identity verification status operation.
+     * @return IdentityVerificationStatus|null
+    */
+    public function getIdentityVerificationStatus(): ?IdentityVerificationStatus {
+        $val = $this->getBackingStore()->get('identityVerificationStatus');
+        if (is_null($val) || $val instanceof IdentityVerificationStatus) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'identityVerificationStatus'");
     }
 
     /**
@@ -1248,6 +1262,18 @@ class User extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'invitedBy'");
+    }
+
+    /**
+     * Gets the isHardDeleteProtectionEnabled property value. Indicates whether hard deletion protection is enabled for the user (excluding on-premises synchronized users). When true, permanent deletion is blocked for seven days after soft deletion. The user can still be soft deleted and restored. Once enabled, protection can't be disabled or set to null. Enable protection on an existing user by using Update user; enabling it during creation isn't supported. Setting this property to true requires the Microsoft Entra Backup Administrator role. Nullable. Requires $select to retrieve. Supports $filter (eq).
+     * @return bool|null
+    */
+    public function getIsHardDeleteProtectionEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isHardDeleteProtectionEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isHardDeleteProtectionEnabled'");
     }
 
     /**
@@ -2504,6 +2530,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('identities', $this->getIdentities());
         $writer->writeObjectValue('identityGovernance', $this->getIdentityGovernance());
         $writer->writeStringValue('identityParentId', $this->getIdentityParentId());
+        $writer->writeObjectValue('identityVerificationStatus', $this->getIdentityVerificationStatus());
         $writer->writeCollectionOfPrimitiveValues('imAddresses', $this->getImAddresses());
         $writer->writeObjectValue('inferenceClassification', $this->getInferenceClassification());
         $writer->writeCollectionOfPrimitiveValues('infoCatalogs', $this->getInfoCatalogs());
@@ -2511,6 +2538,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeObjectValue('insights', $this->getInsights());
         $writer->writeCollectionOfPrimitiveValues('interests', $this->getInterests());
         $writer->writeObjectValue('invitedBy', $this->getInvitedBy());
+        $writer->writeBooleanValue('isHardDeleteProtectionEnabled', $this->getIsHardDeleteProtectionEnabled());
         $writer->writeBooleanValue('isLicenseReconciliationNeeded', $this->getIsLicenseReconciliationNeeded());
         $writer->writeBooleanValue('isManagementRestricted', $this->getIsManagementRestricted());
         $writer->writeBooleanValue('isResourceAccount', $this->getIsResourceAccount());
@@ -3134,7 +3162,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the identityGovernance property value. The identity governance settings for the user, including the approver delegate configuration. Nullable. Returned only on $select. Supports $expand.
+     * Sets the identityGovernance property value. The identity governance settings for the user, including the approver delegate configuration. You can get or update the user's approver delegate through the approverDelegate property. Nullable. Returned only on $select. Supports $expand.
      * @param IdentityGovernanceUserSettings|null $value Value to set for the identityGovernance property.
     */
     public function setIdentityGovernance(?IdentityGovernanceUserSettings $value): void {
@@ -3147,6 +3175,14 @@ class User extends DirectoryObject implements Parsable
     */
     public function setIdentityParentId(?string $value): void {
         $this->getBackingStore()->set('identityParentId', $value);
+    }
+
+    /**
+     * Sets the identityVerificationStatus property value. The user's overall identity verification state and recent verification events. Retrieve through the get identity verification status operation.
+     * @param IdentityVerificationStatus|null $value Value to set for the identityVerificationStatus property.
+    */
+    public function setIdentityVerificationStatus(?IdentityVerificationStatus $value): void {
+        $this->getBackingStore()->set('identityVerificationStatus', $value);
     }
 
     /**
@@ -3203,6 +3239,14 @@ class User extends DirectoryObject implements Parsable
     */
     public function setInvitedBy(?DirectoryObject $value): void {
         $this->getBackingStore()->set('invitedBy', $value);
+    }
+
+    /**
+     * Sets the isHardDeleteProtectionEnabled property value. Indicates whether hard deletion protection is enabled for the user (excluding on-premises synchronized users). When true, permanent deletion is blocked for seven days after soft deletion. The user can still be soft deleted and restored. Once enabled, protection can't be disabled or set to null. Enable protection on an existing user by using Update user; enabling it during creation isn't supported. Setting this property to true requires the Microsoft Entra Backup Administrator role. Nullable. Requires $select to retrieve. Supports $filter (eq).
+     * @param bool|null $value Value to set for the isHardDeleteProtectionEnabled property.
+    */
+    public function setIsHardDeleteProtectionEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isHardDeleteProtectionEnabled', $value);
     }
 
     /**
