@@ -26,7 +26,7 @@ class UserAssignment extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the assignedBy property value. Identity of the user (or application) that made the assignment.
+     * Gets the assignedBy property value. Identity of the user (or application) that made the assignment. Read-only.
      * @return IdentitySet|null
     */
     public function getAssignedBy(): ?IdentitySet {
@@ -38,7 +38,7 @@ class UserAssignment extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the assignedDateTime property value. Date and time the assignment was made.
+     * Gets the assignedDateTime property value. Date and time the assignment was made. Read-only.
      * @return DateTime|null
     */
     public function getAssignedDateTime(): ?DateTime {
@@ -99,7 +99,7 @@ class UserAssignment extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the assignedBy property value. Identity of the user (or application) that made the assignment.
+     * Sets the assignedBy property value. Identity of the user (or application) that made the assignment. Read-only.
      * @param IdentitySet|null $value Value to set for the assignedBy property.
     */
     public function setAssignedBy(?IdentitySet $value): void {
@@ -107,7 +107,7 @@ class UserAssignment extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the assignedDateTime property value. Date and time the assignment was made.
+     * Sets the assignedDateTime property value. Date and time the assignment was made. Read-only.
      * @param DateTime|null $value Value to set for the assignedDateTime property.
     */
     public function setAssignedDateTime(?DateTime $value): void {

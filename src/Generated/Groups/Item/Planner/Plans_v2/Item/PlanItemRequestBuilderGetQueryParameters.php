@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Groups\Item\Planner\Plans_v2\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read-only. Nullable. The collection of Planner Graph V4 plans owned by the group.
+ * Read-only. Nullable. The collection of plans in the Planner Unified plans Graph API owned by the group.
 */
 class PlanItemRequestBuilderGetQueryParameters 
 {

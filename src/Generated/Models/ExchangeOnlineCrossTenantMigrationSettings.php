@@ -81,7 +81,7 @@ class ExchangeOnlineCrossTenantMigrationSettings implements AdditionalDataHolder
     }
 
     /**
-     * Gets the sourceEndpoint property value. Name of the Migration Endpoint in the source tenant
+     * Gets the sourceEndpoint property value. Name of the migration endpoint in the source tenant.
      * @return string|null
     */
     public function getSourceEndpoint(): ?string {
@@ -93,7 +93,7 @@ class ExchangeOnlineCrossTenantMigrationSettings implements AdditionalDataHolder
     }
 
     /**
-     * Gets the targetDeliveryDomain property value. Delivery domain on the target tenant
+     * Gets the targetDeliveryDomain property value. Delivery domain on the target tenant.
      * @return string|null
     */
     public function getTargetDeliveryDomain(): ?string {
@@ -140,7 +140,7 @@ class ExchangeOnlineCrossTenantMigrationSettings implements AdditionalDataHolder
     }
 
     /**
-     * Sets the sourceEndpoint property value. Name of the Migration Endpoint in the source tenant
+     * Sets the sourceEndpoint property value. Name of the migration endpoint in the source tenant.
      * @param string|null $value Value to set for the sourceEndpoint property.
     */
     public function setSourceEndpoint(?string $value): void {
@@ -148,7 +148,7 @@ class ExchangeOnlineCrossTenantMigrationSettings implements AdditionalDataHolder
     }
 
     /**
-     * Sets the targetDeliveryDomain property value. Delivery domain on the target tenant
+     * Sets the targetDeliveryDomain property value. Delivery domain on the target tenant.
      * @param string|null $value Value to set for the targetDeliveryDomain property.
     */
     public function setTargetDeliveryDomain(?string $value): void {

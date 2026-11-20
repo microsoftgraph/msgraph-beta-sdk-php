@@ -38,7 +38,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the adDomainPassword property value. The password associated with adDomainUsername.
+     * Gets the adDomainPassword property value. The password associated with adDomainUsername. This deprecated property is retained for backward compatibility and will be removed on December 31, 2026. Going forward use the domainJoinCredential property instead. If both properties are provided, domainJoinCredential takes precedence.
      * @return string|null
     */
     public function getAdDomainPassword(): ?string {
@@ -50,7 +50,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the adDomainUsername property value. The username of an Active Directory account (user or service account) that has permissions to create computer objects in Active Directory. Required format: admin@contoso.com. Optional.
+     * Gets the adDomainUsername property value. The username of an Active Directory account that has permissions to create computer objects in Active Directory. This deprecated property is retained for backward compatibility and will be removed on December 31, 2026. Going forward use the domainJoinCredential/domainUserPrincipalName property instead.
      * @return string|null
     */
     public function getAdDomainUsername(): ?string {
@@ -98,6 +98,18 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
+     * Gets the domainJoinCredential property value. The Active Directory credential that Windows 365 uses to join Cloud PCs to the on-premises domain. Set @odata.type to #microsoft.graph.cloudPcPlainTextDomainJoinCredential to supply the username and password directly, or to #microsoft.graph.cloudPcKeyVaultDomainJoinCredential to retrieve the password from a customer-owned Azure Key Vault. Takes precedence over the deprecated adDomainPassword property when both are supplied.
+     * @return CloudPcDomainJoinCredential|null
+    */
+    public function getDomainJoinCredential(): ?CloudPcDomainJoinCredential {
+        $val = $this->getBackingStore()->get('domainJoinCredential');
+        if (is_null($val) || $val instanceof CloudPcDomainJoinCredential) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domainJoinCredential'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -110,6 +122,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
             'alternateResourceUrl' => fn(ParseNode $n) => $o->setAlternateResourceUrl($n->getStringValue()),
             'connectionType' => fn(ParseNode $n) => $o->setConnectionType($n->getEnumValue(CloudPcOnPremisesConnectionType::class)),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'domainJoinCredential' => fn(ParseNode $n) => $o->setDomainJoinCredential($n->getObjectValue([CloudPcDomainJoinCredential::class, 'createFromDiscriminatorValue'])),
             'healthCheckPaused' => fn(ParseNode $n) => $o->setHealthCheckPaused($n->getBooleanValue()),
             'healthCheckStatus' => fn(ParseNode $n) => $o->setHealthCheckStatus($n->getEnumValue(CloudPcOnPremisesConnectionStatus::class)),
             'healthCheckStatusDetail' => fn(ParseNode $n) => $o->setHealthCheckStatusDetail($n->getObjectValue([CloudPcOnPremisesConnectionStatusDetail::class, 'createFromDiscriminatorValue'])),
@@ -174,7 +187,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the healthCheckStatusDetails property value. The details of the connection's health checks and the corresponding results. Returned only on $select. For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetails. Read-only.
+     * Gets the healthCheckStatusDetails property value. Indicates the health checks for the connection and their respective results. Returned only on $select. For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetails. Read-only. The healthCheckStatusDetails property is deprecated and stopped returning data on January 31, 2024. Going forward, use the healthCheckStatusDetail property.
      * @return CloudPcOnPremisesConnectionStatusDetails|null
     */
     public function getHealthCheckStatusDetails(): ?CloudPcOnPremisesConnectionStatusDetails {
@@ -355,6 +368,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
         $writer->writeStringValue('alternateResourceUrl', $this->getAlternateResourceUrl());
         $writer->writeEnumValue('connectionType', $this->getConnectionType());
         $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeObjectValue('domainJoinCredential', $this->getDomainJoinCredential());
         $writer->writeBooleanValue('healthCheckPaused', $this->getHealthCheckPaused());
         $writer->writeEnumValue('healthCheckStatus', $this->getHealthCheckStatus());
         $writer->writeObjectValue('healthCheckStatusDetail', $this->getHealthCheckStatusDetail());
@@ -383,7 +397,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the adDomainPassword property value. The password associated with adDomainUsername.
+     * Sets the adDomainPassword property value. The password associated with adDomainUsername. This deprecated property is retained for backward compatibility and will be removed on December 31, 2026. Going forward use the domainJoinCredential property instead. If both properties are provided, domainJoinCredential takes precedence.
      * @param string|null $value Value to set for the adDomainPassword property.
     */
     public function setAdDomainPassword(?string $value): void {
@@ -391,7 +405,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the adDomainUsername property value. The username of an Active Directory account (user or service account) that has permissions to create computer objects in Active Directory. Required format: admin@contoso.com. Optional.
+     * Sets the adDomainUsername property value. The username of an Active Directory account that has permissions to create computer objects in Active Directory. This deprecated property is retained for backward compatibility and will be removed on December 31, 2026. Going forward use the domainJoinCredential/domainUserPrincipalName property instead.
      * @param string|null $value Value to set for the adDomainUsername property.
     */
     public function setAdDomainUsername(?string $value): void {
@@ -423,6 +437,14 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
+     * Sets the domainJoinCredential property value. The Active Directory credential that Windows 365 uses to join Cloud PCs to the on-premises domain. Set @odata.type to #microsoft.graph.cloudPcPlainTextDomainJoinCredential to supply the username and password directly, or to #microsoft.graph.cloudPcKeyVaultDomainJoinCredential to retrieve the password from a customer-owned Azure Key Vault. Takes precedence over the deprecated adDomainPassword property when both are supplied.
+     * @param CloudPcDomainJoinCredential|null $value Value to set for the domainJoinCredential property.
+    */
+    public function setDomainJoinCredential(?CloudPcDomainJoinCredential $value): void {
+        $this->getBackingStore()->set('domainJoinCredential', $value);
+    }
+
+    /**
      * Sets the healthCheckPaused property value. Indicates whether regular health checks on the network or domain configuration are paused or active. false if the regular health checks on the network or domain configuration are currently active. true if the checks are paused. If you perform a create or update operation on a onPremisesNetworkConnection resource, this value is set to false for four weeks. If you retry a health check on network or domain configuration, this value is set to false for two weeks. If the onPremisesNetworkConnection resource is attached in a provisioningPolicy or used by a Cloud PC in the past four weeks, healthCheckPaused is set to false. Read-only. Default is false.
      * @param bool|null $value Value to set for the healthCheckPaused property.
     */
@@ -447,7 +469,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the healthCheckStatusDetails property value. The details of the connection's health checks and the corresponding results. Returned only on $select. For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetails. Read-only.
+     * Sets the healthCheckStatusDetails property value. Indicates the health checks for the connection and their respective results. Returned only on $select. For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetails. Read-only. The healthCheckStatusDetails property is deprecated and stopped returning data on January 31, 2024. Going forward, use the healthCheckStatusDetail property.
      * @param CloudPcOnPremisesConnectionStatusDetails|null $value Value to set for the healthCheckStatusDetails property.
     */
     public function setHealthCheckStatusDetails(?CloudPcOnPremisesConnectionStatusDetails $value): void {

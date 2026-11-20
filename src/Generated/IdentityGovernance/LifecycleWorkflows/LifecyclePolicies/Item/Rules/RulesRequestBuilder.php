@@ -43,7 +43,7 @@ class RulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the lifecyclePolicyRule objects and their properties for a lifecyclePolicy. Rules are evaluated together with AND logic.
+     * Get a list of the lifecyclePolicyRule objects and their properties for a lifecyclePolicy. Each enabled rule is evaluated independently, and any violation makes the policy noncompliant.
      * @param RulesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<LifecyclePolicyRuleCollectionResponse|null>
      * @throws Exception
@@ -58,7 +58,7 @@ class RulesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the lifecyclePolicyRule objects and their properties for a lifecyclePolicy. Rules are evaluated together with AND logic.
+     * Get a list of the lifecyclePolicyRule objects and their properties for a lifecyclePolicy. Each enabled rule is evaluated independently, and any violation makes the policy noncompliant.
      * @param RulesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

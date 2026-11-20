@@ -31,7 +31,7 @@ class MoveRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Move an item from one user-defined section to another user-defined section in a user's teamwork. Each item can belong to only one section at a time. This action removes the item from its current section and adds it to the target section. Use this action instead of add when the item is already in a user-defined section.
+     * Move an item from one user-defined section to another user-defined section in a user's teamwork. Each item can belong to only one section at a time. This action removes the item from its current section and adds it to the target section.
      * @param MovePostRequestBody $body The request body
      * @param MoveRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkSectionItem|null>
@@ -47,7 +47,7 @@ class MoveRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Move an item from one user-defined section to another user-defined section in a user's teamwork. Each item can belong to only one section at a time. This action removes the item from its current section and adds it to the target section. Use this action instead of add when the item is already in a user-defined section.
+     * Move an item from one user-defined section to another user-defined section in a user's teamwork. Each item can belong to only one section at a time. This action removes the item from its current section and adds it to the target section.
      * @param MovePostRequestBody $body The request body
      * @param MoveRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

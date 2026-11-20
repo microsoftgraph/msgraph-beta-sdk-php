@@ -8,7 +8,9 @@ use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\DeploymentAudience;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\Policy;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\Product;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\ResourceConnection;
+use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\TenantSetting;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatableAsset;
+use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdateData;
 use Microsoft\Graph\Beta\Generated\Models\WindowsUpdates\UpdatePolicy;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -43,6 +45,18 @@ class AdminWindowsUpdates extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'catalog'");
+    }
+
+    /**
+     * Gets the data property value. Read-only Windows Autopatch device, policy assignment, applicability, and driver reporting data.
+     * @return UpdateData|null
+    */
+    public function getData(): ?UpdateData {
+        $val = $this->getBackingStore()->get('data');
+        if (is_null($val) || $val instanceof UpdateData) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'data'");
     }
 
     /**
@@ -81,11 +95,13 @@ class AdminWindowsUpdates extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'catalog' => fn(ParseNode $n) => $o->setCatalog($n->getObjectValue([Catalog::class, 'createFromDiscriminatorValue'])),
+            'data' => fn(ParseNode $n) => $o->setData($n->getObjectValue([UpdateData::class, 'createFromDiscriminatorValue'])),
             'deploymentAudiences' => fn(ParseNode $n) => $o->setDeploymentAudiences($n->getCollectionOfObjectValues([DeploymentAudience::class, 'createFromDiscriminatorValue'])),
             'deployments' => fn(ParseNode $n) => $o->setDeployments($n->getCollectionOfObjectValues([Deployment::class, 'createFromDiscriminatorValue'])),
             'policies' => fn(ParseNode $n) => $o->setPolicies($n->getCollectionOfObjectValues([Policy::class, 'createFromDiscriminatorValue'])),
             'products' => fn(ParseNode $n) => $o->setProducts($n->getCollectionOfObjectValues([Product::class, 'createFromDiscriminatorValue'])),
             'resourceConnections' => fn(ParseNode $n) => $o->setResourceConnections($n->getCollectionOfObjectValues([ResourceConnection::class, 'createFromDiscriminatorValue'])),
+            'tenantSettings' => fn(ParseNode $n) => $o->setTenantSettings($n->getObjectValue([TenantSetting::class, 'createFromDiscriminatorValue'])),
             'updatableAssets' => fn(ParseNode $n) => $o->setUpdatableAssets($n->getCollectionOfObjectValues([UpdatableAsset::class, 'createFromDiscriminatorValue'])),
             'updatePolicies' => fn(ParseNode $n) => $o->setUpdatePolicies($n->getCollectionOfObjectValues([UpdatePolicy::class, 'createFromDiscriminatorValue'])),
         ]);
@@ -134,6 +150,18 @@ class AdminWindowsUpdates extends Entity implements Parsable
     }
 
     /**
+     * Gets the tenantSettings property value. The Windows Autopatch settings for the current tenant.
+     * @return TenantSetting|null
+    */
+    public function getTenantSettings(): ?TenantSetting {
+        $val = $this->getBackingStore()->get('tenantSettings');
+        if (is_null($val) || $val instanceof TenantSetting) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'tenantSettings'");
+    }
+
+    /**
      * Gets the updatableAssets property value. Assets registered with Windows Autopatch that can receive updates.
      * @return array<UpdatableAsset>|null
     */
@@ -168,11 +196,13 @@ class AdminWindowsUpdates extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('catalog', $this->getCatalog());
+        $writer->writeObjectValue('data', $this->getData());
         $writer->writeCollectionOfObjectValues('deploymentAudiences', $this->getDeploymentAudiences());
         $writer->writeCollectionOfObjectValues('deployments', $this->getDeployments());
         $writer->writeCollectionOfObjectValues('policies', $this->getPolicies());
         $writer->writeCollectionOfObjectValues('products', $this->getProducts());
         $writer->writeCollectionOfObjectValues('resourceConnections', $this->getResourceConnections());
+        $writer->writeObjectValue('tenantSettings', $this->getTenantSettings());
         $writer->writeCollectionOfObjectValues('updatableAssets', $this->getUpdatableAssets());
         $writer->writeCollectionOfObjectValues('updatePolicies', $this->getUpdatePolicies());
     }
@@ -183,6 +213,14 @@ class AdminWindowsUpdates extends Entity implements Parsable
     */
     public function setCatalog(?Catalog $value): void {
         $this->getBackingStore()->set('catalog', $value);
+    }
+
+    /**
+     * Sets the data property value. Read-only Windows Autopatch device, policy assignment, applicability, and driver reporting data.
+     * @param UpdateData|null $value Value to set for the data property.
+    */
+    public function setData(?UpdateData $value): void {
+        $this->getBackingStore()->set('data', $value);
     }
 
     /**
@@ -223,6 +261,14 @@ class AdminWindowsUpdates extends Entity implements Parsable
     */
     public function setResourceConnections(?array $value): void {
         $this->getBackingStore()->set('resourceConnections', $value);
+    }
+
+    /**
+     * Sets the tenantSettings property value. The Windows Autopatch settings for the current tenant.
+     * @param TenantSetting|null $value Value to set for the tenantSettings property.
+    */
+    public function setTenantSettings(?TenantSetting $value): void {
+        $this->getBackingStore()->set('tenantSettings', $value);
     }
 
     /**

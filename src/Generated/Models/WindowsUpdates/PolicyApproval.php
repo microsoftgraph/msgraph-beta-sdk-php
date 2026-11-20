@@ -27,6 +27,18 @@ class PolicyApproval extends Entity implements Parsable
     }
 
     /**
+     * Gets the approvedBy property value. The approvedBy property
+     * @return ApprovedBy|null
+    */
+    public function getApprovedBy(): ?ApprovedBy {
+        $val = $this->getBackingStore()->get('approvedBy');
+        if (is_null($val) || $val instanceof ApprovedBy) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'approvedBy'");
+    }
+
+    /**
      * Gets the catalogEntry property value. The content that you can approve for deployment. Read-only.
      * @return CatalogEntry|null
     */
@@ -69,10 +81,12 @@ class PolicyApproval extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'approvedBy' => fn(ParseNode $n) => $o->setApprovedBy($n->getEnumValue(ApprovedBy::class)),
             'catalogEntry' => fn(ParseNode $n) => $o->setCatalogEntry($n->getObjectValue([CatalogEntry::class, 'createFromDiscriminatorValue'])),
             'catalogEntryId' => fn(ParseNode $n) => $o->setCatalogEntryId($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
             'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(ApprovalStatus::class)),
         ]);
     }
@@ -87,6 +101,18 @@ class PolicyApproval extends Entity implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'lastModifiedDateTime'");
+    }
+
+    /**
+     * Gets the startDateTime property value. The date and time when the approved content can start being offered. If omitted when the approval is created, the service uses the current time.
+     * @return DateTime|null
+    */
+    public function getStartDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('startDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'startDateTime'");
     }
 
     /**
@@ -107,11 +133,21 @@ class PolicyApproval extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeEnumValue('approvedBy', $this->getApprovedBy());
         $writer->writeObjectValue('catalogEntry', $this->getCatalogEntry());
         $writer->writeStringValue('catalogEntryId', $this->getCatalogEntryId());
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
         $writer->writeEnumValue('status', $this->getStatus());
+    }
+
+    /**
+     * Sets the approvedBy property value. The approvedBy property
+     * @param ApprovedBy|null $value Value to set for the approvedBy property.
+    */
+    public function setApprovedBy(?ApprovedBy $value): void {
+        $this->getBackingStore()->set('approvedBy', $value);
     }
 
     /**
@@ -144,6 +180,14 @@ class PolicyApproval extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastModifiedDateTime', $value);
+    }
+
+    /**
+     * Sets the startDateTime property value. The date and time when the approved content can start being offered. If omitted when the approval is created, the service uses the current time.
+     * @param DateTime|null $value Value to set for the startDateTime property.
+    */
+    public function setStartDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('startDateTime', $value);
     }
 
     /**

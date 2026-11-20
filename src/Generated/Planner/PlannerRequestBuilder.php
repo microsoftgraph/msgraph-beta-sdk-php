@@ -102,12 +102,11 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a planner object.
+     * Update planner
      * @param Planner $body The request body
      * @param PlannerRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Planner|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/planner-update?view=graph-rest-beta Find more info here
     */
     public function patch(Planner $body, ?PlannerRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -139,7 +138,7 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a planner object.
+     * Update planner
      * @param Planner $body The request body
      * @param PlannerRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

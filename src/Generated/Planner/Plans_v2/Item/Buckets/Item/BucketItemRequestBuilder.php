@@ -31,10 +31,11 @@ class BucketItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property buckets for planner
+     * Delete a bucket object.
      * @param BucketItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/plan-delete-buckets?view=graph-rest-beta Find more info here
     */
     public function delete(?BucketItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -45,10 +46,11 @@ class BucketItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of buckets in the plan. Read-only. Nullable.
+     * Read the properties and relationships of bucket object.
      * @param BucketItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Bucket|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/bucket-get?view=graph-rest-beta Find more info here
     */
     public function get(?BucketItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -59,11 +61,12 @@ class BucketItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property buckets in planner
+     * Update the properties of a bucket object.
      * @param Bucket $body The request body
      * @param BucketItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Bucket|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/bucket-update?view=graph-rest-beta Find more info here
     */
     public function patch(Bucket $body, ?BucketItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -74,7 +77,7 @@ class BucketItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property buckets for planner
+     * Delete a bucket object.
      * @param BucketItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -92,7 +95,7 @@ class BucketItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of buckets in the plan. Read-only. Nullable.
+     * Read the properties and relationships of bucket object.
      * @param BucketItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -113,7 +116,7 @@ class BucketItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the navigation property buckets in planner
+     * Update the properties of a bucket object.
      * @param Bucket $body The request body
      * @param BucketItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

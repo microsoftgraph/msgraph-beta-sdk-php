@@ -65,6 +65,7 @@ class RuleSchedule implements AdditionalDataHolder, BackedModel, Parsable
         $o = $this;
         return  [
             'frequency' => fn(ParseNode $n) => $o->setFrequency($n->getDateIntervalValue()),
+            'lookback' => fn(ParseNode $n) => $o->setLookback($n->getDateIntervalValue()),
             'nextRunDateTime' => fn(ParseNode $n) => $o->setNextRunDateTime($n->getDateTimeValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'period' => fn(ParseNode $n) => $o->setPeriod($n->getStringValue()),
@@ -81,6 +82,18 @@ class RuleSchedule implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'frequency'");
+    }
+
+    /**
+     * Gets the lookback property value. The time window evaluated by each scheduled rule run, expressed as an ISO 8601 duration, for example PT4H for four hours. Events match this window based on either event time or ingestion time. The value must be at least frequency. When omitted, the service derives the default lookback from frequency. Not supported for near-real-time rules with a zero frequency.
+     * @return DateInterval|null
+    */
+    public function getLookback(): ?DateInterval {
+        $val = $this->getBackingStore()->get('lookback');
+        if (is_null($val) || $val instanceof DateInterval) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'lookback'");
     }
 
     /**
@@ -125,6 +138,7 @@ class RuleSchedule implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeDateIntervalValue('frequency', $this->getFrequency());
+        $writer->writeDateIntervalValue('lookback', $this->getLookback());
         $writer->writeDateTimeValue('nextRunDateTime', $this->getNextRunDateTime());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('period', $this->getPeriod());
@@ -153,6 +167,14 @@ class RuleSchedule implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setFrequency(?DateInterval $value): void {
         $this->getBackingStore()->set('frequency', $value);
+    }
+
+    /**
+     * Sets the lookback property value. The time window evaluated by each scheduled rule run, expressed as an ISO 8601 duration, for example PT4H for four hours. Events match this window based on either event time or ingestion time. The value must be at least frequency. When omitted, the service derives the default lookback from frequency. Not supported for near-real-time rules with a zero frequency.
+     * @param DateInterval|null $value Value to set for the lookback property.
+    */
+    public function setLookback(?DateInterval $value): void {
+        $this->getBackingStore()->set('lookback', $value);
     }
 
     /**

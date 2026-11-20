@@ -16,4 +16,6 @@ class AlertType extends Enum {
     public const PRIVATE_APP_BLOCKED_BY_CONNECTOR = "privateAppBlockedByConnector";
     public const REMOTE_NETWORK_TUNNEL_CONNECTIVITY = "remoteNetworkTunnelConnectivity";
     public const REMOTE_NETWORK_BGP_CONNECTIVITY = "remoteNetworkBgpConnectivity";
+    public const AGENT_ID_AUTONOMOUS_SIGN_IN_FAILURE = "agentIdAutonomousSignInFailure";
+    public const AGENT_ID_INTERACTIVE_SIGN_IN_FAILURE = "agentIdInteractiveSignInFailure";
 }

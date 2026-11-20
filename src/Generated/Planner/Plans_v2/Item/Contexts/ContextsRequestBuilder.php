@@ -52,7 +52,7 @@ class ContextsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of context links describing where the plan is surfaced. Read-only. Nullable.
+     * Context links describing where the plan is surfaced. Can be supplied when creating a plan by using a deep insert. Nullable.
      * @param ContextsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<PlanContextLinkCollectionResponse|null>
      * @throws Exception
@@ -81,7 +81,7 @@ class ContextsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of context links describing where the plan is surfaced. Read-only. Nullable.
+     * Context links describing where the plan is surfaced. Can be supplied when creating a plan by using a deep insert. Nullable.
      * @param ContextsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

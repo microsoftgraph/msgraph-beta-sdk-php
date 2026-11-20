@@ -33,6 +33,7 @@ class CopilotPolicySetting extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'policyId' => fn(ParseNode $n) => $o->setPolicyId($n->getStringValue()),
             'value' => fn(ParseNode $n) => $o->setValue($n->getStringValue()),
+            'valueObject' => fn(ParseNode $n) => $o->setValueObject($n->getObjectValue([CopilotPolicySettingValueObject::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -61,6 +62,18 @@ class CopilotPolicySetting extends Entity implements Parsable
     }
 
     /**
+     * Gets the valueObject property value. The native JSON representation of a complex setting, or null for scalar settings.
+     * @return CopilotPolicySettingValueObject|null
+    */
+    public function getValueObject(): ?CopilotPolicySettingValueObject {
+        $val = $this->getBackingStore()->get('valueObject');
+        if (is_null($val) || $val instanceof CopilotPolicySettingValueObject) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'valueObject'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -68,6 +81,7 @@ class CopilotPolicySetting extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('policyId', $this->getPolicyId());
         $writer->writeStringValue('value', $this->getValue());
+        $writer->writeObjectValue('valueObject', $this->getValueObject());
     }
 
     /**
@@ -84,6 +98,14 @@ class CopilotPolicySetting extends Entity implements Parsable
     */
     public function setValue(?string $value): void {
         $this->getBackingStore()->set('value', $value);
+    }
+
+    /**
+     * Sets the valueObject property value. The native JSON representation of a complex setting, or null for scalar settings.
+     * @param CopilotPolicySettingValueObject|null $value Value to set for the valueObject property.
+    */
+    public function setValueObject(?CopilotPolicySettingValueObject $value): void {
+        $this->getBackingStore()->set('valueObject', $value);
     }
 
 }

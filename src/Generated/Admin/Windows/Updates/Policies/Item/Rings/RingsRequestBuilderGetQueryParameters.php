@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin\Windows\Updates\Policies\Item\Rin
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Get a list of the ring objects and their properties. You can use this method with the following child object type: qualityUpdateRing.
+ * Get a list of the ring objects and their properties. You can use this method with the following child object types: driverUpdateRing, featureUpdateRing, and qualityUpdateRing.
 */
 class RingsRequestBuilderGetQueryParameters 
 {

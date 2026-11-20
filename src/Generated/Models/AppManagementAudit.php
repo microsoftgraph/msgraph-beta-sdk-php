@@ -26,7 +26,7 @@ class AppManagementAudit extends DirectoryAudit implements Parsable
     }
 
     /**
-     * Gets the appliedAppManagementPolicyRestrictions property value. The appliedAppManagementPolicyRestrictions property
+     * Gets the appliedAppManagementPolicyRestrictions property value. Details of the app management policy restrictions applied to the activity. Supports $filter (eq).
      * @return array<AppliedAppManagementPolicyRestriction>|null
     */
     public function getAppliedAppManagementPolicyRestrictions(): ?array {
@@ -60,7 +60,7 @@ class AppManagementAudit extends DirectoryAudit implements Parsable
     }
 
     /**
-     * Sets the appliedAppManagementPolicyRestrictions property value. The appliedAppManagementPolicyRestrictions property
+     * Sets the appliedAppManagementPolicyRestrictions property value. Details of the app management policy restrictions applied to the activity. Supports $filter (eq).
      * @param array<AppliedAppManagementPolicyRestriction>|null $value Value to set for the appliedAppManagementPolicyRestrictions property.
     */
     public function setAppliedAppManagementPolicyRestrictions(?array $value): void {

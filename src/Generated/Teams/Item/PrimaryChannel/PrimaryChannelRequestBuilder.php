@@ -21,6 +21,7 @@ use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\RemoveEmail\RemoveE
 use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\SharedWithTeams\SharedWithTeamsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\StartMigration\StartMigrationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Tabs\TabsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Tags\TagsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\PrimaryChannel\Unarchive\UnarchiveRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -135,6 +136,13 @@ class PrimaryChannelRequestBuilder extends BaseRequestBuilder
     */
     public function tabs(): TabsRequestBuilder {
         return new TabsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the tags property of the microsoft.graph.channel entity.
+    */
+    public function tags(): TagsRequestBuilder {
+        return new TagsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

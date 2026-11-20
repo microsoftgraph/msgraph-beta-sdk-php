@@ -34,10 +34,11 @@ class CustomEmojisWithDisplayNameRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property customEmojis for teamwork
+     * Delete a custom emoji by display name from the teamwork messaging of the organization.
      * @param CustomEmojisWithDisplayNameRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/teamworkcustomemoji-delete?view=graph-rest-beta Find more info here
     */
     public function delete(?CustomEmojisWithDisplayNameRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -48,10 +49,11 @@ class CustomEmojisWithDisplayNameRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of custom emojis available in organization messaging.
+     * Get a single custom emoji or the raw image content of a custom emoji by display name from the teamwork messaging of the organization.
      * @param CustomEmojisWithDisplayNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamworkCustomEmoji|null>
      * @throws Exception
+     * @link https://learn.microsoft.com/graph/api/teamworkcustomemoji-get?view=graph-rest-beta Find more info here
     */
     public function get(?CustomEmojisWithDisplayNameRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -77,7 +79,7 @@ class CustomEmojisWithDisplayNameRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete navigation property customEmojis for teamwork
+     * Delete a custom emoji by display name from the teamwork messaging of the organization.
      * @param CustomEmojisWithDisplayNameRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -95,7 +97,7 @@ class CustomEmojisWithDisplayNameRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * The collection of custom emojis available in organization messaging.
+     * Get a single custom emoji or the raw image content of a custom emoji by display name from the teamwork messaging of the organization.
      * @param CustomEmojisWithDisplayNameRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

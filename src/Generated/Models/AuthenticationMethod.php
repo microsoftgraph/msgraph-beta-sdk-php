@@ -66,6 +66,7 @@ class AuthenticationMethod extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
             'lastUsedDateTime' => fn(ParseNode $n) => $o->setLastUsedDateTime($n->getDateTimeValue()),
+            'provenance' => fn(ParseNode $n) => $o->setProvenance($n->getObjectValue([CredentialProvenance::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -82,6 +83,18 @@ class AuthenticationMethod extends Entity implements Parsable
     }
 
     /**
+     * Gets the provenance property value. The provenance and trust classification of the authentication method. Supports administrative attestation. Returned for FIDO2 authentication methods; null for method types that don't support provenance.
+     * @return CredentialProvenance|null
+    */
+    public function getProvenance(): ?CredentialProvenance {
+        $val = $this->getBackingStore()->get('provenance');
+        if (is_null($val) || $val instanceof CredentialProvenance) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'provenance'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -89,6 +102,7 @@ class AuthenticationMethod extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
         $writer->writeDateTimeValue('lastUsedDateTime', $this->getLastUsedDateTime());
+        $writer->writeObjectValue('provenance', $this->getProvenance());
     }
 
     /**
@@ -105,6 +119,14 @@ class AuthenticationMethod extends Entity implements Parsable
     */
     public function setLastUsedDateTime(?DateTime $value): void {
         $this->getBackingStore()->set('lastUsedDateTime', $value);
+    }
+
+    /**
+     * Sets the provenance property value. The provenance and trust classification of the authentication method. Supports administrative attestation. Returned for FIDO2 authentication methods; null for method types that don't support provenance.
+     * @param CredentialProvenance|null $value Value to set for the provenance property.
+    */
+    public function setProvenance(?CredentialProvenance $value): void {
+        $this->getBackingStore()->set('provenance', $value);
     }
 
 }

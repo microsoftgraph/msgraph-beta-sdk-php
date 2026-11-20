@@ -125,6 +125,7 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
             'directoryProvisioning' => fn(ParseNode $n) => $o->setDirectoryProvisioning($n->getCollectionOfObjectValues([ProvisioningObjectSummary::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'provisioning' => fn(ParseNode $n) => $o->setProvisioning($n->getCollectionOfObjectValues([ProvisioningObjectSummary::class, 'createFromDiscriminatorValue'])),
+            'resourcePolicy' => fn(ParseNode $n) => $o->setResourcePolicy($n->getCollectionOfObjectValues([ResourcePolicyEvaluationEvent::class, 'createFromDiscriminatorValue'])),
             'signInEventsAppSummary' => fn(ParseNode $n) => $o->setSignInEventsAppSummary($n->getCollectionOfObjectValues([SignInEventsAppActivity::class, 'createFromDiscriminatorValue'])),
             'signInEventsSummary' => fn(ParseNode $n) => $o->setSignInEventsSummary($n->getCollectionOfObjectValues([SignInEventsActivity::class, 'createFromDiscriminatorValue'])),
             'signIns' => fn(ParseNode $n) => $o->setSignIns($n->getCollectionOfObjectValues([SignIn::class, 'createFromDiscriminatorValue'])),
@@ -156,6 +157,20 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'provisioning'");
+    }
+
+    /**
+     * Gets the resourcePolicy property value. The resourcePolicy property
+     * @return array<ResourcePolicyEvaluationEvent>|null
+    */
+    public function getResourcePolicy(): ?array {
+        $val = $this->getBackingStore()->get('resourcePolicy');
+        if (is_array($val) || is_null($val)) {
+            TypeUtils::validateCollectionValues($val, ResourcePolicyEvaluationEvent::class);
+            /** @var array<ResourcePolicyEvaluationEvent>|null $val */
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'resourcePolicy'");
     }
 
     /**
@@ -225,6 +240,7 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeCollectionOfObjectValues('directoryProvisioning', $this->getDirectoryProvisioning());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeCollectionOfObjectValues('provisioning', $this->getProvisioning());
+        $writer->writeCollectionOfObjectValues('resourcePolicy', $this->getResourcePolicy());
         $writer->writeCollectionOfObjectValues('signInEventsAppSummary', $this->getSignInEventsAppSummary());
         $writer->writeCollectionOfObjectValues('signInEventsSummary', $this->getSignInEventsSummary());
         $writer->writeCollectionOfObjectValues('signIns', $this->getSignIns());
@@ -294,6 +310,14 @@ class AuditLogRoot implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setProvisioning(?array $value): void {
         $this->getBackingStore()->set('provisioning', $value);
+    }
+
+    /**
+     * Sets the resourcePolicy property value. The resourcePolicy property
+     * @param array<ResourcePolicyEvaluationEvent>|null $value Value to set for the resourcePolicy property.
+    */
+    public function setResourcePolicy(?array $value): void {
+        $this->getBackingStore()->set('resourcePolicy', $value);
     }
 
     /**

@@ -37,7 +37,7 @@ class ToolParticipant extends InteractionParticipant implements Parsable
     }
 
     /**
-     * Gets the mcpServerId property value. The mcpServerId property
+     * Gets the mcpServerId property value. The stable identifier of the Model Context Protocol (MCP) server that hosts the tool. Optional.
      * @return string|null
     */
     public function getMcpServerId(): ?string {
@@ -58,7 +58,7 @@ class ToolParticipant extends InteractionParticipant implements Parsable
     }
 
     /**
-     * Sets the mcpServerId property value. The mcpServerId property
+     * Sets the mcpServerId property value. The stable identifier of the Model Context Protocol (MCP) server that hosts the tool. Optional.
      * @param string|null $value Value to set for the mcpServerId property.
     */
     public function setMcpServerId(?string $value): void {

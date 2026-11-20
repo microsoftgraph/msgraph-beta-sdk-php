@@ -16,16 +16,20 @@ use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\GetSupportedCloudPcR
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\PowerOff\PowerOffRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\PowerOn\PowerOnRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Reboot\RebootRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Relocate\RelocateRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Rename\RenameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Reprovision\ReprovisionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Resize\ResizeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Restore\RestoreRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\RetrieveCloudPcLaunchDetail\RetrieveCloudPcLaunchDetailRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\RetrieveCloudPCRemoteActionResults\RetrieveCloudPCRemoteActionResultsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\RetrieveFlexCloudPcAccessConfiguration\RetrieveFlexCloudPcAccessConfigurationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\RetrieveFlexCloudPcConfigurationDetail\RetrieveFlexCloudPcConfigurationDetailRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\RetrieveFrontlineCloudPcDetail\RetrieveFrontlineCloudPcDetailRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\RetrieveReviewStatus\RetrieveReviewStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\RetrieveSnapshots\RetrieveSnapshotsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\RetryPartnerAgentInstallation\RetryPartnerAgentInstallationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\SetDeviceName\SetDeviceNameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\SetReviewStatus\SetReviewStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Start\StartRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Stop\StopRequestBuilder;
@@ -111,6 +115,13 @@ class CloudPCItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the relocate method.
+    */
+    public function relocate(): RelocateRequestBuilder {
+        return new RelocateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the rename method.
     */
     public function rename(): RenameRequestBuilder {
@@ -153,6 +164,20 @@ class CloudPCItemRequestBuilder extends BaseRequestBuilder
     }
     
     /**
+     * Provides operations to call the retrieveFlexCloudPcAccessConfiguration method.
+    */
+    public function retrieveFlexCloudPcAccessConfiguration(): RetrieveFlexCloudPcAccessConfigurationRequestBuilder {
+        return new RetrieveFlexCloudPcAccessConfigurationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retrieveFlexCloudPcConfigurationDetail method.
+    */
+    public function retrieveFlexCloudPcConfigurationDetail(): RetrieveFlexCloudPcConfigurationDetailRequestBuilder {
+        return new RetrieveFlexCloudPcConfigurationDetailRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to call the retrieveFrontlineCloudPcDetail method.
     */
     public function retrieveFrontlineCloudPcDetail(): RetrieveFrontlineCloudPcDetailRequestBuilder {
@@ -178,6 +203,13 @@ class CloudPCItemRequestBuilder extends BaseRequestBuilder
     */
     public function retryPartnerAgentInstallation(): RetryPartnerAgentInstallationRequestBuilder {
         return new RetryPartnerAgentInstallationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the setDeviceName method.
+    */
+    public function setDeviceName(): SetDeviceNameRequestBuilder {
+        return new SetDeviceNameRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

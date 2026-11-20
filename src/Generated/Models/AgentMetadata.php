@@ -49,7 +49,7 @@ class AgentMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the agentAdministrativeUnitId property value. The agentAdministrativeUnitId property
+     * Gets the agentAdministrativeUnitId property value. The identifier of the administrative unit associated with the agent. Optional.
      * @return string|null
     */
     public function getAgentAdministrativeUnitId(): ?string {
@@ -61,7 +61,7 @@ class AgentMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the agentBlueprintId property value. The agentBlueprintId property
+     * Gets the agentBlueprintId property value. The identifier of the blueprint from which the agent was created. Optional.
      * @return string|null
     */
     public function getAgentBlueprintId(): ?string {
@@ -73,7 +73,7 @@ class AgentMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the agentCategory property value. The agentCategory property
+     * Gets the agentCategory property value. The category of the agent, for example, Agents.Foundry.MicrosoftAzure, Agents.Copilot.Studio, or Agents.Local. Optional.
      * @return string|null
     */
     public function getAgentCategory(): ?string {
@@ -85,7 +85,7 @@ class AgentMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the agentOwner property value. The agentOwner property
+     * Gets the agentOwner property value. The owner associated with the agent. Optional.
      * @return string|null
     */
     public function getAgentOwner(): ?string {
@@ -97,7 +97,7 @@ class AgentMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the agentPublisher property value. The agentPublisher property
+     * Gets the agentPublisher property value. The publisher associated with the agent. Optional.
      * @return string|null
     */
     public function getAgentPublisher(): ?string {
@@ -109,7 +109,7 @@ class AgentMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the altAgentIds property value. The altAgentIds property
+     * Gets the altAgentIds property value. Alternate identifiers that can identify the agent. Required when agentMetadata is provided. Use an empty collection ([]) when the agent has no alternate identifiers.
      * @return array<string>|null
     */
     public function getAltAgentIds(): ?array {
@@ -156,7 +156,7 @@ class AgentMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the isEntraAgentId property value. The isEntraAgentId property
+     * Gets the isEntraAgentId property value. Indicates whether the value property of the associated policyLocationAgent is a Microsoft Entra agent ID. Required when agentMetadata is provided.
      * @return bool|null
     */
     public function getIsEntraAgentId(): ?bool {
@@ -204,7 +204,7 @@ class AgentMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the agentAdministrativeUnitId property value. The agentAdministrativeUnitId property
+     * Sets the agentAdministrativeUnitId property value. The identifier of the administrative unit associated with the agent. Optional.
      * @param string|null $value Value to set for the agentAdministrativeUnitId property.
     */
     public function setAgentAdministrativeUnitId(?string $value): void {
@@ -212,7 +212,7 @@ class AgentMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the agentBlueprintId property value. The agentBlueprintId property
+     * Sets the agentBlueprintId property value. The identifier of the blueprint from which the agent was created. Optional.
      * @param string|null $value Value to set for the agentBlueprintId property.
     */
     public function setAgentBlueprintId(?string $value): void {
@@ -220,7 +220,7 @@ class AgentMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the agentCategory property value. The agentCategory property
+     * Sets the agentCategory property value. The category of the agent, for example, Agents.Foundry.MicrosoftAzure, Agents.Copilot.Studio, or Agents.Local. Optional.
      * @param string|null $value Value to set for the agentCategory property.
     */
     public function setAgentCategory(?string $value): void {
@@ -228,7 +228,7 @@ class AgentMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the agentOwner property value. The agentOwner property
+     * Sets the agentOwner property value. The owner associated with the agent. Optional.
      * @param string|null $value Value to set for the agentOwner property.
     */
     public function setAgentOwner(?string $value): void {
@@ -236,7 +236,7 @@ class AgentMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the agentPublisher property value. The agentPublisher property
+     * Sets the agentPublisher property value. The publisher associated with the agent. Optional.
      * @param string|null $value Value to set for the agentPublisher property.
     */
     public function setAgentPublisher(?string $value): void {
@@ -244,7 +244,7 @@ class AgentMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the altAgentIds property value. The altAgentIds property
+     * Sets the altAgentIds property value. Alternate identifiers that can identify the agent. Required when agentMetadata is provided. Use an empty collection ([]) when the agent has no alternate identifiers.
      * @param array<string>|null $value Value to set for the altAgentIds property.
     */
     public function setAltAgentIds(?array $value): void {
@@ -260,7 +260,7 @@ class AgentMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the isEntraAgentId property value. The isEntraAgentId property
+     * Sets the isEntraAgentId property value. Indicates whether the value property of the associated policyLocationAgent is a Microsoft Entra agent ID. Required when agentMetadata is provided.
      * @param bool|null $value Value to set for the isEntraAgentId property.
     */
     public function setIsEntraAgentId(?bool $value): void {

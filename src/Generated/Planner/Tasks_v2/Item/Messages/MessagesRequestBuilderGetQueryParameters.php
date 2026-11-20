@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Planner\Tasks_v2\Item\Messages;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The collection of chat messages associated with the task. Read-only. Nullable.
+ * Get a list of the plannerChatMessage objects associated with the task.
 */
 class MessagesRequestBuilderGetQueryParameters 
 {

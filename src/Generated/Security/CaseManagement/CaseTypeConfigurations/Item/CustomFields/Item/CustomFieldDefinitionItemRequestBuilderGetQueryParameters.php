@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\CaseManagement\CaseTypeConfigu
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The contained custom-field definitions that make up the blank-form schema for this case type. Read-only. Supports $count, $expand, $filter, $orderby, $select, $skip, and $top.
+ * The contained custom-field definitions that make up the blank-form schema for this case type. Read-only. Supports $count, $expand, $filter, $orderby, $select, and $top.
 */
 class CustomFieldDefinitionItemRequestBuilderGetQueryParameters 
 {

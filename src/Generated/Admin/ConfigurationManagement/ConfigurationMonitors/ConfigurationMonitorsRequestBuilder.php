@@ -67,7 +67,7 @@ class ConfigurationMonitorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new configurationMonitor object that runs periodically in the background at a scheduled frequency.
+     * Create a new configurationMonitor object that runs periodically in the background at a scheduled frequency to detect configuration drift in monitorOnly mode, or applies a desired-state baseline once in applyOnce mode.
      * @param ConfigurationMonitor $body The request body
      * @param ConfigurationMonitorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ConfigurationMonitor|null>
@@ -104,7 +104,7 @@ class ConfigurationMonitorsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new configurationMonitor object that runs periodically in the background at a scheduled frequency.
+     * Create a new configurationMonitor object that runs periodically in the background at a scheduled frequency to detect configuration drift in monitorOnly mode, or applies a desired-state baseline once in applyOnce mode.
      * @param ConfigurationMonitor $body The request body
      * @param ConfigurationMonitorsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

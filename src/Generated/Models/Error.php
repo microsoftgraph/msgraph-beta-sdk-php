@@ -56,7 +56,7 @@ class Error implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the code property value. The error code
+     * Gets the code property value. The error code.
      * @return string|null
     */
     public function getCode(): ?string {
@@ -81,7 +81,7 @@ class Error implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the message property value. The message for the error
+     * Gets the message property value. The message for the error.
      * @return string|null
     */
     public function getMessage(): ?string {
@@ -132,7 +132,7 @@ class Error implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the code property value. The error code
+     * Sets the code property value. The error code.
      * @param string|null $value Value to set for the code property.
     */
     public function setCode(?string $value): void {
@@ -140,7 +140,7 @@ class Error implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the message property value. The message for the error
+     * Sets the message property value. The message for the error.
      * @param string|null $value Value to set for the message property.
     */
     public function setMessage(?string $value): void {

@@ -85,7 +85,7 @@ class Planner extends Entity implements Parsable
     }
 
     /**
-     * Gets the plans_v2 property value. Read-only. Nullable. The collection of Planner Graph V4 plans.
+     * Gets the plans_v2 property value. Read-only. Nullable. The collection of plans in the Planner Unified plans Graph API.
      * @return array<Plan>|null
     */
     public function getPlansV2(): ?array {
@@ -127,7 +127,7 @@ class Planner extends Entity implements Parsable
     }
 
     /**
-     * Gets the tasks_v2 property value. Read-only. Nullable. The collection of Planner Graph V4 tasks.
+     * Gets the tasks_v2 property value. Read-only. Nullable. The collection of tasks in the Planner Unified plans Graph API.
      * @return array<Task>|null
     */
     public function getTasksV2(): ?array {
@@ -180,7 +180,7 @@ class Planner extends Entity implements Parsable
     }
 
     /**
-     * Sets the plans_v2 property value. Read-only. Nullable. The collection of Planner Graph V4 plans.
+     * Sets the plans_v2 property value. Read-only. Nullable. The collection of plans in the Planner Unified plans Graph API.
      * @param array<Plan>|null $value Value to set for the plans_v2 property.
     */
     public function setPlansV2(?array $value): void {
@@ -204,7 +204,7 @@ class Planner extends Entity implements Parsable
     }
 
     /**
-     * Sets the tasks_v2 property value. Read-only. Nullable. The collection of Planner Graph V4 tasks.
+     * Sets the tasks_v2 property value. Read-only. Nullable. The collection of tasks in the Planner Unified plans Graph API.
      * @param array<Task>|null $value Value to set for the tasks_v2 property.
     */
     public function setTasksV2(?array $value): void {

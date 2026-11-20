@@ -115,7 +115,7 @@ class PlannerUser extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the plans_v2 property value. Read-only. Nullable. The collection of Planner Graph V4 plans associated with the user.
+     * Gets the plans_v2 property value. Read-only. Nullable. The collection of plans in the Planner Unified plans Graph API associated with the user.
      * @return array<Plan>|null
     */
     public function getPlansV2(): ?array {
@@ -183,7 +183,7 @@ class PlannerUser extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the tasks_v2 property value. Read-only. Nullable. The collection of Planner Graph V4 tasks assigned to the user.
+     * Gets the tasks_v2 property value. Read-only. Nullable. The collection of tasks in the Planner Unified plans Graph API assigned to the user.
      * @return array<Task>|null
     */
     public function getTasksV2(): ?array {
@@ -256,7 +256,7 @@ class PlannerUser extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the plans_v2 property value. Read-only. Nullable. The collection of Planner Graph V4 plans associated with the user.
+     * Sets the plans_v2 property value. Read-only. Nullable. The collection of plans in the Planner Unified plans Graph API associated with the user.
      * @param array<Plan>|null $value Value to set for the plans_v2 property.
     */
     public function setPlansV2(?array $value): void {
@@ -296,7 +296,7 @@ class PlannerUser extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the tasks_v2 property value. Read-only. Nullable. The collection of Planner Graph V4 tasks assigned to the user.
+     * Sets the tasks_v2 property value. Read-only. Nullable. The collection of tasks in the Planner Unified plans Graph API assigned to the user.
      * @param array<Task>|null $value Value to set for the tasks_v2 property.
     */
     public function setTasksV2(?array $value): void {

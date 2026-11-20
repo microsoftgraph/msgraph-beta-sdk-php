@@ -94,7 +94,7 @@ class ActivityMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the participants property value. The participants property
+     * Gets the participants property value. The other parties in an agent interaction. Specify the concrete participant type by using the @odata.type property. Required when evaluationScope.type is agent; otherwise optional.
      * @return array<InteractionParticipant>|null
     */
     public function getParticipants(): ?array {
@@ -151,7 +151,7 @@ class ActivityMetadata implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the participants property value. The participants property
+     * Sets the participants property value. The other parties in an agent interaction. Specify the concrete participant type by using the @odata.type property. Required when evaluationScope.type is agent; otherwise optional.
      * @param array<InteractionParticipant>|null $value Value to set for the participants property.
     */
     public function setParticipants(?array $value): void {

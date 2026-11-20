@@ -128,7 +128,7 @@ class PlanContextLink extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the isCreation property value. Indicates whether this context link represents the original creation surface for the plan.
+     * Gets the isCreation property value. Indicates whether this context link represents the original creation surface for the plan. Service-populated. Read-only.
      * @return bool|null
     */
     public function getIsCreation(): ?bool {
@@ -140,7 +140,7 @@ class PlanContextLink extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the key property value. Identifier for the context the plan is surfaced in.
+     * Gets the key property value. Client-specified identifier for the context the plan is surfaced in. Immutable after creation.
      * @return string|null
     */
     public function getKey(): ?string {
@@ -152,7 +152,7 @@ class PlanContextLink extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the ownerAppId property value. Application ID of the app that owns the surface the plan is linked from.
+     * Gets the ownerAppId property value. Application ID of the app that owns the surface the plan is linked from. Service-populated. Read-only.
      * @return string|null
     */
     public function getOwnerAppId(): ?string {
@@ -241,7 +241,7 @@ class PlanContextLink extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the isCreation property value. Indicates whether this context link represents the original creation surface for the plan.
+     * Sets the isCreation property value. Indicates whether this context link represents the original creation surface for the plan. Service-populated. Read-only.
      * @param bool|null $value Value to set for the isCreation property.
     */
     public function setIsCreation(?bool $value): void {
@@ -249,7 +249,7 @@ class PlanContextLink extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the key property value. Identifier for the context the plan is surfaced in.
+     * Sets the key property value. Client-specified identifier for the context the plan is surfaced in. Immutable after creation.
      * @param string|null $value Value to set for the key property.
     */
     public function setKey(?string $value): void {
@@ -257,7 +257,7 @@ class PlanContextLink extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the ownerAppId property value. Application ID of the app that owns the surface the plan is linked from.
+     * Sets the ownerAppId property value. Application ID of the app that owns the surface the plan is linked from. Service-populated. Read-only.
      * @param string|null $value Value to set for the ownerAppId property.
     */
     public function setOwnerAppId(?string $value): void {

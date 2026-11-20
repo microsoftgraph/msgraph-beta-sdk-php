@@ -48,9 +48,9 @@ class RestoreTaskActivityLog extends ActivityLogBase implements Parsable
             'destinationType' => fn(ParseNode $n) => $o->setDestinationType($n->getEnumValue(DestinationType::class)),
             'restoreArtifactDetails' => fn(ParseNode $n) => $o->setRestoreArtifactDetails($n->getObjectValue([RestoreArtifactDetails::class, 'createFromDiscriminatorValue'])),
             'restoreCompletionDateTime' => fn(ParseNode $n) => $o->setRestoreCompletionDateTime($n->getDateTimeValue()),
+            'restoreJobType' => fn(ParseNode $n) => $o->setRestoreJobType($n->getEnumValue(RestoreJobType::class)),
             'restoreSessionId' => fn(ParseNode $n) => $o->setRestoreSessionId($n->getStringValue()),
             'restoreSessionStatus' => fn(ParseNode $n) => $o->setRestoreSessionStatus($n->getEnumValue(RestoreSessionStatus::class)),
-            'tags' => fn(ParseNode $n) => $o->setTags($n->getEnumValue(RestorePointTags::class)),
         ]);
     }
 
@@ -79,6 +79,18 @@ class RestoreTaskActivityLog extends ActivityLogBase implements Parsable
     }
 
     /**
+     * Gets the restoreJobType property value. Indicates whether the restore job is standard, bulk, or granular. The possible values are: standard, bulk, unknownFutureValue, granular. Use the Prefer: include-unknown-enum-members request header to get the following value from this evolvable enum: granular.
+     * @return RestoreJobType|null
+    */
+    public function getRestoreJobType(): ?RestoreJobType {
+        $val = $this->getBackingStore()->get('restoreJobType');
+        if (is_null($val) || $val instanceof RestoreJobType) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'restoreJobType'");
+    }
+
+    /**
      * Gets the restoreSessionId property value. The unique identifier of the restore session associated with this activity log.
      * @return string|null
     */
@@ -103,18 +115,6 @@ class RestoreTaskActivityLog extends ActivityLogBase implements Parsable
     }
 
     /**
-     * Gets the tags property value. The tags property
-     * @return RestorePointTags|null
-    */
-    public function getTags(): ?RestorePointTags {
-        $val = $this->getBackingStore()->get('tags');
-        if (is_null($val) || $val instanceof RestorePointTags) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'tags'");
-    }
-
-    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -123,9 +123,9 @@ class RestoreTaskActivityLog extends ActivityLogBase implements Parsable
         $writer->writeEnumValue('destinationType', $this->getDestinationType());
         $writer->writeObjectValue('restoreArtifactDetails', $this->getRestoreArtifactDetails());
         $writer->writeDateTimeValue('restoreCompletionDateTime', $this->getRestoreCompletionDateTime());
+        $writer->writeEnumValue('restoreJobType', $this->getRestoreJobType());
         $writer->writeStringValue('restoreSessionId', $this->getRestoreSessionId());
         $writer->writeEnumValue('restoreSessionStatus', $this->getRestoreSessionStatus());
-        $writer->writeEnumValue('tags', $this->getTags());
     }
 
     /**
@@ -153,6 +153,14 @@ class RestoreTaskActivityLog extends ActivityLogBase implements Parsable
     }
 
     /**
+     * Sets the restoreJobType property value. Indicates whether the restore job is standard, bulk, or granular. The possible values are: standard, bulk, unknownFutureValue, granular. Use the Prefer: include-unknown-enum-members request header to get the following value from this evolvable enum: granular.
+     * @param RestoreJobType|null $value Value to set for the restoreJobType property.
+    */
+    public function setRestoreJobType(?RestoreJobType $value): void {
+        $this->getBackingStore()->set('restoreJobType', $value);
+    }
+
+    /**
      * Sets the restoreSessionId property value. The unique identifier of the restore session associated with this activity log.
      * @param string|null $value Value to set for the restoreSessionId property.
     */
@@ -166,14 +174,6 @@ class RestoreTaskActivityLog extends ActivityLogBase implements Parsable
     */
     public function setRestoreSessionStatus(?RestoreSessionStatus $value): void {
         $this->getBackingStore()->set('restoreSessionStatus', $value);
-    }
-
-    /**
-     * Sets the tags property value. The tags property
-     * @param RestorePointTags|null $value Value to set for the tags property.
-    */
-    public function setTags(?RestorePointTags $value): void {
-        $this->getBackingStore()->set('tags', $value);
     }
 
 }

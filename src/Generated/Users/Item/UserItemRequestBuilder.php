@@ -65,6 +65,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\GetManagedDevicesWithFailedOrPendi
 use Microsoft\Graph\Beta\Generated\Users\Item\GetMemberGroups\GetMemberGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\GetMemberObjects\GetMemberObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\GetPasswordSingleSignOnCredentials\GetPasswordSingleSignOnCredentialsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\IdentityVerificationStatus\IdentityVerificationStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\InferenceClassification\InferenceClassificationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\InformationProtection\InformationProtectionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Insights\InsightsRequestBuilder;
@@ -527,6 +528,13 @@ class UserItemRequestBuilder extends BaseRequestBuilder
     */
     public function getPasswordSingleSignOnCredentials(): GetPasswordSingleSignOnCredentialsRequestBuilder {
         return new GetPasswordSingleSignOnCredentialsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the identityVerificationStatus property of the microsoft.graph.user entity.
+    */
+    public function identityVerificationStatus(): IdentityVerificationStatusRequestBuilder {
+        return new IdentityVerificationStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

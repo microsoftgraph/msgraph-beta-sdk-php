@@ -87,6 +87,7 @@ class RiskAlert implements AdditionalDataHolder, BackedModel, Parsable
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'providerAlertId' => fn(ParseNode $n) => $o->setProviderAlertId($n->getStringValue()),
             'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(Severity::class)),
+            'source' => fn(ParseNode $n) => $o->setSource($n->getStringValue()),
         ];
     }
 
@@ -141,6 +142,18 @@ class RiskAlert implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
+     * Gets the source property value. The source property
+     * @return string|null
+    */
+    public function getSource(): ?string {
+        $val = $this->getBackingStore()->get('source');
+        if (is_null($val) || is_string($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'source'");
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -150,6 +163,7 @@ class RiskAlert implements AdditionalDataHolder, BackedModel, Parsable
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeStringValue('providerAlertId', $this->getProviderAlertId());
         $writer->writeEnumValue('severity', $this->getSeverity());
+        $writer->writeStringValue('source', $this->getSource());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -207,6 +221,14 @@ class RiskAlert implements AdditionalDataHolder, BackedModel, Parsable
     */
     public function setSeverity(?Severity $value): void {
         $this->getBackingStore()->set('severity', $value);
+    }
+
+    /**
+     * Sets the source property value. The source property
+     * @param string|null $value Value to set for the source property.
+    */
+    public function setSource(?string $value): void {
+        $this->getBackingStore()->set('source', $value);
     }
 
 }

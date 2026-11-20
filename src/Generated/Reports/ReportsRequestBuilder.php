@@ -55,6 +55,7 @@ use Microsoft\Graph\Beta\Generated\Reports\GetMailboxUsageStorageWithPeriod\GetM
 use Microsoft\Graph\Beta\Generated\Reports\GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersion\GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetMicrosoft365CopilotUserCountSummaryWithPeriodversionVersion\GetMicrosoft365CopilotUserCountSummaryWithPeriodversionVersionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersion\GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\GetMicrosoft365Emissions\GetMicrosoft365EmissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetOffice365ActivationCounts\GetOffice365ActivationCountsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetOffice365ActivationsUserCounts\GetOffice365ActivationsUserCountsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetOffice365ActivationsUserDetail\GetOffice365ActivationsUserDetailRequestBuilder;
@@ -300,6 +301,13 @@ class ReportsRequestBuilder extends BaseRequestBuilder
     */
     public function getCredentialUserRegistrationCount(): GetCredentialUserRegistrationCountRequestBuilder {
         return new GetCredentialUserRegistrationCountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the getMicrosoft365Emissions method.
+    */
+    public function getMicrosoft365Emissions(): GetMicrosoft365EmissionsRequestBuilder {
+        return new GetMicrosoft365EmissionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

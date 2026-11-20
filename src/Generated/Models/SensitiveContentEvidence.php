@@ -70,7 +70,7 @@ class SensitiveContentEvidence implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the length property value. The length property
+     * Gets the length property value. The length of the evidence text.
      * @return int|null
     */
     public function getLength(): ?int {
@@ -82,7 +82,7 @@ class SensitiveContentEvidence implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the match property value. The match property
+     * Gets the match property value. The matched evidence text.
      * @return string|null
     */
     public function getMatch(): ?string {
@@ -106,7 +106,7 @@ class SensitiveContentEvidence implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Gets the offset property value. The offset property
+     * Gets the offset property value. The start position of the evidence text.
      * @return int|null
     */
     public function getOffset(): ?int {
@@ -146,7 +146,7 @@ class SensitiveContentEvidence implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the length property value. The length property
+     * Sets the length property value. The length of the evidence text.
      * @param int|null $value Value to set for the length property.
     */
     public function setLength(?int $value): void {
@@ -154,7 +154,7 @@ class SensitiveContentEvidence implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the match property value. The match property
+     * Sets the match property value. The matched evidence text.
      * @param string|null $value Value to set for the match property.
     */
     public function setMatch(?string $value): void {
@@ -170,7 +170,7 @@ class SensitiveContentEvidence implements AdditionalDataHolder, BackedModel, Par
     }
 
     /**
-     * Sets the offset property value. The offset property
+     * Sets the offset property value. The start position of the evidence text.
      * @param int|null $value Value to set for the offset property.
     */
     public function setOffset(?int $value): void {

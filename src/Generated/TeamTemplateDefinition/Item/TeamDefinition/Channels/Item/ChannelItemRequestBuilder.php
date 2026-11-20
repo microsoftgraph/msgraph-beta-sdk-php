@@ -21,6 +21,7 @@ use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Ch
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Channels\Item\SharedWithTeams\SharedWithTeamsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Channels\Item\StartMigration\StartMigrationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Channels\Item\Tabs\TabsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Channels\Item\Tags\TagsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamDefinition\Channels\Item\Unarchive\UnarchiveRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -135,6 +136,13 @@ class ChannelItemRequestBuilder extends BaseRequestBuilder
     */
     public function tabs(): TabsRequestBuilder {
         return new TabsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the tags property of the microsoft.graph.channel entity.
+    */
+    public function tags(): TagsRequestBuilder {
+        return new TagsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

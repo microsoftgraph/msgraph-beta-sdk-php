@@ -27,6 +27,8 @@ class Ring extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.windowsUpdates.driverUpdateRing': return new DriverUpdateRing();
+                case '#microsoft.graph.windowsUpdates.featureUpdateRing': return new FeatureUpdateRing();
                 case '#microsoft.graph.windowsUpdates.qualityUpdateRing': return new QualityUpdateRing();
             }
         }
@@ -46,7 +48,7 @@ class Ring extends Entity implements Parsable
     }
 
     /**
-     * Gets the deferralInDays property value. The quality update deferral period in days. The value must be between 0 and 30. Optional.
+     * Gets the deferralInDays property value. The update deferral period in days. The value must be between 0 and 30. Optional.
      * @return int|null
     */
     public function getDeferralInDays(): ?int {
@@ -124,7 +126,7 @@ class Ring extends Entity implements Parsable
     }
 
     /**
-     * Gets the isPaused property value. The pause action for the quality update ring policy. Required.
+     * Gets the isPaused property value. The pause action for the update ring. Required.
      * @return bool|null
     */
     public function getIsPaused(): ?bool {
@@ -136,7 +138,7 @@ class Ring extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The date and time whenthe ring was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * Gets the lastModifiedDateTime property value. The date and time when the ring was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -172,7 +174,7 @@ class Ring extends Entity implements Parsable
     }
 
     /**
-     * Sets the deferralInDays property value. The quality update deferral period in days. The value must be between 0 and 30. Optional.
+     * Sets the deferralInDays property value. The update deferral period in days. The value must be between 0 and 30. Optional.
      * @param int|null $value Value to set for the deferralInDays property.
     */
     public function setDeferralInDays(?int $value): void {
@@ -212,7 +214,7 @@ class Ring extends Entity implements Parsable
     }
 
     /**
-     * Sets the isPaused property value. The pause action for the quality update ring policy. Required.
+     * Sets the isPaused property value. The pause action for the update ring. Required.
      * @param bool|null $value Value to set for the isPaused property.
     */
     public function setIsPaused(?bool $value): void {
@@ -220,7 +222,7 @@ class Ring extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The date and time whenthe ring was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * Sets the lastModifiedDateTime property value. The date and time when the ring was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value): void {

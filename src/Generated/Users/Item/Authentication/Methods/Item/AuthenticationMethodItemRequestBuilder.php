@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\AuthenticationMethod;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\Methods\Item\AttestProvenance\AttestProvenanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\Methods\Item\DisableSmsSignIn\DisableSmsSignInRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\Methods\Item\EnableSmsSignIn\EnableSmsSignInRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Authentication\Methods\Item\ResetPassword\ResetPasswordRequestBuilder;
@@ -19,6 +20,13 @@ use Microsoft\Kiota\Abstractions\RequestInformation;
 */
 class AuthenticationMethodItemRequestBuilder extends BaseRequestBuilder 
 {
+    /**
+     * Provides operations to call the attestProvenance method.
+    */
+    public function attestProvenance(): AttestProvenanceRequestBuilder {
+        return new AttestProvenanceRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * Provides operations to call the disableSmsSignIn method.
     */

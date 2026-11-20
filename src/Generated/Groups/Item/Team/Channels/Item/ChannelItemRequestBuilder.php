@@ -19,6 +19,7 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\RemoveEmail\Re
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\SharedWithTeams\SharedWithTeamsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\StartMigration\StartMigrationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\Tabs\TabsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\Tags\TagsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Channels\Item\Unarchive\UnarchiveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Channel;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -135,6 +136,13 @@ class ChannelItemRequestBuilder extends BaseRequestBuilder
     */
     public function tabs(): TabsRequestBuilder {
         return new TabsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the tags property of the microsoft.graph.channel entity.
+    */
+    public function tags(): TagsRequestBuilder {
+        return new TagsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

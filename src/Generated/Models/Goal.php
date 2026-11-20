@@ -173,7 +173,7 @@ class Goal extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the planId property value. ID of the plan that contains the goal. Required, and immutable after creation.
+     * Gets the planId property value. ID of the plan that contains the goal. Immutable after creation.
      * @return string|null
     */
     public function getPlanId(): ?string {
@@ -335,7 +335,7 @@ class Goal extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the planId property value. ID of the plan that contains the goal. Required, and immutable after creation.
+     * Sets the planId property value. ID of the plan that contains the goal. Immutable after creation.
      * @param string|null $value Value to set for the planId property.
     */
     public function setPlanId(?string $value): void {

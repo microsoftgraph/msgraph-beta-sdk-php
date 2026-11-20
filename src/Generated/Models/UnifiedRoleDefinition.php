@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -38,6 +39,18 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     }
 
     /**
+     * Gets the deletedDateTime property value. The date and time when the custom role definition was deleted. The value is null for active and restored role definitions. Read-only.
+     * @return DateTime|null
+    */
+    public function getDeletedDateTime(): ?DateTime {
+        $val = $this->getBackingStore()->get('deletedDateTime');
+        if (is_null($val) || $val instanceof DateTime) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'deletedDateTime'");
+    }
+
+    /**
      * Gets the description property value. The description for the unifiedRoleDefinition. Read-only when isBuiltIn is true.
      * @return string|null
     */
@@ -69,6 +82,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'allowedPrincipalTypes' => fn(ParseNode $n) => $o->setAllowedPrincipalTypes($n->getEnumValue(AllowedRolePrincipalTypes::class)),
+            'deletedDateTime' => fn(ParseNode $n) => $o->setDeletedDateTime($n->getDateTimeValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'inheritsPermissionsFrom' => fn(ParseNode $n) => $o->setInheritsPermissionsFrom($n->getCollectionOfObjectValues([UnifiedRoleDefinition::class, 'createFromDiscriminatorValue'])),
@@ -198,6 +212,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('allowedPrincipalTypes', $this->getAllowedPrincipalTypes());
+        $writer->writeDateTimeValue('deletedDateTime', $this->getDeletedDateTime());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeStringValue('displayName', $this->getDisplayName());
         $writer->writeCollectionOfObjectValues('inheritsPermissionsFrom', $this->getInheritsPermissionsFrom());
@@ -216,6 +231,14 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     */
     public function setAllowedPrincipalTypes(?AllowedRolePrincipalTypes $value): void {
         $this->getBackingStore()->set('allowedPrincipalTypes', $value);
+    }
+
+    /**
+     * Sets the deletedDateTime property value. The date and time when the custom role definition was deleted. The value is null for active and restored role definitions. Read-only.
+     * @param DateTime|null $value Value to set for the deletedDateTime property.
+    */
+    public function setDeletedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('deletedDateTime', $value);
     }
 
     /**

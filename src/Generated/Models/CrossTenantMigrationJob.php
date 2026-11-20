@@ -188,7 +188,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the sourceTenantId property value. ID (GUID) of the tenant that content is migrated from.
+     * Gets the sourceTenantId property value. ID (GUID) of the source tenant for the content migration.
      * @return string|null
     */
     public function getSourceTenantId(): ?string {
@@ -212,7 +212,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the targetTenantId property value. ID of the tenant that content is migrated to. Read-only.
+     * Gets the targetTenantId property value. ID of the target tenant for the content migration. Read-only.
      * @return string|null
     */
     public function getTargetTenantId(): ?string {
@@ -355,7 +355,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the sourceTenantId property value. ID (GUID) of the tenant that content is migrated from.
+     * Sets the sourceTenantId property value. ID (GUID) of the source tenant for the content migration.
      * @param string|null $value Value to set for the sourceTenantId property.
     */
     public function setSourceTenantId(?string $value): void {
@@ -371,7 +371,7 @@ class CrossTenantMigrationJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the targetTenantId property value. ID of the tenant that content is migrated to. Read-only.
+     * Sets the targetTenantId property value. ID of the target tenant for the content migration. Read-only.
      * @param string|null $value Value to set for the targetTenantId property.
     */
     public function setTargetTenantId(?string $value): void {

@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\OnPremisesConnections\Item\UpdateAdDomainPassword;
 
+use Microsoft\Graph\Beta\Generated\Models\CloudPcDomainJoinCredential;
 use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
@@ -68,6 +69,18 @@ class UpdateAdDomainPasswordPostRequestBody implements AdditionalDataHolder, Bac
     }
 
     /**
+     * Gets the domainJoinCredential property value. The domainJoinCredential property
+     * @return CloudPcDomainJoinCredential|null
+    */
+    public function getDomainJoinCredential(): ?CloudPcDomainJoinCredential {
+        $val = $this->getBackingStore()->get('domainJoinCredential');
+        if (is_null($val) || $val instanceof CloudPcDomainJoinCredential) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'domainJoinCredential'");
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable(ParseNode): void>
     */
@@ -75,6 +88,7 @@ class UpdateAdDomainPasswordPostRequestBody implements AdditionalDataHolder, Bac
         $o = $this;
         return  [
             'adDomainPassword' => fn(ParseNode $n) => $o->setAdDomainPassword($n->getStringValue()),
+            'domainJoinCredential' => fn(ParseNode $n) => $o->setDomainJoinCredential($n->getObjectValue([CloudPcDomainJoinCredential::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
@@ -84,6 +98,7 @@ class UpdateAdDomainPasswordPostRequestBody implements AdditionalDataHolder, Bac
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('adDomainPassword', $this->getAdDomainPassword());
+        $writer->writeObjectValue('domainJoinCredential', $this->getDomainJoinCredential());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -109,6 +124,14 @@ class UpdateAdDomainPasswordPostRequestBody implements AdditionalDataHolder, Bac
     */
     public function setBackingStore(BackingStore $value): void {
         $this->backingStore = $value;
+    }
+
+    /**
+     * Sets the domainJoinCredential property value. The domainJoinCredential property
+     * @param CloudPcDomainJoinCredential|null $value Value to set for the domainJoinCredential property.
+    */
+    public function setDomainJoinCredential(?CloudPcDomainJoinCredential $value): void {
+        $this->getBackingStore()->set('domainJoinCredential', $value);
     }
 
 }

@@ -27,7 +27,7 @@ class Plan extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the archivalInfo property value. Information about whether the entity is archived, and when it was archived.
+     * Gets the archivalInfo property value. Service-populated information about whether the entity is archived, and when it was archived. Read-only.
      * @return PlannerArchivalInfo|null
     */
     public function getArchivalInfo(): ?PlannerArchivalInfo {
@@ -101,7 +101,7 @@ class Plan extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the contexts property value. The collection of context links describing where the plan is surfaced. Read-only. Nullable.
+     * Gets the contexts property value. Context links describing where the plan is surfaced. Can be supplied when creating a plan by using a deep insert. Nullable.
      * @return array<PlanContextLink>|null
     */
     public function getContexts(): ?array {
@@ -167,7 +167,7 @@ class Plan extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the duration property value. Duration of the plan, in days.
+     * Gets the duration property value. Computed duration of the plan, in seconds. Read-only.
      * @return int|null
     */
     public function getDuration(): ?int {
@@ -237,7 +237,7 @@ class Plan extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the hasChat property value. Indicates whether the plan has an associated chat.
+     * Gets the hasChat property value. Indicates whether the plan has an associated chat. Read-only.
      * @return bool|null
     */
     public function getHasChat(): ?bool {
@@ -287,7 +287,7 @@ class Plan extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the links property value. The collection of content links attached to the plan. Read-only. Nullable.
+     * Gets the links property value. Content links attached to the plan. Can be supplied when creating a plan by using a deep insert. Nullable.
      * @return array<ContentLink>|null
     */
     public function getLinks(): ?array {
@@ -369,7 +369,7 @@ class Plan extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the archivalInfo property value. Information about whether the entity is archived, and when it was archived.
+     * Sets the archivalInfo property value. Service-populated information about whether the entity is archived, and when it was archived. Read-only.
      * @param PlannerArchivalInfo|null $value Value to set for the archivalInfo property.
     */
     public function setArchivalInfo(?PlannerArchivalInfo $value): void {
@@ -417,7 +417,7 @@ class Plan extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the contexts property value. The collection of context links describing where the plan is surfaced. Read-only. Nullable.
+     * Sets the contexts property value. Context links describing where the plan is surfaced. Can be supplied when creating a plan by using a deep insert. Nullable.
      * @param array<PlanContextLink>|null $value Value to set for the contexts property.
     */
     public function setContexts(?array $value): void {
@@ -457,7 +457,7 @@ class Plan extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the duration property value. Duration of the plan, in days.
+     * Sets the duration property value. Computed duration of the plan, in seconds. Read-only.
      * @param int|null $value Value to set for the duration property.
     */
     public function setDuration(?int $value): void {
@@ -481,7 +481,7 @@ class Plan extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the hasChat property value. Indicates whether the plan has an associated chat.
+     * Sets the hasChat property value. Indicates whether the plan has an associated chat. Read-only.
      * @param bool|null $value Value to set for the hasChat property.
     */
     public function setHasChat(?bool $value): void {
@@ -513,7 +513,7 @@ class Plan extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the links property value. The collection of content links attached to the plan. Read-only. Nullable.
+     * Sets the links property value. Content links attached to the plan. Can be supplied when creating a plan by using a deep insert. Nullable.
      * @param array<ContentLink>|null $value Value to set for the links property.
     */
     public function setLinks(?array $value): void {

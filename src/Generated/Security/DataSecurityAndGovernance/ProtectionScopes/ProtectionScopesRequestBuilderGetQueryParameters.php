@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Security\DataSecurityAndGovernance\Prot
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Container for actions related to computing tenant-wide data protection scopes.
+ * The container for actions related to computing tenant-wide data protection scopes.
 */
 class ProtectionScopesRequestBuilderGetQueryParameters 
 {

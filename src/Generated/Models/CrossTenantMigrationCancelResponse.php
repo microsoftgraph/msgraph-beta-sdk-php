@@ -69,7 +69,7 @@ class CrossTenantMigrationCancelResponse implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the message property value. The customer facing description of the cancellation request
+     * Gets the message property value. The description of the cancellation request.
      * @return string|null
     */
     public function getMessage(): ?string {
@@ -93,7 +93,7 @@ class CrossTenantMigrationCancelResponse implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Gets the status property value. The cancellation request status
+     * Gets the status property value. The cancellation request status.
      * @return string|null
     */
     public function getStatus(): ?string {
@@ -132,7 +132,7 @@ class CrossTenantMigrationCancelResponse implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the message property value. The customer facing description of the cancellation request
+     * Sets the message property value. The description of the cancellation request.
      * @param string|null $value Value to set for the message property.
     */
     public function setMessage(?string $value): void {
@@ -148,7 +148,7 @@ class CrossTenantMigrationCancelResponse implements AdditionalDataHolder, Backed
     }
 
     /**
-     * Sets the status property value. The cancellation request status
+     * Sets the status property value. The cancellation request status.
      * @param string|null $value Value to set for the status property.
     */
     public function setStatus(?string $value): void {

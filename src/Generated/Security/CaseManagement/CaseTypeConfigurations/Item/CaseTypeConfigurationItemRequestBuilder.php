@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security\CaseManagement\CaseTypeConfiguration;
 use Microsoft\Graph\Beta\Generated\Security\CaseManagement\CaseTypeConfigurations\Item\CustomFields\CustomFieldsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\CaseManagement\CaseTypeConfigurations\Item\SlaPolicies\SlaPoliciesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\CaseManagement\CaseTypeConfigurations\Item\Statuses\StatusesRequestBuilder;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -23,6 +24,13 @@ class CaseTypeConfigurationItemRequestBuilder extends BaseRequestBuilder
     */
     public function customFields(): CustomFieldsRequestBuilder {
         return new CustomFieldsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the slaPolicies property of the microsoft.graph.security.caseManagement.caseTypeConfiguration entity.
+    */
+    public function slaPolicies(): SlaPoliciesRequestBuilder {
+        return new SlaPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

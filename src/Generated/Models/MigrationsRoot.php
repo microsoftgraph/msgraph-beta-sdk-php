@@ -26,7 +26,7 @@ class MigrationsRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the crossTenantMigrationJobs property value. Migration Jobs associated with this tenant.
+     * Gets the crossTenantMigrationJobs property value. Migration jobs associated with this tenant.
      * @return array<CrossTenantMigrationJob>|null
     */
     public function getCrossTenantMigrationJobs(): ?array {
@@ -60,7 +60,7 @@ class MigrationsRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the crossTenantMigrationJobs property value. Migration Jobs associated with this tenant.
+     * Sets the crossTenantMigrationJobs property value. Migration jobs associated with this tenant.
      * @param array<CrossTenantMigrationJob>|null $value Value to set for the crossTenantMigrationJobs property.
     */
     public function setCrossTenantMigrationJobs(?array $value): void {

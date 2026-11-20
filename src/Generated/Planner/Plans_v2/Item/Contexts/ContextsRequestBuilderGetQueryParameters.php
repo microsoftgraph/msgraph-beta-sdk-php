@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Planner\Plans_v2\Item\Contexts;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The collection of context links describing where the plan is surfaced. Read-only. Nullable.
+ * Context links describing where the plan is surfaced. Can be supplied when creating a plan by using a deep insert. Nullable.
 */
 class ContextsRequestBuilderGetQueryParameters 
 {

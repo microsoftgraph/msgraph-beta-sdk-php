@@ -31,7 +31,7 @@ class RingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a ring object. You can use this method with the following child object type: qualityUpdateRing.
+     * Delete a ring object. You can use this method with the following child object types: driverUpdateRing, featureUpdateRing, and qualityUpdateRing.
      * @param RingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
@@ -46,7 +46,7 @@ class RingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of ring object. You can use this method with the following child object type: qualityUpdateRing.
+     * Read the properties and relationships of ring object. You can use this method with the following child object types: driverUpdateRing, featureUpdateRing, and qualityUpdateRing.
      * @param RingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Ring|null>
      * @throws Exception
@@ -61,7 +61,7 @@ class RingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a ring object. You can use this method with the following child object type: qualityUpdateRing.
+     * Update the properties of a ring object. You can use this method with the following child object types: driverUpdateRing, featureUpdateRing, and qualityUpdateRing.
      * @param Ring $body The request body
      * @param RingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Ring|null>
@@ -77,7 +77,7 @@ class RingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a ring object. You can use this method with the following child object type: qualityUpdateRing.
+     * Delete a ring object. You can use this method with the following child object types: driverUpdateRing, featureUpdateRing, and qualityUpdateRing.
      * @param RingItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -95,7 +95,7 @@ class RingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Read the properties and relationships of ring object. You can use this method with the following child object type: qualityUpdateRing.
+     * Read the properties and relationships of ring object. You can use this method with the following child object types: driverUpdateRing, featureUpdateRing, and qualityUpdateRing.
      * @param RingItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -116,7 +116,7 @@ class RingItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a ring object. You can use this method with the following child object type: qualityUpdateRing.
+     * Update the properties of a ring object. You can use this method with the following child object types: driverUpdateRing, featureUpdateRing, and qualityUpdateRing.
      * @param Ring $body The request body
      * @param RingItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

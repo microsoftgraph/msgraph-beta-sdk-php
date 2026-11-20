@@ -61,7 +61,7 @@ class ApplicableContentCatalogEntryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents content applicable for offering to the related collection of devices.
+     * The existing applicable-content collection. For driver and feature update applicability, use applicableCatalogs.
      * @param ApplicableContentCatalogEntryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ApplicableContent|null>
      * @throws Exception
@@ -108,7 +108,7 @@ class ApplicableContentCatalogEntryItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Represents content applicable for offering to the related collection of devices.
+     * The existing applicable-content collection. For driver and feature update applicability, use applicableCatalogs.
      * @param ApplicableContentCatalogEntryItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

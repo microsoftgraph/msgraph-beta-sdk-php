@@ -26,7 +26,7 @@ class PolicyLocationAgent extends PolicyLocationApplication implements Parsable
     }
 
     /**
-     * Gets the agentMetadata property value. The agentMetadata property
+     * Gets the agentMetadata property value. Metadata used for agent policy scoping and evaluation. Optional.
      * @return AgentMetadata|null
     */
     public function getAgentMetadata(): ?AgentMetadata {
@@ -58,7 +58,7 @@ class PolicyLocationAgent extends PolicyLocationApplication implements Parsable
     }
 
     /**
-     * Sets the agentMetadata property value. The agentMetadata property
+     * Sets the agentMetadata property value. Metadata used for agent policy scoping and evaluation. Optional.
      * @param AgentMetadata|null $value Value to set for the agentMetadata property.
     */
     public function setAgentMetadata(?AgentMetadata $value): void {

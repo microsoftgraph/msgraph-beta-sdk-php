@@ -27,7 +27,7 @@ class Task extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the archivalInfo property value. Information about whether the entity is archived, and when it was archived.
+     * Gets the archivalInfo property value. Service-populated information about whether the entity is archived, and when it was archived. Read-only.
      * @return PlannerArchivalInfo|null
     */
     public function getArchivalInfo(): ?PlannerArchivalInfo {
@@ -63,7 +63,7 @@ class Task extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the checklist property value. The collection of checklist items on the task. Read-only. Nullable.
+     * Gets the checklist property value. Checklist items on the task. Can be supplied when creating a task by using a deep insert. Nullable.
      * @return array<ChecklistItemV4>|null
     */
     public function getChecklist(): ?array {
@@ -77,7 +77,7 @@ class Task extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the completedBy property value. Identity of the user who marked the task complete.
+     * Gets the completedBy property value. Identity of the user who marked the task complete. Read-only.
      * @return IdentitySet|null
     */
     public function getCompletedBy(): ?IdentitySet {
@@ -89,7 +89,7 @@ class Task extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the completedDateTime property value. Date and time the task was completed.
+     * Gets the completedDateTime property value. Date and time the task was completed. Read-only.
      * @return DateTime|null
     */
     public function getCompletedDateTime(): ?DateTime {
@@ -237,7 +237,7 @@ class Task extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the hasChat property value. Indicates whether the task has an associated chat.
+     * Gets the hasChat property value. Indicates whether the task has an associated chat. Read-only.
      * @return bool|null
     */
     public function getHasChat(): ?bool {
@@ -249,7 +249,7 @@ class Task extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the hasChildren property value. Indicates whether the task has subtasks.
+     * Gets the hasChildren property value. Indicates whether the task has subtasks. Read-only.
      * @return bool|null
     */
     public function getHasChildren(): ?bool {
@@ -261,7 +261,7 @@ class Task extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the isCritical property value. Indicates whether the task is on the critical path, as computed from its dependencies.
+     * Gets the isCritical property value. Indicates whether the task is on the critical path, as computed from its dependencies. Read-only.
      * @return bool|null
     */
     public function getIsCritical(): ?bool {
@@ -297,7 +297,7 @@ class Task extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the links property value. The collection of content links attached to the task. Read-only. Nullable.
+     * Gets the links property value. Content links attached to the task. Can be supplied when creating a task by using a deep insert. Nullable.
      * @return array<ContentLink>|null
     */
     public function getLinks(): ?array {
@@ -445,7 +445,7 @@ class Task extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the userAssignments property value. The collection of user assignments on the task. Read-only. Nullable.
+     * Gets the userAssignments property value. User assignments on the task. Can be supplied when creating a task by using a deep insert. Nullable.
      * @return array<UserAssignment>|null
     */
     public function getUserAssignments(): ?array {
@@ -496,7 +496,7 @@ class Task extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the archivalInfo property value. Information about whether the entity is archived, and when it was archived.
+     * Sets the archivalInfo property value. Service-populated information about whether the entity is archived, and when it was archived. Read-only.
      * @param PlannerArchivalInfo|null $value Value to set for the archivalInfo property.
     */
     public function setArchivalInfo(?PlannerArchivalInfo $value): void {
@@ -520,7 +520,7 @@ class Task extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the checklist property value. The collection of checklist items on the task. Read-only. Nullable.
+     * Sets the checklist property value. Checklist items on the task. Can be supplied when creating a task by using a deep insert. Nullable.
      * @param array<ChecklistItemV4>|null $value Value to set for the checklist property.
     */
     public function setChecklist(?array $value): void {
@@ -528,7 +528,7 @@ class Task extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the completedBy property value. Identity of the user who marked the task complete.
+     * Sets the completedBy property value. Identity of the user who marked the task complete. Read-only.
      * @param IdentitySet|null $value Value to set for the completedBy property.
     */
     public function setCompletedBy(?IdentitySet $value): void {
@@ -536,7 +536,7 @@ class Task extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the completedDateTime property value. Date and time the task was completed.
+     * Sets the completedDateTime property value. Date and time the task was completed. Read-only.
      * @param DateTime|null $value Value to set for the completedDateTime property.
     */
     public function setCompletedDateTime(?DateTime $value): void {
@@ -600,7 +600,7 @@ class Task extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the hasChat property value. Indicates whether the task has an associated chat.
+     * Sets the hasChat property value. Indicates whether the task has an associated chat. Read-only.
      * @param bool|null $value Value to set for the hasChat property.
     */
     public function setHasChat(?bool $value): void {
@@ -608,7 +608,7 @@ class Task extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the hasChildren property value. Indicates whether the task has subtasks.
+     * Sets the hasChildren property value. Indicates whether the task has subtasks. Read-only.
      * @param bool|null $value Value to set for the hasChildren property.
     */
     public function setHasChildren(?bool $value): void {
@@ -616,7 +616,7 @@ class Task extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the isCritical property value. Indicates whether the task is on the critical path, as computed from its dependencies.
+     * Sets the isCritical property value. Indicates whether the task is on the critical path, as computed from its dependencies. Read-only.
      * @param bool|null $value Value to set for the isCritical property.
     */
     public function setIsCritical(?bool $value): void {
@@ -640,7 +640,7 @@ class Task extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the links property value. The collection of content links attached to the task. Read-only. Nullable.
+     * Sets the links property value. Content links attached to the task. Can be supplied when creating a task by using a deep insert. Nullable.
      * @param array<ContentLink>|null $value Value to set for the links property.
     */
     public function setLinks(?array $value): void {
@@ -736,7 +736,7 @@ class Task extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the userAssignments property value. The collection of user assignments on the task. Read-only. Nullable.
+     * Sets the userAssignments property value. User assignments on the task. Can be supplied when creating a task by using a deep insert. Nullable.
      * @param array<UserAssignment>|null $value Value to set for the userAssignments property.
     */
     public function setUserAssignments(?array $value): void {

@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\SynchronizationJob;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\Jobs\Item\BulkUpload\BulkUploadRequestBuilder;
+use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\Jobs\Item\ObjectConnections\ObjectConnectionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\Jobs\Item\Pause\PauseRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\Jobs\Item\ProvisionOnDemand\ProvisionOnDemandRequestBuilder;
 use Microsoft\Graph\Beta\Generated\ServicePrincipals\Item\Synchronization\Jobs\Item\Restart\RestartRequestBuilder;
@@ -28,6 +29,13 @@ class SynchronizationJobItemRequestBuilder extends BaseRequestBuilder
     */
     public function bulkUpload(): BulkUploadRequestBuilder {
         return new BulkUploadRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the objectConnections property of the microsoft.graph.synchronizationJob entity.
+    */
+    public function objectConnections(): ObjectConnectionsRequestBuilder {
+        return new ObjectConnectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

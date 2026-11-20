@@ -134,7 +134,7 @@ class PasswordCredentialConfiguration implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Gets the state property value. Indicates whether the restriction is evaluated. The possible values are: enabled, disabled, unknownFutureValue. If enabled, the restriction is evaluated. If disabled, the restriction isn't evaluated or enforced.
+     * Gets the state property value. Indicates whether the restriction is evaluated. The possible values are: enabled, disabled, audit, unknownFutureValue. If enabled, the restriction is evaluated and enforced. If disabled, the restriction isn't evaluated or enforced. If audit, the restriction is evaluated but not enforced.
      * @return AppManagementRestrictionState|null
     */
     public function getState(): ?AppManagementRestrictionState {
@@ -216,7 +216,7 @@ class PasswordCredentialConfiguration implements AdditionalDataHolder, BackedMod
     }
 
     /**
-     * Sets the state property value. Indicates whether the restriction is evaluated. The possible values are: enabled, disabled, unknownFutureValue. If enabled, the restriction is evaluated. If disabled, the restriction isn't evaluated or enforced.
+     * Sets the state property value. Indicates whether the restriction is evaluated. The possible values are: enabled, disabled, audit, unknownFutureValue. If enabled, the restriction is evaluated and enforced. If disabled, the restriction isn't evaluated or enforced. If audit, the restriction is evaluated but not enforced.
      * @param AppManagementRestrictionState|null $value Value to set for the state property.
     */
     public function setState(?AppManagementRestrictionState $value): void {

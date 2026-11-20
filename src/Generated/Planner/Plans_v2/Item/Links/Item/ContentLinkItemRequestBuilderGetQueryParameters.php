@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Planner\Plans_v2\Item\Links\Item;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The collection of content links attached to the plan. Read-only. Nullable.
+ * Content links attached to the plan. Can be supplied when creating a plan by using a deep insert. Nullable.
 */
 class ContentLinkItemRequestBuilderGetQueryParameters 
 {

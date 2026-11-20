@@ -56,7 +56,7 @@ class ApproverDelegate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the delegate property value. The identity that receives the approval delegation. Only singleUser and groupMembers are currently supported.
+     * Gets the delegate property value. The user or group that receives the approval delegation. Only the singleUser and groupMembers subtypes are supported.
      * @return UserSet|null
     */
     public function getDelegate(): ?UserSet {
@@ -93,7 +93,7 @@ class ApproverDelegate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Gets the schedule property value. The schedule for the delegation, including start date and expiration pattern (duration, end date, or no expiration).
+     * Gets the schedule property value. The period during which the delegation is in effect, expressed as a start date and an expiration pattern. If you don't specify a schedule, the delegation starts immediately and doesn't expire.
      * @return RequestSchedule|null
     */
     public function getSchedule(): ?RequestSchedule {
@@ -132,7 +132,7 @@ class ApproverDelegate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the delegate property value. The identity that receives the approval delegation. Only singleUser and groupMembers are currently supported.
+     * Sets the delegate property value. The user or group that receives the approval delegation. Only the singleUser and groupMembers subtypes are supported.
      * @param UserSet|null $value Value to set for the delegate property.
     */
     public function setDelegate(?UserSet $value): void {
@@ -148,7 +148,7 @@ class ApproverDelegate implements AdditionalDataHolder, BackedModel, Parsable
     }
 
     /**
-     * Sets the schedule property value. The schedule for the delegation, including start date and expiration pattern (duration, end date, or no expiration).
+     * Sets the schedule property value. The period during which the delegation is in effect, expressed as a start date and an expiration pattern. If you don't specify a schedule, the delegation starts immediately and doesn't expire.
      * @param RequestSchedule|null $value Value to set for the schedule property.
     */
     public function setSchedule(?RequestSchedule $value): void {

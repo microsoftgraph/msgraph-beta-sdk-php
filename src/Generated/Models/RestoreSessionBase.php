@@ -127,7 +127,7 @@ class RestoreSessionBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the policyId property value. The identifier of the protection policy that scopes the restore session. When supplied during create or update, the service validates that the referenced protection units belong to the specified policy.
+     * Gets the policyId property value. The identifier of the protection policy that scopes the restore session. When supplied during creation or update, the service validates that the referenced protection units belong to the specified policy.
      * @return string|null
     */
     public function getPolicyId(): ?string {
@@ -241,7 +241,7 @@ class RestoreSessionBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the policyId property value. The identifier of the protection policy that scopes the restore session. When supplied during create or update, the service validates that the referenced protection units belong to the specified policy.
+     * Sets the policyId property value. The identifier of the protection policy that scopes the restore session. When supplied during creation or update, the service validates that the referenced protection units belong to the specified policy.
      * @param string|null $value Value to set for the policyId property.
     */
     public function setPolicyId(?string $value): void {

@@ -37,7 +37,7 @@ class Comment extends Activity implements Parsable
     }
 
     /**
-     * Gets the message property value. The comment body. Supports $filter.
+     * Gets the message property value. The comment body. The maximum length is 1,000 characters for incident cases and 5,000 characters for generic cases. Supports $filter.
      * @return string|null
     */
     public function getMessage(): ?string {
@@ -58,7 +58,7 @@ class Comment extends Activity implements Parsable
     }
 
     /**
-     * Sets the message property value. The comment body. Supports $filter.
+     * Sets the message property value. The comment body. The maximum length is 1,000 characters for incident cases and 5,000 characters for generic cases. Supports $filter.
      * @param string|null $value Value to set for the message property.
     */
     public function setMessage(?string $value): void {

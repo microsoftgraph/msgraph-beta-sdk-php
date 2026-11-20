@@ -120,7 +120,7 @@ class EscapedCase extends CaseManagementEntity implements Parsable
     }
 
     /**
-     * Gets the slaPolicies property value. A denormalized, read-only collection of SLA (service level agreement) policy status entries for the case. Each entry represents one SLA policy applied to the case, including its current status and breach target time. Computed by the service; any value supplied in a create or update request is silently ignored. Supports $filter using the any() lambda operator only, for example, $filter=slaPolicies/any(p: p/status eq 'breached'). The all() lambda operator and other collection functions aren't supported. Doesn't support $orderby.
+     * Gets the slaPolicies property value. A read-only collection of SLA (service level agreement) policy status entries for the case. Each entry contains the policy's current status and breach target time. Computed by the service. Supports $filter using the any() lambda operator only, for example, $filter=slaPolicies/any(p: p/status eq 'breached'). The all() lambda operator and other collection functions aren't supported. Doesn't support $orderby.
      * @return array<CaseSlaPolicyEntry>|null
     */
     public function getSlaPolicies(): ?array {
@@ -215,7 +215,7 @@ class EscapedCase extends CaseManagementEntity implements Parsable
     }
 
     /**
-     * Sets the slaPolicies property value. A denormalized, read-only collection of SLA (service level agreement) policy status entries for the case. Each entry represents one SLA policy applied to the case, including its current status and breach target time. Computed by the service; any value supplied in a create or update request is silently ignored. Supports $filter using the any() lambda operator only, for example, $filter=slaPolicies/any(p: p/status eq 'breached'). The all() lambda operator and other collection functions aren't supported. Doesn't support $orderby.
+     * Sets the slaPolicies property value. A read-only collection of SLA (service level agreement) policy status entries for the case. Each entry contains the policy's current status and breach target time. Computed by the service. Supports $filter using the any() lambda operator only, for example, $filter=slaPolicies/any(p: p/status eq 'breached'). The all() lambda operator and other collection functions aren't supported. Doesn't support $orderby.
      * @param array<CaseSlaPolicyEntry>|null $value Value to set for the slaPolicies property.
     */
     public function setSlaPolicies(?array $value): void {

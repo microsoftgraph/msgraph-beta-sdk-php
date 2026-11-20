@@ -93,7 +93,7 @@ class TodoTaskList extends Entity implements Parsable
     }
 
     /**
-     * Gets the singleValueExtendedProperties property value. The collection of single-value extended properties defined for the task list. Read-only. Nullable.
+     * Gets the singleValueExtendedProperties property value. The collection of single-value extended properties defined for the task list. Nullable.
      * @return array<SingleValueExtendedProperty>|null
     */
     public function getSingleValueExtendedProperties(): ?array {
@@ -180,7 +180,7 @@ class TodoTaskList extends Entity implements Parsable
     }
 
     /**
-     * Sets the singleValueExtendedProperties property value. The collection of single-value extended properties defined for the task list. Read-only. Nullable.
+     * Sets the singleValueExtendedProperties property value. The collection of single-value extended properties defined for the task list. Nullable.
      * @param array<SingleValueExtendedProperty>|null $value Value to set for the singleValueExtendedProperties property.
     */
     public function setSingleValueExtendedProperties(?array $value): void {

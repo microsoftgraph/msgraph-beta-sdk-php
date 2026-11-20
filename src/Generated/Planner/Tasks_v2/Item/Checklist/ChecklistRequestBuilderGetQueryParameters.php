@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Planner\Tasks_v2\Item\Checklist;
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * The collection of checklist items on the task. Read-only. Nullable.
+ * Checklist items on the task. Can be supplied when creating a task by using a deep insert. Nullable.
 */
 class ChecklistRequestBuilderGetQueryParameters 
 {

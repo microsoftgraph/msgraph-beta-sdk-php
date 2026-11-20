@@ -52,7 +52,7 @@ class RingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the ring objects and their properties. You can use this method with the following child object type: qualityUpdateRing.
+     * Get a list of the ring objects and their properties. You can use this method with the following child object types: driverUpdateRing, featureUpdateRing, and qualityUpdateRing.
      * @param RingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<RingCollectionResponse|null>
      * @throws Exception
@@ -67,7 +67,7 @@ class RingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new ring object. You can use this method with the following child object type: qualityUpdateRing.
+     * Create a new ring object. You can use this method with the following child object types: driverUpdateRing, featureUpdateRing, and qualityUpdateRing.
      * @param Ring $body The request body
      * @param RingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Ring|null>
@@ -83,7 +83,7 @@ class RingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Get a list of the ring objects and their properties. You can use this method with the following child object type: qualityUpdateRing.
+     * Get a list of the ring objects and their properties. You can use this method with the following child object types: driverUpdateRing, featureUpdateRing, and qualityUpdateRing.
      * @param RingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -104,7 +104,7 @@ class RingsRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Create a new ring object. You can use this method with the following child object type: qualityUpdateRing.
+     * Create a new ring object. You can use this method with the following child object types: driverUpdateRing, featureUpdateRing, and qualityUpdateRing.
      * @param Ring $body The request body
      * @param RingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

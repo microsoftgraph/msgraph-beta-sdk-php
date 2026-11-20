@@ -399,8 +399,10 @@ class ServicePrincipal extends DirectoryObject implements Parsable
             'federatedIdentityCredentials' => fn(ParseNode $n) => $o->setFederatedIdentityCredentials($n->getCollectionOfObjectValues([FederatedIdentityCredential::class, 'createFromDiscriminatorValue'])),
             'homepage' => fn(ParseNode $n) => $o->setHomepage($n->getStringValue()),
             'homeRealmDiscoveryPolicies' => fn(ParseNode $n) => $o->setHomeRealmDiscoveryPolicies($n->getCollectionOfObjectValues([HomeRealmDiscoveryPolicy::class, 'createFromDiscriminatorValue'])),
+            'idJag' => fn(ParseNode $n) => $o->setIdJag($n->getObjectValue([IdJagServicePrincipalConfiguration::class, 'createFromDiscriminatorValue'])),
             'info' => fn(ParseNode $n) => $o->setInfo($n->getObjectValue([InformationalUrl::class, 'createFromDiscriminatorValue'])),
             'isDisabled' => fn(ParseNode $n) => $o->setIsDisabled($n->getBooleanValue()),
+            'isHardDeleteProtectionEnabled' => fn(ParseNode $n) => $o->setIsHardDeleteProtectionEnabled($n->getBooleanValue()),
             'keyCredentials' => fn(ParseNode $n) => $o->setKeyCredentials($n->getCollectionOfObjectValues([KeyCredential::class, 'createFromDiscriminatorValue'])),
             'licenseDetails' => fn(ParseNode $n) => $o->setLicenseDetails($n->getCollectionOfObjectValues([LicenseDetails::class, 'createFromDiscriminatorValue'])),
             'lifecycle' => fn(ParseNode $n) => $o->setLifecycle($n->getObjectValue([IdentityLifecycle::class, 'createFromDiscriminatorValue'])),
@@ -492,6 +494,18 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the idJag property value. The idJag property
+     * @return IdJagServicePrincipalConfiguration|null
+    */
+    public function getIdJag(): ?IdJagServicePrincipalConfiguration {
+        $val = $this->getBackingStore()->get('idJag');
+        if (is_null($val) || $val instanceof IdJagServicePrincipalConfiguration) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'idJag'");
+    }
+
+    /**
      * Gets the info property value. Basic profile information of the acquired application such as app's marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Microsoft Entra apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).
      * @return InformationalUrl|null
     */
@@ -513,6 +527,18 @@ class ServicePrincipal extends DirectoryObject implements Parsable
             return $val;
         }
         throw new \UnexpectedValueException("Invalid type found in backing store for 'isDisabled'");
+    }
+
+    /**
+     * Gets the isHardDeleteProtectionEnabled property value. Indicates whether hard deletion protection is enabled for the service principal. When true, permanent deletion is blocked for seven days after soft deletion. The service principal can still be soft deleted and restored. Once enabled, protection can't be disabled or set to null. Enable protection on an existing service principal by using Update servicePrincipal; enabling it during creation isn't supported. Setting this property to true requires the Microsoft Entra Backup Administrator role. Nullable. Requires $select to retrieve. Supports $filter (eq).
+     * @return bool|null
+    */
+    public function getIsHardDeleteProtectionEnabled(): ?bool {
+        $val = $this->getBackingStore()->get('isHardDeleteProtectionEnabled');
+        if (is_null($val) || is_bool($val)) {
+            return $val;
+        }
+        throw new \UnexpectedValueException("Invalid type found in backing store for 'isHardDeleteProtectionEnabled'");
     }
 
     /**
@@ -976,8 +1002,10 @@ class ServicePrincipal extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('federatedIdentityCredentials', $this->getFederatedIdentityCredentials());
         $writer->writeStringValue('homepage', $this->getHomepage());
         $writer->writeCollectionOfObjectValues('homeRealmDiscoveryPolicies', $this->getHomeRealmDiscoveryPolicies());
+        $writer->writeObjectValue('idJag', $this->getIdJag());
         $writer->writeObjectValue('info', $this->getInfo());
         $writer->writeBooleanValue('isDisabled', $this->getIsDisabled());
+        $writer->writeBooleanValue('isHardDeleteProtectionEnabled', $this->getIsHardDeleteProtectionEnabled());
         $writer->writeCollectionOfObjectValues('keyCredentials', $this->getKeyCredentials());
         $writer->writeCollectionOfObjectValues('licenseDetails', $this->getLicenseDetails());
         $writer->writeObjectValue('lifecycle', $this->getLifecycle());
@@ -1230,6 +1258,14 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     }
 
     /**
+     * Sets the idJag property value. The idJag property
+     * @param IdJagServicePrincipalConfiguration|null $value Value to set for the idJag property.
+    */
+    public function setIdJag(?IdJagServicePrincipalConfiguration $value): void {
+        $this->getBackingStore()->set('idJag', $value);
+    }
+
+    /**
      * Sets the info property value. Basic profile information of the acquired application such as app's marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Microsoft Entra apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).
      * @param InformationalUrl|null $value Value to set for the info property.
     */
@@ -1243,6 +1279,14 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     */
     public function setIsDisabled(?bool $value): void {
         $this->getBackingStore()->set('isDisabled', $value);
+    }
+
+    /**
+     * Sets the isHardDeleteProtectionEnabled property value. Indicates whether hard deletion protection is enabled for the service principal. When true, permanent deletion is blocked for seven days after soft deletion. The service principal can still be soft deleted and restored. Once enabled, protection can't be disabled or set to null. Enable protection on an existing service principal by using Update servicePrincipal; enabling it during creation isn't supported. Setting this property to true requires the Microsoft Entra Backup Administrator role. Nullable. Requires $select to retrieve. Supports $filter (eq).
+     * @param bool|null $value Value to set for the isHardDeleteProtectionEnabled property.
+    */
+    public function setIsHardDeleteProtectionEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isHardDeleteProtectionEnabled', $value);
     }
 
     /**

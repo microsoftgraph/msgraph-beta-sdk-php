@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\Migrations\CrossTenantMigrati
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of crossTenantMigrationJob object. Includes details of the crossTenantMigrationJob , but not details of the individual crossTenantMigrationTasks of the crossTenantMigrationJob.
+ * Read the properties and relationships of a crossTenantMigrationJob object. This API provides details about the migration job, but not about the individual crossTenantMigrationTasks objects associated with the migration job.
 */
 class CrossTenantMigrationJobItemRequestBuilderGetQueryParameters 
 {

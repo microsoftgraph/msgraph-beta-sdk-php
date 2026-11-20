@@ -85,7 +85,7 @@ class DateWithOptionalTime implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the isTimeSpecified property value. Indicates whether a specific time (not just a date) was provided.
+     * Gets the isTimeSpecified property value. Indicates whether a specific time (not just a date) was provided. Read-only.
      * @return bool|null
     */
     public function getIsTimeSpecified(): ?bool {
@@ -109,7 +109,7 @@ class DateWithOptionalTime implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the time property value. The optional time-of-day component of the value.
+     * Gets the time property value. The optional time-of-day component of the value. Read-only.
      * @return Time|null
     */
     public function getTime(): ?Time {
@@ -121,7 +121,7 @@ class DateWithOptionalTime implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Gets the timeZone property value. Time zone the time value is expressed in, if time is set.
+     * Gets the timeZone property value. Time zone the time value is expressed in, if time is set. Read-only.
      * @return string|null
     */
     public function getTimeZone(): ?string {
@@ -170,7 +170,7 @@ class DateWithOptionalTime implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the isTimeSpecified property value. Indicates whether a specific time (not just a date) was provided.
+     * Sets the isTimeSpecified property value. Indicates whether a specific time (not just a date) was provided. Read-only.
      * @param bool|null $value Value to set for the isTimeSpecified property.
     */
     public function setIsTimeSpecified(?bool $value): void {
@@ -186,7 +186,7 @@ class DateWithOptionalTime implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the time property value. The optional time-of-day component of the value.
+     * Sets the time property value. The optional time-of-day component of the value. Read-only.
      * @param Time|null $value Value to set for the time property.
     */
     public function setTime(?Time $value): void {
@@ -194,7 +194,7 @@ class DateWithOptionalTime implements AdditionalDataHolder, BackedModel, Parsabl
     }
 
     /**
-     * Sets the timeZone property value. Time zone the time value is expressed in, if time is set.
+     * Sets the timeZone property value. Time zone the time value is expressed in, if time is set. Read-only.
      * @param string|null $value Value to set for the timeZone property.
     */
     public function setTimeZone(?string $value): void {

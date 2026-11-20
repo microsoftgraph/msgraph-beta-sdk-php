@@ -56,7 +56,7 @@ class Tasks_v2RequestBuilder extends BaseRequestBuilder
      * @param Tasks_v2RequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TaskCollectionResponse|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/plan-list-tasks?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/planner-list-tasks_v2?view=graph-rest-beta Find more info here
     */
     public function get(?Tasks_v2RequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
@@ -72,7 +72,7 @@ class Tasks_v2RequestBuilder extends BaseRequestBuilder
      * @param Tasks_v2RequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<Task|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/plan-post-tasks?view=graph-rest-beta Find more info here
+     * @link https://learn.microsoft.com/graph/api/planner-post-tasks_v2?view=graph-rest-beta Find more info here
     */
     public function post(Task $body, ?Tasks_v2RequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);

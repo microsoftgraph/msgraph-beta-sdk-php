@@ -47,11 +47,10 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a teamsChannelPlanner object.
+     * Delete navigation property planner for teams
      * @param PlannerRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<void|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/channel-delete-planner?view=graph-rest-beta Find more info here
     */
     public function delete(?PlannerRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
@@ -77,12 +76,11 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a teamsChannelPlanner object.
+     * Update the navigation property planner in teams
      * @param TeamsChannelPlanner $body The request body
      * @param PlannerRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<TeamsChannelPlanner|null>
      * @throws Exception
-     * @link https://learn.microsoft.com/graph/api/teamschannelplanner-update?view=graph-rest-beta Find more info here
     */
     public function patch(TeamsChannelPlanner $body, ?PlannerRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
@@ -93,7 +91,7 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Delete a teamsChannelPlanner object.
+     * Delete navigation property planner for teams
      * @param PlannerRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -132,7 +130,7 @@ class PlannerRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update the properties of a teamsChannelPlanner object.
+     * Update the navigation property planner in teams
      * @param TeamsChannelPlanner $body The request body
      * @param PlannerRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

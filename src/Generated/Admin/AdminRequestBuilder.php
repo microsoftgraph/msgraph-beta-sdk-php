@@ -15,6 +15,7 @@ use Microsoft\Graph\Beta\Generated\Admin\Forms\FormsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Microsoft365Apps\Microsoft365AppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\People\PeopleRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\ReportSettings\ReportSettingsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Admin\ResourcePolicy\ResourcePolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\ServiceAnnouncementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Sharepoint\SharepointRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Teams\TeamsRequestBuilder;
@@ -107,6 +108,13 @@ class AdminRequestBuilder extends BaseRequestBuilder
     */
     public function reportSettings(): ReportSettingsRequestBuilder {
         return new ReportSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the resourcePolicy property of the microsoft.graph.admin entity.
+    */
+    public function resourcePolicy(): ResourcePolicyRequestBuilder {
+        return new ResourcePolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

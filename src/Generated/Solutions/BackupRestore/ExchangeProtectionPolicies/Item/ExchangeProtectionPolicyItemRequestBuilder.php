@@ -99,7 +99,7 @@ class ExchangeProtectionPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an Exchange protection policy. This method adds a mailboxprotectionunit to or removes it from the protection policy.
+     * Update an Exchange protection policy. This method updates retention settings or adds a mailboxProtectionUnit to or removes it from the protection policy.
      * @param ExchangeProtectionPolicy $body The request body
      * @param ExchangeProtectionPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ExchangeProtectionPolicy|null>
@@ -154,7 +154,7 @@ class ExchangeProtectionPolicyItemRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * Update an Exchange protection policy. This method adds a mailboxprotectionunit to or removes it from the protection policy.
+     * Update an Exchange protection policy. This method updates retention settings or adds a mailboxProtectionUnit to or removes it from the protection policy.
      * @param ExchangeProtectionPolicy $body The request body
      * @param ExchangeProtectionPolicyItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

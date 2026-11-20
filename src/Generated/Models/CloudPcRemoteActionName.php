@@ -19,4 +19,5 @@ class CloudPcRemoteActionName extends Enum {
     public const POWER_ON = "powerOn";
     public const POWER_OFF = "powerOff";
     public const MOVE_REGION = "moveRegion";
+    public const SET_DEVICE_NAME = "setDeviceName";
 }

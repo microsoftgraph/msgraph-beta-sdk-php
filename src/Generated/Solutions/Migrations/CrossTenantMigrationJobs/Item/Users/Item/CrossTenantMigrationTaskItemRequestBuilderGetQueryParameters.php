@@ -5,7 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Solutions\Migrations\CrossTenantMigrati
 use Microsoft\Kiota\Abstractions\QueryParameter;
 
 /**
- * Read the properties and relationships of crossTenantMigrationTask, which shows the details of the migration task for a single user of a crossTenantMigrationJob. The crossTenantMigrationTask contains the status details of migrations for the workloads specified in the crossTenantMigrationJob. 
+ * Read the properties and relationships of a crossTenantMigrationTask object that provides details about the migration task for a single user in a crossTenantMigrationJob. The crossTenantMigrationTask contains the status details of migrations for the workloads specified in the crossTenantMigrationJob.
 */
 class CrossTenantMigrationTaskItemRequestBuilderGetQueryParameters 
 {

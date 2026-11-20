@@ -68,18 +68,6 @@ class EvaluationErrorDetail implements AdditionalDataHolder, BackedModel, Parsab
     }
 
     /**
-     * Gets the errorMessage property value. The errorMessage property
-     * @return string|null
-    */
-    public function getErrorMessage(): ?string {
-        $val = $this->getBackingStore()->get('errorMessage');
-        if (is_null($val) || is_string($val)) {
-            return $val;
-        }
-        throw new \UnexpectedValueException("Invalid type found in backing store for 'errorMessage'");
-    }
-
-    /**
      * Gets the errorType property value. The errorType property
      * @return EvaluationErrorType|null
     */
@@ -99,7 +87,6 @@ class EvaluationErrorDetail implements AdditionalDataHolder, BackedModel, Parsab
         $o = $this;
         return  [
             'errorCategory' => fn(ParseNode $n) => $o->setErrorCategory($n->getEnumValue(EvaluationErrorCategory::class)),
-            'errorMessage' => fn(ParseNode $n) => $o->setErrorMessage($n->getStringValue()),
             'errorType' => fn(ParseNode $n) => $o->setErrorType($n->getEnumValue(EvaluationErrorType::class)),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
@@ -123,7 +110,6 @@ class EvaluationErrorDetail implements AdditionalDataHolder, BackedModel, Parsab
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('errorCategory', $this->getErrorCategory());
-        $writer->writeStringValue('errorMessage', $this->getErrorMessage());
         $writer->writeEnumValue('errorType', $this->getErrorType());
         $writer->writeStringValue('@odata.type', $this->getOdataType());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -151,14 +137,6 @@ class EvaluationErrorDetail implements AdditionalDataHolder, BackedModel, Parsab
     */
     public function setErrorCategory(?EvaluationErrorCategory $value): void {
         $this->getBackingStore()->set('errorCategory', $value);
-    }
-
-    /**
-     * Sets the errorMessage property value. The errorMessage property
-     * @param string|null $value Value to set for the errorMessage property.
-    */
-    public function setErrorMessage(?string $value): void {
-        $this->getBackingStore()->set('errorMessage', $value);
     }
 
     /**

@@ -27,7 +27,7 @@ class CrossTenantMigrationTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the currentStatus property value. Most recent status of this migration task
+     * Gets the currentStatus property value. Most recent status of this migration task.
      * @return array<CrossTenantMigrationServiceStatusDetails>|null
     */
     public function getCurrentStatus(): ?array {
@@ -54,7 +54,7 @@ class CrossTenantMigrationTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastUpdatedDateTime property value. Time the task was last updated
+     * Gets the lastUpdatedDateTime property value. Date and time when the task was last updated. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
@@ -66,7 +66,7 @@ class CrossTenantMigrationTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the taskType property value. Type of migration task. Only Users are supported at this time.
+     * Gets the taskType property value. Type of migration task. Currently, only Users is supported.
      * @return string|null
     */
     public function getTaskType(): ?string {
@@ -89,7 +89,7 @@ class CrossTenantMigrationTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the currentStatus property value. Most recent status of this migration task
+     * Sets the currentStatus property value. Most recent status of this migration task.
      * @param array<CrossTenantMigrationServiceStatusDetails>|null $value Value to set for the currentStatus property.
     */
     public function setCurrentStatus(?array $value): void {
@@ -97,7 +97,7 @@ class CrossTenantMigrationTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastUpdatedDateTime property value. Time the task was last updated
+     * Sets the lastUpdatedDateTime property value. Date and time when the task was last updated. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      * @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value): void {
@@ -105,7 +105,7 @@ class CrossTenantMigrationTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the taskType property value. Type of migration task. Only Users are supported at this time.
+     * Sets the taskType property value. Type of migration task. Currently, only Users is supported.
      * @param string|null $value Value to set for the taskType property.
     */
     public function setTaskType(?string $value): void {

@@ -12,4 +12,5 @@ class Scenario extends Enum {
     public const CONDITIONAL_ACCESS = "conditionalAccess";
     public const SAML = "saml";
     public const GSA = "gsa";
+    public const AGENT_ID = "agentId";
 }
